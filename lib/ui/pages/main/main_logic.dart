@@ -17,5 +17,7 @@ class MainLogic extends GetxController {
   ///更新当前下标
   void updateCurrentIndex(index) {
     state.currentIndex = index;
+    ///调用update()来提醒GetBuilder更新界面
+    update();
   }
 }

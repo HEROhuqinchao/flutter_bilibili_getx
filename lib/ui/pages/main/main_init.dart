@@ -24,20 +24,21 @@ BottomNavigationBarItem buildBottomNavigationBarCenterBarItem() {
     icon: Container(
       margin: EdgeInsets.only(top: 8.h),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15).r,
-      child: Image.asset(
-        ImageAssets.addCustomPNG,
-        width: HYAppTheme.smallFontSize,
-        height: HYAppTheme.smallFontSize,
-      ),
       decoration: BoxDecoration(
         color: HYAppTheme.norMainThemeColors,
         borderRadius: BorderRadius.all(
           Radius.circular(15.r),
         ),
       ),
+      child: Image.asset(
+        ImageAssets.addCustomPNG,
+        width: HYAppTheme.smallFontSize,
+        height: HYAppTheme.smallFontSize,
+      ),
     ),
   );
 }
+
 ///首页、动态、会员购、我的
 BottomNavigationBarItem buildBottomNavigationBarItem(
     String title, String iconName) {
@@ -49,7 +50,8 @@ BottomNavigationBarItem buildBottomNavigationBarItem(
         "assets/image/icon/${iconName}_custom.png",
         width: HYAppTheme.commonFontSize,
         height: HYAppTheme.commonFontSize,
-        gaplessPlayback: true, //gaplessPlayback: 原图片保持不变，直到图片加载完成时替换图片，这样就不会出现闪烁
+        gaplessPlayback:
+            true, //gaplessPlayback: 原图片保持不变，直到图片加载完成时替换图片，这样就不会出现闪烁
       ),
     ),
     activeIcon: Container(

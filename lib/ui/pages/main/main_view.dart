@@ -9,10 +9,10 @@ import 'main_logic.dart';
 
 class MainScreen extends StatelessWidget {
   static const String routeName = "/";
-  final logic = Get.find<MainLogic>();
-  final state = Get.find<MainLogic>().state;
   @override
   Widget build(BuildContext context) {
+    final logic = Get.find<MainLogic>();
+    final state = Get.find<MainLogic>().state;
     return GetBuilder<MainLogic>(
       builder: (logic) {
         return Scaffold(
