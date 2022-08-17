@@ -1,0 +1,419 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "mid": 243766934,
+    "name": "笙下笙",
+    "show_name_guide": false,
+    "face": "http://i2.hdslb.com/bfs/face/50ca9a7c8c8f11a007510c0e0a7eaea1c8167c54.jpg",
+    "show_face_guide": false,
+    "coin": 1003.5,
+    "bcoin": 0,
+    "sex": 0,
+    "rank": 10000,
+    "silence": 0,
+    "show_videoup": 1,
+    "show_creative": 1,
+    "level": 5,
+    "vip_type": 0,
+    "audio_type": 0,
+    "dynamic": 74,
+    "following": 419,
+    "follower": 47,
+    "new_followers": 0,
+    "new_followers_rtime": 5000,
+    "official_verify": {
+      "type": -1,
+      "desc": ""
+    },
+    "vip_section": {
+      "title": "了解更多权益",
+      "url": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=minetab&order_report_params=%7B%22exp_group_tag%22%3A%22def%22%2C%22exp_tag%22%3A%22def%22%2C%22material_type%22%3A%223%22%2C%22position_id%22%3A%223%22%2C%22request_id%22%3A%22575bfa488066db875168a31cf562e28d%22%2C%22tips_id%22%3A%226464%22%2C%22unit_id%22%3A%222035%22%2C%22vip_status%22%3A%220%22%2C%22vip_type%22%3A%221%22%7D",
+      "start_time": 1652716800,
+      "end_time": 1672459200
+    },
+    "vip_section_v2": {
+      "id": 6464,
+      "title": "成为大会员",
+      "desc": "了解更多权益",
+      "url": "https://big.bilibili.com/mobile/index?navhide=1&from_spmid=minetab&order_report_params=%7B%22exp_group_tag%22%3A%22def%22%2C%22exp_tag%22%3A%22def%22%2C%22material_type%22%3A%223%22%2C%22position_id%22%3A%223%22%2C%22request_id%22%3A%22575bfa488066db875168a31cf562e28d%22%2C%22tips_id%22%3A%226464%22%2C%22unit_id%22%3A%222035%22%2C%22vip_status%22%3A%220%22%2C%22vip_type%22%3A%221%22%7D"
+    },
+    "vip_section_right": {
+      "id": 6464
+    },
+    "vip": {
+      "type": 1,
+      "status": 0,
+      "due_date": 1595865600000,
+      "vip_pay_type": 0,
+      "theme_type": 0,
+      "themeType": 0,
+      "label": {
+        "path": "https://i0.hdslb.com/bfs/vip/label_overdue.png",
+        "text": "",
+        "label_theme": "",
+        "text_color": "",
+        "bg_style": 0,
+        "bg_color": "",
+        "border_color": "",
+        "image": "https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png"
+      },
+      "avatar_subscript": 0,
+      "nickname_color": "",
+      "role": 0,
+      "avatar_subscript_url": ""
+    },
+    "mall_home": {
+      "icon": "https://i0.hdslb.com/bfs/vc/d09ca33f19ba9ba5a5a4ffe3c33d65a845ad88b7.png",
+      "uri": "https://www.bilibili.com/h5/mall/skin/setting?navhide=1&from=mine",
+      "title": "个性装扮"
+    },
+    "sections_v2": [
+      {
+        "items": [
+          {
+            "id": 1237,
+            "title": "6月社区治理数据",
+            "uri": "https://www.bilibili.com/video/BV1oG41187Ap",
+            "icon": "",
+            "need_login": 1,
+            "common_op_item": {
+              "title": "6月社区治理数据与案例公布",
+              "title_icon": "http://i0.hdslb.com/bfs/feed-admin/8ed6d3118d0e02ed77580899e44b5072bbf537a2.png",
+              "link_type": 5,
+              "title_color": "#18191C",
+              "background_color": "#F6F7F8",
+              "link_container_color": "#61666D"
+            }
+          }
+        ],
+        "style": 7,
+        "button": {},
+        "type": 3
+      },
+      {
+        "items": [
+          {
+            "id": 379,
+            "title": "离线缓存",
+            "uri": "bilibili://main/drawer/offline",
+            "icon": "http://i0.hdslb.com/bfs/archive/5fc84565ab73e716d20cd2f65e0e1de9495d56f8.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 383,
+            "title": "历史记录",
+            "uri": "bilibili://main/drawer/history",
+            "icon": "http://i0.hdslb.com/bfs/archive/8385323c6acde52e9cd52514ae13c8b9481c1a16.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 384,
+            "title": "我的收藏",
+            "uri": "bilibili://main/drawer/favorites",
+            "icon": "http://i0.hdslb.com/bfs/archive/d79b19d983067a1b91614e830a7100c05204a821.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 385,
+            "title": "稍后再看",
+            "uri": "bilibili://main/drawer/watch-later",
+            "icon": "http://i0.hdslb.com/bfs/archive/63bb768caa02a68cb566a838f6f2415f0d1d02d6.png",
+            "need_login": 1,
+            "common_op_item": {}
+          }
+        ],
+        "style": 1,
+        "button": {}
+      },
+      {
+        "title": "创作中心",
+        "items": [
+          {
+            "id": 190,
+            "title": "创作首页",
+            "uri": "bilibili://main/drawer/upper",
+            "icon": "https://i0.hdslb.com/bfs/archive/d3aad2d07538d2d43805f1fa14a412d7a45cc861.png",
+            "need_login": 1,
+            "global_red_dot": 1,
+            "display": 1
+          },
+          {
+            "id": 411,
+            "title": "稿件管理",
+            "uri": "bilibili://uper/user_center/archive_list",
+            "icon": "https://i0.hdslb.com/bfs/archive/97acb2d8dec09b296a38f7f7093d651947d13b91.png",
+            "need_login": 1,
+            "global_red_dot": 1,
+            "display": 1
+          },
+          {
+            "id": 413,
+            "title": "限时福利",
+            "uri": "https://member.bilibili.com/york/mission-center?navhide=1&business_type=limit_task_icon_label",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/07ed0bd2b4a75c207b3faf51cdb9b2fa2b99ba2b.png",
+            "need_login": 1,
+            "red_dot": 1,
+            "global_red_dot": 1,
+            "display": 1
+          },
+          {
+            "id": 191,
+            "title": "有奖活动",
+            "uri": "https://member.bilibili.com/york/hot-activity",
+            "icon": "https://i0.hdslb.com/bfs/archive/7f4fa86d99bf3814bf10f8ee5d6c8c9db6e931c8.png",
+            "need_login": 1,
+            "global_red_dot": 1,
+            "display": 1
+          },
+          {
+            "id": 703,
+            "title": "主播中心",
+            "uri": "https://live.bilibili.com/p/html/live-app-anchor-center/index.html?is_live_webview=1#/",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/48e17ccd0ce0cfc9c7826422d5e47ce98f064c2a.png",
+            "need_login": 1,
+            "display": 1
+          },
+          {
+            "id": 704,
+            "title": "主播活动",
+            "uri": "https://live.bilibili.com/activity/live-activity-full/activity_center/mobile.html?is_live_webview=1",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/5bc5a1aa8dd4bc5d6f5222d29ebaca9ef9ce37de.png",
+            "need_login": 1,
+            "display": 1
+          },
+          {
+            "id": 705,
+            "title": "嘉年华",
+            "uri": "https://live.bilibili.com/p/html/live-anchor-galaxy/carnival_2022/mobile.html?-Abrowser=live&is_live_webview=1&source_event=19",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/960f2a9085b0387079b1ed317b474526b76090fc.png",
+            "need_login": 1,
+            "display": 1
+          },
+          {
+            "id": 706,
+            "title": "我的直播",
+            "uri": "https://live.bilibili.com/p/html/live-app-center/index.html?is_live_webview=1&foreground=pink&background=white",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/a9be4fa50ea4772142c1fc7992cde28294d63021.png",
+            "need_login": 1,
+            "display": 1
+          }
+        ],
+        "style": 1,
+        "button": {
+          "text": "发布",
+          "url": "bilibili://uper/user_center/archive_entrance/",
+          "icon": "http://i0.hdslb.com/bfs/archive/205f47675eaaca7912111e0e9b1ac94cb985901f.png",
+          "style": 1
+        },
+        "type": 1,
+        "up_title": "创作中心"
+      },
+      {
+        "title": "游戏中心",
+        "items": [
+          {
+            "id": 874,
+            "title": "我的游戏",
+            "uri": "bilibili://game_center/list?fragment_name=played&game_page=new_mine_game&sourceFrom=100012",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/d4d75c8682d2d99c55943596ed2e466123e1373e.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 875,
+            "title": "游戏礼包",
+            "uri": "bilibili://game_center/gift_center?sourceFrom=100012",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/e9c2411b4d7099e3d2c039eb96ba60e65d6f4675.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 914,
+            "title": "游戏排行榜",
+            "uri": "bilibili://game_center/rank_list?sourceFrom=100012",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/e98087fa4148d43d629652c546dc440088f54769.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 877,
+            "title": "找游戏",
+            "uri": "bilibili://game_center/game_category?sourceFrom=100012",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/46c8bc9c747049103405f9fca51aaeb40867d85c.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 878,
+            "title": "我的预约",
+            "uri": "bilibili://game_center/list?fragment_name=booked&game_page=new_book_page&sourceFrom=100012",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/57722f3811cfa954e8273e8ab4835d5f79dae769.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 879,
+            "title": "下载管理",
+            "uri": "bilibili://game_center/download_manager?sourceFrom=100012",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/9d7535ba17e0d5fc6653be07d001c806e3f38d30.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 880,
+            "title": "游戏更新",
+            "uri": "bilibili://game_center/game_update?sourceFrom=100012",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/dd24642f8bbcb05fcfdd06e06667879c8709e072.png",
+            "need_login": 1,
+            "common_op_item": {}
+          }
+        ],
+        "style": 1,
+        "button": {
+          "text": "查看更多",
+          "url": "bilibili://game_center/home?sourceFrom=100012",
+          "style": 3
+        },
+        "type": 2
+      },
+      {
+        "title": "推荐服务",
+        "items": [
+          {
+            "id": 386,
+            "title": "我的课程",
+            "uri": "https://m.bilibili.com/cheese/mine?navhide=1&native.theme=1&night=0&spm_id_from=main.my-information.0.0.pv&csource=Me_myclass",
+            "icon": "http://i0.hdslb.com/bfs/archive/aa3a13c287e4d54a62b75917dd9970a3cde472e1.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 387,
+            "title": "免流量服务",
+            "uri": "bilibili://main/drawer/freedata",
+            "icon": "http://i0.hdslb.com/bfs/archive/393dd15a4f0a149e016cd81b55bd8bd6fe40882c.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 388,
+            "title": "个性装扮",
+            "uri": "https://www.bilibili.com/h5/mall/home?navhide=1&from=myservice",
+            "icon": "http://i0.hdslb.com/bfs/archive/0bcad10661b50f583969b5a188c12e5f0731628c.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 390,
+            "title": "我的钱包",
+            "uri": "bilibili://bilipay/mine_wallet",
+            "icon": "http://i0.hdslb.com/bfs/archive/f416634e361824e74a855332b6ff14e2e7c2e082.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 624,
+            "title": "会员购中心",
+            "uri": "bilibili://mall/mine?msource=mine",
+            "icon": "http://i0.hdslb.com/bfs/archive/19c794f01def1a267b894be84427d6a8f67081a9.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 422,
+            "title": "推荐有奖",
+            "uri": "https://member.bilibili.com/york/up-invitation/latest",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/fa967d0768bac033892fe2ea0374123ddbd961e4.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 517,
+            "title": "社区中心",
+            "uri": "https://www.bilibili.com/blackboard/dynamic/169422",
+            "icon": "http://i0.hdslb.com/bfs/archive/551a39b7539e64d3b15775295c4b2e13e5513b43.png",
+            "need_login": 1,
+            "common_op_item": {}
+          },
+          {
+            "id": 923,
+            "title": "哔哩哔哩公益",
+            "uri": "https://love.bilibili.com/h5?navhide=1",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/a943016e8bef03222998b4760818894ba2bd5c80.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 527,
+            "title": "充能领福利",
+            "uri": "https://www.bilibili.com/blackboard/powerup.html?from=wode",
+            "icon": "http://i0.hdslb.com/bfs/archive/38b0cde1957be09598bb8e6e8194e13ec2da43fb.png",
+            "red_dot_for_new": true,
+            "common_op_item": {}
+          },
+          {
+            "id": 967,
+            "title": "工房",
+            "uri": "https://mall.bilibili.com/neul-next/index.html?page=mall-up_market&noTitleBar=1&msource=mine&for_model=mine_buyer",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/73a9e08e4490c95c494e657920144b64802850c6.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 989,
+            "title": "能量加油站",
+            "uri": "https://www.bilibili.com/blackboard/dynamic/306424",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/6acb0cb1f719703c62eb443ba6cf3abfc51164ab.png",
+            "common_op_item": {}
+          }
+        ],
+        "style": 1,
+        "button": {}
+      },
+      {
+        "title": "更多服务",
+        "items": [
+          {
+            "id": 395,
+            "title": "联系客服",
+            "uri": "https://www.bilibili.com/h5/customer-service",
+            "icon": "http://i0.hdslb.com/bfs/archive/7ca840cf1d887a45ee1ef441ab57845bf26ef5fa.png",
+            "common_op_item": {}
+          },
+          {
+            "id": 811,
+            "title": "听视频",
+            "uri": "bilibili://podcast",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/97276c5df099e516946682edf4ef10dc6b18c7dc.png",
+            "red_dot_for_new": true,
+            "common_op_item": {}
+          },
+          {
+            "id": 963,
+            "title": "青少年守护",
+            "uri": "https://www.bilibili.com/h5/teenagers/home?navhide=1",
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/90f5920ac351da19c6451757ad71704fcea8192b.png",
+            "common_op_item": {}
+          }
+        ],
+        "style": 2,
+        "button": {}
+      }
+    ],
+    "in_reg_audit": 0,
+    "first_live_time": 1634358533,
+    "live_tip": {
+      "icon": "http://i0.hdslb.com/bfs/feed-admin/5db388497eb56c4824030ce4b02f3825c498b9fb.png",
+      "mod": 1,
+      "url": "https://www.bilibili.com/blackboard/activity-oULNVjDrhA.html",
+      "text": "必剪2周年福利，先到先得！",
+      "button_text": "立即参与",
+      "button_icon": "",
+      "url_text": "立即参与",
+      "id": 1233
+    },
+    "enable_bili_link": true,
+    "face_nft_new": 0,
+    "show_nft_face_guide": false,
+    "senior_gate": {
+      "member_text": ""
+    }
+  }
+}

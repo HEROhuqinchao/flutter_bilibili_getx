@@ -1,0 +1,39 @@
+{
+  "code": 0,
+  "msg": "ok",
+  "message": "ok",
+  "data": [
+    {
+      "user_cover": "https://i0.hdslb.com/bfs/live/new_room_cover/6d19b15f5a6552cd02116e887461d69ffaa3ebaf.jpg",
+      "user_cover_flag": 1,
+      "area_v2_id": 21,
+      "area": 10,
+      "area_name": "唱见舞见",
+      "area_v2_parent_id": 1,
+      "title": "新主播直播第8888天",
+      "system_cover": "https://i0.hdslb.com/bfs/live-key-frame/keyframe05281251000005948992a1vw5s.jpg",
+      "online": 22862,
+      "roomid": 5948992,
+      "uname": "融融会发光",
+      "uid": "23201505",
+      "link": "/5948992",
+      "live_status": 1,
+      "hidden_status": "0000-00-00 00:00:00",
+      "face": "https://i0.hdslb.com/bfs/face/8499ea47a39c0fce1495d9b916e0c65e28085e0d.jpg",
+      "area_v2_name": "视频唱见",
+      "area_v2_parent_name": "娱乐",
+      "show_cover": "https://i0.hdslb.com/bfs/live/show_cover/33db748f63b2bdc7ed5ea6c3de7c7d2bd20b1b04.jpg",
+      "pk_id": 0,
+      "flag": 0,
+      "watched_show": {
+        "switch": true,
+        "num": 1819,
+        "text_small": "1819",
+        "text_large": "1819人看过",
+        "icon": "https://i0.hdslb.com/bfs/live/a725a9e61242ef44d764ac911691a7ce07f36c1d.png",
+        "icon_location": 0,
+        "icon_web": "https://i0.hdslb.com/bfs/live/8d9d0f33ef8bf6f308742752d13dd0df731df19c.png"
+      }
+    }
+  ]
+}

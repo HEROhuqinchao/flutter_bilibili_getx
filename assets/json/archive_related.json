@@ -1,0 +1,70 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "aid": 725926784,
+      "videos": 1,
+      "tid": 27,
+      "tname": "综合",
+      "copyright": 1,
+      "pic": "http://i2.hdslb.com/bfs/archive/0e8bcc8522a7a8558e55033ca73d272e0dde0397.jpg",
+      "title": "一些2233的美图",
+      "pubdate": 1650870369,
+      "ctime": 1650870369,
+      "desc": "会员购",
+      "state": 0,
+      "duration": 103,
+      "rights": {
+        "bp": 0,
+        "elec": 0,
+        "download": 0,
+        "movie": 0,
+        "pay": 0,
+        "hd5": 0,
+        "no_reprint": 0,
+        "autoplay": 1,
+        "ugc_pay": 0,
+        "is_cooperation": 0,
+        "ugc_pay_preview": 0,
+        "no_background": 0,
+        "arc_pay": 0,
+        "pay_free_watch": 0
+      },
+      "owner": {
+        "mid": 498093489,
+        "name": "吹牛逼大学官方号",
+        "face": "http://i0.hdslb.com/bfs/face/786c1971d2960896e1d0da27396af7f1254e6d9e.jpg"
+      },
+      "stat": {
+        "aid": 725926784,
+        "view": 1488,
+        "danmaku": 5,
+        "reply": 5,
+        "favorite": 185,
+        "coin": 10,
+        "share": 4,
+        "now_rank": 0,
+        "his_rank": 0,
+        "like": 163,
+        "dislike": 0
+      },
+      "dynamic": "",
+      "cid": 584630989,
+      "dimension": {
+        "width": 1080,
+        "height": 2160,
+        "rotate": 0
+      },
+      "short_link": "https://b23.tv/BV1ZS4y1h7Bu",
+      "short_link_v2": "https://b23.tv/BV1ZS4y1h7Bu",
+      "up_from_v2": 35,
+      "first_frame": "http://i2.hdslb.com/bfs/storyff/n220425qn1p60jdx6c948lvmiuekmf5e_firsti.jpg",
+      "bvid": "BV1ZS4y1h7Bu",
+      "season_type": 0,
+      "is_ogv": false,
+      "ogv_info": null,
+      "rcmd_reason": ""
+    }
+  ],
+  "message": "0"
+}

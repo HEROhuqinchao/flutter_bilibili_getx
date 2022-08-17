@@ -1,0 +1,53 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "current_quality": 3,
+    "accept_quality": [
+      "4",
+      "3"
+    ],
+    "current_qn": 3,
+    "quality_description": [
+      {
+        "qn": 4,
+        "desc": "原画"
+      },
+      {
+        "qn": 3,
+        "desc": "高清"
+      }
+    ],
+    "durl": [
+      {
+        "url": "https://d1--cn-gotcha09.bilivideo.com/live-bvc/167278/live_2011822166_18888282_1500.flv?cdn=cn-gotcha09&expires=1655872419&len=0&oi=666785446&pt=&qn=150&trid=10006675bcf17383416fa2ae3a0b7c8ec8d7&sigparams=cdn,expires,len,oi,pt,qn,trid&sign=ae2f2beb3a0e8801cf19bfa7cb973d35&ptype=0&src=256&sl=1&source=one&sk=2935686d6cb9146c7a6a6a0b4e120e250342be3df4dc8310261aab0ce9e21e44&order=1",
+        "length": 0,
+        "order": 1,
+        "stream_type": 0,
+        "p2p_type": 0
+      },
+      {
+        "url": "https://d1--cn-gotcha09.bilivideo.com/live-bvc/887610/live_2011822166_18888282_1500.flv?cdn=cn-gotcha09&expires=1655872419&len=0&oi=666785446&pt=&qn=150&trid=10006675bcf17383416fa2ae3a0b7c8ec8d7&sigparams=cdn,expires,len,oi,pt,qn,trid&sign=5525c1296556d7f75819ba1910745dbd&ptype=0&src=256&sl=1&source=one&sk=2935686d6cb9146c7a6a6a0b4e120e250342be3df4dc8310261aab0ce9e21e44&order=2",
+        "length": 0,
+        "order": 2,
+        "stream_type": 0,
+        "p2p_type": 0
+      },
+      {
+        "url": "https://d1--cn-gotcha09.bilivideo.com/live-bvc/362791/live_2011822166_18888282_1500.flv?cdn=cn-gotcha09&expires=1655872419&len=0&oi=666785446&pt=&qn=150&trid=10006675bcf17383416fa2ae3a0b7c8ec8d7&sigparams=cdn,expires,len,oi,pt,qn,trid&sign=a3b72b226c243a36a6846d6ceafa599f&ptype=0&src=256&sl=1&source=one&sk=2935686d6cb9146c7a6a6a0b4e120e250342be3df4dc8310261aab0ce9e21e44&order=3",
+        "length": 0,
+        "order": 3,
+        "stream_type": 0,
+        "p2p_type": 0
+      },
+      {
+        "url": "https://d1--cn-gotcha09.bilivideo.com/live-bvc/624554/live_2011822166_18888282_1500.flv?cdn=cn-gotcha09&expires=1655872419&len=0&oi=666785446&pt=&qn=150&trid=10006675bcf17383416fa2ae3a0b7c8ec8d7&sigparams=cdn,expires,len,oi,pt,qn,trid&sign=2d3759cc66f9c8ab83d06a650253f78b&ptype=0&src=256&sl=1&source=one&sk=2935686d6cb9146c7a6a6a0b4e120e250342be3df4dc8310261aab0ce9e21e44&order=4",
+        "length": 0,
+        "order": 4,
+        "stream_type": 0,
+        "p2p_type": 0
+      }
+    ]
+  }
+}

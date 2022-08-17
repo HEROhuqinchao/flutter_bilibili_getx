@@ -1,11 +1,13 @@
-import 'package:bilibili_getx/ui/home/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../dynamic_circle/dynamic_circle_view.dart';
 import '../home/home_view.dart';
 import '../mall/mall_view.dart';
 import '../mine/mine_view.dart';
 import '../publish/publish_view.dart';
+import '../shared/app_theme.dart';
+import '../shared/image_asset.dart';
 
 ///主页界面子页面
 final List<Widget> mainIndexStackPages = [
@@ -20,17 +22,17 @@ BottomNavigationBarItem buildBottomNavigationBarCenterBarItem() {
   return BottomNavigationBarItem(
     label: "",
     icon: Container(
-      margin: EdgeInsets.only(top: 5.h),
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13).r,
+      margin: EdgeInsets.only(top: 8.h),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15).r,
       child: Image.asset(
         ImageAssets.addCustomPNG,
-        width: 15.sp,
-        height: 15.sp,
+        width: HYAppTheme.smallFontSize,
+        height: HYAppTheme.smallFontSize,
       ),
       decoration: BoxDecoration(
         color: HYAppTheme.norMainThemeColors,
         borderRadius: BorderRadius.all(
-          Radius.circular(12.r),
+          Radius.circular(15.r),
         ),
       ),
     ),
@@ -41,17 +43,23 @@ BottomNavigationBarItem buildBottomNavigationBarItem(
     String title, String iconName) {
   return BottomNavigationBarItem(
     label: title,
-    icon: Image.asset(
-      "assets/image/icon/${iconName}_custom.png",
-      width: _iconSize,
-      height: _iconSize,
-      gaplessPlayback: true, //gaplessPlayback: 原图片保持不变，直到图片加载完成时替换图片，这样就不会出现闪烁
+    icon: Container(
+      margin: EdgeInsets.only(bottom: 8.sp),
+      child: Image.asset(
+        "assets/image/icon/${iconName}_custom.png",
+        width: HYAppTheme.commonFontSize,
+        height: HYAppTheme.commonFontSize,
+        gaplessPlayback: true, //gaplessPlayback: 原图片保持不变，直到图片加载完成时替换图片，这样就不会出现闪烁
+      ),
     ),
-    activeIcon: Image.asset(
-      "assets/image/icon/${iconName}_selected.png",
-      width: _activeIcon,
-      height: _activeIcon,
-      gaplessPlayback: true,
+    activeIcon: Container(
+      margin: EdgeInsets.only(bottom: 8.sp),
+      child: Image.asset(
+        "assets/image/icon/${iconName}_selected.png",
+        width: HYAppTheme.commonFontSize,
+        height: HYAppTheme.commonFontSize,
+        gaplessPlayback: true,
+      ),
     ),
   );
 }

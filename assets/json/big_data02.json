@@ -1,0 +1,1133 @@
+{
+  "addFollower": {
+    "reduceType": [
+      {
+        "docCount": "3.34w",
+        "key": "游戏",
+        "percent": "32.44%"
+      },
+      {
+        "docCount": "3.07w",
+        "key": "生活",
+        "percent": "29.80%"
+      },
+      {
+        "docCount": "2.58w",
+        "key": "知识",
+        "percent": "25.00%"
+      },
+      {
+        "docCount": "1.32w",
+        "key": "动画",
+        "percent": "12.77%"
+      }
+    ],
+    "reduceUp": [
+      {
+        "addFollowerCount": "102.50w",
+        "addFollowerPercent": "333.44%",
+        "face": "http://i1.hdslb.com/bfs/face/15b64097d5445253b46f8b1a04616f8dd583a0f2.jpg",
+        "mid": "643873396",
+        "name": "平安小财娘"
+      },
+      {
+        "addFollowerCount": "69.68w",
+        "addFollowerPercent": "93.52%",
+        "face": "http://i1.hdslb.com/bfs/face/c9c767b660c2c77ca1defa8dcceb346a16b5cb62.jpg",
+        "mid": "35365327",
+        "name": "bilibiliGoods"
+      },
+      {
+        "addFollowerCount": "66.10w",
+        "addFollowerPercent": "32.34%",
+        "face": "http://i0.hdslb.com/bfs/face/182bdc5f59d8c5f2601858e37521a9e81369fd30.jpg",
+        "mid": "42619059",
+        "name": "Uzi"
+      }
+    ]
+  },
+  "fansRange": {
+    "avgAddFollowerCount": "366.50",
+    "avgAddFollowerPercent": "0.86%",
+    "followerAreaRange": [
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(>50%)",
+        "percent": "1.30%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(40-50%)",
+        "percent": "0.34%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(30-40%)",
+        "percent": "0.39%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(25-30%)",
+        "percent": "0.21%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(20-25%)",
+        "percent": "0.26%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(15-20%)",
+        "percent": "0.35%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(10-15%)",
+        "percent": "0.50%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(5-10%)",
+        "percent": "0.88%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(3-5%)",
+        "percent": "0.80%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(1-3%)",
+        "percent": "4.61%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "-(0-1%)",
+        "percent": "44.10%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "0",
+        "percent": "4.95%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "0-1%",
+        "percent": "17.85%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "1-3%",
+        "percent": "11.92%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "3-5%",
+        "percent": "4.37%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "5-10%",
+        "percent": "3.77%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "10-15%",
+        "percent": "1.24%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "15-20%",
+        "percent": "0.60%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "20-25%",
+        "percent": "0.37%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "25-30%",
+        "percent": "0.24%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "30-40%",
+        "percent": "0.27%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "40-50%",
+        "percent": "0.17%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": ">50%",
+        "percent": "0.52%"
+      }
+    ],
+    "followerRange": [
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "掉粉",
+        "percent": "53.75%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "粉丝数无变化",
+        "percent": "4.89%"
+      },
+      {
+        "avgPlay": null,
+        "date": null,
+        "key": "涨粉",
+        "percent": "41.36%"
+      }
+    ],
+    "mediumAddFollowerPercent": "-0.10%"
+  },
+  "justToMillionFollower": {
+    "emergingFollower": {
+      "docCount": "1423",
+      "followerVos": [
+        {
+          "face": "http://i1.hdslb.com/bfs/face/d808da20fac32c518adc71b467d3878a5e5bf263.jpg",
+          "follower": "10.35w",
+          "mid": "490913917",
+          "name": "大表哥995猪猪精",
+          "ownedAt": "2022-05-10 14:32:48"
+        },
+        {
+          "face": "http://i2.hdslb.com/bfs/face/f01c018553c8a27c5bd258c4ccd8515687b33b0a.jpg",
+          "follower": "7.05w",
+          "mid": "2078824151",
+          "name": "Wakin_backyard",
+          "ownedAt": "2022-05-18 12:19:50"
+        },
+        {
+          "face": "http://i2.hdslb.com/bfs/face/5bda5d43c157e48d08d0561ad96124b8793aabff.jpg",
+          "follower": "5.76w",
+          "mid": "21969983",
+          "name": "风妤_嘟嘟嘟",
+          "ownedAt": "2022-05-10 20:21:08"
+        },
+        {
+          "face": "http://i0.hdslb.com/bfs/face/6aaf43ed81782948190bc99022b72b07306eacdd.jpg",
+          "follower": "5.45w",
+          "mid": "1171117512",
+          "name": "月姐爱喝点儿",
+          "ownedAt": "2022-05-10 16:48:19"
+        },
+        {
+          "face": "http://i2.hdslb.com/bfs/face/ac82ddeeb0d343c05fbbcd311fcd702fa784b8da.jpg",
+          "follower": "3.80w",
+          "mid": "1517452085",
+          "name": "青野不够野",
+          "ownedAt": "2022-05-10 17:42:40"
+        }
+      ],
+      "key": "1万粉丝"
+    },
+    "tenfoldMergingFollower": {
+      "docCount": "275",
+      "followerVos": [
+        {
+          "face": "http://i2.hdslb.com/bfs/face/3f3887cc7257a2988856244077baf51f82281500.jpg",
+          "follower": "56.80w",
+          "mid": "1955897084",
+          "name": "鸣潮游戏",
+          "ownedAt": "2022-05-26 08:23:56"
+        },
+        {
+          "face": "http://i2.hdslb.com/bfs/face/77371a704944819903f7d903dacd4c158de5011b.jpg",
+          "follower": "24.34w",
+          "mid": "698750420",
+          "name": "Aimer",
+          "ownedAt": "2022-05-22 14:03:06"
+        },
+        {
+          "face": "http://i2.hdslb.com/bfs/face/ceec10de38ec60110aed816cf531627d10743c30.jpg",
+          "follower": "22.16w",
+          "mid": "524774000",
+          "name": "空气拿铁",
+          "ownedAt": "2022-05-22 14:15:58"
+        },
+        {
+          "face": "http://i1.hdslb.com/bfs/face/6d1a0eead92f44e7454c6b0984815c9f30bdc405.jpg",
+          "follower": "20.50w",
+          "mid": "4889986",
+          "name": "是团宝吖",
+          "ownedAt": "2022-05-14 03:10:16"
+        },
+        {
+          "face": "http://i1.hdslb.com/bfs/face/a62fbd4e52c025f1edbb2187792ec5846571c00d.jpg",
+          "follower": "17.79w",
+          "mid": "504630061",
+          "name": "垫底辣孩",
+          "ownedAt": "2022-05-14 09:54:35"
+        }
+      ],
+      "key": "10万粉丝"
+    }
+  },
+  "lastMonthFollower": {
+    "followerRange": [
+      {
+        "avgPlay": null,
+        "date": "2022-05-12 00:00:00",
+        "key": "掉粉",
+        "percent": "29.51%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-12 00:00:00",
+        "key": "不变",
+        "percent": "37.98%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-12 00:00:00",
+        "key": "涨粉",
+        "percent": "32.51%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-13 00:00:00",
+        "key": "掉粉",
+        "percent": "29.58%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-13 00:00:00",
+        "key": "不变",
+        "percent": "37.97%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-13 00:00:00",
+        "key": "涨粉",
+        "percent": "32.45%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-14 00:00:00",
+        "key": "掉粉",
+        "percent": "30.58%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-14 00:00:00",
+        "key": "不变",
+        "percent": "35.94%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-14 00:00:00",
+        "key": "涨粉",
+        "percent": "33.48%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-15 00:00:00",
+        "key": "掉粉",
+        "percent": "31.30%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-15 00:00:00",
+        "key": "不变",
+        "percent": "35.67%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-15 00:00:00",
+        "key": "涨粉",
+        "percent": "33.03%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-16 00:00:00",
+        "key": "掉粉",
+        "percent": "29.21%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-16 00:00:00",
+        "key": "不变",
+        "percent": "39.21%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-16 00:00:00",
+        "key": "涨粉",
+        "percent": "31.59%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-17 00:00:00",
+        "key": "掉粉",
+        "percent": "28.86%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-17 00:00:00",
+        "key": "不变",
+        "percent": "39.57%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-17 00:00:00",
+        "key": "涨粉",
+        "percent": "31.56%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-18 00:00:00",
+        "key": "掉粉",
+        "percent": "28.18%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-18 00:00:00",
+        "key": "不变",
+        "percent": "39.66%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-18 00:00:00",
+        "key": "涨粉",
+        "percent": "32.15%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-19 00:00:00",
+        "key": "掉粉",
+        "percent": "27.78%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-19 00:00:00",
+        "key": "不变",
+        "percent": "40.11%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-19 00:00:00",
+        "key": "涨粉",
+        "percent": "32.12%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-20 00:00:00",
+        "key": "掉粉",
+        "percent": "28.04%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-20 00:00:00",
+        "key": "不变",
+        "percent": "40.03%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-20 00:00:00",
+        "key": "涨粉",
+        "percent": "31.93%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-21 00:00:00",
+        "key": "掉粉",
+        "percent": "29.42%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-21 00:00:00",
+        "key": "不变",
+        "percent": "37.23%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-21 00:00:00",
+        "key": "涨粉",
+        "percent": "33.34%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-22 00:00:00",
+        "key": "掉粉",
+        "percent": "29.52%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-22 00:00:00",
+        "key": "不变",
+        "percent": "37.09%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-22 00:00:00",
+        "key": "涨粉",
+        "percent": "33.40%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-23 00:00:00",
+        "key": "掉粉",
+        "percent": "28.77%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-23 00:00:00",
+        "key": "不变",
+        "percent": "39.64%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-23 00:00:00",
+        "key": "涨粉",
+        "percent": "31.59%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-24 00:00:00",
+        "key": "掉粉",
+        "percent": "28.24%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-24 00:00:00",
+        "key": "不变",
+        "percent": "39.68%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-24 00:00:00",
+        "key": "涨粉",
+        "percent": "32.07%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-25 00:00:00",
+        "key": "掉粉",
+        "percent": "27.70%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-25 00:00:00",
+        "key": "不变",
+        "percent": "39.89%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-25 00:00:00",
+        "key": "涨粉",
+        "percent": "32.41%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-26 00:00:00",
+        "key": "掉粉",
+        "percent": "27.26%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-26 00:00:00",
+        "key": "不变",
+        "percent": "40.42%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-26 00:00:00",
+        "key": "涨粉",
+        "percent": "32.32%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-27 00:00:00",
+        "key": "掉粉",
+        "percent": "27.11%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-27 00:00:00",
+        "key": "不变",
+        "percent": "40.41%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-27 00:00:00",
+        "key": "涨粉",
+        "percent": "32.48%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-28 00:00:00",
+        "key": "掉粉",
+        "percent": "29.04%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-28 00:00:00",
+        "key": "不变",
+        "percent": "37.49%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-28 00:00:00",
+        "key": "涨粉",
+        "percent": "33.47%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-29 00:00:00",
+        "key": "掉粉",
+        "percent": "30.35%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-29 00:00:00",
+        "key": "不变",
+        "percent": "36.95%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-29 00:00:00",
+        "key": "涨粉",
+        "percent": "32.70%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-30 00:00:00",
+        "key": "掉粉",
+        "percent": "33.78%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-30 00:00:00",
+        "key": "不变",
+        "percent": "36.37%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-30 00:00:00",
+        "key": "涨粉",
+        "percent": "29.85%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-31 00:00:00",
+        "key": "掉粉",
+        "percent": "33.63%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-31 00:00:00",
+        "key": "不变",
+        "percent": "36.81%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-31 00:00:00",
+        "key": "涨粉",
+        "percent": "29.56%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-01 00:00:00",
+        "key": "掉粉",
+        "percent": "33.00%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-01 00:00:00",
+        "key": "不变",
+        "percent": "37.21%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-01 00:00:00",
+        "key": "涨粉",
+        "percent": "29.79%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-02 00:00:00",
+        "key": "掉粉",
+        "percent": "27.06%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-02 00:00:00",
+        "key": "不变",
+        "percent": "41.37%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-02 00:00:00",
+        "key": "涨粉",
+        "percent": "31.58%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-03 00:00:00",
+        "key": "掉粉",
+        "percent": "28.37%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-03 00:00:00",
+        "key": "不变",
+        "percent": "39.10%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-03 00:00:00",
+        "key": "涨粉",
+        "percent": "32.54%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-04 00:00:00",
+        "key": "掉粉",
+        "percent": "29.63%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-04 00:00:00",
+        "key": "不变",
+        "percent": "37.96%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-04 00:00:00",
+        "key": "涨粉",
+        "percent": "32.41%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-05 00:00:00",
+        "key": "掉粉",
+        "percent": "29.79%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-05 00:00:00",
+        "key": "不变",
+        "percent": "37.76%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-05 00:00:00",
+        "key": "涨粉",
+        "percent": "32.46%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-06 00:00:00",
+        "key": "掉粉",
+        "percent": "28.86%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-06 00:00:00",
+        "key": "不变",
+        "percent": "39.84%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-06 00:00:00",
+        "key": "涨粉",
+        "percent": "31.30%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-07 00:00:00",
+        "key": "掉粉",
+        "percent": "28.75%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-07 00:00:00",
+        "key": "不变",
+        "percent": "39.76%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-07 00:00:00",
+        "key": "涨粉",
+        "percent": "31.49%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-08 00:00:00",
+        "key": "掉粉",
+        "percent": "29.77%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-08 00:00:00",
+        "key": "不变",
+        "percent": "38.88%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-08 00:00:00",
+        "key": "涨粉",
+        "percent": "31.35%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-09 00:00:00",
+        "key": "掉粉",
+        "percent": "29.31%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-09 00:00:00",
+        "key": "不变",
+        "percent": "39.76%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-09 00:00:00",
+        "key": "涨粉",
+        "percent": "30.93%"
+      }
+    ]
+  },
+  "lastMonthOpus": {
+    "opusCountRange": [
+      {
+        "avgPlay": null,
+        "date": "2022-05-12 00:00:00",
+        "key": "有投稿",
+        "percent": "6.72%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-13 00:00:00",
+        "key": "有投稿",
+        "percent": "5.89%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-14 00:00:00",
+        "key": "有投稿",
+        "percent": "5.42%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-15 00:00:00",
+        "key": "有投稿",
+        "percent": "5.07%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-16 00:00:00",
+        "key": "有投稿",
+        "percent": "6.78%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-17 00:00:00",
+        "key": "有投稿",
+        "percent": "5.01%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-18 00:00:00",
+        "key": "有投稿",
+        "percent": "6.02%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-19 00:00:00",
+        "key": "有投稿",
+        "percent": "5.02%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-20 00:00:00",
+        "key": "有投稿",
+        "percent": "4.25%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-21 00:00:00",
+        "key": "有投稿",
+        "percent": "5.45%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-22 00:00:00",
+        "key": "有投稿",
+        "percent": "6.95%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-23 00:00:00",
+        "key": "有投稿",
+        "percent": "6.88%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-24 00:00:00",
+        "key": "有投稿",
+        "percent": "6.98%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-25 00:00:00",
+        "key": "有投稿",
+        "percent": "5.24%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-26 00:00:00",
+        "key": "有投稿",
+        "percent": "5.10%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-27 00:00:00",
+        "key": "有投稿",
+        "percent": "5.75%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-28 00:00:00",
+        "key": "有投稿",
+        "percent": "5.45%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-29 00:00:00",
+        "key": "有投稿",
+        "percent": "5.00%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-30 00:00:00",
+        "key": "有投稿",
+        "percent": "6.87%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-05-31 00:00:00",
+        "key": "有投稿",
+        "percent": "5.08%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-01 00:00:00",
+        "key": "有投稿",
+        "percent": "5.60%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-02 00:00:00",
+        "key": "有投稿",
+        "percent": "5.00%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-03 00:00:00",
+        "key": "有投稿",
+        "percent": "5.27%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-04 00:00:00",
+        "key": "有投稿",
+        "percent": "6.76%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-05 00:00:00",
+        "key": "有投稿",
+        "percent": "6.72%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-06 00:00:00",
+        "key": "有投稿",
+        "percent": "6.81%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-07 00:00:00",
+        "key": "有投稿",
+        "percent": "6.76%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-08 00:00:00",
+        "key": "有投稿",
+        "percent": "6.89%"
+      },
+      {
+        "avgPlay": null,
+        "date": "2022-06-09 00:00:00",
+        "key": "有投稿",
+        "percent": "6.86%"
+      }
+    ]
+  },
+  "reduceFollower": {
+    "reduceType": [
+      {
+        "docCount": "5.69w",
+        "key": "生活",
+        "percent": "40.44%"
+      },
+      {
+        "docCount": "5.35w",
+        "key": "游戏",
+        "percent": "38.00%"
+      },
+      {
+        "docCount": "1.54w",
+        "key": "娱乐",
+        "percent": "10.91%"
+      },
+      {
+        "docCount": "1.50w",
+        "key": "动画",
+        "percent": "10.65%"
+      }
+    ],
+    "reduceUp": [
+      {
+        "addFollowerCount": "-10.91w",
+        "addFollowerPercent": "-27.70%",
+        "face": "http://i1.hdslb.com/bfs/face/d42c0b13935a79c45c8d07a75bc32d8359484541.jpg",
+        "mid": "443176297",
+        "name": "我不想吃饭cc"
+      },
+      {
+        "addFollowerCount": "-9.52w",
+        "addFollowerPercent": "-5.49%",
+        "face": "http://i2.hdslb.com/bfs/face/d399d6f5cf7943a996ae96999ba3e6ae2a2988de.jpg",
+        "mid": "672328094",
+        "name": "嘉然今天吃什么"
+      },
+      {
+        "addFollowerCount": "-8.54w",
+        "addFollowerPercent": "-14.30%",
+        "face": "http://i1.hdslb.com/bfs/face/a7fea00016a8d3ffb015b6ed8647cc3ed89cbc63.jpg",
+        "mid": "351609538",
+        "name": "珈乐Carol"
+      }
+    ]
+  },
+  "topElectric": [
+    {
+      "addElectricCount": "6937",
+      "face": "http://i2.hdslb.com/bfs/face/acd805b970ebcd531c9c2a79fac46c687ef82ddc.jpg",
+      "mid": "373448384",
+      "name": "MK的鹦鹉"
+    },
+    {
+      "addElectricCount": "5987",
+      "face": "http://i2.hdslb.com/bfs/face/a6ccd9bf04c088f365dbed73cf8e2ff95acd2fe6.jpg",
+      "mid": "697166795",
+      "name": "徐云流浪中国"
+    },
+    {
+      "addElectricCount": "1813",
+      "face": "http://i0.hdslb.com/bfs/face/66ab5bd4e218aeb663e13b6871b46b2894800416.jpg",
+      "mid": "1629347259",
+      "name": "红警HBK08"
+    },
+    {
+      "addElectricCount": "1515",
+      "face": "http://i0.hdslb.com/bfs/face/110f9510138265ec4b516d4672359e7a44ec5251.jpg",
+      "mid": "28378491",
+      "name": "家有神兽"
+    },
+    {
+      "addElectricCount": "1121",
+      "face": "http://i0.hdslb.com/bfs/face/4a91138acdd9fc7e1853785c3c8afa0dc0dd4078.jpg",
+      "mid": "23947287",
+      "name": "小约翰可汗"
+    }
+  ],
+  "topPopular": [
+    {
+      "addVideoCount": "243",
+      "addVideoPlayCount": "1.81亿",
+      "face": "http://i1.hdslb.com/bfs/face/70fba98159d382c91d236289a3294fb2b0c3f258.jpg",
+      "mid": "928123",
+      "name": "哔哩哔哩番剧"
+    },
+    {
+      "addVideoCount": "141",
+      "addVideoPlayCount": "1.03亿",
+      "face": "http://i2.hdslb.com/bfs/face/38fbf0a10f7fb0e8910be0e662b05bcb0aed830c.jpg",
+      "mid": "98627270",
+      "name": "哔哩哔哩国创"
+    },
+    {
+      "addVideoCount": "205",
+      "addVideoPlayCount": "6940.31w",
+      "face": "http://i0.hdslb.com/bfs/face/1d6f100b921c9b48914eda8f3b37e76ba9ef4ca5.jpg",
+      "mid": "10330740",
+      "name": "观察者网"
+    },
+    {
+      "addVideoCount": "610",
+      "addVideoPlayCount": "6904.67w",
+      "face": "http://i1.hdslb.com/bfs/face/b47268dc437568f46d636da717b3284b141f0566.jpg",
+      "mid": "483787858",
+      "name": "环球网"
+    },
+    {
+      "addVideoCount": "675",
+      "addVideoPlayCount": "6851.82w",
+      "face": "http://i0.hdslb.com/bfs/face/cfd0b77b53dfd703296c538ac768a677eb3d96d6.jpg",
+      "mid": "519585366",
+      "name": "游戏BBQ"
+    }
+  ],
+  "upIndexPercent": {
+    "addElectricPercent": "9.12%",
+    "addFollowerPercent": "41.36%",
+    "addOpusPercent": "32.00%",
+    "followerPercentWithLast": "-2.18%",
+    "opusElectricWithLast": "-0.60%",
+    "opusPercentWithLast": "-1.02%",
+    "productPercent": "1.64%",
+    "productPercentWithLast": "0.42%",
+    "qiafanPercent": "0.36%",
+    "qiafanPercentWithLast": "-0.02%",
+    "total": "384646",
+    "updateTime": "2022-06-10 12:47:34"
+  },
+  "updateTime": "2022-06-10 12:47:34"
+}

@@ -1,0 +1,129 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "mid": 243766934,
+    "name": "笙下笙",
+    "sex": "保密",
+    "face": "http://i2.hdslb.com/bfs/face/50ca9a7c8c8f11a007510c0e0a7eaea1c8167c54.jpg",
+    "face_nft": 0,
+    "face_nft_type": 0,
+    "sign": "笙+笙=？",
+    "rank": 10000,
+    "level": 5,
+    "jointime": 0,
+    "moral": 0,
+    "silence": 0,
+    "coins": 0,
+    "fans_badge": false,
+    "fans_medal": {
+      "show": true,
+      "wear": true,
+      "medal": {
+        "uid": 243766934,
+        "target_id": 31470014,
+        "medal_id": 6106,
+        "level": 5,
+        "medal_name": "一凡",
+        "medal_color": 6126494,
+        "intimacy": 861,
+        "next_intimacy": 1000,
+        "day_limit": 1500,
+        "medal_color_start": 6126494,
+        "medal_color_end": 6126494,
+        "medal_color_border": 6126494,
+        "is_lighted": 1,
+        "light_status": 1,
+        "wearing_status": 1,
+        "score": 2562
+      }
+    },
+    "official": {
+      "role": 0,
+      "title": "",
+      "desc": "",
+      "type": -1
+    },
+    "vip": {
+      "type": 1,
+      "status": 0,
+      "due_date": 1595865600000,
+      "vip_pay_type": 0,
+      "theme_type": 0,
+      "label": {
+        "path": "",
+        "text": "",
+        "label_theme": "",
+        "text_color": "",
+        "bg_style": 0,
+        "bg_color": "",
+        "border_color": ""
+      },
+      "avatar_subscript": 0,
+      "nickname_color": "",
+      "role": 0,
+      "avatar_subscript_url": ""
+    },
+    "pendant": {
+      "pid": 0,
+      "name": "",
+      "image": "",
+      "expire": 0,
+      "image_enhance": "",
+      "image_enhance_frame": ""
+    },
+    "nameplate": {
+      "nid": 60,
+      "name": "有爱萌新",
+      "image": "http://i2.hdslb.com/bfs/face/51ca16136e570938450bca360f28761ceb609f33.png",
+      "image_small": "http://i1.hdslb.com/bfs/face/9abfa4769357f85937782c2dbc40fafda4f57217.png",
+      "level": "普通勋章",
+      "condition": "当前持有粉丝勋章最高等级>=5级"
+    },
+    "user_honour_info": {
+      "mid": 0,
+      "colour": null,
+      "tags": []
+    },
+    "is_followed": false,
+    "top_photo": "http://i2.hdslb.com/bfs/space/44873d3568bdcb3d850d234e02a19602972450f1.png",
+    "theme": {},
+    "sys_notice": {},
+    "live_room": {
+      "roomStatus": 1,
+      "liveStatus": 0,
+      "url": "https://live.bilibili.com/7143598?broadcast_type=0&is_room_feed=0",
+      "title": "背会儿单词",
+      "cover": "https://s1.hdslb.com/bfs/static/blive/live-assets/common/images/no-cover.png",
+      "roomid": 7143598,
+      "roundStatus": 0,
+      "broadcast_type": 0,
+      "watched_show": {
+        "switch": true,
+        "num": 1,
+        "text_small": "1",
+        "text_large": "1人看过",
+        "icon": "https://i0.hdslb.com/bfs/live/a725a9e61242ef44d764ac911691a7ce07f36c1d.png",
+        "icon_location": "",
+        "icon_web": "https://i0.hdslb.com/bfs/live/8d9d0f33ef8bf6f308742752d13dd0df731df19c.png"
+      }
+    },
+    "birthday": "",
+    "school": {
+      "name": ""
+    },
+    "profession": {
+      "name": "",
+      "department": "",
+      "title": "",
+      "is_show": 0
+    },
+    "tags": null,
+    "series": {
+      "user_upgrade_status": 3,
+      "show_upgrade_window": false
+    },
+    "is_senior_member": 0
+  }
+}

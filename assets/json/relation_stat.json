@@ -1,0 +1,13 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "mid": 883968,
+    "following": 57,
+    "whisper": 0,
+    "black": 0,
+    "follower": 5908083
+  }
+}
+//https://api.bilibili.com/x/relation/stat?vmid=883968&jsonp=jsonp

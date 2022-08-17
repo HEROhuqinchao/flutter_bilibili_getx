@@ -1,0 +1,481 @@
+{
+    "code": 0,
+    "message": "0",
+    "ttl": 1,
+    "data": {
+        "room_info": {
+            "uid": 3117396,
+            "room_id": 7685334,
+            "short_id": 888,
+            "title": "15点DPC：LGD 0-0 青茶",
+            "cover": "http://i0.hdslb.com/bfs/live/new_room_cover/4342c832cc9423c7dcd822769c68546fd6b16d67.jpg",
+            "tags": "DOTA2,FGO,真实肥宅,诚信官托",
+            "background": "http://static.hdslb.com/live-static/images/bg/1.jpg",
+            "description": "<p>ID：DC</p>\n<p>本名：董灿</p>\n<p style=\"text-align: left;\">刀塔职业选手、电竞解说和主持人；</p>\n<p style=\"text-align: left;\">先后担任EHOME队长和教练，2006-2010年期间率队多次夺得国内外刀塔赛事桂冠。</p>\n<p style=\"text-align: left;\">2009年加盟北京GTV游戏频道，转型节目主持，并担任历届刀塔赛事官方解说；&nbsp;</p>\n<p style=\"text-align: left;\">2015年加入上海耀宇（即MarsTV），与搭档单车老师成立《D-BOY》组合，在直播平台解说刀塔多项大型赛事；</p>\n<p style=\"text-align: left;\">2018年加入哔哩哔哩大家庭，只有一句心里话想告诉B站的各位：</p>\n<h1 style=\"text-align: center;\"><span style=\"color: #ff0000;\">牧濑红莉栖是我的老婆！</span></h1>\n",
+            "live_status": 1,
+            "live_start_time": 1656035440,
+            "live_screen_type": 0,
+            "lock_status": 0,
+            "lock_time": 0,
+            "hidden_status": 0,
+            "hidden_time": 0,
+            "area_id": 92,
+            "area_name": "DOTA2",
+            "parent_area_id": 2,
+            "parent_area_name": "网游",
+            "keyframe": "http://i0.hdslb.com/bfs/live-key-frame/keyframe06241106000007685334whjt28.jpg",
+            "special_type": 0,
+            "up_session": "247676895518606550",
+            "pk_status": 0,
+            "is_studio": false,
+            "pendants": {
+                "frame": {
+                    "name": "分区冠军赛-季军",
+                    "value": "https://i0.hdslb.com/bfs/live/32975f0dc794691de9621922ed6c9b4e79fd5afb.png",
+                    "desc": ""
+                }
+            },
+            "on_voice_join": 0,
+            "online": 74600,
+            "room_type": {
+                "2-3": 0,
+                "3-21": 0,
+                "3-31": 0
+            }
+        },
+        "anchor_info": {
+            "base_info": {
+                "uname": "骑虎者DC",
+                "face": "http://i0.hdslb.com/bfs/face/8c12fbd18cf3190df1e6db31628d61204319104e.jpg",
+                "gender": "男",
+                "official_info": {
+                    "role": 0,
+                    "title": "bilibili 直播高能主播",
+                    "desc": "",
+                    "is_nft": 0,
+                    "nft_dmark": "https://i0.hdslb.com/bfs/live/9f176ff49d28c50e9c53ec1c3297bd1ee539b3d6.gif"
+                }
+            },
+            "live_info": {
+                "level": 37,
+                "level_color": 16746162,
+                "score": 85273262,
+                "upgrade_score": 14240548,
+                "current": [
+                    17500000,
+                    79513810
+                ],
+                "next": [
+                    20000000,
+                    99513810
+                ],
+                "rank": "350"
+            },
+            "relation_info": {
+                "attention": 383936
+            },
+            "medal_info": {
+                "medal_name": "搞事者",
+                "medal_id": 94866,
+                "fansclub": 2613
+            }
+        },
+        "news_info": {
+            "uid": 3117396,
+            "ctime": "0001-01-01 00:00:00",
+            "content": ""
+        },
+        "rankdb_info": {
+            "roomid": 7685334,
+            "rank_desc": "小时总榜",
+            "color": "#FB7299",
+            "h5_url": "https://live.bilibili.com/p/html/live-app-rankcurrent/index.html?is_live_half_webview=1&hybrid_half_ui=1,5,85p,70p,FFE293,0,30,100,10;2,2,320,100p,FFE293,0,30,100,0;4,2,320,100p,FFE293,0,30,100,0;6,5,65p,60p,FFE293,0,30,100,10;5,5,55p,60p,FFE293,0,30,100,10;3,5,85p,70p,FFE293,0,30,100,10;7,5,65p,60p,FFE293,0,30,100,10;&anchor_uid=3117396&rank_type=master_realtime_hour_room&area_hour=1&area_v2_id=92&area_v2_parent_id=2",
+            "web_url": "https://live.bilibili.com/blackboard/room-current-rank.html?rank_type=master_realtime_hour_room&area_hour=1&area_v2_id=92&area_v2_parent_id=2",
+            "timestamp": 1656040005
+        },
+        "area_rank_info": {
+            "areaRank": {
+                "index": 1,
+                "rank": ">100"
+            },
+            "liveRank": {
+                "rank": "350"
+            }
+        },
+        "battle_rank_entry_info": {
+            "first_rank_img_url": "",
+            "rank_name": "尚无段位",
+            "show_status": 1
+        },
+        "tab_info": {
+            "list": [
+                {
+                    "type": "seven-rank",
+                    "desc": "高能榜",
+                    "isFirst": 1,
+                    "isEvent": 0,
+                    "eventType": "",
+                    "listType": "",
+                    "apiPrefix": "",
+                    "rank_name": "room_7day"
+                },
+                {
+                    "type": "guard",
+                    "desc": "大航海",
+                    "isFirst": 0,
+                    "isEvent": 0,
+                    "eventType": "",
+                    "listType": "top-list",
+                    "apiPrefix": "",
+                    "rank_name": ""
+                }
+            ]
+        },
+        "activity_init_info": {
+            "eventList": [],
+            "weekInfo": {
+                "bannerInfo": null,
+                "giftName": null
+            },
+            "giftName": null,
+            "lego": {
+                "timestamp": 1656040005,
+                "config":"[{\"name\":\"frame-mng\",\"url\":\"https:\/\/live.bilibili.com\/p\/html\/live-web-mng\/index.html?roomid=#roomid#&arae_id=#area_id#&parent_area_id=#parent_area_id#&ruid=#ruid#\",\"startTime\":1559544736,\"endTime\":1877167950,\"type\":\"frame-mng\"},{\"name\":\"s10-fun\",\"target\":\"sidebar\",\"icon\":\"https:\/\/i0.hdslb.com\/bfs\/activity-plat\/static\/20200908\/3435f7521efc759ae1f90eae5629a8f0\/HpxrZ7SOT.png\",\"text\":\"\畅\玩s10\",\"url\":\"https:\/\/live.bilibili.com\/s10\/fun\/index.html?room_id=#roomid#&width=376&height=600&source=sidebar\",\"color\":\"#2e6fc0\",\"startTime\":1600920000,\"endTime\":1604721600,\"parentAreaId\":2,\"areaId\":86},{\"name\":\"genshin-avatar\",\"target\":\"sidebar\",\"icon\":\"https:\/\/i0.hdslb.com\/bfs\/activity-plat\/static\/20210721\/fa538c98e9e32dc98919db4f2527ad02\/qWxN1d0ACu.jpg\",\"text\":\"\原\石\福\利\",\"url\":\"https:\/\/live.bilibili.com\/activity\/live-activity-full\/genshin_avatar\/mobile.html?no-jump=1&room_id=#roomid#&width=376&height=550#\/\",\"color\":\"#2e6fc0\",\"frameAllowNoBg\":\"1\",\"frameAllowDrag\":\"1\",\"startTime\":1627012800,\"endTime\":1630425540,\"parentAreaId\":3,\"areaId\":321}]"
+            }
+        },
+        "voice_join_info": {
+            "status": {
+                "open": 0,
+                "anchor_open": 0,
+                "status": 0,
+                "uid": 0,
+                "user_name": "",
+                "head_pic": "",
+                "guard": 0,
+                "start_at": 0,
+                "current_time": 1656040005
+            },
+            "icons": {
+                "icon_close": "https://i0.hdslb.com/bfs/live/a176d879dffe8de1586a5eb54c2a08a0c7d31392.png",
+                "icon_open": "https://i0.hdslb.com/bfs/live/70f0844c9a12d29db1e586485954290144534be9.png",
+                "icon_wait": "https://i0.hdslb.com/bfs/live/1049bb88f1e7afd839cc1de80e13228ccd5807e8.png",
+                "icon_starting": "https://i0.hdslb.com/bfs/live/948433d1647a0704f8216f017c406224f9fff518.gif"
+            },
+            "web_share_link": "https://live.bilibili.com/h5/7685334"
+        },
+        "ad_banner_info": {
+            "data": [
+                {
+                    "id": 156214,
+                    "title": "网游福利挑战派对，见证高光时刻",
+                    "location": "room_advertisement",
+                    "position": 3,
+                    "pic": "https://i0.hdslb.com/bfs/live/a1fc2ad325cc23926ad63a7807ab28596d0c6b96.jpg",
+                    "link": "https://www.bilibili.com/blackboard/activity-ifMWWPBoij.html",
+                    "weight": 0,
+                    "room_id": 0,
+                    "up_id": 0,
+                    "parent_area_id": 0,
+                    "area_id": 0,
+                    "live_status": 0,
+                    "av_id": 0,
+                    "is_ad": false,
+                    "ad_transparent_content": null,
+                    "show_ad_icon": false
+                },
+                {
+                    "id": 155425,
+                    "title": "暑期百万开播激励",
+                    "location": "room_advertisement",
+                    "position": 4,
+                    "pic": "https://i0.hdslb.com/bfs/live/5b9d3f034f817807210636de98705323f3d03d89.png",
+                    "link": "https://live.bilibili.com/p/html/live-anchor-galaxy/live_202206_act/pc.html?is_live_full_webview=1&banner_event=10#/",
+                    "weight": 0,
+                    "room_id": 0,
+                    "up_id": 0,
+                    "parent_area_id": 0,
+                    "area_id": 0,
+                    "live_status": 0,
+                    "av_id": 0,
+                    "is_ad": false,
+                    "ad_transparent_content": null,
+                    "show_ad_icon": false
+                },
+                {
+                    "id": 156304,
+                    "title": "英雄联盟手游激励计划",
+                    "location": "room_advertisement",
+                    "position": 5,
+                    "pic": "https://i0.hdslb.com/bfs/live/17038dcaa6c36f94203497efd0500d9261a76c22.png",
+                    "link": "https://www.bilibili.com/blackboard/activity-AS4kiUPEsE.html",
+                    "weight": 0,
+                    "room_id": 0,
+                    "up_id": 0,
+                    "parent_area_id": 0,
+                    "area_id": 0,
+                    "live_status": 0,
+                    "av_id": 0,
+                    "is_ad": false,
+                    "ad_transparent_content": null,
+                    "show_ad_icon": false
+                }
+            ]
+        },
+        "skin_info": {
+            "id": 364,
+            "skin_name": "分区冠军赛-十强",
+            "skin_config": "",
+            "show_text": "BLS夏季赛·分区冠军赛",
+            "skin_url": "https://i0.hdslb.com/bfs/live/3fe1953a91d9eefbc0180ce16719d7221cfbf275.png",
+            "start_time": 1655913942,
+            "end_time": 1657209942,
+            "current_time": 1656040005
+        },
+        "web_banner_info": {
+            "id": 0,
+            "title": "",
+            "left": "",
+            "right": "",
+            "jump_url": "",
+            "bg_color": "",
+            "hover_color": "",
+            "text_bg_color": "",
+            "text_hover_color": "",
+            "link_text": "",
+            "link_color": "",
+            "input_color": "",
+            "input_text_color": "",
+            "input_hover_color": "",
+            "input_border_color": "",
+            "input_search_color": ""
+        },
+        "lol_info": {
+            "lol_activity": {
+                "status": 0,
+                "guess_cover": "http://i0.hdslb.com/bfs/live/61d1c4bcce470080a5408d6c03b7b48e0a0fa8d7.png",
+                "vote_cover": "https://i0.hdslb.com/bfs/activity-plat/static/20190930/4ae8d4def1bbff9483154866490975c2/oWyasOpox.png",
+                "vote_h5_url": "https://live.bilibili.com/p/html/live-app-wishhelp/index.html?is_live_half_webview=1&hybrid_biz=live-app-wishhelp&hybrid_rotate_d=1&hybrid_half_ui=1,3,100p,360,0c1333,0,30,100;2,2,375,100p,0c1333,0,30,100;3,3,100p,360,0c1333,0,30,100;4,2,375,100p,0c1333,0,30,100;5,3,100p,360,0c1333,0,30,100;6,3,100p,360,0c1333,0,30,100;7,3,100p,360,0c1333,0,30,100;8,3,100p,360,0c1333,0,30,100;",
+                "vote_use_h5": true
+            }
+        },
+        "pk_info": null,
+        "battle_info": null,
+        "silent_room_info": {
+            "type": "",
+            "level": 0,
+            "second": 0,
+            "expire_time": 0
+        },
+        "switch_info": {
+            "close_guard": false,
+            "close_gift": false,
+            "close_online": false,
+            "close_danmaku": false
+        },
+        "record_switch_info": {
+            "record_tab": false
+        },
+        "room_config_info": {
+            "dm_text": "发个弹幕呗~"
+        },
+        "gift_memory_info": {
+            "list": null
+        },
+        "new_switch_info": {
+            "room-socket": 1,
+            "room-prop-send": 1,
+            "room-sailing": 1,
+            "room-info-popularity": 1,
+            "room-danmaku-editor": 1,
+            "room-effect": 1,
+            "room-fans_medal": 1,
+            "room-report": 1,
+            "room-feedback": 1,
+            "room-player-watermark": 1,
+            "room-recommend-live_off": 1,
+            "room-activity": 1,
+            "room-web_banner": 1,
+            "room-silver_seeds-box": 1,
+            "room-wishing_bottle": 1,
+            "room-board": 1,
+            "room-supplication": 1,
+            "room-hour_rank": 1,
+            "room-week_rank": 1,
+            "room-anchor_rank": 1,
+            "room-info-integral": 1,
+            "room-super-chat": 1,
+            "room-tab": 1,
+            "room-hot-rank": 1,
+            "fans-medal-progress": 1,
+            "gift-bay-screen": 1,
+            "room-enter": 1,
+            "room-my-idol": 1,
+            "room-topic": 1,
+            "fans-club": 1
+        },
+        "super_chat_info": {
+            "status": 1,
+            "jump_url": "https://live.bilibili.com/p/html/live-app-superchat2/index.html?is_live_half_webview=1&hybrid_half_ui=1,3,100p,70p,ffffff,0,30,100,12,0;2,2,375,100p,ffffff,0,30,100,0,0;3,3,100p,70p,ffffff,0,30,100,12,0;4,2,375,100p,ffffff,0,30,100,0,0;5,3,100p,60p,ffffff,0,30,100,12,0;6,3,100p,60p,ffffff,0,30,100,12,0;7,3,100p,60p,ffffff,0,30,100,12,0",
+            "icon": "https://i0.hdslb.com/bfs/live/0a9ebd72c76e9cbede9547386dd453475d4af6fe.png",
+            "ranked_mark": 0,
+            "message_list": []
+        },
+        "online_gold_rank_info_v2": {
+            "list": [
+                {
+                    "uid": 207657346,
+                    "face": "http://i0.hdslb.com/bfs/face/member/noface.jpg",
+                    "uname": "诺失迷淡蓝",
+                    "score": "5",
+                    "rank": 1,
+                    "guard_level": 0
+                },
+                {
+                    "uid": 5317472,
+                    "face": "http://i2.hdslb.com/bfs/face/521c883c13924a8955854a166687812dcda3e7e9.jpg",
+                    "uname": "動漫の魂",
+                    "score": "5",
+                    "rank": 2,
+                    "guard_level": 0
+                },
+                {
+                    "uid": 5994060,
+                    "face": "http://i0.hdslb.com/bfs/face/0d6d28e3b9a350b3735759c60027c524ef3ff04c.jpg",
+                    "uname": "未了的眷恋",
+                    "score": "5",
+                    "rank": 3,
+                    "guard_level": 0
+                },
+                {
+                    "uid": 13707020,
+                    "face": "http://i2.hdslb.com/bfs/face/e3cc1ad29b0552c53cc79e5171718a7374ee469e.jpg",
+                    "uname": "追逐繁星的明月",
+                    "score": "5",
+                    "rank": 4,
+                    "guard_level": 0
+                },
+                {
+                    "uid": 12526344,
+                    "face": "http://i0.hdslb.com/bfs/face/949548fd77353cd0e855720130b936883c7d6441.jpg",
+                    "uname": "这个辣椒好辣啊",
+                    "score": "5",
+                    "rank": 5,
+                    "guard_level": 0
+                },
+                {
+                    "uid": 490024,
+                    "face": "http://i1.hdslb.com/bfs/face/4d1518dbd6de9e674b4b946b25d6d398d9f4f182.jpg",
+                    "uname": "烤乳猪",
+                    "score": "5",
+                    "rank": 6,
+                    "guard_level": 0
+                },
+                {
+                    "uid": 27448356,
+                    "face": "http://i0.hdslb.com/bfs/face/e43eac90d55fdc3b7885a931bfdac55793cc2370.jpg",
+                    "uname": "萌萌萌萌萌西瓜",
+                    "score": "5",
+                    "rank": 7,
+                    "guard_level": 0
+                }
+            ]
+        },
+        "dm_brush_info": {
+            "min_time": 700,
+            "brush_count": 100,
+            "slice_count": 2,
+            "storage_time": 3000
+        },
+        "dm_emoticon_info": {
+            "is_open_emoticon": 1,
+            "is_shield_emoticon": 0
+        },
+        "dm_tag_info": {
+            "dm_tag": 0,
+            "platform": [],
+            "extra": "",
+            "dm_chronos_extra": "",
+            "dm_mode": [],
+            "dm_setting_switch": 0,
+            "material_conf": null
+        },
+        "topic_info": {
+            "topic_id": 0,
+            "topic_name": ""
+        },
+        "game_info": {
+            "game_status": 0
+        },
+        "watched_show": {
+            "switch": true,
+            "num": 4451,
+            "text_small": "4451",
+            "text_large": "4451人看过",
+            "icon": "",
+            "icon_location": 0,
+            "icon_web": ""
+        },
+        "topic_room_info": {
+            "interactive_h5_url": "",
+            "watermark": 1
+        },
+        "show_reserve_status": false,
+        "second_create_info": {
+            "click_permission": 0
+        },
+        "play_together_info": {
+            "switch": 0,
+            "icon_list": [
+                {
+                    "icon": "https://i0.hdslb.com/bfs/live/fa1a4d496dc5c8da95cfda353ca88e4cc1027b99.png",
+                    "title": "等待中",
+                    "jump_url": "https://live.bilibili.com/p/html/live-app-play-together/index.html?roomid=7685334&ruid=3117396&hybrid_half_ui=1,3,100p,70p,0,1,0,100,10;2,2,375,100p,0,1,0,100,10;3,3,100p,70p,0,1,0,100,10;4,2,375,100p,0,1,0,100,10;5,3,100p,70p,0,1,0,100,10;6,3,100p,70p,0,1,0,100,10;7,3,100p,70p,0,1,0,100,10;8,3,100p,70p,0,1,0,100,10&is_live_half_webview=1&hybrid_biz=live-play-together",
+                    "status": 2
+                },
+                {
+                    "icon": "https://i0.hdslb.com/bfs/live/da42213c17b4ba504aa40d94a4ff25260a37e263.png",
+                    "title": "未申请",
+                    "jump_url": "https://live.bilibili.com/p/html/live-app-play-together/index.html?roomid=7685334&ruid=3117396&hybrid_half_ui=1,3,100p,70p,0,1,0,100,10;2,2,375,100p,0,1,0,100,10;3,3,100p,70p,0,1,0,100,10;4,2,375,100p,0,1,0,100,10;5,3,100p,70p,0,1,0,100,10;6,3,100p,70p,0,1,0,100,10;7,3,100p,70p,0,1,0,100,10;8,3,100p,70p,0,1,0,100,10&is_live_half_webview=1&hybrid_biz=live-play-together",
+                    "status": 1
+                },
+                {
+                    "icon": "https://i0.hdslb.com/bfs/live/63b965459ddc7ad22d715421af8aa034977bb72f.png",
+                    "title": "游戏中",
+                    "jump_url": "https://live.bilibili.com/p/html/live-app-play-together/index.html?roomid=7685334&ruid=3117396&hybrid_half_ui=1,3,100p,70p,0,1,0,100,10;2,2,375,100p,0,1,0,100,10;3,3,100p,70p,0,1,0,100,10;4,2,375,100p,0,1,0,100,10;5,3,100p,70p,0,1,0,100,10;6,3,100p,70p,0,1,0,100,10;7,3,100p,70p,0,1,0,100,10;8,3,100p,70p,0,1,0,100,10&is_live_half_webview=1&hybrid_biz=live-play-together",
+                    "status": 3
+                }
+            ]
+        },
+        "video_connection_info": null,
+        "player_throttle_info": {
+            "status": 1,
+            "normal_sleep_time": 1800,
+            "fullscreen_sleep_time": 3600,
+            "tab_sleep_time": 1800,
+            "prompt_time": 30
+        },
+        "guard_info": {
+            "count": 105,
+            "anchor_guard_achieve_level": 100
+        },
+        "hot_rank_info": {
+            "rank": 0,
+            "trend": 0,
+            "countdown": 1395,
+            "timestamp": 1656040005,
+            "url": "https://live.bilibili.com/p/html/live-app-hotrank/index.html?clientType=2&area_id=0&parent_area_id=0&second_area_id=0",
+            "icon": "",
+            "area_name": "",
+            "new_data": {
+                "rank": 0,
+                "trend": 0,
+                "countdown": 0,
+                "timestamp": 1656040005,
+                "url": "https://live.bilibili.com/p/html/live-app-hotrank/index.html?clientType=2&area_id=0&parent_area_id=0&second_area_id=0",
+                "icon": "",
+                "area_name": "",
+                "rank_desc": "未上榜"
+            }
+        }
+    }
+}

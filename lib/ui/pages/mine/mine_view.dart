@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'mine_logic.dart';
 
 class MineScreen extends StatelessWidget {
+  static const String routeName = "/mine";
+
   @override
   Widget build(BuildContext context) {
     final logic = Get.find<MineLogic>();

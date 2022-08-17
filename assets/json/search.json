@@ -1,0 +1,142 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": [
+    {
+      "type": "trending",
+      "title": "热搜",
+      "data": {
+        "trackid": "5435652725527635445",
+        "list": [
+          {
+            "keyword": "edg lgd",
+            "status": "",
+            "name_type": "",
+            "show_name": "EDG LGD",
+            "word_type": 7,
+            "position": 1,
+            "module_id": 1,
+            "resource_id": 7734200,
+            "show_live_icon": true,
+            "hot_id": 7068
+          },
+          {
+            "keyword": "最伟大的作品 动漫mv",
+            "status": "",
+            "name_type": "",
+            "show_name": "最伟大的作品 动漫MV",
+            "word_type": 8,
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/e9e7a2d8497d4063421b685e72680bf1cfb99a0d.png",
+            "position": 2,
+            "module_id": 2,
+            "hot_id": 7059
+          },
+          {
+            "keyword": "狗头吧",
+            "status": "",
+            "name_type": "",
+            "show_name": "狗头吧的秘密武器",
+            "word_type": 8,
+            "position": 3,
+            "module_id": 3,
+            "hot_id": 7061
+          },
+          {
+            "keyword": "你手机绑定了多少账号",
+            "status": "",
+            "name_type": "",
+            "show_name": "你手机绑定了多少账号",
+            "word_type": 8,
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/e9e7a2d8497d4063421b685e72680bf1cfb99a0d.png",
+            "position": 4,
+            "module_id": 4,
+            "hot_id": 7044
+          },
+          {
+            "keyword": "iphone15全系叹号屏",
+            "status": "",
+            "name_type": "",
+            "show_name": "曝iPhone15全系叹号屏",
+            "word_type": 8,
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/e9e7a2d8497d4063421b685e72680bf1cfb99a0d.png",
+            "position": 5,
+            "module_id": 5,
+            "hot_id": 7047
+          },
+          {
+            "keyword": "fpx al",
+            "status": "",
+            "name_type": "",
+            "show_name": "FPX战胜AL",
+            "word_type": 8,
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/4d579fb61f9655316582db193118bba3a721eec0.png",
+            "position": 6,
+            "module_id": 6,
+            "hot_id": 7067
+          },
+          {
+            "keyword": "当女孩们聊起婚姻",
+            "status": "",
+            "name_type": "",
+            "show_name": "当女孩们聊起婚姻",
+            "word_type": 8,
+            "position": 7,
+            "module_id": 7,
+            "hot_id": 7064
+          },
+          {
+            "keyword": "滴滴被罚",
+            "status": "",
+            "name_type": "",
+            "show_name": "滴滴被罚80.26亿元",
+            "word_type": 8,
+            "position": 8,
+            "module_id": 8,
+            "hot_id": 7049
+          },
+          {
+            "keyword": "云逛广州萤火虫漫展",
+            "status": "",
+            "name_type": "",
+            "show_name": "云逛广州萤火虫漫展",
+            "word_type": 8,
+            "icon": "http://i0.hdslb.com/bfs/feed-admin/4d579fb61f9655316582db193118bba3a721eec0.png",
+            "position": 9,
+            "module_id": 9,
+            "hot_id": 7066
+          },
+          {
+            "keyword": "南方高温体感",
+            "status": "",
+            "name_type": "",
+            "show_name": "南方高温体感或超60度",
+            "word_type": 8,
+            "position": 10,
+            "module_id": 10,
+            "hot_id": 7051
+          }
+        ],
+        "exp_str": "8000#5500#6699"
+      }
+    },
+    {
+      "type": "resource",
+      "data": {}
+    },
+    {
+      "type": "history",
+      "title": "搜索历史"
+    },
+    {
+      "type": "recommend",
+      "title": "搜索发现",
+      "data": {
+        "trackid": "3107142930411711741",
+        "title": "搜索推荐",
+        "pages": 0,
+        "exp_str": "6699"
+      }
+    }
+  ]
+}

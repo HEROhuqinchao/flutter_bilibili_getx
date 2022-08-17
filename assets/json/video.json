@@ -1,0 +1,1815 @@
+{
+  "code": 0,
+  "message": "0",
+  "ttl": 1,
+  "data": {
+    "items": [
+      {
+        "card_type": "banner_v8",
+        "card_goto": "banner",
+        "args": {},
+        "idx": 1659013907,
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "hash": "17531774913447762289",
+        "banner_item": [
+          {
+            "type": "static",
+            "resource_id": 4336,
+            "id": 1054517,
+            "index": 1,
+            "static_banner": {
+              "id": 1054517,
+              "title": "200个UP主参与的节目，定档了！",
+              "image": "http://i0.hdslb.com/bfs/banner/d700328e4b04f362969b36968de9dbfb0eab09f1.jpg",
+              "hash": "d2a9d6ba80aa04332108d98ce26c6af1",
+              "uri": "https://www.bilibili.com/bangumi/play/ep635856",
+              "request_id": "1659013896690q172a25a191a149q6748",
+              "src_id": 4337,
+              "is_ad_loc": true,
+              "client_ip": "39.184.56.90",
+              "server_type": 0,
+              "resource_id": 4336,
+              "index": 1,
+              "cm_mark": 0
+            }
+          },
+          {
+            "type": "static",
+            "resource_id": 4336,
+            "id": 1054915,
+            "index": 2,
+            "static_banner": {
+              "id": 1054915,
+              "title": "最适合夏天的水果是？",
+              "image": "http://i0.hdslb.com/bfs/banner/d5a2764d07f3dda3f4a34df196d4e719d6e547cc.jpg",
+              "hash": "f7efd0259c09fbf320ce575b5c8d7973",
+              "uri": "https://www.bilibili.com/read/cv17762653",
+              "request_id": "1659013896690q172a25a191a149q6748",
+              "src_id": 4338,
+              "is_ad_loc": true,
+              "client_ip": "39.184.56.90",
+              "server_type": 0,
+              "resource_id": 4336,
+              "index": 2,
+              "cm_mark": 0
+            }
+          },
+          {
+            "type": "static",
+            "resource_id": 4336,
+            "id": 1053820,
+            "index": 3,
+            "static_banner": {
+              "id": 1053820,
+              "title": "喂？次元壁呢？",
+              "image": "http://i0.hdslb.com/bfs/banner/69d7c941f00d81c58d1e9dabb4701e778a2b217e.png",
+              "hash": "e74a641ee278853d7f78a43e10203dd1",
+              "uri": "https://www.bilibili.com/blackboard/activity-MADsummerfes-h5.html",
+              "request_id": "1659013896690q172a25a191a149q6748",
+              "src_id": 4339,
+              "is_ad_loc": true,
+              "client_ip": "39.184.56.90",
+              "server_type": 0,
+              "resource_id": 4336,
+              "index": 3,
+              "cm_mark": 0
+            }
+          }
+        ]
+      },
+      {
+        "card_type": "small_cover_v9",
+        "card_goto": "live",
+        "goto": "live",
+        "param": "24123320",
+        "cover": "http://i0.hdslb.com/bfs/live/user_cover/25c1984d9f7ff598e10495e0f9f42fe50ec9776f.jpg",
+        "title": "带粉",
+        "uri": "https://live.bilibili.com/24123320?accept_quality=%5B10000%5D&broadcast_type=0&current_qn=10000&current_quality=10000&is_room_feed=1&live_play_network=other&p2p_type=0&playurl_h264=http%3A%2F%2F223.111.250.49%2Flive-bvc%2F237712%2Flive_10381017_35788436.flv%3Fexpires%3D1659017496%26len%3D0%26oi%3D666384474%26pt%3Dandroid%26qn%3D0%26trid%3D100036a14e7ab7e34cd385c7626cac86e3ba%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%26cdn%3Dcn-gotcha01%26sign%3D0dc608bf7c49a35b14f1ddd9438efe94%26sk%3Dffb32fce6b439c86e9c1a17f792fa2e7%26p2p_type%3D8192%26src%3D57345%26sl%3D1%26flowtype%3D0%26source%3Dbatch%26order%3D1%26machinezone%3Djd%26pp%3Drtmp%26sid%3Dcn-jssz-cm-02-12%26chash%3D1%26sche%3Dban%26site%3D07678b9cbd01b4191369afc53e9333f3&playurl_h265=&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%5D&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:蓝波兔兔子",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:决战！平安京",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ]
+        },
+        "args": {
+          "up_id": 10381017,
+          "up_name": "蓝波兔兔子",
+          "rid": 3,
+          "rname": "手游",
+          "tid": 140,
+          "tname": "决战！平安京",
+          "room_id": 24123320,
+          "online": 770
+        },
+        "player_args": {
+          "is_live": 1,
+          "room_id": 24123320,
+          "type": "live",
+          "content_mode": 1
+        },
+        "idx": 1659013906,
+        "three_point_v2": [
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:蓝波兔兔子",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:决战！平安京",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "直播,带粉,看过,分区决战！平安京,UP主蓝波兔兔子",
+        "cover_left_text_1": "42",
+        "cover_left_icon_1": 30,
+        "cover_left_1_content_description": "看过",
+        "cover_right_text": "决战！平安京",
+        "cover_right_content_description": "决战！平安京",
+        "up": {
+          "id": 10381017,
+          "name": "蓝波兔兔子",
+          "avatar": {
+            "cover": "http://i0.hdslb.com/bfs/face/2bb42e0d22cdba845c7e31b416b78140e85b53e0.jpg",
+            "uri": "https://live.bilibili.com/24123320?accept_quality=%5B10000%5D&broadcast_type=0&current_qn=10000&current_quality=10000&is_room_feed=1&live_play_network=other&p2p_type=0&playurl_h264=http%3A%2F%2F223.111.250.49%2Flive-bvc%2F237712%2Flive_10381017_35788436.flv%3Fexpires%3D1659017496%26len%3D0%26oi%3D666384474%26pt%3Dandroid%26qn%3D0%26trid%3D100036a14e7ab7e34cd385c7626cac86e3ba%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%26cdn%3Dcn-gotcha01%26sign%3D0dc608bf7c49a35b14f1ddd9438efe94%26sk%3Dffb32fce6b439c86e9c1a17f792fa2e7%26p2p_type%3D8192%26src%3D57345%26sl%3D1%26flowtype%3D0%26source%3Dbatch%26order%3D1%26machinezone%3Djd%26pp%3Drtmp%26sid%3Dcn-jssz-cm-02-12%26chash%3D1%26sche%3Dban%26site%3D07678b9cbd01b4191369afc53e9333f3&playurl_h265=&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%5D&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+            "event": "main_card"
+          }
+        },
+        "left_bottom_rcmd_reason_style": {
+          "text": "直播中",
+          "text_color": "#FFFFFF",
+          "bg_color": "#FB7299",
+          "border_color": "#FB7299",
+          "icon_url": "https://i0.hdslb.com/bfs/aistory/e4d020e11f675f536097c3bf78a5c7e807390799.gif",
+          "text_color_night": "#E5E5E5",
+          "bg_color_night": "#BB5B76",
+          "border_color_night": "#BB5B76",
+          "bg_style": 1
+        },
+        "off_badge_style": {
+          "text": "直播",
+          "text_color": "#FB7299",
+          "border_color": "#FB7299",
+          "text_color_night": "#BB5B76",
+          "border_color_night": "#BB5B76",
+          "bg_style": 2
+        },
+        "hide_danmu_switch": true,
+        "disable_danmu": true
+      },
+      {
+        "card_type": "small_cover_v9",
+        "card_goto": "live",
+        "goto": "live",
+        "param": "22526228",
+        "cover": "http://i0.hdslb.com/bfs/live/user_cover/3a7f9580fb0490d485ce431a8c53ee696dccf290.jpg",
+        "title": "【空】好困QAQ",
+        "uri": "https://live.bilibili.com/22526228?accept_quality=%5B10000%2C150%5D&broadcast_type=0&current_qn=150&current_quality=150&from=29015&is_room_feed=1&jump_from=29015&live_from=29015&live_play_network=other&p2p_type=0&playurl_h264=http%3A%2F%2Fc1--cn-gotcha09.bilivideo.com%2Flive-bvc%2F237712%2Flive_7817230_34457201_1500.flv%3Fexpires%3D1659017496%26len%3D0%26oi%3D666384474%26pt%3Dandroid%26qn%3D0%26trid%3D100036a14e7ab7e34cd385c7626cac86e3ba%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%26cdn%3Dcn-gotcha09%26sign%3D75bd4fe9f14320c03a3704584438edaa%26sk%3D2935686d6cb9146c7a6a6a0b4e120e250342be3df4dc8310261aab0ce9e21e44%26p2p_type%3D8192%26src%3D256%26sl%3D1%26flowtype%3D1%26source%3Dbatch%26order%3D1%26machinezone%3Djd%26pp%3Drtmp%26site%3D07678b9cbd01b4191369afc53e9333f3&playurl_h265=&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%2C%7B%22qn%22%3A150%2C%22desc%22%3A%22%E9%AB%98%E6%B8%85%22%7D%5D&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:爱上头的空空",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:决战！平安京",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ]
+        },
+        "args": {
+          "up_id": 7817230,
+          "up_name": "爱上头的空空",
+          "rid": 3,
+          "rname": "手游",
+          "tid": 140,
+          "tname": "决战！平安京",
+          "room_id": 22526228,
+          "online": 2945
+        },
+        "player_args": {
+          "is_live": 1,
+          "room_id": 22526228,
+          "type": "live",
+          "content_mode": 1
+        },
+        "idx": 1659013905,
+        "three_point_v2": [
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:爱上头的空空",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:决战！平安京",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "直播,【空】好困QAQ,看过,分区决战！平安京,UP主爱上头的空空",
+        "cover_left_text_1": "162",
+        "cover_left_icon_1": 30,
+        "cover_left_1_content_description": "看过",
+        "cover_right_text": "决战！平安京",
+        "cover_right_content_description": "决战！平安京",
+        "up": {
+          "id": 7817230,
+          "name": "爱上头的空空",
+          "avatar": {
+            "cover": "http://i1.hdslb.com/bfs/face/ba829613022097f7dc057144b50e6a7de22b6063.jpg",
+            "uri": "https://live.bilibili.com/22526228?accept_quality=%5B10000%2C150%5D&broadcast_type=0&current_qn=150&current_quality=150&from=29015&is_room_feed=1&jump_from=29015&live_from=29015&live_play_network=other&p2p_type=0&playurl_h264=http%3A%2F%2Fc1--cn-gotcha09.bilivideo.com%2Flive-bvc%2F237712%2Flive_7817230_34457201_1500.flv%3Fexpires%3D1659017496%26len%3D0%26oi%3D666384474%26pt%3Dandroid%26qn%3D0%26trid%3D100036a14e7ab7e34cd385c7626cac86e3ba%26sigparams%3Dcdn%2Cexpires%2Clen%2Coi%2Cpt%2Cqn%2Ctrid%26cdn%3Dcn-gotcha09%26sign%3D75bd4fe9f14320c03a3704584438edaa%26sk%3D2935686d6cb9146c7a6a6a0b4e120e250342be3df4dc8310261aab0ce9e21e44%26p2p_type%3D8192%26src%3D256%26sl%3D1%26flowtype%3D1%26source%3Dbatch%26order%3D1%26machinezone%3Djd%26pp%3Drtmp%26site%3D07678b9cbd01b4191369afc53e9333f3&playurl_h265=&quality_description=%5B%7B%22qn%22%3A10000%2C%22desc%22%3A%22%E5%8E%9F%E7%94%BB%22%7D%2C%7B%22qn%22%3A150%2C%22desc%22%3A%22%E9%AB%98%E6%B8%85%22%7D%5D&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+            "event": "main_card"
+          }
+        },
+        "left_bottom_rcmd_reason_style": {
+          "text": "直播中",
+          "text_color": "#FFFFFF",
+          "bg_color": "#FB7299",
+          "border_color": "#FB7299",
+          "icon_url": "https://i0.hdslb.com/bfs/aistory/e4d020e11f675f536097c3bf78a5c7e807390799.gif",
+          "text_color_night": "#E5E5E5",
+          "bg_color_night": "#BB5B76",
+          "border_color_night": "#BB5B76",
+          "bg_style": 1
+        },
+        "off_badge_style": {
+          "text": "直播",
+          "text_color": "#FB7299",
+          "border_color": "#FB7299",
+          "text_color_night": "#BB5B76",
+          "border_color_night": "#BB5B76",
+          "bg_style": 2
+        },
+        "hide_danmu_switch": true,
+        "disable_danmu": true
+      },
+      {
+        "card_type": "small_cover_v2",
+        "card_goto": "av",
+        "goto": "av",
+        "param": "856299160",
+        "cover": "http://i1.hdslb.com/bfs/archive/4acfcea9d99dea6f5bd166e7a3e3ca402eeaa25b.jpg",
+        "title": "钱三一！你看你被叫孩子他爸不值钱那样！孩子幼儿园上哪想好了吧",
+        "uri": "bilibili://video/856299160?cid=785148428&player_height=1080&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A785148428%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorcoso1.bilivideo.com%2Fupgcxcode%2F28%2F84%2F785148428%2F785148428_nb3-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dcoso1bv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D1c40e515132db39a19999f8fc5f5ce15%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D79924%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%22112%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A70250556%2C%22timelength%22%3A163855%7D%5D%7D%2C%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A7554860%2C%22timelength%22%3A163819%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A13027718%2C%22timelength%22%3A163855%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A24746744%2C%22timelength%22%3A163855%7D%5D%7D%2C%2280%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A41716148%2C%22timelength%22%3A163855%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorcos.bilivideo.com%2Fupgcxcode%2F28%2F84%2F785148428%2F785148428_nb3-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dcosbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3Ddef4884193688702f0248fcbb1c2fe14%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D79924%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A112%2C%22format%22%3A%22hdflv2%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P%2B%22%2C%22new_description%22%3A%221080P%20%E9%AB%98%E7%A0%81%E7%8E%87%22%2C%22display_desc%22%3A%221080P%22%2C%22superscript%22%3A%22%E9%AB%98%E7%A0%81%E7%8E%87%22%2C%22need_vip%22%3Atrue%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A80%2C%22format%22%3A%22flv%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P%22%2C%22new_description%22%3A%221080P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%221080P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=1920&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:-芝士奶盖三分糖-",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:影视剪辑",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 3,
+              "name": "频道:郭俊辰",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 12,
+              "name": "此类内容过多",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 13,
+              "name": "推荐过",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ],
+          "feedbacks": [
+            {
+              "id": 1,
+              "name": "恐怖血腥",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 2,
+              "name": "色情低俗",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 3,
+              "name": "封面恶心",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 4,
+              "name": "标题党/封面党",
+              "toast": "将优化首页此类内容"
+            }
+          ],
+          "watch_later": 1
+        },
+        "args": {
+          "up_id": 450483179,
+          "up_name": "-芝士奶盖三分糖-",
+          "rid": 183,
+          "rname": "影视剪辑",
+          "tid": 1475463,
+          "tname": "郭俊辰",
+          "aid": 856299160
+        },
+        "player_args": {
+          "aid": 856299160,
+          "cid": 785148428,
+          "type": "av",
+          "duration": 164
+        },
+        "idx": 1659013904,
+        "pos_rec_unique_id": "a7ed2103d3d24cceb31d023adc733d05",
+        "three_point_v2": [
+          {
+            "title": "添加至稍后再看",
+            "type": "watch_later",
+            "icon": "https://i0.hdslb.com/bfs/activity-plat/static/ce06d65bc0a8d8aa2a463747ce2a4752/NyPAqcn0QF.png"
+          },
+          {
+            "title": "反馈",
+            "subtitle": "(选择后将优化首页此类内容)",
+            "reasons": [
+              {
+                "id": 1,
+                "name": "恐怖血腥",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 2,
+                "name": "色情低俗",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 3,
+                "name": "封面恶心",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 4,
+                "name": "标题党/封面党",
+                "toast": "将优化首页此类内容"
+              }
+            ],
+            "type": "feedback"
+          },
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:-芝士奶盖三分糖-",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:影视剪辑",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 3,
+                "name": "频道:郭俊辰",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 12,
+                "name": "此类内容过多",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 13,
+                "name": "推荐过",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "视频,钱三一！你看你被叫孩子他爸不值钱那样！孩子幼儿园上哪想好了吧,40.1万观看,371弹幕,时长2分钟44秒,UP主-芝士奶盖三分糖-,1万点赞,",
+        "dislike_report_data": "{\"unique_id\":\"a7ed2103d3d24cceb31d023adc733d05\"}",
+        "cover_left_text_1": "40.1万",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "40.1万观看",
+        "cover_left_text_2": "371",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "371弹幕",
+        "cover_right_text": "2:44",
+        "cover_right_content_description": "2分钟44秒",
+        "rcmd_reason": "1万点赞",
+        "can_play": 1,
+        "rcmd_reason_style": {
+          "text": "1万点赞",
+          "text_color": "#FF6633",
+          "bg_color": "#FFF1ED",
+          "border_color": "#FFF1ED",
+          "text_color_night": "#BF5330",
+          "bg_color_night": "#3D2D29",
+          "border_color_night": "#3D2D29",
+          "bg_style": 1
+        }
+      },
+      {
+        "card_type": "cm_v2",
+        "card_goto": "ad_av",
+        "goto": "av",
+        "param": "853657729",
+        "cover": "http://i2.hdslb.com/bfs/archive/0aa3fdafa663269463ab74120f15a5d673166b94.jpg",
+        "title": "【高速吹风机横评】LANSAM/戴森/徕芬/直白/追觅到底哪一款才是女生必备？",
+        "uri": "bilibili://video/853657729?cid=588791118&player_height=2160&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A588791118%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorhwo1.bilivideo.com%2Fupgcxcode%2F18%2F11%2F588791118%2F588791118-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwo1bv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D89194679d6e732994a77d86108b6d34b%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D56589%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%22116%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A109364297%2C%22timelength%22%3A460829%7D%5D%7D%2C%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A24587156%2C%22timelength%22%3A460843%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A26031208%2C%22timelength%22%3A460879%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A39791841%2C%22timelength%22%3A460879%7D%5D%7D%2C%2280%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A75634336%2C%22timelength%22%3A460879%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorhw.bilivideo.com%2Fupgcxcode%2F18%2F11%2F588791118%2F588791118-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3Ddc80e3333958fe8c35a9c8ae57e0594e%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D56589%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A116%2C%22format%22%3A%22flv_p60%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P60%22%2C%22new_description%22%3A%221080P%2060%E5%B8%A7%22%2C%22display_desc%22%3A%221080P%22%2C%22superscript%22%3A%2260%E5%B8%A7%22%2C%22need_vip%22%3Atrue%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A80%2C%22format%22%3A%22flv%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P%22%2C%22new_description%22%3A%221080P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%221080P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=3840&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ]
+        },
+        "args": {
+          "up_id": 346210208,
+          "up_name": "我叫杂工哥特",
+          "rid": 239,
+          "rname": "家居房产",
+          "aid": 853657729
+        },
+        "player_args": {
+          "aid": 853657729,
+          "cid": 588791118,
+          "type": "av",
+          "duration": 461
+        },
+        "idx": 1659013903,
+        "ad_info": {
+          "creative_id": 96979836,
+          "creative_type": 3,
+          "card_type": 1,
+          "creative_content": {
+            "title": "小苏同学带你挑对护发高速吹风机",
+            "description": "吹风机测评",
+            "video_id": 853657729,
+            "image_url": "https://i0.hdslb.com/bfs/sycp/creative_img/202205/e92166ad1c0ad395a96ef80cd82e8674.jpg",
+            "image_md5": "6649d37c65ae5fc45f4bc7d2598604fe",
+            "url": "https://www.bilibili.com/video/av853657729?from_spmid=ad.tianma.tm-recommendation-card.0&trackid=all_23.shjd-ai-recsys-04.1659013896389.350&track_id=pbaes.s9WPALBns_UOYeYt6IuHd-d96ZkoMWFBWYE-3FwpcdQam-CxyhAiedRWx5i95vVqwvSOFNSfsFB0b-CaPOMumyJiJIi1xEsqUfaARlgbTwc&source_id=1900&linked_creative_id=96979836&request_id=1659013896419q172a26a189a141q1103"
+          },
+          "ad_cb": "CLfOeBDXwPsCGPyWny4gpQkoATD1oC847A5CITE2NTkwMTM4OTY0MTlxMTcyYTI2YTE4OWExNDFxMTEwM0jjsbynpDBSBuWPsOW3nloG5rWZ5rGfYgbkuK3lm71oAXAAeICAgIDgKYABAYgBAJIBDDM5LjE4NC41Ni45MJoBzCZhbGw6ZGVmYXVsdCxwcGN0cjp2aWRlb19jdHIsY2Fzc2luaU1vYmlsZUR5bmFtaWNDVFJDVlI6Y29uc3RhbnQsY2Fzc2luaVVmcmFtZUNUUkNWUjpleHAsbm9fYWQ6dW5kZWZpbmVkLGJydXNoX2R1cDpkZWZhdWx0LGNwY19xdW90YTpiYXNlLGZkX3BjdHI6Zmx5c2h3Y2xrLHN0b3J5X2N0cjpxZixzdG9yeV9jdnI6YmFzZSxkeW5fY3RyOmZsaW5rLGR5bl9jdnI6cmVtYWluLHVmcmFtZV9jdHI6dW5pb25ydCx1ZmN2cjp1ZnBwMDUsY3ZyX3A6cHBfdWYsZGN2cmY6ZXNtbV9keW5fc3RvcnkyLGN2cl9mOmV4cDIwLGNwYTpzdG9yeV9yaXNlX21heF8yLG9jcHhVdjpiYXNlLG9jcHhSZWNhbGw6bW9kZWwsVVY6dW5kZWZpbmVkLGhhc2hVVjp1bmRlZmluZWQscHY6QixmbG93X3JhdGlvOnIzLGRtcF9hZ2U6ZG1wLG5GZWRCYWNrOmRlZmF1bHQscWlmZWlfcGVyc29uYWw6aGlnaF9pbml0LHFpZmVpOnBjX2V4cCxmbHlfY3RyX2lubGluZV90YXJnZXQ6Y2xvc2UsZmx5X2N0cl9pbmxpbmU6bW9kZWwsZmx5X2N0cl9zZDp2dl9jYXJ0LGZseV9tOmV4cDEsZmx5X2N0cl9nZDptb2RlbCxmbHlfY3RyX2NhcnQ6Y29uc3QsaW5uZXJfZW5oYW5jZTpleHAxLFJTOmNvbnN0YW50LGZseV9jb2Fyc2U6bWV4cCxmbHlfdHJ1bnBsdXM6ZXhwYW5kMzAsZHBzOmRlZmF1bHQsb3BlbmZseW5ldzpvcGVuLGZseV9wY3ZyOmN2cmgsZmx5X2ZlZWRiYWNrOnN0b3J5LGZseV9zdG9yeV9mcmVxOmNsb3NlLGZseV9zZW5zaV9mcmVxOm1pZDE0ZCxmbHlfY3RyX3BwOnJ0bGlrZSxmbHlfY3BhX3BjOnBpZF9jcHAsZmx5X2NwYV9pbmxpbmU6cmV2LGZseV9jcGFfcHA6cGlkX2NwcCxmbHlfY3BhX3NpZ246Y29uc3RhbnQsZmx5X2NwYV9zdDpydHZ2LGZseV9jcGE6Y3ZyaCxoNV92Okg1LHBFTjpQUixzRkJydToyLHRpbWVGcmVxOmRlZmF1bHQsdXZUZXN0OmEyLGRBZHg6ZGVmYXVsdCx1c2VHcnBjOnRydWUsZnJlUzpjcixjb2Fyc2VfdDpjdGN2cl9vdXRlcl90LGNvYXJzZTpjb25zdGFudDMsaGRldGFpbHM6YmFzZSxjcm93ZFM6RCxzbWFydGJpZDp1bmRlcmZyYW1lX3NwbGl0MixmbHlfc21hcnRiaWQ6b3R0LGZseV9zcGVjaWFsZmVlZF90aHJlZDpwdXBzdCxmbHlfYXV0b19naWY6ZGVmYXVsdCxidXBjcGNfZ3NwOmJhc2UsZmx5X3B1cF9jb2Fyc2U6cHJlZF9jdnIsY3BjX3NlYXJjaDpob3VyLGxpbWl0X2FkeDpkZWZhdWx0LG1ldDozMzUscGNobWN0cjpydF91c2VyLHBjdmlkZW9jdHI6aG91cmx5LHBjaG1jdnI6Y29uc3RhbnQscGN2cGN2cjpjb25zdGFudCxjYXNzaW5pQ1RSOnJ0XzQwLGNvYXJzZV9wcGN0cjpydCxjYXNzaW5pRmVlZHNDVlI6bmV3Y29udjIsY2Fzc2luaVBsYXlwYWdlQ1ZSOnVzZXJleHBfcnQsY2Fzc2luaUV4cDpkcGFfcXVvdGFfZXhwX2V4LENyZWF0aXZlUXVhbGl0eTphdXRvLGdpZl9leHA6YmFzZSxwcm9nQ3JlYURpY3RWZXI6ZGVmYXVsdCxwcm9ncmFtQ3JlYXRpdmU6djMscHJvZ0NyZWFSYW5kb206YmFzZSxwcm9nQ3JlYUZlZWRDdHI6ZGVmYXVsdCxwcm9nQ3JlYUZlZWRDdnI6ZXhwdjEscHJvZ0NyZWFTdG9yeUN0cjpkZWZhdWx0LHByb2dDcmVhU3RvcnlDdnI6ZXhwLHByb2dDcmVhUFBDdHI6b3BlbnYxYWEscHJvZ0NyZWFVZGZDdnI6YmFzZTAxLHByb2dDcmVhUFBDdnI6YmFzZSxVc2VDb250ZXh0SW5mb1N0b3J5RmxhZzpkZWZhdWx0LHByb2dDcmVhVDpkZWZhdWx0LGJyYW5kSW5mb0V4cDpkZWZhdWx0LGRwYUhvdFByb2R1Y3RzRXhwS2V5OmV4cF83LGRwYURlZHVwQ2xpY2tlZFVuaXQ6YmFzZV92MixkcGEyUmVjYWxsOmJhc2VfdjAsZHBhMjpiYXNlLHJlc2VydmVfcHJpY2U6Y29uc3RhbnQscmlza0NhdGVnb3J5RnJlcUNvbnRyb2xVcGdyYWRlOmRlZmF1bHQscGVyc29uYVRoaXJkU3dpdGNoOmFscyxzZWFyY2hRdWVyeVJ1bGU6b3RoZXIsZm9yY2VFeHBvc3VyZS1jYXNzaW5pOnVwaWRfYXZpZCx1bmRlcl9mcmFtZV9lY3BtX2V4cDplY3BtXzYsaW5uZXJfb3V0ZXJfYmlkX2V4cDpuZXc0X2Jhc2UsRHBhQ3JlYXRpdmVTdHJhdGVneUV4cGVyaW1lbnQ6YmFzZSxEcGFQcm9kdWN0U29ydE1vZGVsOnJlX2NvbnN0YW50LERpc2xpa2VTdG9yeUFkQmxhY2tNaWQ6Y2xvc2UsQXBwQ29leGlzdEZpbHRlcjpjbG9zZSxzd2l0Y2hCc1BnUmVxUmF0aW86Y2xvc2UtYmFzZSx1c2VBc1BnOm9wZW5fMTBfMDcyMixic0R1cEFkOmJhc2UsYmVzdENyZWF0aXZlOmVjcG0yLHVuZGVyZnJhbWVfZG93bmxvYWRfYWRidXR0b246YmFzZSxpbmxpbmVFY3BtOmRlZmF1bHQsRHBhU2VydmVyRXhwOmFubl9vcGVuX3N1cHBseSxEcGFBbm5FeHBlcmltZW50OnFubl9vcGVuX3N1cHBseSxkeW5hbWljVGltZW91dE1pbnM6ZGVmYXVsdCxjdHJRRmFjdG9yQ29uZkV4cDpmZWVkdjcsc29ydF9kaXZlcnNpdHk6YWNjXzhfYnVkZ2V0XzUwX2V4cCxBQV9URVNUOmFhX3Rlc3RfMl9leHAsZHBhQ3JlYXRpdmVTZWxlY3RFeHA6ZXhwX3NlbGVjdF9qZF9ub19iZyxhY2NvdW50X2V4cGxvcmVfc2hvd19saW1pdDpkZWZhdWx0LGNvYXJzZUNvbnZlcnNpb25UeXBlV2hpdGVDb25mRXhwOmRlZmF1bHQsYm9vc3RQcm86Y29uc3RhbnQsY29hcnNlRXhwbG9yZUZhY3RvckNvbmY6ZGVmYXVsdCxuZXdfYWRfcHJpY2U6YmFzZSxzdG9yeWNvYXJzZTpjb25zdGFudCxhZF9pbmhlcml0OmNvbnN0YW50LHZpZGVvX3RlbXBsYXRlX3N1cHBvcnQ6ZXhwNCxjb2Fyc2VfZmVlZHNfbHRyOmNvbnN0YW50LGNvYXJzZV9sYXN0X2FkX2ZpeDpiYXNlLGR5bmFtaWNDcGNJbWFnZUZhY3RvcjpleHAyLGNwYzFfZXh0ZW5kZWQ6ZGVmYXVsdCxjcm93ZF9lY3BjOmNvbnN0YW50LG5vYmlkOmRlZmF1bHQsb3R0Y29uZmlnOmRlZixmbHlfYm9vc3Q6bGVmdCxib29zdF9iczpiYXNlLGJ1c191cF92dl9maWx0ZXI6Y2xvc2UsYnVzX3VwX2NyZWFfZGVkdXBfZmlsdGVyOmNsb3NlLGJyYW5kX3NwbGFzaF9saXN0X2J5X3RpbWU6YnJhbmRfc3BsYXNoX2xpc3RfYnlfdGltZV85MF90dW5uZWwsSW5uZXJfYWNjb3VudF90aGQ6YmFzZSxwcFByb2djcmVhR3JhZGVDYXJkRXhwOmJhc2UsdXNlckFkQWN0aW9uc09mZmxpbmVFeHA6YmFzZSxmZWVkc19uZXdfYnRuOmV4cDMsZHluYW1pY19mZWVkc19zdHlsZV9leHA6bmV3X3N0eWxlX25vX2F2YXRhcixmbHlfdWZfdGhyZXNoOmNvbnN0YW50LFVuaXREZXRhaWxJbmZvOmNsb3NlLHNjZjpiYXNlLERwYTJYaWFvbWlGbG93RXhwbG9yZTpjbG9zZSxCdXNpbmVzc1VwSGllcmFyY2h5OmV4cCxlbmFibGVDYXJkdHlwZURvd25sb2FkOmV4cCxmYWN0X25lZ2F0aXZlOmJhc2UsZ2RfcGx1c19kYXZpbmNpOmJhc2UsZGFpaHVvX2V4dGVuZDplYWNoNSxwcm9tb3Rpb25fYmlnX2V4cDpvcGVuLHN0b3J5X3N1YmNhcmRfc3R5bGU6ZXhwX2gsbG9nZ2luZ19hZGluZm9fbGlzdDpiYXNlLEZseVZpZGVvUGxheUZpbHRlckV4cEFsdDpiYXNlLHVzZVN0b3J5R2FtZUJ0blZlclR3bzpiYXNlLGVuYWJsZV9hbHRfZGF2aW5jaTpkZWZhdWx0LHByb2R1Y3RfZGltX2ZyZXFfc3dpdGNoOmJhc2UsdW5kZXJmcmFtZV9wdWxsX3VwOmV4cDksdGFwM191cmxfcmVwbGFjZV9leHA6YmFzZV9uZXcsZmx5X2NvYXJzZV92djpleHBhbmQzMCxzdG9yeV9zdHlsZV9zZWxlY3Q6YmFzZTAwLHN0b3J5SW9zQ3VzdG9tUGFnZTpiYXNlLGJsYWNrX2xpc3Rfc3NwOm9wZW5fYmxhY2tfbGlzdF90dW5uZWwsbkZlZEJhY2sxOmRlZmF1bHQsZ2RfcGx1c19idWRnZXRfYnVja2V0OmV4cDEsbWlkX2FhOmV4cF8xLHN0b3J5X2ZyZXFfZGF5X2xpbWl0OmV4cCxwdl9hYTpkZWZhdWx0LHNlYXJjaF9hcHBfaWNvbjpiYXNlLHNzcF9hc19wcm9jZXNzX3BiOnNzcF9hc19wcm9jZXNzX3BiX2Jhc2UsaXBhZF9leHA6b3Blbix1cFJlY2FsbENvbmY6YmFzZTIscmVxX2xvZ19yYXRpbzpiYXNlLGRwYVVuZGVyZnJhbWVOZXdTdHlsZTpleHAyLGZseV9hdmlkX3N3aXRjaDpiYXNlLGFzX3RvX3NzcF91c2VPbmx5RXhwTmFtZUJ1dEFkeDp1c2VPbmx5RXhwTmFtZUJ1dEFkeF9iYXNlLHN0b3J5QW5kcm9pZEN1c3RvbVBhZ2U6ZXhwLHV2X2FhOmV4cF8xLHNwbGFzaF9idWRnZXRfYnVja2V0OmV4cDIsbmV3X2R5bmFtaWNfZnJlcV9leHA6bmV3X2Jhc2UsY29udGludWVfZmVlZF9icnVzaDpiYXNlLG5ld0JzRmlsdGVyTG9nOm9wZW4sZmx5X3B1cF9idWRnZXQ6Y29uc3RhbnQsY29udGFpbmVyX2xhbmRpbmdwYWdlOm9wZW4sZEFkeDE6ZGVmYXVsdCx1c2Vfd3hfcHJvZzpleHAxLGlkY1RhZzpzaGpkLGZlZWRfY2FyZGluZGV4X2V4cDpleHAyLFByZWRpY3RDb3N0RmlsdGVyOm9wZW5fYWxsXzkwLGhpZ2hfZnJlcV9hZF9maWx0ZXJfc3dpdGNoOmJhc2UsZmx5X2xpa2VfdGg6Y2xvc2UsY3JlYXRpdmVfY29tYmluZTpiYXNlLGZseV9maXJzdF9sdmw6Y2xvc2UsZnJlcV9maXJzdF9tZXJnZTpiYXNlLGlvc19nYW1lX2luZm9fdGFiMzpiYXNlLHVzZVRhYk5ld0ZseUljb246ZXhwNyx2bGFuZGluZ3BhZ2U6ZGVmYXVsdDMxLGJ1c2luZXNzX2ZseV9pY29uX2V4cDpleHBfbmV3LGZseV9jb2Fyc2VfdXBncmFkZTpjb25zdGFudCxzZWFyY2hfZnJlcTpleHAsaWdub3JlX2dpZl9yZXNpc3Q6b3BlbixyZWRpc092ZXJsb3JkRXhwOmJhc2UsZWRjX3RhYl9leHA6ZXhwNSxzdG9yeV9hZHZlcl9qdW1wOmJhc2VfMDMyMixmcmVxX3RhZzpleHAsY3JlYXRpdmVfc2NlbmVfZmFjdG9yOmV4cF9uZXcsbmV3X2NyZWF0aXZlX3RhYjpleHA2XzUwMCxmbHlfYXZpZF9mcmVxX3doaXRlbGlzdF9leHA6b3BlbixjcmVhdGl2ZV9hdXRvX2dpZjpiYXNlMCxNb2RlbEZlYXR1cmVzSGl2ZUxvZzpjbG9zZSxpb3NfcHVsbF91cDpiYXNlLGZseV9idXBfaGlzdF92dl9maWx0ZXI6YmFzZSxzbWFsbF9idWRnZXRfYW5uX29wdGk6ZmRiaHYxLEFjY291bnRUYWdGcmVxV2l0aENyb3dkOmJhc2UsYWR4UGxheVBhZ2VSYXNpbzpleHAwLGNyZWF0aXZlX2F2aWRfdGFiMzpiYXNlLGNvYXJzZXNvcnRfY3RydF9leHA6YWxsX2V4cCxwbGF0Zm9ybTpkZWZhdWx0XzMwMKABpg6oAfIFsgEgp7WmpwCT/nZ+O+LPN0IJYAbBJ/IdOPky8qaw90IqFUy6Ad4CaHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2ODUzNjU3NzI5P2Zyb21fc3BtaWQ9YWQudGlhbm1hLnRtLXJlY29tbWVuZGF0aW9uLWNhcmQuMCZ0cmFja2lkPWFsbF8yMy5zaGpkLWFpLXJlY3N5cy0wNC4xNjU5MDEzODk2Mzg5LjM1MCZ0cmFja19pZD1wYmFlcy5zOVdQQUxCbnNfVU9ZZVl0Nkl1SGQtZDk2WmtvTVdGQldZRS0zRndwY2RRYW0tQ3h5aEFpZWRSV3g1aTk1dlZxd3ZTT0ZOU2ZzRkIwYi1DYVBPTXVteUppSklpMXhFc3FVZmFBUmxnYlR3YyZzb3VyY2VfaWQ9MTkwMCZsaW5rZWRfY3JlYXRpdmVfaWQ9OTY5Nzk4MzYmcmVxdWVzdF9pZD0xNjU5MDEzODk2NDE5cTE3MmEyNmExODlhMTQxcTExMDPCAQMxMzfSAQDYAc4C4AGAtRjoAbCuFfABAPgBrAiAAgeIAgCSAvsCNjg5Mjk3OV8xNjU4OTk2ODM5LDcxOTE4NzBfMTY1ODk5NjkwMyw3MDg4OTA2XzE2NTg5OTcyOTAsNzE5MzAzOF8xNjU4OTk4Mjk5LDcxMDI3MjRfMTY1ODk5OTA0Myw3MTg2MTUyXzE2NTg5OTkwNTYsNzE1MzQzOV8xNjU5MDAyMTA1LDcxOTA3NzFfMTY1OTAwMjk1OCw3MTkyOTg0XzE2NTkwMDI5NzksNzE5NTEwOF8xNjU5MDA0MzYwLDY2MzIyMDNfMTY1OTAwNDcyOCw2NjI4NTUzXzE2NTkwMDc2NzMsNzEyMjMwOF8xNjU5MDA3ODgyLDcxOTM0MjdfMTY1OTAwNzg5OCw3MDAwMzU0XzE2NTkwMDc5MjEsNjgwOTEzM18xNjU5MDEwMDI4LDcxOTMwNzJfMTY1OTAxMDg1Miw2NTI0MDA5XzE2NTkwMTMwNzQsNzA5NjczNF8xNjU5MDEzMTMwLDM5MjMyNThfMTY1OTAxMzE1M5gCjqDwBaAC6sEUqALTrAywApsruAIAwAKAlOvcA8gCkE7qAgE3+AKLa4gDA5IDAKgDALADALgDAMgDBNIDuAF7IjEiOiI5Njk3OTgzNiIsIjExIjoiMjM5IiwiMTIiOiIxOTAwIiwiMTMiOiI3MzYzMTciLCIxNCI6IjY4MSIsIjE1IjoiNzAzIiwiMTYiOiI3MzYzMTdfMTM3MDciLCIyIjoiNzc0MjYxIiwiMyI6Ijc3NDI2MSIsIjQiOiIzMiIsIjUiOiIzNiIsIjYiOiI3NzQyNjEiLCI3IjoiODUzNjU3NzI5IiwiOCI6IjM0NjIxMDIwOCJ96AME8AMA+gMFb3RoZXKCBAludWxsOm51bGyIBKYOkAQAoAQAqgQECAAQBKoEBAgAEAC4BArABAnQBADYBADiBM4DeyJwSWQiOjU2LCJwc0lkIjozMDg1LCJwTmFtZSI6ImFsbCIsImluZm8iOlsxLDAsMSwyLDAsMSwyLDEsMCwwLDEsMCwwLDEsMSwxLDEsMCwwLDEsMCwwLDAsNSwxLDEsMSwxLDAsMCwxLDAsMSwyLDAsMSwwLDAsMSwxLDIsMSwxLDEsMSwxLDAsMCwxLDEsMSwxLDEsMSwxLDEsMCwxLDAsMCwwLDAsMSwxLDEsMCwwLDAsMCwwLDIsMSwwLDEsMSwxLDEsMCwwLDAsMSwxLDAsMCwxLDAsMCwxLDEsMCwxLDAsMCwwLDEsMSwxLDEsMSwwLDAsMSwxLDEsMSw1LDAsMCw3LDEsMCwwLDAsMCwwLDYsMSwxLDEsMSwwLDAsMCwyLDAsMCwzLDAsMiwwLDAsMSwxLDEsMSwwLDEsMSwwLDEsNywwLDAsMSwwLDEsMCw3LDAsMCwxOCwyLDEsMCwxLDAsMCwyLDEsMCwwLDAsMCwxLDAsNSwxLDEsMSwxLDEsMSwxLDEsMCwwLDAsMCwwLDAsMCwxLDEsMCwxLDksMCwwLDEsMSwwLDAsNCwxLDEsMCwwLDAsMSwxLDAsMSwwLDAsMCwxLDAsMV196AQA8AQA+gRmeyJiaXpfdHlwZSI6MywiY3BhIjoie1wiY3BhX2xldmVsXCI6MixcImNwYV9zZXRcIjoyMH0iLCJleHBsb3JlX3JhdGlvIjoiMTAwIiwidmlkZW9fdXBfbWlkIjozNDYyMTAyMDh9gAUAkAUjkAUmkAVVkAVekAVikAVykAWEAZAFhgGQBYgBkAWJAZAFrAGQBbEBkAW0AZAFyAGQBdABkAXRAZAF1AGQBdgBkAXoAZAF8QGQBfkBkAWJApAFjQKQBY4CkAWYApAFmgKQBZ0CkAWeApAFqQKQBaoCkAWzApAFtwKQBcACkAXCApAFxQKQBcsCkAXMApAFzgKQBdMCkAXWApAF1wKQBdgCkAXZApAF2gKQBdwCkAXfApAF4QKQBeMCkAXkApAF5QKQBeYCkAXvApAF8AKQBfUCkAX7ApAFhgOQBY0DkAWOA5AFkgOQBZMDkAWYA5AFmQOQBZoDkAWbA5AFnAOQBaEDkAWiA5AFpAOQBacDoAWBkYeXAw==",
+          "resource": 1897,
+          "source": 1900,
+          "request_id": "1659013896419q172a26a189a141q1103",
+          "is_ad": true,
+          "cm_mark": 9,
+          "index": 3,
+          "is_ad_loc": true,
+          "card_index": 5,
+          "client_ip": "39.184.56.90",
+          "extra": {
+            "act_img": "",
+            "ad_content_type": 1,
+            "appstore_priority": 0,
+            "appstore_url": "",
+            "bg_img": "",
+            "card": {
+              "ad_tag": "UP主自荐",
+              "ad_tag_style": {
+                "bg_border_color": "",
+                "bg_color": "",
+                "bg_color_night": "",
+                "border_color": "",
+                "border_color_night": "",
+                "img_height": 48,
+                "img_url": "https://i0.hdslb.com/bfs/sycp/mng/202203/3621990414ef2de04c5730f1002d8dae.png",
+                "img_width": 48,
+                "text": "",
+                "text_color": "",
+                "text_color_night": "",
+                "type": 4
+              },
+              "adver": {
+                "adver_desc": "推荐了",
+                "adver_id": 346210208,
+                "adver_logo": "",
+                "adver_name": "我叫杂工哥特",
+                "adver_page_url": "https://space.bilibili.com/346210208",
+                "adver_type": 1
+              },
+              "adver_account_id": 0,
+              "adver_logo": "",
+              "adver_mid": 346210208,
+              "adver_name": "我叫杂工哥特",
+              "adver_page_url": "https://space.bilibili.com/346210208",
+              "callup_url": "",
+              "card_type": 1,
+              "covers": [
+                {
+                  "gif_tag_show": false,
+                  "gif_url": "",
+                  "image_height": 600,
+                  "image_width": 960,
+                  "loop": 5,
+                  "url": "https://i0.hdslb.com/bfs/sycp/creative_img/202205/e92166ad1c0ad395a96ef80cd82e8674.jpg"
+                }
+              ],
+              "desc": "吹风机测评",
+              "duration": "",
+              "dynamic_text": "小苏同学带你挑对护发高速吹风机",
+              "extra_desc": "",
+              "extreme_team_icon": "",
+              "extreme_team_status": false,
+              "feedback_panel": {
+                "close_rec_tips": "操作成功",
+                "feedback_panel_detail": [
+                  {
+                    "icon_url": "https://i0.hdslb.com/bfs/sycp/mng/201907/a53df8f189bb12666a39d10ad1babcf5.png",
+                    "jump_type": 1,
+                    "jump_url": "",
+                    "module_id": 1,
+                    "secondary_panel": [
+                      {
+                        "reason_id": 2,
+                        "text": "相似内容过多"
+                      },
+                      {
+                        "reason_id": 6,
+                        "text": "视频不感兴趣"
+                      },
+                      {
+                        "reason_id": 7,
+                        "text": "up主不感兴趣"
+                      },
+                      {
+                        "reason_id": 8,
+                        "text": "分区不感兴趣"
+                      }
+                    ],
+                    "sub_text": "（选择后将优化推广展示）",
+                    "text": "屏蔽推广"
+                  },
+                  {
+                    "icon_url": "https://i0.hdslb.com/bfs/sycp/mng/201907/2bc344ad3510da5cfdc7c7714abaeda4.png",
+                    "jump_type": 2,
+                    "jump_url": "https://cm.bilibili.com/ldad/light/popular-complain.html?complain_detail=eyJhZF90eXBlIjoxLCJleHBfbmFtZSI6ImFsbDpkZWZhdWx0LHBwY3RyOnZpZGVvX2N0cixjYXNzaW5pTW9iaWxlRHluYW1pY0NUUkNWUjpjb25zdGFudCxjYXNzaW5pVWZyYW1lQ1RSQ1ZSOmV4cCxub19hZDp1bmRlZmluZWQsYnJ1c2hfZHVwOmRlZmF1bHQsY3BjX3F1b3RhOmJhc2UsZmRfcGN0cjpmbHlzaHdjbGssc3RvcnlfY3RyOnFmLHN0b3J5X2N2cjpiYXNlLGR5bl9jdHI6ZmxpbmssZHluX2N2cjpyZW1haW4sdWZyYW1lX2N0cjp1bmlvbnJ0LHVmY3ZyOnVmcHAwNSxjdnJfcDpwcF91ZixkY3ZyZjplc21tX2R5bl9zdG9yeTIsY3ZyX2Y6ZXhwMjAsY3BhOnN0b3J5X3Jpc2VfbWF4XzIsb2NweFV2OmJhc2Usb2NweFJlY2FsbDptb2RlbCxVVjp1bmRlZmluZWQsaGFzaFVWOnVuZGVmaW5lZCxwdjpCLGZsb3dfcmF0aW86cjMsZG1wX2FnZTpkbXAsbkZlZEJhY2s6ZGVmYXVsdCxxaWZlaV9wZXJzb25hbDpoaWdoX2luaXQscWlmZWk6cGNfZXhwLGZseV9jdHJfaW5saW5lX3RhcmdldDpjbG9zZSxmbHlfY3RyX2lubGluZTptb2RlbCxmbHlfY3RyX3NkOnZ2X2NhcnQsZmx5X206ZXhwMSxmbHlfY3RyX2dkOm1vZGVsLGZseV9jdHJfY2FydDpjb25zdCxpbm5lcl9lbmhhbmNlOmV4cDEsUlM6Y29uc3RhbnQsZmx5X2NvYXJzZTptZXhwLGZseV90cnVucGx1czpleHBhbmQzMCxkcHM6ZGVmYXVsdCxvcGVuZmx5bmV3Om9wZW4sZmx5X3BjdnI6Y3ZyaCxmbHlfZmVlZGJhY2s6c3RvcnksZmx5X3N0b3J5X2ZyZXE6Y2xvc2UsZmx5X3NlbnNpX2ZyZXE6bWlkMTRkLGZseV9jdHJfcHA6cnRsaWtlLGZseV9jcGFfcGM6cGlkX2NwcCxmbHlfY3BhX2lubGluZTpyZXYsZmx5X2NwYV9wcDpwaWRfY3BwLGZseV9jcGFfc2lnbjpjb25zdGFudCxmbHlfY3BhX3N0OnJ0dnYsZmx5X2NwYTpjdnJoLGg1X3Y6SDUscEVOOlBSLHNGQnJ1OjIsdGltZUZyZXE6ZGVmYXVsdCx1dlRlc3Q6YTIsZEFkeDpkZWZhdWx0LHVzZUdycGM6dHJ1ZSxmcmVTOmNyLGNvYXJzZV90OmN0Y3ZyX291dGVyX3QsY29hcnNlOmNvbnN0YW50MyxoZGV0YWlsczpiYXNlLGNyb3dkUzpELHNtYXJ0YmlkOnVuZGVyZnJhbWVfc3BsaXQyLGZseV9zbWFydGJpZDpvdHQsZmx5X3NwZWNpYWxmZWVkX3RocmVkOnB1cHN0LGZseV9hdXRvX2dpZjpkZWZhdWx0LGJ1cGNwY19nc3A6YmFzZSxmbHlfcHVwX2NvYXJzZTpwcmVkX2N2cixjcGNfc2VhcmNoOmhvdXIsbGltaXRfYWR4OmRlZmF1bHQsbWV0OjMzNSxwY2htY3RyOnJ0X3VzZXIscGN2aWRlb2N0cjpob3VybHkscGNobWN2cjpjb25zdGFudCxwY3ZwY3ZyOmNvbnN0YW50LGNhc3NpbmlDVFI6cnRfNDAsY29hcnNlX3BwY3RyOnJ0LGNhc3NpbmlGZWVkc0NWUjpuZXdjb252MixjYXNzaW5pUGxheXBhZ2VDVlI6dXNlcmV4cF9ydCxjYXNzaW5pRXhwOmRwYV9xdW90YV9leHBfZXgsQ3JlYXRpdmVRdWFsaXR5OmF1dG8sZ2lmX2V4cDpiYXNlLHByb2dDcmVhRGljdFZlcjpkZWZhdWx0LHByb2dyYW1DcmVhdGl2ZTp2Myxwcm9nQ3JlYVJhbmRvbTpiYXNlLHByb2dDcmVhRmVlZEN0cjpkZWZhdWx0LHByb2dDcmVhRmVlZEN2cjpleHB2MSxwcm9nQ3JlYVN0b3J5Q3RyOmRlZmF1bHQscHJvZ0NyZWFTdG9yeUN2cjpleHAscHJvZ0NyZWFQUEN0cjpvcGVudjFhYSxwcm9nQ3JlYVVkZkN2cjpiYXNlMDEscHJvZ0NyZWFQUEN2cjpiYXNlLFVzZUNvbnRleHRJbmZvU3RvcnlGbGFnOmRlZmF1bHQscHJvZ0NyZWFUOmRlZmF1bHQsYnJhbmRJbmZvRXhwOmRlZmF1bHQsZHBhSG90UHJvZHVjdHNFeHBLZXk6ZXhwXzcsZHBhRGVkdXBDbGlja2VkVW5pdDpiYXNlX3YyLGRwYTJSZWNhbGw6YmFzZV92MCxkcGEyOmJhc2UscmVzZXJ2ZV9wcmljZTpjb25zdGFudCxyaXNrQ2F0ZWdvcnlGcmVxQ29udHJvbFVwZ3JhZGU6ZGVmYXVsdCxwZXJzb25hVGhpcmRTd2l0Y2g6YWxzLHNlYXJjaFF1ZXJ5UnVsZTpvdGhlcixmb3JjZUV4cG9zdXJlLWNhc3Npbmk6dXBpZF9hdmlkLHVuZGVyX2ZyYW1lX2VjcG1fZXhwOmVjcG1fNixpbm5lcl9vdXRlcl9iaWRfZXhwOm5ldzRfYmFzZSxEcGFDcmVhdGl2ZVN0cmF0ZWd5RXhwZXJpbWVudDpiYXNlLERwYVByb2R1Y3RTb3J0TW9kZWw6cmVfY29uc3RhbnQsRGlzbGlrZVN0b3J5QWRCbGFja01pZDpjbG9zZSxBcHBDb2V4aXN0RmlsdGVyOmNsb3NlLHN3aXRjaEJzUGdSZXFSYXRpbzpjbG9zZS1iYXNlLHVzZUFzUGc6b3Blbl8xMF8wNzIyLGJzRHVwQWQ6YmFzZSxiZXN0Q3JlYXRpdmU6ZWNwbTIsdW5kZXJmcmFtZV9kb3dubG9hZF9hZGJ1dHRvbjpiYXNlLGlubGluZUVjcG06ZGVmYXVsdCxEcGFTZXJ2ZXJFeHA6YW5uX29wZW5fc3VwcGx5LERwYUFubkV4cGVyaW1lbnQ6cW5uX29wZW5fc3VwcGx5LGR5bmFtaWNUaW1lb3V0TWluczpkZWZhdWx0LGN0clFGYWN0b3JDb25mRXhwOmZlZWR2Nyxzb3J0X2RpdmVyc2l0eTphY2NfOF9idWRnZXRfNTBfZXhwLEFBX1RFU1Q6YWFfdGVzdF8yX2V4cCxkcGFDcmVhdGl2ZVNlbGVjdEV4cDpleHBfc2VsZWN0X2pkX25vX2JnLGFjY291bnRfZXhwbG9yZV9zaG93X2xpbWl0OmRlZmF1bHQsY29hcnNlQ29udmVyc2lvblR5cGVXaGl0ZUNvbmZFeHA6ZGVmYXVsdCxib29zdFBybzpjb25zdGFudCxjb2Fyc2VFeHBsb3JlRmFjdG9yQ29uZjpkZWZhdWx0LG5ld19hZF9wcmljZTpiYXNlLHN0b3J5Y29hcnNlOmNvbnN0YW50LGFkX2luaGVyaXQ6Y29uc3RhbnQsdmlkZW9fdGVtcGxhdGVfc3VwcG9ydDpleHA0LGNvYXJzZV9mZWVkc19sdHI6Y29uc3RhbnQsY29hcnNlX2xhc3RfYWRfZml4OmJhc2UsZHluYW1pY0NwY0ltYWdlRmFjdG9yOmV4cDIsY3BjMV9leHRlbmRlZDpkZWZhdWx0LGNyb3dkX2VjcGM6Y29uc3RhbnQsbm9iaWQ6ZGVmYXVsdCxvdHRjb25maWc6ZGVmLGZseV9ib29zdDpsZWZ0LGJvb3N0X2JzOmJhc2UsYnVzX3VwX3Z2X2ZpbHRlcjpjbG9zZSxidXNfdXBfY3JlYV9kZWR1cF9maWx0ZXI6Y2xvc2UsYnJhbmRfc3BsYXNoX2xpc3RfYnlfdGltZTpicmFuZF9zcGxhc2hfbGlzdF9ieV90aW1lXzkwX3R1bm5lbCxJbm5lcl9hY2NvdW50X3RoZDpiYXNlLHBwUHJvZ2NyZWFHcmFkZUNhcmRFeHA6YmFzZSx1c2VyQWRBY3Rpb25zT2ZmbGluZUV4cDpiYXNlLGZlZWRzX25ld19idG46ZXhwMyxkeW5hbWljX2ZlZWRzX3N0eWxlX2V4cDpuZXdfc3R5bGVfbm9fYXZhdGFyLGZseV91Zl90aHJlc2g6Y29uc3RhbnQsVW5pdERldGFpbEluZm86Y2xvc2Usc2NmOmJhc2UsRHBhMlhpYW9taUZsb3dFeHBsb3JlOmNsb3NlLEJ1c2luZXNzVXBIaWVyYXJjaHk6ZXhwLGVuYWJsZUNhcmR0eXBlRG93bmxvYWQ6ZXhwLGZhY3RfbmVnYXRpdmU6YmFzZSxnZF9wbHVzX2RhdmluY2k6YmFzZSxkYWlodW9fZXh0ZW5kOmVhY2g1LHByb21vdGlvbl9iaWdfZXhwOm9wZW4sc3Rvcnlfc3ViY2FyZF9zdHlsZTpleHBfaCxsb2dnaW5nX2FkaW5mb19saXN0OmJhc2UsRmx5VmlkZW9QbGF5RmlsdGVyRXhwQWx0OmJhc2UsdXNlU3RvcnlHYW1lQnRuVmVyVHdvOmJhc2UsZW5hYmxlX2FsdF9kYXZpbmNpOmRlZmF1bHQscHJvZHVjdF9kaW1fZnJlcV9zd2l0Y2g6YmFzZSx1bmRlcmZyYW1lX3B1bGxfdXA6ZXhwOSx0YXAzX3VybF9yZXBsYWNlX2V4cDpiYXNlX25ldyxmbHlfY29hcnNlX3Z2OmV4cGFuZDMwLHN0b3J5X3N0eWxlX3NlbGVjdDpiYXNlMDAsc3RvcnlJb3NDdXN0b21QYWdlOmJhc2UsYmxhY2tfbGlzdF9zc3A6b3Blbl9ibGFja19saXN0X3R1bm5lbCxuRmVkQmFjazE6ZGVmYXVsdCxnZF9wbHVzX2J1ZGdldF9idWNrZXQ6ZXhwMSxtaWRfYWE6ZXhwXzEsc3RvcnlfZnJlcV9kYXlfbGltaXQ6ZXhwLHB2X2FhOmRlZmF1bHQsc2VhcmNoX2FwcF9pY29uOmJhc2Usc3NwX2FzX3Byb2Nlc3NfcGI6c3NwX2FzX3Byb2Nlc3NfcGJfYmFzZSxpcGFkX2V4cDpvcGVuLHVwUmVjYWxsQ29uZjpiYXNlMixyZXFfbG9nX3JhdGlvOmJhc2UsZHBhVW5kZXJmcmFtZU5ld1N0eWxlOmV4cDIsZmx5X2F2aWRfc3dpdGNoOmJhc2UsYXNfdG9fc3NwX3VzZU9ubHlFeHBOYW1lQnV0QWR4OnVzZU9ubHlFeHBOYW1lQnV0QWR4X2Jhc2Usc3RvcnlBbmRyb2lkQ3VzdG9tUGFnZTpleHAsdXZfYWE6ZXhwXzEsc3BsYXNoX2J1ZGdldF9idWNrZXQ6ZXhwMixuZXdfZHluYW1pY19mcmVxX2V4cDpuZXdfYmFzZSxjb250aW51ZV9mZWVkX2JydXNoOmJhc2UsbmV3QnNGaWx0ZXJMb2c6b3BlbixmbHlfcHVwX2J1ZGdldDpjb25zdGFudCxjb250YWluZXJfbGFuZGluZ3BhZ2U6b3BlbixkQWR4MTpkZWZhdWx0LHVzZV93eF9wcm9nOmV4cDEsaWRjVGFnOnNoamQsZmVlZF9jYXJkaW5kZXhfZXhwOmV4cDIsUHJlZGljdENvc3RGaWx0ZXI6b3Blbl9hbGxfOTAsaGlnaF9mcmVxX2FkX2ZpbHRlcl9zd2l0Y2g6YmFzZSxmbHlfbGlrZV90aDpjbG9zZSxjcmVhdGl2ZV9jb21iaW5lOmJhc2UsZmx5X2ZpcnN0X2x2bDpjbG9zZSxmcmVxX2ZpcnN0X21lcmdlOmJhc2UsaW9zX2dhbWVfaW5mb190YWIzOmJhc2UsdXNlVGFiTmV3Rmx5SWNvbjpleHA3LHZsYW5kaW5ncGFnZTpkZWZhdWx0MzEsYnVzaW5lc3NfZmx5X2ljb25fZXhwOmV4cF9uZXcsZmx5X2NvYXJzZV91cGdyYWRlOmNvbnN0YW50LHNlYXJjaF9mcmVxOmV4cCxpZ25vcmVfZ2lmX3Jlc2lzdDpvcGVuLHJlZGlzT3ZlcmxvcmRFeHA6YmFzZSxlZGNfdGFiX2V4cDpleHA1LHN0b3J5X2FkdmVyX2p1bXA6YmFzZV8wMzIyLGZyZXFfdGFnOmV4cCxjcmVhdGl2ZV9zY2VuZV9mYWN0b3I6ZXhwX25ldyxuZXdfY3JlYXRpdmVfdGFiOmV4cDZfNTAwLGZseV9hdmlkX2ZyZXFfd2hpdGVsaXN0X2V4cDpvcGVuLGNyZWF0aXZlX2F1dG9fZ2lmOmJhc2UwLE1vZGVsRmVhdHVyZXNIaXZlTG9nOmNsb3NlLGlvc19wdWxsX3VwOmJhc2UsZmx5X2J1cF9oaXN0X3Z2X2ZpbHRlcjpiYXNlLHNtYWxsX2J1ZGdldF9hbm5fb3B0aTpmZGJodjEsQWNjb3VudFRhZ0ZyZXFXaXRoQ3Jvd2Q6YmFzZSxhZHhQbGF5UGFnZVJhc2lvOmV4cDAsY3JlYXRpdmVfYXZpZF90YWIzOmJhc2UsY29hcnNlc29ydF9jdHJ0X2V4cDphbGxfZXhwLHBsYXRmb3JtOmRlZmF1bHRfMzAwIiwiZ3JhZGVfY29uY3JldGVfaWRfbWFwcGluZyI6IntcIjFcIjpcIjk2OTc5ODM2XCIsXCIxMVwiOlwiMjM5XCIsXCIxMlwiOlwiMTkwMFwiLFwiMTNcIjpcIjczNjMxN1wiLFwiMTRcIjpcIjY4MVwiLFwiMTVcIjpcIjcwM1wiLFwiMTZcIjpcIjczNjMxN18xMzcwN1wiLFwiMlwiOlwiNzc0MjYxXCIsXCIzXCI6XCI3NzQyNjFcIixcIjRcIjpcIjMyXCIsXCI1XCI6XCIzNlwiLFwiNlwiOlwiNzc0MjYxXCIsXCI3XCI6XCI4NTM2NTc3MjlcIixcIjhcIjpcIjM0NjIxMDIwOFwifSIsInN0cmF0ZWd5X2lkIjo0fQ",
+                    "module_id": 2,
+                    "sub_text": "",
+                    "text": "我要投诉"
+                  },
+                  {
+                    "icon_url": "https://i0.hdslb.com/bfs/sycp/mng/201907/82480c4ef205c9b715d6e2ea7f5c4041.png",
+                    "jump_type": 2,
+                    "jump_url": "https://cm.bilibili.com/ldad/light/popular-introduce.html",
+                    "module_id": 3,
+                    "sub_text": "",
+                    "text": "我为什么会看到此推广"
+                  }
+                ],
+                "open_rec_tips": "将减少展示此类推广",
+                "panel_type_text": "推广",
+                "toast": "将减少相似推广推荐"
+              },
+              "fold_time": 0,
+              "goods_cur_price": "",
+              "goods_ori_price": "",
+              "grade_denominator": 0,
+              "grade_level": 0,
+              "imax_landing_page_v2": "",
+              "jump_url": "https://www.bilibili.com/video/av853657729?from_spmid=ad.tianma.tm-recommendation-card.0&trackid=all_23.shjd-ai-recsys-04.1659013896389.350&track_id=pbaes.s9WPALBns_UOYeYt6IuHd-d96ZkoMWFBWYE-3FwpcdQam-CxyhAiedRWx5i95vVqwvSOFNSfsFB0b-CaPOMumyJiJIi1xEsqUfaARlgbTwc&source_id=1900&linked_creative_id=96979836&request_id=1659013896419q172a26a189a141q1103",
+              "live_booking_population_threshold": 100,
+              "live_room_area": "",
+              "live_room_popularity": 0,
+              "live_room_title": "",
+              "live_streamer_face": "",
+              "live_streamer_name": "",
+              "live_tag_show": false,
+              "long_desc": "",
+              "ori_mark_hidden": 0,
+              "ott_jump_url": "",
+              "price_desc": "",
+              "price_symbol": "",
+              "star_level": 0,
+              "support_transition": false,
+              "title": "小苏同学带你挑对护发高速吹风机",
+              "transition": "",
+              "under_player_interaction_style": 0,
+              "universal_app": "",
+              "use_multi_cover": false,
+              "video": {
+                "auto_play": true,
+                "auto_play_value": 0,
+                "avid": 853657729,
+                "biz_id": 588791118,
+                "btn_dyc_color": false,
+                "btn_dyc_time": 0,
+                "cid": 588791118,
+                "cover": "https://i0.hdslb.com/bfs/sycp/creative_img/202205/e92166ad1c0ad395a96ef80cd82e8674.jpg",
+                "ep_id": 0,
+                "from": "vupload",
+                "from_spmid": "",
+                "orientation": 0,
+                "page": 0,
+                "season_id": 0,
+                "url": ""
+              }
+            },
+            "click_area": 0,
+            "click_urls": [],
+            "download_whitelist": [],
+            "enable_double_jump": false,
+            "enable_download_dialog": false,
+            "enable_h5_alert": true,
+            "enable_h5_pre_load": 0,
+            "enable_share": true,
+            "enable_store_direct_launch": 0,
+            "feedback_panel_style": 0,
+            "from_track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+            "h5_pre_load_url": "",
+            "landingpage_download_style": 2,
+            "layout": "",
+            "macro_replace_priority": 0,
+            "open_whitelist": [
+              "tbopen",
+              "taobao",
+              "tmall"
+            ],
+            "preload_landingpage": 0,
+            "product_id": 0,
+            "report_time": 2000,
+            "sales_type": 11,
+            "shop_id": 0,
+            "show_1s_urls": [],
+            "show_urls": [],
+            "special_industry": false,
+            "special_industry_style": 0,
+            "special_industry_tips": "",
+            "store_callup_card": false,
+            "track_id": "pbaes.s9WPALBns_UOYeYt6IuHd-d96ZkoMWFBWYE-3FwpcdQam-CxyhAiedRWx5i95vVqwvSOFNSfsFB0b-CaPOMumyJiJIi1xEsqUfaARlgbTwc",
+            "up_mid": 0,
+            "upzone_entrance_report_id": 0,
+            "upzone_entrance_type": 0,
+            "use_ad_web_v2": true
+          },
+          "creative_style": 3
+        },
+        "three_point_v2": [
+          {
+            "title": "不感兴趣",
+            "type": "dislike",
+            "id": 1
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "cover_left_text_1": "190.7万",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "190.7万观看",
+        "cover_left_text_2": "930",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "930弹幕",
+        "cover_right_text": "7:41",
+        "cover_right_content_description": "7分钟41秒",
+        "desc_button": {
+          "text": "家居房产",
+          "event": "channel_click",
+          "type": 1,
+          "event_v2": "channel"
+        },
+        "can_play": 1
+      },
+      {
+        "card_type": "small_cover_v2",
+        "card_goto": "av",
+        "goto": "av",
+        "param": "471469842",
+        "cover": "http://i0.hdslb.com/bfs/archive/ff1f0fd6f342d3c2d43178ace97cb1c42e1e05ae.png",
+        "title": "我哥太烧辣，给他偷偷发上来，你们别告诉他[doge]",
+        "uri": "bilibili://video/471469842?cid=786964408&player_height=1280&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A786964408%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorcos.bilivideo.com%2Fupgcxcode%2F08%2F44%2F786964408%2F786964408-1-32.flv%3Fe%3Dig8euxZM2rNcNbR17wdVhwdlhWRMhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dcosbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D25927673355f325b3afe7643470770f7%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D114992%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A989220%2C%22timelength%22%3A19087%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A2184856%2C%22timelength%22%3A19087%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A4467836%2C%22timelength%22%3A19087%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorcos.bilivideo.com%2Fupgcxcode%2F08%2F44%2F786964408%2F786964408-1-32.flv%3Fe%3Dig8euxZM2rNcNbR17wdVhwdlhWRMhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dcosbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D25927673355f325b3afe7643470770f7%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D114992%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=720&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:救世兄妹秋彻和洛清",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:日常",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 3,
+              "name": "频道:小视频",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 12,
+              "name": "此类内容过多",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 13,
+              "name": "推荐过",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ],
+          "feedbacks": [
+            {
+              "id": 1,
+              "name": "恐怖血腥",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 2,
+              "name": "色情低俗",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 3,
+              "name": "封面恶心",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 4,
+              "name": "标题党/封面党",
+              "toast": "将优化首页此类内容"
+            }
+          ],
+          "watch_later": 1
+        },
+        "args": {
+          "up_id": 7394992,
+          "up_name": "救世兄妹秋彻和洛清",
+          "rid": 21,
+          "rname": "日常",
+          "tid": 775775,
+          "tname": "小视频",
+          "aid": 471469842
+        },
+        "player_args": {
+          "aid": 471469842,
+          "cid": 786964408,
+          "type": "av",
+          "duration": 20
+        },
+        "idx": 1659013902,
+        "three_point_v2": [
+          {
+            "title": "添加至稍后再看",
+            "type": "watch_later",
+            "icon": "https://i0.hdslb.com/bfs/activity-plat/static/ce06d65bc0a8d8aa2a463747ce2a4752/NyPAqcn0QF.png"
+          },
+          {
+            "title": "反馈",
+            "subtitle": "(选择后将优化首页此类内容)",
+            "reasons": [
+              {
+                "id": 1,
+                "name": "恐怖血腥",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 2,
+                "name": "色情低俗",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 3,
+                "name": "封面恶心",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 4,
+                "name": "标题党/封面党",
+                "toast": "将优化首页此类内容"
+              }
+            ],
+            "type": "feedback"
+          },
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:救世兄妹秋彻和洛清",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:日常",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 3,
+                "name": "频道:小视频",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 12,
+                "name": "此类内容过多",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 13,
+                "name": "推荐过",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "视频,我哥太烧辣，给他偷偷发上来，你们别告诉他[doge],1观看,-弹幕,时长0分钟20秒,UP主救世兄妹秋彻和洛清,已关注,",
+        "cover_left_text_1": "1",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "1观看",
+        "cover_left_text_2": "-",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "-弹幕",
+        "cover_right_text": "0:20",
+        "cover_right_content_description": "0分钟20秒",
+        "rcmd_reason": "已关注",
+        "desc": "救世兄妹秋彻和洛清",
+        "official_icon": 16,
+        "can_play": 1,
+        "rcmd_reason_style": {
+          "text": "已关注",
+          "text_color": "#FF6633",
+          "bg_color": "#FFF1ED",
+          "border_color": "#FFF1ED",
+          "text_color_night": "#BF5330",
+          "bg_color_night": "#3D2D29",
+          "border_color_night": "#3D2D29",
+          "bg_style": 1
+        }
+      },
+      {
+        "card_type": "small_cover_v2",
+        "card_goto": "av",
+        "goto": "vertical_av",
+        "param": "601306275",
+        "cover": "http://i1.hdslb.com/bfs/archive/f887d2471cb8746dc65f80522aef0472713d5460.jpg",
+        "title": "广财招生办直接被干到沉默",
+        "uri": "bilibili://story/601306275?cid=783361538&player_height=1280&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A783361538%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorcoso1.bilivideo.com%2Fupgcxcode%2F38%2F15%2F783361538%2F783361538_nb3-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dcoso1bv%5Cu0026oi%3D666384474%5Cu0026trid%3Da42ce18d641d431aa6405b148eb86ee3O%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3Def83c205fd8ff946282948d78e1780ca%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D48822%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A12872018%2C%22timelength%22%3A419747%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A20456704%2C%22timelength%22%3A419777%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A26749471%2C%22timelength%22%3A419777%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorcos.bilivideo.com%2Fupgcxcode%2F38%2F15%2F783361538%2F783361538_nb3-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dcosbv%5Cu0026oi%3D666384474%5Cu0026trid%3Da42ce18d641d431aa6405b148eb86ee3O%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D138154b9875e8febbe993933d20fc397%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D48822%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=592&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:对方正在输入中..",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 9,
+              "name": "竖屏模式",
+              "toast": "将减少竖屏模式推荐"
+            },
+            {
+              "id": 3,
+              "name": "频道:大学生",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 12,
+              "name": "此类内容过多",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 13,
+              "name": "推荐过",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ],
+          "feedbacks": [
+            {
+              "id": 1,
+              "name": "恐怖血腥",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 2,
+              "name": "色情低俗",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 3,
+              "name": "封面恶心",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 4,
+              "name": "标题党/封面党",
+              "toast": "将优化首页此类内容"
+            }
+          ],
+          "watch_later": 1
+        },
+        "args": {
+          "up_id": 32304103,
+          "up_name": "对方正在输入中..",
+          "rid": 21,
+          "rname": "日常",
+          "tid": 34356,
+          "tname": "大学生",
+          "aid": 601306275
+        },
+        "player_args": {
+          "aid": 601306275,
+          "cid": 783361538,
+          "type": "av",
+          "duration": 420
+        },
+        "idx": 1659013901,
+        "three_point_v2": [
+          {
+            "title": "添加至稍后再看",
+            "type": "watch_later",
+            "icon": "https://i0.hdslb.com/bfs/activity-plat/static/ce06d65bc0a8d8aa2a463747ce2a4752/NyPAqcn0QF.png"
+          },
+          {
+            "title": "反馈",
+            "subtitle": "(选择后将优化首页此类内容)",
+            "reasons": [
+              {
+                "id": 1,
+                "name": "恐怖血腥",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 2,
+                "name": "色情低俗",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 3,
+                "name": "封面恶心",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 4,
+                "name": "标题党/封面党",
+                "toast": "将优化首页此类内容"
+              }
+            ],
+            "type": "feedback"
+          },
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:对方正在输入中..",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 9,
+                "name": "竖屏模式",
+                "toast": "将减少竖屏模式推荐"
+              },
+              {
+                "id": 3,
+                "name": "频道:大学生",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 12,
+                "name": "此类内容过多",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 13,
+                "name": "推荐过",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "竖版视频,广财招生办直接被干到沉默,68.9万观看,1310弹幕,时长7分钟00秒,UP主对方正在输入中..,竖屏,",
+        "cover_left_text_1": "68.9万",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "68.9万观看",
+        "cover_left_text_2": "1310",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "1310弹幕",
+        "cover_right_text": "7:00",
+        "cover_right_content_description": "7分钟00秒",
+        "rcmd_reason": "竖屏",
+        "desc": "对方正在输入中..",
+        "can_play": 1,
+        "rcmd_reason_style": {
+          "text": "竖屏",
+          "text_color": "#FF6633",
+          "bg_color": "#FFF1ED",
+          "border_color": "#FFF1ED",
+          "text_color_night": "#BF5330",
+          "bg_color_night": "#3D2D29",
+          "border_color_night": "#3D2D29",
+          "bg_style": 1
+        },
+        "ff_cover": "http://i0.hdslb.com/bfs/storyff/n220725a21sxg3oyjsuaw72bpauxj135_firsti.jpg"
+      },
+      {
+        "card_type": "small_cover_v2",
+        "card_goto": "av",
+        "goto": "av",
+        "param": "470986986",
+        "cover": "http://i2.hdslb.com/bfs/archive/90b23b1dd093f0ff1053635f7d8d1588d8266a0f.jpg",
+        "title": "【魔兽战役】《洛丹伦的天灾-Soviet神级官改》梦魇难度攻略实况（完结）",
+        "uri": "bilibili://video/470986986?cid=774633333&player_height=1080&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A774633333%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorhwo1.bilivideo.com%2Fupgcxcode%2F33%2F33%2F774633333%2F774633333-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwo1bv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D518678c16612f062ddea36151ea117ff%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D60613%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%22112%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A192787860%2C%22timelength%22%3A574991%7D%5D%7D%2C%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A20173191%2C%22timelength%22%3A574933%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A34791880%2C%22timelength%22%3A574991%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A61152959%2C%22timelength%22%3A574991%7D%5D%7D%2C%2280%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A133615146%2C%22timelength%22%3A574991%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorhw.bilivideo.com%2Fupgcxcode%2F33%2F33%2F774633333%2F774633333-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D9f5ca66dced0b1e9bc5a2c7f0b0ce875%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D60613%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A112%2C%22format%22%3A%22hdflv2%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P%2B%22%2C%22new_description%22%3A%221080P%20%E9%AB%98%E7%A0%81%E7%8E%87%22%2C%22display_desc%22%3A%221080P%22%2C%22superscript%22%3A%22%E9%AB%98%E7%A0%81%E7%8E%87%22%2C%22need_vip%22%3Atrue%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A80%2C%22format%22%3A%22flv%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P%22%2C%22new_description%22%3A%221080P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%221080P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=1920&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:Scarlet丶赤梦",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:单机游戏",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 3,
+              "name": "频道:魔兽战役",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 12,
+              "name": "此类内容过多",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 13,
+              "name": "推荐过",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ],
+          "feedbacks": [
+            {
+              "id": 1,
+              "name": "恐怖血腥",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 2,
+              "name": "色情低俗",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 3,
+              "name": "封面恶心",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 4,
+              "name": "标题党/封面党",
+              "toast": "将优化首页此类内容"
+            }
+          ],
+          "watch_later": 1
+        },
+        "args": {
+          "up_id": 86055616,
+          "up_name": "Scarlet丶赤梦",
+          "rid": 17,
+          "rname": "单机游戏",
+          "tid": 547752,
+          "tname": "魔兽战役",
+          "aid": 470986986
+        },
+        "player_args": {
+          "aid": 470986986,
+          "cid": 774633333,
+          "type": "av",
+          "duration": 23950
+        },
+        "idx": 1659013900,
+        "three_point_v2": [
+          {
+            "title": "添加至稍后再看",
+            "type": "watch_later",
+            "icon": "https://i0.hdslb.com/bfs/activity-plat/static/ce06d65bc0a8d8aa2a463747ce2a4752/NyPAqcn0QF.png"
+          },
+          {
+            "title": "反馈",
+            "subtitle": "(选择后将优化首页此类内容)",
+            "reasons": [
+              {
+                "id": 1,
+                "name": "恐怖血腥",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 2,
+                "name": "色情低俗",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 3,
+                "name": "封面恶心",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 4,
+                "name": "标题党/封面党",
+                "toast": "将优化首页此类内容"
+              }
+            ],
+            "type": "feedback"
+          },
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:Scarlet丶赤梦",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:单机游戏",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 3,
+                "name": "频道:魔兽战役",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 12,
+                "name": "此类内容过多",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 13,
+                "name": "推荐过",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "视频,【魔兽战役】《洛丹伦的天灾-Soviet神级官改》梦魇难度攻略实况（完结）,4.1万观看,355弹幕,时长6小时39分钟10秒,UP主Scarlet丶赤梦,",
+        "cover_left_text_1": "4.1万",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "4.1万观看",
+        "cover_left_text_2": "355",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "355弹幕",
+        "cover_right_text": "6:39:10",
+        "cover_right_content_description": "6小时39分钟10秒",
+        "desc_button": {
+          "text": "Scarlet丶赤梦",
+          "uri": "bilibili://space/86055616",
+          "event": "channel_click",
+          "type": 1,
+          "event_v2": "channel"
+        },
+        "can_play": 1,
+        "goto_icon": {
+          "icon_url": "https://i0.hdslb.com/bfs/app/4927042e899b2a511b7cba618566273caf45c6fe.png",
+          "icon_night_url": "https://i0.hdslb.com/bfs/app/14f98cd4d387a8ee19e92a38e852e7b66f8672ca.png",
+          "icon_width": 16,
+          "icon_height": 16
+        }
+      },
+      {
+        "card_type": "small_cover_v2",
+        "card_goto": "av",
+        "goto": "av",
+        "param": "598400656",
+        "cover": "http://i0.hdslb.com/bfs/archive/ac5ba1a44649fa7bf584ccb7273c34bcb1b595a6.png",
+        "title": "超细节！榜一猫掌柜硬核教学，想变强你就来。",
+        "uri": "bilibili://video/598400656?cid=773540164&player_height=1080&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A773540164%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorhw.bilivideo.com%2Fupgcxcode%2F64%2F01%2F773540164%2F773540164-1-32.flv%3Fe%3Dig8euxZM2rNcNbR17bdVhwdlhWRjhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D5ed817aac80af87e25c39086d7f88f0e%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D116179%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A3890071%2C%22timelength%22%3A73033%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A8481113%2C%22timelength%22%3A73104%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A14885921%2C%22timelength%22%3A73104%7D%5D%7D%2C%2280%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A14842908%2C%22timelength%22%3A73104%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorhw.bilivideo.com%2Fupgcxcode%2F64%2F01%2F773540164%2F773540164-1-32.flv%3Fe%3Dig8euxZM2rNcNbR17bdVhwdlhWRjhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D5ed817aac80af87e25c39086d7f88f0e%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D116179%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A80%2C%22format%22%3A%22flv%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P%22%2C%22new_description%22%3A%221080P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%221080P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=1920&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:夜光ovo",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:手机游戏",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 3,
+              "name": "频道:教学",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 12,
+              "name": "此类内容过多",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 13,
+              "name": "推荐过",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ],
+          "feedbacks": [
+            {
+              "id": 1,
+              "name": "恐怖血腥",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 2,
+              "name": "色情低俗",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 3,
+              "name": "封面恶心",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 4,
+              "name": "标题党/封面党",
+              "toast": "将优化首页此类内容"
+            }
+          ],
+          "watch_later": 1
+        },
+        "args": {
+          "up_id": 570406,
+          "up_name": "夜光ovo",
+          "rid": 172,
+          "rname": "手机游戏",
+          "tid": 8817,
+          "tname": "教学",
+          "aid": 598400656
+        },
+        "player_args": {
+          "aid": 598400656,
+          "cid": 773540164,
+          "type": "av",
+          "duration": 4314
+        },
+        "idx": 1659013899,
+        "three_point_v2": [
+          {
+            "title": "添加至稍后再看",
+            "type": "watch_later",
+            "icon": "https://i0.hdslb.com/bfs/activity-plat/static/ce06d65bc0a8d8aa2a463747ce2a4752/NyPAqcn0QF.png"
+          },
+          {
+            "title": "反馈",
+            "subtitle": "(选择后将优化首页此类内容)",
+            "reasons": [
+              {
+                "id": 1,
+                "name": "恐怖血腥",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 2,
+                "name": "色情低俗",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 3,
+                "name": "封面恶心",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 4,
+                "name": "标题党/封面党",
+                "toast": "将优化首页此类内容"
+              }
+            ],
+            "type": "feedback"
+          },
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:夜光ovo",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:手机游戏",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 3,
+                "name": "频道:教学",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 12,
+                "name": "此类内容过多",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 13,
+                "name": "推荐过",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "视频,超细节！榜一猫掌柜硬核教学，想变强你就来。,6396观看,20弹幕,时长1小时11分钟54秒,UP主夜光ovo,",
+        "cover_left_text_1": "6396",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "6396观看",
+        "cover_left_text_2": "20",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "20弹幕",
+        "cover_right_text": "1:11:54",
+        "cover_right_content_description": "1小时11分钟54秒",
+        "desc_button": {
+          "text": "夜光ovo",
+          "uri": "bilibili://space/570406",
+          "event": "channel_click",
+          "type": 1,
+          "event_v2": "channel"
+        },
+        "can_play": 1,
+        "goto_icon": {
+          "icon_url": "https://i0.hdslb.com/bfs/app/4927042e899b2a511b7cba618566273caf45c6fe.png",
+          "icon_night_url": "https://i0.hdslb.com/bfs/app/14f98cd4d387a8ee19e92a38e852e7b66f8672ca.png",
+          "icon_width": 16,
+          "icon_height": 16
+        }
+      },
+      {
+        "card_type": "small_cover_v2",
+        "card_goto": "av",
+        "goto": "av",
+        "param": "643038818",
+        "cover": "http://i2.hdslb.com/bfs/archive/8471b48a5068f9cbff0e35ca1edaa409cecdc26a.jpg",
+        "title": "【棠衣衣】《宿命》浅唱一段  Cover：少司命、CRITTY --只要我一直唱就一定会有人看吧",
+        "uri": "bilibili://video/643038818?cid=762596057&player_height=1080&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A762596057%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorhw.bilivideo.com%2Fupgcxcode%2F57%2F60%2F762596057%2F762596057-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D5894a4e13eab936a9592ff8af53c91c0%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D89387%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%22116%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A51570187%2C%22timelength%22%3A115755%7D%5D%7D%2C%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A6178014%2C%22timelength%22%3A115752%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A10279532%2C%22timelength%22%3A115805%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A20016497%2C%22timelength%22%3A115805%7D%5D%7D%2C%2280%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A37125450%2C%22timelength%22%3A115805%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorhw.bilivideo.com%2Fupgcxcode%2F57%2F60%2F762596057%2F762596057-1-32.flv%3Fe%3Dig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D5894a4e13eab936a9592ff8af53c91c0%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D89387%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A116%2C%22format%22%3A%22flv_p60%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P60%22%2C%22new_description%22%3A%221080P%2060%E5%B8%A7%22%2C%22display_desc%22%3A%221080P%22%2C%22superscript%22%3A%2260%E5%B8%A7%22%2C%22need_vip%22%3Atrue%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A80%2C%22format%22%3A%22flv%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%201080P%22%2C%22new_description%22%3A%221080P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%221080P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=1920&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:棠衣衣吖",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:翻唱",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 3,
+              "name": "频道:翻唱挑战赛",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 12,
+              "name": "此类内容过多",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 13,
+              "name": "推荐过",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ],
+          "feedbacks": [
+            {
+              "id": 1,
+              "name": "恐怖血腥",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 2,
+              "name": "色情低俗",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 3,
+              "name": "封面恶心",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 4,
+              "name": "标题党/封面党",
+              "toast": "将优化首页此类内容"
+            }
+          ],
+          "watch_later": 1
+        },
+        "args": {
+          "up_id": 6298904,
+          "up_name": "棠衣衣吖",
+          "rid": 31,
+          "rname": "翻唱",
+          "tid": 16979872,
+          "tname": "翻唱挑战赛",
+          "aid": 643038818
+        },
+        "player_args": {
+          "aid": 643038818,
+          "cid": 762596057,
+          "type": "av",
+          "duration": 116
+        },
+        "idx": 1659013898,
+        "three_point_v2": [
+          {
+            "title": "添加至稍后再看",
+            "type": "watch_later",
+            "icon": "https://i0.hdslb.com/bfs/activity-plat/static/ce06d65bc0a8d8aa2a463747ce2a4752/NyPAqcn0QF.png"
+          },
+          {
+            "title": "反馈",
+            "subtitle": "(选择后将优化首页此类内容)",
+            "reasons": [
+              {
+                "id": 1,
+                "name": "恐怖血腥",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 2,
+                "name": "色情低俗",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 3,
+                "name": "封面恶心",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 4,
+                "name": "标题党/封面党",
+                "toast": "将优化首页此类内容"
+              }
+            ],
+            "type": "feedback"
+          },
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:棠衣衣吖",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:翻唱",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 3,
+                "name": "频道:翻唱挑战赛",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 12,
+                "name": "此类内容过多",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 13,
+                "name": "推荐过",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "视频,【棠衣衣】《宿命》浅唱一段  Cover：少司命、CRITTY --只要我一直唱就一定会有人看吧,514观看,1弹幕,时长1分钟56秒,UP主棠衣衣吖,",
+        "cover_left_text_1": "514",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "514观看",
+        "cover_left_text_2": "1",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "1弹幕",
+        "cover_right_text": "1:56",
+        "cover_right_content_description": "1分钟56秒",
+        "desc_button": {
+          "text": "棠衣衣吖",
+          "uri": "bilibili://space/6298904",
+          "event": "channel_click",
+          "type": 1,
+          "event_v2": "channel"
+        },
+        "can_play": 1,
+        "goto_icon": {
+          "icon_url": "https://i0.hdslb.com/bfs/app/4927042e899b2a511b7cba618566273caf45c6fe.png",
+          "icon_night_url": "https://i0.hdslb.com/bfs/app/14f98cd4d387a8ee19e92a38e852e7b66f8672ca.png",
+          "icon_width": 16,
+          "icon_height": 16
+        }
+      },
+      {
+        "card_type": "small_cover_v2",
+        "card_goto": "av",
+        "goto": "av",
+        "param": "301306349",
+        "cover": "http://i0.hdslb.com/bfs/archive/0bb85de038130f4d5d3df880f542ae6fbcd67d90.jpg",
+        "title": "无论开不开心，没有火锅解决不了的",
+        "uri": "bilibili://video/301306349?cid=783355398&player_height=576&player_preload=%7B%22expire_time%22%3A1659017496%2C%22cid%22%3A783355398%2C%22quality%22%3A32%2C%22url%22%3A%22http%3A%2F%2Fupos-sz-mirrorhwo1.bilivideo.com%2Fupgcxcode%2F98%2F53%2F783355398%2F783355398_nb3-1-32.flv%3Fe%3Dig8euxZM2rNcNbR1hzdVhwdlhWRzhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwo1bv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D5b34f74d322e4a47783500d1f3af4f29%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D0%2C2%5Cu0026bw%3D121767%5Cu0026logo%3D80000000%22%2C%22file_info%22%3A%7B%2216%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A772431%2C%22timelength%22%3A14930%7D%5D%7D%2C%2232%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A1704738%2C%22timelength%22%3A14961%7D%5D%7D%2C%2264%22%3A%7B%22infos%22%3A%5B%7B%22filesize%22%3A2626820%2C%22timelength%22%3A14961%7D%5D%7D%7D%2C%22video_codecid%22%3A7%2C%22video_project%22%3Atrue%2C%22fnver%22%3A0%2C%22fnval%22%3A0%2C%22backup_url%22%3A%5B%22http%3A%2F%2Fupos-sz-mirrorhw.bilivideo.com%2Fupgcxcode%2F98%2F53%2F783355398%2F783355398_nb3-1-32.flv%3Fe%3Dig8euxZM2rNcNbR1hzdVhwdlhWRzhwdVhoNvNC8BqJIzNbfqXBvEuENvNC8aNEVEtEvE9IMvXBvE2ENvNCImNEVEIj0Y2J_aug859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859IB_%5Cu0026uipk%3D5%5Cu0026nbs%3D1%5Cu0026deadline%3D1659021096%5Cu0026gen%3Dplayurlv2%5Cu0026os%3Dhwbv%5Cu0026oi%3D666384474%5Cu0026trid%3Dff079d0c48e54896a086c88de5910216U%5Cu0026mid%3D243766934%5Cu0026platform%3Dandroid%5Cu0026upsig%3D59036c50f4ae18a20f41eb8f0055f2cd%5Cu0026uparams%3De%2Cuipk%2Cnbs%2Cdeadline%2Cgen%2Cos%2Coi%2Ctrid%2Cmid%2Cplatform%5Cu0026bvc%3Dvod%5Cu0026nettype%3D0%5Cu0026orderid%3D1%2C2%5Cu0026bw%3D121767%5Cu0026logo%3D40000000%22%5D%2C%22accept_formats%22%3A%5B%7B%22quality%22%3A64%2C%22format%22%3A%22flv720%22%2C%22description%22%3A%22%E9%AB%98%E6%B8%85%20720P%22%2C%22new_description%22%3A%22720P%20%E9%AB%98%E6%B8%85%22%2C%22display_desc%22%3A%22720P%22%2C%22need_login%22%3Atrue%7D%2C%7B%22quality%22%3A32%2C%22format%22%3A%22flv480%22%2C%22description%22%3A%22%E6%B8%85%E6%99%B0%20480P%22%2C%22new_description%22%3A%22480P%20%E6%B8%85%E6%99%B0%22%2C%22display_desc%22%3A%22480P%22%7D%2C%7B%22quality%22%3A16%2C%22format%22%3A%22mp4%22%2C%22description%22%3A%22%E6%B5%81%E7%95%85%20360P%22%2C%22new_description%22%3A%22360P%20%E6%B5%81%E7%95%85%22%2C%22display_desc%22%3A%22360P%22%7D%5D%7D&player_rotate=0&player_width=1024&trackid=all_23.shjd-ai-recsys-04.1659013896389.350",
+        "three_point": {
+          "dislike_reasons": [
+            {
+              "id": 4,
+              "name": "UP主:青云之路",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 2,
+              "name": "分区:美食记录",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 3,
+              "name": "频道:火锅",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 12,
+              "name": "此类内容过多",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 13,
+              "name": "推荐过",
+              "toast": "将减少相似内容推荐"
+            },
+            {
+              "id": 1,
+              "name": "不感兴趣",
+              "toast": "将减少相似内容推荐"
+            }
+          ],
+          "feedbacks": [
+            {
+              "id": 1,
+              "name": "恐怖血腥",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 2,
+              "name": "色情低俗",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 3,
+              "name": "封面恶心",
+              "toast": "将优化首页此类内容"
+            },
+            {
+              "id": 4,
+              "name": "标题党/封面党",
+              "toast": "将优化首页此类内容"
+            }
+          ],
+          "watch_later": 1
+        },
+        "args": {
+          "up_id": 567674507,
+          "up_name": "青云之路",
+          "rid": 215,
+          "rname": "美食记录",
+          "tid": 5963,
+          "tname": "火锅",
+          "aid": 301306349
+        },
+        "player_args": {
+          "aid": 301306349,
+          "cid": 783355398,
+          "type": "av",
+          "duration": 15
+        },
+        "idx": 1659013897,
+        "three_point_v2": [
+          {
+            "title": "添加至稍后再看",
+            "type": "watch_later",
+            "icon": "https://i0.hdslb.com/bfs/activity-plat/static/ce06d65bc0a8d8aa2a463747ce2a4752/NyPAqcn0QF.png"
+          },
+          {
+            "title": "反馈",
+            "subtitle": "(选择后将优化首页此类内容)",
+            "reasons": [
+              {
+                "id": 1,
+                "name": "恐怖血腥",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 2,
+                "name": "色情低俗",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 3,
+                "name": "封面恶心",
+                "toast": "将优化首页此类内容"
+              },
+              {
+                "id": 4,
+                "name": "标题党/封面党",
+                "toast": "将优化首页此类内容"
+              }
+            ],
+            "type": "feedback"
+          },
+          {
+            "title": "我不想看",
+            "subtitle": "(选择后将减少相似内容推荐)",
+            "reasons": [
+              {
+                "id": 4,
+                "name": "UP主:青云之路",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 2,
+                "name": "分区:美食记录",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 3,
+                "name": "频道:火锅",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 12,
+                "name": "此类内容过多",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 13,
+                "name": "推荐过",
+                "toast": "将减少相似内容推荐"
+              },
+              {
+                "id": 1,
+                "name": "不感兴趣",
+                "toast": "将减少相似内容推荐"
+              }
+            ],
+            "type": "dislike"
+          }
+        ],
+        "track_id": "all_23.shjd-ai-recsys-04.1659013896389.350",
+        "talk_back": "视频,无论开不开心，没有火锅解决不了的,97.9万观看,1509弹幕,时长0分钟15秒,UP主青云之路,",
+        "cover_left_text_1": "97.9万",
+        "cover_left_icon_1": 1,
+        "cover_left_1_content_description": "97.9万观看",
+        "cover_left_text_2": "1509",
+        "cover_left_icon_2": 3,
+        "cover_left_2_content_description": "1509弹幕",
+        "cover_right_text": "0:15",
+        "cover_right_content_description": "0分钟15秒",
+        "desc_button": {
+          "text": "青云之路",
+          "uri": "bilibili://space/567674507",
+          "event": "channel_click",
+          "type": 1,
+          "event_v2": "channel"
+        },
+        "can_play": 1,
+        "goto_icon": {
+          "icon_url": "https://i0.hdslb.com/bfs/app/4927042e899b2a511b7cba618566273caf45c6fe.png",
+          "icon_night_url": "https://i0.hdslb.com/bfs/app/14f98cd4d387a8ee19e92a38e852e7b66f8672ca.png",
+          "icon_width": 16,
+          "icon_height": 16
+        }
+      }
+    ],
+    "config": {
+      "column": 2,
+      "autoplay_card": 11,
+      "feed_clean_abtest": 0,
+      "home_transfer_test": 0,
+      "auto_refresh_time": 1200,
+      "show_inline_danmaku": 1,
+      "toast": {},
+      "single_autoplay_flag": 1,
+      "is_back_to_homepage": true,
+      "enable_rcmd_guide": true,
+      "inline_sound": 2,
+      "auto_refresh_time_by_appear": 1200,
+      "auto_refresh_time_by_active": 1200,
+      "trigger_loadmore_left_line_num": -1,
+      "history_cache_size": 10,
+      "visible_area": 80,
+      "card_density_exp": 1
+    }
+  }
+}

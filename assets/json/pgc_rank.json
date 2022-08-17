@@ -1,0 +1,1353 @@
+{
+  "code": 0,
+  "message": "success",
+  "result": {
+    "list": [
+      {
+        "badge": "会员抢先",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员抢先"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/a9497ed9b2ad8fd3b77289734769f81bd3948d75.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/7e9db6c77be9e5f4e42687a0bdd95163aea9f6e6.png",
+          "index_show": "更新至第10话"
+        },
+        "pts": 5184068,
+        "rank": 1,
+        "rating": "9.8分",
+        "season_id": 41410,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/d0d4d3fe675b0b508439a4d0b2fc021eb95aef2a.png",
+        "stat": {
+          "danmaku": 1518016,
+          "follow": 10097397,
+          "series_follow": 10097793,
+          "view": 290013776
+        },
+        "title": "间谍过家家",
+        "url": "https://www.bilibili.com/bangumi/play/ss41410"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/39f7d690deb477004673f40e0fe65c78895c94f4.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/d9b25c4dfe1ecb492e9c1b5adb64195e27b86ff0.png",
+          "index_show": "更新至第10话"
+        },
+        "pts": 1470212,
+        "rank": 2,
+        "rating": "9.7分",
+        "season_id": 41411,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/376fee0fec82b9f473a54fafdd762b6c0cd91925.png",
+        "stat": {
+          "danmaku": 400532,
+          "follow": 9127412,
+          "series_follow": 9463063,
+          "view": 65936642
+        },
+        "title": "辉夜大小姐想让我告白 -究极浪漫-",
+        "url": "https://www.bilibili.com/bangumi/play/ss41411"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/99277ce3f41d1cb4dcda9f6010ebe9c9e6d345e5.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/235cad75e6c8316c69af213a05062742e897c320.png",
+          "index_show": "更新至第8话"
+        },
+        "pts": 1264755,
+        "rank": 3,
+        "rating": "9.8分",
+        "season_id": 41417,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/c989d496e3a075e8bc134b0d4d53d6ca5c2ae634.jpg",
+        "stat": {
+          "danmaku": 209620,
+          "follow": 2028326,
+          "series_follow": 2028370,
+          "view": 37823021
+        },
+        "title": "夏日重现",
+        "url": "https://www.bilibili.com/bangumi/play/ss41417"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/fba0229f1a6eec6ed692b7ae91c634d5cbde0727.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/34a077c35b1181623750eec7b68bee069bb1a762.png",
+          "index_show": "全13话"
+        },
+        "pts": 1179451,
+        "rank": 4,
+        "rating": "6.1分",
+        "season_id": 41413,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/0ebefe529449ff98d544395d1576402bb0d0ae5b.png",
+        "stat": {
+          "danmaku": 473814,
+          "follow": 5892597,
+          "series_follow": 6133041,
+          "view": 72189885
+        },
+        "title": "盾之勇者成名录 第二季",
+        "url": "https://www.bilibili.com/bangumi/play/ss41413"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/81c9dc929e6071a2d42f1b5a207bbcef4a1aead7.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/bc115ed04681ab01e2f772a959629297b6985e0d.jpg",
+          "index_show": "全12话"
+        },
+        "pts": 817140,
+        "rank": 5,
+        "rating": "9.8分",
+        "season_id": 41432,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/7c62ad9f559ee6b0fafc1c08d990636c21c4fa8d.png",
+        "stat": {
+          "danmaku": 466828,
+          "follow": 5843579,
+          "series_follow": 6051490,
+          "view": 57226842
+        },
+        "title": "约会大作战 第四季",
+        "url": "https://www.bilibili.com/bangumi/play/ss41432"
+      },
+      {
+        "badge": "会员抢先",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员抢先"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/5f5b16bc8edd1310fbf0ac8bce04a11144dc858e.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/08cb5f6c4427bb718beb14a04b9d9dbf6a76c046.jpg",
+          "index_show": "更新至第10话"
+        },
+        "pts": 509093,
+        "rank": 6,
+        "rating": "8.9分",
+        "season_id": 41422,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/aed167a32445ed294ea75ed674442c766d56cb2a.png",
+        "stat": {
+          "danmaku": 174517,
+          "follow": 1111061,
+          "series_follow": 1111069,
+          "view": 27528292
+        },
+        "title": "骸骨骑士大人奇幻世界冒险中",
+        "url": "https://www.bilibili.com/bangumi/play/ss41422"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/a29f3b00a94d1b4a029054f72963cc10d98bae99.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/8b3d15c1ce8738ba3cd323123f9bc82f837772c7.png",
+          "index_show": "更新至第6话"
+        },
+        "pts": 476696,
+        "rank": 7,
+        "rating": "9.9分",
+        "season_id": 41520,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/4b9b98677b039b9126614f5a5259aa1484cea227.jpg",
+        "stat": {
+          "danmaku": 31065,
+          "follow": 1862604,
+          "series_follow": 1952202,
+          "view": 5252406
+        },
+        "title": "街角魔族 第二季",
+        "url": "https://www.bilibili.com/bangumi/play/ss41520"
+      },
+      {
+        "badge": "会员抢先",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员抢先"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/9918f6e67c26d6bd1ddad8dab70bcc7af3bfae9b.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/38783bf952b924c4cf33384f2922b70207fe7f35.png",
+          "index_show": "更新至第6话"
+        },
+        "pts": 469395,
+        "rank": 8,
+        "rating": "8.5分",
+        "season_id": 41416,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/c1cb56a7aa6f4d65faaf44da5a5dbb9533195c98.png",
+        "stat": {
+          "danmaku": 209305,
+          "follow": 1633972,
+          "series_follow": 1633979,
+          "view": 23614922
+        },
+        "title": "式守同学不只可爱而已",
+        "url": "https://www.bilibili.com/bangumi/play/ss41416"
+      },
+      {
+        "badge": "出品",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "出品"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/91ec1f4bc4af307dbfbd68c9ba6d838b27adee0f.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/image/0dda7bac44cee4a93a53758e5314f8171aa73a23.png",
+          "index_show": "全12话"
+        },
+        "pts": 438339,
+        "rank": 9,
+        "rating": "9.7分",
+        "season_id": 39180,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/6d9499e4e5453e5e353939980524102c3b707edb.png",
+        "stat": {
+          "danmaku": 753534,
+          "follow": 3245026,
+          "series_follow": 3245033,
+          "view": 70903506
+        },
+        "title": "测不准的阿波连同学",
+        "url": "https://www.bilibili.com/bangumi/play/ss39180"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/d464543dd6720efd43e5487acee74b646423b4d1.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/4327252156c8b3551ee375718496eb96b07f9120.png",
+          "index_show": "全12话"
+        },
+        "pts": 367676,
+        "rank": 10,
+        "rating": "9.8分",
+        "season_id": 41418,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/ca7a19d51feb54162d8f286af416aa5a804e72c4.png",
+        "stat": {
+          "danmaku": 160296,
+          "follow": 1003175,
+          "series_follow": 1003175,
+          "view": 22080655
+        },
+        "title": "恋爱要在世界征服后",
+        "url": "https://www.bilibili.com/bangumi/play/ss41418"
+      },
+      {
+        "badge": "出品",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "出品"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/c9723d8c77d881a8debba2852d580e97826b43d0.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/bb4fb467ef48ad0ad663044c7dde7f15eeabbb93.png",
+          "index_show": "全12话"
+        },
+        "pts": 344317,
+        "rank": 11,
+        "rating": "9.1分",
+        "season_id": 41591,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/c91b2b96c272eb28aa3dd74aa58fc272fc62d577.png",
+        "stat": {
+          "danmaku": 405509,
+          "follow": 1511385,
+          "series_follow": 1511387,
+          "view": 51090485
+        },
+        "title": "恋爱游戏世界对路人角色很不友好",
+        "url": "https://www.bilibili.com/bangumi/play/ss41591"
+      },
+      {
+        "badge": "会员抢先",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员抢先"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/606cf6d776490c5b665703fe7162d1fa4c56c4a2.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/3b85c0a6fd035e9b4c3e1097829781e38beb4dc0.png",
+          "index_show": "更新至第4话"
+        },
+        "pts": 285311,
+        "rank": 12,
+        "rating": "9.9分",
+        "season_id": 41574,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/3aa5972906884792ebbb39450228a48c6ef0e35c.png",
+        "stat": {
+          "danmaku": 9043,
+          "follow": 190222,
+          "series_follow": 190226,
+          "view": 1583033
+        },
+        "title": "相合之物",
+        "url": "https://www.bilibili.com/bangumi/play/ss41574"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/38e2a273f528fd01c34f1fc4df0f69c64487efad.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/bdcce7cc8852844f168e9d8ccca63b92412b0db4.png",
+          "index_show": "更新至第1105话"
+        },
+        "pts": 264766,
+        "rank": 13,
+        "rating": "9.8分",
+        "season_id": 33378,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/6c108526eade13d04882b803f1d1e0dfe2a1886e.png",
+        "stat": {
+          "danmaku": 309595506,
+          "follow": 4174004,
+          "series_follow": 5577567,
+          "view": 609488259
+        },
+        "title": "名侦探柯南",
+        "url": "https://www.bilibili.com/bangumi/play/ss33378"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/7f6b685e9cf6ee7e0bf93d190ce295877f617e73.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/image/9722be0dffe16f2847cb30fff53d22950af6b63e.jpg",
+          "index_show": "更新至第12话"
+        },
+        "pts": 250552,
+        "rank": 14,
+        "rating": "9.9分",
+        "season_id": 39431,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/efc8aab5c05e7b06bd4710971a13949a0d28ccaf.png",
+        "stat": {
+          "danmaku": 642193,
+          "follow": 7461921,
+          "series_follow": 8271587,
+          "view": 116669121
+        },
+        "title": "JOJO的奇妙冒险 石之海",
+        "url": "https://www.bilibili.com/bangumi/play/ss39431"
+      },
+      {
+        "badge": "会员抢先",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员抢先"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/91e75030be41d67b9f19b96bb512b0c98ae781bd.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/0c57a3d4f23adf91ec25e42fa30d0262a4286783.png",
+          "index_show": "更新至第9话"
+        },
+        "pts": 239157,
+        "rank": 15,
+        "rating": "9.2分",
+        "season_id": 41557,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/cff6617c1c7e28f8cd9db3d33d5366a5029e3aa9.png",
+        "stat": {
+          "danmaku": 58908,
+          "follow": 504662,
+          "series_follow": 504664,
+          "view": 11425393
+        },
+        "title": "这个治疗有点烦",
+        "url": "https://www.bilibili.com/bangumi/play/ss41557"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/f641f81aa1933d73c91d5ef76b525acbcdbcf3e7.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/a9b9fe2f540e6b946eb727fd685b6b8d6afbe88d.png",
+          "index_show": "全11话"
+        },
+        "pts": 214390,
+        "rank": 16,
+        "rating": "9.7分",
+        "season_id": 39433,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/c7ccf71fcf65b4e5655403b01a7af3529d2891e8.png",
+        "stat": {
+          "danmaku": 688061,
+          "follow": 13947084,
+          "series_follow": 14635739,
+          "view": 170718823
+        },
+        "title": "鬼灭之刃 游郭篇",
+        "url": "https://www.bilibili.com/bangumi/play/ss39433"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/91e9534cc55aa1a6dc959e7d6d33bde970208232.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/3dc584653544d580b95dc4e99c95595eda0348a8.jpg",
+          "index_show": "全24话"
+        },
+        "pts": 169113,
+        "rank": 17,
+        "rating": "9.7分",
+        "season_id": 34430,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/3dc584653544d580b95dc4e99c95595eda0348a8.jpg",
+        "stat": {
+          "danmaku": 4891931,
+          "follow": 11119648,
+          "series_follow": 11251815,
+          "view": 705088848
+        },
+        "title": "咒术回战",
+        "url": "https://www.bilibili.com/bangumi/play/ss34430"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/71d54cae830d32a5af776dcc46632146fbdba868.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/1dfde1dbfb6d7d2909283be02ffaaa638778060d.jpg",
+          "index_show": "更新至第247话"
+        },
+        "pts": 164659,
+        "rank": 18,
+        "rating": "4.4分",
+        "season_id": 5978,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/3baf5335e3f1df882b54d69c0c6c9ffa76069eef.png",
+        "stat": {
+          "danmaku": 4688912,
+          "follow": 2157018,
+          "series_follow": 2157021,
+          "view": 292179546
+        },
+        "title": "博人传 火影忍者新时代",
+        "url": "https://www.bilibili.com/bangumi/play/ss5978"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/4179b4398bad6f92e876e352cae21be7b8ceb8bf.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/d84fb0c9b4e5fa163f10ce6819becfaefa4f02c9.jpg",
+          "index_show": "全26话"
+        },
+        "pts": 161494,
+        "rank": 19,
+        "rating": "9.7分",
+        "season_id": 26801,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/8a98a9c685766f5f2dd1cfc8912d26af6c6ba470.png",
+        "stat": {
+          "danmaku": 10061559,
+          "follow": 11857661,
+          "series_follow": 14635739,
+          "view": 866657898
+        },
+        "title": "鬼灭之刃",
+        "url": "https://www.bilibili.com/bangumi/play/ss26801"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/aecbaaf4e3e36a2796684c2eff8ceb9b0f247c6d.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/aea10540dfc8dd6262a39cf405696e50e5b51972.jpg",
+          "index_show": "全170话"
+        },
+        "pts": 146742,
+        "rank": 20,
+        "rating": "9.5分",
+        "season_id": 6422,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/aea10540dfc8dd6262a39cf405696e50e5b51972.jpg",
+        "stat": {
+          "danmaku": 2912964,
+          "follow": 2842829,
+          "series_follow": 2878978,
+          "view": 336200281
+        },
+        "title": "黑色四叶草",
+        "url": "https://www.bilibili.com/bangumi/play/ss6422"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/c72a95c3cae82f58f8fa25facd40960aa2003d26.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/478a2306abf44c2bdd1b0c2a79d4fee2cf133025.jpg",
+          "index_show": "全14话"
+        },
+        "pts": 144214,
+        "rank": 21,
+        "rating": "9.7分",
+        "season_id": 5800,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/478a2306abf44c2bdd1b0c2a79d4fee2cf133025.jpg",
+        "stat": {
+          "danmaku": 5713385,
+          "follow": 7903096,
+          "series_follow": 9446815,
+          "view": 327729295
+        },
+        "title": "小林家的龙女仆",
+        "url": "https://www.bilibili.com/bangumi/play/ss5800"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/dd7a9d0a0bee32b1f43c2656398d8463d12b3069.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/09ef607ef9700453d00785a5217faca74b155016.jpg",
+          "index_show": "全13话"
+        },
+        "pts": 142901,
+        "rank": 22,
+        "rating": "9.4分",
+        "season_id": 24596,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/09ef607ef9700453d00785a5217faca74b155016.jpg",
+        "stat": {
+          "danmaku": 3995809,
+          "follow": 5514449,
+          "series_follow": 9819013,
+          "view": 396459537
+        },
+        "title": "OVERLORD Ⅲ",
+        "url": "https://www.bilibili.com/bangumi/play/ss24596"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/b8e72ea69e57e0b7ac85d8b4d366554fd866df1a.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/bangumi/71273bf60ce3e901783e68ab3b39cc93be640d43.jpg",
+          "index_show": "全13话"
+        },
+        "pts": 140365,
+        "rank": 23,
+        "rating": "9.6分",
+        "season_id": 2576,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/71273bf60ce3e901783e68ab3b39cc93be640d43.jpg",
+        "stat": {
+          "danmaku": 3851774,
+          "follow": 6259902,
+          "series_follow": 9819013,
+          "view": 411206781
+        },
+        "title": "OVERLORD",
+        "url": "https://www.bilibili.com/bangumi/play/ss2576"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/b2dd5ffe8b51b4080aa678300080373ae41f7328.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/08eacc2e279f83009e91334433632813378e460e.png",
+          "index_show": "更新至第10话"
+        },
+        "pts": 121059,
+        "rank": 24,
+        "rating": "9.8分",
+        "season_id": 40530,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/01f07fbdcefe846ca7e3aa8dd92f33a89c43c32f.png",
+        "stat": {
+          "danmaku": 77269,
+          "follow": 772280,
+          "series_follow": 772279,
+          "view": 12194843
+        },
+        "title": "明日酱的水手服",
+        "url": "https://www.bilibili.com/bangumi/play/ss40530"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/851f979c8ebcc7583a43abd4b786c4e2e66b746b.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/41456fd8a4f8747ae60be6d463dcd01ce99d50cd.jpg",
+          "index_show": "全13话"
+        },
+        "pts": 120408,
+        "rank": 25,
+        "rating": "9.6分",
+        "season_id": 21466,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/41456fd8a4f8747ae60be6d463dcd01ce99d50cd.jpg",
+        "stat": {
+          "danmaku": 4138489,
+          "follow": 5391724,
+          "series_follow": 9819013,
+          "view": 376922397
+        },
+        "title": "OVERLORD Ⅱ",
+        "url": "https://www.bilibili.com/bangumi/play/ss21466"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/f34ff3975c39913af936c133ae60a5891babba08.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/39c4c078be0700aa4e312aa62402c6b6a7655ac7.jpg",
+          "index_show": "全39话"
+        },
+        "pts": 119065,
+        "rank": 26,
+        "rating": "9.8分",
+        "season_id": 25681,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/39c4c078be0700aa4e312aa62402c6b6a7655ac7.jpg",
+        "stat": {
+          "danmaku": 4419824,
+          "follow": 4836437,
+          "series_follow": 8271587,
+          "view": 467853992
+        },
+        "title": "JOJO的奇妙冒险 黄金之风",
+        "url": "https://www.bilibili.com/bangumi/play/ss25681"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/a7517ca25c5c7a132a16f589e3a3c4d9f49af196.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/6d2261124c4108a74665fadf8f10cef951dd77fc.png",
+          "index_show": "全12话"
+        },
+        "pts": 116738,
+        "rank": 27,
+        "rating": "9.8分",
+        "season_id": 41534,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/17f34f6c51b8b9371af1998f0612d51f0ba03df2.png",
+        "stat": {
+          "danmaku": 18666,
+          "follow": 460953,
+          "series_follow": 489934,
+          "view": 2474977
+        },
+        "title": "银河英雄传说：全新命题 激战",
+        "url": "https://www.bilibili.com/bangumi/play/ss41534"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/847e9dbb6876fb37a30199a5c88910704976d45b.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/d72d11b4892f107d9171b0b6d509a2916fca010c.png",
+          "index_show": "全13话"
+        },
+        "pts": 113814,
+        "rank": 28,
+        "rating": "9.5分",
+        "season_id": 38921,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/cbe2fca80d4faae830bef54847673a198201fe16.png",
+        "stat": {
+          "danmaku": 489664,
+          "follow": 8556315,
+          "series_follow": 9446815,
+          "view": 107744278
+        },
+        "title": "小林家的龙女仆 第二季",
+        "url": "https://www.bilibili.com/bangumi/play/ss38921"
+      },
+      {
+        "badge": "出品",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "出品"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/68aee547fc85b1eab8be3d5c7e946276e4252b79.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/05dc053c8f49ccd659818121145e1ac229975069.png",
+          "index_show": "全12话"
+        },
+        "pts": 112571,
+        "rank": 29,
+        "rating": "7.1分",
+        "season_id": 39725,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/75583ce830522c6fd391cd6ffac31e3ab96db50e.png",
+        "stat": {
+          "danmaku": 112112,
+          "follow": 3324390,
+          "series_follow": 3736042,
+          "view": 21041358
+        },
+        "title": "理科生坠入情网，故尝试证明。 第二季",
+        "url": "https://www.bilibili.com/bangumi/play/ss39725"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/e537deeab66058098fd41f45108facf9fa06372e.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/e989049b7b163e792c31a7d97f717bedf15dbd3e.png",
+          "index_show": "全12话"
+        },
+        "pts": 107126,
+        "rank": 30,
+        "rating": "9.1分",
+        "season_id": 41569,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/0876dc2fb17f444939e4db82d2d72fb2e4372f87.png",
+        "stat": {
+          "danmaku": 47276,
+          "follow": 365506,
+          "series_follow": 365508,
+          "view": 4919267
+        },
+        "title": "上班族想被治愈",
+        "url": "https://www.bilibili.com/bangumi/play/ss41569"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/cd7d919cacc1f14146b9f61076111ec94f394f3a.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/7cae0c748c39be7d6b80b2631131a3d05556a192.png",
+          "index_show": "全1话"
+        },
+        "pts": 100449,
+        "rank": 33,
+        "rating": "9.6分",
+        "season_id": 42119,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/1784e61c8a97bf93413040fcb5835ac9b5e0b0e8.png",
+        "stat": {
+          "danmaku": 4503,
+          "follow": 49803,
+          "series_follow": 52586,
+          "view": 520105
+        },
+        "title": "特利迦奥特曼 泽塔篇",
+        "url": "https://www.bilibili.com/bangumi/play/ss42119?theme=movie"
+      },
+      {
+        "badge": "会员抢先",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员抢先"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/e468c854628b97b5373baaf4c43e1346a9806baa.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/0ccb69487915d02695c787283e3f63b0eba9a76e.jpg",
+          "index_show": "更新至第6话"
+        },
+        "pts": 97724,
+        "rank": 34,
+        "rating": "2.3分",
+        "season_id": 41419,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/26f87214a2481680a93bfda294ac080c0b336a40.png",
+        "stat": {
+          "danmaku": 12193,
+          "follow": 330155,
+          "series_follow": 330155,
+          "view": 7040760
+        },
+        "title": "魔法使黎明期",
+        "url": "https://www.bilibili.com/bangumi/play/ss41419"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/92f45d70a0145f3cb292c79d9930db0cdea9c459.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/a69c6a14022edcecc398b7e44412fcb5ca9cf409.png",
+          "index_show": "全12话"
+        },
+        "pts": 95008,
+        "rank": 35,
+        "rating": "8.9分",
+        "season_id": 41558,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/be39ad5fcb8913f12eec444deb69a0ad956520b3.png",
+        "stat": {
+          "danmaku": 55983,
+          "follow": 501638,
+          "series_follow": 501638,
+          "view": 7574769
+        },
+        "title": "RPG不动产",
+        "url": "https://www.bilibili.com/bangumi/play/ss41558"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/f0796e37abac25ba2aa9f23120646aaa9a3d5ea7.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/42c04907f3306b2e5dacc1c55f782acfa7f8be22.jpg",
+          "index_show": "全24话"
+        },
+        "pts": 93872,
+        "rank": 36,
+        "rating": "7.8分",
+        "season_id": 36167,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/42c04907f3306b2e5dacc1c55f782acfa7f8be22.jpg",
+        "stat": {
+          "danmaku": 1902985,
+          "follow": 5998897,
+          "series_follow": 5998902,
+          "view": 370448464
+        },
+        "title": "转生成蜘蛛又怎样！",
+        "url": "https://www.bilibili.com/bangumi/play/ss36167"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/039c4e0b14e27c7a9e5cce2f20a6efd3c8909401.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/d69084e93b9cc482f996540bfa686b4d4febdfb3.jpg",
+          "index_show": "全13话"
+        },
+        "pts": 91379,
+        "rank": 37,
+        "rating": "9.8分",
+        "season_id": 36198,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/d69084e93b9cc482f996540bfa686b4d4febdfb3.jpg",
+        "stat": {
+          "danmaku": 2419674,
+          "follow": 6944603,
+          "series_follow": 7122982,
+          "view": 219906559
+        },
+        "title": "堀与宫村",
+        "url": "https://www.bilibili.com/bangumi/play/ss36198"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/fd492888df64bbc3b821dac5d516dbc1c2fe5f08.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/41f6c69130a3159cb17df861e41d92b1a82e6186.png",
+          "index_show": "全24话"
+        },
+        "pts": 89272,
+        "rank": 38,
+        "rating": "8.9分",
+        "season_id": 36170,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/45a7d0290b40bf5c1554472b95d426123e881f44.png",
+        "stat": {
+          "danmaku": 2622108,
+          "follow": 8973561,
+          "series_follow": 10026574,
+          "view": 379969030
+        },
+        "title": "关于我转生变成史莱姆这档事 第二季",
+        "url": "https://www.bilibili.com/bangumi/play/ss36170"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/de944b7c9306932d8dd3dcaeaf2eeec8670deec5.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/b284f02214629786135fb242d521266a51667bb0.jpg",
+          "index_show": "全25话"
+        },
+        "pts": 87643,
+        "rank": 39,
+        "rating": "7.4分",
+        "season_id": 26284,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/b284f02214629786135fb242d521266a51667bb0.jpg",
+        "stat": {
+          "danmaku": 4007245,
+          "follow": 5066426,
+          "series_follow": 6133041,
+          "view": 283205277
+        },
+        "title": "盾之勇者成名录",
+        "url": "https://www.bilibili.com/bangumi/play/ss26284"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/451037aabcdce0379752e087720673609894161a.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/d804b8c3837f7d4b720fb23dfcc89fe77f9c7e8b.jpg",
+          "index_show": "全12话"
+        },
+        "pts": 87435,
+        "rank": 40,
+        "rating": "9.8分",
+        "season_id": 26274,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/d804b8c3837f7d4b720fb23dfcc89fe77f9c7e8b.jpg",
+        "stat": {
+          "danmaku": 4792509,
+          "follow": 7624091,
+          "series_follow": 9463063,
+          "view": 267480882
+        },
+        "title": "辉夜大小姐想让我告白～天才们的恋爱头脑战～",
+        "url": "https://www.bilibili.com/bangumi/play/ss26274"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/7c9002f893f1a9debde1c38b860d64ef31c20d03.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/4a698f1c6c5d609aa68fcc8f9b1c9432277fdd4f.jpg",
+          "index_show": "全12话"
+        },
+        "pts": 86122,
+        "rank": 41,
+        "rating": "9.9分",
+        "season_id": 24581,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/4a698f1c6c5d609aa68fcc8f9b1c9432277fdd4f.jpg",
+        "stat": {
+          "danmaku": 1022991,
+          "follow": 4428977,
+          "series_follow": 4428977,
+          "view": 138997919
+        },
+        "title": "碧蓝之海",
+        "url": "https://www.bilibili.com/bangumi/play/ss24581"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/f711a34e0f18293ba5068fd85d8de891bb01c2be.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/a58e6ff04ae673264c59380d160396b4d9d0ffb3.png",
+          "index_show": "全12话"
+        },
+        "pts": 84997,
+        "rank": 42,
+        "rating": "8.3分",
+        "season_id": 41506,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/aa3e0fc7ecb422c7c8ed107267befaa18f6dcf89.png",
+        "stat": {
+          "danmaku": 97026,
+          "follow": 914646,
+          "series_follow": 914647,
+          "view": 15712949
+        },
+        "title": "处刑少女的生存之道",
+        "url": "https://www.bilibili.com/bangumi/play/ss41506"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/376d7e69a667bcb1c0b934a4e35e07e7fa23110b.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/330040a514148d89f8ae0a233edb3ad5f62921f6.jpg",
+          "index_show": "全23话"
+        },
+        "pts": 76285,
+        "rank": 43,
+        "rating": "7.0分",
+        "season_id": 39462,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/81afc9199fe42961c2af2a3faeadc3fc97e9f457.png",
+        "stat": {
+          "danmaku": 2500541,
+          "follow": 9277893,
+          "series_follow": 9277898,
+          "view": 480876184
+        },
+        "title": "国王排名",
+        "url": "https://www.bilibili.com/bangumi/play/ss39462"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/38e2a273f528fd01c34f1fc4df0f69c64487efad.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/877f6194b8dfa490624ea314d7055cfb5894fb31.png",
+          "index_show": "更新至第1105话"
+        },
+        "pts": 76214,
+        "rank": 44,
+        "rating": "9.8分",
+        "season_id": 33415,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/877f6194b8dfa490624ea314d7055cfb5894fb31.png",
+        "stat": {
+          "danmaku": 11170479,
+          "follow": 1283427,
+          "series_follow": 5577567,
+          "view": 553888154
+        },
+        "title": "名侦探柯南（中配）",
+        "url": "https://www.bilibili.com/bangumi/play/ss33415"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/83ad052250e9a803e4ebaa47bef971cb079e0543.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/38762039141f1fd7b8f163f04e4e0c671a11051a.jpg",
+          "index_show": "全12话"
+        },
+        "pts": 75273,
+        "rank": 45,
+        "rating": "9.8分",
+        "season_id": 32982,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/38762039141f1fd7b8f163f04e4e0c671a11051a.jpg",
+        "stat": {
+          "danmaku": 3752990,
+          "follow": 7611392,
+          "series_follow": 9463063,
+          "view": 212036471
+        },
+        "title": "辉夜大小姐想让我告白？～天才们的恋爱头脑战～",
+        "url": "https://www.bilibili.com/bangumi/play/ss32982"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/403674a2f66c9a50943f841dac43a9a022631f72.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/8383ebde73de420a2aa690386cc5e86cb3074796.png",
+          "index_show": "全24话"
+        },
+        "pts": 71259,
+        "rank": 46,
+        "rating": "9.4分",
+        "season_id": 40264,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/990a4675aef42599c22fc86bf2f9cadf9e14cadc.png",
+        "stat": {
+          "danmaku": 25628,
+          "follow": 362567,
+          "series_follow": 362567,
+          "view": 6224962
+        },
+        "title": "指名！",
+        "url": "https://www.bilibili.com/bangumi/play/ss40264"
+      },
+      {
+        "badge": "会员专享",
+        "badge_info": {
+          "bg_color": "#FB7299",
+          "bg_color_night": "#BB5B76",
+          "text": "会员专享"
+        },
+        "badge_type": 0,
+        "copyright": "bilibili",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/a4c0e0ccc44fe3949a734f546cf5bb07da925bad.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/88211e0d1618b8aa5b48267e77d91c1f25279d4c.jpg",
+          "index_show": "全29话"
+        },
+        "pts": 69140,
+        "rank": 47,
+        "rating": "9.4分",
+        "season_id": 25739,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/88211e0d1618b8aa5b48267e77d91c1f25279d4c.jpg",
+        "stat": {
+          "danmaku": 4919650,
+          "follow": 7386136,
+          "series_follow": 10026574,
+          "view": 424452641
+        },
+        "title": "关于我转生变成史莱姆这档事",
+        "url": "https://www.bilibili.com/bangumi/play/ss25739"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/206b9a2e30543416de258aaa10c3ecd998a38820.jpg",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/38e92ccb120ff6366bc0c8573ce1ff15c41adc79.jpg",
+          "index_show": "全13话"
+        },
+        "pts": 67288,
+        "rank": 48,
+        "rating": "9.8分",
+        "season_id": 23834,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/38e92ccb120ff6366bc0c8573ce1ff15c41adc79.jpg",
+        "stat": {
+          "danmaku": 420783,
+          "follow": 1364619,
+          "series_follow": 1962630,
+          "view": 34133168
+        },
+        "title": "赛马娘",
+        "url": "https://www.bilibili.com/bangumi/play/ss23834"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/6565f297b31fb4a4a0337557033426930c3b88c0.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/2fdf72c8cc6b75091e2a440005a02d0a0a0ee886.jpg",
+          "index_show": "全14话"
+        },
+        "pts": 61082,
+        "rank": 49,
+        "rating": "9.8分",
+        "season_id": 21542,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/archive/2fdf72c8cc6b75091e2a440005a02d0a0a0ee886.jpg",
+        "stat": {
+          "danmaku": 3393532,
+          "follow": 7772272,
+          "series_follow": 8567526,
+          "view": 162688806
+        },
+        "title": "紫罗兰永恒花园",
+        "url": "https://www.bilibili.com/bangumi/play/ss21542"
+      },
+      {
+        "badge": "独家",
+        "badge_info": {
+          "bg_color": "#00C0FF",
+          "bg_color_night": "#0B91BE",
+          "text": "独家"
+        },
+        "badge_type": 1,
+        "copyright": "dujia",
+        "cover": "http://i0.hdslb.com/bfs/bangumi/image/3a9815ca239735c51fc7daf2399c3721bbe00160.png",
+        "new_ep": {
+          "cover": "http://i0.hdslb.com/bfs/archive/b0982e5d9035f86a7eca654a3e7a6884dd05fd77.png",
+          "index_show": "更新至第7话"
+        },
+        "pts": 61041,
+        "rank": 50,
+        "rating": "9.1分",
+        "season_id": 41005,
+        "ss_horizontal_cover": "http://i0.hdslb.com/bfs/bangumi/image/30908825b7c8076b9d7b58d8cd949a87f48866e6.png",
+        "stat": {
+          "danmaku": 26258,
+          "follow": 105073,
+          "series_follow": 14635739,
+          "view": 11143192
+        },
+        "title": "鬼灭之刃 无限列车篇 中配版",
+        "url": "https://www.bilibili.com/bangumi/play/ss41005"
+      }
+    ],
+    "note": "『连载动画』投稿在 2022年06月27日 - 2022年07月04日 的数据综合得分，每日更新一次"
+  }
+}

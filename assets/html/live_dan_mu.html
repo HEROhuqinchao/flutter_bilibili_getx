@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>直播弹幕页面</title>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://dome.yyzhu.vip/bilibili_barrage/pako.js"></script>
+
+    <style>
+        html,
+        body {
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-size: 40px;
+        }
+
+        #liveContainer {
+            height: 90%;
+            overflow-y: scroll;
+            width: 100%;
+            background-color: transparent;
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+        }
+
+        #userComeInContainer {
+            height: 10%;
+            overflow-y: scroll;
+            width: 100%;
+            background-color: transparent;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        #liveContainer::-webkit-scrollbar {
+            display: none;
+        }
+
+        #userComeInContainer::-webkit-scrollbar {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+<div>
+    <div id="liveContainer"></div>
+    <div id="userComeInContainer"></div>
+</div>
+
+
+<script type="text/javascript">
+        WebSocketTest();
+
+        var timer = null;
+        var ws;
+
+        function WebSocketTest() {
+
+            // var roomid = document.getElementById("roomid").value;
+            // var url = document.getElementById("url").value;
+            // var key = document.getElementById("key").value;
+
+            //获取url中的参数
+            function getUrlParam(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+                if (r != null) return unescape(r[2]); return null; //返回参数值
+            }
+
+            var roomid = getUrlParam('roomid');
+            // var roomid = 24852650;
+            console.log(roomid);
+            var url = "wss://broadcastlv.chat.bilibili.com/sub";
+
+            // console.log("roomid: " + roomid +
+            //     "\nurl: " + url
+            //     // +
+            //     // "\nkey: " + key
+            // );
+
+            var json = {
+                "uid": 0,
+                "roomid": parseInt(roomid), //注意roomid是数字
+                "protover": 1,
+                "platform": "web",
+                "clientver": "1.4.0",
+                // "key": "75sCbSnf9224EmdeltfTPPjtO_955hk_yuI87Z6lurltcG03x2SdPxWErAHS0dmIuCNXSV7csv-m9IhKRHUlKoeFf_2nWjb7-41rVBTLoF-s5g0mzZsXrYJM1OkpSAFXLQL8-tgOOoA8s5SZ"
+            }
+            // console.log(JSON.stringify(json));
+
+            if (ws) //防止重复连接
+                ws.close()
+            // 打开一个 web socket
+            ws = new WebSocket(url);
+
+            // WebSocket连接成功回调
+            ws.onopen = function () {
+                console.log("WebSocket 已连接上");
+                //组合认证数据包 并发送
+                ws.send(getCertification(JSON.stringify(json)).buffer);
+                //心跳包的定时器
+                timer = setInterval(function () { //定时器 注意声明timer变量
+                    var n1 = new ArrayBuffer(16)
+                    var i = new DataView(n1);
+                    i.setUint32(0, 0),  //封包总大小
+                        i.setUint16(4, 16), //头部长度
+                        i.setUint16(6, 1), //协议版本
+                        i.setUint32(8, 2),  // 操作码 2 心跳包
+                        i.setUint32(12, 1); //就1
+                    ws.send(i.buffer); //发送
+                }, 30000)   //30秒
+            };
+
+            // WebSocket连接关闭回调
+            ws.onclose = function () {
+                console.log("连接已关闭");
+                //要在连接关闭的时候停止 心跳包的 定时器
+                if (timer != null)
+                    clearInterval(timer);
+            };
+
+            //WebSocket接收数据回调
+            ws.onmessage = function (evt) {
+                var blob = evt.data;
+                //对数据进行解码 decode方法
+                decode(blob, function (packet) {
+                    //解码成功回调
+                    if (packet.op == 5) {
+                        //会同时有多个 数发过来 所以要循环
+                        for (let i = 0; i < packet.body.length; i++) {
+                            var element = packet.body[i];
+                            //做一下简单的打印
+                            // console.log(element);//数据格式从打印中就可以分析出来啦
+
+                            //cmd = DANMU_MSG 是弹幕
+                            if (element.cmd == "DANMU_MSG") {
+                                // console.log("uid: " + element.info[2][0]
+                                //     + " 用户: " + element.info[2][1]
+                                //     + " \n内容: " + element.info[1]);
+                                addDanMu(element.info[2][1] + ": ", element.info[1]);
+
+                            }
+                            //cmd = INTERACT_WORD 有人进入直播了
+                            else if (element.cmd == "INTERACT_WORD") {
+                                // console.log("进入直播: " + element.data.uname);
+                                userComeInRoom(element.data.uname);
+                            }
+                            //还有其他的
+                        }
+
+                    }
+                });
+            };
+
+
+        }
+
+        ///添加一条弹幕到屏幕上
+        addDanMu = function (userName, danMuMessage) {
+            var liveContainer = document.getElementById('liveContainer');
+
+            ///100个历史弹幕
+            if (liveContainer.children.length > 100) {
+                liveContainer.removeChild(liveContainer.firstChild);
+            }
+
+            var danMuDiv = document.createElement('div');
+            danMuDiv.style.paddingBottom = '16px';
+            danMuDiv.style.height = 'auto';
+            danMuDiv.style.width = '100%';
+            danMuDiv.style.backgroundColor = 'transparent';
+            danMuDiv.style.wordWrap = 'break-word';
+            danMuDiv.style.wordBreak = 'break-all';
+
+            ///span
+            var userNameSpan = document.createElement('span');
+            // userNameSpan.style.fontSize = 'large';
+            userNameSpan.style.color = 'white';
+            userNameSpan.style.opacity = '.7';
+            userNameSpan.appendChild(document.createTextNode(userName));
+
+            var danMuMessageSpan = document.createElement('span');
+            // danMuMessageSpan.style.fontSize = 'large';
+            danMuMessageSpan.style.color = 'white';
+            danMuMessageSpan.style.opacity = '1';
+            danMuMessageSpan.appendChild(document.createTextNode(danMuMessage));
+
+            danMuDiv.appendChild(userNameSpan);
+            danMuDiv.appendChild(danMuMessageSpan);
+
+            liveContainer.appendChild(danMuDiv);
+
+            liveContainer.scrollTop = liveContainer.scrollHeight;
+        }
+
+        userComeInRoom = function (userName) {
+
+            var userComeInContainer = document.getElementById('userComeInContainer');
+
+            if (userComeInContainer.children.length > 100) {
+                userComeInContainer.removeChild(userComeInContainer.firstChild);
+            }
+
+            var userComeInRoomMessage = document.createElement('div');
+            userComeInRoomMessage.style.color = 'white';
+            userComeInRoomMessage.style.paddingTop = '30px';
+            userComeInRoomMessage.appendChild(document.createTextNode(userName + "进入了直播间"));
+            userComeInContainer.appendChild(userComeInRoomMessage);
+            userComeInContainer.scrollTop = userComeInContainer.scrollHeight;
+        };
+
+
+        // 文本解码器
+        var textDecoder = new TextDecoder('utf-8');
+        // 从buffer中读取int
+        const readInt = function (buffer, start, len) {
+            let result = 0
+            for (let i = len - 1; i >= 0; i--) {
+                result += Math.pow(256, len - i - 1) * buffer[start + i]
+            }
+            return result
+        }
+        /**
+        * blob blob数据
+        * call 回调 解析数据会通过回调返回数据
+        */
+        function decode(blob, call) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                let buffer = new Uint8Array(e.target.result)
+                let result = {}
+                result.packetLen = readInt(buffer, 0, 4)
+                result.headerLen = readInt(buffer, 4, 2)
+                result.ver = readInt(buffer, 6, 2)
+                result.op = readInt(buffer, 8, 4)
+                result.seq = readInt(buffer, 12, 4)
+                if (result.op == 5) {
+                    result.body = []
+                    let offset = 0;
+                    while (offset < buffer.length) {
+                        let packetLen = readInt(buffer, offset + 0, 4)
+                        let headerLen = 16// readInt(buffer,offset + 4,4)
+                        let data = buffer.slice(offset + headerLen, offset + packetLen);
+
+                        let body = "{}"
+                        if (result.ver == 2) {
+                            //协议版本为 2 时  数据有进行压缩 通过pako.js 进行解压
+                            body = textDecoder.decode(pako.inflate(data));
+                        } else {
+                            //协议版本为 0 时  数据没有进行压缩
+                            body = textDecoder.decode(data);
+                        }
+                        if (body) {
+                            // 同一条消息中可能存在多条信息，用正则筛出来
+                            const group = body.split(/[\x00-\x1f]+/);
+                            group.forEach(item => {
+                                try {
+                                    result.body.push(JSON.parse(item));
+                                } catch (e) {
+                                    // 忽略非JSON字符串，通常情况下为分隔符
+                                }
+                            });
+                        }
+                        offset += packetLen;
+                    }
+                }
+                //回调
+                call(result);
+            }
+            reader.readAsArrayBuffer(blob);
+        }
+
+
+        //组合认证数据包
+        function getCertification(json) {
+            var bytes = str2bytes(json);  //字符串转bytes
+            var n1 = new ArrayBuffer(bytes.length + 16)
+            var i = new DataView(n1);
+            i.setUint32(0, bytes.length + 16), //封包总大小
+                i.setUint16(4, 16), //头部长度
+                i.setUint16(6, 1), //协议版本
+                i.setUint32(8, 7),  //操作码 7表示认证并加入房间
+                i.setUint32(12, 1); //就1
+            for (var r = 0; r < bytes.length; r++) {
+                i.setUint8(16 + r, bytes[r]); //把要认证的数据添加进去
+            }
+            return i; //返回
+        }
+
+        //字符串转bytes //这个方法是从网上找的QAQ
+        function str2bytes(str) {
+            const bytes = []
+            let c
+            const len = str.length
+            for (let i = 0; i < len; i++) {
+                c = str.charCodeAt(i)
+                if (c >= 0x010000 && c <= 0x10FFFF) {
+                    bytes.push(((c >> 18) & 0x07) | 0xF0)
+                    bytes.push(((c >> 12) & 0x3F) | 0x80)
+                    bytes.push(((c >> 6) & 0x3F) | 0x80)
+                    bytes.push((c & 0x3F) | 0x80)
+                } else if (c >= 0x000800 && c <= 0x00FFFF) {
+                    bytes.push(((c >> 12) & 0x0F) | 0xE0)
+                    bytes.push(((c >> 6) & 0x3F) | 0x80)
+                    bytes.push((c & 0x3F) | 0x80)
+                } else if (c >= 0x000080 && c <= 0x0007FF) {
+                    bytes.push(((c >> 6) & 0x1F) | 0xC0)
+                    bytes.push((c & 0x3F) | 0x80)
+                } else {
+                    bytes.push(c & 0xFF)
+                }
+            }
+            return bytes
+        }
+
+
+</script>
+
+
+</body>
+
+</html>

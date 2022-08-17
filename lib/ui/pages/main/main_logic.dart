@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'main_state.dart';
 
@@ -12,5 +13,9 @@ class MainLogic extends GetxController {
       Permission.location,
       Permission.notification,
     ].request();
+  }
+  ///更新当前下标
+  void updateCurrentIndex(index) {
+    state.currentIndex = index;
   }
 }
