@@ -29,6 +29,7 @@ class HYAppTheme {
   static const Color norWhite03Color = Color.fromRGBO(255, 236, 240, 1);
   static const Color norWhite04Color = Color.fromRGBO(242, 243, 245, 1);
   static const Color norWhite05Color = Color.fromRGBO(254, 244, 234, 1);
+  static const Color norWhite06Color = Color.fromRGBO(241, 242, 244, 1);
 
   ///灰色
   static const Color norGrayColor = Color.fromRGBO(149, 149, 149, 1);
@@ -64,7 +65,7 @@ class HYAppTheme {
     textSelectionTheme: TextSelectionThemeData(
         cursorColor: norMainThemeColors,
         selectionColor: norBlue01Colors.withOpacity(.5)),
-    canvasColor: const Color.fromRGBO(241, 242, 244, 1),
+    canvasColor: norWhite06Color,
     fontFamily: 'bilibiliFonts',
   );
 

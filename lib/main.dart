@@ -20,22 +20,18 @@ void main() async {
   runApp(const MyApp());
 }
 void initBilibili() async{
+  ///实例化sharedPreference
+  await SharedPreferenceUtil.getInstance();
   if (!kIsWeb) {
     if (Platform.isAndroid) {
       WidgetsFlutterBinding.ensureInitialized();
-
-      ///实例化sharedPreference
-      await SharedPreferenceUtil.getInstance();
     } else if(Platform.isWindows){
-      ///实例化sharedPreference
-      await SharedPreferenceUtil.getInstance();
+
     } else if(Platform.isIOS) {
 
     }
   } else {
     ///网页端
-    ///实例化sharedPreference
-    await SharedPreferenceUtil.getInstance();
   }
 }
 

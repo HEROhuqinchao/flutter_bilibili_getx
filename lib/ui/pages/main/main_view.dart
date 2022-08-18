@@ -16,14 +16,6 @@ class MainScreen extends StatelessWidget {
     final state = Get.find<MainLogic>().state;
     return GetBuilder<MainLogic>(
       builder: (logic) {
-        // ///判断是否同意用户协议
-        // if(state.tempUserAgreement ==false) {
-        //   logic.initUserAgreement();
-        // }
-        // ///判断是否同意青少年模式
-        // if(state.tempTeenagerMode ==false && state.tempUserAgreement == true) {
-        //   logic.showTeenagerModeDialog();
-        // }
         return Scaffold(
           body: IndexedStack(
             ///显示哪一个页面
