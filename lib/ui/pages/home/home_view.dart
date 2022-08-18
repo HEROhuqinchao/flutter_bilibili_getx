@@ -9,9 +9,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("home");
     final logic = Get.find<HomeLogic>();
     final state = Get.find<HomeLogic>().state;
-
+    WidgetsBinding widgetsBinding=WidgetsBinding.instance;
+    widgetsBinding.addPostFrameCallback((callback){
+      print("addPostFrameCallback be invoke");
+    });
     return Center(
       child: Container(
         child: Text("您好",style: TextStyle(fontFamily: 'bilibiliFonts',fontSize: 100.sp),),

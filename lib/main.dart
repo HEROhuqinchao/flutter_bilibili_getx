@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
-import 'package:bilibili_getx/ui/pages/shared/app_theme.dart';
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import 'core/I18n/string_res.dart';
@@ -14,15 +15,28 @@ import 'core/shared_preferences/shared_preference_util.dart';
 import 'dart:ui' as ui;
 
 void main() async {
+  ///初始化项目
+  initBilibili();
+  runApp(const MyApp());
+}
+void initBilibili() async{
   if (!kIsWeb) {
     if (Platform.isAndroid) {
       WidgetsFlutterBinding.ensureInitialized();
 
       ///实例化sharedPreference
       await SharedPreferenceUtil.getInstance();
+    } else if(Platform.isWindows){
+      ///实例化sharedPreference
+      await SharedPreferenceUtil.getInstance();
+    } else if(Platform.isIOS) {
+
     }
+  } else {
+    ///网页端
+    ///实例化sharedPreference
+    await SharedPreferenceUtil.getInstance();
   }
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -64,6 +78,10 @@ class MyApp extends StatelessWidget {
 
           ///路由和绑定
           getPages: AsRouter.getPages,
+
+          ///smartDialog 插件需要初始化
+          navigatorObservers: [FlutterSmartDialog.observer],
+          builder: FlutterSmartDialog.init(),
         );
       },
     );

@@ -36,8 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5 #getX框架
   permission_handler: ^8.3.0 #权限获取
-  flutter_screenutil: ^5.5.3+2
-  shared_preferences: ^2.0.15
+  flutter_screenutil: ^5.5.3+2 #屏幕适配
+  shared_preferences: ^2.0.15 #共享存储
+  flutter_smart_dialog: ^4.5.4+2 #弹框
 
 dev_dependencies:
   flutter_test:

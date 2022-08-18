@@ -1,6 +1,9 @@
-import 'package:bilibili_getx/ui/pages/shared/shared_util.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../shared/shared_util.dart';
+
 
 class HYAppTheme {
   ///字体大小、颜色-共有属性

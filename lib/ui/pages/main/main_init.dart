@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../shared/app_theme.dart';
+import '../../shared/image_asset.dart';
 import '../dynamic_circle/dynamic_circle_view.dart';
 import '../home/home_view.dart';
 import '../mall/mall_view.dart';
 import '../mine/mine_view.dart';
 import '../publish/publish_view.dart';
-import '../shared/app_theme.dart';
-import '../shared/image_asset.dart';
 
 ///主页界面子页面
 final List<Widget> mainIndexStackPages = [

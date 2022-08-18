@@ -2,19 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
+import '../../shared/app_theme.dart';
 import '../publish/publish_view.dart';
-import '../shared/app_theme.dart';
 import 'main_init.dart';
 import 'main_logic.dart';
 
 class MainScreen extends StatelessWidget {
   static const String routeName = "/";
+
   @override
   Widget build(BuildContext context) {
     final logic = Get.find<MainLogic>();
     final state = Get.find<MainLogic>().state;
     return GetBuilder<MainLogic>(
       builder: (logic) {
+        // ///判断是否同意用户协议
+        // if(state.tempUserAgreement ==false) {
+        //   logic.initUserAgreement();
+        // }
+        // ///判断是否同意青少年模式
+        // if(state.tempTeenagerMode ==false && state.tempUserAgreement == true) {
+        //   logic.showTeenagerModeDialog();
+        // }
         return Scaffold(
           body: IndexedStack(
             ///显示哪一个页面
