@@ -1,0 +1,11 @@
+配置dart和flutter环境变量
+执行命令
+protoc --dart_out=. XXX.proto
+将proto文件放在当前目录下，中断cd到这个目录，执行上述命令，将proto转为dart
+
+推荐使用BloomRPC来测试GRPC
+
+抓包工具采用charles，可以解析protobuf数据
+
+proto文件转为desc数据
+protoc -I=./ --descriptor_set_out=./playeronline.desc ./playeronline.proto

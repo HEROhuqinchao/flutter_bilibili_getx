@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:bilibili_getx/ui/pages/login/login_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_logic.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -94,13 +97,13 @@ class HomeScreen extends StatelessWidget {
             },
             child: Container(
               alignment: Alignment.centerLeft,
-              child: Container(
-                  padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
-                  child: Image.asset(ImageAssets.searchCustomPNG)),
               height: 35.h,
               decoration: BoxDecoration(
                   color: HYAppTheme.norWhite02Color,
                   borderRadius: BorderRadius.circular(20.r)),
+              child: Container(
+                  padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
+                  child: Image.asset(ImageAssets.searchCustomPNG)),
             ),
           ),
         ),
@@ -228,131 +231,147 @@ class HomeScreen extends StatelessWidget {
                       );
                     },
                   ).whenComplete(() {
-                    SmartDialog.dismiss();
-                    SmartDialog.show(
-                      builder: (ctx) {
-                        return Card(
-                          child: Container(
-                            padding: const EdgeInsets.all(10).r,
-                            width: 270.w,
-                            child: Stack(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(15).r,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        SR.login2UnlockMoreAmazingContent.tr,
-                                        style: TextStyle(
-                                            color: HYAppTheme.norTextColors,
-                                            fontSize:
+                    /// 登录功能
+                    if(kIsWeb) {
+                      Get.toNamed(LoginScreen.routeName);
+                    } else {
+                      ///手机端的一键登录
+                      if(Platform.isAndroid && Platform.isIOS) {
+                        SmartDialog.dismiss();
+                        SmartDialog.show(
+                          builder: (ctx) {
+                            return Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(10).r,
+                                width: 270.w,
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(15).r,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            SR.login2UnlockMoreAmazingContent.tr,
+                                            style: TextStyle(
+                                                color: HYAppTheme.norTextColors,
+                                                fontSize:
                                                 HYAppTheme.xSmallFontSize),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      Container(
-                                        padding: const EdgeInsets.only(
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.only(
                                                 top: 30, bottom: 20)
-                                            .r,
-                                        child: Text(
-                                          "183****1731",
-                                          style: TextStyle(
-                                              fontSize:
+                                                .r,
+                                            child: Text(
+                                              "183****1731",
+                                              style: TextStyle(
+                                                  fontSize:
                                                   HYAppTheme.normalFontSize,
-                                              color: HYAppTheme.norTextColors),
-                                        ),
-                                      ),
-                                      TextButton(
-                                        style: ButtonStyle(
-                                            padding: MaterialStateProperty.all(
-                                                const EdgeInsets.symmetric(
+                                                  color: HYAppTheme.norTextColors),
+                                            ),
+                                          ),
+                                          TextButton(
+                                            style: ButtonStyle(
+                                                padding: MaterialStateProperty.all(
+                                                    const EdgeInsets.symmetric(
                                                         vertical: 10)
-                                                    .r),
-                                            backgroundColor:
+                                                        .r),
+                                                backgroundColor:
                                                 MaterialStateProperty.all(
                                                     HYAppTheme
                                                         .norMainThemeColors)),
-                                        onPressed: () {
-                                          ///一键登录
-                                          // loginAuth();
-                                        },
-                                        child: Container(
-                                          padding: const EdgeInsets.symmetric(
+                                            onPressed: () {
+                                              ///一键登录
+                                              // loginAuth();
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.symmetric(
                                                   vertical: 4)
-                                              .r,
-                                          alignment:
+                                                  .r,
+                                              alignment:
                                               AlignmentDirectional.center,
-                                          width: double.infinity,
-                                          child: Text(
-                                            SR.oneClickLogin.tr.toUpperCase(),
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize:
+                                              width: double.infinity,
+                                              child: Text(
+                                                SR.oneClickLogin.tr.toUpperCase(),
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize:
                                                     HYAppTheme.xSmallFontSize),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                                top: 15, bottom: 20)
-                                            .r,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            Get.toNamed(LoginScreen.routeName);
-                                            SmartDialog.dismiss();
-                                          },
-                                          child: Text(
-                                            SR.otherWay.tr,
-                                            style: TextStyle(
-                                                fontSize:
-                                                    HYAppTheme.xSmallFontSize,
-                                                color:
-                                                    HYAppTheme.norGray04Color),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            padding: const EdgeInsets.only(
-                                                    right: 3, top: 3)
-                                                .r,
-                                            child: RectangleCheckBox(
-                                              ///自定义矩形的checkbox
-                                              size: 14.sp,
-                                              checkedColor:
-                                                  HYAppTheme.norMainThemeColors,
-                                              isChecked: flag,
-                                              onTap: (value) {
-                                                flag = value!;
-                                              },
+                                              ),
                                             ),
                                           ),
-                                          5.horizontalSpace,
-                                          buildHomeAgreement(),
+                                          Container(
+                                            padding: const EdgeInsets.only(
+                                                top: 15, bottom: 20)
+                                                .r,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Get.toNamed(LoginScreen.routeName);
+                                                SmartDialog.dismiss();
+                                              },
+                                              child: Text(
+                                                SR.otherWay.tr,
+                                                style: TextStyle(
+                                                    fontSize:
+                                                    HYAppTheme.xSmallFontSize,
+                                                    color:
+                                                    HYAppTheme.norGray04Color),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          ),
+                                          Row(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                padding: const EdgeInsets.only(
+                                                    right: 3, top: 3)
+                                                    .r,
+                                                child: RectangleCheckBox(
+                                                  ///自定义矩形的checkbox
+                                                  size: 14.sp,
+                                                  checkedColor:
+                                                  HYAppTheme.norMainThemeColors,
+                                                  isChecked: flag,
+                                                  onTap: (value) {
+                                                    flag = value!;
+                                                  },
+                                                ),
+                                              ),
+                                              5.horizontalSpace,
+                                              buildHomeAgreement(),
+                                            ],
+                                          ),
                                         ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        SmartDialog.dismiss();
+                                      },
+                                      child: Positioned(
+                                        right: 0,
+                                        top: 0,
+                                        child: Icon(
+                                          Icons.close,
+                                          color: HYAppTheme.norGrayColor,
+                                          size: 13.sp,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Positioned(
-                                  right: 0,
-                                  top: 0,
-                                  child: Icon(
-                                    Icons.close,
-                                    color: HYAppTheme.norGrayColor,
-                                    size: 13.sp,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                              ),
+                            );
+                          },
                         );
-                      },
-                    );
+                      } else if(Platform.isWindows) {
+                        Get.toNamed(LoginScreen.routeName);
+                      }
+                    }
+
                   });
                   // await Future.delayed(const Duration(seconds: 2)).then(
                   //   (value) {

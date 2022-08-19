@@ -64,9 +64,9 @@ class MyApp extends StatelessWidget {
 
           ///I18n国际化
           translations: StringRes(),
-          locale: locale == "zh"
-              ? const Locale('zh', 'CN')
-              : const Locale('en', 'US'),
+          locale: locale == "en"
+              ? const Locale('en', 'US')
+              : const Locale('zh', 'CN'),
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
