@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_bilibili/core/model/big_data_model.dart';
+import '../../model/big_data_model.dart';
 
 /**
  * 获取本地的json数据，用于图表

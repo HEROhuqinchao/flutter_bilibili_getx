@@ -9,6 +9,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
+import '../../../core/model/account_mine.dart';
 import '../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../core/shared_preferences/shared_preference_util.dart';
 import '../../shared/app_theme.dart';
@@ -18,6 +19,19 @@ import 'home_state.dart';
 
 class HomeLogic extends GetxController {
   final HomeState state = HomeState();
+
+  @override
+  void onReady() {
+    ///判断是否同意用户协议
+    if (state.tempUserAgreement == false) {
+      initUserAgreement();
+    }
+    ///判断是否同意青少年模式
+    if (state.tempTeenagerMode == false && state.tempUserAgreement == true) {
+      showTeenagerModeDialog();
+    }
+    super.onReady();
+  }
 
   ///查找是否同意了用户协议
   initUserAgreement() {
@@ -262,5 +276,11 @@ class HomeLogic extends GetxController {
     );
   }
 
-
+  ///接受用户个人信息
+  void fetchHomeUserInfo(HYAccountMineModel accountMineData) {
+    state.isLogin =
+        SharedPreferenceUtil.getBool(BilibiliSharedPreference.isLogin) ?? false;
+    state.userLogo = accountMineData.data.face;
+    update();
+  }
 }

@@ -25,6 +25,7 @@ class HYAppTheme {
   ///普通模式
   ///白色
   static const Color norTextColors = Colors.black;
+  static const Color norWhite01Color = Colors.white;
   static const Color norWhite02Color = Color.fromRGBO(246, 247, 249, 1);
   static const Color norWhite03Color = Color.fromRGBO(255, 236, 240, 1);
   static const Color norWhite04Color = Color.fromRGBO(242, 243, 245, 1);
@@ -60,7 +61,7 @@ class HYAppTheme {
 
   ///默认下的主题
   static final ThemeData norTheme = ThemeData(
-    primaryColor: Colors.white,
+    primaryColor: norWhite01Color,
     primarySwatch: createMaterialColor(norMainThemeColors),
     textSelectionTheme: TextSelectionThemeData(
         cursorColor: norMainThemeColors,

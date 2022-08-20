@@ -40,7 +40,11 @@ dependencies:
   shared_preferences: ^2.0.15 #共享存储
   flutter_smart_dialog: ^4.5.4+2 #弹框
   dio: ^4.0.6 #网络请求
-  protobuf: ^2.1.0
+  protobuf: ^2.1.0 #proto
+  encrypt: ^5.0.1 #加密
+  shelf_proxy: ^1.0.2 #跨域
+  webview_flutter: ^3.0.4 #显示网页
+
 
 dev_dependencies:
   flutter_test:

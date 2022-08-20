@@ -100,16 +100,14 @@ class _TimerButtonState extends State<TimerButton> {
                     : widget.retryButtonText.tr,
                 style: TextStyle(
                   color: HYAppTheme.norMainThemeColors,
-                  fontSize: HYAppTheme.xxSmallFontSize,
-                  fontWeight: FontWeight.bold,
+                  fontSize: HYAppTheme.xxSmallFontSize
                 ),
               )
             : Text(
           timeClock.toString() + SR.secondRetry.tr,
                 style: TextStyle(
                   color: HYAppTheme.norGrayColor,
-                  fontSize: HYAppTheme.xxSmallFontSize,
-                  fontWeight: FontWeight.bold,
+                  fontSize: HYAppTheme.xxSmallFontSize
                 ),
               ),
       ),

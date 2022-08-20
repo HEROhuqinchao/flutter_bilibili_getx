@@ -75,6 +75,6 @@ const strResZh = {
   SR.otherWay: '其他方式登录',
   SR.oneClickLogin: '本机号码一键登录',
   SR.retrySendCode: '重新获取',
-  SR.secondRetry: "s重试",
+  SR.secondRetry: "秒重试",
   SR.userAgreementAndPrivacyPolicyTips: "用户协议与隐私政策提示",
 };

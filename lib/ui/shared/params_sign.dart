@@ -1,7 +1,6 @@
 import 'dart:convert';
-
 import 'package:crypto/crypto.dart';
-import 'package:flutter_bilibili/core/service/utils/constant.dart';
+import '../../core/service/utils/constant.dart';
 
 class ParamsSign {
   ///获取参数的sign值

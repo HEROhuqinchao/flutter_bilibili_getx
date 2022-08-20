@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_bilibili/core/service/utils/constant.dart';
-import 'package:flutter_bilibili/ui/shared/platform_judge.dart';
+
+import 'constant.dart';
 
 String ua =
     "Mozilla/5.0 (Linux; Android 5.1.1; Android SDK built for x86 Build/LMY48X) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36";
@@ -87,17 +87,21 @@ class HttpBaseRequest {
     Dio dio = Dio(baseOption);
 
     ///userAgent
-    if (PlatformJudge.platformJudgeIsPhone()) {
-      (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-          (HttpClient client) {
-        client.userAgent = null;
-      };
+    if (!kIsWeb) {
+      if(Platform.isAndroid) {
+        (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+            (HttpClient client) {
+          client.userAgent = null;
+        };
+      }
+
     }
+
 
     ///请求头
     Map<String, dynamic> httpHeaders;
 
-    if (PlatformJudge.platformJudgeIsPhone()) {
+    if(!kIsWeb) {
       ///手机端
       if (contentType == 'XML') {
         httpHeaders = xmlHeaders;

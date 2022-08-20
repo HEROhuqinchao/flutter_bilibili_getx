@@ -25,18 +25,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding widgetsBinding = WidgetsBinding.instance;
-    widgetsBinding.addPostFrameCallback((callback) {
-      ///判断是否同意用户协议
-      if (state.tempUserAgreement == false) {
-        logic.initUserAgreement();
-      }
-
-      ///判断是否同意青少年模式
-      if (state.tempTeenagerMode == false && state.tempUserAgreement == true) {
-        logic.showTeenagerModeDialog();
-      }
-    });
     return DefaultTabController(
       length: 7,
       initialIndex: 1,
@@ -236,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                       Get.toNamed(LoginScreen.routeName);
                     } else {
                       ///手机端的一键登录
-                      if(Platform.isAndroid && Platform.isIOS) {
+                      if(Platform.isAndroid || Platform.isIOS) {
                         SmartDialog.dismiss();
                         SmartDialog.show(
                           builder: (ctx) {
@@ -347,13 +335,11 @@ class HomeScreen extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        SmartDialog.dismiss();
-                                      },
-                                      child: Positioned(
-                                        right: 0,
-                                        top: 0,
+                                    Positioned(
+                                      right: 0,
+                                      top: 0,
+                                      child: GestureDetector(
+                                        onTap: () {SmartDialog.dismiss();},
                                         child: Icon(
                                           Icons.close,
                                           color: HYAppTheme.norGrayColor,
@@ -373,14 +359,6 @@ class HomeScreen extends StatelessWidget {
                     }
 
                   });
-                  // await Future.delayed(const Duration(seconds: 2)).then(
-                  //   (value) {
-                  //     SmartDialog.dismiss();
-                  //
-                  //     //未登录情况下
-                  //     // Navigator.of(context).pushNamed(HYLoginScreen.routeName);
-                  //   },
-                  // );
                 },
                 child: Text(
                   SR.login.tr,

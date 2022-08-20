@@ -5,6 +5,7 @@ import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
@@ -15,16 +16,19 @@ import 'core/shared_preferences/shared_preference_util.dart';
 import 'dart:ui' as ui;
 
 void main() async {
-  ///初始化项目
-  initBilibili();
-  runApp(const MyApp());
-}
-void initBilibili() async{
-  ///实例化sharedPreference
-  await SharedPreferenceUtil.getInstance();
   if (!kIsWeb) {
     if (Platform.isAndroid) {
       WidgetsFlutterBinding.ensureInitialized();
+      ///手机状态栏的背景颜色及状态栏文字颜色
+      SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(
+          ///状态栏字体颜色（黑色）
+          statusBarIconBrightness: Brightness.dark,
+
+          ///状态栏背景色
+          statusBarColor: Colors.white,
+        ),
+      );
     } else if(Platform.isWindows){
 
     } else if(Platform.isIOS) {
@@ -33,6 +37,9 @@ void initBilibili() async{
   } else {
     ///网页端
   }
+  ///实例化sharedPreference
+  await SharedPreferenceUtil.getInstance();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

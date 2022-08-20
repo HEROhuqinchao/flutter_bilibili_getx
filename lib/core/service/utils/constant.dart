@@ -1,13 +1,11 @@
 class Constant {
   ///手机端和桌面端
-  /**
-   * live:直播界面
-   * base:网页端（待改）
-   * video:视频（获取原视频地址）
-   * app:app端的接口
-   * search:搜索用到的接口
-   * login:登录时需要用到的接口
-   */
+  /// live:直播界面
+  /// base:网页端（待改）
+  /// video:视频（获取原视频地址）
+  /// app:app端的接口
+  /// search:搜索用到的接口
+  /// login:登录时需要用到的接口
   static const Map<String, String> urlMap = {
     "live": "https://api.live.bilibili.com",
     "base": "http://api.bilibili.com",
@@ -23,6 +21,10 @@ class Constant {
     "live": "http://127.0.0.1:8001",
     "base": "http://127.0.0.1:8002",
     "video": "http://127.0.0.1:8003",
+    "login": "http://127.0.0.1:8004",
+    "mall": "http://127.0.0.1:8005",
+    "search": "http://127.0.0.1:8006",
+    "app": "http://127.0.0.1:8007"
   };
 
   ///是否为debug模式

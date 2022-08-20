@@ -4,6 +4,11 @@ import 'main_state.dart';
 
 class MainLogic extends GetxController {
   final MainState state = MainState();
+  @override
+  void onInit() {
+    requestPermissions();
+    super.onInit();
+  }
   ///权限获取
   void requestPermissions() async {
     Map<Permission, PermissionStatus> statuses = await [

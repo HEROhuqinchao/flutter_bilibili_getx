@@ -16,6 +16,8 @@ class ImageAssets {
   static String bilibiliPNG = "assets/image/icon/bilibili.png";
   static String open22PNG = "assets/image/icon/22_open.png";
   static String open33PNG = "assets/image/icon/33_open.png";
+  static String close22PNG = "assets/image/icon/22_close.png";
+  static String close33PNG = "assets/image/icon/33_close.png";
   static String addCustomPNG = "assets/image/icon/add_custom.png";
   static String publishPNG = "assets/image/icon/publish.png";
   static String bilibiliConnectPNG = "assets/image/icon/bilibili_connect.png";

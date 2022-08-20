@@ -40,6 +40,21 @@ class LoginState {
   late int regionIndex;
   late List<RegionModel> regionList;
 
+  ///是否同意协议
+  late bool isAgree;
+
+  ///是否正在输入密码(用于2233娘)
+  late bool isInputPassword;
+
+  ///监听是否正在输入数据
+  late FocusNode verifyCodeFocusNode;
+  late FocusNode telFocusNode;
+  late FocusNode userNameFocusNode;
+  late FocusNode passwordFocusNode;
+
+  ///隐藏密码
+  late bool isObscure;
+
   LoginState() {
     telText = "";
     verifyText = "";
@@ -67,5 +82,12 @@ class LoginState {
       RegionModel("印度", "+12"),
       RegionModel("埃及", "+82"),
     ];
+    isAgree = true;
+    isInputPassword = false;
+    verifyCodeFocusNode = FocusNode();
+    telFocusNode = FocusNode();
+    userNameFocusNode = FocusNode();
+    passwordFocusNode = FocusNode();
+    isObscure = true;
   }
 }

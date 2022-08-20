@@ -10,45 +10,83 @@ import 'constant.dart';
 const String LocalHost = '127.0.0.1';
 
 //前端页面访问本地端口号
-const int LocalPort01 = 8001;
-const int LocalPort02 = 8002;
-const int LocalPort03 = 8003;
-
-//目标域名，这里我们将要请求火狐的这个地址
-// const String TargetUrl = 'http://api.bilibili.com';
+const int localPort01 = 8001;
+const int localPort02 = 8002;
+const int localPort03 = 8003;
+const int localPort04 = 8004;
+const int localPort05 = 8005;
+const int localPort06 = 8006;
+const int localPort07 = 8007;
 
 Future main() async {
   var server01 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["live"]!),
     LocalHost,
-    LocalPort01,
+    localPort01,
   );
-  // 添加上跨域的这几个header
   server01.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server01.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
   var server02 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["base"]!),
     LocalHost,
-    LocalPort02,
+    localPort02,
   );
-  // 添加上跨域的这几个header
   server02.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server02.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
   var server03 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["video"]!),
     LocalHost,
-    LocalPort03,
+    localPort03,
   );
-  // 添加上跨域的这几个header
   server03.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server03.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
+  var server04 = await shelf_io.serve(
+    proxyHandler(Constant.urlMap["login"]!),
+    LocalHost,
+    localPort04,
+  );
+  server04.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
+  server04.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
+
+  var server05 = await shelf_io.serve(
+    proxyHandler(Constant.urlMap["mall"]!),
+    LocalHost,
+    localPort05,
+  );
+  server05.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
+  server05.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
+
+  var server06 = await shelf_io.serve(
+    proxyHandler(Constant.urlMap["search"]!),
+    LocalHost,
+    localPort06,
+  );
+  server06.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
+  server06.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
+
+  var server07 = await shelf_io.serve(
+    proxyHandler(Constant.urlMap["app"]!),
+    LocalHost,
+    localPort07,
+  );
+  server07.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
+  server07.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
+
   print(
-      '${Constant.urlMap["live"]} -> Serving at http://${server01.address.host}:${server01.port}');
+      '${Constant.urlMap["live"]} -> live Serving at http://${server01.address.host}:${server01.port}');
   print(
-      '${Constant.urlMap["base"]} -> Serving at http://${server02.address.host}:${server02.port}');
+      '${Constant.urlMap["base"]} -> base Serving at http://${server02.address.host}:${server02.port}');
   print(
-      '${Constant.urlMap["video"]} -> Serving at http://${server03.address.host}:${server03.port}');
+      '${Constant.urlMap["video"]} -> video Serving at http://${server03.address.host}:${server03.port}');
+  print(
+      '${Constant.urlMap["login"]} -> login Serving at http://${server04.address.host}:${server04.port}');
+  print(
+      '${Constant.urlMap["mall"]} -> mall Serving at http://${server05.address.host}:${server05.port}');
+  print(
+      '${Constant.urlMap["search"]} -> search Serving at http://${server06.address.host}:${server06.port}');
+  print(
+      '${Constant.urlMap["app"]} -> app Serving at http://${server07.address.host}:${server07.port}');
 }
