@@ -15,10 +15,17 @@ import 'core/shared_preferences/bilibili_shared_preference.dart';
 import 'core/shared_preferences/shared_preference_util.dart';
 import 'dart:ui' as ui;
 
+Size defaultSize = const Size(360, 690);
+Size androidScreenSize = const Size(360, 690);
+Size windowsScreenSize = const Size(1266, 713);
+Size webScreenSize = const Size(1920, 1080);
+
 void main() async {
   if (!kIsWeb) {
     if (Platform.isAndroid) {
+      defaultSize = androidScreenSize;
       WidgetsFlutterBinding.ensureInitialized();
+
       ///手机状态栏的背景颜色及状态栏文字颜色
       SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
@@ -29,14 +36,13 @@ void main() async {
           statusBarColor: Colors.white,
         ),
       );
-    } else if(Platform.isWindows){
-
-    } else if(Platform.isIOS) {
-
-    }
+    } else if (Platform.isWindows) {
+      defaultSize = windowsScreenSize;
+    } else if (Platform.isIOS) {}
   } else {
-    ///网页端
+    defaultSize = webScreenSize;
   }
+
   ///实例化sharedPreference
   await SharedPreferenceUtil.getInstance();
   runApp(const MyApp());
@@ -50,7 +56,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       minTextAdapt: true,
       splitScreenMode: true,
-      designSize: const Size(360, 690),
+      designSize: defaultSize,
       builder: (ctx, child) {
         ///保存本地语言
         String? locale =

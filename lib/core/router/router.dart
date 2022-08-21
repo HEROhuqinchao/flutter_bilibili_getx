@@ -1,4 +1,6 @@
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dart';
+import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
+import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/mall/mall_binding.dart';
 import 'package:bilibili_getx/ui/pages/mall/mall_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_binding.dart';
@@ -7,17 +9,15 @@ import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
-import '../../ui/pages/main/comic/comic_binding.dart';
-import '../../ui/pages/main/comic/comic_view.dart';
+import '../../ui/pages/main/home/comic/comic_binding.dart';
+import '../../ui/pages/main/home/live/live_binding.dart';
+import '../../ui/pages/main/home/live/live_view.dart';
 import '../../ui/pages/main/home/login/login_binding.dart';
 import '../../ui/pages/main/home/login/login_view.dart';
 import '../../ui/pages/main/home/search/search_binding.dart';
 import '../../ui/pages/main/home/search/search_view.dart';
-import '../../ui/pages/main/live/live_binding.dart';
-import '../../ui/pages/main/live/live_view.dart';
 import '../../ui/pages/main/main_binding.dart';
 import '../../ui/pages/main/main_view.dart';
-import '../../ui/pages/main/recommend/recommend_view.dart';
 import '../../ui/pages/mine/scan_login/scan_login_view.dart';
 
 class AsRouter {

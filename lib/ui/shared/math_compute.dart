@@ -53,5 +53,5 @@ int getListMin(List<double> list) {
 
 ///不超过n个字的string
 String noMoreN(String text, int n) {
-  return text.length > n ? text.substring(0, n) + "..." : text;
+  return text.length > n ? "${text.substring(0, n)}..." : text;
 }

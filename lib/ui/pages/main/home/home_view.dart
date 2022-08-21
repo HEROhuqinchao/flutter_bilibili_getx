@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
+import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/search/search_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_logic.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
@@ -12,10 +14,8 @@ import 'package:get/get.dart';
 import '../../../../core/I18n/str_res_keys.dart';
 import '../../../shared/image_asset.dart';
 import '../../../widgets/rectangle_checkBox.dart';
-import '../comic/comic_view.dart';
-import '../live/live_view.dart';
-import '../recommend/recommend_view.dart';
 import 'home_logic.dart';
+import 'live/live_view.dart';
 import 'login/login_view.dart';
 
 class HomeScreen extends StatelessWidget {

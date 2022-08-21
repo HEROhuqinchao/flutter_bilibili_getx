@@ -114,15 +114,15 @@ class ListElement {
     required this.hotId,
   });
 
-  String keyword;
-  String status;
-  String nameType;
-  String showName;
-  int wordType;
+  String? keyword;
+  String? status;
+  String? nameType;
+  String? showName;
+  int? wordType;
   String? icon;
-  int position;
-  int moduleId;
-  int hotId;
+  int? position;
+  int? moduleId;
+  int? hotId;
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
         keyword: json["keyword"],
@@ -130,7 +130,7 @@ class ListElement {
         nameType: json["name_type"],
         showName: json["show_name"],
         wordType: json["word_type"],
-        icon: json["icon"] == null ? null : json["icon"],
+        icon: json["icon"],
         position: json["position"],
         moduleId: json["module_id"],
         hotId: json["hot_id"],
