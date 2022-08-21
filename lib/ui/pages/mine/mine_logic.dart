@@ -17,10 +17,11 @@ class MineLogic extends GetxController {
     super.onInit();
   }
 
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
+  @override
+  void onReady() {
+    iniAccountMine();
+    super.onReady();
+  }
 
   // @override
   // void onClose() {
@@ -35,7 +36,7 @@ class MineLogic extends GetxController {
     state.finishLoading = true;
   }
 
-  ///初始化布局
+  ///初始化数据
   void iniAccountMine() {
     state.isLogin =
         SharedPreferenceUtil.getBool(BilibiliSharedPreference.isLogin) ?? false;
@@ -73,6 +74,7 @@ class MineLogic extends GetxController {
           SharedPreferenceUtil.getBool(BilibiliSharedPreference.isLogin) ??
               false;
       state.finishLoading = true;
+      update();
     });
   }
 }

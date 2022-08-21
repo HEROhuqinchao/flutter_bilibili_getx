@@ -1,4 +1,4 @@
-import 'package:bilibili_getx/ui/pages/scan_login/scan_login_view.dart';
+import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -46,7 +46,10 @@ class MineScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  body: SingleChildScrollView(child: buildMineContentBody()),
+                  body: SingleChildScrollView(
+                    controller: ScrollController(),
+                    child: buildMineContentBody(),
+                  ),
                 )
               : Scaffold(
                   body: Center(
@@ -104,7 +107,8 @@ class MineScreen extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: HYAppTheme.xxSmallFontSize,
-                                      fontWeight: FontWeight.bold),
+                                      fontWeight: FontWeight.normal,
+                                      fontFamily: 'bilibiliFonts'),
                                 )
                               ],
                             ),
@@ -116,33 +120,37 @@ class MineScreen extends StatelessWidget {
 
           ///最后一块采用垂直的排布（联系客服、听视频等）
           if (index == state.accountMineData.data.sectionsV2.length - 1) {
-            widgets.add(Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10).r,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  15.verticalSpace,
-                  buildMineMoreServiceItem(
-                      item.items[0].icon, item.items[0].title),
-                  15.verticalSpace,
-                  buildMineMoreServiceItem(
-                      item.items[1].icon, item.items[1].title),
-                  15.verticalSpace,
-                  buildMineMoreServiceItem(
-                      item.items[2].icon, item.items[2].title),
-                  buildSettingButton(),
-                ],
+            widgets.add(
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10).r,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    15.verticalSpace,
+                    buildMineMoreServiceItem(
+                        item.items[0].icon, item.items[0].title),
+                    15.verticalSpace,
+                    buildMineMoreServiceItem(
+                        item.items[1].icon, item.items[1].title),
+                    15.verticalSpace,
+                    buildMineMoreServiceItem(
+                        item.items[2].icon, item.items[2].title),
+                    buildSettingButton(),
+                  ],
+                ),
               ),
-            ));
+            );
           } else {
             ///按钮列表
-            widgets.add(Container(
-              padding: const EdgeInsets.symmetric(vertical: 15).r,
-              child: HYIconButtonRow(
-                size: HYAppTheme.normalFontSize,
-                items: item.items,
+            widgets.add(
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 15).r,
+                child: HYIconButtonRow(
+                  size: HYAppTheme.normalFontSize,
+                  items: item.items,
+                ),
               ),
-            ));
+            );
           }
         }
         index++;
@@ -151,6 +159,7 @@ class MineScreen extends StatelessWidget {
         padding: const EdgeInsets.all(15).r,
         color: Colors.white,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: widgets,
         ),
       );
@@ -492,7 +501,7 @@ class MineScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: HYAppTheme.xSmallFontSize,
                           color: HYAppTheme.norTextColors,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.normal),
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
@@ -506,6 +515,7 @@ class MineScreen extends StatelessWidget {
           );
   }
 
+  ///成为大会员
   Widget buildMineAppBarFooter() {
     return Container(
       width: double.infinity,
@@ -602,7 +612,8 @@ class MineScreen extends StatelessWidget {
             style: TextStyle(
                 color: HYAppTheme.norTextColors,
                 fontSize: HYAppTheme.xSmallFontSize,
-                fontWeight: FontWeight.bold),
+                fontWeight: FontWeight.normal,
+                fontFamily: 'bilibiliFonts'),
           ),
           button
         ],

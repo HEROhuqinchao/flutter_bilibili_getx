@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../core/model/region_model.dart';
+import '../../../../../core/model/region_model.dart';
 
 class LoginState {
   late TextEditingController telTextEditController;

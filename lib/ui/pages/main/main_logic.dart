@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'main_state.dart';
@@ -6,7 +9,12 @@ class MainLogic extends GetxController {
   final MainState state = MainState();
   @override
   void onInit() {
-    requestPermissions();
+    ///手机端获取权限
+    if(!kIsWeb) {
+      if(Platform.isAndroid) {
+        requestPermissions();
+      }
+    }
     super.onInit();
   }
   ///权限获取

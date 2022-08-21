@@ -4,15 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
-import '../../../core/I18n/str_res_keys.dart';
-import '../../shared/app_theme.dart';
-import '../../shared/image_asset.dart';
-import '../../widgets/rectangle_checkBox.dart';
-import '../../widgets/timer_button.dart';
+import '../../../../../core/I18n/str_res_keys.dart';
+import '../../../../shared/app_theme.dart';
+import '../../../../shared/image_asset.dart';
+import '../../../../widgets/rectangle_checkBox.dart';
+import '../../../../widgets/timer_button.dart';
 import 'login_logic.dart';
 
 class LoginScreen extends StatelessWidget {
-  static const String routeName = "/login";
+  static const String routeName = "/home/login";
   final logic = Get.find<LoginLogic>();
   final state = Get
       .find<LoginLogic>()
