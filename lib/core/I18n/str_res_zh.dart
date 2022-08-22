@@ -77,4 +77,16 @@ const strResZh = {
   SR.retrySendCode: '重新获取',
   SR.secondRetry: "秒重试",
   SR.userAgreementAndPrivacyPolicyTips: "用户协议与隐私政策提示",
+  ///搜索
+  SR.hotKeys: "B站热搜",
+  SR.entireRanking: "完整榜单 > ",
+  SR.filter:"筛选",
+  SR.synthesis:"综合",
+  SR.drama:"番剧",
+  SR.user:"用户",
+  SR.column:"专栏",
+  SR.defaultOrder:"默认排序",
+  SR.newestPublish:"新发布",
+  SR.highVideoPlay:"播放多",
+  SR.highDanmaku:"弹幕多",
 };

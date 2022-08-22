@@ -5,6 +5,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/I18n/str_res_keys.dart';
 import '../../../../../core/model/home_search_result.dart';
 import '../../../../../core/service/request/search_request.dart';
 import '../../../../shared/app_theme.dart';
@@ -92,7 +93,7 @@ class _SearchScreenState extends State<SearchScreen>
                     fontSize: HYAppTheme.xxSmallFontSize),
                 isCollapsed: true,
                 contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 8).r,
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15).r,
                 filled: true,
                 fillColor: HYAppTheme.norGrayColor.withOpacity(.15),
                 prefixIcon: Image.asset(
@@ -225,15 +226,15 @@ class _SearchScreenState extends State<SearchScreen>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "B站热搜",
+                SR.hotKeys.tr,
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
                   color: Colors.black,
                   fontSize: HYAppTheme.xSmallFontSize,
                 ),
               ),
               Text(
-                "完整榜单 > ",
+                SR.entireRanking.tr,
                 style: TextStyle(
                   color: HYAppTheme.norGrayColor,
                   fontSize: HYAppTheme.xxSmallFontSize,
@@ -309,17 +310,17 @@ class _SearchScreenState extends State<SearchScreen>
     List<Widget> subTabs = [];
     List<SearchResultDataItem> items = state.searchResult.data.item!;
 
-    mainTabs.add(Tab(text: "综合", height: 30.h));
+    mainTabs.add(Tab(text: SR.synthesis.tr, height: 30.h));
     for (var item in state.searchResult.data.nav) {
       String num = item.total > 99 ? "99+" : item.total.toString();
       item.total > 0
           ? mainTabs.add(Tab(text: "${item.name}($num)", height: 30.h))
           : mainTabs.add(Tab(text: item.name, height: 30.h));
     }
-    subTabs.add(Tab(text: "默认排序", height: 40.h));
-    subTabs.add(Tab(text: "新发布", height: 40.h));
-    subTabs.add(Tab(text: "播放多", height: 40.h));
-    subTabs.add(Tab(text: "弹幕多", height: 40.h));
+    subTabs.add(Tab(text: SR.defaultOrder.tr, height: 40.h));
+    subTabs.add(Tab(text: SR.newestPublish.tr, height: 40.h));
+    subTabs.add(Tab(text: SR.highVideoPlay.tr, height: 40.h));
+    subTabs.add(Tab(text: SR.highDanmaku.tr, height: 40.h));
 
     ///头部的（综合番剧用户直播影视）分类；（默认排序新发布播放多弹幕多）子分类
     ///主分类
@@ -332,8 +333,8 @@ class _SearchScreenState extends State<SearchScreen>
         unselectedLabelColor: HYAppTheme.unselectedLabelColor,
         labelColor: HYAppTheme.norMainThemeColors,
         indicatorSize: TabBarIndicatorSize.label,
-        labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
+        labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontFamily: 'BilibiliFonts'),
+        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal, fontFamily: 'BilibiliFonts'),
         indicatorWeight: 2.h,
         isScrollable: true,
       ),
@@ -350,9 +351,9 @@ class _SearchScreenState extends State<SearchScreen>
               unselectedLabelColor: HYAppTheme.unselectedLabelColor,
               labelColor: HYAppTheme.norMainThemeColors,
               indicatorSize: TabBarIndicatorSize.label,
-              labelStyle: TextStyle(fontSize: HYAppTheme.xxSmallFontSize),
+              labelStyle: TextStyle(fontSize: HYAppTheme.xxSmallFontSize, fontFamily: 'BilibiliFonts'),
               unselectedLabelStyle:
-                  TextStyle(fontSize: HYAppTheme.xxSmallFontSize),
+                  TextStyle(fontSize: HYAppTheme.xxSmallFontSize, fontFamily: 'BilibiliFonts'),
               labelPadding: EdgeInsets.zero,
             ),
           ),
@@ -367,8 +368,9 @@ class _SearchScreenState extends State<SearchScreen>
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.r),
                 child: Text(
-                  "筛选",
+                  SR.filter.tr,
                   style: TextStyle(
+                    fontWeight: FontWeight.normal,
                       color: HYAppTheme.norGrayColor,
                       fontSize: HYAppTheme.xxSmallFontSize),
                 ),

@@ -73,4 +73,17 @@ class SR {
   static const secondRetry = 'second_retry';
   static const userAgreementAndPrivacyPolicyTips =
       'user_agreement_and_privacy_policy_tips';
+
+  ///搜索
+  static const hotKeys = "hot_keys";
+  static const entireRanking = "entire_ranking";
+  static const filter = "filter";
+  static const synthesis = "synthesis";
+  static const drama = "drama";
+  static const user = "user";
+  static const column = "column";
+  static const defaultOrder = "defaultOrder";
+  static const newestPublish = "newestPublish";
+  static const highVideoPlay = "highVideoPlay";
+  static const highDanmaku = "highDanmaku";
 }

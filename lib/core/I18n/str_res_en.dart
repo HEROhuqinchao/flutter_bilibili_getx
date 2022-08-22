@@ -78,4 +78,17 @@ const strResEn = {
   SR.secondRetry: "s retry",
   SR.userAgreementAndPrivacyPolicyTips:
       "user agreement and privacy policy tips",
+
+  ///搜索
+  SR.hotKeys:"hot keys",
+  SR.entireRanking:"entire ranking",
+  SR.filter:"filter",
+  SR.synthesis:"synthesis",
+  SR.drama:"drama",
+  SR.user:"user",
+  SR.column:"column",
+  SR.defaultOrder:"default order",
+  SR.newestPublish:"newest publish",
+  SR.highVideoPlay:"high video play",
+  SR.highDanmaku:"high danmaku",
 };
