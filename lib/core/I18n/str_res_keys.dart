@@ -86,6 +86,7 @@ class SR {
   static const newestPublish = "newestPublish";
   static const highVideoPlay = "highVideoPlay";
   static const highDanmaku = "highDanmaku";
+  static const searchSomething = "search videos, drama or up...";
 
   ///我的界面
   static const normalVip = "normal_vip";

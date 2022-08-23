@@ -421,7 +421,7 @@ class MineScreen extends StatelessWidget {
                               state.accountMineData.data.name,
                               style: TextStyle(
                                   color: HYAppTheme.norTextColors,
-                                  fontSize: 16.sp),
+                                  fontSize: 18.sp),
                             ),
                             5.horizontalSpace,
                             UserLevel(level: state.accountMineData.data.level)
@@ -430,7 +430,7 @@ class MineScreen extends StatelessWidget {
                         5.verticalSpace,
                         Container(
                           padding: const EdgeInsets.symmetric(
-                                  horizontal: 2, vertical: 0)
+                                  horizontal: 2, vertical: 2)
                               .r,
                           decoration: BoxDecoration(
                               border: Border.all(
@@ -438,10 +438,10 @@ class MineScreen extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(3.r))),
                           child: Text(
-                            SR.normalVip,
+                            SR.normalVip.tr,
                             style: TextStyle(
                                 color: HYAppTheme.norMainThemeColors,
-                                fontSize: 10.sp),
+                                fontSize: 12.sp),
                           ),
                         ),
                         5.verticalSpace,

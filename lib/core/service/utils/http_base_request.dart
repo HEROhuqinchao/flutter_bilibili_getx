@@ -13,7 +13,7 @@ String loginUserAgent =
     "Mozilla/5.0 BiliDroid/6.72.0 (bbcallen@gmail.com) os/android model/MuMu mobi_app/android build/6720300 channel/html5_search_baidu innerVer/6720310 osVer/6.0.1 network/2";
 
 String uaWeb =
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49";
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.63";
 
 class HttpBaseRequest {
   ///请求utf8的数据
@@ -92,9 +92,9 @@ class HttpBaseRequest {
         (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
             (HttpClient client) {
           client.userAgent = null;
+          return null;
         };
       }
-
     }
 
 

@@ -89,6 +89,7 @@ const strResZh = {
   SR.newestPublish:"新发布",
   SR.highVideoPlay:"播放多",
   SR.highDanmaku:"弹幕多",
+  SR.searchSomething: "搜索视频、番剧或up主",
 
   ///我的界面
   SR.normalVip:"正式会员"

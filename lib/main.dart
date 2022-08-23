@@ -17,7 +17,7 @@ import 'dart:ui' as ui;
 
 Size defaultSize = const Size(360, 690);
 Size androidScreenSize = const Size(360, 690);
-Size windowsScreenSize = const Size(360, 690);
+Size windowsScreenSize = const Size(1080, 1920);
 Size webScreenSize = const Size(360, 690);
 
 void main() {

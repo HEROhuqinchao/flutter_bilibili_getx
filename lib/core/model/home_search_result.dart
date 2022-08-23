@@ -297,7 +297,7 @@ class SearchResultDataItem {
             ? null
             : Relation.fromJson(json["relation"]),
         liveStatus: json["live_status"] == null ? null : json["live_status"],
-        play: json["play"] == null ? null : json["play"],
+        play: json["play"] == null ? 0 : json["play"],
         danmaku: json["danmaku"] == null ? null : json["danmaku"],
         author: json["author"] == null ? null : json["author"],
         ptime: json["ptime"] == null ? null : json["ptime"],

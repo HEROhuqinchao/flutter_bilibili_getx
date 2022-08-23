@@ -84,10 +84,9 @@ class _SearchScreenState extends State<SearchScreen>
               cursorColor: HYAppTheme.norMainThemeColors,
               cursorHeight: 18.sp,
               focusNode: state.focusNode,
-              style: TextStyle(
-                  color: Colors.black, fontSize: 14.sp),
+              style: TextStyle(color: Colors.black, fontSize: 14.sp),
               decoration: InputDecoration(
-                hintText: "搜索视频、番剧或up主",
+                hintText: SR.searchSomething.tr,
                 hintStyle: TextStyle(
                     color: HYAppTheme.norGrayColor.withOpacity(.6),
                     fontSize: 12.sp),
@@ -111,10 +110,10 @@ class _SearchScreenState extends State<SearchScreen>
                     ImageAssets.clearSearchPNG,
                   ),
                 ),
-                prefixIconConstraints: BoxConstraints(
-                    maxHeight: 16.sp, minWidth: 50.w),
-                suffixIconConstraints: BoxConstraints(
-                    maxHeight: 14.sp, minWidth: 50.w),
+                prefixIconConstraints:
+                    BoxConstraints(maxHeight: 16.sp, minWidth: 50.w),
+                suffixIconConstraints:
+                    BoxConstraints(maxHeight: 14.sp, minWidth: 50.w),
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.all(const Radius.circular(50).r),
@@ -140,7 +139,7 @@ class _SearchScreenState extends State<SearchScreen>
                           maskWidget: Container(),
                           builder: (ctx) {
                             return Container(
-                              height: 1.sh - 70.h,
+                              height: 1.sh - 50.h,
                               width: 1.sw,
                               color: Colors.black.withOpacity(.3),
                               alignment: Alignment.topCenter,
@@ -199,7 +198,7 @@ class _SearchScreenState extends State<SearchScreen>
           10.horizontalSpace,
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pop();
+              Get.back();
             },
             child: Text(
               "取消",
@@ -333,8 +332,16 @@ class _SearchScreenState extends State<SearchScreen>
         unselectedLabelColor: HYAppTheme.unselectedLabelColor,
         labelColor: HYAppTheme.norMainThemeColors,
         indicatorSize: TabBarIndicatorSize.label,
-        labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontFamily: 'BilibiliFonts'),
-        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal, fontFamily: 'BilibiliFonts'),
+        labelStyle: TextStyle(
+          fontSize: 16.sp,
+          fontWeight: FontWeight.normal,
+          fontFamily: 'BilibiliFonts',
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 16.sp,
+          fontWeight: FontWeight.normal,
+          fontFamily: 'BilibiliFonts',
+        ),
         indicatorWeight: 2.h,
         isScrollable: true,
       ),
@@ -351,9 +358,16 @@ class _SearchScreenState extends State<SearchScreen>
               unselectedLabelColor: HYAppTheme.unselectedLabelColor,
               labelColor: HYAppTheme.norMainThemeColors,
               indicatorSize: TabBarIndicatorSize.label,
-              labelStyle: TextStyle(fontSize: 12.sp, fontFamily: 'BilibiliFonts'),
-              unselectedLabelStyle:
-                  TextStyle(fontSize: 12.sp, fontFamily: 'BilibiliFonts'),
+              labelStyle: TextStyle(
+                fontSize: 12.sp,
+                fontFamily: 'BilibiliFonts',
+                fontWeight: FontWeight.normal,
+              ),
+              unselectedLabelStyle: TextStyle(
+                fontSize: 12.sp,
+                fontFamily: 'BilibiliFonts',
+                fontWeight: FontWeight.normal,
+              ),
               labelPadding: EdgeInsets.zero,
             ),
           ),
@@ -370,7 +384,7 @@ class _SearchScreenState extends State<SearchScreen>
                 child: Text(
                   SR.filter.tr,
                   style: TextStyle(
-                    fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.normal,
                       color: HYAppTheme.norGrayColor,
                       fontSize: 12.sp),
                 ),
@@ -408,8 +422,8 @@ class _SearchScreenState extends State<SearchScreen>
                 Stack(
                   children: [
                     SizedBox(
-                      width: 150.w,
-                      height: 90.h,
+                      width: 140.w,
+                      height: 80.w,
                       child: ClipRRect(
                         borderRadius:
                             BorderRadius.all(const Radius.circular(4).r),
@@ -449,7 +463,7 @@ class _SearchScreenState extends State<SearchScreen>
                 ///右侧视频信息
                 Expanded(
                   child: SizedBox(
-                    height: 90.h,
+                    height: 80.w,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -459,9 +473,8 @@ class _SearchScreenState extends State<SearchScreen>
                           item.title,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 12.sp),
+                          style:
+                              TextStyle(color: HYAppTheme.norTextColors, fontSize: 12.sp),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.min,
@@ -496,8 +509,7 @@ class _SearchScreenState extends State<SearchScreen>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(ImageAssets.viewGrayPNG,
-                                          width: 12.sp,
-                                          height: 12.sp),
+                                          width: 12.sp, height: 12.sp),
                                       5.horizontalSpace,
                                       Text(
                                         changeToWan(item.online!),
@@ -957,13 +969,14 @@ class _SearchScreenState extends State<SearchScreen>
                     bottom: BorderSide(
                         color: HYAppTheme.norGrayColor.withOpacity(.1)))),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 ///封面
                 Stack(
                   children: [
                     SizedBox(
-                      width: 150.w,
-                      height: 90.h,
+                      width: 140.w,
+                      height: 80.w,
                       child: ClipRRect(
                         borderRadius:
                             BorderRadius.all(const Radius.circular(4).r),
@@ -1003,10 +1016,11 @@ class _SearchScreenState extends State<SearchScreen>
                 ///右侧视频信息
                 Expanded(
                   child: SizedBox(
-                    height: 90.h,
+                    height: 80.w,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         HYHighlightStrInText(
                           originalText: item.title,
@@ -1045,8 +1059,7 @@ class _SearchScreenState extends State<SearchScreen>
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Image.asset(ImageAssets.iconListPlayerPNG,
-                                        width: 12.sp,
-                                        height: 12.sp),
+                                        width: 12.sp, height: 12.sp),
                                     5.horizontalSpace,
                                     Text(
                                       "${changeToWan(item.play!)}${item.showCardDesc2}",
@@ -1058,8 +1071,7 @@ class _SearchScreenState extends State<SearchScreen>
                                   ],
                                 ),
                                 Image.asset(ImageAssets.videoMoreCustomPNG,
-                                    width: 12.sp,
-                                    height: 12.sp),
+                                    width: 12.sp, height: 12.sp),
                               ],
                             )
                           ],
@@ -1202,8 +1214,7 @@ class _SearchScreenState extends State<SearchScreen>
                                     Text(
                                       item.followButton!.texts["0"]!,
                                       style: TextStyle(
-                                          fontSize: 14.sp,
-                                          color: Colors.white),
+                                          fontSize: 14.sp, color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -1238,8 +1249,7 @@ class _SearchScreenState extends State<SearchScreen>
                       Text(
                         "${item.vote}人",
                         style: TextStyle(
-                            fontSize: 10.sp,
-                            color: HYAppTheme.norGrayColor),
+                            fontSize: 10.sp, color: HYAppTheme.norGrayColor),
                       ),
                     ],
                   )
@@ -1270,8 +1280,8 @@ class _SearchScreenState extends State<SearchScreen>
 
   Widget buildAppUserVideo(SearchResultDataItem item, int position) {
     return Container(
-      width: 108.w,
-      height: 130.h,
+      width: 100.w,
+      height: 80.w,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(const Radius.circular(3).r)),
       child: Column(
@@ -1282,8 +1292,8 @@ class _SearchScreenState extends State<SearchScreen>
           Stack(
             children: [
               SizedBox(
-                width: 108.w,
-                height: 70.h,
+                width: 100.w,
+                height: 50.w,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(const Radius.circular(4).r),
                   child: FadeInImage(
@@ -1303,8 +1313,7 @@ class _SearchScreenState extends State<SearchScreen>
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(ImageAssets.icPlayVideoWhitePNG,
-                        width: 14.sp,
-                        height: 14.sp),
+                        width: 14.sp, height: 14.sp),
                     3.horizontalSpace,
                     Text(
                       changeToWan(item.avItems![position].play),
@@ -1381,8 +1390,7 @@ class _SearchScreenState extends State<SearchScreen>
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(ImageAssets.icPlayVideoWhitePNG,
-                        width: 14.sp,
-                        height: 14.sp),
+                        width: 14.sp, height: 14.sp),
                     3.horizontalSpace,
                     Text(
                       item.items![position].coverLeftText1!,

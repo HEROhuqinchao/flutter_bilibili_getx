@@ -91,6 +91,7 @@ const strResEn = {
   SR.newestPublish:"newest publish",
   SR.highVideoPlay:"high video play",
   SR.highDanmaku:"high danmaku",
+  SR.searchSomething: "search videos, drama or up...",
 
   ///我的界面
   SR.normalVip:"normal vip",
