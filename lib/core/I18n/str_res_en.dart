@@ -91,4 +91,7 @@ const strResEn = {
   SR.newestPublish:"newest publish",
   SR.highVideoPlay:"high video play",
   SR.highDanmaku:"high danmaku",
+
+  ///我的界面
+  SR.normalVip:"normal vip",
 };

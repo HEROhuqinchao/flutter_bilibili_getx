@@ -7,20 +7,20 @@ import '../shared/shared_util.dart';
 
 class HYAppTheme {
   ///字体大小、颜色-共有属性
-  static double xxxSmallFontSize = 10.sp;
-  static double xxSmallFontSize = 12.sp;
-  static double xSmallFontSize = 14.sp;
-  static double smallFontSize = 16.sp;
-  static double commonFontSize = 18.sp;
-  static double normalFontSize = 20.sp;
-  static double largeFontSize = 22.sp;
-  static double xLargeFontSize = 24.sp;
-  static double xxLargeFontSize = 26.sp;
-  static double xxxLargeFontSize = 28.sp;
-  static double hugeFontSize = 32.sp;
-  static double xHugeFontSize = 34.sp;
-  static double xxHugeFontSize = 36.sp;
-  static double xxxHugeFontSize = 38.sp;
+  // static double xxxSmallFontSize = 10.sp;
+  // static double xxSmallFontSize = 12.sp;
+  // static double xSmallFontSize = 14.sp;
+  // static double smallFontSize = 16.sp;
+  // static double commonFontSize = 18.sp;
+  // static double normalFontSize = 20.sp;
+  // static double largeFontSize = 22.sp;
+  // static double xLargeFontSize = 24.sp;
+  // static double xxLargeFontSize = 26.sp;
+  // static double xxxLargeFontSize = 28.sp;
+  // static double hugeFontSize = 32.sp;
+  // static double xHugeFontSize = 34.sp;
+  // static double xxHugeFontSize = 36.sp;
+  // static double xxxHugeFontSize = 38.sp;
 
   ///普通模式
   ///白色
@@ -71,15 +71,15 @@ class HYAppTheme {
   );
 
   ///暗黑模式
-  static const Color darkTextColors = Colors.green;
-  static final ThemeData darkTheme = ThemeData(
-    primarySwatch: createMaterialColor(Color.fromRGBO(24, 25, 27, 1)),
-    canvasColor: Color.fromRGBO(0, 0, 0, 1),
-    textTheme: TextTheme(
-      bodySmall: TextStyle(fontSize: xSmallFontSize),
-      displaySmall: TextStyle(fontSize: smallFontSize),
-      displayMedium: TextStyle(fontSize: normalFontSize),
-      displayLarge: TextStyle(fontSize: largeFontSize),
-    ),
-  );
+  // static const Color darkTextColors = Colors.green;
+  // static final ThemeData darkTheme = ThemeData(
+  //   primarySwatch: createMaterialColor(Color.fromRGBO(24, 25, 27, 1)),
+  //   canvasColor: Color.fromRGBO(0, 0, 0, 1),
+  //   textTheme: TextTheme(
+      // bodySmall: TextStyle(fontSize: xSmallFontSize),
+      // displaySmall: TextStyle(fontSize: smallFontSize),
+      // displayMedium: TextStyle(fontSize: normalFontSize),
+      // displayLarge: TextStyle(fontSize: largeFontSize),
+    // ),
+  // );
 }

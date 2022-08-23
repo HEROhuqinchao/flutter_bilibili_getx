@@ -15,12 +15,12 @@ class RecommendScreen extends StatelessWidget {
 
     return Column(
       children: [
-        Container(
-          child: Text("测试测试", style: TextStyle(fontSize: HYAppTheme.normalFontSize),),
-        ),
-        Container(
-          child: Text("测试测试", style: TextStyle(fontSize: 20),),
-        ),
+        // Container(
+        //   child: Text("测试测试", style: TextStyle(fontSize: HYAppTheme.normalFontSize),),
+        // ),
+        // Container(
+        //   child: Text("测试测试", style: TextStyle(fontSize: 20),),
+        // ),
       ],
     );
   }

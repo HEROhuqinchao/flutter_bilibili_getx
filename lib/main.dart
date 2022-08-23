@@ -17,13 +17,12 @@ import 'dart:ui' as ui;
 
 Size defaultSize = const Size(360, 690);
 Size androidScreenSize = const Size(360, 690);
-Size windowsScreenSize = const Size(1266, 713);
-Size webScreenSize = const Size(1920, 1080);
+Size windowsScreenSize = const Size(360, 690);
+Size webScreenSize = const Size(360, 690);
 
-void main() async {
+void main() {
   if (!kIsWeb) {
     if (Platform.isAndroid) {
-      defaultSize = androidScreenSize;
       WidgetsFlutterBinding.ensureInitialized();
 
       ///手机状态栏的背景颜色及状态栏文字颜色
@@ -37,15 +36,19 @@ void main() async {
         ),
       );
     } else if (Platform.isWindows) {
-      defaultSize = windowsScreenSize;
     } else if (Platform.isIOS) {}
   } else {
-    defaultSize = webScreenSize;
   }
+  ///初始化
+  initMain();
+  runApp(const MyApp());
+}
 
+initMain() async{
   ///实例化sharedPreference
   await SharedPreferenceUtil.getInstance();
-  runApp(const MyApp());
+  ///初始化屏幕适配
+  await ScreenUtil.ensureScreenSize();
 }
 
 class MyApp extends StatelessWidget {

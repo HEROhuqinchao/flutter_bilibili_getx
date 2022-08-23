@@ -30,10 +30,10 @@ class MainScreen extends StatelessWidget {
             ///底部导航栏
             bottomNavigationBar: BottomNavigationBar(
               ///选中时字体大小
-              selectedFontSize: HYAppTheme.xxSmallFontSize,
+              selectedFontSize: 12.sp,
 
               ///未选中时字体大小
-              unselectedFontSize: HYAppTheme.xxSmallFontSize,
+              unselectedFontSize: 12.sp,
 
               ///选中时字体颜色
               selectedItemColor: HYAppTheme.norMainThemeColors,
@@ -136,8 +136,8 @@ class MainScreen extends StatelessWidget {
         ),
         child: Image.asset(
           ImageAssets.addCustomPNG,
-          width: HYAppTheme.smallFontSize,
-          height: HYAppTheme.smallFontSize,
+          width: 16.sp,
+          height: 16.sp,
         ),
       ),
     );
@@ -152,8 +152,8 @@ class MainScreen extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 8.sp),
         child: Image.asset(
           "assets/image/icon/${iconName}_custom.png",
-          width: HYAppTheme.commonFontSize,
-          height: HYAppTheme.commonFontSize,
+          width: 18.sp,
+          height: 18.sp,
           gaplessPlayback:
           true, //gaplessPlayback: 原图片保持不变，直到图片加载完成时替换图片，这样就不会出现闪烁
         ),
@@ -162,8 +162,8 @@ class MainScreen extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 8.sp),
         child: Image.asset(
           "assets/image/icon/${iconName}_selected.png",
-          width: HYAppTheme.commonFontSize,
-          height: HYAppTheme.commonFontSize,
+          width: 18.sp,
+          height: 18.sp,
           gaplessPlayback: true,
         ),
       ),

@@ -18,7 +18,7 @@ import 'home_logic.dart';
 import 'live/live_view.dart';
 import 'login/login_view.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget{
   static const String routeName = "/home";
   final logic = Get.find<HomeLogic>();
   final state = Get.find<HomeLogic>().state;
@@ -106,16 +106,16 @@ class HomeScreen extends StatelessWidget {
           onPressed: () => print("game"),
           icon: Image.asset(
             ImageAssets.gameCustomPNG,
-            width: HYAppTheme.normalFontSize,
-            height: HYAppTheme.normalFontSize,
+            width: 18.sp,
+            height: 18.sp,
           )),
       5.horizontalSpace,
       IconButton(
           onPressed: () => print("more"),
           icon: Image.asset(
             ImageAssets.mailCustomPNG,
-            width: HYAppTheme.normalFontSize,
-            height: HYAppTheme.normalFontSize,
+            width: 18.sp,
+            height: 18.sp,
           )),
       5.horizontalSpace,
     ];
@@ -137,12 +137,14 @@ class HomeScreen extends StatelessWidget {
       unselectedLabelColor: HYAppTheme.unselectedLabelColor,
       labelColor: HYAppTheme.norMainThemeColors,
       indicatorSize: TabBarIndicatorSize.label,
-      labelStyle: const TextStyle(
+      labelStyle: TextStyle(
+        fontSize: 18.sp,
         fontWeight: FontWeight.normal,
         color: HYAppTheme.norMainThemeColors,
         fontFamily: 'bilibiliFonts',
       ),
-      unselectedLabelStyle: const TextStyle(
+      unselectedLabelStyle: TextStyle(
+        fontSize: 16.sp,
         fontWeight: FontWeight.normal,
         color: HYAppTheme.norTextColors,
         fontFamily: 'bilibiliFonts',
@@ -235,7 +237,7 @@ class HomeScreen extends StatelessWidget {
                       SR.loading.tr,
                       style: TextStyle(
                           color: HYAppTheme.norGrayColor,
-                          fontSize: HYAppTheme.xxSmallFontSize, fontWeight: FontWeight.normal,),
+                          fontSize: 12.sp, fontWeight: FontWeight.normal,),
                     )
                   ],
                 ),
@@ -266,7 +268,7 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.normal,
             color: HYAppTheme.norMainThemeColors,
-            fontSize: HYAppTheme.xxxSmallFontSize,
+            fontSize: 10.sp,
             fontFamily: 'bilibiliFonts'
           ),
         ),
@@ -295,7 +297,7 @@ class HomeScreen extends StatelessWidget {
                     style: TextStyle(
                         color: HYAppTheme.norTextColors,
                         fontSize:
-                        HYAppTheme.xSmallFontSize),
+                        14.sp),
                     textAlign: TextAlign.center,
                   ),
                   Container(
@@ -306,7 +308,7 @@ class HomeScreen extends StatelessWidget {
                       "183****1731",
                       style: TextStyle(
                           fontSize:
-                          HYAppTheme.normalFontSize,
+                          18.sp,
                           color:
                           HYAppTheme.norTextColors),
                     ),
@@ -340,8 +342,7 @@ class HomeScreen extends StatelessWidget {
                             .toUpperCase(),
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: HYAppTheme
-                                .xSmallFontSize),
+                            fontSize: 14.sp),
                       ),
                     ),
                   ),
@@ -358,8 +359,7 @@ class HomeScreen extends StatelessWidget {
                       child: Text(
                         SR.otherWay.tr,
                         style: TextStyle(
-                            fontSize: HYAppTheme
-                                .xSmallFontSize,
+                            fontSize: 14.sp,
                             color: HYAppTheme
                                 .norGray04Color),
                         textAlign: TextAlign.center,
@@ -421,27 +421,27 @@ class HomeScreen extends StatelessWidget {
             TextSpan(
               text: SR.userAgreementText01.tr,
               style: TextStyle(
-                  color: Colors.grey, fontSize: HYAppTheme.xxxSmallFontSize),
+                  color: Colors.grey, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText02.tr,
               style: TextStyle(
-                  color: Colors.blue, fontSize: HYAppTheme.xxxSmallFontSize),
+                  color: Colors.blue, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText03.tr,
               style: TextStyle(
-                  color: Colors.grey, fontSize: HYAppTheme.xxxSmallFontSize),
+                  color: Colors.grey, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText04.tr,
               style: TextStyle(
-                  color: Colors.blue, fontSize: HYAppTheme.xxxSmallFontSize),
+                  color: Colors.blue, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText05.tr,
               style: TextStyle(
-                  color: Colors.grey, fontSize: HYAppTheme.xxxSmallFontSize),
+                  color: Colors.grey, fontSize: 10.sp),
             ),
           ],
         ),

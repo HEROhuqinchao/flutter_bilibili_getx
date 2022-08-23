@@ -50,7 +50,7 @@ class _HYIconButtonRowState extends State<HYIconButtonRow> {
             Text(
               text,
               style: TextStyle(
-                  fontSize: HYAppTheme.xxSmallFontSize,
+                  fontSize: 12.sp,
                   color: HYAppTheme.norGray04Color),
             )
           ],

@@ -82,15 +82,15 @@ class _SearchScreenState extends State<SearchScreen>
               autofocus: true,
               controller: state.textEditingController,
               cursorColor: HYAppTheme.norMainThemeColors,
-              cursorHeight: HYAppTheme.normalFontSize,
+              cursorHeight: 18.sp,
               focusNode: state.focusNode,
               style: TextStyle(
-                  color: Colors.black, fontSize: HYAppTheme.xSmallFontSize),
+                  color: Colors.black, fontSize: 14.sp),
               decoration: InputDecoration(
                 hintText: "搜索视频、番剧或up主",
                 hintStyle: TextStyle(
                     color: HYAppTheme.norGrayColor.withOpacity(.6),
-                    fontSize: HYAppTheme.xxSmallFontSize),
+                    fontSize: 12.sp),
                 isCollapsed: true,
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 15).r,
@@ -112,9 +112,9 @@ class _SearchScreenState extends State<SearchScreen>
                   ),
                 ),
                 prefixIconConstraints: BoxConstraints(
-                    maxHeight: HYAppTheme.smallFontSize, minWidth: 50.w),
+                    maxHeight: 16.sp, minWidth: 50.w),
                 suffixIconConstraints: BoxConstraints(
-                    maxHeight: HYAppTheme.xSmallFontSize, minWidth: 50.w),
+                    maxHeight: 14.sp, minWidth: 50.w),
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.all(const Radius.circular(50).r),
@@ -205,7 +205,7 @@ class _SearchScreenState extends State<SearchScreen>
               "取消",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: HYAppTheme.xSmallFontSize,
+                fontSize: 14.sp,
               ),
             ),
           )
@@ -230,14 +230,14 @@ class _SearchScreenState extends State<SearchScreen>
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   color: Colors.black,
-                  fontSize: HYAppTheme.xSmallFontSize,
+                  fontSize: 14.sp,
                 ),
               ),
               Text(
                 SR.entireRanking.tr,
                 style: TextStyle(
                   color: HYAppTheme.norGrayColor,
-                  fontSize: HYAppTheme.xxSmallFontSize,
+                  fontSize: 12.sp,
                 ),
               ),
             ],
@@ -269,7 +269,7 @@ class _SearchScreenState extends State<SearchScreen>
                               noMoreN(searchItemText, 10),
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: HYAppTheme.xxSmallFontSize,
+                                fontSize: 12.sp,
                               ),
                             ),
                           ),
@@ -351,9 +351,9 @@ class _SearchScreenState extends State<SearchScreen>
               unselectedLabelColor: HYAppTheme.unselectedLabelColor,
               labelColor: HYAppTheme.norMainThemeColors,
               indicatorSize: TabBarIndicatorSize.label,
-              labelStyle: TextStyle(fontSize: HYAppTheme.xxSmallFontSize, fontFamily: 'BilibiliFonts'),
+              labelStyle: TextStyle(fontSize: 12.sp, fontFamily: 'BilibiliFonts'),
               unselectedLabelStyle:
-                  TextStyle(fontSize: HYAppTheme.xxSmallFontSize, fontFamily: 'BilibiliFonts'),
+                  TextStyle(fontSize: 12.sp, fontFamily: 'BilibiliFonts'),
               labelPadding: EdgeInsets.zero,
             ),
           ),
@@ -372,13 +372,13 @@ class _SearchScreenState extends State<SearchScreen>
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                       color: HYAppTheme.norGrayColor,
-                      fontSize: HYAppTheme.xxSmallFontSize),
+                      fontSize: 12.sp),
                 ),
               ),
               Image.asset(
                 ImageAssets.icFilterPNG,
-                width: HYAppTheme.xxSmallFontSize,
-                height: HYAppTheme.xxSmallFontSize,
+                width: 12.sp,
+                height: 12.sp,
               ),
             ],
           )
@@ -436,7 +436,7 @@ class _SearchScreenState extends State<SearchScreen>
                         child: Text(
                           item.badge!,
                           style: TextStyle(
-                            fontSize: HYAppTheme.xxxSmallFontSize,
+                            fontSize: 10.sp,
                             color: Colors.white,
                           ),
                         ),
@@ -461,7 +461,7 @@ class _SearchScreenState extends State<SearchScreen>
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: HYAppTheme.xxSmallFontSize),
+                              fontSize: 12.sp),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.min,
@@ -473,8 +473,8 @@ class _SearchScreenState extends State<SearchScreen>
                               children: [
                                 Image.asset(
                                   ImageAssets.upGrayPNG,
-                                  width: HYAppTheme.xxSmallFontSize,
-                                  height: HYAppTheme.xxSmallFontSize,
+                                  width: 12.sp,
+                                  height: 12.sp,
                                 ),
                                 5.horizontalSpace,
                                 Text(
@@ -483,7 +483,7 @@ class _SearchScreenState extends State<SearchScreen>
                                       : item.name!,
                                   style: TextStyle(
                                     color: HYAppTheme.norGrayColor,
-                                    fontSize: HYAppTheme.xxSmallFontSize,
+                                    fontSize: 12.sp,
                                   ),
                                 ),
                               ],
@@ -496,13 +496,13 @@ class _SearchScreenState extends State<SearchScreen>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(ImageAssets.viewGrayPNG,
-                                          width: HYAppTheme.xxSmallFontSize,
-                                          height: HYAppTheme.xxSmallFontSize),
+                                          width: 12.sp,
+                                          height: 12.sp),
                                       5.horizontalSpace,
                                       Text(
                                         changeToWan(item.online!),
                                         style: TextStyle(
-                                          fontSize: HYAppTheme.xxxSmallFontSize,
+                                          fontSize: 10.sp,
                                           color: HYAppTheme.norGrayColor,
                                         ),
                                       ),
@@ -554,14 +554,14 @@ class _SearchScreenState extends State<SearchScreen>
                                 item.title,
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: HYAppTheme.xxSmallFontSize,
+                                  fontSize: 12.sp,
                                 ),
                               ),
                               5.horizontalSpace,
                               Image.network(
                                 item.typeIcon!,
-                                width: HYAppTheme.xxSmallFontSize,
-                                height: HYAppTheme.xxSmallFontSize,
+                                width: 12.sp,
+                                height: 12.sp,
                               ),
                             ],
                           ),
@@ -572,7 +572,7 @@ class _SearchScreenState extends State<SearchScreen>
                                 item.channelLabel1!.text,
                                 style: TextStyle(
                                   color: HYAppTheme.norMainThemeColors,
-                                  fontSize: HYAppTheme.xxxSmallFontSize,
+                                  fontSize: 10.sp,
                                 ),
                               ),
                               10.horizontalSpace,
@@ -580,7 +580,7 @@ class _SearchScreenState extends State<SearchScreen>
                                 item.channelLabel2!.text,
                                 style: TextStyle(
                                   color: HYAppTheme.norMainThemeColors,
-                                  fontSize: HYAppTheme.xxxSmallFontSize,
+                                  fontSize: 10.sp,
                                 ),
                               ),
                             ],
@@ -602,7 +602,7 @@ class _SearchScreenState extends State<SearchScreen>
                       item.channelButton!.text,
                       style: TextStyle(
                         color: HYAppTheme.norMainThemeColors,
-                        fontSize: HYAppTheme.xxSmallFontSize,
+                        fontSize: 12.sp,
                       ),
                     ),
                   ),
@@ -643,7 +643,7 @@ class _SearchScreenState extends State<SearchScreen>
                             Text(
                               item.items![i].title!,
                               style: TextStyle(
-                                fontSize: HYAppTheme.xxSmallFontSize,
+                                fontSize: 12.sp,
                               ),
                             ),
                           ],
@@ -687,7 +687,7 @@ class _SearchScreenState extends State<SearchScreen>
                             Text(
                               item.title,
                               style: TextStyle(
-                                  fontSize: HYAppTheme.xxSmallFontSize,
+                                  fontSize: 12.sp,
                                   fontWeight: FontWeight.bold,
                                   color: HYAppTheme.norMainThemeColors),
                             ),
@@ -701,7 +701,7 @@ class _SearchScreenState extends State<SearchScreen>
                             Text(
                               "粉丝:${changeToWan(item.fans!)}   视频:${changeToWan(item.archives!)}",
                               style: TextStyle(
-                                fontSize: HYAppTheme.xxSmallFontSize,
+                                fontSize: 12.sp,
                                 color: HYAppTheme.norGrayColor,
                               ),
                             )
@@ -711,7 +711,7 @@ class _SearchScreenState extends State<SearchScreen>
                             ? Text(
                                 item.officialVerify!.desc!,
                                 style: TextStyle(
-                                  fontSize: HYAppTheme.xxSmallFontSize,
+                                  fontSize: 12.sp,
                                   color: HYAppTheme.norGrayColor,
                                 ),
                               )
@@ -727,14 +727,14 @@ class _SearchScreenState extends State<SearchScreen>
                       "+关注",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: HYAppTheme.xSmallFontSize,
+                        fontSize: 14.sp,
                       ),
                     ),
                   ),
                   Image.asset(
                     ImageAssets.videoMoreCustomPNG,
-                    width: HYAppTheme.smallFontSize,
-                    height: HYAppTheme.smallFontSize,
+                    width: 16.sp,
+                    height: 16.sp,
                   ),
                 ],
               ),
@@ -754,7 +754,7 @@ class _SearchScreenState extends State<SearchScreen>
                 "查看全部${item.archives}个视频>",
                 style: TextStyle(
                   color: HYAppTheme.norMainThemeColors,
-                  fontSize: HYAppTheme.xxSmallFontSize,
+                  fontSize: 12.sp,
                 ),
               ),
             ],
@@ -797,7 +797,7 @@ class _SearchScreenState extends State<SearchScreen>
                             item.title,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: HYAppTheme.xSmallFontSize,
+                              fontSize: 14.sp,
                             ),
                           ),
                         ],
@@ -814,7 +814,7 @@ class _SearchScreenState extends State<SearchScreen>
                         "赛事专题>",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: HYAppTheme.xxSmallFontSize,
+                          fontSize: 12.sp,
                         ),
                       ),
                     )
@@ -839,7 +839,7 @@ class _SearchScreenState extends State<SearchScreen>
                         item.items![0].team1!.title,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: HYAppTheme.xxSmallFontSize,
+                          fontSize: 12.sp,
                         ),
                       )
                     ],
@@ -850,7 +850,7 @@ class _SearchScreenState extends State<SearchScreen>
                       Text(
                         item.items![0].matchStage!,
                         style: TextStyle(
-                          fontSize: HYAppTheme.xxxSmallFontSize,
+                          fontSize: 10.sp,
                         ),
                       ),
                       10.verticalSpace,
@@ -858,7 +858,7 @@ class _SearchScreenState extends State<SearchScreen>
                         "${item.items![0].team1!.score ?? "0"} : ${item.items![0].team2!.score ?? "0"}",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: HYAppTheme.hugeFontSize,
+                          fontSize: 32.sp,
                         ),
                       ),
                       5.verticalSpace,
@@ -867,7 +867,7 @@ class _SearchScreenState extends State<SearchScreen>
                               item.items![0].matchLabel!.text,
                               style: TextStyle(
                                 color: HYAppTheme.norMainThemeColors,
-                                fontSize: HYAppTheme.xxxSmallFontSize,
+                                fontSize: 10.sp,
                               ),
                             )
                           : Container(),
@@ -885,15 +885,15 @@ class _SearchScreenState extends State<SearchScreen>
                           children: [
                             Image.asset(
                               ImageAssets.onlinePNG,
-                              width: HYAppTheme.xxxSmallFontSize,
-                              height: HYAppTheme.xxxSmallFontSize,
+                              width: 10.sp,
+                              height: 10.sp,
                             ),
                             4.horizontalSpace,
                             Text(
                               item.items![0].matchButton!.text,
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: HYAppTheme.xSmallFontSize,
+                                fontSize: 14.sp,
                               ),
                             )
                           ],
@@ -915,7 +915,7 @@ class _SearchScreenState extends State<SearchScreen>
                         item.items![0].team2!.title,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: HYAppTheme.xxSmallFontSize,
+                          fontSize: 12.sp,
                         ),
                       )
                     ],
@@ -990,7 +990,7 @@ class _SearchScreenState extends State<SearchScreen>
                         child: Text(
                           item.duration!,
                           style: TextStyle(
-                            fontSize: HYAppTheme.xxxSmallFontSize,
+                            fontSize: 10.sp,
                             color: Colors.white,
                           ),
                         ),
@@ -1023,15 +1023,15 @@ class _SearchScreenState extends State<SearchScreen>
                               children: [
                                 Image.asset(
                                   ImageAssets.upGrayPNG,
-                                  width: HYAppTheme.xxSmallFontSize,
-                                  height: HYAppTheme.xxSmallFontSize,
+                                  width: 12.sp,
+                                  height: 12.sp,
                                 ),
                                 5.horizontalSpace,
                                 Text(
                                   item.author!,
                                   style: TextStyle(
                                     color: HYAppTheme.norGrayColor,
-                                    fontSize: HYAppTheme.xxSmallFontSize,
+                                    fontSize: 12.sp,
                                   ),
                                 ),
                               ],
@@ -1045,21 +1045,21 @@ class _SearchScreenState extends State<SearchScreen>
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Image.asset(ImageAssets.iconListPlayerPNG,
-                                        width: HYAppTheme.xxSmallFontSize,
-                                        height: HYAppTheme.xxSmallFontSize),
+                                        width: 12.sp,
+                                        height: 12.sp),
                                     5.horizontalSpace,
                                     Text(
                                       "${changeToWan(item.play!)}${item.showCardDesc2}",
                                       style: TextStyle(
-                                        fontSize: HYAppTheme.xxxSmallFontSize,
+                                        fontSize: 10.sp,
                                         color: HYAppTheme.norGrayColor,
                                       ),
                                     ),
                                   ],
                                 ),
                                 Image.asset(ImageAssets.videoMoreCustomPNG,
-                                    width: HYAppTheme.xxSmallFontSize,
-                                    height: HYAppTheme.xxSmallFontSize),
+                                    width: 12.sp,
+                                    height: 12.sp),
                               ],
                             )
                           ],
@@ -1139,7 +1139,7 @@ class _SearchScreenState extends State<SearchScreen>
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    fontSize: HYAppTheme.xSmallFontSize,
+                                    fontSize: 14.sp,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black),
                               ),
@@ -1148,7 +1148,7 @@ class _SearchScreenState extends State<SearchScreen>
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    fontSize: HYAppTheme.xxSmallFontSize,
+                                    fontSize: 12.sp,
                                     color: HYAppTheme.norGrayColor),
                               ),
                               Text(
@@ -1156,7 +1156,7 @@ class _SearchScreenState extends State<SearchScreen>
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    fontSize: HYAppTheme.xxSmallFontSize,
+                                    fontSize: 12.sp,
                                     color: HYAppTheme.norGrayColor),
                               ),
                             ],
@@ -1177,7 +1177,7 @@ class _SearchScreenState extends State<SearchScreen>
                                 child: Text(
                                   item.watchButton!.title,
                                   style: TextStyle(
-                                      fontSize: HYAppTheme.xSmallFontSize,
+                                      fontSize: 14.sp,
                                       color: HYAppTheme.norMainThemeColors),
                                 ),
                               ),
@@ -1196,13 +1196,13 @@ class _SearchScreenState extends State<SearchScreen>
                                   children: [
                                     Image.network(
                                       item.followButton!.icon,
-                                      width: HYAppTheme.xSmallFontSize,
-                                      height: HYAppTheme.xSmallFontSize,
+                                      width: 14.sp,
+                                      height: 14.sp,
                                     ),
                                     Text(
                                       item.followButton!.texts["0"]!,
                                       style: TextStyle(
-                                          fontSize: HYAppTheme.xSmallFontSize,
+                                          fontSize: 14.sp,
                                           color: Colors.white),
                                     ),
                                   ],
@@ -1223,13 +1223,13 @@ class _SearchScreenState extends State<SearchScreen>
                             TextSpan(
                               text: item.rating.toString(),
                               style: TextStyle(
-                                  fontSize: HYAppTheme.normalFontSize,
+                                  fontSize: 18.sp,
                                   color: HYAppTheme.norYellow02Colors),
                             ),
                             TextSpan(
                               text: "分",
                               style: TextStyle(
-                                  fontSize: HYAppTheme.xxSmallFontSize,
+                                  fontSize: 12.sp,
                                   color: HYAppTheme.norYellow02Colors),
                             ),
                           ],
@@ -1238,7 +1238,7 @@ class _SearchScreenState extends State<SearchScreen>
                       Text(
                         "${item.vote}人",
                         style: TextStyle(
-                            fontSize: HYAppTheme.xxxSmallFontSize,
+                            fontSize: 10.sp,
                             color: HYAppTheme.norGrayColor),
                       ),
                     ],
@@ -1303,13 +1303,13 @@ class _SearchScreenState extends State<SearchScreen>
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(ImageAssets.icPlayVideoWhitePNG,
-                        width: HYAppTheme.xSmallFontSize,
-                        height: HYAppTheme.xSmallFontSize),
+                        width: 14.sp,
+                        height: 14.sp),
                     3.horizontalSpace,
                     Text(
                       changeToWan(item.avItems![position].play),
                       style: TextStyle(
-                        fontSize: HYAppTheme.xxxSmallFontSize,
+                        fontSize: 10.sp,
                         color: Colors.white,
                       ),
                     ),
@@ -1328,7 +1328,7 @@ class _SearchScreenState extends State<SearchScreen>
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: Colors.black,
-                fontSize: HYAppTheme.xxxSmallFontSize,
+                fontSize: 10.sp,
               ),
             ),
           ),
@@ -1338,7 +1338,7 @@ class _SearchScreenState extends State<SearchScreen>
             item.avItems![position].ctimeLabel,
             style: TextStyle(
               color: HYAppTheme.norGrayColor,
-              fontSize: HYAppTheme.xxxSmallFontSize,
+              fontSize: 10.sp,
             ),
           )
         ],
@@ -1381,13 +1381,13 @@ class _SearchScreenState extends State<SearchScreen>
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(ImageAssets.icPlayVideoWhitePNG,
-                        width: HYAppTheme.xSmallFontSize,
-                        height: HYAppTheme.xSmallFontSize),
+                        width: 14.sp,
+                        height: 14.sp),
                     3.horizontalSpace,
                     Text(
                       item.items![position].coverLeftText1!,
                       style: TextStyle(
-                        fontSize: HYAppTheme.xxxSmallFontSize,
+                        fontSize: 10.sp,
                         color: Colors.white,
                       ),
                     ),
@@ -1406,7 +1406,7 @@ class _SearchScreenState extends State<SearchScreen>
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: Colors.black,
-                fontSize: HYAppTheme.xxxSmallFontSize,
+                fontSize: 10.sp,
               ),
             ),
           ),
@@ -1423,7 +1423,7 @@ class _SearchScreenState extends State<SearchScreen>
         Text(
           item.items![index].matchTime!.text,
           style: TextStyle(
-            fontSize: HYAppTheme.xxSmallFontSize,
+            fontSize: 12.sp,
           ),
         ),
         Row(
@@ -1432,19 +1432,19 @@ class _SearchScreenState extends State<SearchScreen>
           children: [
             Text(noMoreN(item.items![index].team1!.title, 5),
                 style: TextStyle(
-                  fontSize: HYAppTheme.xxSmallFontSize,
+                  fontSize: 12.sp,
                 )),
             20.horizontalSpace,
             Text("VS",
                 style: TextStyle(
-                  fontSize: HYAppTheme.xxSmallFontSize,
+                  fontSize: 12.sp,
                   color: HYAppTheme.norGrayColor,
                 )),
             20.horizontalSpace,
             Text(
               noMoreN(item.items![index].team2!.title, 5),
               style: TextStyle(
-                fontSize: HYAppTheme.xxSmallFontSize,
+                fontSize: 12.sp,
               ),
             ),
           ],
@@ -1461,7 +1461,7 @@ class _SearchScreenState extends State<SearchScreen>
             item.items![index].matchButton!.text,
             style: TextStyle(
               color: HYAppTheme.norMainThemeColors,
-              fontSize: HYAppTheme.xxSmallFontSize,
+              fontSize: 12.sp,
             ),
           ),
         ),
@@ -1480,7 +1480,7 @@ class _SearchScreenState extends State<SearchScreen>
         title,
         style: TextStyle(
           color: Colors.black,
-          fontSize: HYAppTheme.xxSmallFontSize,
+          fontSize: 12.sp,
         ),
       ),
     );

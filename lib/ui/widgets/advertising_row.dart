@@ -28,8 +28,8 @@ class AdvertisingRow extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(
-                height: HYAppTheme.xSmallFontSize,
-                width: HYAppTheme.xSmallFontSize,
+                height: 14.sp,
+                width: 14.sp,
                 child: Image.network(image),
               ),
               10.horizontalSpace,
@@ -37,7 +37,7 @@ class AdvertisingRow extends StatelessWidget {
                 title,
                 style: TextStyle(
                     color: HYAppTheme.norTextColors,
-                    fontSize: HYAppTheme.xSmallFontSize),
+                    fontSize: 14.sp),
               ),
             ],
           ),

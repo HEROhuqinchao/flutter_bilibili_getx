@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
             child: Icon(
               Icons.arrow_back,
               color: HYAppTheme.norTextColors,
-              size: HYAppTheme.normalFontSize,
+              size: 18.sp,
             ),
           ),
           title: Text(
@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                 ? SR.telRegisterAndLogin.tr.toUpperCase()
                 : SR.passwordLogin.tr.toUpperCase(),
             style: TextStyle(
-                fontSize: HYAppTheme.xSmallFontSize,
+                fontSize: 14.sp,
                 color: HYAppTheme.norTextColors,
                 fontWeight: FontWeight.normal),
           ),
@@ -56,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                         ? SR.passwordLogin.tr
                         : SR.telRegisterAndLogin.tr,
                     style: TextStyle(
-                        fontSize: HYAppTheme.xxSmallFontSize,
+                        fontSize: 12.sp,
                         color: HYAppTheme.norTextColors,
                         ),
                   )),
@@ -187,7 +187,7 @@ class LoginScreen extends StatelessWidget {
                   child: Text(SR.account.tr,
                       style: TextStyle(
                           color: HYAppTheme.norTextColors,
-                          fontSize: HYAppTheme.xxSmallFontSize,
+                          fontSize: 12.sp,
                           )),
                 ),
                 Expanded(
@@ -197,7 +197,7 @@ class LoginScreen extends StatelessWidget {
                       focusNode: state.userNameFocusNode,
                       autofocus: true,
                       showCursor: true,
-                      cursorHeight: HYAppTheme.normalFontSize,
+                      cursorHeight: 18.sp,
                       onChanged: (text) {
                         logic.updateUserName(text);
                       },
@@ -207,10 +207,10 @@ class LoginScreen extends StatelessWidget {
                           hintText: SR.pleaseInputTelOrMail.tr,
                           border: InputBorder.none,
                           hintStyle: TextStyle(
-                            fontSize: HYAppTheme.xxSmallFontSize,
+                            fontSize: 12.sp,
                           )),
                       style: TextStyle(
-                          fontSize: HYAppTheme.xSmallFontSize,
+                          fontSize: 14.sp,
                           color: HYAppTheme.norMainThemeColors),
                     ),
                   ),
@@ -229,7 +229,7 @@ class LoginScreen extends StatelessWidget {
                     SR.password.tr,
                     style: TextStyle(
                         color: HYAppTheme.norTextColors,
-                        fontSize: HYAppTheme.xxSmallFontSize,
+                        fontSize: 12.sp,
                         ),
                   ),
                 ),
@@ -243,14 +243,14 @@ class LoginScreen extends StatelessWidget {
                           logic.updatePassword(text);
                         },
                         showCursor: true,
-                        cursorHeight: HYAppTheme.normalFontSize,
+                        cursorHeight: 18.sp,
                         cursorColor: HYAppTheme.norMainThemeColors,
                         controller: state.passwordTextFieldController,
                         decoration: InputDecoration(
                             hintText: SR.pleaseInputPassword.tr,
                             border: InputBorder.none,
                             hintStyle: TextStyle(
-                              fontSize: HYAppTheme.xxSmallFontSize,
+                              fontSize: 12.sp,
                             ),
                           suffixIcon: IconButton(onPressed: () {
                             logic.updateIsObscure();
@@ -258,7 +258,7 @@ class LoginScreen extends StatelessWidget {
                               state.isObscure ? Icons.visibility : Icons.visibility_off))
                         ),
                         style: TextStyle(
-                            fontSize: HYAppTheme.xSmallFontSize,
+                            fontSize: 14.sp,
                             color: HYAppTheme.norTextColors),),
                   ),
                 ),
@@ -268,7 +268,7 @@ class LoginScreen extends StatelessWidget {
                     SR.forgetPassword.tr,
                     style: TextStyle(
                         color: HYAppTheme.norMainThemeColors,
-                        fontSize: HYAppTheme.xxSmallFontSize),
+                        fontSize: 12.sp),
                   ),
                 ),
               ],
@@ -303,7 +303,7 @@ class LoginScreen extends StatelessWidget {
                   child: Text(state.regionList[state.regionIndex].telNum,
                       style: TextStyle(
                         color: HYAppTheme.norTextColors,
-                        fontSize: HYAppTheme.xxSmallFontSize,
+                        fontSize: 12.sp,
                       )),
                 ),
                 Expanded(
@@ -313,7 +313,7 @@ class LoginScreen extends StatelessWidget {
                       focusNode: state.telFocusNode,
                       autofocus: true,
                       showCursor: true,
-                      cursorHeight: HYAppTheme.normalFontSize,
+                      cursorHeight: 18.sp,
                       onChanged: (text) {
                         logic.updateTel(text);
                       },
@@ -323,10 +323,10 @@ class LoginScreen extends StatelessWidget {
                           hintText: SR.pleaseInputTel.tr,
                           border: InputBorder.none,
                           hintStyle: TextStyle(
-                            fontSize: HYAppTheme.xxSmallFontSize,
+                            fontSize: 12.sp,
                           )),
                       style: TextStyle(
-                          fontSize: HYAppTheme.xSmallFontSize,
+                          fontSize: 14.sp,
                           color: HYAppTheme.norMainThemeColors),
                     ),
                   ),
@@ -362,7 +362,7 @@ class LoginScreen extends StatelessWidget {
                     SR.code.tr,
                     style: TextStyle(
                       color: HYAppTheme.norTextColors,
-                      fontSize: HYAppTheme.xxSmallFontSize,
+                      fontSize: 12.sp,
                     ),
                   ),
                 ),
@@ -375,17 +375,17 @@ class LoginScreen extends StatelessWidget {
                           logic.updateVerifyText(text);
                         },
                         showCursor: true,
-                        cursorHeight: HYAppTheme.normalFontSize,
+                        cursorHeight: 18.sp,
                         cursorColor: HYAppTheme.norMainThemeColors,
                         controller: state.verifyPasswordTextFieldController,
                         decoration: InputDecoration(
                             hintText: SR.pleaseInputCode.tr,
                             border: InputBorder.none,
                             hintStyle: TextStyle(
-                              fontSize: HYAppTheme.xxSmallFontSize,
+                              fontSize: 12.sp,
                             )),
                         style: TextStyle(
-                            fontSize: HYAppTheme.xSmallFontSize,
+                            fontSize: 14.sp,
                             color: HYAppTheme.norTextColors)),
                   ),
                 )
@@ -419,7 +419,7 @@ class LoginScreen extends StatelessWidget {
     //       title: Text(
     //         SR.zone.tr,
     //         style: TextStyle(
-    //             fontSize: HYAppTheme.xSmallFontSize,
+    //             fontSize: 14.sp,
     //             ),
     //       ),
     //       children: widgets,
@@ -446,7 +446,7 @@ class LoginScreen extends StatelessWidget {
                   WidgetSpan(
                     child: RectangleCheckBox(
                       //自定义矩形的checkbox
-                      size: HYAppTheme.xSmallFontSize,
+                      size: 14.sp,
                       checkedColor: HYAppTheme.norMainThemeColors,
                       isChecked: state.isAgree,
                       onTap: (value) {
@@ -456,38 +456,38 @@ class LoginScreen extends StatelessWidget {
                   ),
                   TextSpan(
                     text: "   ",
-                    style: TextStyle(fontSize: HYAppTheme.xxSmallFontSize),
+                    style: TextStyle(fontSize: 12.sp),
                   ),
                   TextSpan(
                     text: SR.userAgreementText01.tr,
                     style: TextStyle(
                         color: Colors.grey,
-                        fontSize: HYAppTheme.xxSmallFontSize),
+                        fontSize: 12.sp),
                   ),
                   TextSpan(
                     text: SR.userAgreementText02A.tr,
                     style: TextStyle(
                         color: Colors.blue,
-                        fontSize: HYAppTheme.xxSmallFontSize),
+                        fontSize: 12.sp),
                   ),
                   TextSpan(
                     text: SR.userAgreementText03.tr,
                     style: TextStyle(
                         color: Colors.grey,
-                        fontSize: HYAppTheme.xxSmallFontSize),
+                        fontSize: 12.sp),
                   ),
                   TextSpan(
                     text: SR.userAgreementText02B.tr,
                     style: TextStyle(
                         color: Colors.blue,
-                        fontSize: HYAppTheme.xxSmallFontSize),
+                        fontSize: 12.sp),
                   ),
                   state.loginTypeIsMessage == true
                       ? TextSpan(
                     text: SR.userAgreementText05.tr,
                     style: TextStyle(
                         color: Colors.grey,
-                        fontSize: HYAppTheme.xxSmallFontSize),
+                        fontSize: 12.sp),
                   )
                       : const TextSpan(),
                 ],
@@ -501,12 +501,12 @@ class LoginScreen extends StatelessWidget {
                 TextSpan(
                   text: SR.havingProblems.tr,
                   style: TextStyle(
-                      color: Colors.grey, fontSize: HYAppTheme.xxSmallFontSize),
+                      color: Colors.grey, fontSize: 12.sp),
                 ),
                 TextSpan(
                   text: SR.seeTheHelp.tr,
                   style: TextStyle(
-                      color: Colors.blue, fontSize: HYAppTheme.xxSmallFontSize),
+                      color: Colors.blue, fontSize: 12.sp),
                 ),
               ],
             ),
@@ -540,7 +540,7 @@ class LoginScreen extends StatelessWidget {
         child: Text(
           SR.verifyLogin.tr,
           style: TextStyle(
-              color: Colors.white, fontSize: HYAppTheme.xSmallFontSize,fontWeight: FontWeight.normal,),
+              color: Colors.white, fontSize: 14.sp,fontWeight: FontWeight.normal,),
         ),
       ),
     );
@@ -573,7 +573,7 @@ class LoginScreen extends StatelessWidget {
             SR.register.tr.toUpperCase(),
             style: TextStyle(
                 color: HYAppTheme.norMainThemeColors,
-                fontSize: HYAppTheme.xSmallFontSize,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.normal),
           ),
         ),
@@ -603,7 +603,7 @@ class LoginScreen extends StatelessWidget {
               SR.login.tr.toUpperCase(),
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: HYAppTheme.xSmallFontSize,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.normal),
             ),
           ),

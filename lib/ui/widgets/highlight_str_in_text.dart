@@ -1,5 +1,6 @@
 ///将重要的文本在一长串文本中以一种颜色标出
 import "package:flutter/material.dart";
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../shared/app_theme.dart';
 
@@ -28,7 +29,7 @@ class HYHighlightStrInText extends StatelessWidget {
             text: item,
             style: TextStyle(
               color: highlightColor,
-              fontSize: HYAppTheme.xSmallFontSize,
+              fontSize: 14.sp,
             ),
           ),
         );
@@ -38,7 +39,7 @@ class HYHighlightStrInText extends StatelessWidget {
             text: item,
             style: TextStyle(
               color: originalColor,
-              fontSize: HYAppTheme.xSmallFontSize,
+              fontSize: 14.sp,
             ),
           ),
         );

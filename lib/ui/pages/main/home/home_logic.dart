@@ -67,7 +67,7 @@ class HomeLogic extends GetxController {
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.normal,
-                      fontSize: HYAppTheme.xSmallFontSize),
+                      fontSize: 14.sp),
                   textAlign: TextAlign.center,
                 ),
                 10.verticalSpace,
@@ -90,14 +90,14 @@ class HomeLogic extends GetxController {
                       TextSpan(
                         text: SR.userAgreementDetailDescText01.tr,
                         style: TextStyle(
-                          fontSize: HYAppTheme.xxxSmallFontSize,
+                          fontSize: 10.sp,
                           color: HYAppTheme.norGrayColor,
                         ),
                       ),
                       TextSpan(
                         text: SR.userAgreementDetailDescText02.tr.toUpperCase(),
                         style: TextStyle(
-                          fontSize: HYAppTheme.xxxSmallFontSize,
+                          fontSize: 10.sp,
                           color: Colors.blue,
                           fontWeight: FontWeight.normal,
                         ),
@@ -105,14 +105,14 @@ class HomeLogic extends GetxController {
                       TextSpan(
                         text: SR.userAgreementText03.tr,
                         style: TextStyle(
-                          fontSize: HYAppTheme.xxxSmallFontSize,
+                          fontSize: 10.sp,
                           color: HYAppTheme.norGrayColor,
                         ),
                       ),
                       TextSpan(
                         text: SR.userAgreementDetailDescText03.tr.toUpperCase(),
                         style: TextStyle(
-                          fontSize: HYAppTheme.xxxSmallFontSize,
+                          fontSize: 10.sp,
                           color: Colors.blue,
                           fontWeight: FontWeight.normal,
                         ),
@@ -120,7 +120,7 @@ class HomeLogic extends GetxController {
                       TextSpan(
                         text: SR.userAgreementDetailDescText04.tr,
                         style: TextStyle(
-                          fontSize: HYAppTheme.xxxSmallFontSize,
+                          fontSize: 10.sp,
                           color: HYAppTheme.norGrayColor,
                         ),
                       ),
@@ -145,7 +145,7 @@ class HomeLogic extends GetxController {
                   child: Text(
                     SR.disagree.tr,
                     style: TextStyle(
-                      fontSize: HYAppTheme.xxSmallFontSize,
+                      fontSize: 12.sp,
                       color: HYAppTheme.norGrayColor,
                     ),
                   ),
@@ -177,7 +177,7 @@ class HomeLogic extends GetxController {
                       SR.agree.tr.toUpperCase(),
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: HYAppTheme.xSmallFontSize),
+                          fontSize: 14.sp),
                     ),
                   ),
                 ),
@@ -209,7 +209,7 @@ class HomeLogic extends GetxController {
           SR.userAgreementDetailDesc.tr,
           style: TextStyle(
             color: Colors.black,
-            fontSize: HYAppTheme.xxSmallFontSize,
+            fontSize: 12.sp,
           ),
         ),
       ],
@@ -239,7 +239,7 @@ class HomeLogic extends GetxController {
                   SR.teenagerModeDetailDesc.tr,
                   style: TextStyle(
                     color: HYAppTheme.norGrayColor,
-                    fontSize: HYAppTheme.xxSmallFontSize,
+                    fontSize: 12.sp,
                   ),
                 ),
                 10.verticalSpace,
@@ -247,7 +247,7 @@ class HomeLogic extends GetxController {
                   SR.goIntoTeenMode.tr,
                   style: TextStyle(
                     color: HYAppTheme.norGrayColor,
-                    fontSize: HYAppTheme.xxSmallFontSize,
+                    fontSize: 12.sp,
                   ),
                 ),
                 15.verticalSpace,
@@ -267,7 +267,7 @@ class HomeLogic extends GetxController {
                     child: Text(
                       SR.iKnowIt.tr.toUpperCase(),
                       style: TextStyle(
-                        fontSize: HYAppTheme.xxSmallFontSize,
+                        fontSize: 12.sp,
                         color: Colors.black,
                       ),
                     ),

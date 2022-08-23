@@ -98,15 +98,15 @@ class MineScreen extends StatelessWidget {
                               children: [
                                 Image.network(
                                   item.button.icon!,
-                                  width: HYAppTheme.xSmallFontSize,
-                                  height: HYAppTheme.xSmallFontSize,
+                                  width: 14.sp,
+                                  height: 14.sp,
                                 ),
                                 5.verticalSpace,
                                 Text(
                                   item.button.text!,
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: HYAppTheme.xxSmallFontSize,
+                                      fontSize: 12.sp,
                                       fontWeight: FontWeight.normal,
                                       fontFamily: 'bilibiliFonts'),
                                 )
@@ -146,7 +146,7 @@ class MineScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 15).r,
                 child: HYIconButtonRow(
-                  size: HYAppTheme.normalFontSize,
+                  size: 20.sp,
                   items: item.items,
                 ),
               ),
@@ -175,7 +175,7 @@ class MineScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 15).r,
               child: HYIconButtonRow(
                 items: state.accountMineData.data.sectionsV2[0].items,
-                size: HYAppTheme.normalFontSize,
+                size: 20.sp,
               ),
             ),
             buildMineTitleAndButton(
@@ -185,7 +185,7 @@ class MineScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 15).r,
               child: HYIconButtonRow(
                 items: state.accountMineData.data.sectionsV2[1].items,
-                size: HYAppTheme.normalFontSize,
+                size: 20.sp,
               ),
             ),
             buildMineTitleAndButton(
@@ -236,22 +236,22 @@ class MineScreen extends StatelessWidget {
               children: [
                 Image.asset(
                   ImageAssets.settingPNG,
-                  width: HYAppTheme.smallFontSize,
-                  height: HYAppTheme.smallFontSize,
+                  width: 16.sp,
+                  height: 16.sp,
                   color: HYAppTheme.norMainThemeColors,
                 ),
                 10.horizontalSpace,
                 Text(
                   "设置",
                   style: TextStyle(
-                      fontSize: HYAppTheme.smallFontSize,
+                      fontSize: 16.sp,
                       color: HYAppTheme.norTextColors),
                 ),
               ],
             ),
             Icon(
               Icons.arrow_forward_ios,
-              size: HYAppTheme.xxSmallFontSize,
+              size: 12.sp,
               color: HYAppTheme.norGrayColor,
             ),
           ],
@@ -269,22 +269,22 @@ class MineScreen extends StatelessWidget {
           children: [
             Image.network(
               icon,
-              width: HYAppTheme.smallFontSize,
-              height: HYAppTheme.smallFontSize,
+              width: 16.sp,
+              height: 16.sp,
               color: HYAppTheme.norMainThemeColors,
             ),
             10.horizontalSpace,
             Text(
               text,
               style: TextStyle(
-                  fontSize: HYAppTheme.smallFontSize,
+                  fontSize: 16.sp,
                   color: HYAppTheme.norTextColors),
             ),
           ],
         ),
         Icon(
           Icons.arrow_forward_ios,
-          size: HYAppTheme.xxSmallFontSize,
+          size: 12.sp,
           color: HYAppTheme.norGrayColor,
         ),
       ],
@@ -304,8 +304,8 @@ class MineScreen extends StatelessWidget {
           onPressed: () => print("bilibili_connect"),
           icon: Image.asset(
             ImageAssets.bilibiliConnectPNG,
-            width: HYAppTheme.commonFontSize,
-            height: HYAppTheme.commonFontSize,
+            width: 18.sp,
+            height: 18.sp,
             color: HYAppTheme.norGrayColor,
           )),
       IconButton(
@@ -314,24 +314,24 @@ class MineScreen extends StatelessWidget {
           },
           icon: Image.asset(
             ImageAssets.scanPNG,
-            width: HYAppTheme.commonFontSize,
-            height: HYAppTheme.commonFontSize,
+            width: 18.sp,
+            height: 18.sp,
             color: HYAppTheme.norGrayColor,
           )),
       IconButton(
           onPressed: () => print("clothes"),
           icon: Image.network(
             state.accountMineData.data.mallHome.icon,
-            width: HYAppTheme.commonFontSize,
-            height: HYAppTheme.commonFontSize,
+            width: 18.sp,
+            height: 18.sp,
             color: HYAppTheme.norGrayColor,
           )),
       IconButton(
           onPressed: () => print("dark_model"),
           icon: Image.asset(
             ImageAssets.darkModelPNG,
-            width: HYAppTheme.commonFontSize,
-            height: HYAppTheme.commonFontSize,
+            width: 18.sp,
+            height: 18.sp,
             color: HYAppTheme.norGrayColor,
           )),
     ];
@@ -382,13 +382,13 @@ class MineScreen extends StatelessWidget {
           num,
           style: TextStyle(
               color: HYAppTheme.norTextColors,
-              fontSize: HYAppTheme.xSmallFontSize),
+              fontSize: 14.sp),
         ),
         Text(
           text.tr,
           style: TextStyle(
               color: HYAppTheme.norGrayColor,
-              fontSize: HYAppTheme.xxSmallFontSize),
+              fontSize: 12.sp),
         ),
       ],
     );
@@ -421,7 +421,7 @@ class MineScreen extends StatelessWidget {
                               state.accountMineData.data.name,
                               style: TextStyle(
                                   color: HYAppTheme.norTextColors,
-                                  fontSize: HYAppTheme.smallFontSize),
+                                  fontSize: 16.sp),
                             ),
                             5.horizontalSpace,
                             UserLevel(level: state.accountMineData.data.level)
@@ -438,10 +438,10 @@ class MineScreen extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(3.r))),
                           child: Text(
-                            "正式会员",
+                            SR.normalVip,
                             style: TextStyle(
                                 color: HYAppTheme.norMainThemeColors,
-                                fontSize: HYAppTheme.xxxSmallFontSize),
+                                fontSize: 10.sp),
                           ),
                         ),
                         5.verticalSpace,
@@ -449,7 +449,7 @@ class MineScreen extends StatelessWidget {
                           "${SR.bCoin.tr}: ${state.accountMineData.data.bcoin}   ${SR.coin.tr}: ${state.accountMineData.data.coin}",
                           style: TextStyle(
                               color: HYAppTheme.norGrayColor,
-                              fontSize: HYAppTheme.xxSmallFontSize),
+                              fontSize: 12.sp),
                         )
                       ],
                     ),
@@ -463,12 +463,12 @@ class MineScreen extends StatelessWidget {
                             SR.space.tr,
                             style: TextStyle(
                                 color: HYAppTheme.norGrayColor,
-                                fontSize: HYAppTheme.xxSmallFontSize),
+                                fontSize: 12.sp),
                           ),
                           5.horizontalSpace,
                           Icon(
                             Icons.arrow_forward_ios,
-                            size: HYAppTheme.xxSmallFontSize,
+                            size: 12.sp,
                             color: HYAppTheme.norGrayColor,
                           )
                         ],
@@ -499,13 +499,13 @@ class MineScreen extends StatelessWidget {
                     Text(
                       SR.click2Login.tr.toUpperCase(),
                       style: TextStyle(
-                          fontSize: HYAppTheme.xSmallFontSize,
+                          fontSize: 14.sp,
                           color: HYAppTheme.norTextColors,
                           fontWeight: FontWeight.normal),
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
-                      size: HYAppTheme.xxSmallFontSize,
+                      size: 12.sp,
                       color: HYAppTheme.norGrayColor,
                     )
                   ],
@@ -534,13 +534,13 @@ class MineScreen extends StatelessWidget {
                 state.accountMineData.data.vipSectionV2.title,
                 style: TextStyle(
                     color: HYAppTheme.norPink06Colors,
-                    fontSize: HYAppTheme.smallFontSize),
+                    fontSize: 16.sp),
               ),
               Text(
                 state.accountMineData.data.vipSectionV2.desc,
                 style: TextStyle(
                     color: HYAppTheme.norPink06Colors,
-                    fontSize: HYAppTheme.xxSmallFontSize),
+                    fontSize: 12.sp),
               )
             ],
           ),
@@ -550,7 +550,7 @@ class MineScreen extends StatelessWidget {
             bottom: 0,
             child: Icon(
               Icons.arrow_forward_ios,
-              size: HYAppTheme.xxSmallFontSize,
+              size: 12.sp,
               color: HYAppTheme.norPink08Colors,
             ),
           )
@@ -566,7 +566,7 @@ class MineScreen extends StatelessWidget {
       title: sectionsV2.items[0].commonOpItem!.title!,
       rightBtn: Icon(
         Icons.close,
-        size: HYAppTheme.normalFontSize,
+        size: 20.sp,
         color: HYAppTheme.norGrayColor,
       ),
     );
@@ -584,14 +584,14 @@ class MineScreen extends StatelessWidget {
             state.accountMineData.data.liveTip!.buttonText,
             style: TextStyle(
               color: HYAppTheme.norMainThemeColors,
-              fontSize: HYAppTheme.xxSmallFontSize,
+              fontSize: 12.sp,
             ),
           ),
           state.accountMineData.data.liveTip!.buttonIcon.isEmpty
               ? Container()
               : SizedBox(
-                  width: HYAppTheme.xxSmallFontSize,
-                  height: HYAppTheme.xxSmallFontSize,
+                  width: 12.sp,
+                  height: 12.sp,
                   child: Image.network(
                     state.accountMineData.data.liveTip!.buttonIcon,
                   ),
@@ -611,7 +611,7 @@ class MineScreen extends StatelessWidget {
             title,
             style: TextStyle(
                 color: HYAppTheme.norTextColors,
-                fontSize: HYAppTheme.xSmallFontSize,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'bilibiliFonts'),
           ),
