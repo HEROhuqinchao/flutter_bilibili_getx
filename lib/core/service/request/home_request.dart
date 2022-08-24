@@ -26,7 +26,7 @@ class HYHomeRequest {
 
   ///首页视频（新接口）
   static Future<HYFeedIndexModel> getFeedIndexData(params) async {
-    String url = "/x/v2/feed/index?" + ParamsSign.paramsSerialization(params);
+    String url = "/x/v2/feed/index?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request("app", url);
     return HYFeedIndexModel.fromJson(result);
   }

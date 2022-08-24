@@ -160,6 +160,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.2"
+  flutter_swiper_null_safety_flutter3:
+    dependency: "direct main"
+    description:
+      name: flutter_swiper_null_safety_flutter3
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

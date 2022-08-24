@@ -22,6 +22,8 @@ const strResEn = {
   SR.follower: 'follower',
   SR.fan: 'fan',
   SR.space: 'space',
+  SR.normalVip:"normal vip",
+
 
   ///登录界面
   SR.click2Login: 'click to login',
@@ -93,6 +95,6 @@ const strResEn = {
   SR.highDanmaku:"high danmaku",
   SR.searchSomething: "search videos, drama or up...",
 
-  ///我的界面
-  SR.normalVip:"normal vip",
+  ///主页
+  SR.refresh: "refresh"
 };

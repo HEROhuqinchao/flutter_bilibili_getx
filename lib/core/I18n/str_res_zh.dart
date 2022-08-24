@@ -24,6 +24,7 @@ const strResZh = {
   SR.fan: '粉丝',
   SR.space: '空间',
   SR.click2Login: '点击登录',
+  SR.normalVip:"正式会员",
 
   ///登录界面
   SR.loading: '正在加载...',
@@ -91,6 +92,6 @@ const strResZh = {
   SR.highDanmaku:"弹幕多",
   SR.searchSomething: "搜索视频、番剧或up主",
 
-  ///我的界面
-  SR.normalVip:"正式会员"
+  ///主页界面
+  SR.refresh: "刷新一下"
 };

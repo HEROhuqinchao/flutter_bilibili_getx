@@ -21,6 +21,7 @@ class SR {
   static const fan = 'fan';
   static const space = 'space';
   static const click2Login = 'click_to_login';
+  static const normalVip = "normal_vip";
 
   ///登录界面
   static const passwordLogin = 'password_login';
@@ -88,6 +89,6 @@ class SR {
   static const highDanmaku = "highDanmaku";
   static const searchSomething = "search videos, drama or up...";
 
-  ///我的界面
-  static const normalVip = "normal_vip";
+  ///主页
+  static const refresh = "refresh";
 }
