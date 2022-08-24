@@ -302,7 +302,7 @@ class SectionsV2 {
         style: json["style"],
         button: Button.fromJson(json["button"]),
         type: json["type"] == null ? null : json["type"],
-        title: json["title"] == null ? null : json["title"],
+        title: json["title"] ?? "",
         upTitle: json["up_title"] == null ? null : json["up_title"],
       );
 

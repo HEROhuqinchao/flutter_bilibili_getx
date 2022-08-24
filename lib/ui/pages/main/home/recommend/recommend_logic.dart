@@ -66,10 +66,12 @@ class RecommendLogic extends GetxController {
   ///获取数据
   void fetchFeedIndexData() {
     HYHomeRequest.getFeedIndexData(fetchFeedIndexParamsWithSign())
-        .then((value) {
+        .then((value) async {
       state.feedIndexItemList.addAll(value.data.items);
       initHomeRecommendWidgets();
-      update();
+      await Future.delayed(const Duration(seconds: 1), () {
+        update();
+      });
     });
   }
 
@@ -184,8 +186,8 @@ class RecommendLogic extends GetxController {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: items.length,
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 180.w,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2
       ),
       itemBuilder: (ctx, index) {
         // print(data[index].aid);
@@ -220,7 +222,7 @@ class RecommendLogic extends GetxController {
       borderRadius: BorderRadius.circular(4.r),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8).r,
-        height: 120.w, //这里的轮播图组件必须包裹在有高度的控件或者设置比例
+        height: 140.w, //这里的轮播图组件必须包裹在有高度的控件或者设置比例
         child: Swiper(
           controller: state.swiperController,
           scale: .7,

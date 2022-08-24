@@ -8,9 +8,6 @@ import '../shared/app_theme.dart';
 import '../shared/color_radix_change.dart';
 import '../shared/image_asset.dart';
 
-final _radius = 5.r;
-final _iconSize = 14.sp;
-
 class RecommendItem extends StatelessWidget {
   FeedIndexItem video;
 
@@ -43,8 +40,8 @@ class RecommendItem extends StatelessWidget {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(_radius),
-            topRight: Radius.circular(_radius),
+            topLeft: Radius.circular(5.r),
+            topRight: Radius.circular(5.r),
           ),
         ),
         child: Column(
@@ -89,8 +86,8 @@ class RecommendItem extends StatelessWidget {
 Widget buildHomeVideoMoreIcon() {
   return Image.asset(
     ImageAssets.videoMoreCustomPNG,
-    width: _iconSize,
-    height: _iconSize,
+    width: 14.sp,
+    height: 14.sp,
   );
 }
 
@@ -100,13 +97,16 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
     ///广告类型的数据
     return ClipRRect(
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(_radius),
-        topRight: Radius.circular(_radius),
+        topLeft: Radius.circular(5.r),
+        topRight: Radius.circular(5.r),
       ),
       child: SizedBox(
-        width: 180.w,
-        height: 80.w,
+        width: ,
+        height: 100.w,
         child: FadeInImage(
+          imageErrorBuilder: (ctx, error, stackTrace) {
+            return Container(child: Text("加载中"),);
+          },
           placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
           image: NetworkImage(
             video.adInfo!.creativeContent!.imageUrl!,
@@ -119,13 +119,16 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
   } else {
     return ClipRRect(
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(_radius),
-        topRight: Radius.circular(_radius),
+        topLeft: Radius.circular(5.r),
+        topRight: Radius.circular(5.r),
       ),
       child: SizedBox(
         width: 180.w,
-        height: 80.w,
+        height: 100.w,
         child: FadeInImage(
+          imageErrorBuilder: (ctx, error, stackTrace) {
+            return Container(child: Text("加载中"),);
+          },
           placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
           image: NetworkImage(
             video.cover!,
@@ -173,8 +176,8 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
         children: [
           Image.asset(
             ImageAssets.seenPNG,
-            width: _iconSize,
-            height: _iconSize,
+            width: 14.sp,
+            height: 14.sp,
           ),
           5.horizontalSpace,
           Text(seenText,
@@ -196,8 +199,8 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
         children: [
           Image.asset(
             ImageAssets.icPlayVideoWhitePNG,
-            width: _iconSize,
-            height: _iconSize,
+            width: 14.sp,
+            height: 14.sp,
           ),
           5.horizontalSpace,
           Text(viewText,
@@ -206,8 +209,8 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
           8.horizontalSpace,
           Image.asset(
             ImageAssets.icDanmuWhitePNG,
-            width: _iconSize,
-            height: _iconSize,
+            width: 14.sp,
+            height: 14.sp,
           ),
           5.horizontalSpace,
           Text(remarkText,
@@ -229,8 +232,8 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
         children: [
           Image.asset(
             ImageAssets.icPlayVideoWhitePNG,
-            width: _iconSize,
-            height: _iconSize,
+            width: 14.sp,
+            height: 14.sp,
           ),
           3.horizontalSpace,
           Text(viewText,
@@ -239,8 +242,8 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
           6.horizontalSpace,
           Image.asset(
             ImageAssets.lovePNG,
-            width: _iconSize,
-            height: _iconSize,
+            width: 14.sp,
+            height: 14.sp,
           ),
           3.horizontalSpace,
           Text(likeText,
@@ -311,8 +314,8 @@ Widget buildHomeVideoBottomInfo(FeedIndexItem video) {
         children: [
           Image.asset(
             ImageAssets.uperCustomPNG,
-            width: _iconSize,
-            height: _iconSize,
+            width: 14.sp,
+            height: 14.sp,
           ),
           4.horizontalSpace,
           SizedBox(
@@ -462,7 +465,6 @@ Widget buildHomeVideoItemShadow() {
     left: 0,
     right: 0,
     child: Container(
-      width: 180.w,
       height: 35.w,
       decoration: BoxDecoration(
         gradient: LinearGradient(
