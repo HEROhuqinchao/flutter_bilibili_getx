@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
@@ -16,10 +15,11 @@ import 'recommend_state.dart';
 
 class RecommendLogic extends GetxController {
   final RecommendState state = RecommendState();
+
   @override
-  void onInit() {
-    initHomeRecommendWidgets();
-    super.onInit();
+  void onReady() {
+    fetchFeedIndexData();
+    super.onReady();
   }
 
   @override
@@ -59,7 +59,8 @@ class RecommendLogic extends GetxController {
   ///清空数据
   void clearFeedIndexData() {
     state.feedIndexItemList.clear();
-
+    state.homeRecommendWidgets.clear();
+    fetchFeedIndexData();
   }
 
   ///获取数据
@@ -67,6 +68,8 @@ class RecommendLogic extends GetxController {
     HYHomeRequest.getFeedIndexData(fetchFeedIndexParamsWithSign())
         .then((value) {
       state.feedIndexItemList.addAll(value.data.items);
+      initHomeRecommendWidgets();
+      update();
     });
   }
 
@@ -111,7 +114,7 @@ class RecommendLogic extends GetxController {
       's_locale': 'zh_CN',
       'splash_id': '',
       'statistics':
-      '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
+          '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
       'ts': '1659143497',
       'voice_balance': '1',
     };
@@ -119,7 +122,7 @@ class RecommendLogic extends GetxController {
     ///如果已经登录，加上access_key字段
     if (isLogin == true) {
       String? accessKey =
-      SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
+          SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
       final accessKeyEntry = <String, dynamic>{'access_key': accessKey!};
       params.addEntries(accessKeyEntry.entries);
     }
@@ -138,17 +141,15 @@ class RecommendLogic extends GetxController {
     update();
   }
 
-  void refreshRecommendItemData() async{
+  void refreshRecommendItemData() async {
     HYHomeRequest.getFeedIndexData(
       fetchFeedIndexParamsWithSign(),
     ).then((value) {
       refreshVideosData(value.data.items);
+      state.homeRecommendWidgets
+          .insert(0, buildHYHomeRefreshItemOneVideo(value.data.items[10]));
       state.homeRecommendWidgets.insert(
-          0, buildHYHomeRefreshItemOneVideo(value.data.items[10]));
-      state.homeRecommendWidgets.insert(
-          0,
-          buildHomeRecommendVideoCards(
-              value.data.items.sublist(1, 9)));
+          0, buildHomeRecommendVideoCards(value.data.items.sublist(1, 9)));
     });
     await Future.delayed(const Duration(seconds: 2), () {
       update();
@@ -161,8 +162,8 @@ class RecommendLogic extends GetxController {
       borderRadius: BorderRadius.circular(4.r),
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8).r,
-        height: 215.h,
-        width: double.infinity,
+        height: 120.w,
+        width: 1.sw,
         child: FadeInImage(
           fit: BoxFit.fill,
           placeholderFit: BoxFit.fill,
@@ -184,9 +185,7 @@ class RecommendLogic extends GetxController {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: items.length,
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        mainAxisExtent: 215.h,
-        maxCrossAxisExtent:
-        180.w,
+        maxCrossAxisExtent: 180.w,
       ),
       itemBuilder: (ctx, index) {
         // print(data[index].aid);
@@ -198,14 +197,13 @@ class RecommendLogic extends GetxController {
 
   ///加载数据（上拉动作）
   void loadRecommendItemData() {
-    HYHomeRequest.getFeedIndexData(
-        fetchFeedIndexParamsWithSign())
+    HYHomeRequest.getFeedIndexData(fetchFeedIndexParamsWithSign())
         .then((value) {
       loadMoreVideosData(value.data.items);
       state.homeRecommendWidgets
           .add(buildHYHomeRefreshItemOneVideo(value.data.items[10]));
-      state.homeRecommendWidgets.add(buildHomeRecommendVideoCards(
-          value.data.items.sublist(1, 9)));
+      state.homeRecommendWidgets
+          .add(buildHomeRecommendVideoCards(value.data.items.sublist(1, 9)));
       update();
     });
   }
@@ -222,7 +220,7 @@ class RecommendLogic extends GetxController {
       borderRadius: BorderRadius.circular(4.r),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8).r,
-        height: 200.h, //这里的轮播图组件必须包裹在有高度的控件或者设置比例
+        height: 120.w, //这里的轮播图组件必须包裹在有高度的控件或者设置比例
         child: Swiper(
           controller: state.swiperController,
           scale: .7,
@@ -257,8 +255,8 @@ class RecommendLogic extends GetxController {
           pagination: SwiperPagination(
               alignment: Alignment.bottomRight,
               margin:
-              const EdgeInsets.only(left: 0, right: 8, bottom: 8, top: 0)
-                  .r),
+                  const EdgeInsets.only(left: 0, right: 8, bottom: 8, top: 0)
+                      .r),
           fade: 1.0,
           autoplay: true,
           scrollDirection: Axis.horizontal,

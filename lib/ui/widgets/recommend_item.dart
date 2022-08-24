@@ -14,7 +14,7 @@ final _iconSize = 14.sp;
 class RecommendItem extends StatelessWidget {
   FeedIndexItem video;
 
-  RecommendItem(this.video)
+  RecommendItem(this.video);
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +26,15 @@ class RecommendItem extends StatelessWidget {
               .then((value) {
             ///匹配字符串readyVideoUrl: 到readyDuration之间的字符串
             RegExp exp =
-            RegExp(r'(?<=(readyVideoUrl: ))[\s\S]*?(?=(readyDuration))');
+                RegExp(r'(?<=(readyVideoUrl: ))[\s\S]*?(?=(readyDuration))');
             // print("exp.allMatches(value)---${exp.stringMatch(value)}");
             String videoMp4 = exp.stringMatch(value) ?? "";
             // print("videoMp4-----------${videoMp4.substring(0,videoMp4.length)}");
             videoItem.videoData = videoMp4.substring(1, videoMp4.length - 1);
 
-            ///跳转至播放界面
-            Navigator.of(context)
-                .pushNamed(HYVideoPlayScreen.routeName, arguments: videoItem);
+            // ///跳转至播放界面
+            // Navigator.of(context)
+            //     .pushNamed(HYVideoPlayScreen.routeName, arguments: videoItem);
           });
         } else {
           SmartDialog.showToast("功能暂未完善");
@@ -53,7 +53,6 @@ class RecommendItem extends StatelessWidget {
           children: [
             Stack(
               children: [
-
                 ///视频封面
                 buildHomeVideoItemCover(videoItem),
 
@@ -67,12 +66,10 @@ class RecommendItem extends StatelessWidget {
                 buildHomeVideoItemRightZone(videoItem)
               ],
             ),
-            SizedBox(
-              height: 85.h,
+            Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   ///标题
                   buildHomeVideoItemTitle(videoItem),
 
@@ -108,7 +105,7 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
       ),
       child: SizedBox(
         width: 180.w,
-        height: 120.h,
+        height: 80.w,
         child: FadeInImage(
           placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
           image: NetworkImage(
@@ -127,7 +124,7 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
       ),
       child: SizedBox(
         width: 180.w,
-        height: 120.h,
+        height: 80.w,
         child: FadeInImage(
           placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
           image: NetworkImage(
@@ -148,16 +145,14 @@ Widget buildHomeVideoItemRightZone(FeedIndexItem video) {
       right: 5.w,
       bottom: 5.h,
       child: Text(video.coverRightText!,
-          style: TextStyle(
-              color: Colors.white, fontSize: 8.sp)),
+          style: TextStyle(color: Colors.white, fontSize: 8.sp)),
     );
   } else if (video.badge != null) {
     return Positioned(
       right: 5.w,
       bottom: 5.h,
       child: Text(video.badge!,
-          style: TextStyle(
-              color: Colors.white, fontSize: 8.sp)),
+          style: TextStyle(color: Colors.white, fontSize: 8.sp)),
     );
   } else {
     return Container();
@@ -167,7 +162,7 @@ Widget buildHomeVideoItemRightZone(FeedIndexItem video) {
 ///视频播放量、评论数
 Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
   if (video.goto == "live") {
-    String _seenText = video.coverLeftText1!;
+    String seenText = video.coverLeftText1!;
     return Positioned(
       left: 5.w,
       bottom: 5.h,
@@ -182,16 +177,15 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: _iconSize,
           ),
           5.horizontalSpace,
-          Text(_seenText,
+          Text(seenText,
               style: TextStyle(
-                  color: HYAppTheme.norWhite02Color,
-                  fontSize: 8.sp)),
+                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
         ],
       ),
     );
   } else if (video.goto == "av") {
-    String _viewText = video.coverLeftText1!;
-    String _remarkText = video.coverLeftText2!;
+    String viewText = video.coverLeftText1!;
+    String remarkText = video.coverLeftText2!;
     return Positioned(
       left: 5.w,
       bottom: 5.h,
@@ -206,10 +200,9 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: _iconSize,
           ),
           5.horizontalSpace,
-          Text(_viewText,
+          Text(viewText,
               style: TextStyle(
-                  color: HYAppTheme.norWhite02Color,
-                  fontSize: 8.sp)),
+                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
           8.horizontalSpace,
           Image.asset(
             ImageAssets.icDanmuWhitePNG,
@@ -217,10 +210,9 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: _iconSize,
           ),
           5.horizontalSpace,
-          Text(_remarkText,
+          Text(remarkText,
               style: TextStyle(
-                  color: HYAppTheme.norWhite02Color,
-                  fontSize: 8.sp)),
+                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
         ],
       ),
     );
@@ -243,8 +235,7 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
           3.horizontalSpace,
           Text(viewText,
               style: TextStyle(
-                  color: HYAppTheme.norWhite02Color,
-                  fontSize: 8.sp)),
+                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
           6.horizontalSpace,
           Image.asset(
             ImageAssets.lovePNG,
@@ -254,8 +245,7 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
           3.horizontalSpace,
           Text(likeText,
               style: TextStyle(
-                  color: HYAppTheme.norWhite02Color,
-                  fontSize: 8.sp)),
+                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
         ],
       ),
     );
@@ -267,16 +257,16 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
 ///视频的标题
 Widget buildHomeVideoItemTitle(FeedIndexItem video) {
   if (video.title != null) {
-    return Container(
-      alignment: Alignment.topLeft,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8).r,
-      child: Text(
-        video.title!,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-            color: HYAppTheme.norTextColors,
-            fontSize: 10.sp),
+    return Expanded(
+      child: Container(
+        alignment: Alignment.topLeft,
+        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8).r,
+        child: Text(
+          video.title!,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(color: HYAppTheme.norTextColors, fontSize: 12.sp),
+        ),
       ),
     );
   } else {
@@ -308,9 +298,9 @@ Widget buildHomeVideoBottomInfo(FeedIndexItem video) {
                         video.rcmdReasonStyle!.borderColor!)))),
         child: Text(video.rcmdReasonStyle!.text!,
             style: TextStyle(
-              fontSize: 8.sp,
+              fontSize: 10.sp,
               color:
-              ColorRadixChange.hexColor(video.rcmdReasonStyle!.textColor!),
+                  ColorRadixChange.hexColor(video.rcmdReasonStyle!.textColor!),
             )),
       );
     } else {
@@ -326,12 +316,12 @@ Widget buildHomeVideoBottomInfo(FeedIndexItem video) {
           ),
           4.horizontalSpace,
           SizedBox(
-            width: 100.w,
+            width: 80.w,
             child: Text(video.args!.upName!,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontSize: 8.sp,
+                  fontSize: 10.sp,
                   color: HYAppTheme.norGrayColor,
                 )),
           ),
@@ -359,7 +349,7 @@ Widget buildHomeVideoBottomInfo(FeedIndexItem video) {
                       video.rcmdReasonStyle!.borderColor!)))),
       child: Text(video.rcmdReasonStyle!.text!,
           style: TextStyle(
-            fontSize: 8.sp,
+            fontSize: 10.sp,
             color: ColorRadixChange.hexColor(video.rcmdReasonStyle!.textColor!),
           )),
     );
@@ -387,64 +377,63 @@ Widget buildHomeVideoBottomInfo(FeedIndexItem video) {
   } else if (video.goto == "bangumi") {
     return video.badgeStyle != null
         ? Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 2).r,
-          decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.all(Radius.circular(2.r)),
-              border: Border(
-                  left: BorderSide(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 2).r,
+                decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.all(Radius.circular(2.r)),
+                    border: Border(
+                        left: BorderSide(
+                            color: ColorRadixChange.hexColor(
+                                video.badgeStyle!.borderColor!)),
+                        top: BorderSide(
+                            color: ColorRadixChange.hexColor(
+                                video.badgeStyle!.borderColor!)),
+                        bottom: BorderSide(
+                            color: ColorRadixChange.hexColor(
+                                video.badgeStyle!.borderColor!)),
+                        right: BorderSide(
+                            color: ColorRadixChange.hexColor(
+                                video.badgeStyle!.borderColor!)))),
+                child: Text(video.badgeStyle!.text!,
+                    style: TextStyle(
+                      fontSize: 10.sp,
                       color: ColorRadixChange.hexColor(
-                          video.badgeStyle!.borderColor!)),
-                  top: BorderSide(
-                      color: ColorRadixChange.hexColor(
-                          video.badgeStyle!.borderColor!)),
-                  bottom: BorderSide(
-                      color: ColorRadixChange.hexColor(
-                          video.badgeStyle!.borderColor!)),
-                  right: BorderSide(
-                      color: ColorRadixChange.hexColor(
-                          video.badgeStyle!.borderColor!)))),
-          child: Text(video.badgeStyle!.text!,
-              style: TextStyle(
-                fontSize: 8.sp,
-                color: ColorRadixChange.hexColor(
-                    video.badgeStyle!.textColor!),
-              )),
-        ),
-        6.horizontalSpace,
-        video.rcmdReasonStyle != null
-            ? Container(
-          padding: const EdgeInsets.symmetric(horizontal: 2).r,
-          decoration: BoxDecoration(
-              color: ColorRadixChange.hexColor(
-                  video.rcmdReasonStyle!.bgColor!),
-              borderRadius: BorderRadius.all(Radius.circular(2.r)),
-              border: Border(
-                  left: BorderSide(
-                      color: ColorRadixChange.hexColor(
-                          video.rcmdReasonStyle!.borderColor!)),
-                  top: BorderSide(
-                      color: ColorRadixChange.hexColor(
-                          video.rcmdReasonStyle!.borderColor!)),
-                  bottom: BorderSide(
-                      color: ColorRadixChange.hexColor(
-                          video.rcmdReasonStyle!.borderColor!)),
-                  right: BorderSide(
-                      color: ColorRadixChange.hexColor(
-                          video.rcmdReasonStyle!.borderColor!)))),
-          child: Text(video.rcmdReasonStyle!.text!,
-              style: TextStyle(
-                fontSize: 8.sp,
-                color: ColorRadixChange.hexColor(
-                    video.rcmdReasonStyle!.textColor!),
-              )),
-        )
-            : Container(),
-      ],
-    )
+                          video.badgeStyle!.textColor!),
+                    )),
+              ),
+              6.horizontalSpace,
+              video.rcmdReasonStyle != null
+                  ? Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 2).r,
+                      decoration: BoxDecoration(
+                          color: ColorRadixChange.hexColor(
+                              video.rcmdReasonStyle!.bgColor!),
+                          borderRadius: BorderRadius.all(Radius.circular(2.r)),
+                          border: Border(
+                              left: BorderSide(
+                                  color: ColorRadixChange.hexColor(
+                                      video.rcmdReasonStyle!.borderColor!)),
+                              top: BorderSide(
+                                  color: ColorRadixChange.hexColor(
+                                      video.rcmdReasonStyle!.borderColor!)),
+                              bottom: BorderSide(
+                                  color: ColorRadixChange.hexColor(
+                                      video.rcmdReasonStyle!.borderColor!)),
+                              right: BorderSide(
+                                  color: ColorRadixChange.hexColor(video.rcmdReasonStyle!.borderColor!)))),
+                      child: Text(video.rcmdReasonStyle!.text!,
+                          style: TextStyle(
+                            fontSize: 10.sp,
+                            color: ColorRadixChange.hexColor(
+                                video.rcmdReasonStyle!.textColor!),
+                          )),
+                    )
+                  : Container(),
+            ],
+          )
         : Container();
   } else {
     return Container();
@@ -457,7 +446,6 @@ Widget buildHomeVideoItemFooter(FeedIndexItem video) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-
         ///视频Up主信息
         buildHomeVideoBottomInfo(video),
 
@@ -475,7 +463,7 @@ Widget buildHomeVideoItemShadow() {
     right: 0,
     child: Container(
       width: 180.w,
-      height: 35.h,
+      height: 35.w,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [

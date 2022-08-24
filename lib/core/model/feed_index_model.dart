@@ -338,9 +338,11 @@ class BannerItem {
         id: json["id"],
         index: json["index"],
         resourceId: json["resource_id"],
-        staticBanner: json["static_banner"] == null
-            ? StaticBanner.fromJson(json["ad_banner"])
-            : StaticBanner.fromJson(json["static_banner"]),
+        staticBanner: json["static_banner"] != null
+            ? StaticBanner.fromJson(json["static_banner"])
+            : json["ad_banner"] != null
+                ? StaticBanner.fromJson(json["ad_banner"])
+                : StaticBanner.fromJson(json["inline_av"]),
         type: json["type"],
       );
 }
@@ -380,7 +382,7 @@ class StaticBanner {
         cmMark: json["cm_mark"],
         hash: json["hash"],
         id: json["id"],
-        image: json["image"],
+        image: json["image"] ?? json["cover"],
         index: json["index"],
         isAdLoc: json["is_ad_loc"],
         requestId: json["request_id"],
