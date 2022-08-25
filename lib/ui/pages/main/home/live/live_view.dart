@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'live_logic.dart';
 
 class LiveScreen extends StatelessWidget {
-  static const String routeName = "/live";
+  static const String routeName = "/home/live";
 
   @override
   Widget build(BuildContext context) {

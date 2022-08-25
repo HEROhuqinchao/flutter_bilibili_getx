@@ -10,7 +10,7 @@ import '../../../../widgets/bilibili_classical_header.dart';
 import 'recommend_logic.dart';
 
 class RecommendScreen extends StatefulWidget {
-  static const String routeName = "/recommend";
+  static const String routeName = "/home/recommend";
 
   @override
   State<RecommendScreen> createState() => _RecommendScreenState();

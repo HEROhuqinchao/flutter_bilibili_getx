@@ -101,11 +101,13 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
         topRight: Radius.circular(5.r),
       ),
       child: SizedBox(
-        width: ,
+        width: 180.w,
         height: 100.w,
         child: FadeInImage(
           imageErrorBuilder: (ctx, error, stackTrace) {
-            return Container(child: Text("加载中"),);
+            return Container(
+              child: Text("加载中"),
+            );
           },
           placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
           image: NetworkImage(
@@ -127,7 +129,9 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
         height: 100.w,
         child: FadeInImage(
           imageErrorBuilder: (ctx, error, stackTrace) {
-            return Container(child: Text("加载中"),);
+            return Container(
+              child: Text("加载中"),
+            );
           },
           placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
           image: NetworkImage(
@@ -141,28 +145,28 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
   }
 }
 
-///视频时长
+///封面右下角
 Widget buildHomeVideoItemRightZone(FeedIndexItem video) {
   if (video.coverRightText != null) {
     return Positioned(
       right: 5.w,
       bottom: 5.h,
       child: Text(video.coverRightText!,
-          style: TextStyle(color: Colors.white, fontSize: 8.sp)),
+          style: TextStyle(color: Colors.white, fontSize: 10.sp)),
     );
   } else if (video.badge != null) {
     return Positioned(
       right: 5.w,
       bottom: 5.h,
       child: Text(video.badge!,
-          style: TextStyle(color: Colors.white, fontSize: 8.sp)),
+          style: TextStyle(color: Colors.white, fontSize: 10.sp)),
     );
   } else {
     return Container();
   }
 }
 
-///视频播放量、评论数
+///视频封面左下角区域
 Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
   if (video.goto == "live") {
     String seenText = video.coverLeftText1!;
@@ -180,9 +184,15 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: 14.sp,
           ),
           5.horizontalSpace,
-          Text(seenText,
-              style: TextStyle(
-                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
+          Container(
+            alignment: Alignment.center,
+            height: 14.sp,
+            child: Text(
+              seenText,
+              style:
+                  TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+            ),
+          ),
         ],
       ),
     );
@@ -203,9 +213,16 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: 14.sp,
           ),
           5.horizontalSpace,
-          Text(viewText,
-              style: TextStyle(
-                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
+          Container(
+            alignment: Alignment.center,
+            height: 14.sp,
+            child: Text(
+              viewText,
+              style:
+                  TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+              textAlign: TextAlign.center,
+            ),
+          ),
           8.horizontalSpace,
           Image.asset(
             ImageAssets.icDanmuWhitePNG,
@@ -213,9 +230,16 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: 14.sp,
           ),
           5.horizontalSpace,
-          Text(remarkText,
-              style: TextStyle(
-                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
+          Container(
+            alignment: Alignment.center,
+            height: 14.sp,
+            child: Text(
+              remarkText,
+              style:
+                  TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+              textAlign: TextAlign.center,
+            ),
+          ),
         ],
       ),
     );
@@ -236,9 +260,15 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: 14.sp,
           ),
           3.horizontalSpace,
-          Text(viewText,
-              style: TextStyle(
-                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
+          Container(
+            alignment: Alignment.center,
+            height: 14.sp,
+            child: Text(
+              viewText,
+              style:
+                  TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+            ),
+          ),
           6.horizontalSpace,
           Image.asset(
             ImageAssets.lovePNG,
@@ -246,9 +276,15 @@ Widget buildHomeVideoItemLeftZone(FeedIndexItem video) {
             height: 14.sp,
           ),
           3.horizontalSpace,
-          Text(likeText,
-              style: TextStyle(
-                  color: HYAppTheme.norWhite02Color, fontSize: 10.sp)),
+          Container(
+            alignment: Alignment.center,
+            height: 14.sp,
+            child: Text(
+              likeText,
+              style:
+                  TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+            ),
+          ),
         ],
       ),
     );
