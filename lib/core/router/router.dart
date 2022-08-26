@@ -34,27 +34,28 @@ class AsRouter {
 
     ///发布界面
     GetPage(
-      name: PublishScreen.routeName,
-      page: () => PublishScreen(),
-      binding: PublishBinding()
-    ),
+        name: PublishScreen.routeName,
+        page: () => PublishScreen(),
+        binding: PublishBinding()),
 
     ///会员购界面
     GetPage(
-      name: MallScreen.routeName,
-      page: () => MallScreen(),
-      binding: MallBinding()
-    ),
+        name: MallScreen.routeName,
+        page: () => MallScreen(),
+        binding: MallBinding()),
 
     ///动态界面
     GetPage(
-      name: DynamicCircleScreen.routeName,
-      page: () => DynamicCircleScreen(),
-      binding: DynamicCircleBinding()
-    ),
+        name: DynamicCircleScreen.routeName,
+        page: () => DynamicCircleScreen(),
+        binding: DynamicCircleBinding()),
 
     ///动画界面
-    GetPage(name: ComicScreen.routeName, page: () => ComicScreen(), binding: ComicBinding()),
+    GetPage(
+      name: ComicScreen.routeName,
+      page: () => ComicScreen(),
+      binding: ComicBinding(),
+    ),
 
     ///直播界面
     GetPage(
@@ -63,15 +64,24 @@ class AsRouter {
         binding: LiveBinding()),
 
     ///登录界面
-    GetPage(name: LoginScreen.routeName, page: () => LoginScreen(), binding: LoginBinding()),
+    GetPage(
+        name: LoginScreen.routeName,
+        page: () => LoginScreen(),
+        binding: LoginBinding()),
 
     ///推荐界面
     GetPage(name: RecommendScreen.routeName, page: () => RecommendScreen()),
 
     ///搜索界面
-    GetPage(name: SearchScreen.routeName, page: () => SearchScreen(), binding: SearchBinding()),
+    GetPage(
+        name: SearchScreen.routeName,
+        page: () => SearchScreen(),
+        binding: SearchBinding()),
 
     ///扫描登录
-    GetPage(name: ScanLoginScreen.routeName, page: () => ScanLoginScreen(), binding: ScanLoginBinding()),
+    GetPage(
+        name: ScanLoginScreen.routeName,
+        page: () => ScanLoginScreen(),
+        binding: ScanLoginBinding()),
   ];
 }

@@ -161,10 +161,10 @@ class RecommendLogic extends GetxController {
   ///单视频
   Widget buildHYHomeRefreshItemOneVideo(FeedIndexItem video) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(4.r),
+      borderRadius: BorderRadius.circular(8.r),
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8).r,
-        height: 120.w,
+        height: 200.w,
         width: 1.sw,
         child: FadeInImage(
           fit: BoxFit.fill,
@@ -219,22 +219,27 @@ class RecommendLogic extends GetxController {
   ///轮播图
   Widget buildHomeRecommendCarousel(List<BannerItem> bannerItems) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(4.r),
+      borderRadius: BorderRadius.circular(8.r),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8).r,
-        height: 140.w, //这里的轮播图组件必须包裹在有高度的控件或者设置比例
+        width: 1.sw,
+        height: 200.w, //这里的轮播图组件必须包裹在有高度的控件或者设置比例
         child: Swiper(
           controller: state.swiperController,
-          scale: .7,
-          viewportFraction: .7,
+          scale: 1,
+          viewportFraction: 1,
           itemBuilder: (ctx, index) {
             return Stack(
               children: [
-                FadeInImage(
-                  fit: BoxFit.cover,
-                  placeholderFit: BoxFit.cover,
-                  placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-                  image: NetworkImage(bannerItems[index].staticBanner!.image!),
+                SizedBox(
+                  height: 200.w,
+                  width: 1.sw,
+                  child: FadeInImage(
+                    fit: BoxFit.cover,
+                    placeholderFit: BoxFit.cover,
+                    placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+                    image: NetworkImage(bannerItems[index].staticBanner!.image!),
+                  ),
                 ),
                 Positioned(
                   left: 10.r,
@@ -243,7 +248,7 @@ class RecommendLogic extends GetxController {
                     bannerItems[index].staticBanner!.title!,
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
                       fontSize: 12.sp,
                     ),
                   ),

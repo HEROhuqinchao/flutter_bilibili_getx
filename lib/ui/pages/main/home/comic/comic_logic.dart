@@ -18,6 +18,12 @@ class ComicLogic extends GetxController {
   final ComicState state = ComicState();
 
   @override
+  void onReady() {
+    fetchComicData();
+    super.onReady();
+  }
+
+  @override
   void onClose() {
     state.easyRefreshScrollController.dispose();
     state.buttonsScrollController.dispose();
@@ -47,7 +53,7 @@ class ComicLogic extends GetxController {
         BuildBangumiRankZone(14, state.modules),
         buildDoubleFeedZone(state.modulesList02),
       ]);
-      Timer(const Duration(seconds: 3), () {
+      Timer(const Duration(seconds: 2), () {
         update();
       });
     });
@@ -57,10 +63,11 @@ class ComicLogic extends GetxController {
   Widget buildHomeComicSwiper() {
     return state.modules.isNotEmpty
         ? SizedBox(
-            height: 240.h,
+            height: 200.w,
+            width: 1.sw,
             child: Swiper(
-              scale: .7,
-              viewportFraction: .7,
+              scale: 1,
+              viewportFraction: 1,
               autoplay: true,
               autoplayDelay: 3000,
               controller: state.swiperController,
@@ -100,7 +107,7 @@ class ComicLogic extends GetxController {
     return state.modules.isNotEmpty
         ? Container(
             width: .9.sw,
-            height: 80.h,
+            height: 80.w,
             alignment: Alignment.center,
             child: ListView.builder(
               shrinkWrap: true,
@@ -144,7 +151,7 @@ class ComicLogic extends GetxController {
         : Container();
   }
 
-  ///固定每一个块的大小，一行能排几个就几个
+  ///一行两个
   Widget buildDoubleFeedZone(List<Module> modulesList) {
     List<Item> items = [];
     for (var module in modulesList) {
@@ -160,8 +167,7 @@ class ComicLogic extends GetxController {
                 delegate: SliverChildBuilderDelegate(
                   (ctx, index) {
                     return SizedBox(
-                      width: 180.w,
-                      height: 200.h,
+                      height: 200.w,
                       child: Card(
                         elevation: .3,
                         child: Column(
@@ -181,16 +187,14 @@ class ComicLogic extends GetxController {
                                       Radius.circular(5.r),
                                     ),
                                   ),
-                                  width: 180.w,
-                                  height: 110.h,
+                                  height: 110.w,
                                 ),
                                 Positioned(
                                   bottom: 0,
                                   left: 0,
                                   right: 0,
                                   child: Container(
-                                    width: 180.w,
-                                    height: 40.h,
+                                    height: 40.w,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
@@ -307,9 +311,8 @@ class ComicLogic extends GetxController {
                   },
                   childCount: items.length,
                 ),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  mainAxisExtent: 200.h,
-                  maxCrossAxisExtent: 180.w,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
                 ),
               ),
             ],

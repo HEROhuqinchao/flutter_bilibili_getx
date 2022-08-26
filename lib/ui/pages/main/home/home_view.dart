@@ -177,10 +177,11 @@ class HomeScreen extends StatelessWidget{
         ///推荐
         child = RecommendScreen();
       } else if (i == 2) {
+        ///热门
+        child = Container();
+      } else {
         ///动画
         child = ComicScreen();
-      } else {
-        child = Container();
       }
       widgets.add(child);
     }

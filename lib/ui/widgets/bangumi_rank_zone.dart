@@ -63,7 +63,7 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                   child: Image.network(
                     modules[zoneNum].cover!,
                     fit: BoxFit.fill,
-                    height: 360.h,
+                    height: 230.w,
                     width: 1.sw,
                   ),
                 ),
@@ -101,7 +101,7 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                     ),
                   ),
                   SizedBox(
-                    height: 350.h,
+                    height: 190.w,
                     child: ListView.builder(
                       controller: _rankScrollController,
                       scrollDirection: Axis.horizontal,
@@ -117,8 +117,8 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                               Stack(
                                 children: [
                                   Container(
-                                    height: 230.h,
-                                    width: 80.w,
+                                    height: 130.w,
+                                    width: 100.w,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(5.r)),
