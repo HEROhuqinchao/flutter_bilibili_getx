@@ -162,11 +162,7 @@ class HomeScreen extends StatelessWidget {
   Widget buildHomeTabBarView() {
     ///未同意用户协议
     return state.tempUserAgreement == false
-        ? Container(
-            child: ElevatedButton(onPressed: () {
-
-            }, child: Text("点击查看用户协议")),
-          )
+        ? Container()
         : TabBarView(
             children: buildTabBarViewChildren(),
           );

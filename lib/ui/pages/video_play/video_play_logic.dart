@@ -14,6 +14,7 @@ class VideoPlayLogic extends GetxController {
   ///获取视频相关的数据
   void fetchFeedIndexItemData(FeedIndexItem video) {
     state.video = video;
+    update();
   }
   @override
   void onInit() {

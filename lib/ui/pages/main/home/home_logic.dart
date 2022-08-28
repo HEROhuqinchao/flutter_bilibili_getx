@@ -161,15 +161,17 @@ class HomeLogic extends GetxController {
                     SharedPreferenceUtil.setBool(
                         BilibiliSharedPreference.appUserAgreementPrivatePolicy,
                         true);
+                    state.tempUserAgreement = true;
 
                     ///青少年模式弹框
                     state.tempTeenagerMode = SharedPreferenceUtil.getBool(
                         BilibiliSharedPreference.teenagerMode)!;
-                    if (state.tempUserAgreement == false) {
+                    if (state.tempTeenagerMode == false) {
                       Future.delayed(const Duration(seconds: 1), () {
                         showTeenagerModeDialog();
                       });
                     }
+                    update();
                   },
                   child: Container(
                     color: HYAppTheme.norMainThemeColors,

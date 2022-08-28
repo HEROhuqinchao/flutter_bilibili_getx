@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
@@ -144,7 +146,6 @@ class RecommendLogic extends GetxController {
     state.feedIndexItemList = state.feedIndexItemList.reversed.toList();
     state.feedIndexItemList.addAll(items);
     state.feedIndexItemList = state.feedIndexItemList.reversed.toList();
-    update();
   }
 
   void refreshRecommendItemData() async {
@@ -153,12 +154,12 @@ class RecommendLogic extends GetxController {
     ).then((value) {
       refreshVideosData(value.data.items);
       state.homeRecommendWidgets
-          .insert(0, buildHYHomeRefreshItemOneVideo(value.data.items[10]));
+          .insert(0, buildHYHomeRefreshItemOneVideo(value.data.items[8]));
       state.homeRecommendWidgets.insert(
-          0, buildHomeRecommendVideoCards(value.data.items.sublist(1, 9)));
-    });
-    await Future.delayed(const Duration(seconds: 2), () {
-      update();
+          0, buildHomeRecommendVideoCards(value.data.items.sublist(0, 8)));
+      Future.delayed(const Duration(seconds: 2), () {
+        update();
+      });
     });
   }
 
@@ -207,9 +208,9 @@ class RecommendLogic extends GetxController {
         .then((value) {
       loadMoreVideosData(value.data.items);
       state.homeRecommendWidgets
-          .add(buildHYHomeRefreshItemOneVideo(value.data.items[10]));
+          .add(buildHYHomeRefreshItemOneVideo(value.data.items[8]));
       state.homeRecommendWidgets
-          .add(buildHomeRecommendVideoCards(value.data.items.sublist(1, 9)));
+          .add(buildHomeRecommendVideoCards(value.data.items.sublist(0, 8)));
       update();
     });
   }

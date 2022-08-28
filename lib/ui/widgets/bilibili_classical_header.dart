@@ -225,44 +225,44 @@ class BilibiliClassicalHeaderWidgetState
 
   // 构建显示内容
   Widget _buildContent() {
-    return (widget.refreshState == RefreshMode.refresh ||
-                widget.refreshState == RefreshMode.armed) &&
-            !widget.noMore
-        ? const RefreshProgressIndicator(
-            strokeWidth: 3.5,
-            valueColor: AlwaysStoppedAnimation(
-              HYAppTheme.norMainThemeColors,
+    if (widget.refreshState == RefreshMode.refresh) {
+      return const RefreshProgressIndicator(
+        strokeWidth: 3.5,
+        valueColor: AlwaysStoppedAnimation(
+          HYAppTheme.norMainThemeColors,
+        ),
+      );
+    } else if (widget.refreshState == RefreshMode.done) {
+      return Center(
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8).r,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                const Radius.circular(4).r,
+              ),
+              color: Colors.black.withOpacity(.5)),
+          child: Text(
+            "刷新完成",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14.sp,
             ),
-          )
-        : widget.refreshState == RefreshMode.refreshed ||
-                widget.refreshState == RefreshMode.done ||
-                (widget.enableInfiniteRefresh &&
-                    widget.refreshState != RefreshMode.refreshed) ||
-                widget.noMore
-            ? Center(
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 8).r,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        const Radius.circular(4).r,
-                      ),
-                      color: Colors.black.withOpacity(.5)),
-                  child: Text(
-                    "刷新完成",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.sp,
-                    ),
-                  ),
-                ),
-              )
-            : RefreshProgressIndicator(
-                strokeWidth: 3.5,
-                color: HYAppTheme.norMainThemeColors,
-                value: widget.pulledExtent / 200.0 > 1
-                    ? 1
-                    : widget.pulledExtent / 200.0,
-              );
+          ),
+        ),
+      );
+    } else if (widget.refreshState == RefreshMode.drag) {
+      return RefreshProgressIndicator(
+        strokeWidth: 3.5,
+        color: HYAppTheme.norMainThemeColors,
+        value:
+            widget.pulledExtent / 200.0 > 1 ? 1 : widget.pulledExtent / 200.0,
+      );
+    } else if (widget.refreshState == RefreshMode.refreshed) {
+      return const RefreshProgressIndicator(
+        color: HYAppTheme.norMainThemeColors,
+      );
+    } else {
+      return Container();
+    }
   }
 }
