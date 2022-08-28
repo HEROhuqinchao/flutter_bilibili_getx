@@ -20,10 +20,15 @@ Size androidScreenSize = const Size(360, 690);
 Size windowsScreenSize = const Size(1080, 1920);
 Size webScreenSize = const Size(360, 690);
 
-void main() {
+void main() async{
   if (!kIsWeb) {
     if (Platform.isAndroid) {
       WidgetsFlutterBinding.ensureInitialized();
+
+      ///实例化sharedPreference
+      await SharedPreferenceUtil.getInstance();
+      ///初始化屏幕适配
+      await ScreenUtil.ensureScreenSize();
 
       ///手机状态栏的背景颜色及状态栏文字颜色
       SystemChrome.setSystemUIOverlayStyle(
@@ -36,19 +41,23 @@ void main() {
         ),
       );
     } else if (Platform.isWindows) {
-    } else if (Platform.isIOS) {}
+      ///实例化sharedPreference
+      await SharedPreferenceUtil.getInstance();
+      ///初始化屏幕适配
+      await ScreenUtil.ensureScreenSize();
+    } else if (Platform.isIOS) {
+      ///实例化sharedPreference
+      await SharedPreferenceUtil.getInstance();
+      ///初始化屏幕适配
+      await ScreenUtil.ensureScreenSize();
+    }
   } else {
+    ///实例化sharedPreference
+    await SharedPreferenceUtil.getInstance();
+    ///初始化屏幕适配
+    await ScreenUtil.ensureScreenSize();
   }
-  ///初始化
-  initMain();
   runApp(const MyApp());
-}
-
-initMain() async{
-  ///实例化sharedPreference
-  await SharedPreferenceUtil.getInstance();
-  ///初始化屏幕适配
-  await ScreenUtil.ensureScreenSize();
 }
 
 class MyApp extends StatelessWidget {

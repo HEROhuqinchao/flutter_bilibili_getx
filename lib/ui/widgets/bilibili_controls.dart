@@ -4,19 +4,14 @@ import 'package:chewie/chewie.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../core/model/feed_index_model.dart';
-import '../../core/model/video_model.dart';
 import '../../core/notifier/player_notifier.dart';
 import '../shared/app_theme.dart';
 import '../shared/image_asset.dart';
@@ -58,9 +53,9 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
 
   ChewieController get chewieController => _chewieController!;
 
-  late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
-  List<_TaskInfo>? _tasks;
-  late List<_ItemHolder> _items;
+  // late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+  // List<_TaskInfo>? _tasks;
+  // late List<_ItemHolder> _items;
   late bool _isLoading;
   late bool _permissionReady;
   late String _localPath;
@@ -79,18 +74,18 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
     notifier = Provider.of<PlayerNotifier>(context, listen: false);
 
     ///推送初始化
-    flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-    var android = const AndroidInitializationSettings('@mipmap/ic_launcher');
-    var iOS = const IOSInitializationSettings();
-    var initSettings = InitializationSettings(android: android, iOS: iOS);
-    flutterLocalNotificationsPlugin.initialize(initSettings);
+    // flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    // var android = const AndroidInitializationSettings('@mipmap/ic_launcher');
+    // var iOS = const IOSInitializationSettings();
+    // var initSettings = InitializationSettings(android: android, iOS: iOS);
+    // flutterLocalNotificationsPlugin.initialize(initSettings);
 
     ///缓存初始化
-    _bindBackgroundIsolate();
-    FlutterDownloader.registerCallback(downloadCallback);
-    _isLoading = true;
-    _permissionReady = false;
-    _prepare();
+    // _bindBackgroundIsolate();
+    // FlutterDownloader.registerCallback(downloadCallback);
+    // _isLoading = true;
+    // _permissionReady = false;
+    // _prepare();
 
     super.initState();
   }
@@ -675,7 +670,7 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
                         GestureDetector(
                           onTap: () {
                             Navigator.pop(context);
-                            buildDownloadCache();
+                            // buildDownloadCache();
                           },
                           child: buildShareButton(
                               ImageAssets.biliSocializeGenericPNG, "缓存"),
@@ -737,204 +732,204 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
     );
   }
 
-  ///下载缓存
-  void buildDownloadCache() {
-    showModalBottomSheet(
-        context: context,
-        builder: (ctx) {
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 15,
-                ).r,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "下载缓存",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14.sp,
-                      ),
-                    ),
-                    Icon(
-                      Icons.close,
-                      size: 15.sp,
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                decoration: const BoxDecoration(
-                  border: BorderDirectional(
-                      top: BorderSide(
-                        color: HYAppTheme.norGrayColor,
-                        width: .5,
-                      ),
-                      bottom: BorderSide(
-                          color: HYAppTheme.norGrayColor, width: .5)),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5).r,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "当前画质：",
-                          style: TextStyle(
-                            color: HYAppTheme.norGrayColor,
-                            fontSize: 12.sp,
-                          ),
-                        ),
-                        Text(
-                          "720高清",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12.sp,
-                          ),
-                        ),
-                        5.horizontalSpace,
-                        Image.asset(
-                          ImageAssets.icArrowUpPNG,
-                          width: 10.w,
-                          height: 10.h,
-                        ),
-                      ],
-                    ),
-                    15.verticalSpace,
-                    Container(
-                      padding: const EdgeInsets.all(10).r,
-                      height: 40.h,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Text(
-                            "8K大会员",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          30.horizontalSpace,
-                          Text(
-                            "4K大会员",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          30.horizontalSpace,
-                          Text(
-                            "1080P高清",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          30.horizontalSpace,
-                          Text(
-                            "720P高清",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          30.horizontalSpace,
-                          Text(
-                            "480P高清",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          30.horizontalSpace,
-                          Text(
-                            "360P高清",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          30.horizontalSpace,
-                        ],
-                      ),
-                    ),
-                    Builder(
-                      builder: (context) {
-                        return SizedBox(
-                          height: 150.h,
-                          child: _isLoading
-                              ? const Center(
-                                  child: CircularProgressIndicator(
-                                    color: HYAppTheme.norMainThemeColors,
-                                  ),
-                                )
-                              : _permissionReady
-                                  ? _buildDownloadList()
-                                  : _buildNoPermissionWarning(),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 15).r,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "缓存全部",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.sp),
-                    ),
-                    Container(
-                      height: 25.h,
-                      width: .5.w,
-                      padding: const EdgeInsets.symmetric(vertical: 5).r,
-                      color: HYAppTheme.norGrayColor,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        // Navigator.of(context).pushNamed(HYOfflineCacheScreen.routeName ,arguments: _localPath);
-                        // Stream<FileSystemEntity> fileList = Directory(_localPath).list();
-                        // fileList.listen((event) {
-                        //   print('$event');
-                        //   FileSystemEntityType type =
-                        //   FileSystemEntity.typeSync(event.path);
-                        //   print('$type');
-                        // });
-                        ///这里缓存视频都缓存到下载这儿去了，没权限
-                        Stream<FileSystemEntity> fileList =
-                            Directory("/storage/emulated/0/Download").list();
-                        fileList.listen((event) {
-                          // print('$event--${event.runtimeType}}--');
-                          FileSystemEntityType type =
-                              FileSystemEntity.typeSync(event.path);
-                          // print('$type');
-                        });
-                      },
-                      child: Text(
-                        "查看缓存",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.sp),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          );
-        },
-        constraints: BoxConstraints(maxHeight: 350.h));
-  }
+  // ///下载缓存
+  // void buildDownloadCache() {
+  //   showModalBottomSheet(
+  //       context: context,
+  //       builder: (ctx) {
+  //         return Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [
+  //             Container(
+  //               padding: const EdgeInsets.symmetric(
+  //                 horizontal: 20,
+  //                 vertical: 15,
+  //               ).r,
+  //               child: Row(
+  //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //                 children: [
+  //                   Text(
+  //                     "下载缓存",
+  //                     style: TextStyle(
+  //                       color: Colors.black,
+  //                       fontSize: 14.sp,
+  //                     ),
+  //                   ),
+  //                   Icon(
+  //                     Icons.close,
+  //                     size: 15.sp,
+  //                   ),
+  //                 ],
+  //               ),
+  //             ),
+  //             Container(
+  //               decoration: const BoxDecoration(
+  //                 border: BorderDirectional(
+  //                     top: BorderSide(
+  //                       color: HYAppTheme.norGrayColor,
+  //                       width: .5,
+  //                     ),
+  //                     bottom: BorderSide(
+  //                         color: HYAppTheme.norGrayColor, width: .5)),
+  //               ),
+  //               padding:
+  //                   const EdgeInsets.symmetric(vertical: 10, horizontal: 5).r,
+  //               child: Column(
+  //                 children: [
+  //                   Row(
+  //                     mainAxisAlignment: MainAxisAlignment.start,
+  //                     children: [
+  //                       Text(
+  //                         "当前画质：",
+  //                         style: TextStyle(
+  //                           color: HYAppTheme.norGrayColor,
+  //                           fontSize: 12.sp,
+  //                         ),
+  //                       ),
+  //                       Text(
+  //                         "720高清",
+  //                         style: TextStyle(
+  //                           color: Colors.black,
+  //                           fontSize: 12.sp,
+  //                         ),
+  //                       ),
+  //                       5.horizontalSpace,
+  //                       Image.asset(
+  //                         ImageAssets.icArrowUpPNG,
+  //                         width: 10.w,
+  //                         height: 10.h,
+  //                       ),
+  //                     ],
+  //                   ),
+  //                   15.verticalSpace,
+  //                   Container(
+  //                     padding: const EdgeInsets.all(10).r,
+  //                     height: 40.h,
+  //                     child: ListView(
+  //                       scrollDirection: Axis.horizontal,
+  //                       children: [
+  //                         Text(
+  //                           "8K大会员",
+  //                           style: TextStyle(
+  //                             color: Colors.black,
+  //                             fontSize: 14.sp,
+  //                           ),
+  //                         ),
+  //                         30.horizontalSpace,
+  //                         Text(
+  //                           "4K大会员",
+  //                           style: TextStyle(
+  //                             color: Colors.black,
+  //                             fontSize: 14.sp,
+  //                           ),
+  //                         ),
+  //                         30.horizontalSpace,
+  //                         Text(
+  //                           "1080P高清",
+  //                           style: TextStyle(
+  //                             color: Colors.black,
+  //                             fontSize: 14.sp,
+  //                           ),
+  //                         ),
+  //                         30.horizontalSpace,
+  //                         Text(
+  //                           "720P高清",
+  //                           style: TextStyle(
+  //                             color: Colors.black,
+  //                             fontSize: 14.sp,
+  //                           ),
+  //                         ),
+  //                         30.horizontalSpace,
+  //                         Text(
+  //                           "480P高清",
+  //                           style: TextStyle(
+  //                             color: Colors.black,
+  //                             fontSize: 14.sp,
+  //                           ),
+  //                         ),
+  //                         30.horizontalSpace,
+  //                         Text(
+  //                           "360P高清",
+  //                           style: TextStyle(
+  //                             color: Colors.black,
+  //                             fontSize: 14.sp,
+  //                           ),
+  //                         ),
+  //                         30.horizontalSpace,
+  //                       ],
+  //                     ),
+  //                   ),
+  //                   Builder(
+  //                     builder: (context) {
+  //                       return SizedBox(
+  //                         height: 150.h,
+  //                         child: _isLoading
+  //                             ? const Center(
+  //                                 child: CircularProgressIndicator(
+  //                                   color: HYAppTheme.norMainThemeColors,
+  //                                 ),
+  //                               )
+  //                             : _permissionReady
+  //                                 ? _buildDownloadList()
+  //                                 : _buildNoPermissionWarning(),
+  //                       );
+  //                     },
+  //                   ),
+  //                 ],
+  //               ),
+  //             ),
+  //             Container(
+  //               padding: const EdgeInsets.symmetric(vertical: 15).r,
+  //               child: Row(
+  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                 children: [
+  //                   Text(
+  //                     "缓存全部",
+  //                     style: TextStyle(
+  //                         color: Colors.black,
+  //                         fontSize: 16.sp),
+  //                   ),
+  //                   Container(
+  //                     height: 25.h,
+  //                     width: .5.w,
+  //                     padding: const EdgeInsets.symmetric(vertical: 5).r,
+  //                     color: HYAppTheme.norGrayColor,
+  //                   ),
+  //                   GestureDetector(
+  //                     onTap: () async {
+  //                       // Navigator.of(context).pushNamed(HYOfflineCacheScreen.routeName ,arguments: _localPath);
+  //                       // Stream<FileSystemEntity> fileList = Directory(_localPath).list();
+  //                       // fileList.listen((event) {
+  //                       //   print('$event');
+  //                       //   FileSystemEntityType type =
+  //                       //   FileSystemEntity.typeSync(event.path);
+  //                       //   print('$type');
+  //                       // });
+  //                       ///这里缓存视频都缓存到下载这儿去了，没权限
+  //                       Stream<FileSystemEntity> fileList =
+  //                           Directory("/storage/emulated/0/Download").list();
+  //                       fileList.listen((event) {
+  //                         // print('$event--${event.runtimeType}}--');
+  //                         FileSystemEntityType type =
+  //                             FileSystemEntity.typeSync(event.path);
+  //                         // print('$type');
+  //                       });
+  //                     },
+  //                     child: Text(
+  //                       "查看缓存",
+  //                       style: TextStyle(
+  //                           color: Colors.black,
+  //                           fontSize: 16.sp),
+  //                     ),
+  //                   ),
+  //                 ],
+  //               ),
+  //             )
+  //           ],
+  //         );
+  //       },
+  //       constraints: BoxConstraints(maxHeight: 350.h));
+  // }
 
   Widget _buildNoPermissionWarning() => Center(
         child: Column(
@@ -952,7 +947,7 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
             32.verticalSpace,
             TextButton(
                 onPressed: () {
-                  _retryRequestPermission();
+                  // _retryRequestPermission();
                 },
                 child: Text(
                   'Retry',
@@ -965,89 +960,89 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
         ),
       );
 
-  Widget _buildDownloadList() {
-    return ListView(
-      children: _items.map((item) {
-        return DownloadItem(
-          data: item,
-          onItemClick: (task) {
-            _openDownloadedFile(task).then((success) {
-              if (!success) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Cannot open this file')));
-              }
-            });
-          },
-          onActionClick: (task) {
-            if (task.status == DownloadTaskStatus.undefined) {
-              _requestDownload(task);
-            } else if (task.status == DownloadTaskStatus.running) {
-              _pauseDownload(task);
-            } else if (task.status == DownloadTaskStatus.paused) {
-              _resumeDownload(task);
-            } else if (task.status == DownloadTaskStatus.complete) {
-              _delete(task);
-            } else if (task.status == DownloadTaskStatus.failed) {
-              _retryDownload(task);
-            }
-          },
-        );
-      }).toList(),
-    );
-  }
+  // Widget _buildDownloadList() {
+  //   return ListView(
+  //     children: _items.map((item) {
+  //       return DownloadItem(
+  //         data: item,
+  //         onItemClick: (task) {
+  //           _openDownloadedFile(task).then((success) {
+  //             if (!success) {
+  //               ScaffoldMessenger.of(context).showSnackBar(
+  //                   SnackBar(content: Text('Cannot open this file')));
+  //             }
+  //           });
+  //         },
+  //         onActionClick: (task) {
+  //           if (task.status == DownloadTaskStatus.undefined) {
+  //             _requestDownload(task);
+  //           } else if (task.status == DownloadTaskStatus.running) {
+  //             _pauseDownload(task);
+  //           } else if (task.status == DownloadTaskStatus.paused) {
+  //             _resumeDownload(task);
+  //           } else if (task.status == DownloadTaskStatus.complete) {
+  //             _delete(task);
+  //           } else if (task.status == DownloadTaskStatus.failed) {
+  //             _retryDownload(task);
+  //           }
+  //         },
+  //       );
+  //     }).toList(),
+  //   );
+  // }
 
-  Future<void> _retryRequestPermission() async {
-    final hasGranted = await _checkPermission();
+  // Future<void> _retryRequestPermission() async {
+  //   final hasGranted = await _checkPermission();
+  //
+  //   if (hasGranted) {
+  //     await _prepareSaveDir();
+  //   }
+  //
+  //   setState(() {
+  //     _permissionReady = hasGranted;
+  //   });
+  // }
 
-    if (hasGranted) {
-      await _prepareSaveDir();
-    }
+  // void _requestDownload(_TaskInfo task) async {
+  //   task.taskId = await FlutterDownloader.enqueue(
+  //     fileName: task.name,
+  //     url: task.link!,
+  //     headers: {"auth": "test_for_sql_encoding"},
+  //     savedDir: _localPath,
+  //     showNotification: true,
+  //     openFileFromNotification: true,
+  //     saveInPublicStorage: true,
+  //   );
+  // }
 
-    setState(() {
-      _permissionReady = hasGranted;
-    });
-  }
-
-  void _requestDownload(_TaskInfo task) async {
-    task.taskId = await FlutterDownloader.enqueue(
-      fileName: task.name,
-      url: task.link!,
-      headers: {"auth": "test_for_sql_encoding"},
-      savedDir: _localPath,
-      showNotification: true,
-      openFileFromNotification: true,
-      saveInPublicStorage: true,
-    );
-  }
-
-  void _pauseDownload(_TaskInfo task) async {
-    await FlutterDownloader.pause(taskId: task.taskId!);
-  }
-
-  void _resumeDownload(_TaskInfo task) async {
-    String? newTaskId = await FlutterDownloader.resume(taskId: task.taskId!);
-    task.taskId = newTaskId;
-  }
-
-  void _retryDownload(_TaskInfo task) async {
-    String? newTaskId = await FlutterDownloader.retry(taskId: task.taskId!);
-    task.taskId = newTaskId;
-  }
-
-  Future<bool> _openDownloadedFile(_TaskInfo? task) {
-    if (task != null) {
-      return FlutterDownloader.open(taskId: task.taskId!);
-    } else {
-      return Future.value(false);
-    }
-  }
-
-  void _delete(_TaskInfo task) async {
-    await FlutterDownloader.remove(
-        taskId: task.taskId!, shouldDeleteContent: true);
-    await _prepare();
-    setState(() {});
-  }
+  // void _pauseDownload(_TaskInfo task) async {
+  //   await FlutterDownloader.pause(taskId: task.taskId!);
+  // }
+  //
+  // void _resumeDownload(_TaskInfo task) async {
+  //   String? newTaskId = await FlutterDownloader.resume(taskId: task.taskId!);
+  //   task.taskId = newTaskId;
+  // }
+  //
+  // void _retryDownload(_TaskInfo task) async {
+  //   String? newTaskId = await FlutterDownloader.retry(taskId: task.taskId!);
+  //   task.taskId = newTaskId;
+  // }
+  //
+  // Future<bool> _openDownloadedFile(_TaskInfo? task) {
+  //   if (task != null) {
+  //     return FlutterDownloader.open(taskId: task.taskId!);
+  //   } else {
+  //     return Future.value(false);
+  //   }
+  // }
+  //
+  // void _delete(_TaskInfo task) async {
+  //   await FlutterDownloader.remove(
+  //       taskId: task.taskId!, shouldDeleteContent: true);
+  //   await _prepare();
+  //   setState(() {});
+  // }
 
   Future<bool> _checkPermission() async {
     if (Platform.isIOS) return true;
@@ -1087,104 +1082,104 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
   //       DateTime.now().millisecondsSinceEpoch >> 10, title, body, details);
   // }
 
-  void _bindBackgroundIsolate() {
-    bool isSuccess = IsolateNameServer.registerPortWithName(
-        _port.sendPort, 'downloader_send_port');
-    if (!isSuccess) {
-      _unbindBackgroundIsolate();
-      _bindBackgroundIsolate();
-      return;
-    }
-    _port.listen((dynamic data) {
-      if (debug) {
-        print('UI Isolate Callback: $data');
-      }
-      String? id = data[0];
-      DownloadTaskStatus? status = data[1];
-      int? progress = data[2];
-
-      if (_tasks != null && _tasks!.isNotEmpty) {
-        final task = _tasks!.firstWhere((task) => task.taskId == id);
-        setState(() {
-          task.status = status;
-          task.progress = progress;
-        });
-      }
-    });
-  }
+  // void _bindBackgroundIsolate() {
+  //   bool isSuccess = IsolateNameServer.registerPortWithName(
+  //       _port.sendPort, 'downloader_send_port');
+  //   if (!isSuccess) {
+  //     _unbindBackgroundIsolate();
+  //     _bindBackgroundIsolate();
+  //     return;
+  //   }
+  //   _port.listen((dynamic data) {
+  //     if (debug) {
+  //       print('UI Isolate Callback: $data');
+  //     }
+  //     String? id = data[0];
+  //     DownloadTaskStatus? status = data[1];
+  //     int? progress = data[2];
+  //
+  //     if (_tasks != null && _tasks!.isNotEmpty) {
+  //       final task = _tasks!.firstWhere((task) => task.taskId == id);
+  //       setState(() {
+  //         task.status = status;
+  //         task.progress = progress;
+  //       });
+  //     }
+  //   });
+  // }
 
   void _unbindBackgroundIsolate() {
     IsolateNameServer.removePortNameMapping('downloader_send_port');
   }
 
-  static void downloadCallback(
-      String id, DownloadTaskStatus status, int progress) {
-    if (debug) {
-      print(
-          'Background Isolate Callback: task ($id) is in status ($status) and process ($progress)');
-    }
-    final SendPort send =
-        IsolateNameServer.lookupPortByName('downloader_send_port')!;
-    send.send([id, status, progress]);
-  }
+  // static void downloadCallback(
+  //     String id, DownloadTaskStatus status, int progress) {
+  //   if (debug) {
+  //     print(
+  //         'Background Isolate Callback: task ($id) is in status ($status) and process ($progress)');
+  //   }
+  //   final SendPort send =
+  //       IsolateNameServer.lookupPortByName('downloader_send_port')!;
+  //   send.send([id, status, progress]);
+  // }
 
-  Future<void> _prepare() async {
-    ///加载所有下载任务
-    final tasks = await FlutterDownloader.loadTasks();
+  // Future<void> _prepare() async {
+  //   ///加载所有下载任务
+  //   final tasks = await FlutterDownloader.loadTasks();
+  //
+  //   int count = 0;
+  //   _tasks = [];
+  //   _items = [];
+  //
+  //   _tasks!.addAll(_videos
+  //       .map((video) => _TaskInfo(name: video['name'], link: video['link'])));
+  //
+  //   for (int i = count; i < _tasks!.length; i++) {
+  //     _items.add(_ItemHolder(name: _tasks![i].name, task: _tasks![i]));
+  //     count++;
+  //   }
+  //
+  //   for (var task in tasks!) {
+  //     for (_TaskInfo info in _tasks!) {
+  //       if (info.link == task.url) {
+  //         info.taskId = task.taskId;
+  //         info.status = task.status;
+  //         info.progress = task.progress;
+  //       }
+  //     }
+  //   }
+  //
+  //   _permissionReady = await _checkPermission();
+  //
+  //   if (_permissionReady) {
+  //     await _prepareSaveDir();
+  //   }
+  //
+  //   setState(() {
+  //     _isLoading = false;
+  //   });
+  // }
 
-    int count = 0;
-    _tasks = [];
-    _items = [];
+  // Future<void> _prepareSaveDir() async {
+  //   _localPath = (await _findLocalPath())! + "/bilibili_download";
+  //   final savedDir = Directory(_localPath);
+  //   bool hasExisted = await savedDir.exists();
+  //   if (!hasExisted) {
+  //     savedDir.create();
+  //   }
+  // }
 
-    _tasks!.addAll(_videos
-        .map((video) => _TaskInfo(name: video['name'], link: video['link'])));
-
-    for (int i = count; i < _tasks!.length; i++) {
-      _items.add(_ItemHolder(name: _tasks![i].name, task: _tasks![i]));
-      count++;
-    }
-
-    for (var task in tasks!) {
-      for (_TaskInfo info in _tasks!) {
-        if (info.link == task.url) {
-          info.taskId = task.taskId;
-          info.status = task.status;
-          info.progress = task.progress;
-        }
-      }
-    }
-
-    _permissionReady = await _checkPermission();
-
-    if (_permissionReady) {
-      await _prepareSaveDir();
-    }
-
-    setState(() {
-      _isLoading = false;
-    });
-  }
-
-  Future<void> _prepareSaveDir() async {
-    _localPath = (await _findLocalPath())! + "/bilibili_download";
-    final savedDir = Directory(_localPath);
-    bool hasExisted = await savedDir.exists();
-    if (!hasExisted) {
-      savedDir.create();
-    }
-  }
-
-  Future<String?> _findLocalPath() async {
-    String? externalStorageDirPath;
-    if (Platform.isAndroid) {
-      final directory = await getExternalStorageDirectory();
-      externalStorageDirPath = directory?.path;
-    } else if (Platform.isIOS) {
-      externalStorageDirPath =
-          (await getApplicationDocumentsDirectory()).absolute.path;
-    }
-    return externalStorageDirPath;
-  }
+  // Future<String?> _findLocalPath() async {
+  //   String? externalStorageDirPath;
+  //   if (Platform.isAndroid) {
+  //     final directory = await getExternalStorageDirectory();
+  //     externalStorageDirPath = directory?.path;
+  //   } else if (Platform.isIOS) {
+  //     externalStorageDirPath =
+  //         (await getApplicationDocumentsDirectory()).absolute.path;
+  //   }
+  //   return externalStorageDirPath;
+  // }
 }
 
 class PlayButton extends StatelessWidget {
@@ -1609,112 +1604,112 @@ class _ProgressBarPainter extends CustomPainter {
     //     handleHeight, colors.handlePaint);
   }
 }
-
-class _TaskInfo {
-  final String? name;
-  final String? link;
-
-  String? taskId;
-  int? progress = 0;
-  DownloadTaskStatus? status = DownloadTaskStatus.undefined;
-
-  _TaskInfo({this.name, this.link});
-}
-
-class _ItemHolder {
-  final String? name;
-  final _TaskInfo? task;
-
-  _ItemHolder({this.name, this.task});
-}
-
-class DownloadItem extends StatefulWidget {
-  final _ItemHolder? data;
-  final Function(_TaskInfo?)? onItemClick;
-  final Function(_TaskInfo)? onActionClick;
-
-  DownloadItem({this.data, this.onItemClick, this.onActionClick});
-
-  @override
-  State<DownloadItem> createState() => _DownloadItemState();
-}
-
-class _DownloadItemState extends State<DownloadItem> {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        if (widget.data?.task?.status == DownloadTaskStatus.complete) {
-          SmartDialog.showToast("视频已经缓存完成~");
-          widget.onItemClick!(widget.data!.task);
-        } else if (widget.data?.task?.status == DownloadTaskStatus.running) {
-          SmartDialog.showToast("该视频已经添加至正在缓存列表~");
-        } else {
-          widget.onActionClick!(widget.data!.task!);
-        }
-        if (mounted) setState(() {});
-      },
-      child: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            alignment: Alignment.centerLeft,
-            child: Text(
-              widget.data!.name!,
-              maxLines: 1,
-              softWrap: true,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: HYAppTheme.norMainThemeColors,
-                fontSize: 16.sp,
-              ),
-            ),
-            margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8).r,
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10).r,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(3.r)),
-              border: Border.all(color: HYAppTheme.norMainThemeColors),
-            ),
-          ),
-          Positioned(
-            child: _buildActionForTask(widget.data!.task!),
-            bottom: 0,
-            right: 2.w,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildActionForTask(_TaskInfo task) {
-    if (task.status == DownloadTaskStatus.paused) {
-      return CircleAvatar(
-        radius: 7.r,
-        backgroundImage: AssetImage(ImageAssets.icVideoDownloadStopPNG),
-      );
-    } else if (task.status == DownloadTaskStatus.complete) {
-      return CircleAvatar(
-        radius: 7.r,
-        backgroundImage: AssetImage(ImageAssets.icVideoDownloadCompletePNG),
-      );
-    } else if (task.status == DownloadTaskStatus.canceled) {
-      return Container();
-    } else if (task.status == DownloadTaskStatus.failed) {
-      return CircleAvatar(
-        radius: 7.r,
-        backgroundImage: AssetImage(ImageAssets.icVideoDownloadErrorPNG),
-      );
-    } else if (task.status == DownloadTaskStatus.enqueued) {
-      return Container();
-    } else if (task.status == DownloadTaskStatus.running) {
-      return CircleAvatar(
-        radius: 7.r,
-        backgroundImage: AssetImage(ImageAssets.icVideoDownloadProcessingPNG),
-      );
-    } else if (task.status == DownloadTaskStatus.undefined) {
-      return Container();
-    } else {
-      return Container();
-    }
-  }
-}
+//
+// class _TaskInfo {
+//   final String? name;
+//   final String? link;
+//
+//   String? taskId;
+//   int? progress = 0;
+//   DownloadTaskStatus? status = DownloadTaskStatus.undefined;
+//
+//   _TaskInfo({this.name, this.link});
+// }
+//
+// class _ItemHolder {
+//   final String? name;
+//   final _TaskInfo? task;
+//
+//   _ItemHolder({this.name, this.task});
+// }
+//
+// class DownloadItem extends StatefulWidget {
+//   final _ItemHolder? data;
+//   final Function(_TaskInfo?)? onItemClick;
+//   final Function(_TaskInfo)? onActionClick;
+//
+//   DownloadItem({this.data, this.onItemClick, this.onActionClick});
+//
+//   @override
+//   State<DownloadItem> createState() => _DownloadItemState();
+// }
+//
+// class _DownloadItemState extends State<DownloadItem> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: () {
+//         if (widget.data?.task?.status == DownloadTaskStatus.complete) {
+//           SmartDialog.showToast("视频已经缓存完成~");
+//           widget.onItemClick!(widget.data!.task);
+//         } else if (widget.data?.task?.status == DownloadTaskStatus.running) {
+//           SmartDialog.showToast("该视频已经添加至正在缓存列表~");
+//         } else {
+//           widget.onActionClick!(widget.data!.task!);
+//         }
+//         if (mounted) setState(() {});
+//       },
+//       child: Stack(
+//         children: [
+//           Container(
+//             width: double.infinity,
+//             alignment: Alignment.centerLeft,
+//             child: Text(
+//               widget.data!.name!,
+//               maxLines: 1,
+//               softWrap: true,
+//               overflow: TextOverflow.ellipsis,
+//               style: TextStyle(
+//                 color: HYAppTheme.norMainThemeColors,
+//                 fontSize: 16.sp,
+//               ),
+//             ),
+//             margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8).r,
+//             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10).r,
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.all(Radius.circular(3.r)),
+//               border: Border.all(color: HYAppTheme.norMainThemeColors),
+//             ),
+//           ),
+//           Positioned(
+//             child: _buildActionForTask(widget.data!.task!),
+//             bottom: 0,
+//             right: 2.w,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget _buildActionForTask(_TaskInfo task) {
+//     if (task.status == DownloadTaskStatus.paused) {
+//       return CircleAvatar(
+//         radius: 7.r,
+//         backgroundImage: AssetImage(ImageAssets.icVideoDownloadStopPNG),
+//       );
+//     } else if (task.status == DownloadTaskStatus.complete) {
+//       return CircleAvatar(
+//         radius: 7.r,
+//         backgroundImage: AssetImage(ImageAssets.icVideoDownloadCompletePNG),
+//       );
+//     } else if (task.status == DownloadTaskStatus.canceled) {
+//       return Container();
+//     } else if (task.status == DownloadTaskStatus.failed) {
+//       return CircleAvatar(
+//         radius: 7.r,
+//         backgroundImage: AssetImage(ImageAssets.icVideoDownloadErrorPNG),
+//       );
+//     } else if (task.status == DownloadTaskStatus.enqueued) {
+//       return Container();
+//     } else if (task.status == DownloadTaskStatus.running) {
+//       return CircleAvatar(
+//         radius: 7.r,
+//         backgroundImage: AssetImage(ImageAssets.icVideoDownloadProcessingPNG),
+//       );
+//     } else if (task.status == DownloadTaskStatus.undefined) {
+//       return Container();
+//     } else {
+//       return Container();
+//     }
+//   }
+// }
