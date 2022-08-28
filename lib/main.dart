@@ -9,8 +9,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 import 'core/I18n/string_res.dart';
+import 'core/notifier/player_notifier.dart';
 import 'core/shared_preferences/bilibili_shared_preference.dart';
 import 'core/shared_preferences/shared_preference_util.dart';
 import 'dart:ui' as ui;
@@ -20,15 +22,16 @@ Size androidScreenSize = const Size(360, 690);
 Size windowsScreenSize = const Size(1080, 1920);
 Size webScreenSize = const Size(360, 690);
 
-void main() async{
+void main() {
   if (!kIsWeb) {
     if (Platform.isAndroid) {
       WidgetsFlutterBinding.ensureInitialized();
 
       ///实例化sharedPreference
-      await SharedPreferenceUtil.getInstance();
+      SharedPreferenceUtil.getInstance();
+
       ///初始化屏幕适配
-      await ScreenUtil.ensureScreenSize();
+      ScreenUtil.ensureScreenSize();
 
       ///手机状态栏的背景颜色及状态栏文字颜色
       SystemChrome.setSystemUIOverlayStyle(
@@ -42,22 +45,33 @@ void main() async{
       );
     } else if (Platform.isWindows) {
       ///实例化sharedPreference
-      await SharedPreferenceUtil.getInstance();
+      SharedPreferenceUtil.getInstance();
+
       ///初始化屏幕适配
-      await ScreenUtil.ensureScreenSize();
+      ScreenUtil.ensureScreenSize();
     } else if (Platform.isIOS) {
       ///实例化sharedPreference
-      await SharedPreferenceUtil.getInstance();
+      SharedPreferenceUtil.getInstance();
+
       ///初始化屏幕适配
-      await ScreenUtil.ensureScreenSize();
+      ScreenUtil.ensureScreenSize();
     }
   } else {
     ///实例化sharedPreference
-    await SharedPreferenceUtil.getInstance();
+    SharedPreferenceUtil.getInstance();
+
     ///初始化屏幕适配
-    await ScreenUtil.ensureScreenSize();
+    ScreenUtil.ensureScreenSize();
   }
-  runApp(const MyApp());
+  runApp(
+    ///视频播放界面有使用到Provider，在此处注册它
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => PlayerNotifier.init()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

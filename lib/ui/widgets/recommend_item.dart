@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../core/service/request/video_play_request.dart';
 import '../../core/model/feed_index_model.dart';
@@ -36,6 +35,7 @@ class RecommendItem extends StatelessWidget {
             ///传递数据
             final logic = Get.find<VideoPlayLogic>();
             logic.fetchFeedIndexItemData(videoItem);
+
             ///跳转至播放界面
             Get.toNamed(VideoPlayScreen.routeName);
           });
@@ -124,7 +124,7 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
         ),
       ),
     );
-  } else {
+  } else if (video.cardType == "banner_v8") {
     return ClipRRect(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(5.r),
@@ -141,11 +141,37 @@ Widget buildHomeVideoItemCover(FeedIndexItem video) {
           },
           placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
           image: NetworkImage(
-            video.cover!,
+            video.bannerItems![0].staticBanner!.image!,
           ),
           fit: BoxFit.fill,
           placeholderFit: BoxFit.fill,
         ),
+      ),
+    );
+  } else {
+    return ClipRRect(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(5.r),
+        topRight: Radius.circular(5.r),
+      ),
+      child: SizedBox(
+        width: 180.w,
+        height: 100.w,
+        child: video.cover != null
+            ? FadeInImage(
+                imageErrorBuilder: (ctx, error, stackTrace) {
+                  return Container(
+                    child: Text("加载中"),
+                  );
+                },
+                placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+                image: NetworkImage(
+                  video.cover!,
+                ),
+                fit: BoxFit.fill,
+                placeholderFit: BoxFit.fill,
+              )
+            : Text(video.cover!),
       ),
     );
   }

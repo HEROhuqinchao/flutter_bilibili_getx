@@ -10,8 +10,8 @@ import 'constant.dart';
 const String LocalHost = '127.0.0.1';
 
 //前端页面访问本地端口号
-const int localPort01 = 8001;
 const int localPort02 = 8002;
+const int localPort01 = 8001;
 const int localPort03 = 8003;
 const int localPort04 = 8004;
 const int localPort05 = 8005;

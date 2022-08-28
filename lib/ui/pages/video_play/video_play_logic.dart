@@ -17,9 +17,9 @@ class VideoPlayLogic extends GetxController {
     update();
   }
   @override
-  void onInit() {
+  void onReady() {
     initVideoPlayer();
-    super.onInit();
+    super.onReady();
   }
 
   @override

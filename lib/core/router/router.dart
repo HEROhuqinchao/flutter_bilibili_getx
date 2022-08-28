@@ -1,5 +1,6 @@
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
+import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_binding.dart';
 import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/mall/mall_binding.dart';
 import 'package:bilibili_getx/ui/pages/mall/mall_view.dart';
@@ -72,7 +73,11 @@ class AsRouter {
         binding: LoginBinding()),
 
     ///推荐界面
-    GetPage(name: RecommendScreen.routeName, page: () => RecommendScreen()),
+    GetPage(
+      name: RecommendScreen.routeName,
+      page: () => RecommendScreen(),
+      binding: RecommendBinding(),
+    ),
 
     ///搜索界面
     GetPage(

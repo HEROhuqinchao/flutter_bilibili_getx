@@ -92,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen>
                     fontSize: 12.sp),
                 isCollapsed: true,
                 contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15).r,
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 12).r,
                 filled: true,
                 fillColor: HYAppTheme.norGrayColor.withOpacity(.15),
                 prefixIcon: Image.asset(
@@ -139,7 +139,7 @@ class _SearchScreenState extends State<SearchScreen>
                           maskWidget: Container(),
                           builder: (ctx) {
                             return Container(
-                              height: 1.sh - 50.h,
+                              height: 1.sh - 80.h,
                               width: 1.sw,
                               color: Colors.black.withOpacity(.3),
                               alignment: Alignment.topCenter,
@@ -1280,8 +1280,8 @@ class _SearchScreenState extends State<SearchScreen>
 
   Widget buildAppUserVideo(SearchResultDataItem item, int position) {
     return Container(
-      width: 100.w,
-      height: 80.w,
+      width: 110.w,
+      height: 120.w,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(const Radius.circular(3).r)),
       child: Column(
@@ -1292,8 +1292,8 @@ class _SearchScreenState extends State<SearchScreen>
           Stack(
             children: [
               SizedBox(
-                width: 100.w,
-                height: 50.w,
+                width: 110.w,
+                height: 63.w,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(const Radius.circular(4).r),
                   child: FadeInImage(

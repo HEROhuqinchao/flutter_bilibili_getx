@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_logic.dart';
+import 'package:bilibili_getx/ui/pages/video_play/video_play_logic.dart';
 import 'package:get/get.dart';
 
 import '../dynamic_circle/dynamic_circle_logic.dart';
@@ -26,5 +27,6 @@ class MainBinding extends Bindings {
     Get.lazyPut(() => RecommendLogic());
     Get.lazyPut(() => LiveLogic());
     Get.lazyPut(() => SearchLogic());
+    Get.lazyPut(() => VideoPlayLogic());
   }
 }

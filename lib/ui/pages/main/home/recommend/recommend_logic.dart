@@ -29,16 +29,14 @@ class RecommendLogic extends GetxController {
     fetchFeedIndexData();
     super.onReady();
   }
-
-  @override
-  void onClose() {
-    state.easyRefreshController.dispose();
-    state.swiperController.dispose();
-    state.easyRefreshScrollController.dispose();
-    state.gridViewController.dispose();
-    super.onClose();
-  }
-
+  // @override
+  // void onClose() {
+  //   state.easyRefreshController.dispose();
+  //   state.swiperController.dispose();
+  //   state.easyRefreshScrollController.dispose();
+  //   state.gridViewController.dispose();
+  //   super.onClose();
+  // }
   ///初始化界面
   void initHomeRecommendWidgets() {
     ///还没有数据就初始化数据

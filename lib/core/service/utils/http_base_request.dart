@@ -97,7 +97,6 @@ class HttpBaseRequest {
       }
     }
 
-
     ///请求头
     Map<String, dynamic> httpHeaders;
 

@@ -18,5 +18,6 @@ class VideoPlayState {
   VideoPlayState() {
     isLoadingAccomplished = false;
     allCount = -1;
+    tabTitle = ['简介', '评论'];
   }
 }
