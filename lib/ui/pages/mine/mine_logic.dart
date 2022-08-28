@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:get/get.dart';
 
 import '../../../core/model/account_mine.dart';
@@ -13,15 +14,14 @@ class MineLogic extends GetxController {
 
   @override
   void onInit() {
-    iniAccountMine();
+    initMineUserInfo();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    iniAccountMine();
-    super.onReady();
-  }
+  // @override
+  // void onReady() {
+  //   super.onReady();
+  // }
 
   // @override
   // void onClose() {
@@ -34,10 +34,11 @@ class MineLogic extends GetxController {
     state.isLogin =
         SharedPreferenceUtil.getBool(BilibiliSharedPreference.isLogin) ?? false;
     state.finishLoading = true;
+    update();
   }
 
-  ///初始化数据
-  void iniAccountMine() {
+  ///获取用户数据
+  void initMineUserInfo() {
     state.isLogin =
         SharedPreferenceUtil.getBool(BilibiliSharedPreference.isLogin) ?? false;
 
@@ -70,9 +71,6 @@ class MineLogic extends GetxController {
     params.addEntries(signEntry.entries);
     HYLoginRequest.getAccountMineData(params).then((value) {
       state.accountMineData = value;
-      state.isLogin =
-          SharedPreferenceUtil.getBool(BilibiliSharedPreference.isLogin) ??
-              false;
       state.finishLoading = true;
       update();
     });

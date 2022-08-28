@@ -6,6 +6,7 @@ import 'package:bilibili_getx/ui/pages/mall/mall_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
+import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
@@ -19,6 +20,7 @@ import '../../ui/pages/main/home/search/search_view.dart';
 import '../../ui/pages/main/main_binding.dart';
 import '../../ui/pages/main/main_view.dart';
 import '../../ui/pages/mine/scan_login/scan_login_view.dart';
+import '../../ui/pages/video_play/video_play_binding.dart';
 
 class AsRouter {
   static const String initialRoute = MainScreen.routeName;
@@ -83,5 +85,11 @@ class AsRouter {
         name: ScanLoginScreen.routeName,
         page: () => ScanLoginScreen(),
         binding: ScanLoginBinding()),
+
+    ///视频播放界面
+    GetPage(
+        name: VideoPlayScreen.routeName,
+        page: () => VideoPlayScreen(),
+        binding: VideoPlayBinding()),
   ];
 }

@@ -226,38 +226,7 @@ class LoginLogic extends GetxController {
               BilibiliSharedPreference.accessToken, accessToken);
           SharedPreferenceUtil.setString(
               BilibiliSharedPreference.refreshToken, refreshToken);
-
-          ///获取用户基本数据(用户的头像、粉丝....)
-          Map<String, dynamic> params = {
-            'access_key': accessToken,
-            'appkey': state.appKey,
-            'bili_link_new': '1',
-            'build': '6720300',
-            'c_locale': 'zh_CN',
-            'channel': 'html5_search_baidu',
-            'disable_rcmd': '0',
-            'mobi_app': 'android',
-            'platform': 'android',
-            's_locale': 'zh_CN',
-            'statistics':
-                '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
-            'ts': '1658974686',
-          };
-
-          ///加上sign字段
-          final signEntry = <String, dynamic>{
-            'sign': ParamsSign.getSign(params)
-          };
-          params.addEntries(signEntry.entries);
-
-          HYLoginRequest.getAccountMineData(params).then((value) {
-            ///发送个人用户的数据到主页和我的界面(已登录的情况下获取用户私人数据)
-            final homeLogic = Get.find<HomeLogic>();
-            final mineLogic = Get.find<MineLogic>();
-            homeLogic.fetchHomeUserInfo(value);
-            mineLogic.fetchMineUserInfo(value);
-            Get.offAndToNamed(MainScreen.routeName);
-          });
+          Get.offNamed(MainScreen.routeName);
         } else {
           String message = jsonDecode(value)["message"];
           SmartDialog.showToast(message);

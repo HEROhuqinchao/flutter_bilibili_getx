@@ -1,9 +1,13 @@
+import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../core/service/request/video_play_request.dart';
 import '../../core/model/feed_index_model.dart';
+import '../pages/video_play/video_play_logic.dart';
 import '../shared/app_theme.dart';
 import '../shared/color_radix_change.dart';
 import '../shared/image_asset.dart';
@@ -29,9 +33,11 @@ class RecommendItem extends StatelessWidget {
             // print("videoMp4-----------${videoMp4.substring(0,videoMp4.length)}");
             videoItem.videoData = videoMp4.substring(1, videoMp4.length - 1);
 
-            // ///跳转至播放界面
-            // Navigator.of(context)
-            //     .pushNamed(HYVideoPlayScreen.routeName, arguments: videoItem);
+            ///传递数据
+            final logic = Get.find<VideoPlayLogic>();
+            logic.fetchFeedIndexItemData(videoItem);
+            ///跳转至播放界面
+            Get.toNamed(VideoPlayScreen.routeName);
           });
         } else {
           SmartDialog.showToast("功能暂未完善");

@@ -1,3 +1,8 @@
+import 'package:get/get.dart';
+
+import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
+import '../../../../core/shared_preferences/shared_preference_util.dart';
+
 class HomeState {
   ///是否同意青少年模式
   late bool tempTeenagerMode;
@@ -10,8 +15,11 @@ class HomeState {
 
   HomeState() {
     tempTeenagerMode = false;
-    tempUserAgreement = false;
+    ///判断本地协议是否同意
+    tempUserAgreement = SharedPreferenceUtil.getBool(
+        BilibiliSharedPreference.appUserAgreementPrivatePolicy)!;
     userLogo = "";
-    isLogin = false;
+    isLogin = SharedPreferenceUtil.getBool(
+        BilibiliSharedPreference.isLogin)!;
   }
 }

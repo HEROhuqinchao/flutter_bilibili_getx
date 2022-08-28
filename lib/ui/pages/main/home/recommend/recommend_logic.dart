@@ -17,6 +17,12 @@ class RecommendLogic extends GetxController {
   final RecommendState state = RecommendState();
 
   @override
+  void onInit() {
+    fetchFeedIndexData();
+    super.onInit();
+  }
+
+  @override
   void onReady() {
     fetchFeedIndexData();
     super.onReady();
@@ -50,7 +56,7 @@ class RecommendLogic extends GetxController {
         ]);
       } else {
         if (Constant.isDebug) {
-          print(state.feedIndexItemList.length);
+          // print(state.feedIndexItemList.length);
         }
       }
     }
@@ -69,9 +75,7 @@ class RecommendLogic extends GetxController {
         .then((value) async {
       state.feedIndexItemList.addAll(value.data.items);
       initHomeRecommendWidgets();
-      await Future.delayed(const Duration(seconds: 1), () {
-        update();
-      });
+      update();
     });
   }
 

@@ -18,58 +18,60 @@ import 'home_logic.dart';
 import 'live/live_view.dart';
 import 'login/login_view.dart';
 
-class HomeScreen extends StatelessWidget{
+class HomeScreen extends StatelessWidget {
   static const String routeName = "/home";
   final logic = Get.find<HomeLogic>();
   final state = Get.find<HomeLogic>().state;
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 7,
-      initialIndex: 1,
-      child: NestedScrollView(
-        headerSliverBuilder: (ctx, innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-              toolbarHeight: 0.08.sh,
+    return GetBuilder<HomeLogic>(builder: (logic) {
+      return DefaultTabController(
+        length: 7,
+        initialIndex: 1,
+        child: NestedScrollView(
+          headerSliverBuilder: (ctx, innerBoxIsScrolled) {
+            return [
+              SliverAppBar(
+                toolbarHeight: 0.08.sh,
 
-              leading: null,
+                leading: null,
 
-              ///搜索和用户头像
-              title: buildHomeUserIconAndSearch(),
+                ///搜索和用户头像
+                title: buildHomeUserIconAndSearch(),
 
-              ///右侧工具栏
-              actions: buildHomeActions(),
+                ///右侧工具栏
+                actions: buildHomeActions(),
 
-              ///向上滑动无需停留顶部
-              pinned: false,
+                ///向上滑动无需停留顶部
+                pinned: false,
 
-              floating: false,
-              snap: false,
-              backgroundColor: Colors.white,
-            ),
-            SliverAppBar(
-              ///设置高度
-              toolbarHeight: 0.07.sh,
+                floating: false,
+                snap: false,
+                backgroundColor: Colors.white,
+              ),
+              SliverAppBar(
+                ///设置高度
+                toolbarHeight: 0.07.sh,
 
-              ///tabBar
-              title: buildHomeTabBar(),
+                ///tabBar
+                title: buildHomeTabBar(),
 
-              ///向上滑动需停留顶部
-              pinned: true,
+                ///向上滑动需停留顶部
+                pinned: true,
 
-              floating: true,
-              snap: true,
-              backgroundColor: Colors.white,
-            ),
-          ];
-        },
+                floating: true,
+                snap: true,
+                backgroundColor: Colors.white,
+              ),
+            ];
+          },
 
-        ///tabBarView
-        body: buildHomeTabBarView(),
-      ),
-    );
+          ///tabBarView
+          body: buildHomeTabBarView(),
+        ),
+      );
+    });
   }
 
   ///用户头像和搜索
@@ -160,7 +162,11 @@ class HomeScreen extends StatelessWidget{
   Widget buildHomeTabBarView() {
     ///未同意用户协议
     return state.tempUserAgreement == false
-        ? Container()
+        ? Container(
+            child: ElevatedButton(onPressed: () {
+
+            }, child: Text("点击查看用户协议")),
+          )
         : TabBarView(
             children: buildTabBarViewChildren(),
           );
@@ -221,8 +227,7 @@ class HomeScreen extends StatelessWidget{
               return Container(
                 decoration: BoxDecoration(
                     color: const Color.fromRGBO(0, 0, 0, .8),
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(8.w))),
+                    borderRadius: BorderRadius.all(Radius.circular(8.w))),
                 height: 80.h,
                 width: 80.w,
                 padding: const EdgeInsets.all(5).r,
@@ -237,8 +242,10 @@ class HomeScreen extends StatelessWidget{
                     Text(
                       SR.loading.tr,
                       style: TextStyle(
-                          color: HYAppTheme.norGrayColor,
-                          fontSize: 12.sp, fontWeight: FontWeight.normal,),
+                        color: HYAppTheme.norGrayColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.normal,
+                      ),
                     )
                   ],
                 ),
@@ -267,11 +274,10 @@ class HomeScreen extends StatelessWidget{
           SR.login.tr,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontWeight: FontWeight.normal,
-            color: HYAppTheme.norMainThemeColors,
-            fontSize: 10.sp,
-            fontFamily: 'bilibiliFonts'
-          ),
+              fontWeight: FontWeight.normal,
+              color: HYAppTheme.norMainThemeColors,
+              fontSize: 10.sp,
+              fontFamily: 'bilibiliFonts'),
         ),
       ),
     );
@@ -293,93 +299,63 @@ class HomeScreen extends StatelessWidget{
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    SR.login2UnlockMoreAmazingContent
-                        .tr,
+                    SR.login2UnlockMoreAmazingContent.tr,
                     style: TextStyle(
-                        color: HYAppTheme.norTextColors,
-                        fontSize:
-                        14.sp),
+                        color: HYAppTheme.norTextColors, fontSize: 14.sp),
                     textAlign: TextAlign.center,
                   ),
                   Container(
-                    padding: const EdgeInsets.only(
-                        top: 30, bottom: 20)
-                        .r,
+                    padding: const EdgeInsets.only(top: 30, bottom: 20).r,
                     child: Text(
                       "183****1731",
                       style: TextStyle(
-                          fontSize:
-                          18.sp,
-                          color:
-                          HYAppTheme.norTextColors),
+                          fontSize: 18.sp, color: HYAppTheme.norTextColors),
                     ),
                   ),
                   TextButton(
                     style: ButtonStyle(
-                        padding:
-                        MaterialStateProperty.all(
-                            const EdgeInsets
-                                .symmetric(
-                                vertical: 10)
-                                .r),
-                        backgroundColor:
-                        MaterialStateProperty.all(
-                            HYAppTheme
-                                .norMainThemeColors)),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(vertical: 10).r),
+                        backgroundColor: MaterialStateProperty.all(
+                            HYAppTheme.norMainThemeColors)),
                     onPressed: () {
                       ///一键登录
                       // loginAuth();
                     },
                     child: Container(
-                      padding:
-                      const EdgeInsets.symmetric(
-                          vertical: 4)
-                          .r,
-                      alignment:
-                      AlignmentDirectional.center,
+                      padding: const EdgeInsets.symmetric(vertical: 4).r,
+                      alignment: AlignmentDirectional.center,
                       width: double.infinity,
                       child: Text(
-                        SR.oneClickLogin.tr
-                            .toUpperCase(),
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14.sp),
+                        SR.oneClickLogin.tr.toUpperCase(),
+                        style: TextStyle(color: Colors.white, fontSize: 14.sp),
                       ),
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(
-                        top: 15, bottom: 20)
-                        .r,
+                    padding: const EdgeInsets.only(top: 15, bottom: 20).r,
                     child: GestureDetector(
                       onTap: () {
-                        Get.toNamed(
-                            LoginScreen.routeName);
+                        Get.toNamed(LoginScreen.routeName);
                         SmartDialog.dismiss();
                       },
                       child: Text(
                         SR.otherWay.tr,
                         style: TextStyle(
-                            fontSize: 14.sp,
-                            color: HYAppTheme
-                                .norGray04Color),
+                            fontSize: 14.sp, color: HYAppTheme.norGray04Color),
                         textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                   Row(
-                    crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        padding: const EdgeInsets.only(
-                            right: 3, top: 3)
-                            .r,
+                        padding: const EdgeInsets.only(right: 3, top: 3).r,
                         child: RectangleCheckBox(
                           ///自定义矩形的checkbox
                           size: 14.sp,
-                          checkedColor: HYAppTheme
-                              .norMainThemeColors,
+                          checkedColor: HYAppTheme.norMainThemeColors,
                           isChecked: flag,
                           onTap: (value) {
                             flag = value!;
@@ -421,28 +397,23 @@ class HomeScreen extends StatelessWidget{
           children: [
             TextSpan(
               text: SR.userAgreementText01.tr,
-              style: TextStyle(
-                  color: Colors.grey, fontSize: 10.sp),
+              style: TextStyle(color: Colors.grey, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText02.tr,
-              style: TextStyle(
-                  color: Colors.blue, fontSize: 10.sp),
+              style: TextStyle(color: Colors.blue, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText03.tr,
-              style: TextStyle(
-                  color: Colors.grey, fontSize: 10.sp),
+              style: TextStyle(color: Colors.grey, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText04.tr,
-              style: TextStyle(
-                  color: Colors.blue, fontSize: 10.sp),
+              style: TextStyle(color: Colors.blue, fontSize: 10.sp),
             ),
             TextSpan(
               text: SR.userAgreementText05.tr,
-              style: TextStyle(
-                  color: Colors.grey, fontSize: 10.sp),
+              style: TextStyle(color: Colors.grey, fontSize: 10.sp),
             ),
           ],
         ),
