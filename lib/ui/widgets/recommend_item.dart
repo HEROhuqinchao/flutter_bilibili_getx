@@ -30,8 +30,11 @@ class RecommendItem extends StatelessWidget {
             // print("exp.allMatches(value)---${exp.stringMatch(value)}");
             String videoMp4 = exp.stringMatch(value) ?? "";
             // print("videoMp4-----------${videoMp4.substring(0,videoMp4.length)}");
-            videoItem.videoData = videoMp4.substring(1, videoMp4.length - 1);
-
+            if(videoMp4.isEmpty) {
+              videoItem.videoData = "";
+            } else {
+              videoItem.videoData = videoMp4.substring(1, videoMp4.length - 1);
+            }
             ///传递数据
             final logic = Get.find<VideoPlayLogic>();
             logic.fetchFeedIndexItemData(videoItem);

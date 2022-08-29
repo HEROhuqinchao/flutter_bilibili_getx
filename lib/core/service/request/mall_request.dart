@@ -30,8 +30,7 @@ import '../utils/http_base_request.dart';
 class HYMallRequest {
   ///请求会员购的数据
   static Future<HYMallCSearchModel> getMallData(params) async {
-    String url = "/mall-c-search/home/index/v2?" +
-        ParamsSign.paramsSerialization(params);
+    String url = "/mall-c-search/home/index/v2?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request("mall", url);
     return HYMallCSearchModel.fromJson(result);
   }

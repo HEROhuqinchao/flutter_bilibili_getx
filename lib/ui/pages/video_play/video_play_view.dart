@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../shared/app_theme.dart';
+import '../../widgets/video_play_profile.dart';
 import 'dan_mu/dan_mu_proto.dart';
 import 'video_play_logic.dart';
 
@@ -15,24 +16,26 @@ class VideoPlayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<VideoPlayLogic>(builder: (logic) {
-      return DefaultTabController(
-        length: state.tabTitle.length,
-        initialIndex: 0,
-        child: Scaffold(
-          body: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              buildVideoPlayVideoPlayer(),
-              buildVideoPlayTabBar(),
-              Expanded(
-                child: buildVideoPlayTabBarView(),
-              )
-            ],
+    return SafeArea(
+      child: GetBuilder<VideoPlayLogic>(builder: (logic) {
+        return DefaultTabController(
+          length: state.tabTitle.length,
+          initialIndex: 0,
+          child: Scaffold(
+            body: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                buildVideoPlayVideoPlayer(),
+                buildVideoPlayTabBar(),
+                Expanded(
+                  child: buildVideoPlayTabBarView(),
+                )
+              ],
+            ),
           ),
-        ),
-      );
-    });
+        );
+      }),
+    );
   }
 
   ///视频和弹幕
@@ -55,7 +58,7 @@ class VideoPlayScreen extends StatelessWidget {
                 IgnorePointer(
                   child: BuildDanMuProtoScreen(
                     width: width,
-                    oid: state.video.playerArgs!.aid!,
+                    oid: state.video.playerArgs!.cid!,
 
                     ///转为多少分钟，整除
                     duration: state.video.playerArgs!.duration! ~/ 60,
@@ -123,10 +126,9 @@ class VideoPlayScreen extends StatelessWidget {
           return Container();
 
           ///视频简介
-          // return HYVideoPlayProfile(
-          //   video: widget.video,
-          //   oldVideo: widget.oldVideo,
-          // );
+          return HYVideoPlayProfile(
+            video: state.video
+          );
         } else {
           if (state.allCount == -1) {
             return const Center(

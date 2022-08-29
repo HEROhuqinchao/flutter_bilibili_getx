@@ -46,18 +46,21 @@ class HttpBaseRequest {
   static Map<String, dynamic> jsonWebHeaders = {
     HttpHeaders.acceptHeader: 'application/json,*/*',
     HttpHeaders.contentTypeHeader: 'application/json',
+    HttpHeaders.userAgentHeader: ua,
   };
 
   ///请求xml数据
   static Map<String, dynamic> xmlWebHeaders = {
     HttpHeaders.acceptHeader: 'application/xml,*/*',
     HttpHeaders.contentTypeHeader: 'application/xml;charset=UTF-8',
+    HttpHeaders.userAgentHeader: ua,
   };
 
   ///请求protobuf数据
   static Map<String, dynamic> protoWebHeaders = {
     HttpHeaders.acceptHeader: '*/*',
     HttpHeaders.contentTypeHeader: 'application/x-protobuf',
+    HttpHeaders.userAgentHeader: ua,
   };
 
   ///baseUrl为基本url，url为参数部分（get请求），和在一起用
@@ -95,6 +98,12 @@ class HttpBaseRequest {
           return null;
         };
       }
+    } else {
+      (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+          (HttpClient client) {
+        client.userAgent = null;
+        return null;
+      };
     }
 
     ///请求头
@@ -168,6 +177,8 @@ class HttpBaseRequest {
         if (method == "POST") {
           print("参数为$params");
         }
+      } else {
+        print("发布模式");
       }
 
       ///返回数据

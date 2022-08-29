@@ -13,10 +13,7 @@ class HYVideoPlayProfile extends StatefulWidget {
   ///新数据
   FeedIndexItem video;
 
-  ///旧数据
-  HYVideoModel oldVideo;
-
-  HYVideoPlayProfile({required this.video, required this.oldVideo});
+  HYVideoPlayProfile({required this.video});
 
   @override
   State<HYVideoPlayProfile> createState() => _HYVideoPlayProfileState();
@@ -65,7 +62,7 @@ class _HYVideoPlayProfileState extends State<HYVideoPlayProfile>
         child: SingleChildScrollView(
           child: Column(
             children: [
-              buildVideoPlayVideoInfo(widget.oldVideo),
+              // buildVideoPlayVideoInfo(widget.video),
               relatedVideos.isNotEmpty
                   ? buildHYVideoPlayRelatedVideos()
                   : Center(
