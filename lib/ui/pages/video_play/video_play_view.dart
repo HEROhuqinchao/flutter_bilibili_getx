@@ -123,7 +123,11 @@ class VideoPlayScreen extends StatelessWidget {
     return TabBarView(
       children: state.tabTitle.map((e) {
         if (e == "简介") {
-          return Container();
+          return Container(
+            child: Text(
+              state.video.title!
+            ),
+          );
 
           ///视频简介
           return HYVideoPlayProfile(

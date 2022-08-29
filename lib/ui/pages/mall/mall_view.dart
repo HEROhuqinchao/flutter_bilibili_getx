@@ -24,27 +24,33 @@ class MallScreen extends StatelessWidget {
                 return Stack(
                   alignment: Alignment.bottomLeft,
                   children: [
-                    Container(
-                      width: 150.w,
-                      height: 100.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                        color: Colors.white,
-                        border: Border.fromBorderSide(side),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.red,
-                            offset: Offset(2.0, 0.0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.zero,
+                        topRight: Radius.zero,
+                        bottomLeft: Radius.zero,
+                        bottomRight: Radius.circular(5.r),
+                      ),
+                      child: Container(
+                        width: 150.w,
+                        height: 100.w,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border(
+                            top: BorderSide.none,
+                            left: BorderSide.none,
+                            right: BorderSide(width: 1, color: Colors.black.withOpacity(.1)),
+                            bottom: BorderSide(width: 1, color: Colors.black.withOpacity(.1)),
                           ),
-                          BoxShadow(
-                            color: Colors.red,
-                            offset: Offset(0.0, 2.0),
-                            blurRadius: 1,
-                            spreadRadius: 0,
-                          )
-                        ],
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(.5),
+                              offset: const Offset(2.0, 2.0),
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Positioned(
@@ -63,7 +69,7 @@ class MallScreen extends StatelessWidget {
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.black.withOpacity(.3),
-                                    offset: Offset(1.0, 1.0),
+                                    offset: const Offset(1.0, 1.0),
                                     blurRadius: 2,
                                     spreadRadius: 2,
                                   )

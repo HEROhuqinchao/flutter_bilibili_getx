@@ -79,7 +79,7 @@ class BuildDanMuProtoScreenState extends State<BuildDanMuProtoScreen> {
       List<DanMuModel02> bottomDanMuList = [];
 
       ///最多装填1000条弹幕，太多弹幕会卡顿严重
-      value = value.sublist(0, value.length > 100 ? 100 : value.length);
+      value = value.sublist(0, value.length > 300 ? 300 : value.length);
       for (var element in value) {
         // print(element.content);
         // print(element.progress);

@@ -5,6 +5,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:io';
@@ -16,7 +17,7 @@ import '../../core/notifier/player_notifier.dart';
 import '../shared/app_theme.dart';
 import '../shared/image_asset.dart';
 
-const debug = true;
+// const debug = true;
 
 class HYBilibiliControls extends StatefulWidget {
   const HYBilibiliControls({
@@ -210,11 +211,11 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
   ///当Controller改变时，更新，销毁掉旧的
   @override
   void didChangeDependencies() {
-    final _oldController = _chewieController;
+    final oldController = _chewieController;
     _chewieController = ChewieController.of(context);
     controller = chewieController.videoPlayerController;
 
-    if (_oldController != chewieController) {
+    if (oldController != chewieController) {
       _dispose();
       _initialize();
     }
@@ -244,7 +245,7 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
               ///左上角返回
               IconButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Get.back();
                 },
                 icon: Icon(
                   Icons.arrow_back,
@@ -669,7 +670,7 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pop(context);
+                            Get.back();
                             // buildDownloadCache();
                           },
                           child: buildShareButton(

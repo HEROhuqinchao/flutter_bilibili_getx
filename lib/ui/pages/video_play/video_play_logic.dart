@@ -13,8 +13,11 @@ class VideoPlayLogic extends GetxController {
 
   ///获取视频相关的数据
   void fetchFeedIndexItemData(FeedIndexItem video) {
-    state.video = video;
-    update();
+    if(state.video.args!.aid != video.args!.aid! || !state.isLoadingAccomplished) {
+      state.video = video;
+      initVideoPlayer();
+      update();
+    }
   }
   @override
   void onReady() {
@@ -30,20 +33,23 @@ class VideoPlayLogic extends GetxController {
   }
 
   void initVideoPlayer() {
-    state.videoPlayerController =
-        VideoPlayerController.network(state.video.videoData);
-    state.videoPlayerController.initialize().then((value) {
-      state.chewieController = ChewieController(
-        allowMuting: false,
-        videoPlayerController: state.videoPlayerController,
-        autoPlay: true,
-        customControls: HYBilibiliControls(
-          video: state.video,
-        ),
-      );
-      state.isLoadingAccomplished = true;
-      update();
-    });
+    if(state.video != null) {
+      state.videoPlayerController =
+          VideoPlayerController.network(state.video.videoData);
+      state.videoPlayerController.initialize().then((value) {
+        state.chewieController = ChewieController(
+          allowMuting: false,
+          videoPlayerController: state.videoPlayerController,
+          autoPlay: true,
+          customControls: HYBilibiliControls(
+            video: state.video,
+          ),
+        );
+        state.isLoadingAccomplished = true;
+        update();
+      });
+    }
+
   }
 
   void initVideoReply() {
