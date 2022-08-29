@@ -47,22 +47,20 @@ class BuildDanMuProtoScreenState extends State<BuildDanMuProtoScreen> {
       speedList.add(widget.width / moveTimeList[i]);
     }
 
-    int segmentIndex = widget.duration ~/ 6 + 1;
+    ///总共allMount包弹幕
+    int allMount = widget.duration ~/ 6 + 1;
     getDMPackage(segmentIndex);
-    segmentIndex--;
+    segmentIndex++;
 
     ///六分钟一包
-    if (segmentIndex > 0) {
-      Timer.periodic(const Duration(milliseconds: 350000), (timer) {
+    Timer.periodic(const Duration(milliseconds: 360000), (timer) {
+      if (segmentIndex <= allMount) {
         getDMPackage(segmentIndex);
-        segmentIndex--;
-
-        ///当弹幕包取完了就可以取消计时器了
-        if (segmentIndex <= 0) {
-          timer.cancel();
-        }
-      });
-    }
+        segmentIndex++;
+      } else {
+        timer.cancel();
+      }
+    });
 
     super.initState();
   }
@@ -78,11 +76,11 @@ class BuildDanMuProtoScreenState extends State<BuildDanMuProtoScreen> {
       List<DanMuModel02> topDanMuList = [];
       List<DanMuModel02> bottomDanMuList = [];
 
-      ///最多装填1000条弹幕，太多弹幕会卡顿严重
-      value = value.sublist(0, value.length > 300 ? 300 : value.length);
+      ///最多装填X条弹幕，太多弹幕会卡顿严重
+      value = value.sublist(0, value.length > 200 ? 200 : value.length);
       for (var element in value) {
-        // print(element.content);
-        // print(element.progress);
+        print(element.content);
+        print(element.progress);
 
         ///普通弹幕
         if (element.mode == 1 || element.mode == 2 || element.mode == 3) {

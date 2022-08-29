@@ -46,8 +46,9 @@ class VideoPlayScreen extends StatelessWidget {
             padding: EdgeInsets.zero,
             color: HYAppTheme.norTextColors,
             alignment: Alignment.topCenter,
-            height: width /
-                state.chewieController.videoPlayerController.value.aspectRatio,
+            height: (width /
+                state.chewieController.videoPlayerController.value.aspectRatio) > .9.sw ? .9.sw : (width /
+                state.chewieController.videoPlayerController.value.aspectRatio),
             child: Stack(
               children: [
                 Chewie(

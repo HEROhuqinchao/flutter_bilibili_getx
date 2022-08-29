@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'dart:ui' as ui;
+import 'package:bilibili_getx/ui/pages/main/home/home_view.dart';
+import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/pages/video_play/video_play_logic.dart';
 import 'package:chewie/chewie.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +17,7 @@ import 'dart:ui';
 import 'package:permission_handler/permission_handler.dart';
 import '../../core/model/feed_index_model.dart';
 import '../../core/notifier/player_notifier.dart';
+import '../pages/main/home/recommend/recommend_view.dart';
 import '../shared/app_theme.dart';
 import '../shared/image_asset.dart';
 
@@ -245,6 +249,8 @@ class _HYBilibiliControlsState extends State<HYBilibiliControls>
               ///左上角返回
               IconButton(
                 onPressed: () {
+                  final logic = Get.find<VideoPlayLogic>();
+                  logic.disposeVideoPlayerController();
                   Get.back();
                 },
                 icon: Icon(

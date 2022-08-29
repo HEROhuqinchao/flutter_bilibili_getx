@@ -5,6 +5,7 @@ import '../../../core/model/feed_index_model.dart';
 import '../../../core/model/video_reply_model.dart';
 
 class VideoPlayState {
+  late bool firstLoading;
   late FeedIndexItem video;
   late double aspectRatio;
   late List<String> tabTitle;
@@ -14,8 +15,11 @@ class VideoPlayState {
   late int allCount;
   late HYVideoReplyModel videoReply;
   late int leftCount;
+  late int frequency;
 
   VideoPlayState() {
+    frequency = 0;
+    firstLoading = true;
     isLoadingAccomplished = false;
     allCount = -1;
     tabTitle = ['简介', '评论'];

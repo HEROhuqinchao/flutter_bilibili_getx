@@ -12,44 +12,50 @@ class VideoPlayLogic extends GetxController {
   final VideoPlayState state = VideoPlayState();
 
   ///获取视频相关的数据
-  void fetchFeedIndexItemData(FeedIndexItem video) {
-    if(state.video.args!.aid != video.args!.aid! || !state.isLoadingAccomplished) {
-      state.video = video;
-      initVideoPlayer();
-      update();
-    }
+  void fetchFeedIndexItemData(FeedIndexItem video) async {
+    state.frequency = 0;
+    state.isLoadingAccomplished = false;
+    state.video = video;
+    state.videoPlayerController =
+        VideoPlayerController.network(state.video.videoData);
+    initVideoPlayerController();
+    state.videoPlayerController.addListener(() {
+      if (!state.videoPlayerController.value.isInitialized) {
+        if(state.frequency < 5) {
+          initVideoPlayerController();
+          state.frequency++;
+        }
+      }
+    });
   }
-  @override
-  void onReady() {
-    initVideoPlayer();
-    super.onReady();
+
+  void disposeVideoPlayerController() {
+    state.videoPlayerController.pause();
+    state.chewieController.pause();
+    state.videoPlayerController.dispose();
+    state.videoPlayerController.removeListener(() {});
+    state.chewieController.dispose();
+  }
+
+  initVideoPlayerController() {
+    state.videoPlayerController.initialize().then((value) {
+      state.chewieController = ChewieController(
+        allowMuting: false,
+        videoPlayerController: state.videoPlayerController,
+        autoPlay: true,
+        customControls: HYBilibiliControls(
+          video: state.video,
+        ),
+      );
+      state.isLoadingAccomplished = true;
+      update();
+    });
   }
 
   @override
   void onClose() {
-    state.videoPlayerController.dispose();
-    state.chewieController.dispose();
+    disposeVideoPlayerController();
     super.onClose();
-  }
-
-  void initVideoPlayer() {
-    if(state.video != null) {
-      state.videoPlayerController =
-          VideoPlayerController.network(state.video.videoData);
-      state.videoPlayerController.initialize().then((value) {
-        state.chewieController = ChewieController(
-          allowMuting: false,
-          videoPlayerController: state.videoPlayerController,
-          autoPlay: true,
-          customControls: HYBilibiliControls(
-            video: state.video,
-          ),
-        );
-        state.isLoadingAccomplished = true;
-        update();
-      });
-    }
-
   }
 
   void initVideoReply() {
