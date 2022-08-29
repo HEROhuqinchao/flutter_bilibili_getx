@@ -18,19 +18,26 @@ class VideoPlayScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: GetBuilder<VideoPlayLogic>(builder: (logic) {
-        return DefaultTabController(
-          length: state.tabTitle.length,
-          initialIndex: 0,
-          child: Scaffold(
-            body: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                buildVideoPlayVideoPlayer(),
-                buildVideoPlayTabBar(),
-                Expanded(
-                  child: buildVideoPlayTabBarView(),
-                )
-              ],
+        return WillPopScope(
+          onWillPop: () {
+            logic.disposeVideoPlayerController();
+            Get.back();
+            return Future.value(false);
+          },
+          child: DefaultTabController(
+            length: state.tabTitle.length,
+            initialIndex: 0,
+            child: Scaffold(
+              body: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  buildVideoPlayVideoPlayer(),
+                  buildVideoPlayTabBar(),
+                  Expanded(
+                    child: buildVideoPlayTabBarView(),
+                  )
+                ],
+              ),
             ),
           ),
         );
