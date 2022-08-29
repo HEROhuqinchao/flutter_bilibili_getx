@@ -22,16 +22,16 @@ Size androidScreenSize = const Size(360, 690);
 Size windowsScreenSize = const Size(1080, 1920);
 Size webScreenSize = const Size(360, 690);
 
-void main() {
+void main() async{
   if (!kIsWeb) {
     if (Platform.isAndroid) {
       WidgetsFlutterBinding.ensureInitialized();
 
       ///实例化sharedPreference
-      SharedPreferenceUtil.getInstance();
+      await SharedPreferenceUtil.getInstance();
 
       ///初始化屏幕适配
-      ScreenUtil.ensureScreenSize();
+      await ScreenUtil.ensureScreenSize();
 
       ///手机状态栏的背景颜色及状态栏文字颜色
       SystemChrome.setSystemUIOverlayStyle(
