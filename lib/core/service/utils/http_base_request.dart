@@ -99,11 +99,7 @@ class HttpBaseRequest {
         };
       }
     } else {
-      (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-          (HttpClient client) {
-        client.userAgent = null;
-        return null;
-      };
+
     }
 
     ///请求头

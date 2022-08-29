@@ -96,5 +96,10 @@ class AsRouter {
         name: VideoPlayScreen.routeName,
         page: () => VideoPlayScreen(),
         binding: VideoPlayBinding()),
+    ///视频播放界面
+    GetPage(
+        name: MallScreen.routeName,
+        page: () => MallScreen(),
+        binding: MallBinding()),
   ];
 }

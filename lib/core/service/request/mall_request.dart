@@ -1,4 +1,6 @@
 
+import 'package:bilibili_getx/core/model/web/mall/ticket_project_listV2_model.dart';
+
 import '../../../ui/shared/params_sign.dart';
 import '../../model/mall_c_search_model.dart';
 import '../utils/http_base_request.dart';
@@ -29,9 +31,14 @@ import '../utils/http_base_request.dart';
 // };
 class HYMallRequest {
   ///请求会员购的数据
-  static Future<HYMallCSearchModel> getMallData(params) async {
+  static Future<HYMallCSearchModel> getAndroidMallData(params) async {
     String url = "/mall-c-search/home/index/v2?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request("mall", url);
     return HYMallCSearchModel.fromJson(result);
+  }
+  static Future<TicketProjectListV2Model> fetchWebMallData() async {
+    String url = "/api/ticket/project/listV2?version=134&page=1&pagesize=16&area=330200&filter=&platform=web&p_type=%E5%85%A8%E9%83%A8%E7%B1%BB%E5%9E%8B";
+    final result = await HttpBaseRequest.request("mall-web", url);
+    return TicketProjectListV2Model.fromJson(result);
   }
 }

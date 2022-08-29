@@ -54,7 +54,7 @@ class Data {
   int page;
   int pagesize;
   String seid;
-  List<Result> result;
+  List<Result>? result;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
     total: json["total"],
@@ -63,7 +63,7 @@ class Data {
     page: json["page"],
     pagesize: json["pagesize"],
     seid: json["seid"],
-    result: List<Result>.from(json["result"].map((x) => Result.fromJson(x))),
+    result: json["result"] == null ? List<Result>.from(json["result"].map((x) => Result.fromJson(x))) : null,
   );
 
   Map<String, dynamic> toJson() => {
@@ -73,7 +73,7 @@ class Data {
     "page": page,
     "pagesize": pagesize,
     "seid": seid,
-    "result": List<dynamic>.from(result.map((x) => x.toJson())),
+    "result": List<dynamic>.from(result!.map((x) => x.toJson())),
   };
 }
 
@@ -155,7 +155,7 @@ class Result {
   int score;
   String extraInfo;
   int status;
-  City city;
+  String city;
   String venueId;
   String venueName;
   String cover;
@@ -166,9 +166,9 @@ class Result {
   int id;
   List<dynamic> tags;
   String staff;
-  City cityName;
-  Areas areas;
-  CityIdStr cityIdStr;
+  String cityName;
+  String areas;
+  String cityIdStr;
   String url;
   int userCount;
   String province;
@@ -202,23 +202,23 @@ class Result {
   bool pickSeat;
   String wish;
   String label;
-  SaleFlag saleFlag;
-  SalePoint salePoint;
+  String saleFlag;
+  String salePoint;
   List<Guest> guests;
   bool isFree;
   int startUnix;
   String tlabel;
   dynamic mask;
   int distance;
-  DistrictName districtName;
+  String districtName;
   int saleStartTime;
   int saleEndTime;
   bool remindStatus;
   bool showRemindBtn;
   int countdownSec;
-  Countdown countdown;
+  String countdown;
   int projectQuality;
-  ProjectQualityDesc projectQualityDesc;
+  String projectQualityDesc;
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
     projectId: json["project_id"],
@@ -226,7 +226,7 @@ class Result {
     score: json["score"],
     extraInfo: json["extra_info"],
     status: json["status"],
-    city: cityValues.map[json["city"]],
+    city: json["city"],
     venueId: json["venue_id"],
     venueName: json["venue_name"],
     cover: json["cover"],
@@ -237,9 +237,9 @@ class Result {
     id: json["id"],
     tags: List<dynamic>.from(json["tags"].map((x) => x)),
     staff: json["staff"],
-    cityName: cityValues.map[json["city_name"]],
-    areas: areasValues.map[json["areas"]],
-    cityIdStr: cityIdStrValues.map[json["city_id_str"]],
+    cityName: json["city_name"],
+    areas: json["areas"],
+    cityIdStr: json["city_id_str"],
     url: json["url"],
     userCount: json["user_count"],
     province: json["province"],
@@ -272,24 +272,24 @@ class Result {
     cityId: json["city_id"],
     pickSeat: json["pick_seat"],
     wish: json["wish"],
-    label: json["label"] == null ? null : json["label"],
-    saleFlag: saleFlagValues.map[json["sale_flag"]],
-    salePoint: salePointValues.map[json["sale_point"]],
-    guests: json["guests"] == null ? null : List<Guest>.from(json["guests"].map((x) => Guest.fromJson(x))),
+    label: json["label"],
+    saleFlag: json["sale_flag"],
+    salePoint: json["sale_point"],
+    guests: List<Guest>.from(json["guests"].map((x) => Guest.fromJson(x))),
     isFree: json["is_free"],
     startUnix: json["start_unix"],
     tlabel: json["tlabel"],
     mask: json["mask"],
     distance: json["distance"],
-    districtName: districtNameValues.map[json["district_name"]],
+    districtName: json["district_name"],
     saleStartTime: json["sale_start_time"],
     saleEndTime: json["sale_end_time"],
     remindStatus: json["remind_status"],
     showRemindBtn: json["show_remind_btn"],
     countdownSec: json["countdown_sec"],
-    countdown: countdownValues.map[json["countdown"]],
+    countdown: json["countdown"],
     projectQuality: json["project_quality"],
-    projectQualityDesc: projectQualityDescValues.map[json["project_quality_desc"]],
+    projectQualityDesc: json["project_quality_desc"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -298,7 +298,7 @@ class Result {
     "score": score,
     "extra_info": extraInfo,
     "status": status,
-    "city": cityValues.reverse[city],
+    "city": city,
     "venue_id": venueId,
     "venue_name": venueName,
     "cover": cover,
@@ -309,9 +309,9 @@ class Result {
     "id": id,
     "tags": List<dynamic>.from(tags.map((x) => x)),
     "staff": staff,
-    "city_name": cityValues.reverse[cityName],
-    "areas": areasValues.reverse[areas],
-    "city_id_str": cityIdStrValues.reverse[cityIdStr],
+    "city_name": cityName,
+    "areas": areas,
+    "city_id_str": cityIdStr,
     "url": url,
     "user_count": userCount,
     "province": province,
@@ -344,60 +344,26 @@ class Result {
     "city_id": cityId,
     "pick_seat": pickSeat,
     "wish": wish,
-    "label": label == null ? null : label,
-    "sale_flag": saleFlagValues.reverse[saleFlag],
-    "sale_point": salePointValues.reverse[salePoint],
-    "guests": guests == null ? null : List<dynamic>.from(guests.map((x) => x.toJson())),
+    "label": label,
+    "sale_flag": saleFlag,
+    "sale_point": salePoint,
+    "guests": List<dynamic>.from(guests.map((x) => x.toJson())),
     "is_free": isFree,
     "start_unix": startUnix,
     "tlabel": tlabel,
     "mask": mask,
     "distance": distance,
-    "district_name": districtNameValues.reverse[districtName],
+    "district_name": districtName,
     "sale_start_time": saleStartTime,
     "sale_end_time": saleEndTime,
     "remind_status": remindStatus,
     "show_remind_btn": showRemindBtn,
     "countdown_sec": countdownSec,
-    "countdown": countdownValues.reverse[countdown],
+    "countdown": countdown,
     "project_quality": projectQuality,
-    "project_quality_desc": projectQualityDescValues.reverse[projectQualityDesc],
+    "project_quality_desc": projectQualityDesc,
   };
 }
-
-enum Areas { EMPTY, AREAS, PURPLE }
-
-final areasValues = EnumValues({
-  "浙江省,宁波市,鄞州区,浙江,宁波,鄞州": Areas.AREAS,
-  "浙江省,宁波市,江北区,浙江,宁波,江北": Areas.EMPTY,
-  "浙江省,宁波市,海曙区,浙江,宁波,海曙": Areas.PURPLE
-});
-
-enum City { EMPTY }
-
-final cityValues = EnumValues({
-  "宁波市": City.EMPTY
-});
-
-enum CityIdStr { THE_330200330000 }
-
-final cityIdStrValues = EnumValues({
-  "330200,330000": CityIdStr.THE_330200330000
-});
-
-enum Countdown { EMPTY }
-
-final countdownValues = EnumValues({
-  "热卖中": Countdown.EMPTY
-});
-
-enum DistrictName { EMPTY, DISTRICT_NAME, PURPLE }
-
-final districtNameValues = EnumValues({
-  "鄞州区": DistrictName.DISTRICT_NAME,
-  "江北区": DistrictName.EMPTY,
-  "海曙区": DistrictName.PURPLE
-});
 
 class Guest {
   Guest({
@@ -417,38 +383,4 @@ class Guest {
     "id": id,
     "name": name,
   };
-}
-
-enum ProjectQualityDesc { EMPTY }
-
-final projectQualityDescValues = EnumValues({
-  "普通": ProjectQualityDesc.EMPTY
-});
-
-enum SaleFlag { EMPTY, SALE_FLAG }
-
-final saleFlagValues = EnumValues({
-  "预售中": SaleFlag.EMPTY,
-  "不可售": SaleFlag.SALE_FLAG
-});
-
-enum SalePoint { EMPTY, PROJECT }
-
-final salePointValues = EnumValues({
-  "": SalePoint.EMPTY,
-  "宁波第二届东方project展会相约中秋": SalePoint.PROJECT
-});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

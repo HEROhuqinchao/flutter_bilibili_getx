@@ -13,7 +13,8 @@ class Constant {
     "app": "http://app.bilibili.com",
     "search": "http://s.search.bilibili.com",
     "login": "https://passport.bilibili.com",
-    "mall": "https://mall.bilibili.com"
+    "mall": "https://mall.bilibili.com",
+    "mall-web": "https://show.bilibili.com"
   };
 
   ///网页端设置代理,处理跨域问题
@@ -24,7 +25,8 @@ class Constant {
     "login": "http://127.0.0.1:8004",
     "mall": "http://127.0.0.1:8005",
     "search": "http://127.0.0.1:8006",
-    "app": "http://127.0.0.1:8007"
+    "app": "http://127.0.0.1:8007",
+    "mall-web": "http://127.0.0.1:8008",
   };
 
   ///是否为debug模式

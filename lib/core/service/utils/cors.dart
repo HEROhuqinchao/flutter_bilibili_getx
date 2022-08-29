@@ -17,6 +17,7 @@ const int localPort04 = 8004;
 const int localPort05 = 8005;
 const int localPort06 = 8006;
 const int localPort07 = 8007;
+const int localPort08 = 8008;
 
 Future main() async {
   var server01 = await shelf_io.serve(
@@ -75,6 +76,14 @@ Future main() async {
   server07.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server07.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
+  var server08 = await shelf_io.serve(
+    proxyHandler(Constant.urlMap["mall-web"]!),
+    LocalHost,
+    localPort08,
+  );
+  server08.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
+  server08.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
+
   print(
       '${Constant.urlMap["live"]} -> live Serving at http://${server01.address.host}:${server01.port}');
   print(
@@ -89,4 +98,6 @@ Future main() async {
       '${Constant.urlMap["search"]} -> search Serving at http://${server06.address.host}:${server06.port}');
   print(
       '${Constant.urlMap["app"]} -> app Serving at http://${server07.address.host}:${server07.port}');
+  print(
+      '${Constant.urlMap["mall-web"]} -> mall-web Serving at http://${server08.address.host}:${server08.port}');
 }
