@@ -79,8 +79,8 @@ class BuildDanMuProtoScreenState extends State<BuildDanMuProtoScreen> {
       ///最多装填X条弹幕，太多弹幕会卡顿严重
       value = value.sublist(0, value.length > 200 ? 200 : value.length);
       for (var element in value) {
-        print(element.content);
-        print(element.progress);
+        // print(element.content);
+        // print(element.progress);
 
         ///普通弹幕
         if (element.mode == 1 || element.mode == 2 || element.mode == 3) {
