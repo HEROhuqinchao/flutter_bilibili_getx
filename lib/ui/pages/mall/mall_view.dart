@@ -14,83 +14,72 @@ class MallScreen extends StatelessWidget {
     return SafeArea(
       child: GetBuilder<MallLogic>(builder: (logic) {
         return Scaffold(
-          body: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisExtent: 120.w,
-                  mainAxisSpacing: 10.r,
-                  crossAxisSpacing: 10.r),
-              itemBuilder: (ctx, index) {
-                return Stack(
-                  alignment: Alignment.bottomLeft,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.zero,
-                        topRight: Radius.zero,
-                        bottomLeft: Radius.zero,
-                        bottomRight: Radius.circular(5.r),
-                      ),
-                      child: Container(
+          body: Padding(
+            padding: const EdgeInsets.all(8.0).r,
+            child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisExtent: 120.w,
+                    crossAxisSpacing: 5.r,
+                    mainAxisSpacing: 25.r),
+                itemBuilder: (ctx, index) {
+                  return Stack(
+                    alignment: Alignment.bottomLeft,
+                    children: [
+                      Container(
                         width: 150.w,
                         height: 100.w,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          border: Border(
-                            top: BorderSide.none,
-                            left: BorderSide.none,
-                            right: BorderSide(width: 1, color: Colors.black.withOpacity(.1)),
-                            bottom: BorderSide(width: 1, color: Colors.black.withOpacity(.1)),
-                          ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(.5),
-                              offset: const Offset(2.0, 2.0),
-                              blurRadius: 2,
-                              spreadRadius: 2,
+                              color: Colors.black.withOpacity(.1),
+                              offset: const Offset(3.0, 3.0),
+                              blurRadius: .5,
+                              spreadRadius: .5,
                             ),
                           ],
                         ),
                       ),
-                    ),
-                    Positioned(
-                      left: 10.w,
-                      bottom: 10.w,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            width: 80.w,
-                            height: 110.w,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5.r)),
+                      Positioned(
+                        left: 10.w,
+                        bottom: 10.w,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: 80.w,
+                              height: 110.w,
+                              decoration: BoxDecoration(
                                 color: Colors.white,
+                                border: Border.all(color: Colors.white),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(.3),
-                                    offset: const Offset(1.0, 1.0),
-                                    blurRadius: 2,
-                                    spreadRadius: 2,
-                                  )
-                                ]),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text("XXXXX"),
-                              Text("XXXXX"),
-                              Text("XXXXX"),
-                              Text("XXXXX"),
-                              Text("XXXXX"),
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                );
-              }),
+                                    color: Colors.black.withOpacity(.1),
+                                    offset: const Offset(3.0, 3.0),
+                                    blurRadius: .5,
+                                    spreadRadius: .5,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("XXXXX"),
+                                Text("XXXXX"),
+                                Text("XXXXX"),
+                                Text("XXXXX"),
+                                Text("XXXXX"),
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+                }),
+          ),
         );
       }),
     );
