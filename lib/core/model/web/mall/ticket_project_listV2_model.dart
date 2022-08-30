@@ -63,7 +63,7 @@ class Data {
     page: json["page"],
     pagesize: json["pagesize"],
     seid: json["seid"],
-    result: json["result"] == null ? List<Result>.from(json["result"].map((x) => Result.fromJson(x))) : null,
+    result: json["result"] == null ? null : List<Result>.from(json["result"].map((x) => Result.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -201,10 +201,10 @@ class Result {
   int cityId;
   bool pickSeat;
   String wish;
-  String label;
+  String? label;
   String saleFlag;
   String salePoint;
-  List<Guest> guests;
+  List<Guest>? guests;
   bool isFree;
   int startUnix;
   String tlabel;
@@ -275,7 +275,7 @@ class Result {
     label: json["label"],
     saleFlag: json["sale_flag"],
     salePoint: json["sale_point"],
-    guests: List<Guest>.from(json["guests"].map((x) => Guest.fromJson(x))),
+    guests: json["guests"] == null ? null : List<Guest>.from(json["guests"].map((x) => Guest.fromJson(x))),
     isFree: json["is_free"],
     startUnix: json["start_unix"],
     tlabel: json["tlabel"],
@@ -347,7 +347,7 @@ class Result {
     "label": label,
     "sale_flag": saleFlag,
     "sale_point": salePoint,
-    "guests": List<dynamic>.from(guests.map((x) => x.toJson())),
+    "guests": List<dynamic>.from(guests!.map((x) => x.toJson())),
     "is_free": isFree,
     "start_unix": startUnix,
     "tlabel": tlabel,

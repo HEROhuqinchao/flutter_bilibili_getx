@@ -96,4 +96,6 @@ class ImageAssets {
   static String icLv6PNG = "assets/image/icon/ic_lv6.png";
   static String lovePNG = "assets/image/icon/love.png";
   static String settingPNG = "assets/image/icon/settings.png";
+  static String schedulePNG = "assets/image/icon/schedule.png";
+  static String locationPNG = "assets/image/icon/location.png";
 }
