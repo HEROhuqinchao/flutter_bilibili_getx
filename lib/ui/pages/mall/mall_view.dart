@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -16,39 +19,192 @@ class MallScreen extends StatelessWidget {
     return SafeArea(
       child: GetBuilder<MallLogic>(
         builder: (logic) {
-          return state.result.isNotEmpty
-              ? Scaffold(
-                  body: GridView.builder(
-                    controller: ScrollController(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisExtent: 120.w,
-                        mainAxisSpacing: 10.r,
-                        crossAxisSpacing: 10.r),
-                    itemBuilder: (ctx, index) {
-                      return Stack(
-                        alignment: Alignment.bottomLeft,
-                        children: [
-                          buildMallItemBackGround(index),
-                          buildMallItemContent(index),
-                        ],
-                      );
-                    },
-                    itemCount: state.total,
-                  ),
-                )
-              : Container(
-                  margin: EdgeInsets.only(top: 30.h),
-                  alignment: Alignment.topCenter,
-                  width: 1.sw,
-                  child: const RefreshProgressIndicator(
-                    value: null,
-                    color: HYAppTheme.norMainThemeColors,
-                  ),
-                );
+          if (kIsWeb) {
+            return initWebMallView();
+          } else if (Platform.isAndroid) {
+            return initAndroidMallView();
+          } else if (Platform.isWindows) {
+            return initWebMallView();
+          } else {
+            return Container();
+          }
         },
       ),
     );
+  }
+
+  ///初始化android界面
+  Widget initAndroidMallView() {
+    return NotificationListener(
+      onNotification: (ScrollNotification notification) {
+        logic.hideTitle(notification);
+        return true;
+      },
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              expandedHeight: 150.h,
+              title: Opacity(
+                opacity: state.appBarOpacity,
+                child: Container(
+                  child: Text("会员购11111111111"),
+                ),
+              ),
+
+              elevation: .1,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text("11111111111"),
+                background: Container(
+                  child: Text("标题标题标题"),
+                  width: 200.w,
+                  color: Colors.red,
+                  padding: EdgeInsets.only(top: 70.h, left: 250.w),
+                ),
+                collapseMode: CollapseMode.parallax,
+              ),
+              actions: [
+                Image.asset(ImageAssets.addCustomPNG),
+                Image.asset(ImageAssets.addCustomPNG),
+                Image.asset(ImageAssets.addCustomPNG),
+              ],
+              // bottom: AppBar(
+              //   title: Text("title"),
+              //   actions: [
+              //     Image.asset(ImageAssets.addCustomPNG),
+              //   ],
+              // ),
+              pinned: true,
+              floating: true,
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (ctx, index) {
+                  if (index == 0) {
+                    return Container(
+                      child: Text("data"),
+                    );
+                  } else if (index == 1) {
+                    return Container(
+                      child: Text("data"),
+                    );
+                  } else if (index == 2) {
+                    return Container(
+                      child: Text("data"),
+                    );
+                  } else if (index == 3) {
+                    return Container(
+                      child: Text("data"),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+                childCount: 4,
+              ),
+            ),
+            SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (ctx, index) {
+                  return Container(
+                    child: Text("data"),
+                  );
+                },
+                childCount: 50,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  ///搜索
+  Widget buildAndroidMallViewSearch() {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: HYAppTheme.norWhite07Color,
+              borderRadius: BorderRadius.all(Radius.circular(3.r)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(ImageAssets.searchCustomPNG),
+                    Text(state.vo.searchUrl.titleList[0]),
+                  ],
+                ),
+                Image.asset(ImageAssets.arPNG),
+              ],
+            ),
+          ),
+        ),
+        FadeInImage(
+          placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+          image: NetworkImage(state.vo.categoryTabVo.imageUrl.substring(2)),
+          fit: BoxFit.cover,
+          placeholderFit: BoxFit.cover,
+        ),
+      ],
+    );
+  }
+
+  ///actions
+  List<Widget> buildAndroidMallViewActions() {
+    List<Widget> actions = [];
+    for (var action in state.vo.entryList) {
+      actions.add(
+        FadeInImage(
+          placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+          image: NetworkImage(action.imgUrl.substring(2)),
+          fit: BoxFit.cover,
+          placeholderFit: BoxFit.cover,
+        ),
+      );
+    }
+    return actions;
+  }
+
+  ///初始化Web界面
+  Widget initWebMallView() {
+    return state.result.isNotEmpty
+        ? Scaffold(
+            body: GridView.builder(
+              controller: ScrollController(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisExtent: 120.w,
+                  mainAxisSpacing: 10.r,
+                  crossAxisSpacing: 10.r),
+              itemBuilder: (ctx, index) {
+                return Stack(
+                  alignment: Alignment.bottomLeft,
+                  children: [
+                    buildMallItemBackGround(index),
+                    buildMallItemContent(index),
+                  ],
+                );
+              },
+              itemCount: state.total,
+            ),
+          )
+        : Container(
+            margin: EdgeInsets.only(top: 30.h),
+            alignment: Alignment.topCenter,
+            width: 1.sw,
+            child: const RefreshProgressIndicator(
+              value: null,
+              color: HYAppTheme.norMainThemeColors,
+            ),
+          );
   }
 
   ///会员购列表的每一项背景

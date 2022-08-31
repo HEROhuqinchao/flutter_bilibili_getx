@@ -1,18 +1,17 @@
 // To parse this JSON data, do
 //
-//     final hyAccountMineModel = hyAccountMineModelFromJson(jsonString);
+//     final ticketProjectListV2Model = ticketProjectListV2ModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-HYMallCSearchModel hyAccountMineModelFromJson(String str) =>
-    HYMallCSearchModel.fromJson(json.decode(str));
+MallSearchModel ticketProjectListV2ModelFromJson(String str) =>
+    MallSearchModel.fromJson(json.decode(str));
 
-// String hyAccountMineModelToJson(HYMallCSearchModel data) =>
-//     json.encode(data.toJson());
+String ticketProjectListV2ModelToJson(MallSearchModel data) =>
+    json.encode(data.toJson());
 
-class HYMallCSearchModel {
-  HYMallCSearchModel({
+class MallSearchModel {
+  MallSearchModel({
     required this.code,
     required this.message,
     required this.data,
@@ -24,20 +23,20 @@ class HYMallCSearchModel {
   Data data;
   int errtag;
 
-  factory HYMallCSearchModel.fromJson(Map<String, dynamic> json) =>
-      HYMallCSearchModel(
+  factory MallSearchModel.fromJson(Map<String, dynamic> json) =>
+      MallSearchModel(
         code: json["code"],
         message: json["message"],
         data: Data.fromJson(json["data"]),
         errtag: json["errtag"],
       );
 
-// Map<String, dynamic> toJson() => {
-//       "code": code,
-//       "message": message,
-//       "data": data.toJson(),
-//       "errtag": errtag,
-//     };
+  Map<String, dynamic> toJson() => {
+        "code": code,
+        "message": message,
+        "data": data.toJson(),
+        "errtag": errtag,
+      };
 }
 
 class Data {
@@ -57,11 +56,11 @@ class Data {
         vo: Vo.fromJson(json["vo"]),
       );
 
-// Map<String, dynamic> toJson() => {
-//       "codeType": codeType,
-//       "codeMsg": codeMsg,
-//       "vo": vo.toJson(),
-//     };
+  Map<String, dynamic> toJson() => {
+        "codeType": codeType,
+        "codeMsg": codeMsg,
+        "vo": vo.toJson(),
+      };
 }
 
 class Vo {
@@ -88,12 +87,14 @@ class Vo {
     required this.timestamp,
     required this.searchUrl,
     required this.videoVo,
+    required this.mixTabs,
+    required this.categoryTabs,
     required this.pageLayout,
     required this.blockPageLayout,
     required this.tabLayout,
     required this.slogan,
     required this.categoryTabVo,
-    required this.homeLayoutVo,
+    // required this.homeLayoutVo,
     required this.pageTemplate,
     required this.marketingList,
     required this.floating,
@@ -113,20 +114,22 @@ class Vo {
   dynamic waistBlocks;
   dynamic yxsnBlockVo;
   dynamic simpleBlocks;
-  Notice notice;
-  List<Notice> noticeList;
+  dynamic notice;
+  List<dynamic> noticeList;
   List<FeedTab> feedTabs;
   Feeds feeds;
   List<EntryList> entryList;
   int timestamp;
   SearchUrl searchUrl;
   VideoVo videoVo;
+  dynamic mixTabs;
+  dynamic categoryTabs;
   int pageLayout;
   dynamic blockPageLayout;
   int tabLayout;
   String slogan;
   CategoryTabVo categoryTabVo;
-  HomeLayoutVo homeLayoutVo;
+  // Map<String, int> homeLayoutVo;
   dynamic pageTemplate;
   List<MarketingList> marketingList;
   dynamic floating;
@@ -149,9 +152,8 @@ class Vo {
         waistBlocks: json["waistBlocks"],
         yxsnBlockVo: json["yxsnBlockVO"],
         simpleBlocks: json["simpleBlocks"],
-        notice: Notice.fromJson(json["notice"]),
-        noticeList: List<Notice>.from(
-            json["noticeList"].map((x) => Notice.fromJson(x))),
+        notice: json["notice"],
+        noticeList: List<dynamic>.from(json["noticeList"].map((x) => x)),
         feedTabs: List<FeedTab>.from(
             json["feedTabs"].map((x) => FeedTab.fromJson(x))),
         feeds: Feeds.fromJson(json["feeds"]),
@@ -160,52 +162,58 @@ class Vo {
         timestamp: json["timestamp"],
         searchUrl: SearchUrl.fromJson(json["searchUrl"]),
         videoVo: VideoVo.fromJson(json["videoVO"]),
+        mixTabs: json["mixTabs"],
+        categoryTabs: json["categoryTabs"],
         pageLayout: json["pageLayout"],
         blockPageLayout: json["blockPageLayout"],
         tabLayout: json["tabLayout"],
         slogan: json["slogan"],
         categoryTabVo: CategoryTabVo.fromJson(json["categoryTabVO"]),
-        homeLayoutVo: HomeLayoutVo.fromJson(json["homeLayoutVO"]),
+        // homeLayoutVo: Map.from(json["homeLayoutVO"])
+        //     .map((k, v) => MapEntry<String, int>(k, v == null ? null : v)),
         pageTemplate: json["pageTemplate"],
         marketingList: List<MarketingList>.from(
             json["marketingList"].map((x) => MarketingList.fromJson(x))),
         floating: json["floating"],
       );
 
-// Map<String, dynamic> toJson() => {
-//       "isVersionV2": isVersionV2,
-//       "feedsABTest": feedsAbTest,
-//       "tabColumnNums": tabColumnNums,
-//       "banners": List<dynamic>.from(banners.map((x) => x.toJson())),
-//       "homeBannerSkin": homeBannerSkin,
-//       "tabs": List<dynamic>.from(tabs.map((x) => x.toJson())),
-//       "ipTabVO": ipTabVo.toJson(),
-//       "newFloor": newFloor,
-//       "blockVersion": blockVersion,
-//       "blocks": List<dynamic>.from(blocks.map((x) => x)),
-//       "newBlocks": List<dynamic>.from(newBlocks.map((x) => x.toJson())),
-//       "waistBlocks": waistBlocks,
-//       "yxsnBlockVO": yxsnBlockVo,
-//       "simpleBlocks": simpleBlocks,
-//       "notice": notice.toJson(),
-//       "noticeList": List<dynamic>.from(noticeList.map((x) => x.toJson())),
-//       "feedTabs": List<dynamic>.from(feedTabs.map((x) => x.toJson())),
-//       "feeds": feeds.toJson(),
-//       "entryList": List<dynamic>.from(entryList.map((x) => x.toJson())),
-//       "timestamp": timestamp,
-//       "searchUrl": searchUrl.toJson(),
-//       "videoVO": videoVo.toJson(),
-//       "pageLayout": pageLayout,
-//       "blockPageLayout": blockPageLayout,
-//       "tabLayout": tabLayout,
-//       "slogan": slogan,
-//       "categoryTabVO": categoryTabVo.toJson(),
-//       "homeLayoutVO": homeLayoutVo.toJson(),
-//       "pageTemplate": pageTemplate,
-//       "marketingList":
-//           List<dynamic>.from(marketingList.map((x) => x.toJson())),
-//       "floating": floating,
-//     };
+  Map<String, dynamic> toJson() => {
+        "isVersionV2": isVersionV2,
+        "feedsABTest": feedsAbTest,
+        "tabColumnNums": tabColumnNums,
+        "banners": List<dynamic>.from(banners.map((x) => x.toJson())),
+        "homeBannerSkin": homeBannerSkin,
+        "tabs": List<dynamic>.from(tabs.map((x) => x.toJson())),
+        "ipTabVO": ipTabVo.toJson(),
+        "newFloor": newFloor,
+        "blockVersion": blockVersion,
+        "blocks": List<dynamic>.from(blocks.map((x) => x)),
+        "newBlocks": List<dynamic>.from(newBlocks.map((x) => x.toJson())),
+        "waistBlocks": waistBlocks,
+        "yxsnBlockVO": yxsnBlockVo,
+        "simpleBlocks": simpleBlocks,
+        "notice": notice,
+        "noticeList": List<dynamic>.from(noticeList.map((x) => x)),
+        "feedTabs": List<dynamic>.from(feedTabs.map((x) => x.toJson())),
+        "feeds": feeds.toJson(),
+        "entryList": List<dynamic>.from(entryList.map((x) => x.toJson())),
+        "timestamp": timestamp,
+        "searchUrl": searchUrl.toJson(),
+        "videoVO": videoVo.toJson(),
+        "mixTabs": mixTabs,
+        "categoryTabs": categoryTabs,
+        "pageLayout": pageLayout,
+        "blockPageLayout": blockPageLayout,
+        "tabLayout": tabLayout,
+        "slogan": slogan,
+        "categoryTabVO": categoryTabVo.toJson(),
+        // "homeLayoutVO": Map.from(homeLayoutVo)
+        //     .map((k, v) => MapEntry<String, dynamic>(k, v == null ? null : v)),
+        "pageTemplate": pageTemplate,
+        "marketingList":
+            List<dynamic>.from(marketingList.map((x) => x.toJson())),
+        "floating": floating,
+      };
 }
 
 class Banner {
@@ -334,8 +342,8 @@ class EntryList {
   String nightImgUrl;
   String jumpUrl;
   String title;
-  String tips;
-  int tipsType;
+  String? tips;
+  int? tipsType;
 
   factory EntryList.fromJson(Map<String, dynamic> json) => EntryList(
         imgUrl: json["imgUrl"],
@@ -400,13 +408,13 @@ class Feeds {
             json["list"].map((x) => ListElement.fromJson(x))),
       );
 
-// Map<String, dynamic> toJson() => {
-//       "pageNum": pageNum,
-//       "total": total,
-//       "count": count,
-//       "feedType": feedType,
-//       "list": List<dynamic>.from(list.map((x) => x.toJson())),
-//     };
+  Map<String, dynamic> toJson() => {
+        "pageNum": pageNum,
+        "total": total,
+        "count": count,
+        "feedType": feedType,
+        "list": List<dynamic>.from(list.map((x) => x.toJson())),
+      };
 }
 
 class ListElement {
@@ -426,7 +434,6 @@ class ListElement {
     required this.logData,
     required this.activityCount,
     required this.phoneSystem,
-    required this.feedToastVo,
     required this.itemsId,
     required this.itemType,
     required this.saleType,
@@ -446,34 +453,32 @@ class ListElement {
     required this.hasWishedCount,
     required this.hasWishedDesc,
     required this.canFav,
+    required this.benefitInfos,
     required this.benefitLayout,
-    required this.tagPrefix,
     required this.advState,
-    required this.hasActivityStart,
-    required this.atmosList,
+    required this.tagPrefix,
   });
 
   String id;
-  Type type;
+  String? type;
   String tagName;
   String title;
   int templateId;
   List<String> imageUrls;
   List<String>? jumpUrls;
   String jumpUrlForNa;
-  List<int>? price;
-  List<String>? priceDesc;
+  List<double>? price;
+  List<String> priceDesc;
   String priceSymbol;
   int hasWished;
   String logData;
   int activityCount;
   int phoneSystem;
-  FeedToastVo feedToastVo;
   int itemsId;
   int itemType;
   int saleType;
-  List<dynamic>? ugcList;
-  Tags? tags;
+  List<dynamic> ugcList;
+  Tags tags;
   int ugcSize;
   int like;
   String brief;
@@ -483,139 +488,112 @@ class ListElement {
   int brandId;
   String presaleDeliveryTimeStr;
   int itemsType;
-  List<SubSkuList>? subSkuList;
+  List<SubSkuList> subSkuList;
   int jumpLinkType;
-  int hasWishedCount;
-  String hasWishedDesc;
+  int? hasWishedCount;
+  String? hasWishedDesc;
   bool canFav;
-  int benefitLayout;
-  List<String>? tagPrefix;
+  List<BenefitInfo>? benefitInfos;
+  int? benefitLayout;
   AdvState? advState;
-  bool hasActivityStart;
-  List<dynamic>? atmosList;
+  List<String>? tagPrefix;
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
         id: json["id"],
         type: json["type"],
-        tagName: json["tagName"] == null ? null : json["tagName"],
-        title: json["title"] == null ? null : json["title"],
+        tagName: json["tagName"],
+        title: json["title"],
         templateId: json["templateId"],
         imageUrls: List<String>.from(json["imageUrls"].map((x) => x)),
-        jumpUrls: json["jumpUrls"] == null
-            ? null
-            : List<String>.from(json["jumpUrls"].map((x) => x)),
+        jumpUrls: json["jumpUrls"] == null ? null : List<String>.from(json["jumpUrls"].map((x) => x)),
         jumpUrlForNa: json["jumpUrlForNa"],
-        price: json["price"] == null
-            ? null
-            : List<int>.from(json["price"].map((x) => x)),
-        priceDesc: json["priceDesc"] == null
-            ? null
-            : List<String>.from(json["priceDesc"].map((x) => x)),
-        priceSymbol: json["priceSymbol"] == null ? null : json["priceSymbol"],
+        price: json["price"] == null ? null : List<double>.from(json["price"].map((x) => x)),
+        priceDesc: List<String>.from(json["priceDesc"].map((x) => x)),
+        priceSymbol: json["priceSymbol"],
         hasWished: json["hasWished"],
         logData: json["logData"],
         activityCount: json["activityCount"],
         phoneSystem: json["phoneSystem"],
-        feedToastVo: FeedToastVo.fromJson(json["feedToastVO"]),
-        itemsId: json["itemsId"] == null ? null : json["itemsId"],
-        itemType: json["itemType"] == null ? null : json["itemType"],
-        saleType: json["saleType"] == null ? null : json["saleType"],
-        ugcList: json["ugcList"] == null
-            ? null
-            : List<dynamic>.from(json["ugcList"].map((x) => x)),
-        tags: json["tags"] == null ? null : Tags.fromJson(json["tags"]),
-        ugcSize: json["ugcSize"] == null ? null : json["ugcSize"],
-        like: json["like"] == null ? null : json["like"],
-        brief: json["brief"] == null ? null : json["brief"],
-        subStatus: json["subStatus"] == null ? null : json["subStatus"],
-        ipRightId: json["ipRightId"] == null ? null : json["ipRightId"],
-        brandName: json["brandName"] == null ? null : json["brandName"],
-        brandId: json["brandId"] == null ? null : json["brandId"],
-        presaleDeliveryTimeStr: json["presaleDeliveryTimeStr"] == null
-            ? null
-            : json["presaleDeliveryTimeStr"],
-        itemsType: json["itemsType"] == null ? null : json["itemsType"],
-        subSkuList: json["subSkuList"] == null
-            ? null
-            : List<SubSkuList>.from(
-                json["subSkuList"].map((x) => SubSkuList.fromJson(x))),
-        jumpLinkType:
-            json["jumpLinkType"] == null ? null : json["jumpLinkType"],
+        itemsId: json["itemsId"],
+        itemType: json["itemType"],
+        saleType: json["saleType"],
+        ugcList: List<dynamic>.from(json["ugcList"].map((x) => x)),
+        tags: Tags.fromJson(json["tags"]),
+        ugcSize: json["ugcSize"],
+        like: json["like"],
+        brief: json["brief"],
+        subStatus: json["subStatus"],
+        ipRightId: json["ipRightId"],
+        brandName: json["brandName"],
+        brandId: json["brandId"],
+        presaleDeliveryTimeStr: json["presaleDeliveryTimeStr"],
+        itemsType: json["itemsType"],
+        subSkuList: List<SubSkuList>.from(
+            json["subSkuList"].map((x) => SubSkuList.fromJson(x))),
+        jumpLinkType: json["jumpLinkType"],
         hasWishedCount:
             json["hasWishedCount"] == null ? null : json["hasWishedCount"],
         hasWishedDesc:
             json["hasWishedDesc"] == null ? null : json["hasWishedDesc"],
-        canFav: json["canFav"] == null ? null : json["canFav"],
+        canFav: json["canFav"],
+        benefitInfos: json["benefitInfos"] == null
+            ? null
+            : List<BenefitInfo>.from(
+                json["benefitInfos"].map((x) => BenefitInfo.fromJson(x))),
         benefitLayout:
             json["benefitLayout"] == null ? null : json["benefitLayout"],
-        tagPrefix: json["tagPrefix"] == null
-            ? null
-            : List<String>.from(json["tagPrefix"].map((x) => x)),
         advState: json["advState"] == null
             ? null
             : AdvState.fromJson(json["advState"]),
-        hasActivityStart:
-            json["hasActivityStart"] == null ? null : json["hasActivityStart"],
-        atmosList: json["atmosList"] == null
+        tagPrefix: json["tagPrefix"] == null
             ? null
-            : List<dynamic>.from(json["atmosList"].map((x) => x)),
+            : List<String>.from(json["tagPrefix"].map((x) => x)),
       );
 
-// Map<String, dynamic> toJson() => {
-//       "id": id,
-//       "type": typeValues.reverse[type],
-//       "tagName": tagName == null ? null : tagNameValues.reverse[tagName],
-//       "title": title == null ? null : title,
-//       "templateId": templateId,
-//       "imageUrls": List<dynamic>.from(imageUrls.map((x) => x)),
-//       "jumpUrls": jumpUrls == null
-//           ? null
-//           : List<dynamic>.from(jumpUrls.map((x) => x)),
-//       "jumpUrlForNa": jumpUrlForNa,
-//       "price": price == null ? null : List<dynamic>.from(price.map((x) => x)),
-//       "priceDesc": priceDesc == null
-//           ? null
-//           : List<dynamic>.from(priceDesc.map((x) => x)),
-//       "priceSymbol":
-//           priceSymbol == null ? null : priceSymbolValues.reverse[priceSymbol],
-//       "hasWished": hasWished,
-//       "logData": logData,
-//       "activityCount": activityCount,
-//       "phoneSystem": phoneSystem,
-//       "feedToastVO": feedToastVo.toJson(),
-//       "itemsId": itemsId == null ? null : itemsId,
-//       "itemType": itemType == null ? null : itemType,
-//       "saleType": saleType == null ? null : saleType,
-//       "ugcList":
-//           ugcList == null ? null : List<dynamic>.from(ugcList.map((x) => x)),
-//       "tags": tags == null ? null : tags.toJson(),
-//       "ugcSize": ugcSize == null ? null : ugcSize,
-//       "like": like == null ? null : like,
-//       "brief": brief == null ? null : brief,
-//       "subStatus": subStatus == null ? null : subStatus,
-//       "ipRightId": ipRightId == null ? null : ipRightId,
-//       "brandName": brandName == null ? null : brandName,
-//       "brandId": brandId == null ? null : brandId,
-//       "presaleDeliveryTimeStr":
-//           presaleDeliveryTimeStr == null ? null : presaleDeliveryTimeStr,
-//       "itemsType": itemsType == null ? null : itemsType,
-//       "subSkuList": subSkuList == null
-//           ? null
-//           : List<dynamic>.from(subSkuList.map((x) => x.toJson())),
-//       "jumpLinkType": jumpLinkType == null ? null : jumpLinkType,
-//       "hasWishedCount": hasWishedCount == null ? null : hasWishedCount,
-//       "hasWishedDesc": hasWishedDesc == null ? null : hasWishedDesc,
-//       "canFav": canFav == null ? null : canFav,
-//       "benefitLayout": benefitLayout == null ? null : benefitLayout,
-//       "tagPrefix": tagPrefix == null
-//           ? null
-//           : List<dynamic>.from(tagPrefix.map((x) => x)),
-//       "advState": advState == null ? null : advState.toJson(),
-//       "hasActivityStart": hasActivityStart == null ? null : hasActivityStart,
-//       "atmosList": atmosList == null
-//           ? null
-//           : List<dynamic>.from(atmosList.map((x) => x)),
-//     };
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "type": type,
+        "tagName": tagName,
+        "title": title,
+        "templateId": templateId,
+        "imageUrls": List<dynamic>.from(imageUrls.map((x) => x)),
+        "jumpUrls": List<dynamic>.from(jumpUrls!.map((x) => x)),
+        "jumpUrlForNa": jumpUrlForNa,
+        "price": List<dynamic>.from(price!.map((x) => x)),
+        "priceDesc": List<dynamic>.from(priceDesc.map((x) => x)),
+        "priceSymbol": priceSymbol,
+        "hasWished": hasWished,
+        "logData": logData,
+        "activityCount": activityCount,
+        "phoneSystem": phoneSystem,
+        "itemsId": itemsId,
+        "itemType": itemType,
+        "saleType": saleType,
+        "ugcList": List<dynamic>.from(ugcList.map((x) => x)),
+        "tags": tags.toJson(),
+        "ugcSize": ugcSize,
+        "like": like,
+        "brief": brief,
+        "subStatus": subStatus,
+        "ipRightId": ipRightId,
+        "brandName": brandName,
+        "brandId": brandId,
+        "presaleDeliveryTimeStr": presaleDeliveryTimeStr,
+        "itemsType": itemsType,
+        "subSkuList": List<dynamic>.from(subSkuList.map((x) => x.toJson())),
+        "jumpLinkType": jumpLinkType,
+        "hasWishedCount": hasWishedCount == null ? null : hasWishedCount,
+        "hasWishedDesc": hasWishedDesc == null ? null : hasWishedDesc,
+        "canFav": canFav,
+        "benefitInfos": benefitInfos == null
+            ? null
+            : List<dynamic>.from(benefitInfos!.map((x) => x.toJson())),
+        "benefitLayout": benefitLayout == null ? null : benefitLayout,
+        "advState": advState == null ? null : advState!.toJson(),
+        "tagPrefix": tagPrefix == null
+            ? null
+            : List<dynamic>.from(tagPrefix!.map((x) => x)),
+      };
 }
 
 class AdvState {
@@ -674,72 +652,27 @@ class AdvState {
       };
 }
 
-class FeedToastVo {
-  FeedToastVo({
-    required this.lookMoreUrl,
-    required this.lookMoreTemplate,
-    required this.lookMoreParam,
-    required this.dislikeItems,
+class BenefitInfo {
+  BenefitInfo({
+    required this.partOne,
+    required this.partTwo,
+    required this.benefitImg,
   });
 
-  String lookMoreUrl;
-  String lookMoreTemplate;
-  String lookMoreParam;
-  List<DislikeItem> dislikeItems;
+  String? partOne;
+  String? partTwo;
+  dynamic benefitImg;
 
-  factory FeedToastVo.fromJson(Map<String, dynamic> json) => FeedToastVo(
-        lookMoreUrl: json["lookMoreUrl"] == null ? null : json["lookMoreUrl"],
-        lookMoreTemplate:
-            json["lookMoreTemplate"] == null ? null : json["lookMoreTemplate"],
-        lookMoreParam:
-            json["lookMoreParam"] == null ? null : json["lookMoreParam"],
-        dislikeItems: List<DislikeItem>.from(
-            json["dislikeItems"].map((x) => DislikeItem.fromJson(x))),
-      );
-
-// Map<String, dynamic> toJson() => {
-//       "lookMoreUrl": lookMoreUrl == null ? null : lookMoreUrl,
-//       "lookMoreTemplate": lookMoreTemplate == null
-//           ? null
-//           : lookMoreTemplateValues.reverse[lookMoreTemplate],
-//       "lookMoreParam": lookMoreParam == null ? null : lookMoreParam,
-//       "dislikeItems": List<dynamic>.from(dislikeItems.map((x) => x.toJson())),
-//     };
-}
-
-class DislikeItem {
-  DislikeItem({
-    required this.itemId,
-    required this.itemName,
-    required this.itemIcon,
-    required this.rangeId,
-    required this.content,
-    required this.dislikeType,
-  });
-
-  String itemId;
-  dynamic itemName;
-  String itemIcon;
-  String rangeId;
-  String content;
-  String dislikeType;
-
-  factory DislikeItem.fromJson(Map<String, dynamic> json) => DislikeItem(
-        itemId: json["itemId"],
-        itemName: json["itemName"],
-        itemIcon: json["itemIcon"],
-        rangeId: json["rangeId"] == null ? null : json["rangeId"],
-        content: json["content"],
-        dislikeType: json["dislikeType"],
+  factory BenefitInfo.fromJson(Map<String, dynamic> json) => BenefitInfo(
+        partOne: json["partOne"],
+        partTwo: json["partTwo"] == null ? null : json["partTwo"],
+        benefitImg: json["benefitImg"],
       );
 
   Map<String, dynamic> toJson() => {
-        "itemId": itemId,
-        "itemName": itemName,
-        "itemIcon": itemIcon,
-        "rangeId": rangeId == null ? null : rangeId,
-        "content": content,
-        "dislikeType": dislikeType,
+        "partOne": partOne,
+        "partTwo": partTwo == null ? null : partTwo,
+        "benefitImg": benefitImg,
       };
 }
 
@@ -831,14 +764,14 @@ class Tags {
   List<dynamic> promotionTagNames;
   List<String> marketingTagNames;
   List<String>? saleTypeTagNames;
-  String typeAndLimitTagName;
+  String? typeAndLimitTagName;
   List<dynamic> itemTagNames;
   List<String> recommendTagNames;
   dynamic feedBoardTag;
   dynamic blindBoxHideTypeNames;
   dynamic blindBoxHasWishNames;
   List<String>? titleTagNames;
-  List<String>? tagsSort;
+  List<String> tagsSort;
   dynamic adTagNames;
   dynamic godlikeTag;
   List<String> attributeTagNames;
@@ -888,86 +821,40 @@ class Tags {
         actionTags: json["actionTags"],
       );
 
-// Map<String, dynamic> toJson() => {
-//       "promotionTagNames":
-//           List<dynamic>.from(promotionTagNames.map((x) => x)),
-//       "marketingTagNames":
-//           List<dynamic>.from(marketingTagNames.map((x) => x)),
-//       "saleTypeTagNames": saleTypeTagNames == null
-//           ? null
-//           : List<dynamic>.from(saleTypeTagNames.map((x) => x)),
-//       "typeAndLimitTagName":
-//           typeAndLimitTagName == null ? null : typeAndLimitTagName,
-//       "itemTagNames": List<dynamic>.from(itemTagNames.map((x) => x)),
-//       "recommendTagNames":
-//           List<dynamic>.from(recommendTagNames.map((x) => x)),
-//       "feedBoardTag": feedBoardTag,
-//       "blindBoxHideTypeNames": blindBoxHideTypeNames,
-//       "blindBoxHasWishNames": blindBoxHasWishNames,
-//       "titleTagNames": titleTagNames == null
-//           ? null
-//           : List<dynamic>.from(titleTagNames.map((x) => x)),
-//       "tagsSort":
-//           List<dynamic>.from(tagsSort.map((x) => tagsSortValues.reverse[x])),
-//       "adTagNames": adTagNames,
-//       "godlikeTag": godlikeTag,
-//       "attributeTagNames":
-//           List<dynamic>.from(attributeTagNames.map((x) => x)),
-//       "exclusiveSalePoints": exclusiveSalePoints == null
-//           ? null
-//           : List<dynamic>.from(exclusiveSalePoints.map((x) => x)),
-//       "otherSalePoints": otherSalePoints,
-//       "blindBoxEuroNames": blindBoxEuroNames,
-//       "blindBoxCommendTags": blindBoxCommendTags,
-//       "serviceTagNames": serviceTagNames == null
-//           ? null
-//           : List<dynamic>.from(serviceTagNames.map((x) => x)),
-//       "drainageTags": drainageTags,
-//       "actionTags": actionTags,
-//     };
-}
-
-class HomeLayoutVo {
-  HomeLayoutVo({
-    required this.yxsnBubble,
-    required this.blockBenefitStyle,
-    required this.feedsFeedbackLayout,
-    required this.ipCategoryLayout,
-    required this.feedsNegFeedbackLayout,
-    required this.waistStyle,
-    required this.categoryScroll,
-    required this.floorV2Style,
-  });
-
-  int yxsnBubble;
-  int blockBenefitStyle;
-  int feedsFeedbackLayout;
-  int ipCategoryLayout;
-  int feedsNegFeedbackLayout;
-  int waistStyle;
-  dynamic categoryScroll;
-  int floorV2Style;
-
-  factory HomeLayoutVo.fromJson(Map<String, dynamic> json) => HomeLayoutVo(
-        yxsnBubble: json["yxsnBubble"],
-        blockBenefitStyle: json["blockBenefitStyle"],
-        feedsFeedbackLayout: json["feedsFeedbackLayout"],
-        ipCategoryLayout: json["ipCategoryLayout"],
-        feedsNegFeedbackLayout: json["feedsNegFeedbackLayout"],
-        waistStyle: json["waistStyle"],
-        categoryScroll: json["categoryScroll"],
-        floorV2Style: json["floorV2Style"],
-      );
-
   Map<String, dynamic> toJson() => {
-        "yxsnBubble": yxsnBubble,
-        "blockBenefitStyle": blockBenefitStyle,
-        "feedsFeedbackLayout": feedsFeedbackLayout,
-        "ipCategoryLayout": ipCategoryLayout,
-        "feedsNegFeedbackLayout": feedsNegFeedbackLayout,
-        "waistStyle": waistStyle,
-        "categoryScroll": categoryScroll,
-        "floorV2Style": floorV2Style,
+        "promotionTagNames":
+            List<dynamic>.from(promotionTagNames.map((x) => x)),
+        "marketingTagNames":
+            List<dynamic>.from(marketingTagNames.map((x) => x)),
+        "saleTypeTagNames": saleTypeTagNames == null
+            ? null
+            : List<dynamic>.from(saleTypeTagNames!.map((x) => x)),
+        "typeAndLimitTagName": typeAndLimitTagName,
+        "itemTagNames": List<dynamic>.from(itemTagNames.map((x) => x)),
+        "recommendTagNames":
+            List<dynamic>.from(recommendTagNames.map((x) => x)),
+        "feedBoardTag": feedBoardTag,
+        "blindBoxHideTypeNames": blindBoxHideTypeNames,
+        "blindBoxHasWishNames": blindBoxHasWishNames,
+        "titleTagNames": titleTagNames == null
+            ? null
+            : List<dynamic>.from(titleTagNames!.map((x) => x)),
+        "tagsSort": List<String>.from(tagsSort.map((x) => x)),
+        "adTagNames": adTagNames,
+        "godlikeTag": godlikeTag,
+        "attributeTagNames":
+            List<dynamic>.from(attributeTagNames.map((x) => x)),
+        "exclusiveSalePoints": exclusiveSalePoints == null
+            ? null
+            : List<dynamic>.from(exclusiveSalePoints!.map((x) => x)),
+        "otherSalePoints": otherSalePoints,
+        "blindBoxEuroNames": blindBoxEuroNames,
+        "blindBoxCommendTags": blindBoxCommendTags,
+        "serviceTagNames": serviceTagNames == null
+            ? null
+            : List<dynamic>.from(serviceTagNames!.map((x) => x)),
+        "drainageTags": drainageTags,
+        "actionTags": actionTags,
       };
 }
 
@@ -1075,13 +962,13 @@ class SubIpTab {
 
   String name;
   String jumpUrl;
-  String jumpUrlH5;
+  String? jumpUrlH5;
   String imageUrl;
-  String nightImageUrl;
+  String? nightImageUrl;
   int index;
   int type;
   String logo;
-  String imgTag;
+  String? imgTag;
 
   factory SubIpTab.fromJson(Map<String, dynamic> json) => SubIpTab(
         name: json["name"],
@@ -1217,12 +1104,12 @@ class NewBlock {
   int index;
   String type;
   int position;
-  String tagImg;
+  String? tagImg;
   List<String>? tags;
   List<BlockItemVo> blockItemVOs;
-  String icon;
-  int activityEndTimestamp;
-  String activityEndText;
+  String? icon;
+  dynamic activityEndTimestamp;
+  dynamic activityEndText;
   bool inActivity;
   dynamic newImgUrl;
   dynamic bubbleImgUrl;
@@ -1238,18 +1125,15 @@ class NewBlock {
         index: json["index"],
         type: json["type"],
         position: json["position"],
-        tagImg: json["tagImg"] == null ? null : json["tagImg"],
+        tagImg: json["tagImg"] ?? null,
         tags: json["tags"] == null
             ? null
             : List<String>.from(json["tags"].map((x) => x)),
         blockItemVOs: List<BlockItemVo>.from(
             json["blockItemVOs"].map((x) => BlockItemVo.fromJson(x))),
         icon: json["icon"] == null ? null : json["icon"],
-        activityEndTimestamp: json["activityEndTimestamp"] == null
-            ? null
-            : json["activityEndTimestamp"],
-        activityEndText:
-            json["activityEndText"] == null ? null : json["activityEndText"],
+        activityEndTimestamp: json["activityEndTimestamp"],
+        activityEndText: json["activityEndText"],
         inActivity: json["inActivity"],
         newImgUrl: json["newImgUrl"],
         bubbleImgUrl: json["bubbleImgUrl"],
@@ -1260,28 +1144,27 @@ class NewBlock {
         defaultText: json["defaultText"],
       );
 
-// Map<String, dynamic> toJson() => {
-//       "title": title,
-//       "jumpUrl": jumpUrl,
-//       "index": index,
-//       "type": type,
-//       "position": position,
-//       "tagImg": tagImg == null ? null : tagImg,
-//       "tags": tags == null ? null : List<dynamic>.from(tags.map((x) => x)),
-//       "blockItemVOs": List<dynamic>.from(blockItemVOs.map((x) => x.toJson())),
-//       "icon": icon == null ? null : icon,
-//       "activityEndTimestamp":
-//           activityEndTimestamp == null ? null : activityEndTimestamp,
-//       "activityEndText": activityEndText == null ? null : activityEndText,
-//       "inActivity": inActivity,
-//       "newImgUrl": newImgUrl,
-//       "bubbleImgUrl": bubbleImgUrl,
-//       "backgroundImgUrl": backgroundImgUrl,
-//       "activityBgImgUrl": activityBgImgUrl,
-//       "activityNightBgImgUrl": activityNightBgImgUrl,
-//       "iconImgUrl": iconImgUrl,
-//       "defaultText": defaultText,
-//     };
+  Map<String, dynamic> toJson() => {
+        "title": title,
+        "jumpUrl": jumpUrl,
+        "index": index,
+        "type": type,
+        "position": position,
+        "tagImg": tagImg == null ? null : tagImg,
+        "tags": tags == null ? null : List<dynamic>.from(tags!.map((x) => x)),
+        "blockItemVOs": List<dynamic>.from(blockItemVOs.map((x) => x.toJson())),
+        "icon": icon == null ? null : icon,
+        "activityEndTimestamp": activityEndTimestamp,
+        "activityEndText": activityEndText,
+        "inActivity": inActivity,
+        "newImgUrl": newImgUrl,
+        "bubbleImgUrl": bubbleImgUrl,
+        "backgroundImgUrl": backgroundImgUrl,
+        "activityBgImgUrl": activityBgImgUrl,
+        "activityNightBgImgUrl": activityNightBgImgUrl,
+        "iconImgUrl": iconImgUrl,
+        "defaultText": defaultText,
+      };
 }
 
 class BlockItemVo {
@@ -1300,7 +1183,7 @@ class BlockItemVo {
     required this.linePriceDesc,
   });
 
-  int itemId;
+  int? itemId;
   String itemName;
   String imageUrl;
   String tag;
@@ -1311,16 +1194,16 @@ class BlockItemVo {
   dynamic priceSymbolImg;
   BenefitInfo? benefitInfo;
   List<BenefitInfo>? benefitInfos;
-  String linePriceDesc;
+  String? linePriceDesc;
 
   factory BlockItemVo.fromJson(Map<String, dynamic> json) => BlockItemVo(
         itemId: json["itemId"] == null ? null : json["itemId"],
         itemName: json["itemName"],
         imageUrl: json["imageUrl"],
-        tag: json["tag"] == null ? null : json["tag"],
+        tag: json["tag"],
         jumpUrl: json["jumpUrl"],
         isShowPrice: json["isShowPrice"],
-        priceSymbol: json["priceSymbol"] == null ? null : json["priceSymbol"],
+        priceSymbol: json["priceSymbol"],
         priceDesc: json["priceDesc"] == null
             ? null
             : List<String>.from(json["priceDesc"].map((x) => x)),
@@ -1332,76 +1215,26 @@ class BlockItemVo {
             ? null
             : List<BenefitInfo>.from(
                 json["benefitInfos"].map((x) => BenefitInfo.fromJson(x))),
-        linePriceDesc:
-            json["linePriceDesc"] == null ? null : json["linePriceDesc"],
-      );
-
-// Map<String, dynamic> toJson() => {
-//       "itemId": itemId == null ? null : itemId,
-//       "itemName": itemName,
-//       "imageUrl": imageUrl,
-//       "tag": tag == null ? null : tag,
-//       "jumpUrl": jumpUrl,
-//       "isShowPrice": isShowPrice,
-//       "priceSymbol":
-//           priceSymbol == null ? null : priceSymbolValues.reverse[priceSymbol],
-//       "priceDesc": priceDesc == null
-//           ? null
-//           : List<dynamic>.from(priceDesc.map((x) => x)),
-//       "priceSymbolImg": priceSymbolImg,
-//       "benefitInfo": benefitInfo == null ? null : benefitInfo.toJson(),
-//       "benefitInfos": benefitInfos == null
-//           ? null
-//           : List<dynamic>.from(benefitInfos.map((x) => x.toJson())),
-//       "linePriceDesc": linePriceDesc == null ? null : linePriceDesc,
-//     };
-}
-
-class BenefitInfo {
-  BenefitInfo({
-    required this.partOne,
-    required this.partTwo,
-  });
-
-  String partOne;
-  String partTwo;
-
-  factory BenefitInfo.fromJson(Map<String, dynamic> json) => BenefitInfo(
-        partOne: json["partOne"] == null ? null : json["partOne"],
-        partTwo: json["partTwo"] == null ? null : json["partTwo"],
-      );
-
-// Map<String, dynamic> toJson() => {
-//       "partOne": partOne == null ? null : partOneValues.reverse[partOne],
-//       "partTwo": partTwo == null ? null : partTwo,
-//     };
-}
-
-class Notice {
-  Notice({
-    required this.jumpUrl,
-    required this.jumpUrlH5,
-    required this.title,
-    required this.type,
-  });
-
-  String jumpUrl;
-  String jumpUrlH5;
-  String title;
-  int type;
-
-  factory Notice.fromJson(Map<String, dynamic> json) => Notice(
-        jumpUrl: json["jumpUrl"],
-        jumpUrlH5: json["jumpUrlH5"],
-        title: json["title"],
-        type: json["type"],
+        linePriceDesc: json["linePriceDesc"],
       );
 
   Map<String, dynamic> toJson() => {
+        "itemId": itemId == null ? null : itemId,
+        "itemName": itemName,
+        "imageUrl": imageUrl,
+        "tag": tag,
         "jumpUrl": jumpUrl,
-        "jumpUrlH5": jumpUrlH5,
-        "title": title,
-        "type": type,
+        "isShowPrice": isShowPrice,
+        "priceSymbol": priceSymbol,
+        "priceDesc": priceDesc == null
+            ? null
+            : List<dynamic>.from(priceDesc!.map((x) => x)),
+        "priceSymbolImg": priceSymbolImg,
+        "benefitInfo": benefitInfo == null ? null : benefitInfo!.toJson(),
+        "benefitInfos": benefitInfos == null
+            ? null
+            : List<dynamic>.from(benefitInfos!.map((x) => x.toJson())),
+        "linePriceDesc": linePriceDesc,
       };
 }
 

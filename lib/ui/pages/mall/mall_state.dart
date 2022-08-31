@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import '../../../core/model/android/mall/mall_search_model.dart';
 import '../../../core/model/web/mall/ticket_project_listV2_model.dart';
 
 class MallState {
@@ -13,6 +14,8 @@ class MallState {
   late List<double> backgroundBlurRadius;
   late List<double> coverBottomGap;
   late List<Offset> backgroundOffset;
+  late Vo vo;
+  late double appBarOpacity;
 
   ///起始页码
   late int page;
@@ -31,5 +34,6 @@ class MallState {
     backgroundBlurRadius = [];
     coverBottomGap = [];
     backgroundOffset = [];
+    appBarOpacity = 0;
   }
 }
