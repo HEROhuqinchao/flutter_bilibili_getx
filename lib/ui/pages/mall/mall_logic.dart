@@ -84,6 +84,7 @@ class MallLogic extends GetxController {
     params.addEntries(signEntry.entries);
     HYMallRequest.fetchAndroidMallData(params).then((value) {
       state.vo = value.data.vo;
+      state.isLoadingMallData = false;
       update();
     });
   }

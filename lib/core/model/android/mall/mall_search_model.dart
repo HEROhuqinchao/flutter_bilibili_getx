@@ -468,16 +468,16 @@ class ListElement {
   List<String>? jumpUrls;
   String jumpUrlForNa;
   List<double>? price;
-  List<String> priceDesc;
-  String priceSymbol;
+  List<String>? priceDesc;
+  String? priceSymbol;
   int hasWished;
   String logData;
   int activityCount;
   int phoneSystem;
-  int itemsId;
-  int itemType;
-  int saleType;
-  List<dynamic> ugcList;
+  int? itemsId;
+  int? itemType;
+  int? saleType;
+  List<dynamic>? ugcList;
   Tags tags;
   int ugcSize;
   int like;
@@ -508,7 +508,7 @@ class ListElement {
         jumpUrls: json["jumpUrls"] == null ? null : List<String>.from(json["jumpUrls"].map((x) => x)),
         jumpUrlForNa: json["jumpUrlForNa"],
         price: json["price"] == null ? null : List<double>.from(json["price"].map((x) => x)),
-        priceDesc: List<String>.from(json["priceDesc"].map((x) => x)),
+        priceDesc: json["priceDesc"] == null ? null : List<String>.from(json["priceDesc"].map((x) => x)),
         priceSymbol: json["priceSymbol"],
         hasWished: json["hasWished"],
         logData: json["logData"],
@@ -517,7 +517,7 @@ class ListElement {
         itemsId: json["itemsId"],
         itemType: json["itemType"],
         saleType: json["saleType"],
-        ugcList: List<dynamic>.from(json["ugcList"].map((x) => x)),
+        ugcList: json["ugcList"] == null ? null : List<dynamic>.from(json["ugcList"].map((x) => x)),
         tags: Tags.fromJson(json["tags"]),
         ugcSize: json["ugcSize"],
         like: json["like"],
@@ -560,7 +560,7 @@ class ListElement {
         "jumpUrls": List<dynamic>.from(jumpUrls!.map((x) => x)),
         "jumpUrlForNa": jumpUrlForNa,
         "price": List<dynamic>.from(price!.map((x) => x)),
-        "priceDesc": List<dynamic>.from(priceDesc.map((x) => x)),
+        "priceDesc": List<dynamic>.from(priceDesc!.map((x) => x)),
         "priceSymbol": priceSymbol,
         "hasWished": hasWished,
         "logData": logData,
@@ -569,7 +569,7 @@ class ListElement {
         "itemsId": itemsId,
         "itemType": itemType,
         "saleType": saleType,
-        "ugcList": List<dynamic>.from(ugcList.map((x) => x)),
+        "ugcList": List<dynamic>.from(ugcList!.map((x) => x)),
         "tags": tags.toJson(),
         "ugcSize": ugcSize,
         "like": like,

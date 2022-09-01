@@ -16,6 +16,7 @@ class MallState {
   late List<Offset> backgroundOffset;
   late Vo vo;
   late double appBarOpacity;
+  late bool isLoadingMallData;
 
   ///起始页码
   late int page;
@@ -34,6 +35,7 @@ class MallState {
     backgroundBlurRadius = [];
     coverBottomGap = [];
     backgroundOffset = [];
-    appBarOpacity = 0;
+    appBarOpacity = 1;
+    isLoadingMallData = true;
   }
 }

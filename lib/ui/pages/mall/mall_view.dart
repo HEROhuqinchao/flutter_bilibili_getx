@@ -19,14 +19,26 @@ class MallScreen extends StatelessWidget {
     return SafeArea(
       child: GetBuilder<MallLogic>(
         builder: (logic) {
-          if (kIsWeb) {
-            return initWebMallView();
-          } else if (Platform.isAndroid) {
-            return initAndroidMallView();
-          } else if (Platform.isWindows) {
-            return initWebMallView();
+          if (state.isLoadingMallData == false) {
+            if (kIsWeb) {
+              return initWebMallView();
+            } else if (Platform.isAndroid) {
+              return initAndroidMallView();
+            } else if (Platform.isWindows) {
+              return initWebMallView();
+            } else {
+              return Container();
+            }
           } else {
-            return Container();
+            return Container(
+              margin: EdgeInsets.only(top: 30.h),
+              alignment: Alignment.topCenter,
+              width: 1.sw,
+              child: const RefreshProgressIndicator(
+                value: null,
+                color: HYAppTheme.norMainThemeColors,
+              ),
+            );
           }
         },
       ),
@@ -44,36 +56,49 @@ class MallScreen extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              expandedHeight: 150.h,
+              backgroundColor: Colors.white,
+              expandedHeight: 90.h,
               title: Opacity(
                 opacity: state.appBarOpacity,
-                child: Container(
-                  child: Text("会员购11111111111"),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "会员购",
+                      style: TextStyle(
+                        color: HYAppTheme.norTextColors,
+                        fontSize: 15.sp,
+                      ),
+                    ),
+                    5.horizontalSpace,
+                    Text(
+                      state.vo.slogan,
+                      style: TextStyle(
+                        color: HYAppTheme.norGrayColor,
+                        fontSize: 10.sp,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-
               elevation: .1,
               flexibleSpace: FlexibleSpaceBar(
-                title: Text("11111111111"),
+                titlePadding:
+                    EdgeInsets.symmetric(horizontal: 10.r, vertical: 10.r),
+                centerTitle: false,
+                title: Opacity(
+                  opacity: 1 - state.appBarOpacity,
+                  child: buildAndroidMallViewSimpleSearch(),
+                ),
                 background: Container(
-                  child: Text("标题标题标题"),
-                  width: 200.w,
-                  color: Colors.red,
-                  padding: EdgeInsets.only(top: 70.h, left: 250.w),
+                  alignment: Alignment.bottomCenter,
+                  color: Colors.white,
+                  padding: EdgeInsets.only(left: 10.r, bottom: 10.r),
+                  child: buildAndroidMallViewSearch(),
                 ),
                 collapseMode: CollapseMode.parallax,
               ),
-              actions: [
-                Image.asset(ImageAssets.addCustomPNG),
-                Image.asset(ImageAssets.addCustomPNG),
-                Image.asset(ImageAssets.addCustomPNG),
-              ],
-              // bottom: AppBar(
-              //   title: Text("title"),
-              //   actions: [
-              //     Image.asset(ImageAssets.addCustomPNG),
-              //   ],
-              // ),
+              actions: buildAndroidMallViewActions(),
               pinned: true,
               floating: true,
             ),
@@ -122,36 +147,91 @@ class MallScreen extends StatelessWidget {
     );
   }
 
-  ///搜索
+  ///搜索（上拉后的搜索）
+  Widget buildAndroidMallViewSimpleSearch() {
+    return Container(
+      height: 30.h,
+      width: 230.w,
+      decoration: BoxDecoration(
+        color: HYAppTheme.norWhite07Color,
+        borderRadius: BorderRadius.all(Radius.circular(8.r)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          5.horizontalSpace,
+          Image.asset(
+            ImageAssets.searchCustomPNG,
+            width: 15.sp,
+            height: 15.sp,
+          ),
+          5.horizontalSpace,
+          Text(
+            state.vo.searchUrl.titleList[0],
+            style: TextStyle(
+              color: HYAppTheme.norGrayColor,
+              fontSize: 12.sp,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  ///搜索（初始搜索）
   Widget buildAndroidMallViewSearch() {
     return Row(
       children: [
         Expanded(
           child: Container(
+            height: 30.h,
             decoration: BoxDecoration(
               color: HYAppTheme.norWhite07Color,
-              borderRadius: BorderRadius.all(Radius.circular(3.r)),
+              borderRadius: BorderRadius.all(Radius.circular(8.r)),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset(ImageAssets.searchCustomPNG),
-                    Text(state.vo.searchUrl.titleList[0]),
+                    5.horizontalSpace,
+                    Image.asset(
+                      ImageAssets.searchCustomPNG,
+                      width: 15.sp,
+                      height: 15.sp,
+                    ),
+                    5.horizontalSpace,
+                    Text(
+                      state.vo.searchUrl.titleList[0],
+                      style: TextStyle(
+                        color: HYAppTheme.norGrayColor,
+                        fontSize: 12.sp,
+                      ),
+                    ),
                   ],
                 ),
-                Image.asset(ImageAssets.arPNG),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10.r),
+                  child: Image.asset(ImageAssets.arPNG,
+                      width: 14.sp, height: 14.sp),
+                ),
               ],
             ),
           ),
         ),
-        FadeInImage(
-          placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-          image: NetworkImage(state.vo.categoryTabVo.imageUrl.substring(2)),
-          fit: BoxFit.cover,
-          placeholderFit: BoxFit.cover,
+        Container(
+          height: 25.sp,
+          width: 25.sp,
+          margin: EdgeInsets.symmetric(horizontal: 10.r),
+          child: FadeInImage(
+            placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+            image: NetworkImage(
+                "http://${state.vo.categoryTabVo.imageUrl.substring(2)}"),
+            fit: BoxFit.cover,
+            placeholderFit: BoxFit.cover,
+          ),
         ),
       ],
     );
@@ -162,11 +242,16 @@ class MallScreen extends StatelessWidget {
     List<Widget> actions = [];
     for (var action in state.vo.entryList) {
       actions.add(
-        FadeInImage(
-          placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-          image: NetworkImage(action.imgUrl.substring(2)),
-          fit: BoxFit.cover,
-          placeholderFit: BoxFit.cover,
+        Container(
+          width: 20.sp,
+          height: 20.sp,
+          margin: EdgeInsets.only(right: 15.r),
+          child: FadeInImage(
+            placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+            image: NetworkImage("http://${action.imgUrl.substring(2)}"),
+            fit: BoxFit.contain,
+            placeholderFit: BoxFit.contain,
+          ),
         ),
       );
     }
