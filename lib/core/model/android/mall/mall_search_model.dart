@@ -478,21 +478,21 @@ class ListElement {
   int? itemType;
   int? saleType;
   List<dynamic>? ugcList;
-  Tags tags;
-  int ugcSize;
-  int like;
-  String brief;
-  int subStatus;
-  int ipRightId;
-  String brandName;
-  int brandId;
-  String presaleDeliveryTimeStr;
-  int itemsType;
-  List<SubSkuList> subSkuList;
-  int jumpLinkType;
+  Tags? tags;
+  int? ugcSize;
+  int? like;
+  String? brief;
+  int? subStatus;
+  int? ipRightId;
+  String? brandName;
+  int? brandId;
+  String? presaleDeliveryTimeStr;
+  int? itemsType;
+  List<SubSkuList>? subSkuList;
+  int? jumpLinkType;
   int? hasWishedCount;
   String? hasWishedDesc;
-  bool canFav;
+  bool? canFav;
   List<BenefitInfo>? benefitInfos;
   int? benefitLayout;
   AdvState? advState;
@@ -518,7 +518,7 @@ class ListElement {
         itemType: json["itemType"],
         saleType: json["saleType"],
         ugcList: json["ugcList"] == null ? null : List<dynamic>.from(json["ugcList"].map((x) => x)),
-        tags: Tags.fromJson(json["tags"]),
+        tags: json["tags"] == null ? null : Tags.fromJson(json["tags"]),
         ugcSize: json["ugcSize"],
         like: json["like"],
         brief: json["brief"],
@@ -528,7 +528,7 @@ class ListElement {
         brandId: json["brandId"],
         presaleDeliveryTimeStr: json["presaleDeliveryTimeStr"],
         itemsType: json["itemsType"],
-        subSkuList: List<SubSkuList>.from(
+        subSkuList: json["subSkuList"] == null ? null : List<SubSkuList>.from(
             json["subSkuList"].map((x) => SubSkuList.fromJson(x))),
         jumpLinkType: json["jumpLinkType"],
         hasWishedCount:
@@ -570,7 +570,7 @@ class ListElement {
         "itemType": itemType,
         "saleType": saleType,
         "ugcList": List<dynamic>.from(ugcList!.map((x) => x)),
-        "tags": tags.toJson(),
+        "tags": tags!.toJson(),
         "ugcSize": ugcSize,
         "like": like,
         "brief": brief,
@@ -580,7 +580,7 @@ class ListElement {
         "brandId": brandId,
         "presaleDeliveryTimeStr": presaleDeliveryTimeStr,
         "itemsType": itemsType,
-        "subSkuList": List<dynamic>.from(subSkuList.map((x) => x.toJson())),
+        "subSkuList": List<dynamic>.from(subSkuList!.map((x) => x.toJson())),
         "jumpLinkType": jumpLinkType,
         "hasWishedCount": hasWishedCount == null ? null : hasWishedCount,
         "hasWishedDesc": hasWishedDesc == null ? null : hasWishedDesc,
@@ -588,7 +588,7 @@ class ListElement {
         "benefitInfos": benefitInfos == null
             ? null
             : List<dynamic>.from(benefitInfos!.map((x) => x.toJson())),
-        "benefitLayout": benefitLayout == null ? null : benefitLayout,
+        "benefitLayout": benefitLayout ?? null,
         "advState": advState == null ? null : advState!.toJson(),
         "tagPrefix": tagPrefix == null
             ? null

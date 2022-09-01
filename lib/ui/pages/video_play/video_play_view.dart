@@ -20,9 +20,9 @@ class VideoPlayScreen extends StatelessWidget {
       child: GetBuilder<VideoPlayLogic>(builder: (logic) {
         return WillPopScope(
           onWillPop: () {
-            logic.disposeVideoPlayerController();
             Get.back();
-            return Future.value(false);
+            logic.disposeVideoPlayerController();
+            return Future.value(true);
           },
           child: DefaultTabController(
             length: state.tabTitle.length,

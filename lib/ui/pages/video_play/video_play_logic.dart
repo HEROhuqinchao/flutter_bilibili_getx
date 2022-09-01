@@ -21,7 +21,7 @@ class VideoPlayLogic extends GetxController {
     initVideoPlayerController();
     state.videoPlayerController.addListener(() {
       if (!state.videoPlayerController.value.isInitialized) {
-        if(state.frequency < 5) {
+        if(state.frequency < 2) {
           initVideoPlayerController();
           state.frequency++;
         }

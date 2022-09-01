@@ -37,7 +37,7 @@ class ComicLogic extends GetxController {
       state.modules.addAll(value.modules);
       state.modulesList00.addAll(value.modules.getRange(2, 3));
       state.modulesList01.addAll(value.modules.getRange(3, 8));
-      state.modulesList02.addAll(value.modules.getRange(9, 14));
+      state.modulesList02.addAll(value.modules.getRange(9, 11));
 
       ///动态添加
       state.widgets.addAll([
@@ -45,13 +45,13 @@ class ComicLogic extends GetxController {
         10.verticalSpace,
         buildHomeComicFunctionButton(),
         10.verticalSpace,
-        buildDoubleFeedZone(state.modulesList00),
+        // buildDoubleFeedZone(state.modulesList00),
         20.verticalSpace,
-        BuildBangumiRankZone(8, state.modules),
-        buildDoubleFeedZone(state.modulesList01),
+        // BuildBangumiRankZone(8, state.modules),
+        // buildDoubleFeedZone(state.modulesList01),
         20.verticalSpace,
-        BuildBangumiRankZone(14, state.modules),
-        buildDoubleFeedZone(state.modulesList02),
+        // BuildBangumiRankZone(10, state.modules),
+        // buildDoubleFeedZone(state.modulesList02),
       ]);
       Timer(const Duration(seconds: 2), () {
         update();

@@ -5,6 +5,8 @@ import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
 import 'package:get/get.dart';
 
 import 'mall_logic.dart';
@@ -66,16 +68,20 @@ class MallScreen extends StatelessWidget {
                     Text(
                       "会员购",
                       style: TextStyle(
+                        fontWeight: FontWeight.normal,
                         color: HYAppTheme.norTextColors,
                         fontSize: 15.sp,
+                        fontFamily: 'bilibiliFonts',
                       ),
                     ),
                     5.horizontalSpace,
                     Text(
                       state.vo.slogan,
                       style: TextStyle(
+                        fontWeight: FontWeight.normal,
                         color: HYAppTheme.norGrayColor,
                         fontSize: 10.sp,
+                        fontFamily: 'bilibiliFonts',
                       ),
                     ),
                   ],
@@ -106,17 +112,11 @@ class MallScreen extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 (ctx, index) {
                   if (index == 0) {
-                    return Container(
-                      child: Text("data"),
-                    );
+                    return buildAndroidMallViewSliverListItem01();
                   } else if (index == 1) {
-                    return Container(
-                      child: Text("data"),
-                    );
+                    return buildAndroidMallViewSliverListItem02();
                   } else if (index == 2) {
-                    return Container(
-                      child: Text("data"),
-                    );
+                    return buildAndroidMallViewSliverListItem03();
                   } else if (index == 3) {
                     return Container(
                       child: Text("data"),
@@ -129,7 +129,7 @@ class MallScreen extends StatelessWidget {
               ),
             ),
             SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
               delegate: SliverChildBuilderDelegate(
@@ -143,6 +143,363 @@ class MallScreen extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  ///会员购
+  Widget buildAndroidMallViewSliverListItem01() {
+    return SizedBox(
+      width: 1.sw,
+      height: 80.h,
+      child: Swiper(
+        itemBuilder: (ctx, index) {
+          if (index == 0) {
+            List<Widget> children = [];
+            for (var item in state.vo.ipTabVo.ipTabs) {
+              Widget child = Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Container(
+                    height: 80.h,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(.1),
+                        offset: const Offset(1, 1),
+                        spreadRadius: 1,
+                        blurRadius: 1,
+                      )
+                    ]),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                      child: Image.network(
+                        "http://${item.bgImage.substring(2)}",
+                        height: 56.h,
+                        width: 110.w,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Image.network(
+                      "http://${item.itemImage.substring(2)}",
+                      height: 72.h,
+                      width: 50.w,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Positioned(
+                    left: 3.r,
+                    bottom: 3.r,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          item.name,
+                          style: TextStyle(
+                              color: HYAppTheme.norTextColors, fontSize: 12.sp),
+                        ),
+                        25.verticalSpace,
+                        Text(
+                          item.imgTag,
+                          style: TextStyle(
+                              color: HYAppTheme.norTextColors, fontSize: 10.sp),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              );
+              children.add(child);
+            }
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: children,
+            );
+          } else {
+            return Container(
+              child: Text("data"),
+            );
+          }
+        },
+        itemCount: 2,
+      ),
+    );
+  }
+
+  ///试试瀑布流布局
+  Widget buildAndroidMallViewSliverListItem03() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.r),
+      child: StaggeredGrid.count(
+        crossAxisCount: 4,
+        mainAxisSpacing: 8.r,
+        crossAxisSpacing: 8.r,
+        children: [
+          StaggeredGridTile.count(
+            crossAxisCellCount: 2,
+            mainAxisCellCount: 1.6,
+            child: Swiper(
+              autoplay: true,
+              itemBuilder: (ctx, index) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(5.r),
+                  child: Image.network(
+                    "http://${state.vo.banners[index].pic.substring(2)}",
+                    fit: BoxFit.fill,
+                  ),
+                );
+              },
+              itemCount: state.vo.banners.length,
+            ),
+          ),
+          StaggeredGridTile.count(
+            crossAxisCellCount: 2,
+            mainAxisCellCount: 1.6,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(3.r),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: const Alignment(0, -1),
+                      end: const Alignment(0, 1),
+                      colors: [
+                        Colors.deepPurple.withOpacity(.2),
+                        Colors.deepPurple.withOpacity(0)
+                      ],
+                    ),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 25.sp,
+                        child: Text(
+                          state.vo.newBlocks[0].title,
+                          style: TextStyle(
+                            color: HYAppTheme.norTextColors,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'bilibiliFonts',
+                            fontSize: 16.sp,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.sp,
+                        child: Text(
+                          state.vo.newBlocks[0].tags![0],
+                          style: TextStyle(
+                            color: HYAppTheme.norTextColors,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'bilibiliFonts',
+                            fontSize: 13.sp,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 80.w,
+                          height: 110.h,
+                          child: Image.network(
+                            state.vo.newBlocks[0].blockItemVOs[0].imageUrl,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 80.w,
+                          height: 110.h,
+                          child: Image.network(
+                            state.vo.newBlocks[0].blockItemVOs[1].imageUrl,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          StaggeredGridTile.count(
+            crossAxisCellCount: 1,
+            mainAxisCellCount: 1,
+            child: Container(
+              child: Text("11111111"),
+              width: 100.w,
+              height: 100.w,
+              color: Colors.red,
+            ),
+          ),
+          StaggeredGridTile.count(
+            crossAxisCellCount: 1,
+            mainAxisCellCount: 1,
+            child: Container(
+              child: Text("11111111"),
+              width: 100.w,
+              height: 100.w,
+              color: Colors.red,
+            ),
+          ),
+          StaggeredGridTile.count(
+            crossAxisCellCount: 1,
+            mainAxisCellCount: 1,
+            child: Container(
+              child: Text("11111111"),
+              width: 100.w,
+              height: 100.w,
+              color: Colors.red,
+            ),
+          ),
+          StaggeredGridTile.count(
+            crossAxisCellCount: 1,
+            mainAxisCellCount: 1,
+            child: Container(
+              child: Text("11111111"),
+              width: 100.w,
+              height: 100.w,
+              color: Colors.red,
+            ),
+          ),
+        ],
+      ),
+    );
+    return Container(
+      width: 1.sw,
+      height: 140.h,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          SizedBox(
+            height: 140.h,
+            width: 140.w,
+            child: Swiper(
+              itemBuilder: (ctx, index) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(5.r),
+                  child: Image.network(
+                    "http://${state.vo.banners[index].pic.substring(2)}",
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+              itemCount: state.vo.banners.length,
+            ),
+          ),
+          Container(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      height: 14.sp,
+                      child: Text(
+                        state.vo.newBlocks[0].title,
+                        style: TextStyle(
+                          color: HYAppTheme.norTextColors,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'bilibiliFonts',
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 14.sp,
+                      child: Image.network(
+                          "http://${state.vo.newBlocks[0].tagImg!.substring(2)}"),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 90.w,
+                          height: 100.h,
+                          child: Image.network(
+                              state.vo.newBlocks[1].blockItemVOs[0].imageUrl),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 90.w,
+                          height: 100.h,
+                          child: Image.network(
+                              state.vo.newBlocks[1].blockItemVOs[0].imageUrl),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  ///手办、周边.....
+  Widget buildAndroidMallViewSliverListItem02() {
+    List<Widget> children = [];
+    for (var item in state.vo.tabs) {
+      Widget child = Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.network(
+            "http://${item.imageUrl.substring(2)}",
+            width: 40.sp,
+            height: 40.sp,
+          ),
+          2.verticalSpace,
+          Text(
+            item.name,
+            style: TextStyle(
+              fontSize: 12.sp,
+              color: HYAppTheme.norTextColors,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'bilibiliFonts',
+            ),
+          )
+        ],
+      );
+      children.add(child);
+    }
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10.r),
+      width: 1.sw,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: children,
       ),
     );
   }
@@ -169,9 +526,10 @@ class MallScreen extends StatelessWidget {
           Text(
             state.vo.searchUrl.titleList[0],
             style: TextStyle(
-              color: HYAppTheme.norGrayColor,
-              fontSize: 12.sp,
-            ),
+                color: HYAppTheme.norGrayColor,
+                fontSize: 12.sp,
+                fontFamily: 'bilibiliFonts',
+                fontWeight: FontWeight.normal),
           ),
         ],
       ),
