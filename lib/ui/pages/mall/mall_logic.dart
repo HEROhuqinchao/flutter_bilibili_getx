@@ -15,7 +15,7 @@ class MallLogic extends GetxController {
   final MallState state = MallState();
 
   @override
-  void onReady() {
+  void onInit() {
     ///初始化数据
     if(kIsWeb) {
       webFetchMallData();
@@ -27,7 +27,7 @@ class MallLogic extends GetxController {
         androidFetchMallData();
       }
     }
-    super.onReady();
+    super.onInit();
   }
 
   @override

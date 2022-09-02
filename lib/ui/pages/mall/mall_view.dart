@@ -9,6 +9,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
 import 'package:get/get.dart';
 
+import '../../shared/math_compute.dart';
 import '../../widgets/price_mark.dart';
 import 'mall_logic.dart';
 
@@ -121,15 +122,11 @@ class MallScreen extends StatelessWidget {
                     return buildAndroidMallViewSliverListItem02();
                   } else if (index == 2) {
                     return buildAndroidMallViewSliverListItem03();
-                  } else if (index == 3) {
-                    return Container(
-                      child: Text("data"),
-                    );
                   } else {
                     return Container();
                   }
                 },
-                childCount: 4,
+                childCount: 3,
               ),
             ),
             SliverGrid(
@@ -138,9 +135,7 @@ class MallScreen extends StatelessWidget {
               ),
               delegate: SliverChildBuilderDelegate(
                 (ctx, index) {
-                  return Container(
-                    child: Text("data"),
-                  );
+                  return buildAndroidMallViewSliverGridItem();
                 },
                 childCount: 50,
               ),
@@ -151,7 +146,7 @@ class MallScreen extends StatelessWidget {
     );
   }
 
-  ///搜索（上拉后的搜索）
+  ///搜索（顶部的简单搜索框）
   Widget buildAndroidMallViewSimpleSearch() {
     return Container(
       height: 30.h,
@@ -183,7 +178,7 @@ class MallScreen extends StatelessWidget {
     );
   }
 
-  ///搜索（初始搜索）
+  ///搜索（初始搜索框）
   Widget buildAndroidMallViewSearch() {
     return Row(
       children: [
@@ -406,37 +401,22 @@ class MallScreen extends StatelessWidget {
           StaggeredGridTile.count(
             crossAxisCellCount: 1,
             mainAxisCellCount: 1,
-            child: buildAndroidMallViewSliverListItem0303(),
+            child: buildAndroidMallViewSliverListItem0303(1),
           ),
           StaggeredGridTile.count(
             crossAxisCellCount: 1,
             mainAxisCellCount: 1,
-            child: Container(
-              child: Text("11111111"),
-              width: 100.w,
-              height: 100.w,
-              color: Colors.red,
-            ),
+            child: buildAndroidMallViewSliverListItem0303(2),
           ),
           StaggeredGridTile.count(
             crossAxisCellCount: 1,
             mainAxisCellCount: 1,
-            child: Container(
-              child: Text("11111111"),
-              width: 100.w,
-              height: 100.w,
-              color: Colors.red,
-            ),
+            child: buildAndroidMallViewSliverListItem0303(3),
           ),
           StaggeredGridTile.count(
             crossAxisCellCount: 1,
             mainAxisCellCount: 1,
-            child: Container(
-              child: Text("11111111"),
-              width: 100.w,
-              height: 100.w,
-              color: Colors.red,
-            ),
+            child: buildAndroidMallViewSliverListItem0303(4),
           ),
         ],
       ),
@@ -576,11 +556,79 @@ class MallScreen extends StatelessWidget {
   }
 
   ///第三部分的第3个子部分（四小块）
-  Widget buildAndroidMallViewSliverListItem0303() {
-    return Row(
-      children: [
+  Widget buildAndroidMallViewSliverListItem0303(index) {
+    return Container(
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(.1),
+              offset: const Offset(1, 1),
+              spreadRadius: .5,
+              blurRadius: 1,
+            )
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(3.r))),
+      child: Stack(
+        children: [
+          Container(
+            width: 70.w,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                4.verticalSpace,
+                Text(
+                  state.vo.newBlocks[index].title,
+                  style: TextStyle(
+                      color: HYAppTheme.norTextColors,
+                      fontSize: 12.sp,
+                      fontFamily: 'bilibiliFonts'),
+                ),
+                Image.network(
+                  getImageHttpUrl(
+                      state.vo.newBlocks[index].blockItemVOs[0].imageUrl),
+                  height: 60.w,
+                  fit: BoxFit.contain,
+                ),
+              ],
+            ),
+          ),
+          state.vo.newBlocks[index].blockItemVOs[0].benefitInfo != null
+              ? Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 1.sw,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 6.r, vertical: 2.r),
+                    decoration: BoxDecoration(
+                        color: HYAppTheme.norGrayColor.withOpacity(.5),
+                        borderRadius: BorderRadius.all(Radius.circular(5.r))),
+                    child: Text(
+                      state.vo.newBlocks[index].blockItemVOs[0].benefitInfo!
+                          .partOne!,
+                      style: TextStyle(
+                        fontFamily: 'bilibiliFonts',
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                )
+              : Container()
+        ],
+      ),
+    );
+  }
 
-      ],
+  Widget buildAndroidMallViewSliverGridItem() {
+    return Container(
+      child: Text("data"),
     );
   }
 
