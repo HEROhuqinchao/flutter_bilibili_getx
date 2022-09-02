@@ -39,7 +39,8 @@ class RankNo extends StatelessWidget {
       child: Text(
         "$text  ",
         style: TextStyle(
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.normal,
+          fontFamily: 'bilibiliFonts',
           color: Colors.white,
           fontSize: 16.sp,
         ),
