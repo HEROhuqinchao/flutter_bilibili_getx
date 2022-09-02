@@ -27,7 +27,8 @@ class MallScreen extends StatelessWidget {
             } else if (Platform.isAndroid) {
               return initAndroidMallView();
             } else if (Platform.isWindows) {
-              return initWebMallView();
+              // return initWebMallView();
+              return initAndroidMallView();
             } else {
               return Container();
             }
@@ -56,6 +57,7 @@ class MallScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: CustomScrollView(
+          controller: ScrollController(),
           slivers: [
             SliverAppBar(
               backgroundColor: Colors.white,
@@ -106,7 +108,8 @@ class MallScreen extends StatelessWidget {
               ),
               actions: buildAndroidMallViewActions(),
               pinned: true,
-              floating: true,
+              floating: false,
+              snap: false,
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
@@ -246,6 +249,15 @@ class MallScreen extends StatelessWidget {
             mainAxisCellCount: 1.6,
             child: Swiper(
               autoplay: true,
+              pagination: SwiperPagination(
+                builder: DotSwiperPaginationBuilder(
+                  activeColor: HYAppTheme.norMainThemeColors,
+                  color: Colors.white,
+                  size: 5.sp,
+                  activeSize: 6.sp,
+                  space: 2.sp,
+                ),
+              ),
               itemBuilder: (ctx, index) {
                 return ClipRRect(
                   borderRadius: BorderRadius.circular(5.r),
@@ -314,9 +326,9 @@ class MallScreen extends StatelessWidget {
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Container(
+                        SizedBox(
                           width: 80.w,
-                          height: 110.h,
+                          height: 100.w,
                           child: Image.network(
                             state.vo.newBlocks[0].blockItemVOs[0].imageUrl,
                             fit: BoxFit.contain,
@@ -327,9 +339,9 @@ class MallScreen extends StatelessWidget {
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Container(
+                        SizedBox(
                           width: 80.w,
-                          height: 110.h,
+                          height: 100.w,
                           child: Image.network(
                             state.vo.newBlocks[0].blockItemVOs[1].imageUrl,
                             fit: BoxFit.contain,
@@ -738,6 +750,7 @@ class MallScreen extends StatelessWidget {
                         color: HYAppTheme.norTextColors,
                       ),
                       maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Row(

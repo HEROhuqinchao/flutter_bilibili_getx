@@ -32,9 +32,7 @@ class RankNo extends StatelessWidget {
         gradient: LinearGradient(
           //渐变使用到的颜色
           colors: [color, Colors.white],
-          //开始位置为右上角
           begin: Alignment.bottomCenter,
-          //结束位置为左下角
           end: Alignment.topCenter,
         ),
       ),

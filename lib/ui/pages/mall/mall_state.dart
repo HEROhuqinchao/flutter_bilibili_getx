@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 import '../../../core/model/android/mall/mall_search_model.dart';
 import '../../../core/model/web/mall/ticket_project_listV2_model.dart';
 
@@ -17,6 +19,8 @@ class MallState {
   late Vo vo;
   late double appBarOpacity;
   late bool isLoadingMallData;
+  late ScrollController customScrollViewController;
+  late ScrollController gridViewController;
 
   ///起始页码
   late int page;
@@ -37,5 +41,7 @@ class MallState {
     backgroundOffset = [];
     appBarOpacity = 1;
     isLoadingMallData = true;
+    customScrollViewController = ScrollController();
+    gridViewController = ScrollController();
   }
 }

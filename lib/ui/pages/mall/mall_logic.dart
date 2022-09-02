@@ -16,11 +16,13 @@ class MallLogic extends GetxController {
 
   @override
   void onReady() {
+    ///初始化数据
     if(kIsWeb) {
       webFetchMallData();
     } else {
       if(Platform.isWindows) {
         webFetchMallData();
+        androidFetchMallData();
       } else if(Platform.isAndroid) {
         androidFetchMallData();
       }
@@ -28,18 +30,29 @@ class MallLogic extends GetxController {
     super.onReady();
   }
 
-  void hideTitle(ScrollNotification notification) {
-    double temp = (notification.metrics.pixels / 100);
-    if(temp > 1) {
-      temp = 1;
-    }
-    if(temp < 0) {
-      temp = 0;
-    }
-    state.appBarOpacity = 1 - temp;
-    update();
+  @override
+  void onClose() {
+    state.customScrollViewController.dispose();
+    state.gridViewController.dispose();
+    super.onClose();
   }
 
+  ///上滑时使标题渐渐消失
+  void hideTitle(ScrollNotification notification) {
+    double temp = notification.metrics.pixels;
+    if(temp >= 0 && temp <= 100) {
+      if(temp > 1) {
+        temp = 1;
+      }
+      if(temp < 0) {
+        temp = 0;
+      }
+      state.appBarOpacity = 1 - temp;
+      update();
+    }
+  }
+
+  ///鼠标悬浮于控件之上时，更改背景阴影等属性
   void mouseHoverAction(index) {
     state.backgroundSpreadRadius[index] = 4;
     state.backgroundBlurRadius[index] = 15;
@@ -48,6 +61,7 @@ class MallLogic extends GetxController {
     update();
   }
 
+  ///鼠标离开控件时，更改背景阴影等属性
   void mouseExitAction(index) {
     state.backgroundSpreadRadius[index] = 0;
     state.backgroundBlurRadius[index] = 0;
@@ -91,6 +105,7 @@ class MallLogic extends GetxController {
 
   void windowsFetchMallData() {}
 
+  ///获取web端的数据
   void webFetchMallData() {
     HYMallRequest.fetchWebMallData().then((value) {
       state.total = value.data.total;
@@ -102,6 +117,7 @@ class MallLogic extends GetxController {
         state.coverBottomGap.add(0.r);
         state.backgroundOffset.add(Offset(0, 0));
       }
+      state.isLoadingMallData = false;
       update();
     });
   }
