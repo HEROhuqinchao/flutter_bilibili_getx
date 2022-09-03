@@ -91,4 +91,7 @@ class SR {
 
   ///主页
   static const refresh = "refresh";
+
+  ///会员购
+  static const vipMall = "vipMall";
 }

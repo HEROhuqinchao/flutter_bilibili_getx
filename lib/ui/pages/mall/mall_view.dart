@@ -10,7 +10,9 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
 import 'package:get/get.dart';
 
+import '../../../core/I18n/str_res_keys.dart';
 import '../../shared/math_compute.dart';
+import '../../widgets/bangumi_swiper_pagination.dart';
 import '../../widgets/price_mark.dart';
 import 'mall_logic.dart';
 
@@ -26,15 +28,11 @@ class MallScreen extends StatelessWidget {
         builder: (logic) {
           if (state.isLoadingMallData == false) {
             if (kIsWeb) {
-              return Container();
-              // return initWebMallView();
+              return initWebMallView();
             } else if (Platform.isAndroid) {
-              // return Container();
               return initAndroidMallView();
             } else if (Platform.isWindows) {
-              // return Container();
-              // return initWebMallView();
-              return initAndroidMallView();
+              return initWebMallView();
             } else {
               return Container();
             }
@@ -59,7 +57,7 @@ class MallScreen extends StatelessWidget {
     return NotificationListener(
       onNotification: (ScrollNotification notification) {
         logic.hideTitle(notification);
-        return true;
+        return false;
       },
       child: Scaffold(
         body: EasyRefresh(
@@ -78,7 +76,7 @@ class MallScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "会员购",
+                        SR.vipMall.tr,
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           color: HYAppTheme.norTextColors,
@@ -258,85 +256,140 @@ class MallScreen extends StatelessWidget {
 
   ///第一大部分
   Widget buildAndroidMallViewSliverListItem01() {
-    return SizedBox(
-      width: 1.sw,
-      height: 80.h,
-      child: Swiper(
-        itemBuilder: (ctx, index) {
-          if (index == 0) {
-            List<Widget> children = [];
-            for (var item in state.vo.ipTabVo.ipTabs) {
-              Widget child = Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Container(
-                    height: 80.h,
-                    color: Colors.white,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(.1),
-                        offset: const Offset(1, 1),
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                      )
-                    ]),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(5.r)),
+    return NotificationListener(
+      onNotification: (ScrollNotification notification) {
+        logic.expandSwiperHeight(notification);
+        return false;
+      },
+      child: SizedBox(
+        width: 1.sw,
+        height: state.swiperHeight,
+        child: Swiper(
+          loop: false,
+          pagination: SwiperPagination(
+            builder: SwiperCustomPagination(
+              builder: (ctx, config) {
+                return RoundRectSwiperPagination(
+                  currentIndex: config.activeIndex,
+                  itemCount: 2,
+                );
+              },
+            ),
+          ),
+          itemBuilder: (ctx, index) {
+            if (index == 0) {
+              List<Widget> children = [];
+              for (var item in state.vo.ipTabVo.ipTabs) {
+                Widget child = Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Container(
+                      height: 75.w,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(.1),
+                          offset: const Offset(1, 1),
+                          spreadRadius: 1,
+                          blurRadius: 1,
+                        )
+                      ]),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                        child: Image.network(
+                          "http://${item.bgImage.substring(2)}",
+                          height: 56.h,
+                          width: 110.w,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
                       child: Image.network(
-                        "http://${item.bgImage.substring(2)}",
-                        height: 56.h,
-                        width: 110.w,
+                        "http://${item.itemImage.substring(2)}",
+                        height: 72.h,
+                        width: 50.w,
                         fit: BoxFit.cover,
                       ),
                     ),
-                  ),
-                  Positioned(
-                    right: 0,
-                    bottom: 0,
-                    child: Image.network(
-                      "http://${item.itemImage.substring(2)}",
-                      height: 72.h,
-                      width: 50.w,
-                      fit: BoxFit.cover,
+                    Positioned(
+                      left: 3.r,
+                      bottom: 3.r,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            item.name,
+                            style: TextStyle(
+                                color: HYAppTheme.norTextColors,
+                                fontSize: 12.sp),
+                          ),
+                          25.verticalSpace,
+                          Text(
+                            item.imgTag,
+                            style: TextStyle(
+                                color: HYAppTheme.norTextColors,
+                                fontSize: 10.sp),
+                          )
+                        ],
+                      ),
                     ),
+                  ],
+                );
+                children.add(child);
+              }
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: children,
+              );
+            } else {
+              return Container(
+                width: 1.sw,
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5,
                   ),
-                  Positioned(
-                    left: 3.r,
-                    bottom: 3.r,
-                    child: Column(
+                  itemBuilder: (ctx, index) {
+                    return Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          item.name,
-                          style: TextStyle(
-                              color: HYAppTheme.norTextColors, fontSize: 12.sp),
+                        ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(4.r)),
+                          child: FadeInImage(
+                            width: 45.w,
+                            height: 45.w,
+                            fit: BoxFit.cover,
+                            placeholderFit: BoxFit.cover,
+                            placeholder:
+                                AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+                            image: NetworkImage(
+                                getImageHttpUrl(state.vo.ipTabVo.subIpTabs[index].imageUrl)),
+                          ),
                         ),
-                        25.verticalSpace,
+                        3.verticalSpace,
                         Text(
-                          item.imgTag,
+                          state.vo.ipTabVo.subIpTabs[index].name,
                           style: TextStyle(
-                              color: HYAppTheme.norTextColors, fontSize: 10.sp),
+                            color: HYAppTheme.norTextColors,
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: 'bilibiliFonts'
+                          ),
                         )
                       ],
-                    ),
-                  ),
-                ],
+                    );
+                  },
+                  itemCount: state.vo.ipTabVo.subIpTabs.length,
+                ),
               );
-              children.add(child);
             }
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: children,
-            );
-          } else {
-            return Container(
-              child: Text("data"),
-            );
-          }
-        },
-        itemCount: 2,
+          },
+          itemCount: 2,
+        ),
       ),
     );
   }
@@ -368,7 +421,7 @@ class MallScreen extends StatelessWidget {
       children.add(child);
     }
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.r),
+      padding: EdgeInsets.only(bottom: 10.r),
       width: 1.sw,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -557,6 +610,13 @@ class MallScreen extends StatelessWidget {
 
   ///第三部分的第3个子部分（四小块）
   Widget buildAndroidMallViewSliverListItem0303(index) {
+    List<Color> colors = [
+      HYAppTheme.norTextColors,
+      HYAppTheme.norYellow04Colors,
+      HYAppTheme.norYellow05Colors,
+      HYAppTheme.norBlue05Colors,
+      HYAppTheme.norTextColors,
+    ];
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -572,7 +632,7 @@ class MallScreen extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(3.r))),
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             width: 70.w,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -596,7 +656,10 @@ class MallScreen extends StatelessWidget {
               ],
             ),
           ),
-          state.vo.newBlocks[index].blockItemVOs[0].benefitInfo != null
+          state.vo.newBlocks[index].blockItemVOs[0].benefitInfo != null &&
+                  state.vo.newBlocks[index].blockItemVOs[0].benefitInfo!
+                          .partOne !=
+                      null
               ? Positioned(
                   bottom: 0,
                   left: 0,
@@ -607,16 +670,20 @@ class MallScreen extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(horizontal: 6.r, vertical: 2.r),
                     decoration: BoxDecoration(
-                        color: HYAppTheme.norGrayColor.withOpacity(.5),
+                        color: HYAppTheme.norGrayColor.withOpacity(.2),
                         borderRadius: BorderRadius.all(Radius.circular(5.r))),
                     child: Text(
                       state.vo.newBlocks[index].blockItemVOs[0].benefitInfo!
-                          .partOne!,
+                              .partOne! +
+                          state.vo.newBlocks[index].blockItemVOs[0].benefitInfo!
+                              .partTwo!,
                       style: TextStyle(
+                        color: colors[index],
                         fontFamily: 'bilibiliFonts',
                         fontSize: 10.sp,
                         fontWeight: FontWeight.normal,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 )
@@ -810,7 +877,8 @@ class MallScreen extends StatelessWidget {
                                         TextSpan(
                                           text: "￥",
                                           style: TextStyle(
-                                            color: HYAppTheme.norMainThemeColors,
+                                            color:
+                                                HYAppTheme.norMainThemeColors,
                                             fontSize: 14.sp,
                                             fontFamily: 'bilibiliFonts',
                                             fontWeight: FontWeight.normal,
@@ -819,7 +887,8 @@ class MallScreen extends StatelessWidget {
                                         TextSpan(
                                           text: item.priceDesc![0],
                                           style: TextStyle(
-                                            color: HYAppTheme.norMainThemeColors,
+                                            color:
+                                                HYAppTheme.norMainThemeColors,
                                             fontSize: 18.sp,
                                             fontFamily: 'bilibiliFonts',
                                             fontWeight: FontWeight.normal,

@@ -96,5 +96,8 @@ const strResEn = {
   SR.searchSomething: "search videos, drama or up...",
 
   ///主页
-  SR.refresh: "refresh"
+  SR.refresh: "refresh",
+
+  ///会员购
+  SR.vipMall: "VIP Mall",
 };

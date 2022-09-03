@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/model/android/mall/mall_search_model.dart';
 import '../../../core/model/web/mall/ticket_project_listV2_model.dart';
@@ -21,6 +22,7 @@ class MallState {
   late bool isLoadingMallData;
   late ScrollController customScrollViewController;
   late ScrollController gridViewController;
+  late double swiperHeight;
 
   ///页码
   late int page;
@@ -43,5 +45,6 @@ class MallState {
     isLoadingMallData = true;
     customScrollViewController = ScrollController();
     gridViewController = ScrollController();
+    swiperHeight = 97.w;
   }
 }

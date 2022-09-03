@@ -53,15 +53,15 @@ class ExpandedWidgetState extends State<ExpandedWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: videoDetailsHeightAnimation.value,
 
       ///在SingleChildScrollView里面外层的组件设置了高度，SingleChildScrollView也可以获取到你想要的组件的高度
       ///不嵌套SingleChildScrollView，只会获得零高度
       child: SingleChildScrollView(
-        child: heightReporter,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         controller: scrollController,
+        child: heightReporter,
       ),
     );
   }

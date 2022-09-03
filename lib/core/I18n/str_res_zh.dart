@@ -93,5 +93,8 @@ const strResZh = {
   SR.searchSomething: "搜索视频、番剧或up主",
 
   ///主页界面
-  SR.refresh: "刷新一下"
+  SR.refresh: "刷新一下",
+
+  ///会员购
+  SR.vipMall: "会员购"
 };

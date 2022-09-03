@@ -56,11 +56,14 @@ class HYAppTheme {
   static const Color norBlue02Colors = Color.fromRGBO(24, 114, 164, 1);
   static const Color norBlue03Colors = Color.fromRGBO(51, 62, 84, 1);
   static const Color norBlue04Colors = Color.fromRGBO(92, 154, 231, 1);
+  static const Color norBlue05Colors = Color.fromRGBO(36, 52, 168, 1);
 
   ///黄色
   static const Color norYellow01Colors = Color.fromRGBO(245, 185, 37, 1);
   static const Color norYellow02Colors = Color.fromRGBO(245, 176, 56, 1);
   static const Color norYellow03Colors = Color.fromRGBO(234, 154, 93, 1);
+  static const Color norYellow04Colors = Color.fromRGBO(215, 100, 30, 1);
+  static const Color norYellow05Colors = Color.fromRGBO(114, 89, 27, 1);
 
   ///默认下的主题
   static final ThemeData norTheme = ThemeData(

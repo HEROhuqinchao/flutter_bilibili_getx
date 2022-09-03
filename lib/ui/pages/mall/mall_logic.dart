@@ -1,10 +1,9 @@
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:bilibili_getx/core/service/request/mall_request.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -18,11 +17,10 @@ class MallLogic extends GetxController {
   void onReady() {
     ///初始化数据
     if (kIsWeb) {
-      // webFetchMallData();
+      webFetchMallData();
     } else {
       if (Platform.isWindows) {
-        // webFetchMallData();
-        androidFetchMallData();
+        webFetchMallData();
       } else if (Platform.isAndroid) {
         androidFetchMallData();
       }
@@ -39,15 +37,27 @@ class MallLogic extends GetxController {
 
   ///上滑时使标题渐渐消失
   void hideTitle(ScrollNotification notification) {
-    double temp = notification.metrics.pixels;
-    if (temp >= 0 && temp <= 100) {
-      if (temp > 1) {
-        temp = 1;
+    if(notification.metrics.axisDirection == AxisDirection.down || notification.metrics.axisDirection == AxisDirection.up) {
+      double temp = notification.metrics.pixels;
+      if (temp >= 0 && temp <= 100) {
+        if (temp > 100) {
+          temp = 1;
+        }
+        if (temp < 0) {
+          temp = 0;
+        }
+        state.appBarOpacity = 1 - temp / 100;
+        update();
       }
-      if (temp < 0) {
-        temp = 0;
-      }
-      state.appBarOpacity = 1 - temp;
+    }
+  }
+
+  ///轮播图滑动扩展
+  void expandSwiperHeight(ScrollNotification notification) {
+    if(notification is ScrollUpdateNotification){
+      double temp = notification.metrics.pixels;
+      double k = temp / 6;
+      state.swiperHeight =  97.w + k.w;
       update();
     }
   }
@@ -82,7 +92,6 @@ class MallLogic extends GetxController {
     params.addEntries(signEntry.entries);
     HYMallRequest.fetchAndroidMoreMallData(params).then((value) {
       state.total += state.total;
-      print(value.list[0].title);
       state.vo.feeds.list.addAll(value.list);
       update();
     });

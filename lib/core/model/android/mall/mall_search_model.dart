@@ -664,14 +664,14 @@ class BenefitInfo {
   dynamic benefitImg;
 
   factory BenefitInfo.fromJson(Map<String, dynamic> json) => BenefitInfo(
-        partOne: json["partOne"],
-        partTwo: json["partTwo"] == null ? null : json["partTwo"],
+        partOne: json["partOne"] ?? "",
+        partTwo: json["partTwo"] ?? "",
         benefitImg: json["benefitImg"],
       );
 
   Map<String, dynamic> toJson() => {
-        "partOne": partOne,
-        "partTwo": partTwo == null ? null : partTwo,
+        "partOne": partOne ?? "",
+        "partTwo": partTwo ?? "",
         "benefitImg": benefitImg,
       };
 }
