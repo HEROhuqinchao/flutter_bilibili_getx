@@ -17,13 +17,13 @@ class MallLogic extends GetxController {
   @override
   void onReady() {
     ///初始化数据
-    if(kIsWeb) {
+    if (kIsWeb) {
       // webFetchMallData();
     } else {
-      if(Platform.isWindows) {
+      if (Platform.isWindows) {
         // webFetchMallData();
         androidFetchMallData();
-      } else if(Platform.isAndroid) {
+      } else if (Platform.isAndroid) {
         androidFetchMallData();
       }
     }
@@ -40,16 +40,50 @@ class MallLogic extends GetxController {
   ///上滑时使标题渐渐消失
   void hideTitle(ScrollNotification notification) {
     double temp = notification.metrics.pixels;
-    if(temp >= 0 && temp <= 100) {
-      if(temp > 1) {
+    if (temp >= 0 && temp <= 100) {
+      if (temp > 1) {
         temp = 1;
       }
-      if(temp < 0) {
+      if (temp < 0) {
         temp = 0;
       }
       state.appBarOpacity = 1 - temp;
       update();
     }
+  }
+
+  ///加载更多的蕾姆
+  void loadingAndroidMallData() {
+    state.page++;
+    Map<String, dynamic> params = {
+      'access_key': '',
+      'appkey': Constant.appKey,
+      'brand': 'Android',
+      'build': '6720300',
+      'c_locale': 'zh_CN',
+      'channel': 'html5_search_baidu',
+      'cityCode': '440106',
+      'disable_rcmd': '0',
+      'feedType': '0',
+      'feedsABTest': '1',
+      'mVersion': '133',
+      'mallVersion': '6720300',
+      'mobi_app': 'android',
+      'pageNum': state.page.toString(),
+      'platform': 'android',
+      's_locale': 'zh_CN',
+      'statistics':
+          '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
+      'tribeVersion': '0',
+      'ts': '1662184119'
+    };
+    final signEntry = <String, dynamic>{"sign": ParamsSign.getSign(params)};
+    params.addEntries(signEntry.entries);
+    HYMallRequest.fetchAndroidMoreMallData(params).then((value) {
+      state.total += state.total;
+      state.vo.feeds.list.addAll(value.list);
+      update();
+    });
   }
 
   ///鼠标悬浮于控件之上时，更改背景阴影等属性
@@ -85,16 +119,15 @@ class MallLogic extends GetxController {
       'mVersion': '133',
       'mallVersion': '6720300',
       'mobi_app': 'android',
-      'pageNum': '1',
+      'pageNum': state.page.toString(),
       'platform': 'android',
       's_locale': 'zh_CN',
-      'statistics': '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
+      'statistics':
+          '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
       'tribeVersion': '0',
       'ts': '1661902346',
     };
-    final signEntry = <String, dynamic>{
-      "sign": ParamsSign.getSign(params)
-    };
+    final signEntry = <String, dynamic>{"sign": ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
     HYMallRequest.fetchAndroidMallData(params).then((value) {
       state.vo = value.data.vo;

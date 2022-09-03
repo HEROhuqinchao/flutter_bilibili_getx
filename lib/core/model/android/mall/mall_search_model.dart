@@ -394,8 +394,8 @@ class Feeds {
   });
 
   int pageNum;
-  int total;
-  int count;
+  int? total;
+  int? count;
   int feedType;
   List<ListElement> list;
 

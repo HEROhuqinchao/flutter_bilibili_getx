@@ -36,6 +36,11 @@ class HYMallRequest {
     final result = await HttpBaseRequest.request("mall", url);
     return MallSearchModel.fromJson(result);
   }
+  static Future<Feeds> fetchAndroidMoreMallData(params) async {
+    String url = "/mall-c-search/home/feed/list?${ParamsSign.paramsSerialization(params)}";
+    final result = await HttpBaseRequest.request("mall", url);
+    return Feeds.fromJson(result["data"]["vo"]);
+  }
   // https://show.bilibili.com/api/ticket/project/listconf?city_id=-1&platform=pc
   // https://show.bilibili.com/api/ticket/city/list?channel=4
   static Future<TicketProjectListV2Model> fetchWebMallData() async {

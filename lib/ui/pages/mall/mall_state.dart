@@ -22,7 +22,7 @@ class MallState {
   late ScrollController customScrollViewController;
   late ScrollController gridViewController;
 
-  ///起始页码
+  ///页码
   late int page;
 
   ///一页中的数据条数

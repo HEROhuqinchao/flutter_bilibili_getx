@@ -4,6 +4,7 @@ import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
@@ -61,78 +62,83 @@ class MallScreen extends StatelessWidget {
         return true;
       },
       child: Scaffold(
-        body: CustomScrollView(
-          controller: ScrollController(),
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.white,
-              expandedHeight: 90.h,
-              title: Opacity(
-                opacity: state.appBarOpacity,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      "会员购",
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: HYAppTheme.norTextColors,
-                        fontSize: 15.sp,
-                        fontFamily: 'bilibiliFonts',
-                      ),
-                    ),
-                    5.horizontalSpace,
-                    Text(
-                      state.vo.slogan,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        color: HYAppTheme.norGrayColor,
-                        fontSize: 10.sp,
-                        fontFamily: 'bilibiliFonts',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              elevation: .1,
-              flexibleSpace: FlexibleSpaceBar(
-                titlePadding:
-                    EdgeInsets.symmetric(horizontal: 10.r, vertical: 10.r),
-                centerTitle: false,
+        body: EasyRefresh(
+          onLoad: () async{
+            logic.loadingAndroidMallData();
+          },
+          child: CustomScrollView(
+            controller: ScrollController(),
+            slivers: [
+              SliverAppBar(
+                backgroundColor: Colors.white,
+                expandedHeight: 90.h,
                 title: Opacity(
-                  opacity: 1 - state.appBarOpacity,
-                  child: buildAndroidMallViewSimpleSearch(),
+                  opacity: state.appBarOpacity,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "会员购",
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: HYAppTheme.norTextColors,
+                          fontSize: 15.sp,
+                          fontFamily: 'bilibiliFonts',
+                        ),
+                      ),
+                      5.horizontalSpace,
+                      Text(
+                        state.vo.slogan,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: HYAppTheme.norGrayColor,
+                          fontSize: 10.sp,
+                          fontFamily: 'bilibiliFonts',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                background: Container(
-                  alignment: Alignment.bottomCenter,
-                  color: Colors.white,
-                  padding: EdgeInsets.only(left: 10.r, bottom: 10.r),
-                  child: buildAndroidMallViewSearch(),
+                elevation: .1,
+                flexibleSpace: FlexibleSpaceBar(
+                  titlePadding:
+                      EdgeInsets.symmetric(horizontal: 10.r, vertical: 10.r),
+                  centerTitle: false,
+                  title: Opacity(
+                    opacity: 1 - state.appBarOpacity,
+                    child: buildAndroidMallViewSimpleSearch(),
+                  ),
+                  background: Container(
+                    alignment: Alignment.bottomCenter,
+                    color: Colors.white,
+                    padding: EdgeInsets.only(left: 10.r, bottom: 10.r),
+                    child: buildAndroidMallViewSearch(),
+                  ),
+                  collapseMode: CollapseMode.parallax,
                 ),
-                collapseMode: CollapseMode.parallax,
+                actions: buildAndroidMallViewActions(),
+                pinned: true,
+                floating: false,
+                snap: false,
               ),
-              actions: buildAndroidMallViewActions(),
-              pinned: true,
-              floating: false,
-              snap: false,
-            ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (ctx, index) {
-                  if (index == 0) {
-                    return buildAndroidMallViewSliverListItem01();
-                  } else if (index == 1) {
-                    return buildAndroidMallViewSliverListItem02();
-                  } else if (index == 2) {
-                    return buildAndroidMallViewSliverListItem03();
-                  } else {
-                    return Container();
-                  }
-                },
-                childCount: 3,
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (ctx, index) {
+                    if (index == 0) {
+                      return buildAndroidMallViewSliverListItem01();
+                    } else if (index == 1) {
+                      return buildAndroidMallViewSliverListItem02();
+                    } else if (index == 2) {
+                      return buildAndroidMallViewSliverListItem03();
+                    } else {
+                      return Container();
+                    }
+                  },
+                  childCount: 3,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -780,13 +786,13 @@ class MallScreen extends StatelessWidget {
                         TextSpan(
                           children: [
                             item.tags != null
-                                ?  TextSpan(children: recommendTagNames)
+                                ? TextSpan(children: recommendTagNames)
                                 : TextSpan(),
                             item.tags != null
-                                ?  TextSpan(children: serviceTagNames)
+                                ? TextSpan(children: serviceTagNames)
                                 : TextSpan(),
                             item.tags != null
-                                ?  TextSpan(children: marketingTagNames)
+                                ? TextSpan(children: marketingTagNames)
                                 : TextSpan(),
                           ],
                         ),
@@ -795,7 +801,7 @@ class MallScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text.rich(
+                          item.priceDesc != null ? Text.rich(
                             TextSpan(
                               children: [
                                 TextSpan(
@@ -818,7 +824,7 @@ class MallScreen extends StatelessWidget {
                                 )
                               ],
                             ),
-                          ),
+                          ) : Container(),
                           Text(
                             "${item.like}人想要",
                             style: TextStyle(
