@@ -25,10 +25,13 @@ class MallScreen extends StatelessWidget {
         builder: (logic) {
           if (state.isLoadingMallData == false) {
             if (kIsWeb) {
-              return initWebMallView();
+              return Container();
+              // return initWebMallView();
             } else if (Platform.isAndroid) {
+              // return Container();
               return initAndroidMallView();
             } else if (Platform.isWindows) {
+              // return Container();
               // return initWebMallView();
               return initAndroidMallView();
             } else {
@@ -129,17 +132,6 @@ class MallScreen extends StatelessWidget {
                 childCount: 3,
               ),
             ),
-            SliverGrid(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              delegate: SliverChildBuilderDelegate(
-                (ctx, index) {
-                  return buildAndroidMallViewSliverGridItem();
-                },
-                childCount: 50,
-              ),
-            )
           ],
         ),
       ),
@@ -379,46 +371,48 @@ class MallScreen extends StatelessWidget {
     );
   }
 
-  ///瀑布流布局（轮播图、一大块、四小块）
+  ///瀑布流布局（轮播图、一大块、四小块，两个一行的多块）
   Widget buildAndroidMallViewSliverListItem03() {
+    List<Widget> children = [];
+    children.add(StaggeredGridTile.count(
+      crossAxisCellCount: 2,
+      mainAxisCellCount: 1.6,
+      child: buildAndroidMallViewSliverListItem0301(),
+    ));
+    children.add(StaggeredGridTile.count(
+      crossAxisCellCount: 2,
+      mainAxisCellCount: 1.6,
+      child: buildAndroidMallViewSliverListItem0302(),
+    ));
+    children.add(StaggeredGridTile.count(
+      crossAxisCellCount: 1,
+      mainAxisCellCount: 1,
+      child: buildAndroidMallViewSliverListItem0303(1),
+    ));
+    children.add(StaggeredGridTile.count(
+      crossAxisCellCount: 1,
+      mainAxisCellCount: 1,
+      child: buildAndroidMallViewSliverListItem0303(2),
+    ));
+    children.add(StaggeredGridTile.count(
+      crossAxisCellCount: 1,
+      mainAxisCellCount: 1,
+      child: buildAndroidMallViewSliverListItem0303(3),
+    ));
+    children.add(StaggeredGridTile.count(
+      crossAxisCellCount: 1,
+      mainAxisCellCount: 1,
+      child: buildAndroidMallViewSliverListItem0303(4),
+    ));
+    children.addAll(buildAndroidMallViewSliverListItem0304());
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.r),
       child: StaggeredGrid.count(
         crossAxisCount: 4,
-        mainAxisSpacing: 8.r,
-        crossAxisSpacing: 8.r,
-        children: [
-          StaggeredGridTile.count(
-            crossAxisCellCount: 2,
-            mainAxisCellCount: 1.6,
-            child: buildAndroidMallViewSliverListItem0301(),
-          ),
-          StaggeredGridTile.count(
-            crossAxisCellCount: 2,
-            mainAxisCellCount: 1.6,
-            child: buildAndroidMallViewSliverListItem0302(),
-          ),
-          StaggeredGridTile.count(
-            crossAxisCellCount: 1,
-            mainAxisCellCount: 1,
-            child: buildAndroidMallViewSliverListItem0303(1),
-          ),
-          StaggeredGridTile.count(
-            crossAxisCellCount: 1,
-            mainAxisCellCount: 1,
-            child: buildAndroidMallViewSliverListItem0303(2),
-          ),
-          StaggeredGridTile.count(
-            crossAxisCellCount: 1,
-            mainAxisCellCount: 1,
-            child: buildAndroidMallViewSliverListItem0303(3),
-          ),
-          StaggeredGridTile.count(
-            crossAxisCellCount: 1,
-            mainAxisCellCount: 1,
-            child: buildAndroidMallViewSliverListItem0303(4),
-          ),
-        ],
+        mainAxisSpacing: 5.r,
+        crossAxisSpacing: 5.r,
+        children: children,
       ),
     );
   }
@@ -626,10 +620,227 @@ class MallScreen extends StatelessWidget {
     );
   }
 
-  Widget buildAndroidMallViewSliverGridItem() {
-    return Container(
-      child: Text("data"),
-    );
+  ///第四部分（一行两个的最大块部分）
+  List<Widget> buildAndroidMallViewSliverListItem0304() {
+    List<Widget> feeds = [];
+    for (var item in state.vo.feeds.list) {
+      List<InlineSpan> titleTagNames = [];
+      List<InlineSpan> recommendTagNames = [];
+      List<InlineSpan> serviceTagNames = [];
+      List<InlineSpan> marketingTagNames = [];
+      if (item.tags != null) {
+        ///标签（位于标题头部的标签）
+        if (item.tags!.titleTagNames != null) {
+          for (var tag in item.tags!.titleTagNames!) {
+            titleTagNames.add(
+              WidgetSpan(
+                child: Container(
+                  margin: EdgeInsets.only(right: 5.r),
+                  padding: EdgeInsets.all(2.r),
+                  decoration: BoxDecoration(
+                      color: HYAppTheme.norGrayColor.withOpacity(.1),
+                      borderRadius: BorderRadius.circular(2.r)),
+                  child: Text(
+                    tag,
+                    style: TextStyle(
+                        color: HYAppTheme.norGrayColor.withOpacity(1),
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'bilibiliFonts'),
+                  ),
+                ),
+              ),
+            );
+          }
+        }
+
+        ///标签（标题下一行的标签）recommendTagNames
+        if (item.tags!.recommendTagNames != null) {
+          for (var tag in item.tags!.recommendTagNames!) {
+            recommendTagNames.add(
+              WidgetSpan(
+                child: Container(
+                  margin: EdgeInsets.only(right: 5.r, top: 3.r),
+                  padding: EdgeInsets.all(2.r),
+                  decoration: BoxDecoration(
+                      color: HYAppTheme.norYellow03Colors.withOpacity(.2),
+                      borderRadius: BorderRadius.circular(3.r)),
+                  child: Text(
+                    tag,
+                    style: TextStyle(
+                        color: HYAppTheme.norYellow03Colors.withOpacity(1),
+                        fontSize: 9.sp,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'bilibiliFonts'),
+                  ),
+                ),
+              ),
+            );
+          }
+        }
+
+        ///标签（标题下一行的标签）serviceTagNames
+        if (item.tags!.serviceTagNames != null) {
+          for (var tag in item.tags!.serviceTagNames!) {
+            serviceTagNames.add(
+              WidgetSpan(
+                child: Container(
+                  margin: EdgeInsets.only(right: 5.r, top: 3.r),
+                  padding: EdgeInsets.all(2.r),
+                  decoration: BoxDecoration(
+                      color: HYAppTheme.norBlue04Colors.withOpacity(.2),
+                      borderRadius: BorderRadius.circular(3.r)),
+                  child: Text(
+                    tag,
+                    style: TextStyle(
+                        color: HYAppTheme.norBlue04Colors.withOpacity(1),
+                        fontSize: 9.sp,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'bilibiliFonts'),
+                  ),
+                ),
+              ),
+            );
+          }
+        }
+
+        ///标签（标题下一行的标签）marketingTagNames
+        if (item.tags!.marketingTagNames != null) {
+          for (var tag in item.tags!.marketingTagNames!) {
+            marketingTagNames.add(
+              WidgetSpan(
+                child: Container(
+                  margin: EdgeInsets.only(right: 5.r, top: 3.r),
+                  padding: EdgeInsets.all(2.r),
+                  decoration: BoxDecoration(
+                      color: HYAppTheme.norMainThemeColors.withOpacity(.2),
+                      borderRadius: BorderRadius.circular(3.r)),
+                  child: Text(
+                    tag,
+                    style: TextStyle(
+                        color: HYAppTheme.norMainThemeColors.withOpacity(1),
+                        fontSize: 9.sp,
+                        fontWeight: FontWeight.normal,
+                        fontFamily: 'bilibiliFonts'),
+                  ),
+                ),
+              ),
+            );
+          }
+        }
+      }
+
+      Widget child = StaggeredGridTile.fit(
+        crossAxisCellCount: 2,
+        child: Card(
+          margin: EdgeInsets.zero,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(5.r))),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(5.r)),
+                  child: FadeInImage(
+                    height: 190.w,
+                    placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+                    placeholderFit: BoxFit.cover,
+                    fit: BoxFit.cover,
+                    image: NetworkImage(getImageHttpUrl(item.imageUrls[0])),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            item.tags != null
+                                ? TextSpan(children: titleTagNames)
+                                : TextSpan(),
+                            TextSpan(
+                              text: item.title,
+                              style: TextStyle(
+                                  color: HYAppTheme.norTextColors,
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: 'bilibiliFonts'),
+                            )
+                          ],
+                        ),
+                      ),
+                      2.verticalSpace,
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            item.tags != null
+                                ?  TextSpan(children: recommendTagNames)
+                                : TextSpan(),
+                            item.tags != null
+                                ?  TextSpan(children: serviceTagNames)
+                                : TextSpan(),
+                            item.tags != null
+                                ?  TextSpan(children: marketingTagNames)
+                                : TextSpan(),
+                          ],
+                        ),
+                      ),
+                      10.verticalSpace,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "￥",
+                                  style: TextStyle(
+                                    color: HYAppTheme.norMainThemeColors,
+                                    fontSize: 14.sp,
+                                    fontFamily: 'bilibiliFonts',
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: item.priceDesc![0],
+                                  style: TextStyle(
+                                    color: HYAppTheme.norMainThemeColors,
+                                    fontSize: 18.sp,
+                                    fontFamily: 'bilibiliFonts',
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          Text(
+                            "${item.like}人想要",
+                            style: TextStyle(
+                              color: HYAppTheme.norGrayColor,
+                              fontSize: 12.sp,
+                              fontFamily: 'bilibiliFonts',
+                              fontWeight: FontWeight.normal,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+      feeds.add(child);
+    }
+    return feeds;
   }
 
   ///初始化Web界面

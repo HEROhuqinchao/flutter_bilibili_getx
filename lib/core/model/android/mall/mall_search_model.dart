@@ -762,11 +762,11 @@ class Tags {
   });
 
   List<dynamic> promotionTagNames;
-  List<String> marketingTagNames;
+  List<String>? marketingTagNames;
   List<String>? saleTypeTagNames;
   String? typeAndLimitTagName;
   List<dynamic> itemTagNames;
-  List<String> recommendTagNames;
+  List<String>? recommendTagNames;
   dynamic feedBoardTag;
   dynamic blindBoxHideTypeNames;
   dynamic blindBoxHasWishNames;
@@ -825,14 +825,14 @@ class Tags {
         "promotionTagNames":
             List<dynamic>.from(promotionTagNames.map((x) => x)),
         "marketingTagNames":
-            List<dynamic>.from(marketingTagNames.map((x) => x)),
+            List<dynamic>.from(marketingTagNames!.map((x) => x)),
         "saleTypeTagNames": saleTypeTagNames == null
             ? null
             : List<dynamic>.from(saleTypeTagNames!.map((x) => x)),
         "typeAndLimitTagName": typeAndLimitTagName,
         "itemTagNames": List<dynamic>.from(itemTagNames.map((x) => x)),
         "recommendTagNames":
-            List<dynamic>.from(recommendTagNames.map((x) => x)),
+            List<dynamic>.from(recommendTagNames!.map((x) => x)),
         "feedBoardTag": feedBoardTag,
         "blindBoxHideTypeNames": blindBoxHideTypeNames,
         "blindBoxHasWishNames": blindBoxHasWishNames,

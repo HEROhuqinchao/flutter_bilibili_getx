@@ -15,19 +15,19 @@ class MallLogic extends GetxController {
   final MallState state = MallState();
 
   @override
-  void onInit() {
+  void onReady() {
     ///初始化数据
     if(kIsWeb) {
-      webFetchMallData();
+      // webFetchMallData();
     } else {
       if(Platform.isWindows) {
-        webFetchMallData();
+        // webFetchMallData();
         androidFetchMallData();
       } else if(Platform.isAndroid) {
         androidFetchMallData();
       }
     }
-    super.onInit();
+    super.onReady();
   }
 
   @override
@@ -109,7 +109,6 @@ class MallLogic extends GetxController {
   void webFetchMallData() {
     HYMallRequest.fetchWebMallData().then((value) {
       state.total = value.data.total;
-      // print(value.data.result?.length);
       state.result = value.data.result!;
       for (int i = 0; i < state.total; i++) {
         state.backgroundSpreadRadius.add(0);

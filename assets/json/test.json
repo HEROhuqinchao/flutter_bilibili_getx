@@ -1,0 +1,3646 @@
+{
+  "code": 0,
+  "message": null,
+  "data": {
+    "codeType": 1,
+    "codeMsg": "操作成功",
+    "vo": {
+      "isVersionV2": true,
+      "feedsABTest": 1,
+      "tabColumnNums": 6,
+      "banners": [
+        {
+          "hasWished": 0,
+          "activityCount": 0,
+          "bannerId": 8125,
+          "name": "A+-魔力赏-220902-魔力赏周周返-老客",
+          "pic": "//i0.hdslb.com/bfs/kfptfe/floor/vane84b09e94ed9841e7b0078d1a3ab9722e.png",
+          "url": "https://mall.bilibili.com/act/aicms/wjVANbY5sy.html?msource=mall_8125_banner&from=zzf_hdmd",
+          "targetUser": 0,
+          "reportData": {
+            "creativeVersion": "1662017970483",
+            "postcore": 14,
+            "postsub": 0,
+            "creativeId": 6110
+          }
+        },
+        {
+          "hasWished": 0,
+          "activityCount": 0,
+          "bannerId": 8114,
+          "name": "A-手办-220903-手办周常活动",
+          "pic": "//i0.hdslb.com/bfs/kfptfe/floor/vane22fd4ea37d9a4255ad78b8d36c92dd7b.png",
+          "url": "https://mall.bilibili.com/act/aicms/APaKAOIbk_.html?msource=mall_8114_banner",
+          "targetUser": 0,
+          "reportData": {
+            "creativeVersion": "1662015958722",
+            "postcore": 14,
+            "postsub": 0,
+            "creativeId": 6102
+          }
+        },
+        {
+          "hasWished": 0,
+          "activityCount": 0,
+          "bannerId": 7909,
+          "name": "采买-220903-眼镜厂831初音",
+          "pic": "//i0.hdslb.com/bfs/kfptfe/floor/vanef12a8a650c3b4061b6f1bd9636effdf8.jpg",
+          "url": "https://mall.bilibili.com/act/aicms/YCTqp41fJ1.html?msource=mall_7909_banner",
+          "targetUser": 0,
+          "reportData": {
+            "creativeVersion": "1661334717080",
+            "postcore": 14,
+            "postsub": 0,
+            "creativeId": 5916
+          }
+        },
+        {
+          "hasWished": 0,
+          "activityCount": 0,
+          "bannerId": 8143,
+          "name": "广州明日方舟",
+          "pic": "//i0.hdslb.com/bfs/kfptfe/floor/vane65ca3369fa7d4f48a33fd6ed94744cd3.jpg",
+          "url": "https://mall.bilibili.com/neul/index.html?msource=mall_8143_banner&page=ticket_detail&noTitleBar=1&id=66623",
+          "targetUser": 0,
+          "reportData": {
+            "creativeVersion": "1661839508347",
+            "postcore": 14,
+            "postsub": 0,
+            "creativeId": 6050
+          }
+        },
+        {
+          "hasWished": 0,
+          "activityCount": 0,
+          "bannerId": 8074,
+          "name": "临时-出清-220903-类目出清-图改2",
+          "pic": "//i0.hdslb.com/bfs/kfptfe/floor/vane117f2165c236493487322d9043e6ea1b.png",
+          "url": "https://mall.bilibili.com/act/aicms/dIDXfjkPG.html?msource=mall_8074_banner",
+          "targetUser": 0,
+          "reportData": {
+            "creativeVersion": "1662013236084",
+            "postcore": 14,
+            "postsub": 0,
+            "creativeId": 6101
+          }
+        }
+      ],
+      "homeBannerSkin": null,
+      "tabs": [
+        {
+          "name": "手办",
+          "jumpUrl": "https://mall.bilibili.com/list.html?noTitleBar=1&from=category_sb&category=1_107&scene=figure",
+          "jumpUrlH5": "https://mall.bilibili.com/list.html?noTitleBar=1&from=category_sb&category=1_107&scene=figure",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/a6a71e3a08d74822024670cf6bc4a58fad570795.png",
+          "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/a2/8a/a28a2b49dcaa7bb0207df14c7370705e.png",
+          "index": 1,
+          "cateId": "2015"
+        },
+        {
+          "name": "周边",
+          "jumpUrl": "https://mall.bilibili.com/list.html?noTitleBar=1&from=category_zb&category=1_109&scene=zhoubian",
+          "jumpUrlH5": "https://mall.bilibili.com/list.html?noTitleBar=1&from=category_zb&category=1_109&scene=zhoubian",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/e2c7fff7b8d657fd301ae1ebe91b438d1ac257fc.png",
+          "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/6f/e2/6fe283a4f4432d6930daf79a8f311c10.png",
+          "index": 2,
+          "cateId": "2016"
+        },
+        {
+          "name": "漫展电影",
+          "jumpUrl": "https://mall.bilibili.com/neul/index.html?page=ticket_home&noTitleBar=1&from=category_mz&projectType=%E5%B1%95%E8%A7%88",
+          "jumpUrlH5": "https://mall.bilibili.com/neul/index.html?page=ticket_home&noTitleBar=1&from=category_mz&projectType=%E5%B1%95%E8%A7%88",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/9acfa5ff9d01a9e2b7a547a1c265e542dc369919.png",
+          "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/1c/8a/1c8a165e7ca3cbe912b34bd665f2d08a.png",
+          "index": 3,
+          "cateId": "2017"
+        },
+        {
+          "name": "图书漫画",
+          "jumpUrl": "https://mall.bilibili.com/list.html?noTitleBar=1&category=1_735&scene=book&from=category_book",
+          "jumpUrlH5": "https://mall.bilibili.com/list.html?noTitleBar=1&category=1_735&scene=book&from=category_book",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/e2748508084713f6f03ad27a441bb71859bf838b.png",
+          "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/48/7e/487e8d0d9863b26a81e6c43b924a73f4.png",
+          "index": 4,
+          "cateId": "2018"
+        },
+        {
+          "name": "数码装备",
+          "jumpUrl": "https://mall.bilibili.com/list.html?noTitleBar=1&category=1_716&scene=game&from=category_game",
+          "jumpUrlH5": "https://mall.bilibili.com/list.html?noTitleBar=1&category=1_716&scene=game&from=category_game",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/f385ec69a3e86c41f8708ada29e907ac26ab998c.png",
+          "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/b0/01/b001c7e0e41ca65c7866d616a190c689.png",
+          "index": 5,
+          "cateId": "2019"
+        },
+        {
+          "name": "次元服饰",
+          "jumpUrl": "https://mall.bilibili.com/list.html?noTitleBar=1&from=category_fsxb&category=1_817&scene=clothes",
+          "jumpUrlH5": "https://mall.bilibili.com/list.html?noTitleBar=1&from=category_fsxb&category=1_817&scene=clothes",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/898b5dad9eb4777c659b44d80da4644020e76967.png",
+          "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/00/5a/005adf48442f34597180409da821e229.png",
+          "index": 6,
+          "cateId": "2021"
+        }
+      ],
+      "ipTabVO": {
+        "ipTabs": [
+          {
+            "name": "虚拟歌手",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000003&from=jgw&itemIds=10114674",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000003&from=jgw&itemIds=10114674",
+            "imageUrl": "//i0.hdslb.com/bfs/test/mall/63/e5/63e5d841642aca31f1d5101cc05cee9d.jpg",
+            "nightImageUrl": "//i0.hdslb.com/bfs/test/mall/63/e5/63e5d841642aca31f1d5101cc05cee9d.jpg",
+            "index": 3000003,
+            "type": 1,
+            "logo": "https://i0.hdslb.com/bfs/mall/mall/80/d1/80d1fc25bdc5f7e930536ca5d01490d1.png",
+            "imgTag": "限时减尾款",
+            "tagList": [
+              "限时减尾款",
+              "5件新品"
+            ],
+            "itemImage": "//i0.hdslb.com/bfs/mall/mall/b4/70/b470dc5401bca9b709edf3cfb5787274.png",
+            "bgImage": "//i0.hdslb.com/bfs/kfptfe/floor/8d3b04d3802f53aa94ed9fde8ad949fea0cc3314.png",
+            "itemId": 10114674,
+            "ipName": "虚拟歌手"
+          },
+          {
+            "name": "Fate",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000024&from=jgw&itemIds=10027747",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000024&from=jgw&itemIds=10027747",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/ee/ff/eeff598e326413c1f8dd2223405b65f0.png",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/ee/ff/eeff598e326413c1f8dd2223405b65f0.png",
+            "index": 3000024,
+            "type": 1,
+            "logo": "https://i0.hdslb.com/bfs/mall/mall/47/92/47920bc3678ac01fc3800af4ffe29937.png",
+            "imgTag": "限时减尾款",
+            "tagList": [
+              "限时减尾款",
+              "4件新品"
+            ],
+            "itemImage": "//i0.hdslb.com/bfs/mall/mall/66/ef/66ef1d56d40f4393981769e62d8f356a.png",
+            "bgImage": "//i0.hdslb.com/bfs/mall/mall/ee/44/ee44c7b10aafd1080196c824d9056159.png",
+            "itemId": 10027747,
+            "ipName": "Fate系列"
+          },
+          {
+            "name": "Re:从",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000235&from=jgw&itemIds=10112572",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000235&from=jgw&itemIds=10112572",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d6/39/d639985105293b9eb1642231aed85c6c.png",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/d6/39/d639985105293b9eb1642231aed85c6c.png",
+            "index": 3000235,
+            "type": 1,
+            "logo": "https://i0.hdslb.com/bfs/mall/mall/b0/1f/b01f88f35329af8f58c08d78c819848b.png",
+            "imgTag": "限时减尾款",
+            "tagList": [
+              "限时减尾款",
+              "5件新品"
+            ],
+            "itemImage": "//i0.hdslb.com/bfs/mall/mall/68/9e/689e633490bdc212b0085b4e004ccc67.png",
+            "bgImage": "//i0.hdslb.com/bfs/mall/mall/00/03/00030a7d005f037c3b6516fc0c798e96.png",
+            "itemId": 10112572,
+            "ipName": "Re:从零开始的异世界生活"
+          }
+        ],
+        "subIpTabs": [
+          {
+            "name": "哔哩哔哩",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000392&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000392&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/test/mall/84/f3/84f39e74db9b3235e44773123bea5440.jpg",
+            "nightImageUrl": "//i0.hdslb.com/bfs/test/mall/84/f3/84f39e74db9b3235e44773123bea5440.jpg",
+            "index": 3000392,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/test/mall/84/f3/84f39e74db9b3235e44773123bea5440.jpg",
+            "imgTag": "2件新品"
+          },
+          {
+            "name": "明日方舟",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000316&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000316&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/19/79/1979d9daa4f708c925d47d65e7b78845.png",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/19/79/1979d9daa4f708c925d47d65e7b78845.png",
+            "index": 3000316,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/19/79/1979d9daa4f708c925d47d65e7b78845.png",
+            "imgTag": ""
+          },
+          {
+            "name": "鬼灭之刃",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000294&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000294&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/77/d0/77d03421903375fcbe0c3aa6649149cc.png",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/77/d0/77d03421903375fcbe0c3aa6649149cc.png",
+            "index": 3000294,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/77/d0/77d03421903375fcbe0c3aa6649149cc.png",
+            "imgTag": "3件新品"
+          },
+          {
+            "name": "海贼王",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000009&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000009&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d1/72/d1729fc09e5817aec56d2f8590c2fff2.jpg",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/d1/72/d1729fc09e5817aec56d2f8590c2fff2.jpg",
+            "index": 3000009,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/d1/72/d1729fc09e5817aec56d2f8590c2fff2.jpg",
+            "imgTag": "2件新品"
+          },
+          {
+            "name": "新世纪福",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000035&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000035&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/5f/50/5f503f3e46e877690389b69a0138b4a3.png",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/5f/50/5f503f3e46e877690389b69a0138b4a3.png",
+            "index": 3000035,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/5f/50/5f503f3e46e877690389b69a0138b4a3.png",
+            "imgTag": "5件新品"
+          },
+          {
+            "name": "咒术回战",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3100606&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3100606&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/1a/7d/1a7d94fcde8805ec879c2661d6222782.jpg",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/1a/7d/1a7d94fcde8805ec879c2661d6222782.jpg",
+            "index": 3100606,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/1a/7d/1a7d94fcde8805ec879c2661d6222782.jpg",
+            "imgTag": "1件新品"
+          },
+          {
+            "name": "刀剑神域",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000143&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000143&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/09/90/09909980ddabcb8960e10e8fde943683.png",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/09/90/09909980ddabcb8960e10e8fde943683.png",
+            "index": 3000143,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/09/90/09909980ddabcb8960e10e8fde943683.png",
+            "imgTag": "1件新品"
+          },
+          {
+            "name": "路人女主",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3000188&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3000188&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/c3/50/c3504a36f3a373455678870b439c7e53.png",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/c3/50/c3504a36f3a373455678870b439c7e53.png",
+            "index": 3000188,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/c3/50/c3504a36f3a373455678870b439c7e53.png",
+            "imgTag": "1件新品"
+          },
+          {
+            "name": "Vsin",
+            "jumpUrl": "bilibili://mall/ip/home?ip=0_3100183&from=jgw",
+            "jumpUrlH5": "bilibili://mall/ip/home?ip=0_3100183&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/e1/ca/e1cad9d90b8c1c4a72b25ef948a89441.jpg",
+            "nightImageUrl": "//i0.hdslb.com/bfs/mall/mall/e1/ca/e1cad9d90b8c1c4a72b25ef948a89441.jpg",
+            "index": 3100183,
+            "type": 1,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/e1/ca/e1cad9d90b8c1c4a72b25ef948a89441.jpg",
+            "imgTag": ""
+          },
+          {
+            "name": "IP乐园",
+            "jumpUrl": "https://mall.bilibili.com/neul/index.html?page=ip_home&noTitleBar=1&from=jgw",
+            "imageUrl": "//i0.hdslb.com/bfs/mall/mall/5f/74/5f74583eae5e7506c03fba252b1e6ac3.png",
+            "index": 0,
+            "type": 2,
+            "logo": "//i0.hdslb.com/bfs/mall/mall/5f/74/5f74583eae5e7506c03fba252b1e6ac3.png"
+          }
+        ]
+      },
+      "newFloor": null,
+      "blockVersion": null,
+      "blocks": [],
+      "newBlocks": [
+        {
+          "title": "魔力赏",
+          "jumpUrl": "bilibili://mall/blind/box?from=board&itemIds=10114007,10114002",
+          "index": 100000,
+          "type": "mls",
+          "position": 1,
+          "tagImg": "//i0.hdslb.com/bfs/mall/mall/3a/c1/3ac1172d440219a49b26c171460e031e.png",
+          "tags": [
+            "500万魔晶瓜分中"
+          ],
+          "blockItemVOs": [
+            {
+              "itemId": 10114007,
+              "itemName": "外星人M15&雕像是超神 SSR魔力赏",
+              "imageUrl": "https://i0.hdslb.com/bfs/mall/mall/ed/c1/edc10e3f22eadbefee6b81e804c650d6.png",
+              "tag": "超神款",
+              "jumpUrl": "bilibili://mall/blind/box?from=board&itemIds=10114007,10114002",
+              "isShowPrice": true,
+              "priceSymbol": "¥",
+              "priceDesc": [
+                "85"
+              ],
+              "priceSymbolImg": null,
+              "benefitInfo": {
+                "partOne": "超神款",
+                "partTwo": null,
+                "benefitImg": null
+              },
+              "benefitInfos": [
+                {
+                  "partOne": "超神款",
+                  "partTwo": null,
+                  "benefitImg": null
+                }
+              ],
+              "linePriceDesc": "5980"
+            },
+            {
+              "itemId": 10114002,
+              "itemName": "SSF 世界计划 缤纷舞台 feat.初音未来是超神 SSR超神魔力赏",
+              "imageUrl": "https://i0.hdslb.com/bfs/mall/mall/10/5b/105b1c14c3092904b9713c01a626b1c1.png",
+              "tag": "超神款",
+              "jumpUrl": "bilibili://mall/blind/box?from=board&itemIds=10114007,10114002",
+              "isShowPrice": true,
+              "priceSymbol": "¥",
+              "priceDesc": [
+                "55"
+              ],
+              "priceSymbolImg": null,
+              "benefitInfo": {
+                "partOne": "超神款",
+                "partTwo": null,
+                "benefitImg": null
+              },
+              "benefitInfos": [
+                {
+                  "partOne": "超神款",
+                  "partTwo": null,
+                  "benefitImg": null
+                }
+              ],
+              "linePriceDesc": "2220"
+            }
+          ],
+          "icon": null,
+          "activityEndTimestamp": null,
+          "activityEndText": null,
+          "inActivity": true,
+          "newImgUrl": null,
+          "bubbleImgUrl": null,
+          "backgroundImgUrl": null,
+          "activityBgImgUrl": null,
+          "activityNightBgImgUrl": null,
+          "iconImgUrl": null,
+          "defaultText": null
+        },
+        {
+          "title": "今日上新",
+          "jumpUrl": "https://mall.bilibili.com/newdate.html?noTitleBar=1&from=board&page=new&recItemsId=10114646,10113958",
+          "index": 100001,
+          "type": "sx",
+          "position": 2,
+          "tagImg": null,
+          "tags": null,
+          "blockItemVOs": [
+            {
+              "itemId": 10114646,
+              "itemName": "AOWOBOX 高透主题展示盒 适用于 良笑社 POP UP PARADE 猫娘乐园 巧克力 香草 桂 香草 红豆 单人手办",
+              "imageUrl": "https://i0.hdslb.com/bfs/mall/vendor/86/e9/86e95c1310f1f8979ced1139f4f18fb6.png",
+              "tag": "今日12件",
+              "jumpUrl": "https://mall.bilibili.com/newdate.html?noTitleBar=1&from=board&page=new&recItemsId=10114646,10113958",
+              "isShowPrice": false,
+              "priceSymbol": null,
+              "priceDesc": null,
+              "priceSymbolImg": null,
+              "benefitInfo": {
+                "partOne": "上新",
+                "partTwo": "12",
+                "benefitImg": null
+              },
+              "benefitInfos": [
+                {
+                  "partOne": "上新",
+                  "partTwo": "12",
+                  "benefitImg": null
+                }
+              ],
+              "linePriceDesc": null
+            }
+          ],
+          "icon": "//i0.hdslb.com/bfs/kfptfe/floor/mall_home_simple_block_newest_icon2.png",
+          "activityEndTimestamp": null,
+          "activityEndText": null,
+          "inActivity": false,
+          "newImgUrl": null,
+          "bubbleImgUrl": null,
+          "backgroundImgUrl": null,
+          "activityBgImgUrl": null,
+          "activityNightBgImgUrl": null,
+          "iconImgUrl": null,
+          "defaultText": null
+        },
+        {
+          "title": "抢先看",
+          "jumpUrl": "https://mall.bilibili.com/neul/index.html?page=firstlook_channel&noTitleBar=1&from=qxk",
+          "index": 100013,
+          "type": "qxk",
+          "position": 3,
+          "tagImg": null,
+          "tags": null,
+          "blockItemVOs": [
+            {
+              "itemId": 1472006,
+              "itemName": "MEDICOS 超像可动 JOJO的奇妙冒险 石之海 Diver Down 可动手办",
+              "imageUrl": "//i0.hdslb.com/bfs/mall/mall/4c/d1/4cd1fde75ba676cf9f534e39b9ed4039.jpg",
+              "tag": "7条新情报",
+              "jumpUrl": "https://mall.bilibili.com/neul/index.html?page=firstlook_channel&noTitleBar=1&from=qxk",
+              "isShowPrice": false,
+              "priceSymbol": null,
+              "priceDesc": null,
+              "priceSymbolImg": null,
+              "benefitInfo": {
+                "partOne": "新情报",
+                "partTwo": "7",
+                "benefitImg": null
+              },
+              "benefitInfos": [
+                {
+                  "partOne": "新情报",
+                  "partTwo": "7",
+                  "benefitImg": null
+                }
+              ],
+              "linePriceDesc": null
+            }
+          ],
+          "icon": "//i0.hdslb.com/bfs/kfptfe/floor/mall_home_simple_block_peek_icon.png",
+          "activityEndTimestamp": null,
+          "activityEndText": null,
+          "inActivity": false,
+          "newImgUrl": null,
+          "bubbleImgUrl": null,
+          "backgroundImgUrl": null,
+          "activityBgImgUrl": null,
+          "activityNightBgImgUrl": null,
+          "iconImgUrl": null,
+          "defaultText": null
+        },
+        {
+          "title": "人气排行",
+          "jumpUrl": "https://mall.bilibili.com/neul/index.html?page=mall_ranklist&loadingShow=1&noTitleBar=1&from=homephb",
+          "index": 100011,
+          "type": "phb",
+          "position": 4,
+          "tagImg": null,
+          "tags": null,
+          "blockItemVOs": [
+            {
+              "itemId": 454160074,
+              "itemName": "毛绒玩偶榜",
+              "imageUrl": "//i0.hdslb.com/bfs/mall/mall/e3/c8/e3c8ee67d1f4ac0e226bb27373d4adf5.png",
+              "tag": "毛绒玩偶榜",
+              "jumpUrl": "https://mall.bilibili.com/neul/index.html?page=mall_ranklist&loadingShow=1&noTitleBar=1&from=homephb",
+              "isShowPrice": false,
+              "priceSymbol": null,
+              "priceDesc": null,
+              "priceSymbolImg": null,
+              "benefitInfo": {
+                "partOne": "毛绒玩偶榜",
+                "partTwo": null,
+                "benefitImg": null
+              },
+              "benefitInfos": [
+                {
+                  "partOne": "毛绒玩偶榜",
+                  "partTwo": null,
+                  "benefitImg": null
+                }
+              ],
+              "linePriceDesc": null
+            }
+          ],
+          "icon": "//i0.hdslb.com/bfs/kfptfe/floor/mall_home_simple_block_rank_icon.png",
+          "activityEndTimestamp": null,
+          "activityEndText": null,
+          "inActivity": false,
+          "newImgUrl": null,
+          "bubbleImgUrl": null,
+          "backgroundImgUrl": null,
+          "activityBgImgUrl": null,
+          "activityNightBgImgUrl": null,
+          "iconImgUrl": null,
+          "defaultText": null
+        },
+        {
+          "title": "签到有礼",
+          "jumpUrl": "https://mall.bilibili.com/robotgirl/?noTitleBar=1&loadingShow=1&msourse=xry",
+          "index": 100002,
+          "type": "yxsn",
+          "position": 5,
+          "tagImg": null,
+          "tags": null,
+          "blockItemVOs": [
+            {
+              "itemId": null,
+              "itemName": "默认商品",
+              "imageUrl": "//i0.hdslb.com/bfs/mall/mall/4f/6c/4f6c7297dc2ceb6ec63325d08907cff4.gif",
+              "tag": "",
+              "jumpUrl": "",
+              "isShowPrice": false,
+              "priceSymbol": null,
+              "priceDesc": null,
+              "priceSymbolImg": null,
+              "benefitInfo": null,
+              "benefitInfos": null,
+              "linePriceDesc": null
+            }
+          ],
+          "icon": "//i0.hdslb.com/bfs/mall/mall/c6/2a/c62a8cee0c9c068bf96d7035f5ecb30e.gif",
+          "activityEndTimestamp": null,
+          "activityEndText": null,
+          "inActivity": false,
+          "newImgUrl": null,
+          "bubbleImgUrl": null,
+          "backgroundImgUrl": null,
+          "activityBgImgUrl": null,
+          "activityNightBgImgUrl": null,
+          "iconImgUrl": null,
+          "defaultText": null
+        }
+      ],
+      "waistBlocks": null,
+      "yxsnBlockVO": null,
+      "simpleBlocks": null,
+      "notice": {
+        "jumpUrl": "https://mall.bilibili.com/blackboard/activity-2VkbxJMvJ2.html?msource=mall_8101_gonggao&spm_id_from=888.62707.b_4d6f7051444a655a524e71.1",
+        "jumpUrlH5": "https://mall.bilibili.com/blackboard/activity-2VkbxJMvJ2.html?msource=mall_8101_gonggao&spm_id_from=888.62707.b_4d6f7051444a655a524e71.1",
+        "title": "CHE手办原型创作大赛",
+        "type": 0
+      },
+      "noticeList": [
+        {
+          "jumpUrl": "https://mall.bilibili.com/blackboard/activity-2VkbxJMvJ2.html?msource=mall_8101_gonggao&spm_id_from=888.62707.b_4d6f7051444a655a524e71.1",
+          "jumpUrlH5": "https://mall.bilibili.com/blackboard/activity-2VkbxJMvJ2.html?msource=mall_8101_gonggao&spm_id_from=888.62707.b_4d6f7051444a655a524e71.1",
+          "title": "CHE手办原型创作大赛",
+          "type": 0
+        },
+        {
+          "jumpUrl": "https://www.bilibili.com/blackboard/mall/activity-pqrsWwCmWt.html?msource=mall_7530_gonggao",
+          "jumpUrlH5": "https://www.bilibili.com/blackboard/mall/activity-pqrsWwCmWt.html?msource=mall_7530_gonggao",
+          "title": "物流公告",
+          "type": 0
+        }
+      ],
+      "feedTabs": [
+        {
+          "feedType": 0,
+          "name": "推荐"
+        },
+        {
+          "feedType": 1,
+          "name": "魔力赏"
+        },
+        {
+          "feedType": 3,
+          "name": "美图"
+        },
+        {
+          "feedType": 6,
+          "name": "抢先看"
+        }
+      ],
+      "feeds": {
+        "pageNum": 1,
+        "total": 12,
+        "count": 12,
+        "feedType": 0,
+        "list": [
+          {
+            "id": "items_10092399",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "SWITCH还是PS5 总有手柄合适你 魔力赏",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/pattern7__1658196948.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/neul/index.html?from=card_item&jumpLinkType=0&page=box_detail&noTitleBar=1#itemsId=10092399"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fneul%2Findex.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26page%3Dbox_detail%26noTitleBar%3D1%23itemsId%3D10092399%26goFrom%3Dna",
+            "price": [
+              10.0,
+              10.0
+            ],
+            "priceDesc": [
+              "10"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0.006378158341363948\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"0\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0.04759819657734289,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/pattern7__1658196948.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10092399,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0.04759819657734289\\\",\\\"ECpm\\\":\\\"4.28383769196086\\\",\\\"ItemRecCate\\\":\\\"mh\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0.006378158341363948\\\",\\\"RecallScore\\\":\\\"0.04759819657734289\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.1914046131109173,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0.04759819657734289,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10092399,
+            "itemType": 0,
+            "saleType": 4,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [
+                "魔王挑战",
+                "免费试玩"
+              ],
+              "saleTypeTagNames": [
+                "魔力赏"
+              ],
+              "typeAndLimitTagName": null,
+              "itemTagNames": [],
+              "recommendTagNames": [],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": null,
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": null,
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 1210,
+            "brief": "",
+            "subStatus": 11,
+            "ipRightId": 0,
+            "brandName": "任天堂",
+            "brandId": 334,
+            "presaleDeliveryTimeStr": "",
+            "itemsType": 0,
+            "subSkuList": [
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/43/5c/435c2c143bbe88d8bfbeec9c7be1de4f.png",
+                "type": 3,
+                "name": "任天堂 国行Joy-Con手柄 左电光红色/右电光蓝色",
+                "subSkuId": 1000037327,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/73/77/73775151f6253e5a7e55cf356b6d9e57.png",
+                "type": 3,
+                "name": "任天堂 国行Joy-Con手柄 左电光粉红色/右电光绿色 ",
+                "subSkuId": 1000037328,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/f1/a8/f1a8723ee3d2ebd3f95c4a148499e3d6.png",
+                "type": 3,
+                "name": "任天堂 国行Joy-Con手柄 左蓝色/右电光黄色",
+                "subSkuId": 1000037329,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/18/53/1853c79c2e286b016c12cabab76308cf.png",
+                "type": 3,
+                "name": "索尼 DualSense 国行PS5手柄 午夜黑",
+                "subSkuId": 1000093461,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/b5/36/b53670563d0e3785c0b069812c10c977.png",
+                "type": 3,
+                "name": "索尼 DualSense 国行PS5手柄 星辰红",
+                "subSkuId": 1000093462,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/62/34/62346960285282c82d4c6196b5291f13.png",
+                "type": 3,
+                "name": "索尼 DualSense 国行PS5手柄 白色",
+                "subSkuId": 1000086529,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/92/0b/920b51b3642c4d2f59ac29f144d85579.png",
+                "type": 2,
+                "name": "奕狐 腾讯start 云游戏手柄",
+                "subSkuId": 1000148533,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/42/13/4213b1a2a05999552c5faece0cb205d8.png",
+                "type": 2,
+                "name": "黑爵 switch pro 蓝牙手柄 蓝红",
+                "subSkuId": 1000092216,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/3b/2c/3b2c3bfdc38b4d05957e475357bd36f9.png",
+                "type": 2,
+                "name": "黑爵 switch pro 蓝牙手柄 黑色",
+                "subSkuId": 1000092217,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/47/be/47be7f11b0dec7b93989f1faaa7a7b0e.png",
+                "type": 0,
+                "name": "FEELALL 记忆入侵 镭射明信片+合影卡 伊米蕾特款",
+                "subSkuId": 1000152069,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/82/ef/82ef70beae04298573852b4f895f0be7.png",
+                "type": 0,
+                "name": "FEELALL 记忆入侵 镭射明信片+合影卡 J款",
+                "subSkuId": 1000152070,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/56/89/5689da7eebbd8a919aa3f6e4fbcb758d.png",
+                "type": 0,
+                "name": "FEELALL 记忆入侵 镭射明信片+合影卡 泽塔款",
+                "subSkuId": 1000152071,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/a5/3c/a53cdc6dd4b687c1950438f15c299324.png",
+                "type": 0,
+                "name": "FEELALL 记忆入侵 镭射明信片+合影卡 南丁格尔款",
+                "subSkuId": 1000152072,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/24/4c/244cb0f512df1ed82ecdef2036bf1f61.png",
+                "type": 0,
+                "name": "FEELALL 记忆入侵 镭射明信片+合影卡 天狼星款",
+                "subSkuId": 1000152073,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/55/76/5576e29dcde5e6a8f9d90c3d3b9b062c.png",
+                "type": 1,
+                "name": "金泰克 T201 闪存盘U盘 32GB 金色",
+                "subSkuId": 1000175824,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/23/31/23316b8be7198f68e9d5902df9fca84f.png",
+                "type": 1,
+                "name": "金泰克 T201 闪存盘U盘 32GB 银色",
+                "subSkuId": 1000175825,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/37/a5/37a5c35d32b4f15430feccbe13728500.png",
+                "type": 1,
+                "name": "金泰克 T201 闪存盘U盘 32GB 灰色",
+                "subSkuId": 1000175826,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              }
+            ],
+            "jumpLinkType": 0,
+            "hasWishedCount": 211,
+            "hasWishedDesc": "211人心愿达成",
+            "canFav": true,
+            "benefitInfos": [
+              {
+                "partOne": "超神款",
+                "partTwo": "价值¥549",
+                "benefitImg": null
+              }
+            ],
+            "benefitLayout": 2
+          },
+          {
+            "id": "items_10114571",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "FuRyu Exceed Creative Re:从零开始的异世界生活 雷姆 小兔女孩ver. 景品手办 附特典",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/kfptfe/floor/547f15c013f31c5cf448cde46fb7331cb645ee48.png",
+              "https://i0.hdslb.com/bfs/mall/mall/74/19/7419c8cdc1aa71d39e5b1afde9425f74.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/91/bf/91bfab1d6bd53d7d5bfe7655cf54dbfc.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/24/3d/243dfba3d2b93700b625eb6a034a3423.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/cb/99/cb99a201df046a9663c30d8fc52296ef.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/ed/c4/edc48254aaea9d2bd1f310a38f68836b.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/37/ca/37ca5ca7e1aa1ff9d6d3f7045013dae2.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/detail.html?from=card_item&jumpLinkType=0&loadingShow=1&noTitleBar=1#goFrom=na&itemsId=10114571&noReffer=true"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fdetail.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26loadingShow%3D1%26noTitleBar%3D1%23goFrom%3Dna%26itemsId%3D10114571%26noReffer%3Dtrue%26goFrom%3Dna",
+            "price": [
+              109.0,
+              109.0
+            ],
+            "priceDesc": [
+              "109"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"1\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/mall/37/ca/37ca5ca7e1aa1ff9d6d3f7045013dae2.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10114571,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0\\\",\\\"ECpm\\\":\\\"0\\\",\\\"ItemRecCate\\\":\\\"jingpinshouban\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0\\\",\\\"RecallScore\\\":\\\"0\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.1530147224326591,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10114571,
+            "itemType": 1,
+            "saleType": 0,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [
+                "欧气宝箱"
+              ],
+              "saleTypeTagNames": null,
+              "typeAndLimitTagName": "预售",
+              "itemTagNames": [],
+              "recommendTagNames": [
+                "Re:从零开始的...榜No.1"
+              ],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": [
+                "预售"
+              ],
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [
+                "上新3天"
+              ],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": [
+                "延期无忧"
+              ],
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 958,
+            "brief": "附特典：明信片",
+            "subStatus": 10,
+            "ipRightId": 0,
+            "brandName": "FuRyu",
+            "brandId": 26,
+            "presaleDeliveryTimeStr": "2023-02",
+            "itemsType": 1,
+            "advState": {
+              "preSale": true,
+              "remain": 2977993,
+              "presaleStartOrderTime": 1662134400,
+              "presaleEndOrderTime": null,
+              "state": null,
+              "batchRecords": null,
+              "depositType": null,
+              "deposit": "0",
+              "maxDeposit": "16.35",
+              "activityDeposit": null,
+              "maxActivityDeposit": null
+            },
+            "subSkuList": [],
+            "jumpLinkType": 0,
+            "canFav": true
+          },
+          {
+            "id": "items_10086704",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "13香不香 iPhone13 来了 魔力赏",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/pattern7__1654671467.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/neul/index.html?from=card_item&jumpLinkType=0&page=box_detail&noTitleBar=1#itemsId=10086704"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fneul%2Findex.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26page%3Dbox_detail%26noTitleBar%3D1%23itemsId%3D10086704%26goFrom%3Dna",
+            "price": [
+              50.0,
+              50.0
+            ],
+            "priceDesc": [
+              "50"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0.0008083079444166627\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"2\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0.006032148838930319,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/pattern7__1654671467.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10086704,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0.006032148838930319\\\",\\\"ECpm\\\":\\\"0.9048223258395478\\\",\\\"ItemRecCate\\\":\\\"mh\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0.0008083079444166627\\\",\\\"RecallScore\\\":\\\"0.006032148838930319\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.2582378356998983,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0.006032148838930319,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10086704,
+            "itemType": 0,
+            "saleType": 4,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [
+                "魔王挑战",
+                "免费试玩"
+              ],
+              "saleTypeTagNames": [
+                "魔力赏"
+              ],
+              "typeAndLimitTagName": null,
+              "itemTagNames": [],
+              "recommendTagNames": [],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": null,
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": null,
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 991,
+            "brief": "",
+            "subStatus": 12,
+            "ipRightId": 0,
+            "brandName": "苹果",
+            "brandId": 347,
+            "presaleDeliveryTimeStr": "",
+            "itemsType": 0,
+            "subSkuList": [
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/03/8b/038b5bde58daac20e07cdf07f1ff6b13.png",
+                "type": 3,
+                "name": "Apple iPhone 13 256GB红色 5G手机",
+                "subSkuId": 1000115942,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/73/71/7371d0a9e0af4ec59b765a540a9fa37c.png",
+                "type": 3,
+                "name": "Apple iPhone 13 256GB粉色 5G手机",
+                "subSkuId": 1000115941,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/44/1b/441b5368580d7632a5493e5adef71461.png",
+                "type": 3,
+                "name": "Apple iPhone 13 256GB蓝色 5G手机",
+                "subSkuId": 1000115940,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d4/50/d4506382379119580f643901de46797f.png",
+                "type": 3,
+                "name": "Apple iPhone 13 256GB午夜色 5G手机",
+                "subSkuId": 1000115939,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/b8/a0/b8a095f2f0a363ba1c321b0f5ea942d2.png",
+                "type": 3,
+                "name": "Apple iPhone 13 256GB星光色 5G手机",
+                "subSkuId": 1000115938,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/93/2b/932b80147a9d87339f13ab86bb9db1e7.png",
+                "type": 3,
+                "name": "Apple iPhone 13 128GB红色 5G手机",
+                "subSkuId": 1000115937,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/ba/a6/baa6303a271b2ff4ef6982717bd79334.png",
+                "type": 3,
+                "name": "Apple iPhone 13 128GB粉色 5G手机",
+                "subSkuId": 1000115936,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/17/97/1797f1fe31ae79eb575fc5157e537c05.png",
+                "type": 3,
+                "name": "Apple iPhone 13 128GB蓝色 5G手机",
+                "subSkuId": 1000115935,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/9f/4d/9f4d51ba80e7923dec85805dea68f0cd.png",
+                "type": 3,
+                "name": "Apple iPhone 13 128GB午夜色 5G手机",
+                "subSkuId": 1000115934,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/c9/43/c94398c90721c30d434f3e26192150e2.png",
+                "type": 3,
+                "name": "Apple iPhone 13 128GB星光色 5G手机",
+                "subSkuId": 1000115933,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/e8/a4/e8a4172833d18e1ba67e3aada9b37f7a.png",
+                "type": 2,
+                "name": "LIBRATONE AIR Color 小鸟真无线耳机 蓝色",
+                "subSkuId": 1000161663,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/c5/30/c53037c4b6079ddc9248761727cbe438.png",
+                "type": 2,
+                "name": "LIBRATONE AIR Color 小鸟真无线耳机 红色",
+                "subSkuId": 1000161664,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/e5/3e/e53ea58acef361fb402ca4afe118fd6a.png",
+                "type": 1,
+                "name": "飞智 G1 壹柄 手游摇杆",
+                "subSkuId": 1000140309,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/f7/d9/f7d9f15c73e085207b91ca341c34e5c7.png",
+                "type": 1,
+                "name": "铂典 TS100 真无线蓝牙耳机 黑色",
+                "subSkuId": 1000162238,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/5d/9f/5d9ff4a4b968a23d0b8d771c07be8129.png",
+                "type": 1,
+                "name": "铂典 TS100 真无线蓝牙耳机 白色",
+                "subSkuId": 1000162237,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/3a/0d/3a0d65610be349132907979e34abcdae.png",
+                "type": 1,
+                "name": "铂典 E79 头戴式蓝牙耳机 黄蓝",
+                "subSkuId": 1000162468,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/12/32/12322c4874d02d8afdc59cfb563a135a.png",
+                "type": 1,
+                "name": "铂典 E79 头戴式蓝牙耳机 黑色 ",
+                "subSkuId": 1000162467,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/2c/f4/2cf4a67ed062b6a6993a606a56261b86.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 A5笔记本（7本装）上官妘珑款",
+                "subSkuId": 1000157712,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/2a/5f/2a5fe0da0fa0b96c0f32ac685e354847.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 A5笔记本（7本装）关梦璃款",
+                "subSkuId": 1000157713,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/bb/ed/bbed092a6f3145bc01b5fb314fff72c3.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆Q版 金属徽章 秦雪涧款",
+                "subSkuId": 1000157808,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d5/ae/d5ae087febdbef79851e7f3cd641752e.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆Q版 金属徽章 秦雪涧款",
+                "subSkuId": 1000157809,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/43/1b/431b91775d004571a9fb24ea16b0ae2a.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 鼠标垫 轩辕落海款",
+                "subSkuId": 1000159302,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/21/03/21031fbb5e326813ec4ad866865dc28f.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 鼠标垫 完颜婷款",
+                "subSkuId": 1000159303,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              }
+            ],
+            "jumpLinkType": 0,
+            "hasWishedCount": 139,
+            "hasWishedDesc": "139人心愿达成",
+            "canFav": true,
+            "benefitInfos": [
+              {
+                "partOne": "超神款",
+                "partTwo": "价值¥6799",
+                "benefitImg": null
+              }
+            ],
+            "benefitLayout": 2
+          },
+          {
+            "id": "peak_1457027",
+            "type": "peak",
+            "tagName": "抢先看",
+            "title": "BNTSH 星之卡比 30周年豪华特辑 一番赏",
+            "templateId": 13,
+            "imageUrls": [
+              "//i0.hdslb.com/bfs/mall/mall/43/01/4301082025441fa03af890be1aa5f148.jpg"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fneul%2Findex.html%3Fpage%3Dfirstlook_detail%26noTitleBar%3D1%26from%3Dhomeqxk%23contentId%3D1457027",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"3\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"\",\"ExpType\":\"\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":0,\\\"LogReRankInfo\\\":null,\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"\\\",\\\"RecallScore\\\":0,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "contentDetailId": 1457027,
+            "contentItemId": 10006402,
+            "informationContent": "<p><img src=\"//i0.hdslb.com/bfs/mall/mall/04/5f/045f0063a0e98b8b0ca639b93e1cfbb2.jpg\"></p>",
+            "bookingCount": 0,
+            "subscribeCount": 149,
+            "commentCount": 1,
+            "informationImgUrl": [
+              "//i0.hdslb.com/bfs/mall/mall/04/5f/045f0063a0e98b8b0ca639b93e1cfbb2.jpg"
+            ],
+            "indexButtons": [
+              {
+                "type": 0,
+                "buttonDesc": "订阅",
+                "action": 1,
+                "method": 1,
+                "url": "https://mall.bilibili.com/mall-c-community/content/wish/add?from=card_contentfeeds&contentDetailId=1457027&mid=0"
+              }
+            ],
+            "subscribed": 0,
+            "booking": 0,
+            "enableSubscribe": 1,
+            "refId": 0,
+            "dynamicForNaList": [
+              false,
+              false,
+              true,
+              false
+            ],
+            "informationCount": 1,
+            "contentCardType": 0
+          },
+          {
+            "id": "items_10086643",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "13香不香 iPhone13 Pro Max来袭 魔力赏",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/pattern7__1654666896.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/neul/index.html?from=card_item&jumpLinkType=0&page=box_detail&noTitleBar=1#itemsId=10086643"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fneul%2Findex.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26page%3Dbox_detail%26noTitleBar%3D1%23itemsId%3D10086643%26goFrom%3Dna",
+            "price": [
+              70.0,
+              70.0
+            ],
+            "priceDesc": [
+              "70"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0.0005400451306601788\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"4\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0.00403018754224014,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/pattern7__1654666896.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10086643,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0.00403018754224014\\\",\\\"ECpm\\\":\\\"0.8463393838704295\\\",\\\"ItemRecCate\\\":\\\"mh\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0.0005400451306601788\\\",\\\"RecallScore\\\":\\\"0.00403018754224014\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.24258625884643434,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0.00403018754224014,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10086643,
+            "itemType": 0,
+            "saleType": 4,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [
+                "魔王挑战",
+                "免费试玩"
+              ],
+              "saleTypeTagNames": [
+                "魔力赏"
+              ],
+              "typeAndLimitTagName": null,
+              "itemTagNames": [],
+              "recommendTagNames": [],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": null,
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": null,
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 1174,
+            "brief": "",
+            "subStatus": 12,
+            "ipRightId": 0,
+            "brandName": "苹果",
+            "brandId": 347,
+            "presaleDeliveryTimeStr": "",
+            "itemsType": 0,
+            "subSkuList": [
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/af/96/af962eb9a028bc2b9ce2a7e0ba1f9109.png",
+                "type": 1,
+                "name": "派美特 Padmate S18 真无线蓝牙耳机 白色",
+                "subSkuId": 1000135650,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/43/0b/430b64ba7f59254fab12bc97ef2ab1c8.png",
+                "type": 1,
+                "name": "派美特 Padmate S18 真无线蓝牙耳机 黑色",
+                "subSkuId": 1000135649,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/99/68/996896f6804d9aea98f8c757f7b6fcf8.png",
+                "type": 1,
+                "name": "派美特 Padmate S30 骨传导耳蓝牙耳机 皓月灰",
+                "subSkuId": 1000135653,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/c2/e7/c2e76b2976978e9cfbb981b9593ef012.png",
+                "type": 1,
+                "name": "派美特 Padmate S30 骨传导耳蓝牙耳机 轻墨绿",
+                "subSkuId": 1000135652,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/59/b5/59b53089d5f5921a8ba8905da09f59e8.png",
+                "type": 1,
+                "name": "派美特 Padmate S30 骨传导耳蓝牙耳机 幻夜黑",
+                "subSkuId": 1000135651,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/48/08/4808a5b1af8f7500b262b03d728000fe.png",
+                "type": 1,
+                "name": " FIIL T1Pro 主动降噪真无线耳机 黑色",
+                "subSkuId": 1000161864,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/69/14/69140bb7d7c1bf333cab0468ea1490ba.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 亚克力收藏画 完颜婷款",
+                "subSkuId": 1000157854,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/54/d9/54d93b9fbc20ec7af317ce11ab127e85.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 亚克力收藏画 轩辕落海款",
+                "subSkuId": 1000157855,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/c5/09/c509e38d03ef81e009791d6ef82b4b4b.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 滴胶摆件 轩辕向雪款",
+                "subSkuId": 1000158313,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/02/a1/02a1715cc60a596f07355860fcb5c4c0.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 滴胶摆件 赢寻春款",
+                "subSkuId": 1000158314,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/fe/dc/fedcc38244d89043e74e6842299b7175.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 徽章摆件 轩辕向雪款",
+                "subSkuId": 1000159306,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/b8/a4/b8a4491be397126eb797406459911da2.png",
+                "type": 0,
+                "name": "FEELALL 拢袖方圆 徽章摆件 赢寻春款",
+                "subSkuId": 1000159307,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d7/ca/d7cac133a5adb76271ae9c6bd3fc1cec.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 128G远峰蓝色 5G手机",
+                "subSkuId": 1000115910,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/88/17/8817e9dad7c61bef713266e6f8bcf91e.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 128G石墨色 5G手机",
+                "subSkuId": 1000115911,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/09/21/0921aeb7a07cfc06e04b19fe567dd474.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 128G银色 5G手机",
+                "subSkuId": 1000115912,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/56/bd/56bdc49f6a685846d3676e018e3e478e.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 128G金色 5G手机",
+                "subSkuId": 1000115913,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d0/f2/d0f26db3ffcab866cbfb8373f9d60b5d.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 256G远峰蓝色 5G手机",
+                "subSkuId": 1000115914,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/42/cc/42ccf5057cf6765af07c68374adffec6.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 256G石墨色 5G手机",
+                "subSkuId": 1000115915,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/9d/b4/9db4fbba46613e216508fee46d6142bc.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 256G银色 5G手机",
+                "subSkuId": 1000115916,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/b2/c2/b2c2e212c20f6f3ad7c9ae90281dbf4a.png",
+                "type": 3,
+                "name": " Apple iPhone 13 Pro Max 256G金色 5G手机",
+                "subSkuId": 1000115917,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/e8/b5/e8b5e84249ac0704dc095ff5225edc7e.png",
+                "type": 2,
+                "name": "LIBRATONE AIR+ 2代 主动降噪 真无线版蓝牙耳机 青黑色",
+                "subSkuId": 1000123640,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/8b/99/8b99076299766fb108c182fd456b7054.png",
+                "type": 2,
+                "name": "Libratone AIR SE主动降噪真无线蓝牙耳机 黑色",
+                "subSkuId": 1000161787,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/8f/30/8f30e498d05cfd65c64e77ce02512488.png",
+                "type": 2,
+                "name": "Libratone AIR SE主动降噪真无线蓝牙耳机 白色",
+                "subSkuId": 1000161788,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              }
+            ],
+            "jumpLinkType": 0,
+            "hasWishedCount": 146,
+            "hasWishedDesc": "146人心愿达成",
+            "canFav": true,
+            "benefitInfos": [
+              {
+                "partOne": "超神款",
+                "partTwo": "价值¥8999",
+                "benefitImg": null
+              }
+            ],
+            "benefitLayout": 2
+          },
+          {
+            "id": "items_10114543",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "GSC VOCALOID 初音未来 15th Anniversary Ver. 手办",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/mall/f2/e5/f2e5086790b6c2345ffee5caa1bd03a2.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/da/b1/dab1325d07392f6c2cec09e1e6c05f42.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/c4/a9/c4a9ce0a27fe6163e1f93969aaa1bd0c.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/6e/94/6e945d9bb66b55e1db34ebb16e950f77.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/f9/ba/f9bac51ebabc008ecb3c9804ad7b76ba.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/ad/02/ad02d16881d5743b80257773492d3e4f.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/detail.html?from=card_item&jumpLinkType=0&loadingShow=1&noTitleBar=1#goFrom=na&itemsId=10114543&noReffer=true"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fdetail.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26loadingShow%3D1%26noTitleBar%3D1%23goFrom%3Dna%26itemsId%3D10114543%26noReffer%3Dtrue%26goFrom%3Dna",
+            "price": [
+              2099.0,
+              2099.0
+            ],
+            "priceDesc": [
+              "2099"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"5\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/mall/ad/02/ad02d16881d5743b80257773492d3e4f.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10114543,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0\\\",\\\"ECpm\\\":\\\"0\\\",\\\"ItemRecCate\\\":\\\"shouban\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0\\\",\\\"RecallScore\\\":\\\"0\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.08934492851091205,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10114543,
+            "itemType": 1,
+            "saleType": 0,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [],
+              "saleTypeTagNames": null,
+              "typeAndLimitTagName": "预售",
+              "itemTagNames": [],
+              "recommendTagNames": [
+                "GSC榜No.1"
+              ],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": [
+                "预售"
+              ],
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [
+                "上新3天"
+              ],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": [
+                "延期无忧"
+              ],
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 1835,
+            "brief": "",
+            "subStatus": 10,
+            "ipRightId": 0,
+            "brandName": "GSC",
+            "brandId": 4,
+            "presaleDeliveryTimeStr": "2024-01",
+            "itemsType": 1,
+            "advState": {
+              "preSale": true,
+              "remain": 3409993,
+              "presaleStartOrderTime": 1661914800,
+              "presaleEndOrderTime": null,
+              "state": null,
+              "batchRecords": null,
+              "depositType": null,
+              "deposit": "0",
+              "maxDeposit": "314.85",
+              "activityDeposit": null,
+              "maxActivityDeposit": null
+            },
+            "subSkuList": [],
+            "jumpLinkType": 0,
+            "canFav": true
+          },
+          {
+            "id": "items_10079132",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "次世代主机 索尼PS5来了vol.1 魔力赏",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/mall/5d/e7/5de77a9cdd09988e5a90df29451fc3e9.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/neul/index.html?from=card_item&jumpLinkType=0&page=box_detail&noTitleBar=1#itemsId=10079132"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fneul%2Findex.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26page%3Dbox_detail%26noTitleBar%3D1%23itemsId%3D10079132%26goFrom%3Dna",
+            "price": [
+              45.0,
+              45.0
+            ],
+            "priceDesc": [
+              "45"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0.00037640484086614185\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"6\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0.002808991349747327,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/mall/5d/e7/5de77a9cdd09988e5a90df29451fc3e9.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10079132,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0.002808991349747327\\\",\\\"ECpm\\\":\\\"0.3792138322158891\\\",\\\"ItemRecCate\\\":\\\"mh\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0.00037640484086614185\\\",\\\"RecallScore\\\":\\\"0.002808991349747327\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.17309458971848307,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0.002808991349747327,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10079132,
+            "itemType": 0,
+            "saleType": 4,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [
+                "魔王挑战",
+                "免费试玩"
+              ],
+              "saleTypeTagNames": [
+                "魔力赏"
+              ],
+              "typeAndLimitTagName": null,
+              "itemTagNames": [],
+              "recommendTagNames": [],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": null,
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": null,
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 1503,
+            "brief": "",
+            "subStatus": 12,
+            "ipRightId": 0,
+            "brandName": "索尼",
+            "brandId": 340,
+            "presaleDeliveryTimeStr": "",
+            "itemsType": 0,
+            "subSkuList": [
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/ad/62/ad6234df8e34d5224bf6abb617af5dfd.png",
+                "type": 1,
+                "name": "漫步者 声迈X3黑色 游戏耳机",
+                "subSkuId": 1000094857,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/af/94/af9407bd4510bdb5617470dd47c8f44e.png",
+                "type": 1,
+                "name": "雷蛇 蝰蛇标准版2021鼠标 白色",
+                "subSkuId": 1000125428,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/e5/3e/e53ea58acef361fb402ca4afe118fd6a.png",
+                "type": 1,
+                "name": "飞智 G1 壹柄 手游摇杆",
+                "subSkuId": 1000140309,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/77/7a/777a4e27239d42b3e9b2fc1b0495016c.png",
+                "type": 1,
+                "name": "黑爵 308i熊猫灰 游戏键盘",
+                "subSkuId": 1000084454,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/b9/46/b94687f9ff47776ca97de6e232982e2e.png",
+                "type": 3,
+                "name": "索尼 PS5国行光驱版 游戏主机",
+                "subSkuId": 1000086525,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/62/34/62346960285282c82d4c6196b5291f13.png",
+                "type": 2,
+                "name": "索尼 国行PS5 DualSense手柄 白色",
+                "subSkuId": 1000086529,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/45/27/45275d720dae4dde0ed7bbfbc51c7ab4.png",
+                "type": 2,
+                "name": "索尼 国行PS5 PULSE 3D游戏耳机 黑色",
+                "subSkuId": 1000120295,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/c8/76/c876a34a39f7fb9ca6c4cd6e07083f3e.png",
+                "type": 2,
+                "name": "索尼 国行PS5 PULSE 3D游戏耳机 白色",
+                "subSkuId": 1000086528,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/b5/36/b53670563d0e3785c0b069812c10c977.png",
+                "type": 2,
+                "name": "索尼 国行PS5 DualSense手柄 星辰红",
+                "subSkuId": 1000093462,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/18/53/1853c79c2e286b016c12cabab76308cf.png",
+                "type": 2,
+                "name": "索尼 国行PS5 DualSense手柄 午夜黑",
+                "subSkuId": 1000093461,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/a1/6f/a16fbe1299750b3a9b59c87bda798b10.png",
+                "type": 0,
+                "name": "终末之日 亚克力立牌 玛卡里亚",
+                "subSkuId": 1000148043,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/9e/18/9e18ef5c46286107f0b2536cb494849c.png",
+                "type": 0,
+                "name": "终末之日 亚克力立牌 洛拉莱",
+                "subSkuId": 1000148042,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/75/31/75316d12e7741c500957e9cf37261398.png",
+                "type": 0,
+                "name": "终末之日 亚克力立牌 萝塔 ",
+                "subSkuId": 1000148041,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/86/92/8692b627c55c1f4cd7a2c14ebcb62e56.png",
+                "type": 0,
+                "name": "终末之日 亚克力立牌 赫萝薇尔 ",
+                "subSkuId": 1000148040,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/f8/74/f874e74aeb6e83bba6e93fa85bf06856.png",
+                "type": 0,
+                "name": "终末之日 亚克力立牌 艾瓦 ",
+                "subSkuId": 1000148039,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              }
+            ],
+            "jumpLinkType": 0,
+            "hasWishedCount": 192,
+            "hasWishedDesc": "192人心愿达成",
+            "canFav": true,
+            "benefitInfos": [
+              {
+                "partOne": "超神款",
+                "partTwo": "价值¥4299",
+                "benefitImg": null
+              }
+            ],
+            "benefitLayout": 2
+          },
+          {
+            "id": "items_10114539",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "F:NEX VOCALOID 初音未来 真夏花火Ver. 手办 独家特典版",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/mall/aa/7e/aa7e53a7f847d98a90c9bc5a43e6d717.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/0c/86/0c86d74aab3b2a43969d3ec42913d900.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/2d/69/2d6973b653add88602bf6a22748084c4.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/4a/4c/4a4c5949ce8d4f5c909fd69ceb6c72aa.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/1a/6e/1a6e8962a3822f53f21cdb75c32c8d20.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/94/81/9481ede79e7dc38f5351ccdcc99d5a00.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/detail.html?from=card_item&jumpLinkType=0&loadingShow=1&noTitleBar=1#goFrom=na&itemsId=10114539&noReffer=true"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fdetail.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26loadingShow%3D1%26noTitleBar%3D1%23goFrom%3Dna%26itemsId%3D10114539%26noReffer%3Dtrue%26goFrom%3Dna",
+            "price": [
+              1399.0,
+              1399.0
+            ],
+            "priceDesc": [
+              "1399"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"7\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/mall/94/81/9481ede79e7dc38f5351ccdcc99d5a00.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10114539,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0\\\",\\\"ECpm\\\":\\\"0\\\",\\\"ItemRecCate\\\":\\\"shouban\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0\\\",\\\"RecallScore\\\":\\\"0\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.10165173667264263,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10114539,
+            "itemType": 1,
+            "saleType": 0,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [],
+              "saleTypeTagNames": null,
+              "typeAndLimitTagName": "预售",
+              "itemTagNames": [],
+              "recommendTagNames": [
+                " F:NEX榜No.1"
+              ],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": [
+                "预售"
+              ],
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [
+                "上新4天"
+              ],
+              "exclusiveSalePoints": [
+                "//i0.hdslb.com/bfs/mall/mall/29/d3/29d32051b56e06a7307bddc88102ac69.png"
+              ],
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": [
+                "延期无忧"
+              ],
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 3305,
+            "brief": "附独家特典：背景板",
+            "subStatus": 11,
+            "ipRightId": 0,
+            "brandName": " F:NEX",
+            "brandId": 139,
+            "presaleDeliveryTimeStr": "2023-09",
+            "itemsType": 1,
+            "advState": {
+              "preSale": true,
+              "remain": 6433993,
+              "presaleStartOrderTime": 1661947200,
+              "presaleEndOrderTime": null,
+              "state": null,
+              "batchRecords": null,
+              "depositType": null,
+              "deposit": "0",
+              "maxDeposit": "209.85",
+              "activityDeposit": null,
+              "maxActivityDeposit": null
+            },
+            "subSkuList": [],
+            "jumpLinkType": 0,
+            "canFav": true
+          },
+          {
+            "id": "items_10111852",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "新海诚 《言叶之庭：官方分镜画集》平装版 绘本",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/mall/1b/bd/1bbd0f9d6fc0f036cfd8afb5118ac81a.jpg",
+              "https://i0.hdslb.com/bfs/mall/vendor/ed/fa/edfacc58f02602f571bffcbafb1ea15f.png",
+              "https://i0.hdslb.com/bfs/mall/vendor/f8/c4/f8c4253c770c7b6c35482d88ad6e2a58.jpg",
+              "https://i0.hdslb.com/bfs/mall/vendor/df/df/dfdf8208d116f80634b6cfab20e02595.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/64/78/647864028ea7bd05dd30ed6540ff2b48.jpg"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/detail.html?from=card_item&jumpLinkType=0&loadingShow=1&noTitleBar=1#goFrom=na&itemsId=10111852&noReffer=true"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fdetail.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26loadingShow%3D1%26noTitleBar%3D1%23goFrom%3Dna%26itemsId%3D10111852%26noReffer%3Dtrue%26goFrom%3Dna",
+            "price": [
+              36.5,
+              36.5
+            ],
+            "priceDesc": [
+              "36.5"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999998;\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"8\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0.014428669384778672,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/vendor/ed/fa/edfacc58f02602f571bffcbafb1ea15f.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10111852,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0.014428669384778672\\\",\\\"ECpm\\\":\\\"0.5266464325444216\\\",\\\"ItemRecCate\\\":\\\"publication\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0\\\",\\\"RecallScore\\\":\\\"0.014428669384778672\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.12396007809088591,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999998;\\\",\\\"RecallScore\\\":0.014428669384778672,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10111852,
+            "itemType": 1,
+            "saleType": 0,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [],
+              "saleTypeTagNames": null,
+              "typeAndLimitTagName": "预售",
+              "itemTagNames": [],
+              "recommendTagNames": [
+                "磨铁图书榜No.1"
+              ],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": [
+                "预售"
+              ],
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": null,
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 1638,
+            "brief": "全彩分镜首度完整呈现！随书附赠定制明信片*2",
+            "subStatus": 11,
+            "ipRightId": 0,
+            "brandName": "磨铁图书",
+            "brandId": 413,
+            "presaleDeliveryTimeStr": "2022-09",
+            "itemsType": 1,
+            "advState": {
+              "preSale": true,
+              "remain": 2373193,
+              "presaleStartOrderTime": 1660111200,
+              "presaleEndOrderTime": null,
+              "state": null,
+              "batchRecords": null,
+              "depositType": null,
+              "deposit": "0",
+              "maxDeposit": "5.47",
+              "activityDeposit": null,
+              "maxActivityDeposit": null
+            },
+            "subSkuList": [],
+            "jumpLinkType": 0,
+            "canFav": true
+          },
+          {
+            "id": "items_10114789",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "每日限定9.2 红蓝对决！MB异端是超神！SSR魔力赏",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/mall/b1/e8/b1e8ab2b69e98b0039fb8b15d4d4962b.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/neul/index.html?from=card_item&jumpLinkType=0&page=box_detail&noTitleBar=1#itemsId=10114789"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fneul%2Findex.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26page%3Dbox_detail%26noTitleBar%3D1%23itemsId%3D10114789%26goFrom%3Dna",
+            "price": [
+              35.0,
+              35.0
+            ],
+            "priceDesc": [
+              "35"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"9\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/mall/b1/e8/b1e8ab2b69e98b0039fb8b15d4d4962b.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10114789,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0\\\",\\\"ECpm\\\":\\\"0\\\",\\\"ItemRecCate\\\":\\\"mh\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0\\\",\\\"RecallScore\\\":\\\"0\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.08483303391120793,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10114789,
+            "itemType": 3,
+            "saleType": 4,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [
+                "魔王挑战",
+                "免费试玩"
+              ],
+              "saleTypeTagNames": [
+                "魔力赏"
+              ],
+              "typeAndLimitTagName": "预售",
+              "itemTagNames": [],
+              "recommendTagNames": [],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": [
+                "预售"
+              ],
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [
+                "上新1天"
+              ],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": null,
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 0,
+            "brief": "9.2上新，售完为止！",
+            "subStatus": 10,
+            "tagPrefix": [
+              "[全款预售]"
+            ],
+            "ipRightId": 0,
+            "brandName": "万代",
+            "brandId": 1,
+            "presaleDeliveryTimeStr": "",
+            "itemsType": 3,
+            "subSkuList": [
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/a4/d0/a4d0e100ba5905c747344330b279c4a8.png",
+                "type": 3,
+                "name": "万代 ENSEMBLE EX35 高达TR-6 [QUEENLY] FULL-ARMOR形态 成品模型",
+                "subSkuId": 1000169414,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/f7/71/f7718970ad62257de3cef11590cfd358.png",
+                "type": 3,
+                "name": "万代 FIX GFFMC MS-06F 多安专用扎古 魂限定 成品模型",
+                "subSkuId": 1000165511,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/ed/4b/ed4b1b2a5e09013f0c15434dad68cbcd.png",
+                "type": 3,
+                "name": "千值练 RIOBOT 天元突破 红莲螺岩 成品模型",
+                "subSkuId": 1000149438,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/87/24/87246c6c050a171092d5259f08a6ce44.png",
+                "type": 3,
+                "name": "万代 异端高达红色机改 强袭Ver. 成品模型",
+                "subSkuId": 1000192130,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/cb/bf/cbbf941f1153ecab3778a20346c33a8e.png",
+                "type": 3,
+                "name": "万代 空战型强袭高达 成品模型",
+                "subSkuId": 1000192133,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/bf/ec/bfec2d80e481c3cb7fe309b8a9a5388d.png",
+                "type": 3,
+                "name": "万代 异端高达蓝色机二型R 成品模型",
+                "subSkuId": 1000192138,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/2f/6b/2f6b90b878ddd771d22b5e4f3467e7a9.png",
+                "type": 2,
+                "name": "万代 HiRM 神高达 拼装模型",
+                "subSkuId": 1000023438,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/8c/4b/8c4be6cbd5ea8b46fe7d57dd469c612d.png",
+                "type": 2,
+                "name": "万代 ROBOT魂 RX-93ff ν高达 福冈拉拉宝都限定 拼装模型【机动战士高达 逆袭的夏亚】",
+                "subSkuId": 1000170923,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/28/90/28905ec69f563d2e37bd65a995acf0e1.png",
+                "type": 2,
+                "name": "万代 MG 闪电装备型强袭高达 Ver.RM PB限定 拼装模型【机动战士高达SEED】",
+                "subSkuId": 1000171666,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/fe/77/fe77037414c87a2b6cd40383dc6f2bbb.png",
+                "type": 2,
+                "name": "万代 MG EX脉冲高达 拼装模型 PB限定",
+                "subSkuId": 1000170179,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/73/56/7356f6ce7edbc878c0f2564519910421.png",
+                "type": 2,
+                "name": "万代 MG 巴巴托斯高达 玄武镇海Ver. 中国限定 拼装模型",
+                "subSkuId": 1000160139,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/92/96/92961b26cd9a690dcc392f308dba6501.png",
+                "type": 2,
+                "name": "万代 MG 沙扎比 Ver.Ka 拼装模型",
+                "subSkuId": 1000061954,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/ec/e0/ece015dbd3ad9e2a5b2fd930c2951c16.png",
+                "type": 2,
+                "name": "万代 奇美拉驱动器 成品模型",
+                "subSkuId": 1000179824,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/1b/4d/1b4d590b5509d28d614d592a08d55000.png",
+                "type": 2,
+                "name": "万代 MG Hi-ν高达Ver.Ka 拼装模型",
+                "subSkuId": 1000061880,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/bd/d2/bdd2128cc6859c50d45688d233376b78.png",
+                "type": 2,
+                "name": "万代 R魂 高达GP02A Ver.A.N.I.M.E 成品模型",
+                "subSkuId": 1000015698,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/2c/a9/2ca9f99d30ad2c3a2acb8191fe5910d1.png",
+                "type": 2,
+                "name": "万代 FW 高达大集结 EX15 NZ-999 新吉恩号+感应环套装 食玩（无糖版）",
+                "subSkuId": 1000169365,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/9e/9f/9e9f92c625e383d162de8425499dcd8d.png",
+                "type": 2,
+                "name": "万代 HG 猎犬 盖茨卡帕专用机 PB限定 拼装模型",
+                "subSkuId": 1000129335,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/30/98/30989fc1c339b41db11e74ac836ea4b0.png",
+                "type": 2,
+                "name": "万代 EVA-FRAME 新世纪福音战士 初号机&13号机&盖乌斯之枪配件包 无糖版 食玩",
+                "subSkuId": 1000169415,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/7e/4e/7e4e6797ba541c80d29c5f8c62deeaf0.png",
+                "type": 2,
+                "name": "万代 S.H.Figuarts 利布特奥特曼 成品模型",
+                "subSkuId": 1000157432,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/47/fa/47fa663e7c86ffed1df557f049f18e87.png",
+                "type": 2,
+                "name": "万代 Figure-rise Standard Amplified 数码宝贝 帝皇龙甲兽 圣骑士形态 拼装模型",
+                "subSkuId": 1000126778,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/96/33/96338a3aa16cc8e957130658f1ad8086.png",
+                "type": 2,
+                "name": "万代 RG 勇者王 拼装模型",
+                "subSkuId": 1000149713,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/f5/33/f533030c0a14340d2ed5b03b7440028a.png",
+                "type": 2,
+                "name": "万代 HG RX-78-02高达 拼装模型 PB限定 【库库鲁斯·多安的岛】",
+                "subSkuId": 1000170186,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/54/d4/54d48f620893969e1aa02f82863710a2.png",
+                "type": 2,
+                "name": "万代 HG 机甲战记龙骑 龙骑1号机 Rifter1装备型 PB限定 拼装模型",
+                "subSkuId": 1000145566,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/9c/4e/9c4e1111a08b98bb0f427c63cbbc800f.png",
+                "type": 2,
+                "name": "万代 HG RX-78-2 高达 超越全球 彩色透明版 拼装模型",
+                "subSkuId": 1000153899,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/9c/9e/9c9e51d59112c1612be89e5330034ff3.png",
+                "type": 2,
+                "name": "万代 MG 德尔塔PLUS 拼装模型【机动战士高达UC】",
+                "subSkuId": 1000187713,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d1/79/d1795263d62b0d2ffd92741c3305e5d8.png",
+                "type": 2,
+                "name": "万代 蝙蝠车 the蝙蝠侠Ver. 拼装模型",
+                "subSkuId": 1000148339,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/bf/36/bf36a55d1f4b09d94237961a3aaa2820.png",
+                "type": 2,
+                "name": "万代 ROBOT魂 强袭高达 ver. A.N.I.M.E. 成品模型【机动战士高达SEED】",
+                "subSkuId": 1000175925,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/4c/7e/4c7ec0c8905a37f5d487eec8879a3b25.png",
+                "type": 2,
+                "name": "万代 RG 独角兽高达 bilibili十周年 Ver.限定版 拼装模型",
+                "subSkuId": 1000022813,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/30/c7/30c7ff795fb46a0f25bdb32c74c3c37e.png",
+                "type": 2,
+                "name": "万代 HG 1/72 SAKUGAN BIG TONY 拼装模型",
+                "subSkuId": 1000123341,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/27/43/2743d38ffc5ee09ab52ab16e1de87834.png",
+                "type": 2,
+                "name": "万代 Figure-rise Standard Amplified 数码宝贝 别西卜兽 拼装模型",
+                "subSkuId": 1000126906,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/25/8a/258a0ee6d48bc5c3deb2976f0923e6f9.png",
+                "type": 2,
+                "name": "万代 Figure-rise Standard Amplified 数码宝贝 阿尔法兽 拼装模型",
+                "subSkuId": 1000149712,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/af/e5/afe59d8ce39a569a6857c7958c193984.png",
+                "type": 2,
+                "name": "万代 RG 神高达 拼装模型",
+                "subSkuId": 1000187710,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/ad/ae/adaecc6010fb4c3e9c2679fb21331ede.png",
+                "type": 2,
+                "name": "万代 Figure rise Standard 赛罗奥特曼 拼装模型",
+                "subSkuId": 1000175129,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/f43003feb2b1a8df888187e6b279d8e30594c02e.png",
+                "type": 2,
+                "name": "万代 G-FRAME FA 京宝梵原型机 成品模型 PB限定",
+                "subSkuId": 1000157220,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/8b/bb/8bbba607837596c9543cd4183350652f.png",
+                "type": 2,
+                "name": "万代 HG 杜安专用扎古 拼装模型 PB限定 【库库鲁斯·多安的岛】",
+                "subSkuId": 1000170183,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/09/db/09db214d623d44698b68a9243bdb34d5.png",
+                "type": 2,
+                "name": "万代 DX 特利迦奥特曼 闪耀光剑 成品模型",
+                "subSkuId": 1000119144,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/69/20/69200fba2329f03cf163b107073923b6.png",
+                "type": 2,
+                "name": "BNTSH 机械极动 初号机 成品模型",
+                "subSkuId": 1000151521,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/vendor/4d/5e/4d5edbdb09cb9f55b74d3247cccfed4a.png",
+                "type": 2,
+                "name": "奥迪双钻 A-TYPE1/100先锋凯能 拼装模型",
+                "subSkuId": 1000160772,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/c7/f6/c7f68834386c264a0923739bf0d85b60.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）收快递啦款",
+                "subSkuId": 1000147246,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/07/5a/075a65024712e363cff8c415f6863a35.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）抄作业中款",
+                "subSkuId": 1000147247,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/2e/79/2e79a1504694d4a28341808c9f5ee540.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）点心时间款",
+                "subSkuId": 1000147248,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/3f/53/3f53525a257fed5228e0f19525b560f3.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）休息一下款",
+                "subSkuId": 1000147249,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/ec/9a/ec9a02bfb57ac7be80b276434a746a99.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）生日快乐款",
+                "subSkuId": 1000147250,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d8/81/d881a48e1005ad9f35fec0b125fe4b92.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）该睡觉了款",
+                "subSkuId": 1000147251,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/b8/87/b887414305f44ea71d975d627f5bbcfe.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）认真打扫款",
+                "subSkuId": 1000147252,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/d7/0f/d70fabd795d255ad2f1c48133312a3b1.png",
+                "type": 0,
+                "name": "BEMOE MUZIK TIGER B5笔记本（3本）冲浪冲浪款",
+                "subSkuId": 1000147253,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/10/ba/10ba280f9e59175351c5d7f579ebfe56.png",
+                "type": 2,
+                "name": "青岛社 哥斯拉VS福音战士 三式机龙 EVA初号机配色Ver. 拼装模型",
+                "subSkuId": 1000080569,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/a7/f9/a7f9e726a3c20d72d5a8c1a7c4b3be5c.png",
+                "type": 2,
+                "name": "万代 DX 特利迦奥特曼 Premium 光荣的奥特兄弟 密钥套装 PB限定 成品模型",
+                "subSkuId": 1000171813,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              },
+              {
+                "imageUrl": "//i0.hdslb.com/bfs/mall/mall/4d/4c/4d4c8c75364967cb98e34fba663fbdc9.png",
+                "type": 2,
+                "name": "万代 MG 真武者顽驮无 战国之阵 黑衣大铠 PB限定 拼装模型",
+                "subSkuId": 1000143776,
+                "saleStatus": null,
+                "wishedSku": false,
+                "itemsType": null,
+                "presaleDeliveryTimeStr": null,
+                "whiteListSku": null,
+                "subSkuPrice": null,
+                "subSkuItemsId": null,
+                "url": null
+              }
+            ],
+            "jumpLinkType": 0,
+            "hasWishedCount": 2,
+            "hasWishedDesc": "2人心愿达成",
+            "canFav": true,
+            "benefitInfos": [
+              {
+                "partOne": "超神款红莲螺岩，",
+                "partTwo": "价值¥1685",
+                "benefitImg": null
+              }
+            ],
+            "benefitLayout": 2
+          },
+          {
+            "id": "items_10111737",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "《莉可丽丝 Ordinary days》 平装 日文轻小说",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/vendor/d5/0f/d50faff8a427c1b42b5d3921b0e5bbd2.jpg",
+              "https://i0.hdslb.com/bfs/mall/vendor/07/54/07547a73a2ebdefcd5eb49c7bb01f074.png",
+              "https://i0.hdslb.com/bfs/mall/vendor/7b/c8/7bc8d5e98277bbec47c4c5d5d315e67f.jpg"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/detail.html?from=card_item&jumpLinkType=0&loadingShow=1&noTitleBar=1#goFrom=na&itemsId=10111737&noReffer=true"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fdetail.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26loadingShow%3D1%26noTitleBar%3D1%23goFrom%3Dna%26itemsId%3D10111737%26noReffer%3Dtrue%26goFrom%3Dna",
+            "price": [
+              59.0,
+              59.0
+            ],
+            "priceDesc": [
+              "59"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"10\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0.007596909235979701,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/vendor/07/54/07547a73a2ebdefcd5eb49c7bb01f074.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10111737,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0.007596909235979701\\\",\\\"ECpm\\\":\\\"0.44821764492280236\\\",\\\"ItemRecCate\\\":\\\"publication\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0\\\",\\\"RecallScore\\\":\\\"0.007596909235979701\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.1366237113482652,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0.007596909235979701,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10111737,
+            "itemType": 1,
+            "saleType": 0,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [],
+              "saleTypeTagNames": null,
+              "typeAndLimitTagName": "预售",
+              "itemTagNames": [],
+              "recommendTagNames": [
+                "国外引进轻小...榜No.1"
+              ],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": [
+                "预售"
+              ],
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": null,
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 6756,
+            "brief": "",
+            "subStatus": 11,
+            "ipRightId": 0,
+            "brandName": "花狸文化",
+            "brandId": 847,
+            "presaleDeliveryTimeStr": "2022-11-30",
+            "itemsType": 1,
+            "advState": {
+              "preSale": true,
+              "remain": 7470853,
+              "presaleStartOrderTime": 1659974400,
+              "presaleEndOrderTime": null,
+              "state": null,
+              "batchRecords": null,
+              "depositType": null,
+              "deposit": "0",
+              "maxDeposit": "8.85",
+              "activityDeposit": null,
+              "maxActivityDeposit": null
+            },
+            "subSkuList": [],
+            "jumpLinkType": 0,
+            "canFav": true
+          },
+          {
+            "id": "items_10114563",
+            "type": "mallitems",
+            "tagName": "商品",
+            "title": "擎苍 VOCALOID 初音未来 荷塘嬉戏 Q版手办 附特典",
+            "templateId": 4,
+            "imageUrls": [
+              "https://i0.hdslb.com/bfs/mall/mall/f8/ba/f8ba1ec0e4a5525d48c407afd1e3e8c7.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/6c/14/6c1431f20580abc54bf3e03a4d764215.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/7b/d5/7bd53eaa49d55705282977b4572e5909.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/c2/90/c290ba713645371d9dd1453bb0113c09.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/98/a3/98a3254aa0e688c62b611cd2965892d0.jpg",
+              "https://i0.hdslb.com/bfs/mall/mall/16/e1/16e1528bebe64eed8d5444b9ebdc4530.png"
+            ],
+            "jumpUrls": [
+              "https://mall.bilibili.com/detail.html?from=card_item&jumpLinkType=0&loadingShow=1&noTitleBar=1#goFrom=na&itemsId=10114563&noReffer=true"
+            ],
+            "jumpUrlForNa": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fdetail.html%3Ffrom%3Dcard_item%26jumpLinkType%3D0%26loadingShow%3D1%26noTitleBar%3D1%23goFrom%3Dna%26itemsId%3D10114563%26noReffer%3Dtrue%26goFrom%3Dna",
+            "price": [
+              199.0,
+              199.0
+            ],
+            "priceDesc": [
+              "199"
+            ],
+            "priceSymbol": "¥",
+            "hasWished": 0,
+            "logData": "{\"SourceID\":\"99999999;\",\"Score\":\"0\",\"CtrScore\":\"0\",\"CvrScore\":\"0\",\"CtrModelName\":\"\",\"CvrModelName\":\"\",\"Index\":\"11\",\"ExtHotRecallSize\":0,\"SortScore\":0,\"CartScore\":\"0\",\"CartModelName\":\"\",\"RecommendCtime\":1662180347,\"TraceId\":\"f1a2b936e6839c6b98b8337f7f6312db:77f1d1ce006340b0:dfdc00aba96312db:1\",\"RequeueInfo\":\"{\\\"RecallQueueName\\\":\\\"\\\",\\\"FusionInfos\\\":{\\\"FusionQueueId\\\":0,\\\"FusionQueueScore\\\":0,\\\"FusionQueueLength\\\":0,\\\"FusionRKSumScore\\\":0}}\",\"RecallScore\":0,\"HotScore\":0,\"AbTag\":\"g7\",\"CoverUrl\":\"https://i0.hdslb.com/bfs/mall/mall/16/e1/16e1528bebe64eed8d5444b9ebdc4530.png\",\"ExpType\":\"FF\",\"PlanId\":\"\",\"FlowDeliveryPlanId\":0,\"ActivityFlag\":\"0\",\"CtrScoreFix\":\"0\",\"CvrScoreFix\":\"0\",\"ScoreFix\":\"0\",\"ECpmFix\":\"0\",\"CtrModelMinorVer\":\"\",\"CvrModelMinorVer\":\"\",\"CartModelMinorVer\":\"\",\"CalibType\":\"0\",\"UserType\":\"0\",\"CandiInfo\":\"{\\\"ItemId\\\":10114563,\\\"LogReRankInfo\\\":{\\\"CtrScore\\\":\\\"0\\\",\\\"CvrScore\\\":\\\"0\\\",\\\"ECpm\\\":\\\"0\\\",\\\"ItemRecCate\\\":\\\"shouban\\\",\\\"PidU\\\":\\\"0\\\",\\\"RankScore\\\":\\\"0\\\",\\\"RecallScore\\\":\\\"0\\\",\\\"UserMhPrefer\\\":\\\"0\\\"},\\\"LogUpRankInfo\\\":{\\\"ModelInfo\\\":null,\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogPreRankInfo\\\":{\\\"ModelInfo\\\":{\\\"ctr\\\":{\\\"Name\\\":\\\"lightRank\\\",\\\"Version\\\":\\\"0.0.1\\\",\\\"Score\\\":0.09659982588436972,\\\"CalibScore\\\":0,\\\"ExtInfo\\\":null}},\\\"ModelFusion\\\":{\\\"RankScore\\\":0,\\\"Ecpm\\\":0,\\\"SmoothPrice\\\":0,\\\"ExtInfo\\\":null}},\\\"LogRecallInfo\\\":{\\\"SourceId\\\":\\\"99999999;\\\",\\\"RecallScore\\\":0,\\\"RecHotScore\\\":0,\\\"HitInfo\\\":null,\\\"ExploreMark\\\":null,\\\"RequestInfo\\\":null,\\\"ExtInfo\\\":null}}\",\"UserScene\":\"home\",\"CustomExpTag\":{\"recTag\":\"g1\"},\"HasVideo\":0,\"SceneFrom\":\"\"}",
+            "activityCount": 0,
+            "phoneSystem": 0,
+            "itemsId": 10114563,
+            "itemType": 1,
+            "saleType": 0,
+            "ugcList": [],
+            "tags": {
+              "promotionTagNames": [],
+              "marketingTagNames": [],
+              "saleTypeTagNames": null,
+              "typeAndLimitTagName": "预售",
+              "itemTagNames": [],
+              "recommendTagNames": [
+                "Q版手办榜No.1"
+              ],
+              "feedBoardTag": null,
+              "blindBoxHideTypeNames": null,
+              "blindBoxHasWishNames": null,
+              "titleTagNames": [
+                "预售"
+              ],
+              "tagsSort": [
+                "adTagNames",
+                "promotionTagNames",
+                "marketingTagNames",
+                "recommendTagNames",
+                "otherSalePoints",
+                "saleTypeTagNames",
+                "attributeTagNames",
+                "serviceTagNames"
+              ],
+              "adTagNames": null,
+              "godlikeTag": null,
+              "attributeTagNames": [
+                "上新3天"
+              ],
+              "exclusiveSalePoints": null,
+              "otherSalePoints": null,
+              "blindBoxEuroNames": null,
+              "blindBoxCommendTags": null,
+              "serviceTagNames": [
+                "延期无忧"
+              ],
+              "drainageTags": null,
+              "actionTags": null,
+              "actThereMaterial": null
+            },
+            "ugcSize": 0,
+            "like": 1773,
+            "brief": "附特典：徽章*1、透卡*1、纸卡*1",
+            "subStatus": 11,
+            "ipRightId": 0,
+            "brandName": "擎苍",
+            "brandId": 209,
+            "presaleDeliveryTimeStr": "2023-04",
+            "itemsType": 1,
+            "advState": {
+              "preSale": true,
+              "remain": 3669193,
+              "presaleStartOrderTime": 1662120000,
+              "presaleEndOrderTime": null,
+              "state": null,
+              "batchRecords": null,
+              "depositType": null,
+              "deposit": "0",
+              "maxDeposit": "29.85",
+              "activityDeposit": null,
+              "maxActivityDeposit": null
+            },
+            "subSkuList": [],
+            "jumpLinkType": 0,
+            "canFav": true
+          }
+        ]
+      },
+      "entryList": [
+        {
+          "imgUrl": "//i0.hdslb.com/bfs/mall/mall/06/c5/06c5b6a5e87a54c62c77a922a3a347ec.png",
+          "nightImgUrl": "//i0.hdslb.com/bfs/mall/mall/06/c5/06c5b6a5e87a54c62c77a922a3a347ec.png",
+          "jumpUrl": "https://mall.bilibili.com/box/store.html?noTitleBar=1&from=homepage",
+          "title": ""
+        },
+        {
+          "imgUrl": "//i0.hdslb.com/bfs/mall/mall/2b/21/2b210e304077fa07a977189315838f2d.png",
+          "nightImgUrl": "//i0.hdslb.com/bfs/mall/mall/ce/cb/cecb131fe00482cc51324df4fec8b7db.png",
+          "jumpUrl": "https://mall.bilibili.com/cart.html?from=mall_home_cart&noTitleBar=1",
+          "title": "",
+          "tips": "-1",
+          "tipsType": 1
+        },
+        {
+          "imgUrl": "//i0.hdslb.com/bfs/mall/mall/00/a3/00a3a87bf3452ef7b0aba3515338d20d.png",
+          "nightImgUrl": "//i0.hdslb.com/bfs/mall/mall/61/c1/61c1bcd9fea32ffe2702f9395ef9d055.png",
+          "jumpUrl": "bilibili://mall/mine?from=mall_home_mine",
+          "title": ""
+        }
+      ],
+      "timestamp": 1662180347211,
+      "searchUrl": {
+        "title": "一番赏",
+        "titleList": [
+          "魔力赏返100万魔晶"
+        ],
+        "titleVoList": [
+          {
+            "title": "魔力赏返100万魔晶",
+            "postId": "8128"
+          }
+        ],
+        "urlTicketSearch": "https://show.bilibili.com/m/platform/search.html?searchValue=param&noTitleBar=1",
+        "urlMallSearch": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Flist.html%3FgoFrom%3Dna%26from%3Dmall_home_search%26noTitleBar%3D1%26keyword%3Dparam",
+        "urlMallAndTicketSearch": "bilibili://mall/web?url=https%3A%2F%2Fmall.bilibili.com%2Fneul-next%2Findex.html%3Fpage%3Dflow_searchResult%26keyword%3Dparam%26noTitleBar%3D1%26from%3Dmall_home_search",
+        "isSearchV2": 1,
+        "timestamp": null
+      },
+      "videoVO": {
+        "videoName": null,
+        "videoTime": null,
+        "jumpUrl": null,
+        "intervalTime": null,
+        "configId": null,
+        "modName": null,
+        "departmentName": null,
+        "videoWidth": null,
+        "videoHeight": null,
+        "startTime": null,
+        "endTime": null,
+        "suffix": null,
+        "imgUrl": null
+      },
+      "mixTabs": null,
+      "categoryTabs": null,
+      "pageLayout": 1,
+      "blockPageLayout": null,
+      "tabLayout": 1,
+      "slogan": "官方直营 · 正品保障",
+      "categoryTabVO": {
+        "name": "全部分类",
+        "jumpUrl": "https://mall.bilibili.com/category.html?noTitleBar=1&from=homepage_category",
+        "jumpUrlH5": "https://mall.bilibili.com/category.html?noTitleBar=1&from=homepage_category",
+        "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/e905c6c7abd38f62243f9ac4db3701699ab19468.png",
+        "nightImageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/a1ea595229a486ac882bed015a2f3e201c87cd63.png",
+        "index": 10,
+        "cateId": "2020"
+      },
+      "homeLayoutVO": {
+        "yxsnBubble": 1,
+        "blockBenefitStyle": 1,
+        "feedsFeedbackLayout": 0,
+        "ipCategoryLayout": 1,
+        "feedsNegFeedbackLayout": 0,
+        "waistStyle": 0,
+        "categoryScroll": null,
+        "floorV2Style": 0,
+        "categoryV2Layout": null
+      },
+      "pageTemplate": null,
+      "marketingList": [
+        {
+          "id": 8127,
+          "contentType": 1,
+          "modPoolName": "mall",
+          "modName": "bigshot_loading_prod_8127",
+          "fileName": "vane5cb4039e0fc548dc894a7b310775fef1.svga",
+          "name": "A+-魔力赏-220902-魔力赏周周返-老客",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/vane5cb4039e0fc548dc894a7b310775fef1.svga",
+          "jumpUrl": "https://mall.bilibili.com/act/aicms/wjVANbY5sy.html?msource=mall_8127_tk&from=zzf_hdmd",
+          "interval": 259200000,
+          "targetUser": 0,
+          "type": 0,
+          "linkId": 8125,
+          "linkIdList": [
+            8123,
+            8124,
+            8125
+          ],
+          "relatedType": 1,
+          "blockType": null,
+          "reportData": {
+            "creativeVersion": "",
+            "postcore": 15,
+            "postsub": 0,
+            "creativeId": 0
+          },
+          "extraData": null
+        },
+        {
+          "id": 8118,
+          "contentType": 0,
+          "modPoolName": "mall",
+          "modName": "bigshot_loading_prod_8118",
+          "fileName": "vane92709bb95dda46a7b417dd26849f9390.png",
+          "name": "A-手办-220903-手办周常活动",
+          "imageUrl": "//i0.hdslb.com/bfs/kfptfe/floor/vane92709bb95dda46a7b417dd26849f9390.png",
+          "jumpUrl": "https://mall.bilibili.com/act/aicms/APaKAOIbk_.html?msource=mall_8118_tk",
+          "interval": 259200000,
+          "targetUser": 0,
+          "type": 0,
+          "linkId": 8114,
+          "linkIdList": [
+            8114,
+            8113
+          ],
+          "relatedType": 1,
+          "blockType": null,
+          "reportData": {
+            "creativeVersion": "1662016842711",
+            "postcore": 15,
+            "postsub": 0,
+            "creativeId": 6103
+          },
+          "extraData": null
+        }
+      ],
+      "floating": null
+    }
+  },
+  "errtag": 0
+}
