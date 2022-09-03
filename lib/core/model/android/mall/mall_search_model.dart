@@ -471,7 +471,7 @@ class ListElement {
   List<String>? priceDesc;
   String? priceSymbol;
   int hasWished;
-  String logData;
+  String? logData;
   int activityCount;
   int phoneSystem;
   int? itemsId;

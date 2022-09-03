@@ -52,7 +52,8 @@ class MallLogic extends GetxController {
     }
   }
 
-  ///加载更多的蕾姆
+  ///加载更多的手办
+  ///网络请求需要加上cookie，否则每次请求的数据是一样的
   void loadingAndroidMallData() {
     state.page++;
     Map<String, dynamic> params = {
@@ -81,6 +82,7 @@ class MallLogic extends GetxController {
     params.addEntries(signEntry.entries);
     HYMallRequest.fetchAndroidMoreMallData(params).then((value) {
       state.total += state.total;
+      print(value.list[0].title);
       state.vo.feeds.list.addAll(value.list);
       update();
     });

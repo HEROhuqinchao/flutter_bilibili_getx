@@ -99,4 +99,5 @@ class ImageAssets {
   static String schedulePNG = "assets/image/icon/schedule.png";
   static String locationPNG = "assets/image/icon/location.png";
   static String arPNG = "assets/image/icon/ar.png";
+  static String heartPNG = "assets/image/icon/heart.png";
 }

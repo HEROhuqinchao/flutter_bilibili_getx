@@ -63,7 +63,7 @@ class MallScreen extends StatelessWidget {
       },
       child: Scaffold(
         body: EasyRefresh(
-          onLoad: () async{
+          onLoad: () async {
             logic.loadingAndroidMallData();
           },
           child: CustomScrollView(
@@ -798,43 +798,58 @@ class MallScreen extends StatelessWidget {
                         ),
                       ),
                       10.verticalSpace,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          item.priceDesc != null ? Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "￥",
-                                  style: TextStyle(
-                                    color: HYAppTheme.norMainThemeColors,
-                                    fontSize: 14.sp,
-                                    fontFamily: 'bilibiliFonts',
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: item.priceDesc![0],
-                                  style: TextStyle(
-                                    color: HYAppTheme.norMainThemeColors,
-                                    fontSize: 18.sp,
-                                    fontFamily: 'bilibiliFonts',
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ) : Container(),
-                          Text(
-                            "${item.like}人想要",
-                            style: TextStyle(
-                              color: HYAppTheme.norGrayColor,
-                              fontSize: 12.sp,
-                              fontFamily: 'bilibiliFonts',
-                              fontWeight: FontWeight.normal,
-                            ),
-                          )
-                        ],
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 3.r),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            item.priceDesc != null
+                                ? Text.rich(
+                                    TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: "￥",
+                                          style: TextStyle(
+                                            color: HYAppTheme.norMainThemeColors,
+                                            fontSize: 14.sp,
+                                            fontFamily: 'bilibiliFonts',
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: item.priceDesc![0],
+                                          style: TextStyle(
+                                            color: HYAppTheme.norMainThemeColors,
+                                            fontSize: 18.sp,
+                                            fontFamily: 'bilibiliFonts',
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                : Container(),
+                            item.like != null
+                                ? Text.rich(TextSpan(children: [
+                                    WidgetSpan(
+                                        child: Image.asset(
+                                      ImageAssets.heartPNG,
+                                      width: 14.sp,
+                                      height: 14.sp,
+                                    )),
+                                    TextSpan(
+                                      text: " ${item.like}",
+                                      style: TextStyle(
+                                        color: HYAppTheme.norGrayColor,
+                                        fontSize: 12.sp,
+                                        fontFamily: 'bilibiliFonts',
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                    )
+                                  ]))
+                                : Container()
+                          ],
+                        ),
                       )
                     ],
                   ),

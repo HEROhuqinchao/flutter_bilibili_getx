@@ -26,6 +26,7 @@ class HttpBaseRequest {
     HttpHeaders.acceptHeader: 'application/json,*/*',
     HttpHeaders.contentTypeHeader: 'application/json',
     HttpHeaders.userAgentHeader: ua,
+    HttpHeaders.cookieHeader: 'buvid3=E69A3DAC-8BAD-9D84-8187-B8C7E334EAEE17988infoc'
   };
 
   ///请求xml数据
