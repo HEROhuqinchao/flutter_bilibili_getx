@@ -62,6 +62,7 @@ class MallScreen extends StatelessWidget {
       child: Scaffold(
         body: EasyRefresh(
           onLoad: () async {
+            ///下拉加载
             logic.loadingAndroidMallData();
           },
           child: CustomScrollView(
@@ -398,33 +399,36 @@ class MallScreen extends StatelessWidget {
   Widget buildAndroidMallViewSliverListItem02() {
     List<Widget> children = [];
     for (var item in state.vo.tabs) {
-      Widget child = Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.network(
-            "http://${item.imageUrl.substring(2)}",
-            width: 40.sp,
-            height: 40.sp,
-          ),
-          2.verticalSpace,
-          Text(
-            item.name,
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: HYAppTheme.norTextColors,
-              fontWeight: FontWeight.normal,
-              fontFamily: 'bilibiliFonts',
+      Widget child = Container(
+        padding: EdgeInsets.symmetric(horizontal: 15.r),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.network(
+              "http://${item.imageUrl.substring(2)}",
+              width: 40.w,
+              height: 40.w,
             ),
-          )
-        ],
+            2.verticalSpace,
+            Text(
+              item.name,
+              style: TextStyle(
+                fontSize: 12.sp,
+                color: HYAppTheme.norTextColors,
+                fontWeight: FontWeight.normal,
+                fontFamily: 'bilibiliFonts',
+              ),
+            )
+          ],
+        ),
       );
       children.add(child);
     }
     return Container(
-      padding: EdgeInsets.only(bottom: 10.r),
-      width: 1.sw,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      padding: EdgeInsets.symmetric(horizontal: 10.r),
+      height: 70.w,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
         children: children,
       ),
     );
