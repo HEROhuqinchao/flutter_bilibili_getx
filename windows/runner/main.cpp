@@ -26,7 +26,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
 
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
-  Win32Window::Size size(455, 910);
+  Win32Window::Size size(1135, 950);
   if (!window.CreateAndShow(L"bilibili_getx", origin, size)) {
     return EXIT_FAILURE;
   }
