@@ -9,3 +9,5 @@ protoc --dart_out=. XXX.proto
 
 proto文件转为desc数据
 protoc -I=./ --descriptor_set_out=./playeronline.desc ./playeronline.proto
+
+目前无法解决grpc（2022.9.6），只有视频弹幕dm.proto可以....

@@ -14,7 +14,7 @@ class Constant {
     "search": "http://s.search.bilibili.com",
     "login": "https://passport.bilibili.com",
     "mall": "https://mall.bilibili.com",
-    "mall-web": "https://show.bilibili.com"
+    "mall-web": "https://show.bilibili.com",
   };
 
   ///网页端设置代理,处理跨域问题
