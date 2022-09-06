@@ -18,6 +18,7 @@ const int localPort05 = 8005;
 const int localPort06 = 8006;
 const int localPort07 = 8007;
 const int localPort08 = 8008;
+const int localPort09 = 8009;
 
 Future main() async {
   var server01 = await shelf_io.serve(
@@ -81,6 +82,9 @@ Future main() async {
     LocalHost,
     localPort08,
   );
+  server08.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
+  server08.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
+
   server08.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server08.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 

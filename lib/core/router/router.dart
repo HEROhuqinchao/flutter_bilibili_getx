@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/ui/pages/chat/chat_view.dart';
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_binding.dart';
@@ -99,6 +100,11 @@ class AsRouter {
     ///视频播放界面
     GetPage(
         name: MallScreen.routeName,
+        page: () => MallScreen(),
+        binding: MallBinding()),
+    ///视频播放界面
+    GetPage(
+        name: ChatScreen.routeName,
         page: () => MallScreen(),
         binding: MallBinding()),
   ];

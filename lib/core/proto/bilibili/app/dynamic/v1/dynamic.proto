@@ -2,9 +2,20 @@ syntax = "proto3";
 
 package bilibili.app.dynamic.v1;
 
-import "bilibili/app/archive/middleware/v1/preload.proto";
+// 视频秒开参数
+message PlayerArgs {
+  // 清晰度
+  int64 qn = 1;
+  // 流版本
+  int64 fnver = 2;
+  // 流类型
+  int64 fnval = 3;
+  // 返回url是否强制使用域名
+  // 0:不强制使用域名 1:http域名 2:https域名
+  int64 force_host = 4;
+}
 
-// v1动态
+// v1动态Red
 service Dynamic {
   // 动态视频页
   rpc DynVideo (DynVideoReq) returns (DynVideoReqReply);
@@ -435,7 +446,7 @@ message DynOurCityReq {
   // 魔镜设置
   ExpConf exp_conf = 14;
   // 秒开参数
-  bilibili.app.archive.middleware.v1.PlayerArgs player_args = 15;
+  PlayerArgs player_args = 15;
   // 城市码
   int64 city_code = 16;
   // 构建时间
@@ -1250,7 +1261,7 @@ message SVideoReq {
   // 热门进入联播页的锚点aid
   int64 focus_aid = 12;
   // 秒开参数
-  bilibili.app.archive.middleware.v1.PlayerArgs player_args = 13;
+  PlayerArgs player_args = 13;
 }
 
 // 计数内容

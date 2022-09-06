@@ -6,6 +6,7 @@ import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
@@ -23,16 +24,27 @@ Size windowsScreenSize = const Size(1080, 1920);
 Size webScreenSize = const Size(360, 690);
 
 void main() async{
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  ///实例化sharedPreference;初始化屏幕适配
+  await ScreenUtil.ensureScreenSize();
+  await SharedPreferenceUtil.getInstance();
+  await initialization();
+  runApp(
+    ///视频播放界面有使用到Provider，在此处注册它
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => PlayerNotifier.init()),
+      ],
+      child: const MyApp(),
+    ),
+  );
+}
+
+///初始化
+Future<void> initialization() async {
   if (!kIsWeb) {
     if (Platform.isAndroid) {
-      WidgetsFlutterBinding.ensureInitialized();
-
-      ///实例化sharedPreference
-      await SharedPreferenceUtil.getInstance();
-
-      ///初始化屏幕适配
-      await ScreenUtil.ensureScreenSize();
-
       ///手机状态栏的背景颜色及状态栏文字颜色
       SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
@@ -44,34 +56,8 @@ void main() async{
         ),
       );
     } else if (Platform.isWindows) {
-      ///实例化sharedPreference
-      SharedPreferenceUtil.getInstance();
-
-      ///初始化屏幕适配
-      ScreenUtil.ensureScreenSize();
-    } else if (Platform.isIOS) {
-      ///实例化sharedPreference
-      SharedPreferenceUtil.getInstance();
-
-      ///初始化屏幕适配
-      ScreenUtil.ensureScreenSize();
-    }
-  } else {
-    ///实例化sharedPreference
-    SharedPreferenceUtil.getInstance();
-
-    ///初始化屏幕适配
-    ScreenUtil.ensureScreenSize();
-  }
-  runApp(
-    ///视频播放界面有使用到Provider，在此处注册它
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (ctx) => PlayerNotifier.init()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+    } else if (Platform.isIOS) {}
+  } else {}
 }
 
 class MyApp extends StatelessWidget {
@@ -91,6 +77,8 @@ class MyApp extends StatelessWidget {
           SharedPreferenceUtil.setString(
               BilibiliSharedPreference.locale, ui.window.locale.languageCode);
         }
+        ///移除闪屏
+        FlutterNativeSplash.remove();
         return GetMaterialApp(
           ///去掉右上角的debug
           debugShowCheckedModeBanner: false,

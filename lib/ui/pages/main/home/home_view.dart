@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bilibili_getx/ui/pages/chat/chat_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/search/search_view.dart';
@@ -112,13 +113,19 @@ class HomeScreen extends StatelessWidget {
             height: 18.sp,
           )),
       5.horizontalSpace,
-      IconButton(
+      GestureDetector(
+        onTap: () {
+          Get.toNamed(ChatScreen.routeName);
+        },
+        child: IconButton(
           onPressed: () => print("more"),
           icon: Image.asset(
             ImageAssets.mailCustomPNG,
             width: 18.sp,
             height: 18.sp,
-          )),
+          ),
+        ),
+      ),
       5.horizontalSpace,
     ];
   }
