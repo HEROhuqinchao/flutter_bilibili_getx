@@ -63,6 +63,11 @@ class LiveLogic extends GetxController {
     });
   }
 
+  void selectLabelAndFetchData(int index){
+    state.selectedNumber = index;
+    update();
+  }
+
   ///初始化Windows数据
   void initWindowsLiveAppInterfaceV2IndexFeedData() {}
 }
