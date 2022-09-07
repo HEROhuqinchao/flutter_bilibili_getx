@@ -70,12 +70,12 @@ class LiveLogic extends GetxController {
     });
   }
 
-  // ///选择标签
-  // void selectLabelAndFetchData(int index) {
-  //   liveState.liveTabBarHeightY = renderObjectY(liveState.liveTabBarGlobalKey)!;
-  //   liveState.scrollController.jumpTo(liveState.liveTabBarHeightY);
-  //   update();
-  // }
+  ///选择标签
+  void selectLabelAndFetchData(int index) {
+    liveState.liveTabBarHeightY = renderObjectY(liveState.liveTabBarGlobalKey)!;
+    liveState.customScrollViewScrollController.jumpTo(100.w);
+    update();
+  }
 
   ///初始化Windows数据
   void initWindowsLiveAppInterfaceV2IndexFeedData() {}

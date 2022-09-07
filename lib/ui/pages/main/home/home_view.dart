@@ -34,7 +34,6 @@ class HomeScreen extends StatelessWidget {
           headerSliverBuilder: (ctx, innerBoxIsScrolled) {
             return buildHeaderSliverBuilder();
           },
-
           ///tabBarView
           body: buildHomeTabBarView(),
         ),

@@ -1,6 +1,6 @@
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
-import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -58,15 +58,12 @@ class _RecommendScreenState extends State<RecommendScreen>
         return EasyRefresh(
           controller: state.easyRefreshController,
           scrollController: state.easyRefreshScrollController,
-          // header: BilibiliClassicalHeader(
-          //   enableHapticFeedback: false,
-          //   float: true,
-          // ),
-          footer: ClassicFooter(
-            showText: false,
-            processingText: SR.loading.tr,
-            showMessage: false,
-            succeededIcon: Container(),
+          header: BilibiliClassicalHeader(
+            enableHapticFeedback: false,
+            float: true,
+          ),
+          footer: ClassicalFooter(
+            showInfo: false,
           ),
           onRefresh: () async {
             logic.refreshRecommendItemData();

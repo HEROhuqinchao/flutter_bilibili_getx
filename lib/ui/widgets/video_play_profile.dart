@@ -1,6 +1,6 @@
 import 'package:bilibili_getx/ui/widgets/video_play_related_video_item.dart';
-import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/model/feed_index_model.dart';

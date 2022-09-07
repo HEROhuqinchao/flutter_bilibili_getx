@@ -2,11 +2,10 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
 import 'package:get/get.dart';
 
@@ -65,9 +64,8 @@ class LiveScreenState extends State<LiveScreen>
 
   ///初始化Android界面
   Widget initAndroidLiveView() {
-    ///能否被移除刷新
-    List<bool> canRemove = [];
-    List<Widget> children = [];
+    DragStartDetails? dragStartDetails;
+    Drag drag;
     for (var item in state.cardList) {
       if (item.cardType == "banner_v1") {
         state.cardDataBannerV1 = item.cardData;
@@ -86,7 +84,9 @@ class LiveScreenState extends State<LiveScreen>
     return Padding(
       padding: EdgeInsets.all(4.r),
       child: CustomScrollView(
+        controller: state.customScrollViewScrollController,
         shrinkWrap: true,
+        physics: const ClampingScrollPhysics(),
         slivers: [
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -178,7 +178,7 @@ class LiveScreenState extends State<LiveScreen>
               width: .87.sw,
               child: TabBar(
                 onTap: (index) {
-                  // logic.selectLabelAndFetchData(index);
+                  logic.selectLabelAndFetchData(index);
                 },
                 indicatorColor: Colors.transparent,
                 unselectedLabelColor: HYAppTheme.norGrayColor,
