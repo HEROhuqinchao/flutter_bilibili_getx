@@ -19,12 +19,6 @@ class RecommendLogic extends GetxController {
   final RecommendState state = RecommendState();
 
   @override
-  void onInit() {
-    fetchFeedIndexData();
-    super.onInit();
-  }
-
-  @override
   void onReady() {
     fetchFeedIndexData();
     super.onReady();

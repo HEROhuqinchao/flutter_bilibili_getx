@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
@@ -15,10 +16,12 @@ import '../../../../core/service/utils/constant.dart';
 import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../../core/shared_preferences/shared_preference_util.dart';
 import '../../../shared/app_theme.dart';
+import '../../../shared/global_key_util.dart';
 import '../../../shared/image_asset.dart';
 import '../../../shared/params_sign.dart';
 import '../../../widgets/bilibili_scroll.dart';
 import 'home_state.dart';
+import 'home_view.dart';
 
 class HomeLogic extends GetxController {
   final HomeState state = HomeState();
@@ -39,6 +42,9 @@ class HomeLogic extends GetxController {
     if (state.tempTeenagerMode == false && state.tempUserAgreement == true) {
       showTeenagerModeDialog();
     }
+    Future.delayed(Duration(seconds: 1), () {
+      initHomeSliverAppBarHeightY();
+    });
     super.onReady();
   }
 
@@ -323,5 +329,9 @@ class HomeLogic extends GetxController {
       state.userLogo = value.data.face;
       update();
     });
+  }
+
+  ///获取SliverAppBar的位置
+  void initHomeSliverAppBarHeightY() {
   }
 }

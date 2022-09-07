@@ -148,6 +148,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.0.6"
+  easy_refresh:
+    dependency: "direct main"
+    description:
+      name: easy_refresh
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.4+2"
   encrypt:
     dependency: "direct main"
     description:
@@ -188,13 +195,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_easyrefresh:
-    dependency: "direct main"
-    description:
-      name: flutter_easyrefresh
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.2.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -338,6 +338,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.8.1"
+  path_drawing:
+    dependency: transitive
+    description:
+      name: path_drawing
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
+  path_parsing:
+    dependency: transitive
+    description:
+      name: path_parsing
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   path_provider:
     dependency: "direct main"
     description:

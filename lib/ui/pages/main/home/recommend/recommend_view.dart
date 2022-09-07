@@ -1,6 +1,6 @@
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -16,12 +16,15 @@ class RecommendScreen extends StatefulWidget {
   State<RecommendScreen> createState() => _RecommendScreenState();
 }
 
-class _RecommendScreenState extends State<RecommendScreen> {
+class _RecommendScreenState extends State<RecommendScreen>
+    with AutomaticKeepAliveClientMixin {
   final logic = Get.find<RecommendLogic>();
   final state = Get.find<RecommendLogic>().state;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     ///未加载出数据时显示
     return GetBuilder<RecommendLogic>(builder: (logic) {
       if (state.feedIndexItemList.isEmpty) {
@@ -55,12 +58,16 @@ class _RecommendScreenState extends State<RecommendScreen> {
         return EasyRefresh(
           controller: state.easyRefreshController,
           scrollController: state.easyRefreshScrollController,
-          header: BilibiliClassicalHeader(
-            enableHapticFeedback: false,
-            float: true,
+          // header: BilibiliClassicalHeader(
+          //   enableHapticFeedback: false,
+          //   float: true,
+          // ),
+          footer: ClassicFooter(
+            showText: false,
+            processingText: SR.loading.tr,
+            showMessage: false,
+            succeededIcon: Container(),
           ),
-          footer: ClassicalFooter(
-              enableHapticFeedback: false, loadedText: SR.loading.tr),
           onRefresh: () async {
             logic.refreshRecommendItemData();
           },
@@ -68,14 +75,18 @@ class _RecommendScreenState extends State<RecommendScreen> {
             logic.loadRecommendItemData();
           },
           child: Padding(
-            padding:
-                const EdgeInsets.only(left: 6, right: 6, top: 4, bottom: 0).r,
-            child: Column(
-              children: state.homeRecommendWidgets,
-            ),
-          ),
+              padding:
+                  const EdgeInsets.only(left: 6, right: 6, top: 4, bottom: 0).r,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: state.homeRecommendWidgets,
+                ),
+              )),
         );
       }
     });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

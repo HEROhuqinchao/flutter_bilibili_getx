@@ -32,40 +32,7 @@ class HomeScreen extends StatelessWidget {
         initialIndex: 1,
         child: NestedScrollView(
           headerSliverBuilder: (ctx, innerBoxIsScrolled) {
-            return [
-              SliverAppBar(
-                toolbarHeight: 0.08.sh,
-
-                leading: null,
-
-                ///搜索和用户头像
-                title: buildHomeUserIconAndSearch(),
-
-                ///右侧工具栏
-                actions: buildHomeActions(),
-
-                ///向上滑动无需停留顶部
-                pinned: false,
-
-                floating: false,
-                snap: false,
-                backgroundColor: Colors.white,
-              ),
-              SliverAppBar(
-                ///设置高度
-                toolbarHeight: 0.07.sh,
-
-                ///tabBar
-                title: buildHomeTabBar(),
-
-                ///向上滑动需停留顶部
-                pinned: true,
-
-                floating: true,
-                snap: true,
-                backgroundColor: Colors.white,
-              ),
-            ];
+            return buildHeaderSliverBuilder();
           },
 
           ///tabBarView
@@ -73,6 +40,43 @@ class HomeScreen extends StatelessWidget {
         ),
       );
     });
+  }
+
+  List<Widget> buildHeaderSliverBuilder() {
+    return [
+      SliverAppBar(
+        toolbarHeight: 0.08.sh,
+
+        leading: null,
+
+        ///搜索和用户头像
+        title: buildHomeUserIconAndSearch(),
+
+        ///右侧工具栏
+        actions: buildHomeActions(),
+
+        ///向上滑动无需停留顶部
+        pinned: false,
+
+        floating: false,
+        snap: false,
+        backgroundColor: Colors.white,
+      ),
+      SliverAppBar(
+        ///设置高度
+        toolbarHeight: 0.07.sh,
+
+        ///tabBar
+        title: buildHomeTabBar(),
+
+        ///向上滑动需停留顶部
+        pinned: true,
+
+        floating: false,
+        snap: false,
+        backgroundColor: Colors.white,
+      ),
+    ];
   }
 
   ///用户头像和搜索
@@ -94,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.r)),
               child: Container(
                   padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
-                  child: Image.asset(ImageAssets.searchCustomPNG)),
+                  child: Image.asset(ImageAssets.searchCustomPNG, width: 15.sp,height: 15.sp,)),
             ),
           ),
         ),
@@ -185,12 +189,11 @@ class HomeScreen extends StatelessWidget {
       } else if (i == 1) {
         ///推荐
         child = RecommendScreen();
-      } else if (i == 2) {
-        ///热门
-        child = Container();
-      } else {
+      } else if (i == 3)  {
         ///动画
         child = ComicScreen();
+      } else {
+        child = Container();
       }
       widgets.add(child);
     }
