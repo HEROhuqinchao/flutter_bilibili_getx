@@ -83,44 +83,47 @@ class LiveScreenState extends State<LiveScreen>
     }
     return Padding(
       padding: EdgeInsets.all(4.r),
-      child: CustomScrollView(
-        controller: state.customScrollViewScrollController,
-        shrinkWrap: true,
-        physics: const ClampingScrollPhysics(),
-        slivers: [
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-                  (ctx, index) {
-                if (index == 0) {
-                  return buildBannerV1(state.cardDataBannerV1);
-                } else if (index == 1) {
-                  return buildAreaEntranceV3(state.cardDataAreaEntranceV3);
-                } else if (index == 2) {
-                  // return buildActivityCardV1(state.cardDataActivityCardV1);
-                } else {
-                  return Container();
-                }
-              },
-              childCount: 3,
-            ),
-          ),
-          SliverGrid(
-            delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                  return buildSmallCardV1(
-                    state.cardDataSmallCardV1[index],
-                  );
+      child: NotificationListener(
+        // onNotification: (notification),
+        child: CustomScrollView(
+          controller: state.customScrollViewScrollController,
+          shrinkWrap: true,
+          physics: const ClampingScrollPhysics(),
+          slivers: [
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                    (ctx, index) {
+                  if (index == 0) {
+                    return buildBannerV1(state.cardDataBannerV1);
+                  } else if (index == 1) {
+                    return buildAreaEntranceV3(state.cardDataAreaEntranceV3);
+                  } else if (index == 2) {
+                    // return buildActivityCardV1(state.cardDataActivityCardV1);
+                  } else {
+                    return Container();
+                  }
                 },
-                childCount: state.cardDataSmallCardV1.length
+                childCount: 3,
+              ),
             ),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 6.r,
-                crossAxisSpacing: 6.r,
-                mainAxisExtent: 140.w
-            ),
-          )
-        ],
+            SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                    return buildSmallCardV1(
+                      state.cardDataSmallCardV1[index],
+                    );
+                  },
+                  childCount: state.cardDataSmallCardV1.length
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 6.r,
+                  crossAxisSpacing: 6.r,
+                  mainAxisExtent: 140.w
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

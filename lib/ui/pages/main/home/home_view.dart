@@ -14,6 +14,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
 import '../../../shared/image_asset.dart';
+import '../../../widgets/bilibili_nested_scrollView.dart';
 import '../../../widgets/rectangle_checkBox.dart';
 import 'home_logic.dart';
 import 'live/live_view.dart';
@@ -30,7 +31,7 @@ class HomeScreen extends StatelessWidget {
       return DefaultTabController(
         length: 7,
         initialIndex: 1,
-        child: NestedScrollView(
+        child: BilibiliNestedScrollView(
           headerSliverBuilder: (ctx, innerBoxIsScrolled) {
             return buildHeaderSliverBuilder();
           },

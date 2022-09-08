@@ -66,6 +66,7 @@ class MallScreen extends StatelessWidget {
             logic.loadingAndroidMallData();
           },
           child: CustomScrollView(
+            physics: const ClampingScrollPhysics(),
             controller: ScrollController(),
             slivers: [
               SliverAppBar(
