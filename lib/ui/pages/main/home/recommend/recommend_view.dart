@@ -74,10 +74,9 @@ class _RecommendScreenState extends State<RecommendScreen>
           child: Padding(
               padding:
                   const EdgeInsets.only(left: 6, right: 6, top: 4, bottom: 0).r,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: state.homeRecommendWidgets,
-                ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: state.homeRecommendWidgets,
               )),
         );
       }

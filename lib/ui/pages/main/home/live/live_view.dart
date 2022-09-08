@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
@@ -24,6 +25,7 @@ class LiveScreenState extends State<LiveScreen>
     with AutomaticKeepAliveClientMixin  {
   final logic = Get.find<LiveLogic>();
   final state = Get.find<LiveLogic>().liveState;
+  final homeState = Get.find<HomeLogic>().state;
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +66,6 @@ class LiveScreenState extends State<LiveScreen>
 
   ///初始化Android界面
   Widget initAndroidLiveView() {
-    DragStartDetails? dragStartDetails;
-    Drag drag;
     for (var item in state.cardList) {
       if (item.cardType == "banner_v1") {
         state.cardDataBannerV1 = item.cardData;
@@ -84,7 +84,15 @@ class LiveScreenState extends State<LiveScreen>
     return Padding(
       padding: EdgeInsets.all(4.r),
       child: NotificationListener(
-        // onNotification: (notification),
+        onNotification: (ScrollNotification notification) {
+          // if(notification.metrics.pixels == notification.metrics.minScrollExtent - 10.w) {
+          //   logic.expandHeader();
+          // }
+          // if(notification is ScrollStartNotification) {
+          //   logic.expandHeader();
+          // }
+          return true;
+        },
         child: CustomScrollView(
           controller: state.customScrollViewScrollController,
           shrinkWrap: true,
@@ -98,6 +106,7 @@ class LiveScreenState extends State<LiveScreen>
                   } else if (index == 1) {
                     return buildAreaEntranceV3(state.cardDataAreaEntranceV3);
                   } else if (index == 2) {
+                    return Container();
                     // return buildActivityCardV1(state.cardDataActivityCardV1);
                   } else {
                     return Container();
@@ -133,10 +142,10 @@ class LiveScreenState extends State<LiveScreen>
     return Container(
       color: HYAppTheme.norWhite01Color,
       padding: EdgeInsets.symmetric(vertical: 5.r),
-      height: 100.w,
+      height: state.headerHeight,
       width: 1.sw,
       child: Swiper(
-        autoplay: true,
+        autoplay: state.isAutoPlay,
         pagination: SwiperPagination(
           margin: EdgeInsets.only(bottom: 3.r, right: 3.r),
           alignment: Alignment.bottomRight,
@@ -163,14 +172,14 @@ class LiveScreenState extends State<LiveScreen>
 
   ///导航栏
   Widget buildAreaEntranceV3(CardData cardData) {
-    List<Tab> tabs = [Tab(text: '推荐')];
+    List<Tab> tabs = [const Tab(text: '推荐')];
     for (var item in cardData.areaEntranceV3!.list) {
       tabs.add(Tab(
         text: item.title,
       ));
     }
     return DefaultTabController(
-      key: state.liveTabBarGlobalKey,
+      // key: state.liveTabBarGlobalKey,
       length: tabs.length,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.r),

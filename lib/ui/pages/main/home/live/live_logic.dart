@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:bilibili_getx/ui/pages/main/home/home_state.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,10 +11,12 @@ import '../../../../../core/service/request/live_room_list_request.dart';
 import '../../../../../core/service/utils/constant.dart';
 import '../../../../shared/global_key_util.dart';
 import '../../../../shared/params_sign.dart';
+import '../../../../widgets/bilibili_nested_scrollView.dart';
 import 'live_state.dart';
 
 class LiveLogic extends GetxController {
   final LiveState liveState = LiveState();
+  final HomeState homeState = HomeState();
 
   @override
   void onReady() {
@@ -72,9 +75,22 @@ class LiveLogic extends GetxController {
 
   ///选择标签
   void selectLabelAndFetchData(int index) {
-    liveState.liveTabBarHeightY = renderObjectY(liveState.liveTabBarGlobalKey)!;
+    // liveState.liveTabBarHeightY = renderObjectY(liveState.liveTabBarGlobalKey)!;
     liveState.customScrollViewScrollController.jumpTo(100.w);
-    update();
+    // if(liveState.headerHeight != 0) {
+    //   liveState.headerHeight = 0;
+    //   liveState.isAutoPlay = false;
+    //   update();
+    // }
+  }
+
+  ///展开头部的广告
+  void expandHeader() {
+    if(liveState.headerHeight != 100.w) {
+      liveState.headerHeight = 100.w;
+      liveState.isAutoPlay = true;
+      update();
+    }
   }
 
   ///初始化Windows数据

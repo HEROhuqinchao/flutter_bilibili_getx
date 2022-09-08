@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../../core/shared_preferences/shared_preference_util.dart';
+import '../../../widgets/bilibili_nested_scrollView.dart';
 import 'home_view.dart';
 
 class HomeState {
@@ -14,8 +16,11 @@ class HomeState {
   late String userLogo;
   ///是否登录
   late bool isLogin;
-  ///获取顶部的SliverAppBar的位置
-  late double homeSliverAppBarHeightY;
+  late ScrollController scrollController;
+
+  late double appBarHeight;
+  late double start;
+  late double end;
 
   HomeState() {
     tempTeenagerMode = false;
@@ -25,5 +30,7 @@ class HomeState {
     userLogo = "";
     isLogin = SharedPreferenceUtil.getBool(
         BilibiliSharedPreference.isLogin)!;
+    scrollController = ScrollController();
+    appBarHeight = 0.08.sh;
   }
 }

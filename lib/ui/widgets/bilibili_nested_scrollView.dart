@@ -110,8 +110,9 @@ class BilibiliNestedScrollViewState extends State<BilibiliNestedScrollView> {
   @override
   void didUpdateWidget(BilibiliNestedScrollView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.controller != widget.controller)
+    if (oldWidget.controller != widget.controller) {
       _coordinator!.setParent(widget.controller);
+    }
   }
 
   @override

@@ -6,6 +6,7 @@ import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/search/search_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_logic.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:bilibili_getx/ui/widgets/bilibili_nested_scrollView.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +15,6 @@ import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
 import '../../../shared/image_asset.dart';
-import '../../../widgets/bilibili_nested_scrollView.dart';
 import '../../../widgets/rectangle_checkBox.dart';
 import 'home_logic.dart';
 import 'live/live_view.dart';
@@ -31,108 +31,126 @@ class HomeScreen extends StatelessWidget {
       return DefaultTabController(
         length: 7,
         initialIndex: 1,
-        child: BilibiliNestedScrollView(
-          headerSliverBuilder: (ctx, innerBoxIsScrolled) {
-            return buildHeaderSliverBuilder();
-          },
-          ///tabBarView
-          body: buildHomeTabBarView(),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: buildHomeUserIconAndSearch(),
+            ),
+            SliverAppBar(
+              ///设置高度
+              // toolbarHeight: 0.07.sh,
+
+              ///tabBar
+              title: buildHomeTabBar(),
+
+              ///向上滑动需停留顶部
+              pinned: true,
+
+              floating: false,
+              snap: false,
+              backgroundColor: Colors.white,
+            ),
+            NotificationListener(
+              onNotification: (ScrollNotification notification) {
+                logic.expandOrShrinkAppBar(notification);
+                return true;
+              },
+              child: SliverFillRemaining(
+                child: buildHomeTabBarView(),
+              ),
+            )
+          ],
+          // body: buildHomeTabBarView(),
         ),
       );
     });
   }
 
-  List<Widget> buildHeaderSliverBuilder() {
-    return [
-      SliverAppBar(
-        toolbarHeight: 0.08.sh,
-
-        leading: null,
-
-        ///搜索和用户头像
-        title: buildHomeUserIconAndSearch(),
-
-        ///右侧工具栏
-        actions: buildHomeActions(),
-
-        ///向上滑动无需停留顶部
-        pinned: false,
-
-        floating: false,
-        snap: false,
-        backgroundColor: Colors.white,
-      ),
-      SliverAppBar(
-        ///设置高度
-        toolbarHeight: 0.07.sh,
-
-        ///tabBar
-        title: buildHomeTabBar(),
-
-        ///向上滑动需停留顶部
-        pinned: true,
-
-        floating: false,
-        snap: false,
-        backgroundColor: Colors.white,
-      ),
-    ];
-  }
-
   ///用户头像和搜索
   Widget buildHomeUserIconAndSearch() {
-    return Row(
-      children: [
-        ///用户头像
-        buildHomeUserIcon(),
-        Expanded(
-          child: GestureDetector(
-            onTap: () {
-              Get.toNamed(SearchScreen.routeName);
-            },
-            child: Container(
-              alignment: Alignment.centerLeft,
-              height: 35.h,
-              decoration: BoxDecoration(
-                  color: HYAppTheme.norWhite02Color,
-                  borderRadius: BorderRadius.circular(20.r)),
+    return Container(
+      width: 1.sw,
+      color: HYAppTheme.norWhite01Color,
+      height: state.appBarHeight,
+      child: Row(
+        children: [
+          ///用户头像
+          buildHomeUserIcon(),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(SearchScreen.routeName);
+              },
               child: Container(
-                  padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
-                  child: Image.asset(ImageAssets.searchCustomPNG, width: 15.sp,height: 15.sp,)),
+                alignment: Alignment.centerLeft,
+                height: 35.h,
+                decoration: BoxDecoration(
+                    color: HYAppTheme.norWhite02Color,
+                    borderRadius: BorderRadius.circular(20.r)),
+                child: Container(
+                    padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
+                    child: Image.asset(
+                      ImageAssets.searchCustomPNG,
+                      width: 15.sp,
+                      height: 15.sp,
+                    )),
+              ),
             ),
           ),
-        ),
-      ],
+          IconButton(
+              onPressed: () => print("game"),
+              icon: Image.asset(
+                ImageAssets.gameCustomPNG,
+                width: 18.sp,
+                height: 18.sp,
+              )),
+          5.horizontalSpace,
+          GestureDetector(
+            onTap: () {
+              Get.toNamed(ChatScreen.routeName);
+            },
+            child: IconButton(
+              onPressed: () => print("more"),
+              icon: Image.asset(
+                ImageAssets.mailCustomPNG,
+                width: 18.sp,
+                height: 18.sp,
+              ),
+            ),
+          ),
+          5.horizontalSpace,
+        ],
+      ),
     );
   }
 
   ///右侧工具栏
-  List<Widget> buildHomeActions() {
-    return [
-      IconButton(
-          onPressed: () => print("game"),
-          icon: Image.asset(
-            ImageAssets.gameCustomPNG,
-            width: 18.sp,
-            height: 18.sp,
-          )),
-      5.horizontalSpace,
-      GestureDetector(
-        onTap: () {
-          Get.toNamed(ChatScreen.routeName);
-        },
-        child: IconButton(
-          onPressed: () => print("more"),
-          icon: Image.asset(
-            ImageAssets.mailCustomPNG,
-            width: 18.sp,
-            height: 18.sp,
-          ),
-        ),
-      ),
-      5.horizontalSpace,
-    ];
-  }
+  // List<Widget> buildHomeActions() {
+  //   return [
+  //     IconButton(
+  //         onPressed: () => print("game"),
+  //         icon: Image.asset(
+  //           ImageAssets.gameCustomPNG,
+  //           width: 18.sp,
+  //           height: 18.sp,
+  //         )),
+  //     5.horizontalSpace,
+  //     GestureDetector(
+  //       onTap: () {
+  //         Get.toNamed(ChatScreen.routeName);
+  //       },
+  //       child: IconButton(
+  //         onPressed: () => print("more"),
+  //         icon: Image.asset(
+  //           ImageAssets.mailCustomPNG,
+  //           width: 18.sp,
+  //           height: 18.sp,
+  //         ),
+  //       ),
+  //     ),
+  //     5.horizontalSpace,
+  //   ];
+  // }
 
   ///直播、推荐那个几个item的tabbar
   TabBar buildHomeTabBar() {
@@ -189,7 +207,7 @@ class HomeScreen extends StatelessWidget {
       } else if (i == 1) {
         ///推荐
         child = RecommendScreen();
-      } else if (i == 3)  {
+      } else if (i == 3) {
         ///动画
         child = ComicScreen();
       } else {

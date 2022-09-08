@@ -38,6 +38,7 @@ class HomeLogic extends GetxController {
     if (state.tempUserAgreement == false) {
       initUserAgreement();
     }
+
     ///判断是否同意青少年模式
     if (state.tempTeenagerMode == false && state.tempUserAgreement == true) {
       showTeenagerModeDialog();
@@ -186,9 +187,7 @@ class HomeLogic extends GetxController {
                     width: double.infinity,
                     child: Text(
                       SR.agree.tr.toUpperCase(),
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.sp),
+                      style: TextStyle(color: Colors.white, fontSize: 14.sp),
                     ),
                   ),
                 ),
@@ -310,14 +309,14 @@ class HomeLogic extends GetxController {
       'disable_rcmd': '0',
       's_locale': 'zh_CN',
       'statistics':
-      '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
+          '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
       'ts': '1659073412'
     };
 
     ///如果已登录，则加上access_Key字段
     if (state.isLogin == true) {
       String? accessKey =
-      SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
+          SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
       final accessKeyEntry = <String, dynamic>{'access_key': accessKey!};
       params.addEntries(accessKeyEntry.entries);
     }
@@ -332,6 +331,37 @@ class HomeLogic extends GetxController {
   }
 
   ///获取SliverAppBar的位置
-  void initHomeSliverAppBarHeightY() {
+  void initHomeSliverAppBarHeightY() {}
+
+  void expandOrShrinkAppBar(ScrollNotification notification) {
+    if (notification.metrics.axisDirection == AxisDirection.down ||
+        notification.metrics.axisDirection == AxisDirection.up) {
+      if (notification is ScrollStartNotification) {
+        state.start = notification.metrics.pixels;
+      }
+      if (notification is ScrollUpdateNotification) {
+        state.end = notification.metrics.pixels;
+        double temp = state.appBarHeight + (state.start - state.end) / 80;
+        if(temp < 0) {
+          temp = 0;
+        }
+        if(temp > 0.08.sh) {
+          temp = 0.08.sh;
+        }
+        state.appBarHeight = temp;
+        update();
+      }
+      // if(notification is ScrollEndNotification) {
+      //   state.end = notification.metrics.pixels;
+      //   if(state.end - state.start < -0.08.sh && state.appBarHeight != 0.08.sh) {
+      //     state.appBarHeight = 0.08.sh;
+      //     update();
+      //   }
+      //   if(state.end - state.start > 0.08.sh && state.appBarHeight != 0) {
+      //     state.appBarHeight = 0;
+      //     update();
+      //   }
+      // }
+    }
   }
 }

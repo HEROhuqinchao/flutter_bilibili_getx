@@ -39,7 +39,6 @@ class MallLogic extends GetxController {
   void hideTitle(ScrollNotification notification) {
     if(notification.metrics.axisDirection == AxisDirection.down || notification.metrics.axisDirection == AxisDirection.up) {
       double temp = notification.metrics.pixels;
-      print(temp);
       if (temp >40.h && temp < 60.h) {
         double last = state.appBarOpacity;
         if(last != 0) {
