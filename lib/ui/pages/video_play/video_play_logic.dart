@@ -27,6 +27,8 @@ class VideoPlayLogic extends GetxController {
         update();
       }
     });
+    fetchVideoView("471469842");
+    fetchVideoReply("471469842");
     super.onReady();
   }
 
@@ -48,8 +50,8 @@ class VideoPlayLogic extends GetxController {
     params.addEntries(signEntry.entries);
 
     HYVideoRequest.getVideoView(params).then((value) {
-      state.videoView = value;
-      state.isLoadingVideoView = false;
+      state.videoProfile = value.data;
+      state.isLoadingVideoProfile = false;
       update();
     });
   }
@@ -78,6 +80,7 @@ class VideoPlayLogic extends GetxController {
     state.videoPlayerController.dispose();
     state.videoPlayerController.removeListener(() {});
     state.chewieController.dispose();
+    state.customScrollController.removeListener(() { });
     state.customScrollController.dispose();
   }
 
@@ -96,17 +99,21 @@ class VideoPlayLogic extends GetxController {
     });
   }
 
-
-
   ///获取视频回复的评论
-  void initVideoReply() {
-    HYVideoReplyRequest.getVideoReply(state.video.args!.aid!, 1, 1)
+  void fetchVideoReply(String aid) {
+    HYVideoReplyRequest.getVideoReply(aid, 1, 1)
         .then((value) {
       state.allCount = value.cursor.allCount;
       state.videoReply = value;
       state.leftCount = state.allCount - state.videoReply.replies.length;
-      state.isLoadingVideoView = false;
+      state.isLoadingVideoReply = false;
       update();
     });
+  }
+
+  void expandedVideoProfileDetail() {
+    state.isExpanded = !state.isExpanded;
+    state.cutDownWidgetKey.currentState?.widgetShift();
+    update();
   }
 }

@@ -106,4 +106,9 @@ class ImageAssets {
   static String moreAndroidLightPNG = "assets/image/icon/more_android_light.png";
   static String danmuClosePNG = "assets/image/icon/danmu_close.png";
   static String danmuOpenPNG = "assets/image/icon/danmu_open.png";
+  static String likeCustomPNG = "assets/image/icon/like_custom.png";
+  static String dislikeCustomPNG = "assets/image/icon/dislike_custom.png";
+  static String coinCustomPNG = "assets/image/icon/coin_custom.png";
+  static String collectCustomPNG = "assets/image/icon/collect_custom.png";
+  static String shareCustomPNG = "assets/image/icon/share_custom.png";
 }

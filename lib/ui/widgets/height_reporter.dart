@@ -23,7 +23,7 @@ class HeightReporter extends StatelessWidget {
 
     Future.delayed(Duration(milliseconds: 200)).then((e) {
       _height = context.size?.height;
-      debugPrint('Height is ${context.size?.height}');
+      // debugPrint('Height is ${context.size?.height}');
     });
 
     return tmp;

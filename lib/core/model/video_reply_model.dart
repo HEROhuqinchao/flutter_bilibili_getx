@@ -235,7 +235,7 @@ class Cursor {
   int next;
   bool isEnd;
   int mode;
-  int showType;
+  int? showType;
   List<int> supportMode;
   String name;
 

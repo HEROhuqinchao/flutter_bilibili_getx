@@ -32,6 +32,7 @@ class HYAppTheme {
   static const Color norWhite05Color = Color.fromRGBO(254, 244, 234, 1);
   static const Color norWhite06Color = Color.fromRGBO(241, 242, 244, 1);
   static const Color norWhite07Color = Color.fromRGBO(245, 247, 250, 1);
+  static const Color norWhite08Color = Color.fromRGBO(246, 247, 249, 1);
 
   ///灰色
   static const Color norGrayColor = Color.fromRGBO(149, 149, 149, 1);

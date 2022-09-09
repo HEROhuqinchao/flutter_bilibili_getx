@@ -341,7 +341,7 @@ class HomeLogic extends GetxController {
       }
       if (notification is ScrollUpdateNotification) {
         state.end = notification.metrics.pixels;
-        double temp = state.appBarHeight + (state.start - state.end) / 80;
+        double temp = state.appBarHeight + (state.start - state.end) / 40;
         if(temp < 0) {
           temp = 0;
         }

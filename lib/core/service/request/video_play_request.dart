@@ -1,4 +1,4 @@
-import 'package:bilibili_getx/core/model/android/video_play/video_view_model.dart';
+import 'package:bilibili_getx/core/model/android/video_play/video_profile_model.dart';
 import 'package:bilibili_getx/ui/shared/params_sign.dart';
 
 import '../../model/relation_stat_model_model.dart';
@@ -53,9 +53,9 @@ class HYVideoRequest {
   }
 
   ///获取视频信息
-  static Future<VideoViewModel> getVideoView(params) async {
+  static Future<VideoProfileModel> getVideoView(params) async {
     final url = "/x/v2/view?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request('app', url);
-    return VideoViewModel.fromJson(result);
+    return VideoProfileModel.fromJson(result);
   }
 }

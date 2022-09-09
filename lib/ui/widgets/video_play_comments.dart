@@ -7,23 +7,21 @@ import '../../../../core/service/request/video_reply_request.dart';
 import '../shared/app_theme.dart';
 import '../shared/image_asset.dart';
 
-class HYVideoPlayComments extends StatefulWidget {
+class VideoPlayComments extends StatefulWidget {
   HYVideoReplyModel videoReply;
-  int aid;
   int leftCount;
 
-  HYVideoPlayComments(
+  VideoPlayComments(
       {Key? key,
       required this.videoReply,
-      required this.aid,
       required this.leftCount})
       : super(key: key);
 
   @override
-  State<HYVideoPlayComments> createState() => _HYVideoPlayCommentsState();
+  State<VideoPlayComments> createState() => _VideoPlayCommentsState();
 }
 
-class _HYVideoPlayCommentsState extends State<HYVideoPlayComments>
+class _VideoPlayCommentsState extends State<VideoPlayComments>
     with AutomaticKeepAliveClientMixin {
   int pageIndex = 2;
   List<HYVideoReplyModelReply> allReplies = [];
@@ -43,28 +41,7 @@ class _HYVideoPlayCommentsState extends State<HYVideoPlayComments>
         ? const Center(
             child: Text("没有评论"),
           )
-        : EasyRefresh(
-            onLoad: _leftCount > 0
-                ? () async {
-                    HYVideoReplyRequest.getVideoReply(widget.aid, 1, pageIndex)
-                        .then((value) {
-                      widget.leftCount =
-                          widget.leftCount - value.replies.length;
-                      allReplies.addAll(value.replies);
-                    });
-                    await Future.delayed(const Duration(milliseconds: 1500),
-                        () {
-                      setState(() {});
-                    });
-                    pageIndex++;
-                  }
-                : null,
-            child: Container(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20, horizontal: 20).r,
-              child: buildVideoReplyList(),
-            ),
-          );
+        : buildVideoReplyList();
   }
 
   ///热门评论
@@ -102,7 +79,7 @@ class _HYVideoPlayCommentsState extends State<HYVideoPlayComments>
   ///回复列表
   Widget buildVideoReplyList() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10).r,
+      padding: EdgeInsets.symmetric(horizontal: 25.r, vertical: 10.r),
       child: ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
