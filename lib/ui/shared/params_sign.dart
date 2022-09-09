@@ -27,7 +27,7 @@ class ParamsSign {
     String content = "";
     sortMap.forEach((key, value) {
       ///urlEncode将string转为url可识别的string
-      content += (key + "=" + urlEncode(value) + "&");
+      content += ("$key=${urlEncode(value)}&");
     });
     content = content.substring(0, content.length - 1);
     return content;

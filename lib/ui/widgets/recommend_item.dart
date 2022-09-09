@@ -22,7 +22,7 @@ class RecommendItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (video.goto == "av") {
-          HYVideoRequestRequest.getMp4VideoPlayData(videoItem.args!.aid!)
+          HYVideoRequest.getMp4VideoPlayData(videoItem.args!.aid!)
               .then((value) {
             ///匹配字符串readyVideoUrl: 到readyDuration之间的字符串
             RegExp exp =
@@ -39,6 +39,7 @@ class RecommendItem extends StatelessWidget {
             ///传递数据
             VideoPlayLogic logic = Get.find<VideoPlayLogic>();
             logic.fetchFeedIndexItemData(videoItem);
+            logic.fetchVideoView(videoItem.args!.aid!.toString());
 
             ///跳转至播放界面
             Get.toNamed(VideoPlayScreen.routeName);

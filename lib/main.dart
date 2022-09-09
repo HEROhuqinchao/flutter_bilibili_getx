@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -97,7 +98,8 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          initialRoute: MainScreen.routeName,
+          initialRoute: VideoPlayScreen.routeName,
+          // initialRoute: MainScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

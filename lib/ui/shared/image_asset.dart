@@ -101,4 +101,9 @@ class ImageAssets {
   static String arPNG = "assets/image/icon/ar.png";
   static String heartPNG = "assets/image/icon/heart.png";
   static String moreBlockPNG = "assets/image/icon/more_block.png";
+  static String playVideoCustomPNG = "assets/image/icon/play_video_custom.png";
+  static String videoHomePNG = "assets/image/icon/video_home.png";
+  static String moreAndroidLightPNG = "assets/image/icon/more_android_light.png";
+  static String danmuClosePNG = "assets/image/icon/danmu_close.png";
+  static String danmuOpenPNG = "assets/image/icon/danmu_open.png";
 }

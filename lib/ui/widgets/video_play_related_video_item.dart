@@ -28,7 +28,7 @@ class _HYVideoPlayRelatedVideoItemState
     HYVideoModel _video = widget._video;
     return GestureDetector(
       onTap: () {
-        HYVideoRequestRequest.getMp4VideoPlayData(_video.aid).then((value) {
+        HYVideoRequest.getMp4VideoPlayData(_video.aid).then((value) {
           ///匹配字符串readyVideoUrl: 到readyDuration之间的字符串
           RegExp exp =
               RegExp(r'(?<=(readyVideoUrl: ))[\s\S]*?(?=(readyDuration))');

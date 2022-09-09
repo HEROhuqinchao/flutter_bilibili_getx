@@ -316,7 +316,7 @@ class HomeLogic extends GetxController {
     ///如果已登录，则加上access_Key字段
     if (state.isLogin == true) {
       String? accessKey =
-          SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
+      SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
       final accessKeyEntry = <String, dynamic>{'access_key': accessKey!};
       params.addEntries(accessKeyEntry.entries);
     }
