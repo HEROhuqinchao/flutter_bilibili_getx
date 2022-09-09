@@ -6,7 +6,6 @@ import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/search/search_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_logic.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
-import 'package:bilibili_getx/ui/widgets/bilibili_nested_scrollView.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -69,6 +68,7 @@ class HomeScreen extends StatelessWidget {
   ///用户头像和搜索
   Widget buildHomeUserIconAndSearch() {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15.r),
       width: 1.sw,
       color: HYAppTheme.norWhite01Color,
       height: state.appBarHeight,
@@ -76,6 +76,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           ///用户头像
           buildHomeUserIcon(),
+          15.horizontalSpace,
           Expanded(
             child: GestureDetector(
               onTap: () {
@@ -97,60 +98,27 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          IconButton(
-              onPressed: () => print("game"),
-              icon: Image.asset(
-                ImageAssets.gameCustomPNG,
-                width: 18.sp,
-                height: 18.sp,
-              )),
-          5.horizontalSpace,
+          15.horizontalSpace,
+          Image.asset(
+            ImageAssets.gameCustomPNG,
+            width: 18.sp,
+            height: 18.sp,
+          ),
+          15.horizontalSpace,
           GestureDetector(
             onTap: () {
               Get.toNamed(ChatScreen.routeName);
             },
-            child: IconButton(
-              onPressed: () => print("more"),
-              icon: Image.asset(
-                ImageAssets.mailCustomPNG,
-                width: 18.sp,
-                height: 18.sp,
-              ),
+            child: Image.asset(
+              width: 18.sp,
+              height: 18.sp,
+              ImageAssets.mailCustomPNG,
             ),
           ),
-          5.horizontalSpace,
         ],
       ),
     );
   }
-
-  ///右侧工具栏
-  // List<Widget> buildHomeActions() {
-  //   return [
-  //     IconButton(
-  //         onPressed: () => print("game"),
-  //         icon: Image.asset(
-  //           ImageAssets.gameCustomPNG,
-  //           width: 18.sp,
-  //           height: 18.sp,
-  //         )),
-  //     5.horizontalSpace,
-  //     GestureDetector(
-  //       onTap: () {
-  //         Get.toNamed(ChatScreen.routeName);
-  //       },
-  //       child: IconButton(
-  //         onPressed: () => print("more"),
-  //         icon: Image.asset(
-  //           ImageAssets.mailCustomPNG,
-  //           width: 18.sp,
-  //           height: 18.sp,
-  //         ),
-  //       ),
-  //     ),
-  //     5.horizontalSpace,
-  //   ];
-  // }
 
   ///直播、推荐那个几个item的tabbar
   TabBar buildHomeTabBar() {
@@ -221,7 +189,6 @@ class HomeScreen extends StatelessWidget {
   ///圆形图标（登录图标
   Widget buildHomeUserIcon() {
     return Container(
-      margin: const EdgeInsets.only(left: 10, right: 20).r,
       child: state.userLogo.isEmpty
           ? buildHomeUnLoginUserIcon()
           : GestureDetector(
@@ -232,6 +199,7 @@ class HomeScreen extends StatelessWidget {
               },
               child: CircleAvatar(
                 backgroundImage: NetworkImage(state.userLogo),
+                radius: 18.r,
               ),
             ),
     );

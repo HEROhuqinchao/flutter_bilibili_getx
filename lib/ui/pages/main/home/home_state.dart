@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../../core/shared_preferences/shared_preference_util.dart';
-import '../../../widgets/bilibili_nested_scrollView.dart';
 import 'home_view.dart';
 
 class HomeState {

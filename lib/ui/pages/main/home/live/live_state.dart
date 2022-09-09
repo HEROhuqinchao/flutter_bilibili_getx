@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/model/xliveAppInterfaceV2IndexFeedModel.dart';
-import '../../../../widgets/bilibili_nested_scrollView.dart';
 
 class LiveState {
   ///数据列表

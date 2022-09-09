@@ -31,7 +31,7 @@ class RecommendItem extends StatelessWidget {
             String videoMp4 = exp.stringMatch(value) ?? "";
             print("videoMp4-----------${videoMp4.substring(0,videoMp4.length)}");
             if (videoMp4.isEmpty) {
-              videoItem.videoData = "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4";
+              videoItem.videoData = "https://upos-sz-mirrorcos.bilivideo.com/upgcxcode/75/37/824613775/824613775_nb3-1-16.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1662650221&gen=playurlv2&os=cosbv&oi=1034181374&trid=fec2b55ad6db4edfbdb2e885f31d990fh&mid=0&platform=html5&upsig=fb8d4ebe61fba0fef03b07d1a426ade4&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,mid,platform&bvc=vod&nettype=0&bw=28801&logo=80000000";
             } else {
               videoItem.videoData = videoMp4.substring(1, videoMp4.length - 1);
             }

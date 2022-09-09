@@ -11,7 +11,6 @@ import '../../../../../core/service/request/live_room_list_request.dart';
 import '../../../../../core/service/utils/constant.dart';
 import '../../../../shared/global_key_util.dart';
 import '../../../../shared/params_sign.dart';
-import '../../../../widgets/bilibili_nested_scrollView.dart';
 import 'live_state.dart';
 
 class LiveLogic extends GetxController {
