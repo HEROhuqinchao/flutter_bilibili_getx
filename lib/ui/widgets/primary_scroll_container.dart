@@ -89,10 +89,12 @@ class ScrollControllerWrapper implements ScrollController {
 
   @override
   void attach(ScrollPosition position) {
-    print('{$code}:attach start {$showing}');
-    if (position == interceptedAttachPosition) print("attach by inner");
+    // print('{$code}:attach start {$showing}');
+    if (position == interceptedAttachPosition) {
+      // print("attach by inner");
+    }
     position.hasListeners;
-    print('{$code}:attach end {$showing}');
+    // print('{$code}:attach end {$showing}');
     if (inner.positions.contains(position)) return;
     if (showing) {
       inner.attach(position);
@@ -105,7 +107,7 @@ class ScrollControllerWrapper implements ScrollController {
   @override
   void detach(ScrollPosition? position, {bool fake = false}) {
     assert(() {
-      print('{$code}:detach start {$showing}');
+      // print('{$code}:detach start {$showing}');
       return true;
     }.call());
     if (fake) print("detach is innner");
@@ -113,24 +115,24 @@ class ScrollControllerWrapper implements ScrollController {
       inner.detach(position!);
     }
     if (position == interceptedAttachPosition && !fake) {
-      print('{$code}:set null {$showing}');
+      // print('{$code}:set null {$showing}');
       interceptedAttachPosition = null;
     }
     if (position == lastPosition && !fake) {
-      print('{$code}:set null {$showing}');
+      // print('{$code}:set null {$showing}');
       lastPosition = null;
     }
     if (fake) {
       interceptedAttachPosition = position;
     }
     assert(() {
-      print('{$code}:detach end {$showing}');
+      // print('{$code}:detach end {$showing}');
       return true;
     }.call());
   }
 
   void onAttachChange(bool b) {
-    print('{$code}:change{$b}');
+    // print('{$code}:change{$b}');
     showing = b;
     if (!showing && lastPosition != null) {
       detach(lastPosition!, fake: true);

@@ -308,27 +308,161 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
     return PrimaryScrollContainer(
       key: state.scrollChildKeys[0],
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25.r, vertical: 10.r),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            buildVideoPlayVideoInfoOwnerInfo(
-              state.videoProfile.owner.face,
-              state.videoProfile.owner.name,
-            ),
-            20.verticalSpace,
-            buildVideoPlayVideoInfoVideoTitle(),
-            8.verticalSpace,
-            ExpandedWidget(
-              key: state.cutDownWidgetKey,
-              defaultHeight: 0,
-              child: buildVideoPlayVideoInfoVideoDetails(),
-            ),
-            10.verticalSpace,
-            buildVideoPlayVideoInfoButtonBanner(),
-          ],
+        padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 10.r),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              buildVideoPlayVideoInfoOwnerInfo(
+                state.videoProfile.owner.face,
+                state.videoProfile.owner.name,
+              ),
+              20.verticalSpace,
+              buildVideoPlayVideoInfoVideoTitle(),
+              8.verticalSpace,
+              ExpandedWidget(
+                key: state.cutDownWidgetKey,
+                defaultHeight: 0,
+                child: buildVideoPlayVideoInfoVideoDetails(),
+              ),
+              10.verticalSpace,
+              buildVideoPlayVideoInfoButtonBanner(),
+              60.verticalSpace,
+
+              ///推荐视频
+              buildVideoRecommendList(),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget buildVideoRecommendList() {
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (ctx, index) {
+        return Container(
+          width: 1.sw,
+          height: 80.w,
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                child: state.videoProfile.relates[index].pic != null ? Image.network(
+                  state.videoProfile.relates[index].pic!,
+                  width: 150.w,
+                  height: 80.w,
+                  fit: BoxFit.cover,
+                ) : Container(child: Text("未处理的类型"),),
+              ),
+              10.horizontalSpace,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      state.videoProfile.relates[index].title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: HYAppTheme.norTextColors,
+                        fontSize: 14.sp,
+                      ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          ImageAssets.uperCustomPNG,
+                          width: 15.sp,
+                          height: 15.sp,
+                        ),
+                        5.horizontalSpace,
+                        Text(
+                          state.videoProfile.relates[index].owner.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: HYAppTheme.norGrayColor,
+                            fontSize: 12.sp,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              ImageAssets.iconListPlayerPNG,
+                              width: 14.sp,
+                              height: 14.sp,
+                            ),
+                            5.horizontalSpace,
+                            Container(
+                              height: 14.sp,
+                              child: Text(
+                                "${changeToWan(state.videoProfile.relates[index].stat["view"]!)}",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: HYAppTheme.norGrayColor,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                            10.horizontalSpace,
+                            Image.asset(
+                              ImageAssets.icDanmuGrayPNG,
+                              width: 14.sp,
+                              height: 14.sp,
+                            ),
+                            5.horizontalSpace,
+                            Container(
+                              height: 14.sp,
+                              child: Text(
+                                "${state.videoProfile.relates[index].stat["danmaku"]!}",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: HYAppTheme.norGrayColor,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Image.asset(
+                          ImageAssets.videoMoreCustomPNG,
+                          width: 14.sp,
+                          height: 14.sp,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        );
+      },
+      separatorBuilder: (ctx, index) {
+        return Container(
+          padding: EdgeInsets.only(left: 8.r),
+          child: Divider(
+            color: HYAppTheme.norGrayColor.withOpacity(.2),
+            thickness: .5.w,
+          ),
+        );
+      },
+      itemCount: state.videoProfile.relates.length,
     );
   }
 
@@ -612,7 +746,6 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
             child: ListView.separated(
               padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 10.r),
               shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (ctx, index) {
                 if (index == 0) {
                   return Column(
