@@ -1,6 +1,6 @@
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/video_play_comments.dart';
 import 'package:chewie/chewie.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -9,16 +9,48 @@ import '../../../core/model/video_reply_model.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/math_compute.dart';
 import '../../widgets/expanded_widget.dart';
+import '../../widgets/primary_scroll_container.dart';
+import '../../widgets/video_reply_item.dart';
 import 'dan_mu/dan_mu_proto.dart';
 import 'video_play_logic.dart';
 
-class VideoPlayScreen extends StatelessWidget {
+class VideoPlayScreen extends StatefulWidget {
   static const String routeName = "/video_play";
+
+  @override
+  State<VideoPlayScreen> createState() => _VideoPlayScreenState();
+}
+
+class _VideoPlayScreenState extends State<VideoPlayScreen>
+    with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
   final logic = Get.find<VideoPlayLogic>();
   final state = Get.find<VideoPlayLogic>().state;
+  late TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    tabController.addListener(() {
+      for (int i = 0; i < state.scrollChildKeys.length; i++) {
+        GlobalKey<PrimaryScrollContainerState> key = state.scrollChildKeys[i];
+        if (key.currentState != null) {
+          key.currentState?.onPageChange(tabController.index == i); //控制是否当前显示
+        }
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    tabController.removeListener(() {});
+    tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SafeArea(
       child: GetBuilder<VideoPlayLogic>(builder: (logic) {
         return WillPopScope(
@@ -27,87 +59,82 @@ class VideoPlayScreen extends StatelessWidget {
             logic.disposeVideoPlayerController();
             return Future.value(true);
           },
-          child: Scaffold(
-            body: DefaultTabController(
-              length: state.tabTitle.length,
-              initialIndex: 0,
-              child: CustomScrollView(
+          child: DefaultTabController(
+            length: 2,
+            child: Scaffold(
+              body: NestedScrollView(
                 controller: state.customScrollController,
-                slivers: [
-                  SliverAppBar(
-                    // backgroundColor: HYAppTheme.norMainThemeColors,
-                    leading: Icon(
-                      Icons.keyboard_arrow_left,
-                      size: 25.sp,
-                    ),
-                    pinned: true,
-                    floating: true,
-                    snap: false,
-                    actions: [
-                      Container(
-                        margin: EdgeInsets.only(right: 15.sp),
-                        width: 20.sp,
-                        height: 20.sp,
-                        child: Image.asset(
-                          ImageAssets.moreAndroidLightPNG,
-                        ),
-                      )
-                    ],
-                    title: Opacity(
-                      opacity: 1 - state.showOrHideIconAndTitleOpacity,
-                      child: Image.asset(
-                        ImageAssets.videoHomePNG,
-                        width: 20.sp,
-                        height: 20.sp,
-                        fit: BoxFit.cover,
+                headerSliverBuilder:
+                    (BuildContext context, bool innerBoxIsScrolled) {
+                  return [
+                    SliverAppBar(
+                      leading: Icon(
+                        Icons.keyboard_arrow_left,
+                        size: 25.sp,
                       ),
-                    ),
-                    expandedHeight: state.expandedHeight,
-                    flexibleSpace: FlexibleSpaceBar(
+                      pinned: true,
+                      floating: true,
+                      snap: false,
+                      actions: [
+                        Container(
+                          margin: EdgeInsets.only(right: 15.sp),
+                          width: 20.sp,
+                          height: 20.sp,
+                          child: Image.asset(
+                            ImageAssets.moreAndroidLightPNG,
+                          ),
+                        )
+                      ],
                       title: Opacity(
-                        opacity: state.showOrHideIconAndTitleOpacity,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              ImageAssets.playVideoCustomPNG,
-                              width: 15.sp,
-                              height: 15.sp,
-                            ),
-                            10.horizontalSpace,
-                            Text(
-                              "立即播放",
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 15.sp,
-                                color: HYAppTheme.norWhite01Color,
-                              ),
-                            )
-                          ],
+                        opacity: 1 - state.showOrHideIconAndTitleOpacity,
+                        child: Image.asset(
+                          ImageAssets.videoHomePNG,
+                          width: 20.sp,
+                          height: 20.sp,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                      centerTitle: true,
-                      collapseMode: CollapseMode.none,
-                      background: buildVideoPlayVideoPlayer(),
-                      // stretchModes: [StretchMode.blurBackground],
+                      expandedHeight: state.expandedHeight,
+                      flexibleSpace: FlexibleSpaceBar(
+                        title: Opacity(
+                          opacity: state.showOrHideIconAndTitleOpacity,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                ImageAssets.playVideoCustomPNG,
+                                width: 15.sp,
+                                height: 15.sp,
+                              ),
+                              10.horizontalSpace,
+                              Text(
+                                "立即播放",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 15.sp,
+                                  color: HYAppTheme.norWhite01Color,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        centerTitle: true,
+                        collapseMode: CollapseMode.none,
+                        background: buildVideoPlayVideoPlayer(),
+                      ),
                     ),
-                    // onStretchTrigger: () {
-                    //
-                    // },
-                  ),
-                  SliverAppBar(
-                    toolbarHeight: 40.w,
-                    backgroundColor: HYAppTheme.norWhite01Color,
-                    title: buildVideoPlayTabBar(),
-                    pinned: true,
-                    floating: false,
-                    snap: false,
-                  ),
-                  SliverFillRemaining(
-                    child: buildVideoPlayTabBarView(),
-                  )
-                ],
+                    SliverAppBar(
+                      toolbarHeight: 40.w,
+                      backgroundColor: HYAppTheme.norWhite01Color,
+                      title: buildVideoPlayTabBar(),
+                      pinned: true,
+                      floating: false,
+                      snap: false,
+                    ),
+                  ];
+                },
+                body: buildVideoPlayTabBarView(),
               ),
             ),
           ),
@@ -166,7 +193,7 @@ class VideoPlayScreen extends StatelessWidget {
           );
   }
 
-  ///视频简介和评论
+  ///TabBar
   PreferredSizeWidget buildVideoPlayTabBar() {
     return PreferredSize(
       ///tab设置底色
@@ -181,6 +208,7 @@ class VideoPlayScreen extends StatelessWidget {
               width: .3.sw,
               height: 30.w,
               child: TabBar(
+                controller: tabController,
                 tabs: const [
                   Tab(
                     text: "简介",
@@ -252,184 +280,59 @@ class VideoPlayScreen extends StatelessWidget {
     );
   }
 
+  ///TabBarView
   Widget buildVideoPlayTabBarView() {
     return TabBarView(
-      children: state.tabTitle.map((e) {
-        if (e == "简介") {
-          if (state.isLoadingVideoProfile == false) {
-            return buildVideoProfile();
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: HYAppTheme.norMainThemeColors,
-              ),
-            );
-          }
-        } else {
-          if (state.isLoadingVideoReply == false &&
-              state.isLoadingVideoProfile == false) {
-            ///评论
-            return VideoPlayComments(
-              videoReply: state.videoReply,
-              leftCount: state.leftCount,
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: HYAppTheme.norMainThemeColors,
-              ),
-            );
-          }
-        }
-      }).toList(),
+      controller: tabController,
+      children: [
+        state.isLoadingVideoProfile
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: HYAppTheme.norMainThemeColors,
+                ),
+              )
+            : buildVideoProfile(),
+        state.isLoadingVideoReply
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: HYAppTheme.norMainThemeColors,
+                ),
+              )
+            : buildVideoPlayComments(),
+      ],
     );
   }
 
+  ///视频信息
   Widget buildVideoProfile() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.r, vertical: 10.r),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          buildVideoPlayVideoInfoOwnerInfo(
-            state.videoProfile.owner.face,
-            state.videoProfile.owner.name,
-          ),
-          20.verticalSpace,
-          buildVideoPlayVideoInfoVideoTitle(),
-          8.verticalSpace,
-          ExpandedWidget(
-            key: state.cutDownWidgetKey,
-            defaultHeight: 0,
-            child: buildVideoPlayVideoInfoVideoDetails(),
-          ),
-          10.verticalSpace,
-          buildVideoPlayVideoInfoButtonBanner(),
-        ],
-      ),
-    );
-  }
-
-  Widget buildVideoPlayVideoInfoButtonBanner() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        buildVideoPlayIconButton(ImageAssets.likeCustomPNG,
-            changeToWan(state.videoProfile.stat["like"] ?? 0)),
-        buildVideoPlayIconButton(ImageAssets.dislikeCustomPNG, "不喜欢"),
-        buildVideoPlayIconButton(ImageAssets.coinCustomPNG,
-            changeToWan(state.videoProfile.stat["coin"] ?? 0)),
-        buildVideoPlayIconButton(ImageAssets.collectCustomPNG,
-            changeToWan(state.videoProfile.stat["favorite"] ?? 0)),
-        buildVideoPlayIconButton(ImageAssets.shareCustomPNG,
-            changeToWan(state.videoProfile.stat["share"] ?? 0)),
-      ],
-    );
-  }
-
-  Widget buildVideoPlayIconButton(String icon, String text) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(
-          icon,
-          width: 24.w,
-          height: 24.w,
-          color: HYAppTheme.norGray03Color,
-        ),
-        10.verticalSpace,
-        Text(
-          text,
-          style: TextStyle(
-            color: HYAppTheme.norGrayColor,
-            fontSize: 14.sp,
-            fontWeight: FontWeight.normal,
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget buildVideoPlayVideoInfoVideoDetails() {
-    late List<Widget> tagWidgets = [];
-    for (var tag in state.videoProfile.tag) {
-      tagWidgets.add(buildVideoTag(tag.tagName));
-    }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
+    return PrimaryScrollContainer(
+      key: state.scrollChildKeys[0],
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 25.r, vertical: 10.r),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              state.videoProfile.bvid,
-              style: TextStyle(color: HYAppTheme.norGrayColor, fontSize: 16.sp),
+            buildVideoPlayVideoInfoOwnerInfo(
+              state.videoProfile.owner.face,
+              state.videoProfile.owner.name,
             ),
-            8.horizontalSpace,
-            buildIconInfo("assets/image/icon/ban_custom.png", "未经作者授权禁止转载"),
+            20.verticalSpace,
+            buildVideoPlayVideoInfoVideoTitle(),
+            8.verticalSpace,
+            ExpandedWidget(
+              key: state.cutDownWidgetKey,
+              defaultHeight: 0,
+              child: buildVideoPlayVideoInfoVideoDetails(),
+            ),
+            10.verticalSpace,
+            buildVideoPlayVideoInfoButtonBanner(),
           ],
         ),
-        8.verticalSpace,
-        Text(
-          state.videoProfile.desc,
-          style: TextStyle(color: HYAppTheme.norGrayColor, fontSize: 14.sp),
-        ),
-        30.verticalSpace,
-        Wrap(
-          spacing: 10.w,
-          runSpacing: 15.h,
-          alignment: WrapAlignment.start,
-          children: tagWidgets,
-        )
-      ],
-    );
-  }
-
-  Widget buildVideoTag(String text) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12).r,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50.r),
-          color: HYAppTheme.norWhite08Color),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: HYAppTheme.norGray02Color,
-          fontWeight: FontWeight.normal,
-          fontSize: 14.sp,
-        ),
       ),
     );
   }
 
-  Widget buildIconInfo(String icon, String text) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          alignment: Alignment.center,
-          height: 16.w,
-          width: 16.w,
-          child: Image.asset(
-            icon,
-          ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          height: 16.w,
-          margin: const EdgeInsets.only(left: 5).r,
-          child: Text(
-            text,
-            style: TextStyle(
-              color: HYAppTheme.norGrayColor,
-              fontSize: 13.sp,
-              fontWeight: FontWeight.normal,
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
+  ///视频标题
   Widget buildVideoPlayVideoInfoVideoTitle() {
     String endDateText = getPubData(state.videoProfile.pubdate).toString();
     return Column(
@@ -501,7 +404,128 @@ class VideoPlayScreen extends StatelessWidget {
     );
   }
 
-  ///圆形图标
+  ///视频详细信息
+  Widget buildVideoPlayVideoInfoVideoDetails() {
+    late List<Widget> tagWidgets = [];
+    for (var tag in state.videoProfile.tag) {
+      tagWidgets.add(buildVideoTag(tag.tagName));
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Text(
+              state.videoProfile.bvid,
+              style: TextStyle(color: HYAppTheme.norGrayColor, fontSize: 16.sp),
+            ),
+            8.horizontalSpace,
+            buildIconInfo("assets/image/icon/ban_custom.png", "未经作者授权禁止转载"),
+          ],
+        ),
+        8.verticalSpace,
+        Text(
+          state.videoProfile.desc,
+          style: TextStyle(color: HYAppTheme.norGrayColor, fontSize: 14.sp),
+        ),
+        30.verticalSpace,
+        Wrap(
+          spacing: 10.w,
+          runSpacing: 15.h,
+          alignment: WrapAlignment.start,
+          children: tagWidgets,
+        )
+      ],
+    );
+  }
+
+  ///点赞投币收藏按钮
+  Widget buildVideoPlayVideoInfoButtonBanner() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        buildVideoPlayIconButton(ImageAssets.likeCustomPNG,
+            changeToWan(state.videoProfile.stat["like"] ?? 0)),
+        buildVideoPlayIconButton(ImageAssets.dislikeCustomPNG, "不喜欢"),
+        buildVideoPlayIconButton(ImageAssets.coinCustomPNG,
+            changeToWan(state.videoProfile.stat["coin"] ?? 0)),
+        buildVideoPlayIconButton(ImageAssets.collectCustomPNG,
+            changeToWan(state.videoProfile.stat["favorite"] ?? 0)),
+        buildVideoPlayIconButton(ImageAssets.shareCustomPNG,
+            changeToWan(state.videoProfile.stat["share"] ?? 0)),
+      ],
+    );
+  }
+
+  Widget buildVideoPlayIconButton(String icon, String text) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset(
+          icon,
+          width: 24.w,
+          height: 24.w,
+          color: HYAppTheme.norGray03Color,
+        ),
+        10.verticalSpace,
+        Text(
+          text,
+          style: TextStyle(
+            color: HYAppTheme.norGrayColor,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.normal,
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget buildVideoTag(String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12).r,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50.r),
+          color: HYAppTheme.norWhite08Color),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: HYAppTheme.norGray02Color,
+          fontWeight: FontWeight.normal,
+          fontSize: 14.sp,
+        ),
+      ),
+    );
+  }
+
+  Widget buildIconInfo(String icon, String text) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          alignment: Alignment.center,
+          height: 16.w,
+          width: 16.w,
+          child: Image.asset(
+            icon,
+          ),
+        ),
+        Container(
+          alignment: Alignment.center,
+          height: 16.w,
+          margin: const EdgeInsets.only(left: 5).r,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: HYAppTheme.norGrayColor,
+              fontSize: 13.sp,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   Widget buildVideoPlayUserIcon(String userLogo) {
     return Container(
       alignment: Alignment.centerLeft,
@@ -578,213 +602,89 @@ class VideoPlayScreen extends StatelessWidget {
     );
   }
 
-  // Widget buildVideoPlayComments() {
-  //   return widget.videoReply.cursor.allCount == 0
-  //       ? const Center(
-  //     child: Text("没有评论"),
-  //   )
-  //       : buildVideoReplyList();
-  // }
+  Widget buildVideoPlayComments() {
+    return state.allReplies.isEmpty
+        ? const Center(
+            child: Text("没有评论"),
+          )
+        : PrimaryScrollContainer(
+            key: state.scrollChildKeys[1],
+            child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 10.r),
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (ctx, index) {
+                if (index == 0) {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      buildVideoReplyTitle(),
+                      10.verticalSpace,
+                      VideoReplyItem(state.allReplies[index])
+                    ],
+                  );
+                }
+                return VideoReplyItem(state.allReplies[index]);
+              },
+              separatorBuilder: (ctx, index) {
+                if (index == state.allReplies.length) {
+                  return Center(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10)
+                          .r,
+                      child: Text(
+                        "再怎么找也没有啦~",
+                        style: TextStyle(
+                          color: HYAppTheme.norGrayColor.withOpacity(.5),
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
+                  );
+                }
+                return Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20)
+                          .r,
+                  child: Divider(
+                    color: HYAppTheme.norGrayColor.withOpacity(.5),
+                  ),
+                );
+              },
+              itemCount: state.allReplies.length,
+            ),
+          );
+  }
 
-  // ///热门评论
-  // Widget buildVideoReplyTitle() {
-  //   return Row(
-  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //     crossAxisAlignment: CrossAxisAlignment.center,
-  //     children: [
-  //       Text(
-  //         widget.videoReply.cursor.name,
-  //         style: TextStyle(
-  //             color: HYAppTheme.norTextColors,
-  //             fontSize: 14.sp),
-  //       ),
-  //       Row(
-  //         mainAxisSize: MainAxisSize.min,
-  //         children: [
-  //           Image.asset(
-  //             ImageAssets.icFollowDecPNG,
-  //             width: 20.w,
-  //             height: 20.h,
-  //           ),
-  //           Text(
-  //             "按热度",
-  //             style: TextStyle(
-  //                 color: HYAppTheme.norGrayColor,
-  //                 fontSize: 14.sp),
-  //           ),
-  //         ],
-  //       ),
-  //     ],
-  //   );
-  // }
-  //
-  // ///回复列表
-  // Widget buildVideoReplyList() {
-  //   return Container(
-  //     padding: EdgeInsets.symmetric(horizontal: 25.r, vertical: 10.r),
-  //     child: ListView.separated(
-  //       shrinkWrap: true,
-  //       physics: const NeverScrollableScrollPhysics(),
-  //       itemBuilder: (ctx, index) {
-  //         if (index == 0) {
-  //           return Column(
-  //             mainAxisSize: MainAxisSize.min,
-  //             children: [
-  //               buildVideoReplyTitle(),
-  //               10.verticalSpace,
-  //               VideoReplyItem(allReplies[index])
-  //             ],
-  //           );
-  //         }
-  //         return VideoReplyItem(allReplies[index]);
-  //       },
-  //       separatorBuilder: (ctx, index) {
-  //         if (index == allReplies.length && _leftCount <= 0) {
-  //           return Center(
-  //             child: Container(
-  //               padding:
-  //               const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
-  //               child: Text(
-  //                 "再怎么找也没有啦~",
-  //                 style: TextStyle(
-  //                   color: HYAppTheme.norGrayColor.withOpacity(.5),
-  //                   fontSize: 14.sp,
-  //                 ),
-  //               ),
-  //             ),
-  //           );
-  //         }
-  //         return Container(
-  //           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20).r,
-  //           child: Divider(
-  //             color: HYAppTheme.norGrayColor.withOpacity(.5),
-  //           ),
-  //         );
-  //       },
-  //       itemCount: allReplies.length,
-  //     ),
-  //   );
-  // }
+  ///热门评论
+  Widget buildVideoReplyTitle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          state.videoReply.cursor.name,
+          style: TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              ImageAssets.icFollowDecPNG,
+              width: 20.w,
+              height: 20.h,
+            ),
+            Text(
+              "按热度",
+              style: TextStyle(color: HYAppTheme.norGrayColor, fontSize: 14.sp),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 
+  @override
+  bool get wantKeepAlive => true;
 }
-
-// class buildVideoPlayComments extends StatefulWidget {
-//   HYVideoReplyModel videoReply;
-//   int leftCount;
-//
-//   VideoPlayComments(
-//       {Key? key,
-//         required this.videoReply,
-//         required this.leftCount})
-//       : super(key: key);
-//
-//   @override
-//   State<VideoPlayComments> createState() => _VideoPlayCommentsState();
-// }
-//
-// class _VideoPlayCommentsState extends State<VideoPlayComments>
-//     with AutomaticKeepAliveClientMixin {
-//   int pageIndex = 2;
-//   List<HYVideoReplyModelReply> allReplies = [];
-//   late int _leftCount;
-//
-//   @override
-//   void initState() {
-//     _leftCount = widget.leftCount;
-//     allReplies.addAll(widget.videoReply.replies);
-//     super.initState();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     super.build(context);
-//     return widget.videoReply.cursor.allCount == 0
-//         ? const Center(
-//       child: Text("没有评论"),
-//     )
-//         : buildVideoReplyList();
-//   }
-//
-//   ///热门评论
-//   Widget buildVideoReplyTitle() {
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//       crossAxisAlignment: CrossAxisAlignment.center,
-//       children: [
-//         Text(
-//           widget.videoReply.cursor.name,
-//           style: TextStyle(
-//               color: HYAppTheme.norTextColors,
-//               fontSize: 14.sp),
-//         ),
-//         Row(
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             Image.asset(
-//               ImageAssets.icFollowDecPNG,
-//               width: 20.w,
-//               height: 20.h,
-//             ),
-//             Text(
-//               "按热度",
-//               style: TextStyle(
-//                   color: HYAppTheme.norGrayColor,
-//                   fontSize: 14.sp),
-//             ),
-//           ],
-//         ),
-//       ],
-//     );
-//   }
-//
-//   ///回复列表
-//   Widget buildVideoReplyList() {
-//     return Container(
-//       padding: EdgeInsets.symmetric(horizontal: 25.r, vertical: 10.r),
-//       child: ListView.separated(
-//         shrinkWrap: true,
-//         physics: const NeverScrollableScrollPhysics(),
-//         itemBuilder: (ctx, index) {
-//           if (index == 0) {
-//             return Column(
-//               mainAxisSize: MainAxisSize.min,
-//               children: [
-//                 buildVideoReplyTitle(),
-//                 10.verticalSpace,
-//                 VideoReplyItem(allReplies[index])
-//               ],
-//             );
-//           }
-//           return VideoReplyItem(allReplies[index]);
-//         },
-//         separatorBuilder: (ctx, index) {
-//           if (index == allReplies.length && _leftCount <= 0) {
-//             return Center(
-//               child: Container(
-//                 padding:
-//                 const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
-//                 child: Text(
-//                   "再怎么找也没有啦~",
-//                   style: TextStyle(
-//                     color: HYAppTheme.norGrayColor.withOpacity(.5),
-//                     fontSize: 14.sp,
-//                   ),
-//                 ),
-//               ),
-//             );
-//           }
-//           return Container(
-//             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20).r,
-//             child: Divider(
-//               color: HYAppTheme.norGrayColor.withOpacity(.5),
-//             ),
-//           );
-//         },
-//         itemCount: allReplies.length,
-//       ),
-//     );
-//   }
-//
-//   @override
-//   bool get wantKeepAlive => true;
-// }

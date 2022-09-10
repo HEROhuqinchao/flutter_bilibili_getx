@@ -5,6 +5,7 @@ import '../../model/relation_stat_model_model.dart';
 import '../../model/space_nav_num_model.dart';
 import '../../model/tag_archive_tags_model.dart';
 import '../../model/video_model.dart';
+import '../../model/video_reply_model.dart';
 import '../utils/http_base_request.dart';
 
 /// 视频播放界面需要用到的数据
@@ -57,5 +58,14 @@ class HYVideoRequest {
     final url = "/x/v2/view?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request('app', url);
     return VideoProfileModel.fromJson(result);
+  }
+
+  ///回复
+  static Future<HYVideoReplyModel> getVideoReply(
+      String aid, int type, int next) async {
+    final url = "/x/v2/reply/main?oid=$aid&type=$type&next=$next";
+    final result = await HttpBaseRequest.request("base", url);
+    final videoReplyJson = result["data"];
+    return HYVideoReplyModel.fromJson(videoReplyJson);
   }
 }

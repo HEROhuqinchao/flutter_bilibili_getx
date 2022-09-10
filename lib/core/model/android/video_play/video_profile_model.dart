@@ -930,16 +930,16 @@ class Relate {
     required this.rankInfo,
   });
 
-  int aid;
-  String pic;
+  int? aid;
+  String? pic;
   String title;
   Owner owner;
   Map<String, int> stat;
-  int duration;
+  int? duration;
   String? goto;
   String param;
   String uri;
-  int cid;
+  int? cid;
   int? adIndex;
   int? srcId;
   String? requestId;

@@ -1,6 +1,7 @@
 import 'package:bilibili_getx/core/service/request/video_play_request.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:chewie/chewie.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -8,9 +9,9 @@ import 'package:bilibili_getx/ui/pages/video_play/video_play_state.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../core/model/feed_index_model.dart';
-import '../../../core/service/request/video_reply_request.dart';
 import '../../shared/params_sign.dart';
 import '../../widgets/bilibili_controls.dart';
+import '../../widgets/primary_scroll_container.dart';
 
 class VideoPlayLogic extends GetxController {
   final VideoPlayState state = VideoPlayState();
@@ -18,11 +19,15 @@ class VideoPlayLogic extends GetxController {
   @override
   void onReady() {
     state.customScrollController.addListener(() {
-      if(state.customScrollController.offset > 140.w && !state.customScrollController.position.outOfRange) {
+      if (state.customScrollController.offset > 140.w &&
+          !state.customScrollController.position.outOfRange &&
+          state.showOrHideIconAndTitleOpacity != 1) {
         state.showOrHideIconAndTitleOpacity = 1;
         update();
       }
-      if(state.customScrollController.offset < 140.w && !state.customScrollController.position.outOfRange) {
+      if (state.customScrollController.offset < 140.w &&
+          !state.customScrollController.position.outOfRange &&
+          state.showOrHideIconAndTitleOpacity != 0) {
         state.showOrHideIconAndTitleOpacity = 0;
         update();
       }
@@ -40,11 +45,12 @@ class VideoPlayLogic extends GetxController {
 
   void fetchVideoView(String aid) {
     Map<String, dynamic> params = {
-      'aid':aid,
-      'appkey':Constant.appKey,
-      'build':'5480400',
-      'ts':'1662682722783',
+      'aid': aid,
+      'appkey': Constant.appKey,
+      'build': '5480400',
+      'ts': '1662682722783',
     };
+
     ///加上sign字段
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
@@ -80,8 +86,9 @@ class VideoPlayLogic extends GetxController {
     state.videoPlayerController.dispose();
     state.videoPlayerController.removeListener(() {});
     state.chewieController.dispose();
-    state.customScrollController.removeListener(() { });
+    state.customScrollController.removeListener(() {});
     state.customScrollController.dispose();
+
   }
 
   initVideoPlayerController() {
@@ -101,11 +108,9 @@ class VideoPlayLogic extends GetxController {
 
   ///获取视频回复的评论
   void fetchVideoReply(String aid) {
-    HYVideoReplyRequest.getVideoReply(aid, 1, 1)
-        .then((value) {
-      state.allCount = value.cursor.allCount;
+    HYVideoRequest.getVideoReply(aid, 1, 1).then((value) {
       state.videoReply = value;
-      state.leftCount = state.allCount - state.videoReply.replies.length;
+      state.allReplies.addAll(value.replies);
       state.isLoadingVideoReply = false;
       update();
     });
