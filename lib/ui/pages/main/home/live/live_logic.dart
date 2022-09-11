@@ -74,18 +74,13 @@ class LiveLogic extends GetxController {
 
   ///选择标签
   void selectLabelAndFetchData(int index) {
-    // liveState.liveTabBarHeightY = renderObjectY(liveState.liveTabBarGlobalKey)!;
-    liveState.customScrollViewScrollController.jumpTo(100.w);
-    // if(liveState.headerHeight != 0) {
-    //   liveState.headerHeight = 0;
-    //   liveState.isAutoPlay = false;
-    //   update();
-    // }
+    // liveState.customScrollViewScrollController.jumpTo(120.w);
+    update();
   }
 
   ///展开头部的广告
   void expandHeader() {
-    if(liveState.headerHeight != 100.w) {
+    if (liveState.headerHeight != 100.w) {
       liveState.headerHeight = 100.w;
       liveState.isAutoPlay = true;
       update();

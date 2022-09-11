@@ -2,6 +2,10 @@
 
 采用getx框架重新构造项目
 
+**9月11日**
+
+【我宁可痛苦，也不要麻木】[20年前的农村女性，竟狠狠 戳中了我的心_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1KP41157tb?spm_id_from=333.337.search-card.all.click&vd_source=9577d8766a1c3a48233a9f8f750633c4)
+
 
 
 **9月4日更新**

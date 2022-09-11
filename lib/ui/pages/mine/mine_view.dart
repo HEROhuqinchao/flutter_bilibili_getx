@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
+import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -96,8 +97,8 @@ class MineScreen extends StatelessWidget {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Image.network(
-                                  item.button.icon!,
+                                DefaultFadeImage(
+                                  imageUrl: item.button.icon!,
                                   width: 14.sp,
                                   height: 14.sp,
                                 ),
@@ -244,8 +245,7 @@ class MineScreen extends StatelessWidget {
                 Text(
                   "设置",
                   style: TextStyle(
-                      fontSize: 16.sp,
-                      color: HYAppTheme.norTextColors),
+                      fontSize: 16.sp, color: HYAppTheme.norTextColors),
                 ),
               ],
             ),
@@ -267,18 +267,16 @@ class MineScreen extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.network(
-              icon,
+            DefaultFadeImage(
+              imageUrl: icon,
               width: 16.sp,
               height: 16.sp,
-              color: HYAppTheme.norMainThemeColors,
             ),
             10.horizontalSpace,
             Text(
               text,
-              style: TextStyle(
-                  fontSize: 16.sp,
-                  color: HYAppTheme.norTextColors),
+              style:
+                  TextStyle(fontSize: 16.sp, color: HYAppTheme.norTextColors),
             ),
           ],
         ),
@@ -320,11 +318,10 @@ class MineScreen extends StatelessWidget {
           )),
       IconButton(
           onPressed: () => print("clothes"),
-          icon: Image.network(
-            state.accountMineData.data.mallHome.icon,
+          icon: DefaultFadeImage(
+            imageUrl: state.accountMineData.data.mallHome.icon,
             width: 18.sp,
             height: 18.sp,
-            color: HYAppTheme.norGrayColor,
           )),
       IconButton(
           onPressed: () => print("dark_model"),
@@ -380,15 +377,11 @@ class MineScreen extends StatelessWidget {
       children: [
         Text(
           num,
-          style: TextStyle(
-              color: HYAppTheme.norTextColors,
-              fontSize: 14.sp),
+          style: TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
         ),
         Text(
           text.tr,
-          style: TextStyle(
-              color: HYAppTheme.norGrayColor,
-              fontSize: 12.sp),
+          style: TextStyle(color: HYAppTheme.norGrayColor, fontSize: 12.sp),
         ),
       ],
     );
@@ -448,8 +441,7 @@ class MineScreen extends StatelessWidget {
                         Text(
                           "${SR.bCoin.tr}: ${state.accountMineData.data.bcoin}   ${SR.coin.tr}: ${state.accountMineData.data.coin}",
                           style: TextStyle(
-                              color: HYAppTheme.norGrayColor,
-                              fontSize: 12.sp),
+                              color: HYAppTheme.norGrayColor, fontSize: 12.sp),
                         )
                       ],
                     ),
@@ -533,14 +525,12 @@ class MineScreen extends StatelessWidget {
               Text(
                 state.accountMineData.data.vipSectionV2.title,
                 style: TextStyle(
-                    color: HYAppTheme.norPink06Colors,
-                    fontSize: 16.sp),
+                    color: HYAppTheme.norPink06Colors, fontSize: 16.sp),
               ),
               Text(
                 state.accountMineData.data.vipSectionV2.desc,
                 style: TextStyle(
-                    color: HYAppTheme.norPink06Colors,
-                    fontSize: 12.sp),
+                    color: HYAppTheme.norPink06Colors, fontSize: 12.sp),
               )
             ],
           ),
@@ -589,12 +579,10 @@ class MineScreen extends StatelessWidget {
           ),
           state.accountMineData.data.liveTip!.buttonIcon.isEmpty
               ? Container()
-              : SizedBox(
+              : DefaultFadeImage(
+                  imageUrl: state.accountMineData.data.liveTip!.buttonIcon,
                   width: 12.sp,
                   height: 12.sp,
-                  child: Image.network(
-                    state.accountMineData.data.liveTip!.buttonIcon,
-                  ),
                 )
         ],
       ),

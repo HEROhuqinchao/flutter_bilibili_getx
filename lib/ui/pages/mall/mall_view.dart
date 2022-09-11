@@ -13,6 +13,7 @@ import 'package:get/get.dart';
 import '../../../core/I18n/str_res_keys.dart';
 import '../../shared/math_compute.dart';
 import '../../widgets/bangumi_swiper_pagination.dart';
+import '../../widgets/fade_image_default.dart';
 import '../../widgets/price_mark.dart';
 import 'mall_logic.dart';
 
@@ -299,22 +300,20 @@ class MallScreen extends StatelessWidget {
                       ]),
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                        child: Image.network(
-                          "http://${item.bgImage.substring(2)}",
+                        child: DefaultFadeImage(
                           height: 56.h,
+                          imageUrl: getImageHttpUrl(item.bgImage),
                           width: 110.w,
-                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
                     Positioned(
                       right: 0,
                       bottom: 0,
-                      child: Image.network(
-                        "http://${item.itemImage.substring(2)}",
-                        height: 72.h,
+                      child: DefaultFadeImage(
+                        imageUrl: getImageHttpUrl(item.itemImage),
                         width: 50.w,
-                        fit: BoxFit.cover,
+                        height: 72.h,
                       ),
                     ),
                     Positioned(
@@ -368,19 +367,18 @@ class MallScreen extends StatelessWidget {
                             placeholderFit: BoxFit.cover,
                             placeholder:
                                 AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-                            image: NetworkImage(
-                                getImageHttpUrl(state.vo.ipTabVo.subIpTabs[index].imageUrl)),
+                            image: NetworkImage(getImageHttpUrl(
+                                state.vo.ipTabVo.subIpTabs[index].imageUrl)),
                           ),
                         ),
                         3.verticalSpace,
                         Text(
                           state.vo.ipTabVo.subIpTabs[index].name,
                           style: TextStyle(
-                            color: HYAppTheme.norTextColors,
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.normal,
-                            fontFamily: 'bilibiliFonts'
-                          ),
+                              color: HYAppTheme.norTextColors,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'bilibiliFonts'),
                         )
                       ],
                     );
@@ -405,8 +403,8 @@ class MallScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.network(
-              "http://${item.imageUrl.substring(2)}",
+            DefaultFadeImage(
+              imageUrl: getImageHttpUrl(item.imageUrl),
               width: 40.w,
               height: 40.w,
             ),
@@ -497,9 +495,8 @@ class MallScreen extends StatelessWidget {
       itemBuilder: (ctx, index) {
         return ClipRRect(
           borderRadius: BorderRadius.circular(5.r),
-          child: Image.network(
-            "http://${state.vo.banners[index].pic.substring(2)}",
-            fit: BoxFit.fill,
+          child: DefaultFadeImage(
+            imageUrl: getImageHttpUrl(state.vo.banners[index].pic),
           ),
         );
       },
@@ -563,13 +560,10 @@ class MallScreen extends StatelessWidget {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(
+                DefaultFadeImage(
+                  imageUrl: state.vo.newBlocks[0].blockItemVOs[0].imageUrl,
                   width: 60.w,
                   height: 60.w,
-                  child: Image.network(
-                    state.vo.newBlocks[0].blockItemVOs[0].imageUrl,
-                    fit: BoxFit.contain,
-                  ),
                 ),
                 10.verticalSpace,
                 PriceMark(
@@ -587,13 +581,10 @@ class MallScreen extends StatelessWidget {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(
+                DefaultFadeImage(
+                  imageUrl: state.vo.newBlocks[0].blockItemVOs[1].imageUrl,
                   width: 60.w,
                   height: 60.w,
-                  child: Image.network(
-                    state.vo.newBlocks[0].blockItemVOs[1].imageUrl,
-                    fit: BoxFit.contain,
-                  ),
                 ),
                 10.verticalSpace,
                 PriceMark(
@@ -652,12 +643,11 @@ class MallScreen extends StatelessWidget {
                       fontSize: 12.sp,
                       fontFamily: 'bilibiliFonts'),
                 ),
-                Image.network(
-                  getImageHttpUrl(
+                DefaultFadeImage(
+                  imageUrl: getImageHttpUrl(
                       state.vo.newBlocks[index].blockItemVOs[0].imageUrl),
                   height: 60.w,
-                  fit: BoxFit.contain,
-                ),
+                )
               ],
             ),
           ),

@@ -13,7 +13,6 @@ class HeightReporter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("HeightReporterBuild");
     Widget tmp = GestureDetector(
       child: child,
       onTap: () {

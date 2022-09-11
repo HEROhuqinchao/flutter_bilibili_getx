@@ -14,15 +14,45 @@ import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
 import '../../../shared/image_asset.dart';
+import '../../../widgets/primary_scroll_container.dart';
 import '../../../widgets/rectangle_checkBox.dart';
 import 'home_logic.dart';
 import 'live/live_view.dart';
 import 'login/login_view.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = "/home";
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   final logic = Get.find<HomeLogic>();
   final state = Get.find<HomeLogic>().state;
+  late TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(length: 7, vsync: this, initialIndex: 1);
+    tabController.addListener(() {
+      for (int i = 0; i < state.scrollChildKeys.length; i++) {
+        GlobalKey<PrimaryScrollContainerState> key = state.scrollChildKeys[i];
+        if (key.currentState != null) {
+          key.currentState?.onPageChange(tabController.index == i); //控制是否当前显示
+        }
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    tabController.removeListener(() {});
+    tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,36 +60,23 @@ class HomeScreen extends StatelessWidget {
       return DefaultTabController(
         length: 7,
         initialIndex: 1,
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: buildHomeUserIconAndSearch(),
-            ),
-            SliverAppBar(
-              ///设置高度
-              // toolbarHeight: 0.07.sh,
-
-              ///tabBar
-              title: buildHomeTabBar(),
-
-              ///向上滑动需停留顶部
-              pinned: true,
-
-              floating: false,
-              snap: false,
-              backgroundColor: Colors.white,
-            ),
-            NotificationListener(
-              onNotification: (ScrollNotification notification) {
-                logic.expandOrShrinkAppBar(notification);
-                return true;
-              },
-              child: SliverFillRemaining(
-                child: buildHomeTabBarView(),
+        child: NestedScrollView(
+          body: buildHomeTabBarView(),
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return [
+              SliverToBoxAdapter(
+                child: buildHomeUserIconAndSearch(),
               ),
-            )
-          ],
-          // body: buildHomeTabBarView(),
+              SliverAppBar(
+                title: buildHomeTabBar(),
+                pinned: true,
+                floating: false,
+                snap: false,
+                backgroundColor: HYAppTheme.norWhite01Color,
+                elevation: 0,
+              ),
+            ];
+          },
         ),
       );
     });
@@ -89,7 +106,8 @@ class HomeScreen extends StatelessWidget {
                     color: HYAppTheme.norWhite02Color,
                     borderRadius: BorderRadius.circular(20.r)),
                 child: Container(
-                    padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
+                    padding:
+                        const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
                     child: Image.asset(
                       ImageAssets.searchCustomPNG,
                       width: 15.sp,
@@ -123,6 +141,7 @@ class HomeScreen extends StatelessWidget {
   ///直播、推荐那个几个item的tabbar
   TabBar buildHomeTabBar() {
     return TabBar(
+      controller: tabController,
       tabs: [
         Tab(text: SR.live.tr.toUpperCase()),
         Tab(text: SR.recommend.tr.toUpperCase()),
@@ -158,32 +177,41 @@ class HomeScreen extends StatelessWidget {
   ///home中主要显示的内容，与tabBar对应
   Widget buildHomeTabBarView() {
     ///未同意用户协议
-    return state.tempUserAgreement == false
-        ? Container()
-        : TabBarView(
-            children: buildTabBarViewChildren(),
-          );
-  }
-
-  List<Widget> buildTabBarViewChildren() {
-    List<Widget> widgets = [];
-    for (int i = 0; i < 7; i++) {
-      Widget child;
-      if (i == 0) {
-        ///直播
-        child = LiveScreen();
-      } else if (i == 1) {
-        ///推荐
-        child = RecommendScreen();
-      } else if (i == 3) {
-        ///动画
-        child = ComicScreen();
-      } else {
-        child = Container();
-      }
-      widgets.add(child);
-    }
-    return widgets;
+    return state.tempUserAgreement
+        ? TabBarView(
+            controller: tabController,
+            children: [
+              PrimaryScrollContainer(
+                key: state.scrollChildKeys[0],
+                child: LiveScreen(),
+              ),
+              PrimaryScrollContainer(
+                key: state.scrollChildKeys[1],
+                child: RecommendScreen(),
+              ),
+              PrimaryScrollContainer(
+                key: state.scrollChildKeys[2],
+                child: Container(),
+              ),
+              PrimaryScrollContainer(
+                key: state.scrollChildKeys[3],
+                child: ComicScreen(),
+              ),
+              PrimaryScrollContainer(
+                key: state.scrollChildKeys[4],
+                child: Container(),
+              ),
+              PrimaryScrollContainer(
+                key: state.scrollChildKeys[5],
+                child: Container(),
+              ),
+              PrimaryScrollContainer(
+                key: state.scrollChildKeys[6],
+                child: Container(),
+              ),
+            ],
+          )
+        : Container();
   }
 
   ///圆形图标（登录图标

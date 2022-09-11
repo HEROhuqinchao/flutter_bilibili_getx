@@ -33,11 +33,10 @@ class VideoPlayLogic extends GetxController {
         update();
       }
     });
-    fetchVideoView("471469842");
-    fetchVideoReply("471469842");
     super.onReady();
   }
 
+  ///销毁控件，取消监听
   @override
   void onClose() {
     disposeVideoPlayerController();
@@ -91,7 +90,6 @@ class VideoPlayLogic extends GetxController {
     state.chewieController.dispose();
     state.nestedScrollViewController.removeListener(() {});
     state.nestedScrollViewController.dispose();
-
   }
 
   ///初始化视频播放的控件

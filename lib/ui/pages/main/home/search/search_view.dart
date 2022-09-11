@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,6 +11,7 @@ import '../../../../../core/service/request/search_request.dart';
 import '../../../../shared/app_theme.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/math_compute.dart';
+import '../../../../widgets/fade_image_default.dart';
 import '../../../../widgets/highlight_str_in_text.dart';
 import '../../../../widgets/user_level.dart';
 import 'search_logic.dart';
@@ -276,11 +276,11 @@ class _SearchScreenState extends State<SearchScreen>
                           5.horizontalSpace,
                           state.trendingList[index].icon == null
                               ? Container()
-                              : Image.network(
-                                  state.trendingList[index].icon!,
+                              : DefaultFadeImage(
+                                  imageUrl: state.trendingList[index].icon!,
                                   width: 15.r,
                                   height: 15.r,
-                                ),
+                                )
                         ],
                       ),
                     );
@@ -474,8 +474,8 @@ class _SearchScreenState extends State<SearchScreen>
                           item.title,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style:
-                              TextStyle(color: HYAppTheme.norTextColors, fontSize: 12.sp),
+                          style: TextStyle(
+                              color: HYAppTheme.norTextColors, fontSize: 12.sp),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.min,
@@ -546,8 +546,8 @@ class _SearchScreenState extends State<SearchScreen>
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.all(const Radius.circular(3).r),
-                    child: Image.network(
-                      item.cover,
+                    child: DefaultFadeImage(
+                      imageUrl: item.cover,
                       width: 43.r,
                       height: 43.r,
                     ),
@@ -571,8 +571,8 @@ class _SearchScreenState extends State<SearchScreen>
                                 ),
                               ),
                               5.horizontalSpace,
-                              Image.network(
-                                item.typeIcon!,
+                              DefaultFadeImage(
+                                imageUrl: item.typeIcon!,
                                 width: 12.sp,
                                 height: 12.sp,
                               ),
@@ -646,8 +646,8 @@ class _SearchScreenState extends State<SearchScreen>
                             ClipRRect(
                               borderRadius:
                                   BorderRadius.all(const Radius.circular(3).r),
-                              child: Image.network(
-                                item.items![i].cover!,
+                              child: DefaultFadeImage(
+                                imageUrl: item.items![i].cover!,
                                 width: 35.r,
                                 height: 35.r,
                               ),
@@ -800,8 +800,8 @@ class _SearchScreenState extends State<SearchScreen>
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Image.network(
-                            item.cover,
+                          DefaultFadeImage(
+                            imageUrl: item.cover,
                             width: 40.r,
                             height: 40.r,
                             fit: BoxFit.cover,
@@ -842,8 +842,8 @@ class _SearchScreenState extends State<SearchScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       15.verticalSpace,
-                      Image.network(
-                        item.items![0].team1!.cover,
+                      DefaultFadeImage(
+                        imageUrl: item.items![0].team1!.cover,
                         width: 45.r,
                         height: 45.r,
                       ),
@@ -918,8 +918,8 @@ class _SearchScreenState extends State<SearchScreen>
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       15.verticalSpace,
-                      Image.network(
-                        item.items![0].team2!.cover,
+                      DefaultFadeImage(
+                        imageUrl: item.items![0].team2!.cover,
                         width: 45.r,
                         height: 45.r,
                       ),
@@ -1127,8 +1127,8 @@ class _SearchScreenState extends State<SearchScreen>
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.all(const Radius.circular(4).r),
-                    child: Image.network(
-                      item.cover,
+                    child: DefaultFadeImage(
+                      imageUrl: item.cover,
                       width: 90.w,
                       height: 120.h,
                       fit: BoxFit.contain,
@@ -1207,8 +1207,8 @@ class _SearchScreenState extends State<SearchScreen>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Image.network(
-                                      item.followButton!.icon,
+                                    DefaultFadeImage(
+                                      imageUrl: item.followButton!.icon,
                                       width: 14.sp,
                                       height: 14.sp,
                                     ),

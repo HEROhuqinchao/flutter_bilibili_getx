@@ -17,7 +17,7 @@ class LiveState {
   LiveState() {
     isLoadingLiveData = true;
     cardDataSmallCardV1 = [];
-    headerHeight = 100.w;
+    headerHeight = 120.w;
     isAutoPlay = true;
     customScrollViewScrollController = ScrollController();
   }

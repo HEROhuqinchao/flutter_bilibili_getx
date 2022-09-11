@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
+import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class LiveScreen extends StatefulWidget {
 }
 
 class LiveScreenState extends State<LiveScreen>
-    with AutomaticKeepAliveClientMixin  {
+    with AutomaticKeepAliveClientMixin {
   final logic = Get.find<LiveLogic>();
   final state = Get.find<LiveLogic>().liveState;
   final homeState = Get.find<HomeLogic>().state;
@@ -83,65 +84,54 @@ class LiveScreenState extends State<LiveScreen>
     }
     return Padding(
       padding: EdgeInsets.all(4.r),
-      child: NotificationListener(
-        onNotification: (ScrollNotification notification) {
-          // if(notification.metrics.pixels == notification.metrics.minScrollExtent - 10.w) {
-          //   logic.expandHeader();
-          // }
-          // if(notification is ScrollStartNotification) {
-          //   logic.expandHeader();
-          // }
-          return true;
-        },
-        child: CustomScrollView(
-          controller: state.customScrollViewScrollController,
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          slivers: [
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                    (ctx, index) {
-                  if (index == 0) {
-                    return buildBannerV1(state.cardDataBannerV1);
-                  } else if (index == 1) {
-                    return buildAreaEntranceV3(state.cardDataAreaEntranceV3);
-                  } else if (index == 2) {
-                    return Container();
-                    // return buildActivityCardV1(state.cardDataActivityCardV1);
-                  } else {
-                    return Container();
-                  }
-                },
-                childCount: 3,
+      child: CustomScrollView(
+        // controller: state.customScrollViewScrollController,
+        shrinkWrap: true,
+        // physics: const NeverScrollableScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: buildBannerV1(),
+          ),
+          SliverAppBar(
+            elevation: 0,
+            backgroundColor: HYAppTheme.norWhite01Color,
+            pinned: true,
+            leading: null,
+            automaticallyImplyLeading: false,
+            title: buildAreaEntranceV3(state.cardDataAreaEntranceV3),
+            actions: [
+              Image.asset(
+                ImageAssets.moreBlockPNG,
+                width: 18.sp,
+                height: 18.sp,
               ),
+              10.horizontalSpace,
+            ],
+          ),
+          SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return buildSmallCardV1(
+                  state.cardDataSmallCardV1[index],
+                );
+              },
+              childCount: state.cardDataSmallCardV1.length,
             ),
-            SliverGrid(
-              delegate: SliverChildBuilderDelegate(
-                      (context, index) {
-                    return buildSmallCardV1(
-                      state.cardDataSmallCardV1[index],
-                    );
-                  },
-                  childCount: state.cardDataSmallCardV1.length
-              ),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 6.r,
-                  crossAxisSpacing: 6.r,
-                  mainAxisExtent: 140.w
-              ),
-            )
-          ],
-        ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 6.r,
+                crossAxisSpacing: 6.r,
+                mainAxisExtent: 140.w),
+          )
+        ],
       ),
     );
   }
 
   ///初始化广告
-  Widget buildBannerV1(CardData item) {
+  Widget buildBannerV1() {
     return Container(
       color: HYAppTheme.norWhite01Color,
-      padding: EdgeInsets.symmetric(vertical: 5.r),
       height: state.headerHeight,
       width: 1.sw,
       child: Swiper(
@@ -159,9 +149,9 @@ class LiveScreenState extends State<LiveScreen>
         itemBuilder: (ctx, index) {
           return ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(6.r)),
-            child: Image.network(
-              item.bannerV1!.list[index].pic,
-              fit: BoxFit.fill,
+            child: DefaultFadeImage(
+              imageUrl: state.cardDataBannerV1.bannerV1!.list[index].pic,
+              fit: BoxFit.cover,
             ),
           );
         },
@@ -181,43 +171,30 @@ class LiveScreenState extends State<LiveScreen>
     return DefaultTabController(
       // key: state.liveTabBarGlobalKey,
       length: tabs.length,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.r),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              width: .87.sw,
-              child: TabBar(
-                onTap: (index) {
-                  logic.selectLabelAndFetchData(index);
-                },
-                indicatorColor: Colors.transparent,
-                unselectedLabelColor: HYAppTheme.norGrayColor,
-                labelColor: HYAppTheme.norTextColors,
-                labelPadding: EdgeInsets.symmetric(horizontal: 8.r),
-                indicatorSize: TabBarIndicatorSize.label,
-                labelStyle: TextStyle(
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'bilibiliFonts',
-                ),
-                unselectedLabelStyle: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.normal,
-                  fontFamily: 'bilibiliFonts',
-                ),
-                indicatorWeight: 1.h,
-                isScrollable: true,
-                tabs: tabs,
-              ),
-            ),
-            Image.asset(
-              ImageAssets.moreBlockPNG,
-              width: 18.sp,
-              height: 18.sp,
-            )
-          ],
+      child: SizedBox(
+        width: .87.sw,
+        child: TabBar(
+          onTap: (index) {
+            logic.selectLabelAndFetchData(index);
+          },
+          indicatorColor: Colors.transparent,
+          unselectedLabelColor: HYAppTheme.norGrayColor,
+          labelColor: HYAppTheme.norTextColors,
+          labelPadding: EdgeInsets.symmetric(horizontal: 8.r),
+          indicatorSize: TabBarIndicatorSize.label,
+          labelStyle: TextStyle(
+            fontSize: 13.sp,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'bilibiliFonts',
+          ),
+          unselectedLabelStyle: TextStyle(
+            fontSize: 12.sp,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'bilibiliFonts',
+          ),
+          indicatorWeight: 1.h,
+          isScrollable: true,
+          tabs: tabs,
         ),
       ),
     );
@@ -241,13 +218,11 @@ class LiveScreenState extends State<LiveScreen>
           Stack(
             children: [
               ClipRRect(
-                borderRadius:
-                    BorderRadius.vertical(top: Radius.circular(5.r)),
-                child: Image.network(
-                  item.smallCardV1!.cover,
-                  fit: BoxFit.cover,
-                  height: 90.w,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(5.r)),
+                child: DefaultFadeImage(
+                  imageUrl: item.smallCardV1!.cover,
                   width: 1.sw,
+                  height: 90.w,
                 ),
               ),
               Positioned(
