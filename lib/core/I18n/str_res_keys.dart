@@ -94,4 +94,9 @@ class SR {
 
   ///会员购
   static const vipMall = "vipMall";
+
+  ///视频播放
+  static const profile = "profile";
+  static const reply = "reply";
+
 }

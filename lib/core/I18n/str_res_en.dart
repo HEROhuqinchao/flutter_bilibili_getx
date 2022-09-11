@@ -100,4 +100,8 @@ const strResEn = {
 
   ///会员购
   SR.vipMall: "VIP Mall",
+
+  ///视频播放
+  SR.profile:"profile",
+  SR.reply:"reply",
 };

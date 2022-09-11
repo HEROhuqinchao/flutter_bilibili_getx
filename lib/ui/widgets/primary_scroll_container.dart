@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 ///NestedScrollView嵌套tabView会导致，多列表同时滑动，而NestedScrollview里的body无法使用controller，否则失去联动效果
-///参照https://www.jianshu.com/p/ab473fb8ceb0处理这种问题
+///参照 https://www.jianshu.com/p/ab473fb8ceb0 处理这种问题
 class PrimaryScrollContainer extends StatefulWidget {
   final Widget child;
 

@@ -96,5 +96,9 @@ const strResZh = {
   SR.refresh: "刷新一下",
 
   ///会员购
-  SR.vipMall: "会员购"
+  SR.vipMall: "会员购",
+
+  ///视频播放
+  SR.profile:"简介",
+  SR.reply:"评论",
 };

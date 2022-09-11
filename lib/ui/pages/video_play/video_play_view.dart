@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../core/I18n/str_res_keys.dart';
 import '../../../core/model/video_reply_model.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/math_compute.dart';
@@ -63,7 +64,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
             length: 2,
             child: Scaffold(
               body: NestedScrollView(
-                controller: state.customScrollController,
+                controller: state.nestedScrollViewController,
                 headerSliverBuilder:
                     (BuildContext context, bool innerBoxIsScrolled) {
                   return [
@@ -209,13 +210,9 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
               height: 30.w,
               child: TabBar(
                 controller: tabController,
-                tabs: const [
-                  Tab(
-                    text: "简介",
-                  ),
-                  Tab(
-                    text: "评价",
-                  ),
+                tabs: [
+                  Tab(text: SR.profile.tr),
+                  Tab(text: SR.reply.tr),
                 ],
                 indicatorColor: HYAppTheme.norMainThemeColors,
                 unselectedLabelColor: HYAppTheme.unselectedLabelColor,
@@ -350,12 +347,16 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(5.r)),
-                child: state.videoProfile.relates[index].pic != null ? Image.network(
-                  state.videoProfile.relates[index].pic!,
-                  width: 150.w,
-                  height: 80.w,
-                  fit: BoxFit.cover,
-                ) : Container(child: Text("未处理的类型"),),
+                child: state.videoProfile.relates[index].pic != null
+                    ? Image.network(
+                        state.videoProfile.relates[index].pic!,
+                        width: 150.w,
+                        height: 80.w,
+                        fit: BoxFit.cover,
+                      )
+                    : Container(
+                        child: Text("未处理的类型"),
+                      ),
               ),
               10.horizontalSpace,
               Expanded(

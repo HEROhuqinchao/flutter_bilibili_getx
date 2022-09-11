@@ -18,15 +18,16 @@ class VideoPlayLogic extends GetxController {
 
   @override
   void onReady() {
-    state.customScrollController.addListener(() {
-      if (state.customScrollController.offset > 140.w &&
-          !state.customScrollController.position.outOfRange &&
+    ///控制显示或者隐藏
+    state.nestedScrollViewController.addListener(() {
+      if (state.nestedScrollViewController.offset > 140.w &&
+          !state.nestedScrollViewController.position.outOfRange &&
           state.showOrHideIconAndTitleOpacity != 1) {
         state.showOrHideIconAndTitleOpacity = 1;
         update();
       }
-      if (state.customScrollController.offset < 140.w &&
-          !state.customScrollController.position.outOfRange &&
+      if (state.nestedScrollViewController.offset < 140.w &&
+          !state.nestedScrollViewController.position.outOfRange &&
           state.showOrHideIconAndTitleOpacity != 0) {
         state.showOrHideIconAndTitleOpacity = 0;
         update();
@@ -43,6 +44,7 @@ class VideoPlayLogic extends GetxController {
     super.onClose();
   }
 
+  ///获取视频数据
   void fetchVideoView(String aid) {
     Map<String, dynamic> params = {
       'aid': aid,
@@ -80,17 +82,19 @@ class VideoPlayLogic extends GetxController {
     });
   }
 
+  ///销毁视频的控件
   void disposeVideoPlayerController() {
     state.videoPlayerController.pause();
     state.chewieController.pause();
     state.videoPlayerController.dispose();
     state.videoPlayerController.removeListener(() {});
     state.chewieController.dispose();
-    state.customScrollController.removeListener(() {});
-    state.customScrollController.dispose();
+    state.nestedScrollViewController.removeListener(() {});
+    state.nestedScrollViewController.dispose();
 
   }
 
+  ///初始化视频播放的控件
   initVideoPlayerController() {
     state.videoPlayerController.initialize().then((value) {
       state.chewieController = ChewieController(
@@ -116,6 +120,7 @@ class VideoPlayLogic extends GetxController {
     });
   }
 
+  ///展开明细或隐藏视频的明细
   void expandedVideoProfileDetail() {
     state.isExpanded = !state.isExpanded;
     state.cutDownWidgetKey.currentState?.widgetShift();
