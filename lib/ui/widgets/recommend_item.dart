@@ -33,16 +33,17 @@ class RecommendItem extends StatelessWidget {
                 "videoMp4-----------${videoMp4.substring(0, videoMp4.length)}");
             if (videoMp4.isEmpty) {
               videoItem.videoData =
-                  "http://vjs.zencdn.net/v/oceans.mp4";
+                  "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4";
             } else {
               videoItem.videoData = videoMp4.substring(1, videoMp4.length - 1);
             }
 
             ///传递数据
+            Get.lazyPut(() => VideoPlayLogic());
             VideoPlayLogic logic = Get.find<VideoPlayLogic>();
             logic.fetchFeedIndexItemData(videoItem);
-            logic.fetchVideoView(videoItem.args!.aid!.toString());
-            logic.fetchVideoReply(videoItem.args!.aid!.toString());
+            // logic.fetchVideoView(videoItem.args!.aid!.toString());
+            // logic.fetchVideoReply(videoItem.args!.aid!.toString());
 
             ///跳转至播放界面
             Get.toNamed(VideoPlayScreen.routeName);

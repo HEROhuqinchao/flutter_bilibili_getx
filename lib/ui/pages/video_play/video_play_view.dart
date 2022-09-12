@@ -291,7 +291,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                   color: HYAppTheme.norMainThemeColors,
                 ),
               )
-            : buildVideoProfile(),
+            : const buildVideoProfile(),
         state.isLoadingVideoReply
             ? const Center(
                 child: CircularProgressIndicator(
@@ -777,10 +777,10 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
                                 height: 14.sp,
                               ),
                               5.horizontalSpace,
-                              Container(
+                              SizedBox(
                                 height: 14.sp,
                                 child: Text(
-                                  "${changeToWan(state.videoProfile.relates![index].stat["view"]!)}",
+                                  changeToWan(state.videoProfile.relates![index].stat["view"]!),
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     color: HYAppTheme.norGrayColor,
@@ -795,7 +795,7 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
                                 height: 14.sp,
                               ),
                               5.horizontalSpace,
-                              Container(
+                              SizedBox(
                                 height: 14.sp,
                                 child: Text(
                                   "${state.videoProfile.relates![index].stat["danmaku"]!}",

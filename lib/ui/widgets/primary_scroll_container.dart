@@ -110,7 +110,9 @@ class ScrollControllerWrapper implements ScrollController {
       // print('{$code}:detach start {$showing}');
       return true;
     }.call());
-    if (fake) print("detach is innner");
+    if (fake) {
+      print("detach is innner");
+    }
     if (inner.positions.contains(position)) {
       inner.detach(position!);
     }

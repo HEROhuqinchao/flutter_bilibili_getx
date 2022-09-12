@@ -27,6 +27,5 @@ class MainBinding extends Bindings {
     Get.lazyPut(() => RecommendLogic());
     Get.lazyPut(() => LiveLogic());
     Get.lazyPut(() => SearchLogic());
-    Get.lazyPut(() => VideoPlayLogic());
   }
 }

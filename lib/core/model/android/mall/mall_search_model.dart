@@ -909,7 +909,7 @@ class IpTab {
   List<String> tagList;
   String itemImage;
   String bgImage;
-  int itemId;
+  int? itemId;
   String ipName;
 
   factory IpTab.fromJson(Map<String, dynamic> json) => IpTab(

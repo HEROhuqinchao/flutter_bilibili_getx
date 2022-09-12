@@ -35,7 +35,7 @@ class BuildDanMuProtoScreenState extends State<BuildDanMuProtoScreen> {
   List<double> speedList = [];
   int routeNum = 0;
 
-  ///记录轨道时间（稍微往后延一点时间，视频加载需要时间）
+  ///记录轨道时间
   List<double> movingDMRoutesTime = [0, 0, 0, 0, 0, 0];
   List<double> topDMRoutesTime = [0, 0, 0];
   List<double> bottomDMRoutesTime = [0, 0, 0];
@@ -77,7 +77,7 @@ class BuildDanMuProtoScreenState extends State<BuildDanMuProtoScreen> {
       List<DanMuModel02> bottomDanMuList = [];
 
       ///最多装填X条弹幕，太多弹幕会卡顿严重
-      value = value.sublist(0, value.length > 200 ? 200 : value.length);
+      value = value.sublist(0, value.length > 50 ? 50 : value.length);
       for (var element in value) {
         // print(element.content);
         // print(element.progress);
@@ -329,7 +329,7 @@ class _SendMovingDMState extends State<SendMovingDM>
   void initState() {
     _controller = AnimationController(
         duration: Duration(milliseconds: widget.moveTime), vsync: this);
-    _animation = Tween(begin: Offset(1.0, .0), end: Offset(-1.0, .0))
+    _animation = Tween(begin: const Offset(1.0, .0), end: const Offset(-1.0, .0))
         .animate(_controller);
     _timer = Timer(Duration(milliseconds: widget.sendTime), () {
       _controller.forward();
@@ -348,7 +348,7 @@ class _SendMovingDMState extends State<SendMovingDM>
           ///文本如果过长
           child: ListView(
             scrollDirection: Axis.horizontal,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             children: [
               Text(

@@ -99,7 +99,6 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          // initialRoute: LiveScreen.routeName,
           initialRoute: MainScreen.routeName,
 
           ///路由和绑定

@@ -7,6 +7,5 @@ class RecommendBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => RecommendLogic());
-    Get.lazyPut(() => VideoPlayLogic());
   }
 }

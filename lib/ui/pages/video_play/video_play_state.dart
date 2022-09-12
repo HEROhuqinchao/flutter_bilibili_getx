@@ -1,6 +1,7 @@
+import 'dart:async';
+
 import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
@@ -62,6 +63,20 @@ class VideoPlayState {
   late GlobalKey<PrimaryScrollContainerState> keyReply;
   late List<GlobalKey<PrimaryScrollContainerState>> scrollChildKeys;
 
+
+  ///视频进度条
+  ///判断当前视频播放状态
+  late VideoPlayerValue latestValue;
+  late bool hideStuff;
+  late double barHeight;
+  late Timer showAfterExpandCollapseTimer;
+  late Timer hideTimer;
+  late bool displayTapped;
+  late Timer initTimer;
+  late bool dragging;
+  late bool showPlayButton;
+
+
   ///初始化
   VideoPlayState() {
     frequency = 0;
@@ -77,5 +92,10 @@ class VideoPlayState {
     keyProfile = GlobalKey<PrimaryScrollContainerState>();
     keyReply = GlobalKey<PrimaryScrollContainerState>();
     scrollChildKeys = [keyProfile, keyReply];
+    hideStuff = false;
+    barHeight = 70.h;
+    displayTapped = false;
+    dragging = false;
+    showPlayButton = true;
   }
 }
