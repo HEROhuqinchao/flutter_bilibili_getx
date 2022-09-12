@@ -112,4 +112,5 @@ class ImageAssets {
   static String collectCustomPNG = "assets/image/icon/collect_custom.png";
   static String shareCustomPNG = "assets/image/icon/share_custom.png";
   static String icDanmuGrayPNG = "assets/image/icon/ic_danmu.png";
+  static String progressBarHeaderPNG = "assets/image/icon/progress_bar.png";
 }

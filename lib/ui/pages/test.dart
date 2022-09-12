@@ -1,26 +1,37 @@
-// import 'package:bilibili_getx/ui/widgets/primary_scroll_container.dart';
-// import 'package:flutter/material.dart';
-//
+import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
+import 'package:bilibili_getx/ui/widgets/primary_scroll_container.dart';
+import 'package:flutter/material.dart';
+
 // GlobalKey<PrimaryScrollContainerState> key1 =
 //     GlobalKey<PrimaryScrollContainerState>();
 // GlobalKey<PrimaryScrollContainerState> key2 =
 //     GlobalKey<PrimaryScrollContainerState>();
-//
-// void main() => runApp(const MyApp());
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   static const String _title = 'Flutter Code Sample';
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MaterialApp(
-//       title: _title,
-//       home: MyStatelessWidget(),
-//     );
-//   }
-// }
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  static const String _title = 'Flutter Code Sample';
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: _title,
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BilibiliVideoPlayerComponent();
+  }
+}
+
 //
 // class MyStatelessWidget extends StatefulWidget {
 //   const MyStatelessWidget({super.key});

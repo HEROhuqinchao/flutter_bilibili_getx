@@ -130,6 +130,7 @@ class VideoPlayLogic extends GetxController {
 
   ///视频进度条
   Future<void> initializeBilibiliVideoProgressControl() async {
+    state.latestValue = state.videoPlayerController.value;
     state.videoPlayerController.addListener(updateState);
     if (state.videoPlayerController.value.isPlaying ||
         state.chewieController.autoPlay) {
