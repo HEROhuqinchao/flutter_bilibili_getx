@@ -128,12 +128,12 @@ class BilibiliVideoPlayerLogic extends GetxController {
   ///全屏模式
   void openOrCloseFullScreen() {
     if (state.isFullScreen) {
-      AutoOrientation.portraitAutoMode();
+      // AutoOrientation.portraitAutoMode();
       ///显示状态栏，与底部虚拟操作按钮
       SystemChrome.setEnabledSystemUIMode(
           SystemUiMode.manual, overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     } else {
-      AutoOrientation.landscapeAutoMode();
+      // AutoOrientation.landscapeAutoMode();
 
       ///关闭状态栏，与底部虚拟操作按钮
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
