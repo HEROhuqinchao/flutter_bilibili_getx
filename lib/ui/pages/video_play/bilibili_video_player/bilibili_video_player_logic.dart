@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:brightness_volume/brightness_volume.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
@@ -15,8 +17,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
   void onInit() {
     state.videoPlayerController = VideoPlayerController.network(
         // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4"
-        "https://media.w3.org/2010/05/sintel/trailer.mp4"
-    )
+        "https://media.w3.org/2010/05/sintel/trailer.mp4")
       ..initialize().then((value) {
         state.latestValue = state.videoPlayerController.value;
         update();
@@ -25,6 +26,9 @@ class BilibiliVideoPlayerLogic extends GetxController {
       state.latestValue = state.videoPlayerController.value;
       update();
     });
+
+    ///获取音量和亮度
+    fetchVolumeBrightness();
     super.onInit();
   }
 
@@ -35,6 +39,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
     });
     state.videoPlayerController.dispose();
     super.onClose();
+  }
+
+  void fetchVolumeBrightness() async {
+    state.brightness = (await BVUtils.brightness).clamp(0.0, 1.0);
+    state.volume = (await BVUtils.volume).clamp(0.0, 1.0);
   }
 
   ///播放或暂停
@@ -54,6 +63,8 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///水平拖动进度条
   void videoPlayProgressOnHorizontalDragStart() {
+    ///是否显示视频当前进度的弹框（拖动进度条时显示）
+    state.videoProgress = true;
     if (!state.videoPlayerController.value.isInitialized) {
       return;
     }
@@ -77,6 +88,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///拖动结束
   void videoPlayProgressOnHorizontalDragEnd() {
+    state.videoProgress = false;
     if (state.controllerWasPlaying) {
       state.videoPlayerController.play();
     }
@@ -95,7 +107,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
   ///隐藏进度条
   void startHideTimer() {
     ///过一段时间隐藏掉
-    state.hideTimer = Timer(const Duration(milliseconds: 2500), () {
+    state.hideTimer = Timer(const Duration(milliseconds: 4000), () {
       state.showBottomBar = false;
       update();
     });
@@ -145,6 +157,25 @@ class BilibiliVideoPlayerLogic extends GetxController {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+    update();
+  }
+
+  ///开始调节音量
+  void videoPlayVolumeOnVerticalDragStart() {
+    state.videoVolume = true;
+    update();
+  }
+
+  ///结束调节音量
+  void videoPlayVolumeOnVerticalDragEnd() {
+    state.videoVolume = false;
+    update();
+  }
+
+  ///音量更新
+  void videoPlayVolumeOnVerticalDragUpdate(DragUpdateDetails details) {
+    state.volume = (state.volume + details.delta.dy / 20);
+    BVUtils.setVolume(state.volume);
     update();
   }
 }

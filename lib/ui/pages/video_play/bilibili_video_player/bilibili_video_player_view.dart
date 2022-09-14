@@ -27,10 +27,36 @@ class _BilibiliVideoPlayerComponentState
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: HYAppTheme.norTextColors,
         body: GetBuilder<BilibiliVideoPlayerLogic>(builder: (logic) {
           return Center(
             child: state.videoPlayerController.value.isInitialized
-                ? buildVideoPlayer()
+                ? GestureDetector(
+                    onHorizontalDragStart: (DragStartDetails details) {
+                      logic.videoPlayProgressOnHorizontalDragStart();
+                    },
+                    onHorizontalDragUpdate: (DragUpdateDetails details) {
+                      logic.videoPlayProgressOnHorizontalDragUpdate(
+                          context, details.globalPosition);
+                    },
+                    onHorizontalDragEnd: (DragEndDetails details) {
+                      logic.videoPlayProgressOnHorizontalDragEnd();
+                    },
+                    onVerticalDragStart: (DragStartDetails details) {
+                      logic.videoPlayVolumeOnVerticalDragStart();
+                    },
+                    onVerticalDragEnd: (DragEndDetails details) {
+                      logic.videoPlayVolumeOnVerticalDragEnd();
+                    },
+                    onVerticalDragUpdate: (DragUpdateDetails details) {
+                      logic.videoPlayVolumeOnVerticalDragUpdate(details);
+                    },
+                    child: SizedBox(
+                      height: 200.w,
+                      width: 1.sw,
+                      child: buildVideoPlayer(),
+                    ),
+                  )
                 : buildVideoLoading(),
           );
         }),
@@ -55,6 +81,7 @@ class _BilibiliVideoPlayerComponentState
         logic.playOrPauseVideo();
       },
       child: AbsorbPointer(
+        ///点击响应的是进度条还是屏幕
         absorbing: !state.showBottomBar,
         child: Stack(
           children: [
@@ -187,13 +214,11 @@ class _BilibiliVideoPlayerComponentState
       child: AbsorbPointer(
         absorbing: !state.showBottomBar,
         child: SizedBox(
-          height: .3.sh,
           width: 1.sw,
           child: Stack(
             children: [
               Container(
                 color: Colors.black,
-                height: .3.sh,
                 width: 1.sw,
                 child: AspectRatio(
                   aspectRatio: state.videoPlayerController.value.aspectRatio,
@@ -242,8 +267,52 @@ class _BilibiliVideoPlayerComponentState
                 ),
               ),
 
+              ///视频的进度显示框
+              state.videoProgress
+                  ? Center(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 5.r, horizontal: 10.r),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: HYAppTheme.norTextColors, width: .5.sp),
+                          color: HYAppTheme.norTextColors.withOpacity(.8),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(5.r),
+                          ),
+                        ),
+                        child: Text(
+                          "${formatDuration(state.videoPlayerController.value.position)} / ${formatDuration(state.videoPlayerController.value.duration)}",
+                          style: TextStyle(
+                            color: HYAppTheme.norWhite01Color,
+                            fontSize: 14.sp,
+                          ),
+                        ),
+                      ),
+                    )
+                  : const Center(),
+
+              ///视频的亮度值显示框
+
+              ///视频的音量显示框
+              state.videoVolume
+                  ? Center(
+                      child: Container(
+                        width: 80.w,
+                        height: 3.w,
+                        child: LinearProgressIndicator (
+                          backgroundColor: HYAppTheme.norWhite01Color,
+                          value: state.volume,
+                          color: HYAppTheme.norMainThemeColors,
+                        ),
+                      ),
+                    )
+                  : const Center(),
+
               ///在缓冲
-              state.latestValue.isBuffering
+              state.latestValue.isBuffering &&
+                      !state.videoProgress &&
+                      !state.videoVolume
                   ? Center(
                       child: Image.asset(
                         ImageAssets.ploadingGif,

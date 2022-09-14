@@ -7,190 +7,86 @@ import 'package:flutter/material.dart';
 // GlobalKey<PrimaryScrollContainerState> key2 =
 //     GlobalKey<PrimaryScrollContainerState>();
 
-void main() => runApp(const MyApp());
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:brightness_volume/brightness_volume.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() {
+  runApp(MyApp());
+}
 
-  static const String _title = 'Flutter Code Sample';
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  double volume         = 0.0;
+  double brightness     = 0.0;
+  bool   keepOn         = false;
+  double freeDiskSpace  = 0;
+  double totalDiskSpace = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    this.init();
+  }
+
+  void init() async{
+
+    this.brightness     = (await BVUtils.brightness).clamp(0.0, 1.0);
+    this.volume         = (await BVUtils.volume).clamp(0.0, 1.0);
+    this.keepOn         = await BVUtils.isKeptOn;
+    this.freeDiskSpace  = await BVUtils.freeDiskSpace;
+    this.totalDiskSpace = await BVUtils.totalDiskSpace;
+    print("brightness::$brightness volume:$volume isKeptOn:$keepOn");
+    this.setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: Home(),
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Plugin example app'),
+          ),
+          body: Column(children: [
+            SizedBox(height: 100),
+            Text("volume $volume"),
+            Slider(value: volume, onChanged: (e){
+              this.setState(() {
+                this.volume = e;
+                BVUtils.setVolume(e);
+              });
+            }),
+            SizedBox(height: 50),
+            Text("brightness $brightness"),
+            Slider(value: brightness, onChanged: (e){
+              this.setState(() {
+                this.brightness = e;
+                BVUtils.setBrightness(e);
+              });
+            }),
+            SizedBox(height: 50),
+            MaterialButton(
+              child: Text('Reset brightness'),
+              onPressed: () {
+                BVUtils.resetCustomBrightness();
+              },
+            ),
+            SizedBox(height: 50),
+            Text("keep $keepOn"),
+            CupertinoSwitch(value: this.keepOn, onChanged: (e){
+              this.setState(() {
+                this.keepOn = e;
+                BVUtils.keepOn(e);
+              });
+            }),
+            SizedBox(height: 50),
+            Text("disk space $freeDiskSpace/$totalDiskSpace"),
+          ])
+      ),
     );
   }
 }
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BilibiliVideoPlayerComponent();
-  }
-}
-
-//
-// class MyStatelessWidget extends StatefulWidget {
-//   const MyStatelessWidget({super.key});
-//
-//   @override
-//   State<MyStatelessWidget> createState() => _MyStatelessWidgetState();
-// }
-//
-// class _MyStatelessWidgetState extends State<MyStatelessWidget> with SingleTickerProviderStateMixin{
-//   List<GlobalKey<PrimaryScrollContainerState>> scrollChildKeys = [key1, key2];
-//   late TabController _tabController;
-//
-//   @override
-//   void initState() {
-//     _tabController = TabController(length: 2, vsync: this);
-//     _tabController.addListener(() {
-//       for (int i = 0; i < scrollChildKeys.length; i++) {
-//         GlobalKey<PrimaryScrollContainerState> key = scrollChildKeys[i];
-//         if (key.currentState != null) {
-//           key.currentState?.onPageChange(_tabController.index == i); //控制是否当前显示
-//         }
-//       }
-//     });
-//     super.initState();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     final List<String> tabs = <String>['Tab 1', 'Tab 2'];
-//
-//     return DefaultTabController(
-//       length: 2, // This is the number of tabs.
-//       child: Scaffold(
-//         body: NestedScrollView(
-//           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-//             return <Widget>[
-//               SliverAppBar(
-//                 title: const Text('Books'),
-//                 // This is the title in the app bar.
-//                 pinned: true,
-//                 expandedHeight: 150.0,
-//                 forceElevated: innerBoxIsScrolled,
-//                 bottom: TabBar(
-//                   tabs: tabs.map((String name) => Tab(text: name)).toList(),
-//                   controller: _tabController,
-//                 ),
-//               ),
-//             ];
-//           },
-//           body: TabBarView(
-//             controller: _tabController,
-//             children: [
-//               PrimaryScrollContainer(
-//                 scrollChildKeys[0],
-//                 Page1(),
-//               ),
-//               PrimaryScrollContainer(
-//                 scrollChildKeys[1],
-//                 Page2(),
-//               )
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-//
-// class Page1 extends StatefulWidget {
-//   const Page1({Key? key}) : super(key: key);
-//
-//   @override
-//   State<Page1> createState() => Page1State();
-// }
-//
-// class Page1State extends State<Page1> with AutomaticKeepAliveClientMixin{
-//   @override
-//   void initState() {
-//     super.initState();
-//   }
-//   @override
-//   Widget build(BuildContext context) {
-//     super.build(context);
-//     return SafeArea(
-//       top: false,
-//       bottom: false,
-//       child: Builder(
-//         builder: (BuildContext context) {
-//           return CustomScrollView(
-//             slivers: <Widget>[
-//               SliverPadding(
-//                 padding: const EdgeInsets.all(8.0),
-//                 sliver: SliverFixedExtentList(
-//                   itemExtent: 48.0,
-//                   delegate: SliverChildBuilderDelegate(
-//                     (BuildContext context, int index) {
-//                       return ListTile(
-//                         title: Text('Item $index'),
-//                       );
-//                     },
-//                     childCount: 30,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           );
-//         },
-//       ),
-//     );
-//   }
-//
-//   @override
-//   bool get wantKeepAlive => true;
-// }
-//
-// class Page2 extends StatefulWidget {
-//   const Page2({Key? key}) : super(key: key);
-//
-//   @override
-//   State<Page2> createState() => Page2State();
-// }
-//
-// class Page2State extends State<Page2> with AutomaticKeepAliveClientMixin{
-//   @override
-//   void initState() {
-//     super.initState();
-//   }
-//   @override
-//   Widget build(BuildContext context) {
-//     super.build(context);
-//     return SafeArea(
-//       top: false,
-//       bottom: false,
-//       child: Builder(
-//         builder: (BuildContext context) {
-//           return CustomScrollView(
-//             slivers: <Widget>[
-//               SliverPadding(
-//                 padding: const EdgeInsets.all(8.0),
-//                 sliver: SliverFixedExtentList(
-//                   itemExtent: 48.0,
-//                   delegate: SliverChildBuilderDelegate(
-//                     (BuildContext context, int index) {
-//                       return ListTile(
-//                         title: Text('child $index'),
-//                       );
-//                     },
-//                     childCount: 50,
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           );
-//         },
-//       ),
-//     );
-//   }
-//
-//   @override
-//   // TODO: implement wantKeepAlive
-//   bool get wantKeepAlive => true;
-// }
