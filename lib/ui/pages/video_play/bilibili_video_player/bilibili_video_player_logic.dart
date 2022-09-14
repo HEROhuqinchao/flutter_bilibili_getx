@@ -16,8 +16,9 @@ class BilibiliVideoPlayerLogic extends GetxController {
   @override
   void onInit() {
     state.videoPlayerController = VideoPlayerController.network(
-        // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4"
-        "https://media.w3.org/2010/05/sintel/trailer.mp4")
+        "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4"
+        // "https://media.w3.org/2010/05/sintel/trailer.mp4"
+    )
       ..initialize().then((value) {
         state.latestValue = state.videoPlayerController.value;
         update();
