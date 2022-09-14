@@ -115,4 +115,7 @@ class ImageAssets {
   static String progressBarHeaderPNG = "assets/image/icon/progress_bar.png";
   static String exitFullScreenPNG = "assets/image/icon/exit_full_screen.png";
   static String fullCustomPNG = "assets/image/icon/full_custom.png";
+  static String volumePNG = "assets/image/icon/volume.png";
+  static String volume0PNG = "assets/image/icon/volume0.png";
+  static String brightnessPNG = "assets/image/icon/brightness.png";
 }

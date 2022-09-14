@@ -41,6 +41,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
     super.onClose();
   }
 
+  ///获取音量和亮度
   void fetchVolumeBrightness() async {
     state.brightness = (await BVUtils.brightness).clamp(0.0, 1.0);
     state.volume = (await BVUtils.volume).clamp(0.0, 1.0);
@@ -115,10 +116,12 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///重启隐藏计时器
   void cancelAndRestartTimer() {
-    state.hideTimer.cancel();
-    state.showBottomBar = true;
-    update();
-    startHideTimer();
+    if (state.videoPlayerController.value.isPlaying) {
+      state.hideTimer.cancel();
+      state.showBottomBar = true;
+      update();
+      startHideTimer();
+    }
   }
 
   ///跳转至某一时刻
@@ -161,21 +164,44 @@ class BilibiliVideoPlayerLogic extends GetxController {
   }
 
   ///开始调节音量
-  void videoPlayVolumeOnVerticalDragStart() {
-    state.videoVolume = true;
+
+  void videoPlayVolumeBrightnessOnVerticalDragStart(DragStartDetails details) {
+    if (details.globalPosition.dx > 1.sw / 2) {
+      state.videoVolume = true;
+    } else {
+      state.videoBrightness = true;
+    }
     update();
   }
 
   ///结束调节音量
-  void videoPlayVolumeOnVerticalDragEnd() {
+
+  void videoPlayVolumeBrightnessOnVerticalDragEnd() {
+    state.videoBrightness = false;
     state.videoVolume = false;
     update();
   }
 
   ///音量更新
-  void videoPlayVolumeOnVerticalDragUpdate(DragUpdateDetails details) {
-    state.volume = (state.volume + details.delta.dy / 20);
-    BVUtils.setVolume(state.volume);
+  void videoPlayVolumeBrightnessOnVerticalDragUpdate(
+      DragUpdateDetails details) {
+    if (state.isFullScreen) {
+      if (details.globalPosition.dx > 1.sw / 2) {
+        state.volume = (state.volume - (details.delta.dy / 50));
+        BVUtils.setVolume(state.volume);
+      } else {
+        state.brightness = (state.brightness - (details.delta.dy / 50));
+        BVUtils.setBrightness(state.brightness);
+      }
+    } else {
+      if (details.globalPosition.dx > 1.sw / 2) {
+        state.volume = (state.volume - (details.delta.dy / 30));
+        BVUtils.setVolume(state.volume);
+      } else {
+        state.brightness = (state.brightness - (details.delta.dy / 30));
+        BVUtils.setBrightness(state.brightness);
+      }
+    }
     update();
   }
 }

@@ -11,7 +11,7 @@ import 'package:video_player/video_player.dart';
 
 import '../../../core/model/feed_index_model.dart';
 import '../../shared/params_sign.dart';
-import 'bilibili_video_prograss_controller/bilibili_video_progress_control.dart';
+import 'bilibili_video_player/bilibili_video_player_view.dart';
 
 class VideoPlayLogic extends GetxController {
   final VideoPlayState state = VideoPlayState();
@@ -99,7 +99,7 @@ class VideoPlayLogic extends GetxController {
           allowMuting: false,
           videoPlayerController: state.videoPlayerController,
           autoPlay: true,
-          customControls: const BilibiliVideoProgressController()
+          customControls: BilibiliVideoPlayerComponent()
           // customControls: HYBilibiliControls(
           //   video: state.video,
           // ),

@@ -43,19 +43,17 @@ class _BilibiliVideoPlayerComponentState
                       logic.videoPlayProgressOnHorizontalDragEnd();
                     },
                     onVerticalDragStart: (DragStartDetails details) {
-                      logic.videoPlayVolumeOnVerticalDragStart();
+                      logic.videoPlayVolumeBrightnessOnVerticalDragStart(
+                          details);
                     },
                     onVerticalDragEnd: (DragEndDetails details) {
-                      logic.videoPlayVolumeOnVerticalDragEnd();
+                      logic.videoPlayVolumeBrightnessOnVerticalDragEnd();
                     },
                     onVerticalDragUpdate: (DragUpdateDetails details) {
-                      logic.videoPlayVolumeOnVerticalDragUpdate(details);
+                      logic.videoPlayVolumeBrightnessOnVerticalDragUpdate(
+                          details);
                     },
-                    child: SizedBox(
-                      height: 200.w,
-                      width: 1.sw,
-                      child: buildVideoPlayer(),
-                    ),
+                    child: buildVideoPlayer(),
                   )
                 : buildVideoLoading(),
           );
@@ -66,8 +64,16 @@ class _BilibiliVideoPlayerComponentState
 
   Widget buildVideoPlayer() {
     return state.videoPlayerController.value.aspectRatio < 1
-        ? buildVerticalVideo()
-        : buildHorizonVideo();
+        ? SizedBox(
+            height: 1.sh,
+            width: 1.sw,
+            child: buildVerticalVideo(),
+          )
+        : SizedBox(
+            height: 200.w,
+            width: 1.sw,
+            child: buildHorizonVideo(),
+          );
   }
 
   ///垂直视频
@@ -133,8 +139,107 @@ class _BilibiliVideoPlayerComponentState
               ),
             ),
 
+            ///视频的进度显示框
+            state.videoProgress
+                ? Center(
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 5.r, horizontal: 10.r),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: HYAppTheme.norTextColors, width: .5.sp),
+                        color: HYAppTheme.norTextColors.withOpacity(.8),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5.r),
+                        ),
+                      ),
+                      child: Text(
+                        "${formatDuration(state.videoPlayerController.value.position)} / ${formatDuration(state.videoPlayerController.value.duration)}",
+                        style: TextStyle(
+                          color: HYAppTheme.norWhite01Color,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
+                  )
+                : const Center(),
+
+            ///视频的亮度值显示框
+            state.videoBrightness
+                ? Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: HYAppTheme.norTextColors.withOpacity(.4),
+                          borderRadius: BorderRadius.all(Radius.circular(5.r))),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SizedBox(
+                            width: 22.sp,
+                            height: 22.sp,
+                            child: Image.asset(ImageAssets.brightnessPNG),
+                          ),
+                          8.horizontalSpace,
+                          SizedBox(
+                            width: 65.w,
+                            height: 3.w,
+                            child: LinearProgressIndicator(
+                              backgroundColor: HYAppTheme.norWhite01Color,
+                              value: state.brightness,
+                              color: HYAppTheme.norMainThemeColors,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                : const Center(),
+
+            ///视频的音量显示框
+            state.videoVolume
+                ? Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: HYAppTheme.norTextColors.withOpacity(.4),
+                          borderRadius: BorderRadius.all(Radius.circular(5.r))),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          state.volume > 0
+                              ? SizedBox(
+                                  width: 22.sp,
+                                  height: 22.sp,
+                                  child: Image.asset(ImageAssets.volumePNG),
+                                )
+                              : SizedBox(
+                                  width: 22.sp,
+                                  height: 22.sp,
+                                  child: Image.asset(ImageAssets.volume0PNG),
+                                ),
+                          8.horizontalSpace,
+                          SizedBox(
+                            width: 65.w,
+                            height: 3.w,
+                            child: LinearProgressIndicator(
+                              backgroundColor: HYAppTheme.norWhite01Color,
+                              value: state.volume,
+                              color: HYAppTheme.norMainThemeColors,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                : const Center(),
+
             ///在缓冲
-            state.latestValue.isBuffering
+            state.latestValue.isBuffering &&
+                    !state.videoProgress &&
+                    !state.videoVolume
                 ? Center(
                     child: Image.asset(
                       ImageAssets.ploadingGif,
@@ -293,17 +398,74 @@ class _BilibiliVideoPlayerComponentState
                   : const Center(),
 
               ///视频的亮度值显示框
+              state.videoBrightness
+                  ? Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: HYAppTheme.norTextColors.withOpacity(.4),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5.r))),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 12.r, vertical: 8.r),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(
+                              width: 22.sp,
+                              height: 22.sp,
+                              child: Image.asset(ImageAssets.brightnessPNG),
+                            ),
+                            8.horizontalSpace,
+                            SizedBox(
+                              width: 65.w,
+                              height: 3.w,
+                              child: LinearProgressIndicator(
+                                backgroundColor: HYAppTheme.norWhite01Color,
+                                value: state.brightness,
+                                color: HYAppTheme.norMainThemeColors,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  : const Center(),
 
               ///视频的音量显示框
               state.videoVolume
                   ? Center(
                       child: Container(
-                        width: 80.w,
-                        height: 3.w,
-                        child: LinearProgressIndicator (
-                          backgroundColor: HYAppTheme.norWhite01Color,
-                          value: state.volume,
-                          color: HYAppTheme.norMainThemeColors,
+                        decoration: BoxDecoration(
+                            color: HYAppTheme.norTextColors.withOpacity(.4),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5.r))),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 12.r, vertical: 8.r),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            state.volume > 0
+                                ? SizedBox(
+                                    width: 22.sp,
+                                    height: 22.sp,
+                                    child: Image.asset(ImageAssets.volumePNG),
+                                  )
+                                : SizedBox(
+                                    width: 22.sp,
+                                    height: 22.sp,
+                                    child: Image.asset(ImageAssets.volume0PNG),
+                                  ),
+                            8.horizontalSpace,
+                            SizedBox(
+                              width: 65.w,
+                              height: 3.w,
+                              child: LinearProgressIndicator(
+                                backgroundColor: HYAppTheme.norWhite01Color,
+                                value: state.volume,
+                                color: HYAppTheme.norMainThemeColors,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     )
@@ -321,6 +483,16 @@ class _BilibiliVideoPlayerComponentState
                       ),
                     )
                   : const Center(),
+
+              // IgnorePointer(
+              //   child: BuildDanMuProtoScreen(
+              //     width: 1.sw,
+              //     oid: state.video.playerArgs!.cid!,
+              //
+              //     ///转为多少分钟，整除
+              //     duration: state.video.playerArgs!.duration! ~/ 60,
+              //   ),
+              // )
             ],
           ),
         ),
