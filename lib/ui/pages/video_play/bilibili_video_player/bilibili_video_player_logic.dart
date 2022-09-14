@@ -14,7 +14,9 @@ class BilibiliVideoPlayerLogic extends GetxController {
   @override
   void onInit() {
     state.videoPlayerController = VideoPlayerController.network(
-        "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4")
+        // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4"
+        "https://media.w3.org/2010/05/sintel/trailer.mp4"
+    )
       ..initialize().then((value) {
         state.latestValue = state.videoPlayerController.value;
         update();
@@ -35,17 +37,19 @@ class BilibiliVideoPlayerLogic extends GetxController {
     super.onClose();
   }
 
+  ///播放或暂停
   void playOrPauseVideo() {
-    ///播放或暂停
+    ///暂停显示进度条
     if (state.videoPlayerController.value.isPlaying) {
       state.videoPlayerController.pause();
+      state.hideTimer.cancel();
       state.showBottomBar = true;
+      update();
     } else {
+      ///播放开始计时消失
       state.videoPlayerController.play();
-      ///隐藏进度条
-      startHideTimer();
+      cancelAndRestartTimer();
     }
-    update();
   }
 
   ///水平拖动进度条
@@ -91,7 +95,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
   ///隐藏进度条
   void startHideTimer() {
     ///过一段时间隐藏掉
-    state.hideTimer = Timer(const Duration(microseconds: 2500), () {
+    state.hideTimer = Timer(const Duration(milliseconds: 2500), () {
       state.showBottomBar = false;
       update();
     });
@@ -100,9 +104,9 @@ class BilibiliVideoPlayerLogic extends GetxController {
   ///重启隐藏计时器
   void cancelAndRestartTimer() {
     state.hideTimer.cancel();
-    startHideTimer();
     state.showBottomBar = true;
     update();
+    startHideTimer();
   }
 
   ///跳转至某一时刻
@@ -125,20 +129,22 @@ class BilibiliVideoPlayerLogic extends GetxController {
     update();
   }
 
-  ///全屏模式
-  void openOrCloseFullScreen() {
-    if (state.isFullScreen) {
-      // AutoOrientation.portraitAutoMode();
-      ///显示状态栏，与底部虚拟操作按钮
-      SystemChrome.setEnabledSystemUIMode(
-          SystemUiMode.manual, overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-    } else {
-      // AutoOrientation.landscapeAutoMode();
+  ///横屏模式
+  void openFullScreen() {
+    state.isFullScreen = true;
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+    update();
+  }
 
-      ///关闭状态栏，与底部虚拟操作按钮
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-    }
-    cancelAndRestartTimer();
+  ///竖屏模式
+  void closeFullScreen() {
+    state.isFullScreen = false;
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     update();
   }
 }

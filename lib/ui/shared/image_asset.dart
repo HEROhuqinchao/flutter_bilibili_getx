@@ -113,4 +113,6 @@ class ImageAssets {
   static String shareCustomPNG = "assets/image/icon/share_custom.png";
   static String icDanmuGrayPNG = "assets/image/icon/ic_danmu.png";
   static String progressBarHeaderPNG = "assets/image/icon/progress_bar.png";
+  static String exitFullScreenPNG = "assets/image/icon/exit_full_screen.png";
+  static String fullCustomPNG = "assets/image/icon/full_custom.png";
 }

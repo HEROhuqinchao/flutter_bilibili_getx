@@ -19,5 +19,6 @@ class BilibiliVideoPlayerState {
     controllerWasPlaying = false;
     dragging = false;
     isFullScreen = false;
+    hideTimer = Timer(const Duration(microseconds: 2500), () {});
   }
 }

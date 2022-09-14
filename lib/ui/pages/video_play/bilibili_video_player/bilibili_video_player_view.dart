@@ -105,15 +105,16 @@ class _BilibiliVideoPlayerComponentState
                 ),
               ),
             ),
+
             ///在缓冲
             state.latestValue.isBuffering
                 ? Center(
-              child: Image.asset(
-                ImageAssets.ploadingGif,
-                width: 25.w,
-                height: 25.w,
-              ),
-            )
+                    child: Image.asset(
+                      ImageAssets.ploadingGif,
+                      width: 25.w,
+                      height: 25.w,
+                    ),
+                  )
                 : const Center(),
           ],
         ),
@@ -167,22 +168,92 @@ class _BilibiliVideoPlayerComponentState
         state.videoPlayerController.value.isPlaying
             ? ImageAssets.biliPlayerPlayCanPausePNG
             : ImageAssets.bilibiliPlayerPlayCanPlayPNG,
-        width: 40.sp,
-        height: 40.sp,
+        width: 30.sp,
+        height: 30.sp,
       ),
     );
   }
 
   ///水平视频
   Widget buildHorizonVideo() {
-    return Container(
-      color: Colors.black,
-      width: 1.sw,
-      height: .3.sh,
-      child: AspectRatio(
-        aspectRatio: state.videoPlayerController.value.aspectRatio,
-        child: VideoPlayer(
-          state.videoPlayerController,
+    return GestureDetector(
+      onTap: () {
+        logic.cancelAndRestartTimer();
+      },
+      onDoubleTap: () {
+        ///双击播放或暂停
+        logic.playOrPauseVideo();
+      },
+      child: AbsorbPointer(
+        absorbing: !state.showBottomBar,
+        child: SizedBox(
+          height: .3.sh,
+          width: 1.sw,
+          child: Stack(
+            children: [
+              Container(
+                color: Colors.black,
+                height: .3.sh,
+                width: 1.sw,
+                child: AspectRatio(
+                  aspectRatio: state.videoPlayerController.value.aspectRatio,
+                  child: VideoPlayer(
+                    state.videoPlayerController,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: AnimatedOpacity(
+                  opacity: state.showBottomBar ? 1 : 0,
+                  duration: const Duration(
+                    milliseconds: 300,
+                  ),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    height: 50.h,
+                    width: 1.sw,
+                    padding: EdgeInsets.only(left: 10.r, right: 5.r),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.black.withOpacity(.3),
+                          Colors.transparent,
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        buildVideoPlayOrPauseButton(),
+                        10.horizontalSpace,
+                        buildVideoPlayProgress(),
+                        5.horizontalSpace,
+                        buildPosition(),
+                        5.horizontalSpace,
+                        buildFullScreenButton(),
+                        5.horizontalSpace,
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+              ///在缓冲
+              state.latestValue.isBuffering
+                  ? Center(
+                      child: Image.asset(
+                        ImageAssets.ploadingGif,
+                        width: 25.w,
+                        height: 25.w,
+                      ),
+                    )
+                  : const Center(),
+            ],
+          ),
         ),
       ),
     );
@@ -193,6 +264,30 @@ class _BilibiliVideoPlayerComponentState
     return const CircularProgressIndicator(
       color: HYAppTheme.norMainThemeColors,
     );
+  }
+
+  Widget buildFullScreenButton() {
+    return state.isFullScreen
+        ? GestureDetector(
+            onTap: () {
+              logic.closeFullScreen();
+            },
+            child: Image.asset(
+              ImageAssets.exitFullScreenPNG,
+              width: 23.sp,
+              height: 23.sp,
+            ),
+          )
+        : GestureDetector(
+            onTap: () {
+              logic.openFullScreen();
+            },
+            child: Image.asset(
+              ImageAssets.fullCustomPNG,
+              width: 23.sp,
+              height: 23.sp,
+            ),
+          );
   }
 }
 
