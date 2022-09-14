@@ -116,7 +116,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///重启隐藏计时器
   void cancelAndRestartTimer() {
-    if(state.videoPlayerController.value.isPlaying) {
+    if (state.videoPlayerController.value.isPlaying) {
       state.hideTimer.cancel();
       state.showBottomBar = true;
       update();
@@ -165,20 +165,10 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///开始调节音量
   void videoPlayVolumeBrightnessOnVerticalDragStart(DragStartDetails details) {
-    print(details.globalPosition.dx);
-    print(1.sw);
-    if (state.isFullScreen) {
-      if (details.globalPosition.dy > 1.sh / 2) {
-        state.videoVolume = true;
-      } else {
-        state.videoBrightness = true;
-      }
+    if (details.globalPosition.dx > 1.sw / 2) {
+      state.videoVolume = true;
     } else {
-      if (details.globalPosition.dx > 1.sw / 2) {
-        state.videoVolume = true;
-      } else {
-        state.videoBrightness = true;
-      }
+      state.videoBrightness = true;
     }
     update();
   }
@@ -194,11 +184,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
   void videoPlayVolumeBrightnessOnVerticalDragUpdate(
       DragUpdateDetails details) {
     if (state.isFullScreen) {
-      if (details.globalPosition.dy > 1.sh / 2) {
-        state.volume = (state.volume - (details.delta.dx / 30));
+      if (details.globalPosition.dx > 1.sw / 2) {
+        state.volume = (state.volume - (details.delta.dy / 50));
         BVUtils.setVolume(state.volume);
       } else {
-        state.brightness = (state.brightness - (details.delta.dx / 30));
+        state.brightness = (state.brightness - (details.delta.dy / 50));
         BVUtils.setBrightness(state.brightness);
       }
     } else {
