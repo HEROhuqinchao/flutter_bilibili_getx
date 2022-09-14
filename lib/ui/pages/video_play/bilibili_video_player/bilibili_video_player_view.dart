@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../shared/math_compute.dart';
+import '../dan_mu/dan_mu_proto.dart';
 import 'bilibili_video_player_logic.dart';
 
 final logic = Get.put(BilibiliVideoPlayerLogic());
@@ -483,6 +484,16 @@ class _BilibiliVideoPlayerComponentState
                       ),
                     )
                   : const Center(),
+
+              // IgnorePointer(
+              //   child: BuildDanMuProtoScreen(
+              //     width: 1.sw,
+              //     oid: state.video.playerArgs!.cid!,
+              //
+              //     ///转为多少分钟，整除
+              //     duration: state.video.playerArgs!.duration! ~/ 60,
+              //   ),
+              // )
             ],
           ),
         ),

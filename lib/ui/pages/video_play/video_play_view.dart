@@ -1,7 +1,6 @@
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
 import 'package:chewie/chewie.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
