@@ -36,6 +36,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.0"
+  brightness_volume:
+    dependency: "direct main"
+    description:
+      name: brightness_volume
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.3"
   characters:
     dependency: transitive
     description:
