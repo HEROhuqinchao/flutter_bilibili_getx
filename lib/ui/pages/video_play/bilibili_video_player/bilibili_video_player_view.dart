@@ -5,6 +5,7 @@ import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
@@ -23,7 +24,7 @@ class BilibiliVideoPlayerComponent extends StatefulWidget {
 }
 
 class _BilibiliVideoPlayerComponentState
-    extends State<BilibiliVideoPlayerComponent> {
+    extends State<BilibiliVideoPlayerComponent>{
   final logic = Get.put(BilibiliVideoPlayerLogic());
   final state = Get.find<BilibiliVideoPlayerLogic>().state;
 
@@ -492,18 +493,23 @@ class _BilibiliVideoPlayerComponentState
                   : const Center(),
 
               ///弹幕
-              IgnorePointer(
-                child: Container(
-                  height: 200.w,
-                  color: Colors.transparent,
-                  child: LayoutBuilder(
-                    builder: (context, constraintType) {
-                      return Stack(
-                        alignment: Alignment.center,
-                        children: state.dMWidgets,
-                      );
-                    },
-                  ),
+              Container(
+                height: 200.w,
+                width: 1.sw,
+                color: Colors.blue,
+                child: Stack(
+                  children: [
+                    SingleChildScrollView(
+                      controller: state.scrollController,
+                      scrollDirection: Axis.horizontal,
+                      child: StaggeredGrid.count(
+                        mainAxisSpacing: 10.r,
+                        crossAxisCount: 1,
+                        axisDirection: AxisDirection.right,
+                        children: state.danMuChildren,
+                      ),
+                    ),
+                  ],
                 ),
               )
             ],
@@ -542,270 +548,6 @@ class _BilibiliVideoPlayerComponentState
               height: 23.sp,
             ),
           );
-  }
-}
-
-///发送滚动弹幕
-class SendMovingDM extends StatefulWidget {
-  SendMovingDM({
-    Key? key,
-    required this.sendTime,
-    required this.routeNum,
-    required this.content,
-    required this.color,
-    required this.fontSize,
-    required this.moveTime,
-  }) : super(key: key);
-
-  int sendTime;
-  int routeNum;
-  String content;
-  Color color;
-  double fontSize;
-  int moveTime;
-
-  @override
-  State<SendMovingDM> createState() => _SendMovingDMState();
-}
-
-class _SendMovingDMState extends State<SendMovingDM>
-    with SingleTickerProviderStateMixin {
-  late Timer _timer;
-  late AnimationController _controller;
-  late Animation<Offset> _animation;
-
-  @override
-  void initState() {
-    _controller = AnimationController(
-        duration: Duration(milliseconds: widget.moveTime), vsync: this);
-    _animation =
-        Tween(begin: const Offset(.5, .0), end: const Offset(-0.5, .0))
-            .animate(_controller);
-    // _controller.addListener(() {
-    //   if(state.videoPlayerController.value.isPlaying) {
-    //     _controller.forward();
-    //   } else {
-    //     _controller.stop();
-    //   }
-    // });
-    _controller.addStatusListener((status) {
-      ///完成后销毁释放内存
-      if (status == AnimationStatus.completed) {
-        _controller.dispose();
-        _timer.cancel();
-      }
-    });
-
-    ///决定什么时候发送
-    _timer = Timer(Duration(milliseconds: widget.sendTime), () {
-      _controller.forward();
-    });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    _timer.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned.fill(
-      ///这里的fill是指整个stack的position，去掉之后就是相对上一个弹幕
-      top: state.movingDMRouteTop[widget.routeNum],
-      child: SlideTransition(
-          position: _animation,
-
-          ///文本如果过长
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            children: [
-              Text(
-                widget.content,
-                style: TextStyle(
-                  color: widget.color,
-                  fontSize: widget.fontSize,
-                ),
-              )
-            ],
-          )),
-    );
-  }
-}
-
-///发送顶部弹幕
-class SendTopDM extends StatefulWidget {
-  SendTopDM(
-      {Key? key,
-      required this.sendTime,
-      required this.routeNum,
-      required this.content,
-      required this.color,
-      required this.fontSize,
-      required this.showTime})
-      : super(key: key);
-
-  int sendTime;
-  int routeNum;
-  String content;
-  Color color;
-  double fontSize;
-  int showTime;
-
-  @override
-  State<SendTopDM> createState() => _SendTopDMState();
-}
-
-class _SendTopDMState extends State<SendTopDM>
-    with SingleTickerProviderStateMixin {
-  late Timer _timer;
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    _controller = AnimationController(
-        duration: Duration(milliseconds: widget.showTime ~/ 2), vsync: this);
-    _animation = Tween(begin: 0.0, end: 10.0).animate(_controller);
-
-    ///顶部弹幕显示时间到了就消失
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _controller.reverse();
-      }
-      // else if (status == AnimationStatus.forward) {
-      //   if (!state.videoPlayerController.value.isPlaying) {
-      //     _controller.stop();
-      //   } else if (state.videoPlayerController.value.isPlaying) {
-      //     _controller.forward();
-      //   }
-      // } else if (status == AnimationStatus.reverse) {
-      //   if (!state.videoPlayerController.value.isPlaying) {
-      //     _controller.stop();
-      //   } else if (state.videoPlayerController.value.isPlaying) {
-      //     _controller.reverse();
-      //   }
-      // }
-    });
-    _timer = Timer(Duration(milliseconds: widget.sendTime), () {
-      _controller.forward();
-    });
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: state.topDMRouteTop[widget.routeNum],
-      child: AnimatedBuilder(
-        animation: _animation,
-        builder: (BuildContext context, Widget? child) {
-          return Opacity(
-            opacity: _animation.value > 1 ? 1 : _animation.value,
-            child: Text(
-              widget.content,
-              maxLines: 1,
-              overflow: TextOverflow.clip,
-              style: TextStyle(
-                color: widget.color,
-                fontSize: widget.fontSize,
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.removeStatusListener((status) {});
-    _controller.dispose();
-    _timer.cancel();
-    super.dispose();
-  }
-}
-
-class SendBottomDM extends StatefulWidget {
-  SendBottomDM(
-      {Key? key,
-      required this.sendTime,
-      required this.routeNum,
-      required this.content,
-      required this.color,
-      required this.fontSize,
-      required this.showTime})
-      : super(key: key);
-
-  int sendTime;
-  int routeNum;
-  String content;
-  Color color;
-  double fontSize;
-  int showTime;
-
-  @override
-  State<SendBottomDM> createState() => _SendBottomDMState();
-}
-
-class _SendBottomDMState extends State<SendBottomDM>
-    with SingleTickerProviderStateMixin {
-  late Timer _timer;
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    _controller = AnimationController(
-        duration: Duration(milliseconds: widget.showTime ~/ 2), vsync: this);
-    _animation = Tween(begin: 0.0, end: 10.0).animate(_controller);
-
-    ///底部弹幕显示时间到了就消失
-    _controller.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _controller.reverse();
-      }
-    });
-    _timer = Timer(Duration(milliseconds: widget.sendTime), () {
-      _controller.forward();
-    });
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: state.bottomDMRouteTop[widget.routeNum],
-      child: AnimatedBuilder(
-        animation: _animation,
-        builder: (BuildContext context, Widget? child) {
-          return Opacity(
-            opacity: _animation.value > 1 ? 1 : _animation.value,
-            child: Text(
-              widget.content,
-              maxLines: 1,
-              overflow: TextOverflow.clip,
-              style: TextStyle(
-                color: widget.color,
-                fontSize: widget.fontSize,
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.removeStatusListener((status) {});
-    _controller.dispose();
-    _timer.cancel();
-    super.dispose();
   }
 }
 

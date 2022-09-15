@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:brightness_volume/brightness_volume.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -20,82 +21,13 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   @override
   void onInit() {
-    ///获取视频的弹幕
-    fetchDanMu();
+    ///初始化视频
+    initVideo();
 
     ///获取音量和亮度
     fetchVolumeBrightness();
 
-    state.videoPlayerController = VideoPlayerController.network(
-        // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4"
-        "https://media.w3.org/2010/05/sintel/trailer.mp4")
-      ..initialize().then((value) {
-        update();
-      });
-    state.videoPlayerController.addListener(() {
-      if (state.videoPlayerController.value.isPlaying) {
-        int seconds = state.videoPlayerController.value.position.inSeconds;
-        int minutes = state.videoPlayerController.value.position.inMinutes;
-        int hours = state.videoPlayerController.value.position.inHours;
-        int tempProcess = seconds + minutes * 60 + hours * 3600;
-        if (state.latestProcess != tempProcess) {
-          state.latestProcess = tempProcess;
-          for (var i = state.customDanMuListBeginIndex;
-              i < state.customDanMuList.length;
-              i++) {
-            var item = state.customDanMuList[i];
-            if (state.latestProcess >= item.progress) {
-              ///选择轨道（目前是最短的选中，随机值的话也可）
-              int routeNum = getListMin(state.movingDMRoutesTime);
-
-              ///弹幕在那一时刻发出，但是如果弹幕早就发出了，而选中的那个轨道排队的弹幕很多，你就得延后发
-              int sendTime =
-                  item.progress + getMovingDelayTime(item.progress, routeNum);
-
-              ///弹幕内容
-              String content = item.content;
-
-              ///弹幕颜色
-              Color color =
-                  ColorRadixChange.hexColor(item.color.toRadixString(16));
-
-              ///弹幕字体大小（这里原本数据传来我设置后发现太大了
-              double fontSize = item.fontsize - 12;
-
-              ///不同轨道有不同速度，对应弹幕从右边移到左边的时间不同
-              int moveTime = state.moveTimeList[routeNum];
-
-              ///弹幕有长有短，所以需要弹幕显示在屏幕上的宽度
-              double textLength = TextHeightWidth.boundingTextSize(
-                item.content,
-                TextStyle(fontSize: item.fontsize - 12),
-              ).width;
-
-              ///构建一个移动的弹幕
-              SendMovingDM sendDM = SendMovingDM(
-                sendTime: sendTime,
-                routeNum: routeNum,
-                content: content,
-                color: color,
-                fontSize: fontSize,
-                moveTime: moveTime,
-              );
-
-              ///扔到stack布局中
-              state.dMWidgets.add(sendDM);
-
-              ///更新轨道数组，防止弹幕叠在一起了，这里延迟了500毫秒
-              state.movingDMRoutesTime[routeNum] =
-                  sendTime + textLength / state.speedList[routeNum] + 500;
-              update();
-            } else {
-              state.customDanMuListBeginIndex = i;
-            }
-          }
-        }
-      }
-      update();
-    });
+    fetchDanMu();
     super.onInit();
   }
 
@@ -108,236 +40,92 @@ class BilibiliVideoPlayerLogic extends GetxController {
     super.onClose();
   }
 
-  void fetchDanMu() {
-    ///像素每毫秒
-    for (int i = 0; i < state.moveTimeList.length; i++) {
-      state.speedList.add(1.sw / state.moveTimeList[i]);
-    }
-
-    ///总共allMount包弹幕
-    state.allMount = state.duration ~/ 6 + 1;
-    getDMPackage();
-    state.segmentIndex++;
-
-    ///六分钟一包
-    state.danMuTimerPeriodic =
-        Timer.periodic(const Duration(minutes: 6), (timer) {
-      if (state.segmentIndex <= state.allMount) {
-        getDMPackage();
-        state.segmentIndex++;
+  void initVideo() {
+    state.videoPlayerController = VideoPlayerController.network(
+        // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4"
+        "https://media.w3.org/2010/05/sintel/trailer.mp4")
+      ..initialize().then((value) {
+        update();
+      });
+    state.videoPlayerController.addListener(() {
+      bool lastState = state.controllerWasPlaying;
+      if (state.videoPlayerController.value.isPlaying) {
+        state.controllerWasPlaying = true;
       } else {
-        timer.cancel();
+        state.controllerWasPlaying = false;
       }
+      if (lastState != state.controllerWasPlaying) {
+        if (state.controllerWasPlaying) {
+          if (state.scrollController.hasClients) {
+            print("state.scrollController.position.maxScrollExtent---${state.scrollController.position.maxScrollExtent}");
+            state.scrollController.animateTo(
+                state.scrollController.position.maxScrollExtent,
+                duration: Duration(
+                    seconds: 119),
+                curve: Curves.linear);
+          }
+        } else {
+          if (state.scrollController.hasClients) {
+            state.scrollController.jumpTo(state.nowPosition);
+          }
+        }
+      }
+    });
+    state.scrollController.addListener(() {
+      state.nowPosition = state.scrollController.position.pixels;
     });
   }
 
-  ///获取弹幕包
-  void getDMPackage() {
-    HYDanMuRequest.getDanMuProtoData(state.oid, state.segmentIndex)
-        .then((value) {
-      ///发送时间做排序
+  void fetchDanMu() {
+    ///总共弹幕包数
+    state.danMuPackageNum =
+        state.videoPlayerController.value.duration.inMinutes ~/ 6 + 1;
+    HYDanMuRequest.getDanMuProtoData(825354573, 1).then((value) {
+      ///发送时间做排序排序
       value.sort((left, right) => left.progress.compareTo(right.progress));
 
-      ///滚动弹幕、顶部弹幕、底部弹幕
-      List<DanMuModel02> topDanMuList = [];
-      List<DanMuModel02> bottomDanMuList = [];
-
       ///最多装填X条弹幕，太多弹幕会卡顿严重
-      value = value.sublist(0, value.length > 50 ? 50 : value.length);
+      // value = value.sublist(0, value.length > 10 ? 10 : value.length);
       for (var element in value) {
-        // print(element.content);
-        // print(element.progress);
-        // print("/////////////////");
+        ///普通弹幕
         if (element.mode == 1 || element.mode == 2 || element.mode == 3) {
-          ///普通弹幕
-          state.customDanMuList.add(element);
+          print(element.content);
+          print(element.progress);
+          double gap = element.progress / 1000 * state.v - state.maxLength;
+          double textLength = TextHeightWidth.boundingTextSize(
+            element.content,
+            TextStyle(fontSize: element.fontsize - 10),
+          ).width;
+          double tempMaxLength = element.progress / 1000 * state.v + textLength;
+          if(tempMaxLength > state.maxLength) {
+            state.maxLength = tempMaxLength;
+          } else {
+            state.maxLength += textLength;
+          }
+          print("state.maxLength---${state.maxLength}");
+          if(gap < 0) {
+            gap = 0;
+          }
+          Widget danMu = Container(
+            color: Colors.red,
+            margin: EdgeInsets.only(left: gap),
+            child: Text(element.content,
+                style: TextStyle(
+                  color: ColorRadixChange.hexColor(
+                      element.color.toRadixString(16)),
+                  fontSize: (element.fontsize - 10).sp,
+                  fontWeight: FontWeight.normal,
+                )),
+          );
+          state.danMuChildren.add(danMu);
         } else if (element.mode == 4) {
           ///底部弹幕
-          bottomDanMuList.add(element);
         } else if (element.mode == 5) {
           ///顶部弹幕
-          topDanMuList.add(element);
         } else {}
-      }
-
-      // ///构建移动弹幕
-      // for (int i = 0; i < state.customDanMuList.length; i++) {
-      //   ///选择轨道（目前是最短的选中，随机值的话也可）
-      //   int routeNum = getListMin(state.movingDMRoutesTime);
-      //
-      //   ///弹幕在那一时刻发出，但是如果弹幕早就发出了，而选中的那个轨道排队的弹幕很多，你就得延后发
-      //   int sendTime = state.customDanMuList[i].progress +
-      //       getMovingDelayTime(state.customDanMuList[i].progress, routeNum);
-      //
-      //   ///弹幕内容
-      //   String content = state.customDanMuList[i].content;
-      //
-      //   ///弹幕颜色
-      //   Color color = ColorRadixChange.hexColor(
-      //       state.customDanMuList[i].color.toRadixString(16));
-      //
-      //   ///弹幕字体大小（这里原本数据传来我设置后发现太大了
-      //   double fontSize = state.customDanMuList[i].fontsize - 12;
-      //
-      //   ///不同轨道有不同速度，对应弹幕从右边移到左边的时间不同
-      //   int moveTime = state.moveTimeList[routeNum];
-      //
-      //   ///弹幕有长有短，所以需要弹幕显示在屏幕上的宽度
-      //   double textLength = TextHeightWidth.boundingTextSize(
-      //     state.customDanMuList[i].content,
-      //     TextStyle(fontSize: state.customDanMuList[i].fontsize - 12),
-      //   ).width;
-      //
-      //   ///构建一个移动的弹幕
-      //   SendMovingDM sendDM = SendMovingDM(
-      //     sendTime: sendTime,
-      //     routeNum: routeNum,
-      //     content: content,
-      //     color: color,
-      //     fontSize: fontSize,
-      //     moveTime: moveTime,
-      //   );
-      //
-      //   ///扔到stack布局中
-      //   state.dMWidgets.add(sendDM);
-      //
-      //   ///更新轨道数组，防止弹幕叠在一起了，这里延迟了500毫秒
-      //   state.movingDMRoutesTime[routeNum] =
-      //       sendTime + textLength / state.speedList[routeNum] + 500;
-      // }
-
-      ///顶部弹幕
-      for (int i = 0; i < topDanMuList.length; i++) {
-        ///选择轨道（目前是最短的选中，随机值的话也可）
-        int routeNum = getListMin(state.topDMRoutesTime);
-
-        ///弹幕在那一时刻发出
-        int sendTime = topDanMuList[i].progress +
-            getTopDelayTime(topDanMuList[i].progress, routeNum);
-
-        ///弹幕内容
-        String content = topDanMuList[i].content;
-
-        ///弹幕颜色
-        Color color =
-            ColorRadixChange.hexColor(topDanMuList[i].color.toRadixString(16));
-
-        ///弹幕字体大小（这里原本数据传来我设置后发现太大了
-        double fontSize = topDanMuList[i].fontsize - 12;
-
-        ///弹幕显示时间
-        int showTime = state.showTimeList[routeNum];
-
-        ///构建一个移动的弹幕
-        SendTopDM sendTopDM = SendTopDM(
-          sendTime: sendTime,
-          routeNum: routeNum,
-          content: content,
-          color: color,
-          fontSize: fontSize,
-          showTime: showTime,
-        );
-
-        ///扔到stack布局中
-        state.dMWidgets.add(sendTopDM);
-
-        ///更新轨道数组
-        if (sendTime > state.topDMRoutesTime[routeNum]) {
-          state.topDMRoutesTime[routeNum] += (showTime + sendTime + 1000);
-        } else if (sendTime == state.topDMRoutesTime[routeNum]) {
-          state.topDMRoutesTime[routeNum] += (showTime + 1000);
-        } else {
-          ///小于是不可能的
-        }
-
-        // print("####${topDanMuList[i].progress}");
-        // print("####${sendTime}");
-        //
-        // for (var i in topDMRoutesTime) {
-        //   print(i);
-        // }
-        // print("######");
-      }
-
-      ///底部弹幕
-      for (int i = 0; i < bottomDanMuList.length; i++) {
-        ///选择轨道（目前是最短的选中，随机值的话也可）
-        int routeNum = getListMin(state.bottomDMRoutesTime);
-
-        ///弹幕在那一时刻发出
-        int sendTime = bottomDanMuList[i].progress +
-            getBottomDelayTime(bottomDanMuList[i].progress, routeNum);
-
-        ///弹幕内容
-        String content = bottomDanMuList[i].content;
-
-        ///弹幕颜色
-        Color color = ColorRadixChange.hexColor(
-            bottomDanMuList[i].color.toRadixString(16));
-
-        ///弹幕字体大小（这里原本数据传来我设置后发现太大了
-        double fontSize = bottomDanMuList[i].fontsize - 12;
-
-        ///弹幕显示时间
-        int showTime = state.showTimeList[routeNum];
-
-        ///构建一个移动的弹幕
-        SendBottomDM sendBottomDM = SendBottomDM(
-          sendTime: sendTime,
-          routeNum: routeNum,
-          content: content,
-          color: color,
-          fontSize: fontSize,
-          showTime: showTime,
-        );
-
-        ///扔到stack布局中
-        state.dMWidgets.add(sendBottomDM);
-
-        ///更新轨道数组
-        if (sendTime > state.bottomDMRoutesTime[routeNum]) {
-          state.bottomDMRoutesTime[routeNum] += (showTime + sendTime + 1000);
-        } else if (sendTime == state.bottomDMRoutesTime[routeNum]) {
-          state.bottomDMRoutesTime[routeNum] += (showTime + 1000);
-        } else {
-          ///小于是不可能的
-        }
       }
       update();
     });
-  }
-
-  ///延迟发送
-  int getMovingDelayTime(int sendTime, int routeNum) {
-    double delayTime = 0;
-
-    ///如果当前选择的最短轨道比你发射时间还长
-    if (state.movingDMRoutesTime[routeNum] > sendTime) {
-      delayTime = state.movingDMRoutesTime[routeNum] - sendTime;
-    }
-    return delayTime.toInt();
-  }
-
-  ///延迟发送
-  int getTopDelayTime(int sendTime, int routeNum) {
-    double delayTime = 0;
-
-    ///如果当前选择的最短轨道比你发射时间还长
-    if (state.topDMRoutesTime[routeNum] > sendTime) {
-      delayTime += state.topDMRoutesTime[routeNum] - sendTime;
-    }
-    return delayTime.toInt();
-  }
-
-  ///延迟发送
-  int getBottomDelayTime(int sendTime, int routeNum) {
-    double delayTime = 0;
-
-    ///如果当前选择的最短轨道比你发射时间还长
-    if (state.bottomDMRoutesTime[routeNum] > sendTime) {
-      delayTime = state.bottomDMRoutesTime[routeNum] - sendTime;
-    }
-    return delayTime.toInt();
   }
 
   ///获取音量和亮度
