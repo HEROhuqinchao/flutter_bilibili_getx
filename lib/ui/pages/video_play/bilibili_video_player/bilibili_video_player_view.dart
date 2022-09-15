@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,8 @@ final logic = Get.put(BilibiliVideoPlayerLogic());
 final state = Get.find<BilibiliVideoPlayerLogic>().state;
 
 class BilibiliVideoPlayerComponent extends StatefulWidget {
+  const BilibiliVideoPlayerComponent({Key? key}) : super(key: key);
+
   @override
   State<BilibiliVideoPlayerComponent> createState() =>
       _BilibiliVideoPlayerComponentState();
@@ -62,6 +66,7 @@ class _BilibiliVideoPlayerComponentState
     );
   }
 
+  ///构建视频和弹幕
   Widget buildVideoPlayer() {
     return state.videoPlayerController.value.aspectRatio < 1
         ? SizedBox(
@@ -70,7 +75,7 @@ class _BilibiliVideoPlayerComponentState
             child: buildVerticalVideo(),
           )
         : SizedBox(
-            height: 200.w,
+            height: 230.w,
             width: 1.sw,
             child: buildHorizonVideo(),
           );
@@ -237,7 +242,7 @@ class _BilibiliVideoPlayerComponentState
                 : const Center(),
 
             ///在缓冲
-            state.latestValue.isBuffering &&
+            state.videoPlayerController.value.isBuffering &&
                     !state.videoProgress &&
                     !state.videoVolume
                 ? Center(
@@ -256,8 +261,8 @@ class _BilibiliVideoPlayerComponentState
 
   ///视频播放的时长及当前位置
   Widget buildPosition() {
-    final position = state.latestValue.position;
-    final duration = state.latestValue.duration;
+    final position = state.videoPlayerController.value.position;
+    final duration = state.videoPlayerController.value.duration;
 
     ///富文本
     return Container(
@@ -285,7 +290,7 @@ class _BilibiliVideoPlayerComponentState
 
   ///视频进度条
   Widget buildVideoPlayProgress() {
-    return Expanded(
+    return const Expanded(
       child: BilibiliVideoProgressBar(),
     );
   }
@@ -322,13 +327,15 @@ class _BilibiliVideoPlayerComponentState
           width: 1.sw,
           child: Stack(
             children: [
-              Container(
-                color: Colors.black,
-                width: 1.sw,
-                child: AspectRatio(
-                  aspectRatio: state.videoPlayerController.value.aspectRatio,
-                  child: VideoPlayer(
-                    state.videoPlayerController,
+              Center(
+                child: Container(
+                  color: Colors.black,
+                  width: 1.sw,
+                  child: AspectRatio(
+                    aspectRatio: state.videoPlayerController.value.aspectRatio,
+                    child: VideoPlayer(
+                      state.videoPlayerController,
+                    ),
                   ),
                 ),
               ),
@@ -418,7 +425,7 @@ class _BilibiliVideoPlayerComponentState
                             8.horizontalSpace,
                             SizedBox(
                               width: 65.w,
-                              height: 3.w,
+                              height: 3.sp,
                               child: LinearProgressIndicator(
                                 backgroundColor: HYAppTheme.norWhite01Color,
                                 value: state.brightness,
@@ -458,7 +465,7 @@ class _BilibiliVideoPlayerComponentState
                             8.horizontalSpace,
                             SizedBox(
                               width: 65.w,
-                              height: 3.w,
+                              height: 3.sp,
                               child: LinearProgressIndicator(
                                 backgroundColor: HYAppTheme.norWhite01Color,
                                 value: state.volume,
@@ -472,7 +479,7 @@ class _BilibiliVideoPlayerComponentState
                   : const Center(),
 
               ///在缓冲
-              state.latestValue.isBuffering &&
+              state.videoPlayerController.value.isBuffering &&
                       !state.videoProgress &&
                       !state.videoVolume
                   ? Center(
@@ -484,15 +491,21 @@ class _BilibiliVideoPlayerComponentState
                     )
                   : const Center(),
 
-              // IgnorePointer(
-              //   child: BuildDanMuProtoScreen(
-              //     width: 1.sw,
-              //     oid: state.video.playerArgs!.cid!,
-              //
-              //     ///转为多少分钟，整除
-              //     duration: state.video.playerArgs!.duration! ~/ 60,
-              //   ),
-              // )
+              ///弹幕
+              IgnorePointer(
+                child: Container(
+                  height: 200.w,
+                  color: Colors.transparent,
+                  child: LayoutBuilder(
+                    builder: (context, constraintType) {
+                      return Stack(
+                        alignment: Alignment.center,
+                        children: state.dMWidgets,
+                      );
+                    },
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -532,17 +545,278 @@ class _BilibiliVideoPlayerComponentState
   }
 }
 
+///发送滚动弹幕
+class SendMovingDM extends StatefulWidget {
+  SendMovingDM({
+    Key? key,
+    required this.sendTime,
+    required this.routeNum,
+    required this.content,
+    required this.color,
+    required this.fontSize,
+    required this.moveTime,
+  }) : super(key: key);
+
+  int sendTime;
+  int routeNum;
+  String content;
+  Color color;
+  double fontSize;
+  int moveTime;
+
+  @override
+  State<SendMovingDM> createState() => _SendMovingDMState();
+}
+
+class _SendMovingDMState extends State<SendMovingDM>
+    with SingleTickerProviderStateMixin {
+  late Timer _timer;
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+        duration: Duration(milliseconds: widget.moveTime), vsync: this);
+    _animation =
+        Tween(begin: const Offset(.5, .0), end: const Offset(-0.5, .0))
+            .animate(_controller);
+    // _controller.addListener(() {
+    //   if(state.videoPlayerController.value.isPlaying) {
+    //     _controller.forward();
+    //   } else {
+    //     _controller.stop();
+    //   }
+    // });
+    _controller.addStatusListener((status) {
+      ///完成后销毁释放内存
+      if (status == AnimationStatus.completed) {
+        _controller.dispose();
+        _timer.cancel();
+      }
+    });
+
+    ///决定什么时候发送
+    _timer = Timer(Duration(milliseconds: widget.sendTime), () {
+      _controller.forward();
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned.fill(
+      ///这里的fill是指整个stack的position，去掉之后就是相对上一个弹幕
+      top: state.movingDMRouteTop[widget.routeNum],
+      child: SlideTransition(
+          position: _animation,
+
+          ///文本如果过长
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            children: [
+              Text(
+                widget.content,
+                style: TextStyle(
+                  color: widget.color,
+                  fontSize: widget.fontSize,
+                ),
+              )
+            ],
+          )),
+    );
+  }
+}
+
+///发送顶部弹幕
+class SendTopDM extends StatefulWidget {
+  SendTopDM(
+      {Key? key,
+      required this.sendTime,
+      required this.routeNum,
+      required this.content,
+      required this.color,
+      required this.fontSize,
+      required this.showTime})
+      : super(key: key);
+
+  int sendTime;
+  int routeNum;
+  String content;
+  Color color;
+  double fontSize;
+  int showTime;
+
+  @override
+  State<SendTopDM> createState() => _SendTopDMState();
+}
+
+class _SendTopDMState extends State<SendTopDM>
+    with SingleTickerProviderStateMixin {
+  late Timer _timer;
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+        duration: Duration(milliseconds: widget.showTime ~/ 2), vsync: this);
+    _animation = Tween(begin: 0.0, end: 10.0).animate(_controller);
+
+    ///顶部弹幕显示时间到了就消失
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _controller.reverse();
+      }
+      // else if (status == AnimationStatus.forward) {
+      //   if (!state.videoPlayerController.value.isPlaying) {
+      //     _controller.stop();
+      //   } else if (state.videoPlayerController.value.isPlaying) {
+      //     _controller.forward();
+      //   }
+      // } else if (status == AnimationStatus.reverse) {
+      //   if (!state.videoPlayerController.value.isPlaying) {
+      //     _controller.stop();
+      //   } else if (state.videoPlayerController.value.isPlaying) {
+      //     _controller.reverse();
+      //   }
+      // }
+    });
+    _timer = Timer(Duration(milliseconds: widget.sendTime), () {
+      _controller.forward();
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: state.topDMRouteTop[widget.routeNum],
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (BuildContext context, Widget? child) {
+          return Opacity(
+            opacity: _animation.value > 1 ? 1 : _animation.value,
+            child: Text(
+              widget.content,
+              maxLines: 1,
+              overflow: TextOverflow.clip,
+              style: TextStyle(
+                color: widget.color,
+                fontSize: widget.fontSize,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.removeStatusListener((status) {});
+    _controller.dispose();
+    _timer.cancel();
+    super.dispose();
+  }
+}
+
+class SendBottomDM extends StatefulWidget {
+  SendBottomDM(
+      {Key? key,
+      required this.sendTime,
+      required this.routeNum,
+      required this.content,
+      required this.color,
+      required this.fontSize,
+      required this.showTime})
+      : super(key: key);
+
+  int sendTime;
+  int routeNum;
+  String content;
+  Color color;
+  double fontSize;
+  int showTime;
+
+  @override
+  State<SendBottomDM> createState() => _SendBottomDMState();
+}
+
+class _SendBottomDMState extends State<SendBottomDM>
+    with SingleTickerProviderStateMixin {
+  late Timer _timer;
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+        duration: Duration(milliseconds: widget.showTime ~/ 2), vsync: this);
+    _animation = Tween(begin: 0.0, end: 10.0).animate(_controller);
+
+    ///底部弹幕显示时间到了就消失
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        _controller.reverse();
+      }
+    });
+    _timer = Timer(Duration(milliseconds: widget.sendTime), () {
+      _controller.forward();
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: state.bottomDMRouteTop[widget.routeNum],
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (BuildContext context, Widget? child) {
+          return Opacity(
+            opacity: _animation.value > 1 ? 1 : _animation.value,
+            child: Text(
+              widget.content,
+              maxLines: 1,
+              overflow: TextOverflow.clip,
+              style: TextStyle(
+                color: widget.color,
+                fontSize: widget.fontSize,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.removeStatusListener((status) {});
+    _controller.dispose();
+    _timer.cancel();
+    super.dispose();
+  }
+}
+
 ///进度条绘制
 class ProgressBarPainter extends CustomPainter {
   ProgressBarPainter({
     required this.assetsImage,
-    required this.value,
     required this.barHeight,
     required this.handleHeight,
     required this.drawShadow,
   });
-
-  VideoPlayerValue value;
 
   final double barHeight;
   final double handleHeight;
@@ -577,20 +851,26 @@ class ProgressBarPainter extends CustomPainter {
       ),
       backgroundPaint,
     );
-    if (!value.isInitialized) {
+    if (!state.videoPlayerController.value.isInitialized) {
       return;
     }
 
     ///播放时长占比
     final double playedPartPercent =
-        value.position.inMilliseconds / value.duration.inMilliseconds;
+        state.videoPlayerController.value.position.inMilliseconds /
+            state.videoPlayerController.value.duration.inMilliseconds;
 
     ///播放的长度
     final double playedPart =
         playedPartPercent > 1 ? size.width : playedPartPercent * size.width;
-    for (final DurationRange range in value.buffered) {
-      final double start = range.startFraction(value.duration) * size.width;
-      final double end = range.endFraction(value.duration) * size.width;
+    for (final DurationRange range
+        in state.videoPlayerController.value.buffered) {
+      final double start =
+          range.startFraction(state.videoPlayerController.value.duration) *
+              size.width;
+      final double end =
+          range.endFraction(state.videoPlayerController.value.duration) *
+              size.width;
 
       ///视频缓存进度条
       canvas.drawRRect(
@@ -639,6 +919,8 @@ class ProgressBarPainter extends CustomPainter {
 }
 
 class BilibiliVideoProgressBar extends StatelessWidget {
+  const BilibiliVideoProgressBar({Key? key}) : super(key: key);
+
   ///context需要取expande里面的组件
   @override
   Widget build(BuildContext context) {
@@ -668,7 +950,6 @@ class BilibiliVideoProgressBar extends StatelessWidget {
                     painter: ProgressBarPainter(
                       handleHeight: 2.h,
                       assetsImage: snapshot.data!,
-                      value: state.videoPlayerController.value,
                       barHeight: 3.h,
                       drawShadow: true,
                     ),

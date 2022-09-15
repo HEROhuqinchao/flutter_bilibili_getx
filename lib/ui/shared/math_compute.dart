@@ -61,7 +61,7 @@ String getImageHttpUrl(String originalUrl) {
     if(originalUrl.contains("http://") || originalUrl.contains("https://")){
       return originalUrl;
     }else {
-      return "http://"+originalUrl.substring(2);
+      return "http://${originalUrl.substring(2)}";
     }
   } else {
     return "";

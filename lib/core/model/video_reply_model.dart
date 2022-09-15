@@ -579,7 +579,7 @@ class ReplyMember {
   String sign;
   String avatar;
   String rank;
-  String displayRank;
+  String? displayRank;
   int faceNftNew;
   int isSeniorMember;
   LevelInfo levelInfo;

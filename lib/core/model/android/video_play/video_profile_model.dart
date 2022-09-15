@@ -1116,7 +1116,7 @@ class Extra {
   int productId;
   int reportTime;
   int salesType;
-  List<String> showUrls;
+  List<String>? showUrls;
   bool specialIndustry;
   int specialIndustryStyle;
   String specialIndustryTips;
@@ -1148,7 +1148,7 @@ class Extra {
         productId: json["product_id"],
         reportTime: json["report_time"],
         salesType: json["sales_type"],
-        showUrls: List<String>.from(json["show_urls"].map((x) => x)),
+        showUrls: json["show_urls"] == null ? null : List<String>.from(json["show_urls"].map((x) => x)),
         specialIndustry: json["special_industry"],
         specialIndustryStyle: json["special_industry_style"],
         specialIndustryTips: json["special_industry_tips"],
@@ -1181,7 +1181,7 @@ class Extra {
         "product_id": productId,
         "report_time": reportTime,
         "sales_type": salesType,
-        "show_urls": List<dynamic>.from(showUrls.map((x) => x)),
+        "show_urls": List<dynamic>.from(showUrls!.map((x) => x)),
         "special_industry": specialIndustry,
         "special_industry_style": specialIndustryStyle,
         "special_industry_tips": specialIndustryTips,

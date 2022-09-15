@@ -57,11 +57,8 @@ dependencies:
   provider: ^6.0.2 #状态管理provider
   flutter_native_splash: ^2.2.8 #闪屏界面
   flutter_speed_dial: ^6.0.0 #悬浮按钮
-<<<<<<< HEAD
   brightness_volume: ^1.0.3 #视频亮度和音量
-=======
-  brightness_volume: ^1.0.3 #音量 亮度
->>>>>>> 9b94e65ca42eda6cf6699a4b6dfc7ce964970d15
+
 
 dev_dependencies:
   flutter_test:
