@@ -12,9 +12,6 @@ import 'dart:ui' as ui;
 import '../../../shared/math_compute.dart';
 import 'bilibili_video_player_logic.dart';
 
-final logic = Get.put(BilibiliVideoPlayerLogic());
-final state = Get.find<BilibiliVideoPlayerLogic>().state;
-
 class BilibiliVideoPlayerComponent extends StatefulWidget {
   const BilibiliVideoPlayerComponent({Key? key}) : super(key: key);
 
@@ -24,7 +21,7 @@ class BilibiliVideoPlayerComponent extends StatefulWidget {
 }
 
 class _BilibiliVideoPlayerComponentState
-    extends State<BilibiliVideoPlayerComponent>{
+    extends State<BilibiliVideoPlayerComponent> {
   final logic = Get.put(BilibiliVideoPlayerLogic());
   final state = Get.find<BilibiliVideoPlayerLogic>().state;
 
@@ -35,13 +32,13 @@ class _BilibiliVideoPlayerComponentState
         backgroundColor: HYAppTheme.norTextColors,
         body: GetBuilder<BilibiliVideoPlayerLogic>(builder: (logic) {
           return Center(
-            child: state.videoPlayerController.value.isInitialized
+            child: !state.isLoadingVideo
                 ? GestureDetector(
                     onHorizontalDragStart: (DragStartDetails details) {
                       logic.videoPlayProgressOnHorizontalDragStart();
                     },
                     onHorizontalDragUpdate: (DragUpdateDetails details) {
-                      logic.videoPlayProgressOnHorizontalDragUpdate(
+                      logic.videoPlayScreenOnHorizontalDragUpdate(
                           context, details.globalPosition);
                     },
                     onHorizontalDragEnd: (DragEndDetails details) {
@@ -125,7 +122,7 @@ class _BilibiliVideoPlayerComponentState
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.black.withOpacity(.3),
+                        Colors.black.withOpacity(.7),
                         Colors.transparent,
                       ],
                       begin: Alignment.bottomCenter,
@@ -291,9 +288,63 @@ class _BilibiliVideoPlayerComponentState
 
   ///视频进度条
   Widget buildVideoPlayProgress() {
-    return const Expanded(
-      child: BilibiliVideoProgressBar(),
+    return Expanded(
+      ///注意此处的context
+      child: LayoutBuilder(builder: (ctx, con) {
+        return buildBilibiliVideoProgressBar(ctx);
+      }),
     );
+  }
+
+  Widget buildBilibiliVideoProgressBar(context) {
+    return GestureDetector(
+      onHorizontalDragStart: (DragStartDetails details) {
+        logic.videoPlayProgressOnHorizontalDragStart();
+      },
+      onHorizontalDragUpdate: (DragUpdateDetails details) {
+        logic.videoPlayProgressOnHorizontalDragUpdate(
+            context, details.globalPosition);
+      },
+      onHorizontalDragEnd: (DragEndDetails details) {
+        logic.videoPlayProgressOnHorizontalDragEnd();
+      },
+      onTapDown: (TapDownDetails details) {
+        logic.videoPlayProgressOnTapDown(context, details.globalPosition);
+      },
+      child: FutureBuilder(
+        future: loadAssetImage(ImageAssets.progressBarHeaderPNG),
+        builder: (BuildContext ctx, AsyncSnapshot<ui.Image> snapshot) {
+          return snapshot.data != null
+              ? Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.transparent,
+                  child: CustomPaint(
+                    painter: ProgressBarPainter(
+                      handleHeight: 2.h,
+                      assetsImage: snapshot.data!,
+                      barHeight: 3.h,
+                      drawShadow: true,
+                      videoPlayerValue: state.videoPlayerController.value,
+                    ),
+                  ),
+                )
+              : const Center();
+        },
+      ),
+    );
+  }
+
+  /// 通过assets路径，获取资源图片
+  Future<ui.Image> loadAssetImage(String path) async {
+    // 加载资源文件
+    final data = await rootBundle.load(path);
+    // 把资源文件转换成Uint8List类型
+    final bytes = data.buffer.asUint8List();
+    // 解析Uint8List类型的数据图片
+    final image = await decodeImageFromList(bytes);
+    state.image = image;
+    return image;
   }
 
   ///播放还是暂停按钮
@@ -410,7 +461,7 @@ class _BilibiliVideoPlayerComponentState
                   ? Center(
                       child: Container(
                         decoration: BoxDecoration(
-                            color: HYAppTheme.norTextColors.withOpacity(.4),
+                            color: HYAppTheme.norTextColors.withOpacity(.7),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.r))),
                         padding: EdgeInsets.symmetric(
@@ -444,7 +495,7 @@ class _BilibiliVideoPlayerComponentState
                   ? Center(
                       child: Container(
                         decoration: BoxDecoration(
-                            color: HYAppTheme.norTextColors.withOpacity(.4),
+                            color: HYAppTheme.norTextColors.withOpacity(.7),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.r))),
                         padding: EdgeInsets.symmetric(
@@ -493,23 +544,24 @@ class _BilibiliVideoPlayerComponentState
                   : const Center(),
 
               ///弹幕
-              Container(
-                height: 200.w,
-                width: 1.sw,
-                color: Colors.blue,
-                child: Stack(
-                  children: [
-                    SingleChildScrollView(
-                      controller: state.scrollController,
-                      scrollDirection: Axis.horizontal,
-                      child: StaggeredGrid.count(
-                        mainAxisSpacing: 10.r,
-                        crossAxisCount: 1,
-                        axisDirection: AxisDirection.right,
-                        children: state.danMuChildren,
+              IgnorePointer(
+                child: Container(
+                  margin: EdgeInsets.only(top: 10.r),
+                  height: 180.w,
+                  width: 1.sw,
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        width: 1.sw,
+                        height: 180.w,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisSize: MainAxisSize.min,
+                          children: state.danMuWidgets,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               )
             ],
@@ -558,11 +610,13 @@ class ProgressBarPainter extends CustomPainter {
     required this.barHeight,
     required this.handleHeight,
     required this.drawShadow,
+    required this.videoPlayerValue,
   });
 
   final double barHeight;
   final double handleHeight;
   final bool drawShadow;
+  final VideoPlayerValue videoPlayerValue;
 
   final Paint playedPaint = Paint()..color = HYAppTheme.norMainThemeColors;
   final Paint bufferedPaint = Paint()
@@ -593,26 +647,22 @@ class ProgressBarPainter extends CustomPainter {
       ),
       backgroundPaint,
     );
-    if (!state.videoPlayerController.value.isInitialized) {
+    if (!videoPlayerValue.isInitialized) {
       return;
     }
 
     ///播放时长占比
-    final double playedPartPercent =
-        state.videoPlayerController.value.position.inMilliseconds /
-            state.videoPlayerController.value.duration.inMilliseconds;
+    final double playedPartPercent = videoPlayerValue.position.inMilliseconds /
+        videoPlayerValue.duration.inMilliseconds;
 
     ///播放的长度
     final double playedPart =
         playedPartPercent > 1 ? size.width : playedPartPercent * size.width;
-    for (final DurationRange range
-        in state.videoPlayerController.value.buffered) {
+    for (final DurationRange range in videoPlayerValue.buffered) {
       final double start =
-          range.startFraction(state.videoPlayerController.value.duration) *
-              size.width;
+          range.startFraction(videoPlayerValue.duration) * size.width;
       final double end =
-          range.endFraction(state.videoPlayerController.value.duration) *
-              size.width;
+          range.endFraction(videoPlayerValue.duration) * size.width;
 
       ///视频缓存进度条
       canvas.drawRRect(
@@ -657,61 +707,5 @@ class ProgressBarPainter extends CustomPainter {
         handlePaint);
     // canvas.drawCircle(Offset(playedPart, baseOffset + barHeight / 2),
     //     handleHeight, colors.handlePaint);
-  }
-}
-
-class BilibiliVideoProgressBar extends StatelessWidget {
-  const BilibiliVideoProgressBar({Key? key}) : super(key: key);
-
-  ///context需要取expande里面的组件
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onHorizontalDragStart: (DragStartDetails details) {
-        logic.videoPlayProgressOnHorizontalDragStart();
-      },
-      onHorizontalDragUpdate: (DragUpdateDetails details) {
-        logic.videoPlayProgressOnHorizontalDragUpdate(
-            context, details.globalPosition);
-      },
-      onHorizontalDragEnd: (DragEndDetails details) {
-        logic.videoPlayProgressOnHorizontalDragEnd();
-      },
-      onTapDown: (TapDownDetails details) {
-        logic.videoPlayProgressOnTapDown(context, details.globalPosition);
-      },
-      child: FutureBuilder(
-        future: loadAssetImage(ImageAssets.progressBarHeaderPNG),
-        builder: (BuildContext ctx, AsyncSnapshot<ui.Image> snapshot) {
-          return snapshot.data != null
-              ? Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.transparent,
-                  child: CustomPaint(
-                    painter: ProgressBarPainter(
-                      handleHeight: 2.h,
-                      assetsImage: snapshot.data!,
-                      barHeight: 3.h,
-                      drawShadow: true,
-                    ),
-                  ),
-                )
-              : const Center();
-        },
-      ),
-    );
-  }
-
-  /// 通过assets路径，获取资源图片
-  Future<ui.Image> loadAssetImage(String path) async {
-    // 加载资源文件
-    final data = await rootBundle.load(path);
-    // 把资源文件转换成Uint8List类型
-    final bytes = data.buffer.asUint8List();
-    // 解析Uint8List类型的数据图片
-    final image = await decodeImageFromList(bytes);
-    state.image = image;
-    return image;
   }
 }

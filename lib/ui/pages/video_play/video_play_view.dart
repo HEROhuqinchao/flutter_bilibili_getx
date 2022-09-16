@@ -12,10 +12,13 @@ import '../../shared/math_compute.dart';
 import '../../widgets/expanded_widget.dart';
 import '../../widgets/primary_scroll_container.dart';
 import '../../widgets/video_reply_item.dart';
+import 'bilibili_video_player/bilibili_video_player_view.dart';
 import 'dan_mu/dan_mu_proto.dart';
 import 'video_play_logic.dart';
+
 final logic = Get.find<VideoPlayLogic>();
 final state = Get.find<VideoPlayLogic>().state;
+
 class VideoPlayScreen extends StatefulWidget {
   static const String routeName = "/video_play";
 
@@ -148,52 +151,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
 
   ///视频和弹幕
   Widget buildVideoPlayVideoPlayer() {
-    double width = 1.sw;
-    return state.isLoadingVideoPlayer == false
-        ? Container(
-            padding: EdgeInsets.zero,
-            color: HYAppTheme.norTextColors,
-            alignment: Alignment.topCenter,
-            height: (width /
-                        state.chewieController.videoPlayerController.value
-                            .aspectRatio) >
-                    .9.sw
-                ? .9.sw
-                : (width /
-                    state.chewieController.videoPlayerController.value
-                        .aspectRatio),
-            child: Stack(
-              children: [
-                Chewie(
-                  controller: state.chewieController,
-                ),
-
-                /// 忽略弹幕的点击事件，将点击传递给视频
-                IgnorePointer(
-                  child: BuildDanMuProtoScreen(
-                    width: width,
-                    oid: state.video.playerArgs!.cid!,
-
-                    ///转为多少分钟，整除
-                    duration: state.video.playerArgs!.duration! ~/ 60,
-                  ),
-                )
-              ],
-            ),
-          )
-        : Container(
-            // height: width / 1.77777777777777777,
-            color: HYAppTheme.norTextColors,
-            child: Center(
-              child: SizedBox(
-                width: 20.w,
-                height: 20.w,
-                child: const CircularProgressIndicator(
-                  color: HYAppTheme.norMainThemeColors,
-                ),
-              ),
-            ),
-          );
+    return const BilibiliVideoPlayerComponent();
   }
 
   ///TabBar

@@ -1,27 +1,16 @@
 import 'dart:async';
 
-import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../core/model/android/video_play/video_profile_model.dart';
-import '../../../core/model/feed_index_model.dart';
 import '../../../core/model/video_reply_model.dart';
 import '../../widgets/expanded_widget.dart';
 import '../../widgets/primary_scroll_container.dart';
 
 class VideoPlayState {
-  ///视频数据
-  late FeedIndexItem video;
-
-  ///视频播放控制器
-  late VideoPlayerController videoPlayerController;
-
-  ///视频插件chewie控制器
-  late ChewieController chewieController;
-
   ///评论数据
   late HYVideoReplyModel videoReply;
 

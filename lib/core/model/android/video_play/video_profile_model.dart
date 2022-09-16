@@ -74,7 +74,7 @@ class VideoProfileData {
     required this.dislikeReasons,
     required this.dislikeReasonsV2,
     required this.dmSeg,
-    required this.cms,
+    // required this.cms,
     required this.cmConfig,
     required this.shortLink,
     required this.playParam,
@@ -117,7 +117,7 @@ class VideoProfileData {
   List<DislikeReason>? dislikeReasons;
   DislikeReasonsV2? dislikeReasonsV2;
   int? dmSeg;
-  List<Cm>? cms;
+  // List<Cm>? cms;
   CmConfig? cmConfig;
   String? shortLink;
   int? playParam;
@@ -164,7 +164,7 @@ class VideoProfileData {
             json["dislike_reasons"].map((x) => DislikeReason.fromJson(x))),
         dislikeReasonsV2: DislikeReasonsV2.fromJson(json["dislike_reasons_v2"]),
         dmSeg: json["dm_seg"],
-        cms: List<Cm>.from(json["cms"].map((x) => Cm.fromJson(x))),
+        // cms: List<Cm>.from(json["cms"].map((x) => Cm.fromJson(x))),
         cmConfig: CmConfig.fromJson(json["cm_config"]),
         shortLink: json["short_link"],
         playParam: json["play_param"],
@@ -210,7 +210,7 @@ class VideoProfileData {
             List<dynamic>.from(dislikeReasons!.map((x) => x.toJson())),
         "dislike_reasons_v2": dislikeReasonsV2!.toJson(),
         "dm_seg": dmSeg,
-        "cms": List<dynamic>.from(cms!.map((x) => x.toJson())),
+        // "cms": List<dynamic>.from(cms!.map((x) => x.toJson())),
         "cm_config": cmConfig!.toJson(),
         "short_link": shortLink,
         "play_param": playParam,

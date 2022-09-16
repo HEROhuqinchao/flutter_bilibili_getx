@@ -588,11 +588,11 @@ class ReplyMember {
   OfficialVerify officialVerify;
   Vip vip;
   dynamic fansDetail;
-  int following;
-  int isFollowed;
+  int? following;
+  int? isFollowed;
   UserSailing userSailing;
-  bool isContractor;
-  String contractDesc;
+  bool? isContractor;
+  String? contractDesc;
   dynamic nftInteraction;
 
   factory ReplyMember.fromJson(Map<String, dynamic> json) => ReplyMember(
@@ -1250,15 +1250,15 @@ class MemberElement {
     required this.vip,
   });
 
-  String mid;
-  String uname;
+  String? mid;
+  String? uname;
   Sex? sex;
-  String sign;
-  String avatar;
-  String rank;
-  String displayRank;
-  int faceNftNew;
-  int isSeniorMember;
+  String? sign;
+  String? avatar;
+  String? rank;
+  String? displayRank;
+  int? faceNftNew;
+  int? isSeniorMember;
   LevelInfo levelInfo;
   MemberPendant pendant;
   Nameplate nameplate;

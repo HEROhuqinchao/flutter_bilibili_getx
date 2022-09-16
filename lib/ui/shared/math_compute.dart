@@ -1,3 +1,5 @@
+import 'dart:math';
+
 ///保留小数点后position位
 String formatNum(double num, int position) {
   return num.toStringAsFixed(position).toString();
@@ -99,4 +101,9 @@ String formatDuration(Duration position) {
       '${hoursString == '00' ? '' : '$hoursString:'}$minutesString:$secondsString';
 
   return formattedTime;
+}
+
+int nextIntRange(int min, int max) {
+  int res = min + Random().nextInt(max - min);
+  return res;
 }

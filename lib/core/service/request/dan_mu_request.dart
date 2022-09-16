@@ -38,9 +38,9 @@ class HYDanMuRequest {
   /// 不再使用XML的数据弹幕数据，改用请求proto格式的弹幕数据
 
   static Future<List<DanMuModel02>> getDanMuProtoData(
-      int oid, int segmentIndex) async {
+      String oid, int segmentIndex) async {
     String url =
-        "/x/v2/dm/list/seg.so?type=1&oid=${oid}&segment_index=${segmentIndex}";
+        "/x/v2/dm/list/seg.so?type=1&oid=$oid&segment_index=$segmentIndex";
     // print(url);
     final responseResult = await HttpBaseRequest.request("base", url,
         contentType: "PROTO", responseType: ResponseType.bytes);

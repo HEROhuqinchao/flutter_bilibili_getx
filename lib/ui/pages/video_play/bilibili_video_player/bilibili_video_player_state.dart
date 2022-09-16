@@ -1,13 +1,17 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
-
-import '../../../../core/model/dan_mu_model_02.dart';
+import '../../../shared/math_compute.dart';
 
 class BilibiliVideoPlayerState {
+  ///是否正在加载视频
+  late bool isLoadingVideo;
+
+  ///视频控制器
   late VideoPlayerController videoPlayerController;
+
+  ///是否显示底部的工具栏
   late bool showBottomBar;
 
   ///进度条顶端图片
@@ -40,15 +44,20 @@ class BilibiliVideoPlayerState {
   ///当前亮度数值
   late double brightness;
 
-  late ScrollController scrollController;
+  late List<DanMuRouteModel> danMuRouteList;
+  late List<List<Widget>> danMuChildren;
+  late List<int> v;
+
+  ///弹幕速度
+  late List<double> routeMaxLength;
   late double nowPosition;
   late int danMuPackageNum;
-  late List<Widget> danMuChildren;
-  late double v;
-  late double maxLength;
-
+  late List<Widget> danMuWidgets;
+  late List<Duration> speedList;
+  late int danMuRouteAmount;
 
   BilibiliVideoPlayerState() {
+    isLoadingVideo = true;
     showBottomBar = true;
     controllerWasPlaying = false;
     dragging = false;
@@ -59,11 +68,45 @@ class BilibiliVideoPlayerState {
     videoBrightness = false;
     volume = 0.0;
     brightness = 0.0;
-    scrollController = ScrollController();
+
     nowPosition = 0;
     danMuPackageNum = 0;
+    danMuRouteAmount = 6;
+    v = [];
+    danMuRouteList = [];
     danMuChildren = [];
-    v = 100;
-    maxLength = 0;
+    routeMaxLength = [];
+    for (var i = 0; i < danMuRouteAmount; i++) {
+      ///生成随机速度
+      v.add(nextIntRange(50, 80));
+
+      ///初始化轨道对象
+      ScrollController scrollController = ScrollController();
+      danMuRouteList.add(DanMuRouteModel(
+          velocity: v[i], scrollController: scrollController, show: true));
+
+      ///初始化单条轨道中的弹幕
+      List<Widget> danMuChild = [];
+      danMuChildren.add(danMuChild);
+
+      ///轨道的最大长度
+      routeMaxLength.add(0);
+    }
+
+    ///弹幕轨道控件
+    danMuWidgets = [];
   }
+}
+
+///弹幕轨道模型
+class DanMuRouteModel {
+  int velocity;
+  ScrollController scrollController;
+  bool show;
+
+  DanMuRouteModel({
+    required this.velocity,
+    required this.scrollController,
+    required this.show,
+  });
 }

@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +7,10 @@ import 'package:get/get.dart';
 
 import '../../../../core/service/request/video_play_request.dart';
 import '../../core/model/feed_index_model.dart';
+import '../pages/video_play/bilibili_video_player/bilibili_video_player_logic.dart';
+import '../pages/video_play/bilibili_video_player/bilibili_video_player_state.dart';
 import '../pages/video_play/video_play_logic.dart';
+import '../pages/video_play/video_play_state.dart';
 import '../shared/app_theme.dart';
 import '../shared/color_radix_change.dart';
 import '../shared/image_asset.dart';
@@ -18,11 +22,10 @@ class RecommendItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FeedIndexItem videoItem = video;
     return GestureDetector(
       onTap: () {
         if (video.goto == "av") {
-          HYVideoRequest.getMp4VideoPlayData(videoItem.args!.aid!)
+          HYVideoRequest.getMp4VideoPlayData(video.args!.aid!)
               .then((value) {
             ///匹配字符串readyVideoUrl: 到readyDuration之间的字符串
             RegExp exp =
@@ -32,18 +35,22 @@ class RecommendItem extends StatelessWidget {
             print(
                 "videoMp4-----------${videoMp4.substring(0, videoMp4.length)}");
             if (videoMp4.isEmpty) {
-              videoItem.videoData =
-                  "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4";
+              video.videoData =
+                  "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+                  // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4";
             } else {
-              videoItem.videoData = videoMp4.substring(1, videoMp4.length - 1);
+              video.videoData = videoMp4.substring(1, videoMp4.length - 1);
             }
 
             ///传递数据
-            Get.lazyPut(() => VideoPlayLogic());
-            VideoPlayLogic logic = Get.find<VideoPlayLogic>();
-            logic.fetchFeedIndexItemData(videoItem);
-            // logic.fetchVideoView(videoItem.args!.aid!.toString());
-            // logic.fetchVideoReply(videoItem.args!.aid!.toString());
+            Get.lazyPut(()=>VideoPlayLogic());
+            Get.lazyPut(()=>BilibiliVideoPlayerLogic());
+            VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
+            BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
+            bilibiliVideoPlayerLogic.initVideo(video.videoData);
+            bilibiliVideoPlayerLogic.fetchDanMu(video.playerArgs!.cid!.toString());
+            videoPlayLogic.fetchVideoView(video.playerArgs!.aid!.toString());
+            videoPlayLogic.fetchVideoReply(video.playerArgs!.aid!.toString());
 
             ///跳转至播放界面
             Get.toNamed(VideoPlayScreen.routeName);
@@ -66,16 +73,16 @@ class RecommendItem extends StatelessWidget {
             Stack(
               children: [
                 ///视频封面
-                buildHomeVideoItemCover(videoItem),
+                buildHomeVideoItemCover(video),
 
                 ///文字下的阴影块
                 buildHomeVideoItemShadow(),
 
                 /// 视频封面上的左下区域（如视频的评论数和观看数）
-                buildHomeVideoItemLeftZone(videoItem),
+                buildHomeVideoItemLeftZone(video),
 
                 ///视频封面上的右下区域（如视频的时长）
-                buildHomeVideoItemRightZone(videoItem)
+                buildHomeVideoItemRightZone(video)
               ],
             ),
             Expanded(
@@ -83,10 +90,10 @@ class RecommendItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ///标题
-                  buildHomeVideoItemTitle(videoItem),
+                  buildHomeVideoItemTitle(video),
 
                   ///视频底部的左下区域
-                  buildHomeVideoItemFooter(videoItem),
+                  buildHomeVideoItemFooter(video),
                 ],
               ),
             )
