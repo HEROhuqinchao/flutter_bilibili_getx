@@ -34,7 +34,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
     });
     state.videoPlayerController.dispose();
     for (var item in state.danMuRouteList) {
-      item.scrollController.removeListener(() { });
+      item.scrollController.removeListener(() {});
       item.scrollController.dispose();
     }
     super.onClose();
@@ -104,8 +104,9 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
           ///寻找最短的那条轨道
           int routeMinLengthNumber = getListMin(state.routeMaxLength);
+
           ///随机选择一条发送(使弹幕混乱）
-          if(Random().nextInt(3) == 1) {
+          if (Random().nextInt(3) == 1) {
             routeMinLengthNumber = Random().nextInt(state.danMuRouteAmount);
           }
 
@@ -283,24 +284,25 @@ class BilibiliVideoPlayerLogic extends GetxController {
     update();
   }
 
-  ///横屏模式
-  void openFullScreen() {
-    state.isFullScreen = true;
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-    update();
-  }
-
-  ///竖屏模式
-  void closeFullScreen() {
-    state.isFullScreen = false;
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-    update();
-  }
+  // ///横屏模式
+  // void openFullScreen() {
+  //   state.isFullScreen = true;
+  //   SystemChrome.setPreferredOrientations(
+  //       [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+  //       overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+  //   update();
+  // }
+  //
+  // ///竖屏模式
+  // void closeFullScreen() {
+  //   state.isFullScreen = false;
+  //   SystemChrome.setPreferredOrientations(
+  //       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+  //       overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+  //   update();
+  // }
 
   ///开始调节音量或者亮度
   void videoPlayVolumeBrightnessOnVerticalDragStart(DragStartDetails details) {

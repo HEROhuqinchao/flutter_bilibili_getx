@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player_full_screen/bilibili_video_player_full_screen_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../shared/math_compute.dart';
+import '../bilibili_video_player_full_screen/bilibili_video_player_full_screen_logic.dart';
 import 'bilibili_video_player_logic.dart';
 
 class BilibiliVideoPlayerComponent extends StatefulWidget {
@@ -582,7 +584,7 @@ class _BilibiliVideoPlayerComponentState
     return state.isFullScreen
         ? GestureDetector(
             onTap: () {
-              logic.closeFullScreen();
+              // logic.closeFullScreen();
             },
             child: Image.asset(
               ImageAssets.exitFullScreenPNG,
@@ -592,7 +594,11 @@ class _BilibiliVideoPlayerComponentState
           )
         : GestureDetector(
             onTap: () {
-              logic.openFullScreen();
+              BilibiliVideoPlayerFullLogic bilibiliVideoPlayerFullLogic =
+                  Get.find<BilibiliVideoPlayerFullLogic>();
+              bilibiliVideoPlayerFullLogic.fetchVideoController(state.videoPlayerController);
+              Get.to(BilibiliVideoPlayerFullScreen());
+              // logic.openFullScreen();
             },
             child: Image.asset(
               ImageAssets.fullCustomPNG,
