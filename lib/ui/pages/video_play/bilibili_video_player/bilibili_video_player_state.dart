@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
+import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
 import '../../../shared/math_compute.dart';
 
 class BilibiliVideoPlayerState {
@@ -46,7 +47,7 @@ class BilibiliVideoPlayerState {
 
   late List<DanMuRouteModel> danMuRouteList;
   late List<List<Widget>> danMuChildren;
-  late List<int> v;
+  late List<int> velocity;
 
   ///弹幕速度
   late List<double> routeMaxLength;
@@ -66,24 +67,24 @@ class BilibiliVideoPlayerState {
     videoProgress = false;
     videoVolume = false;
     videoBrightness = false;
-    volume = 0.0;
-    brightness = 0.0;
+    // volume = 0.0;
+    // brightness = 0.0;
 
     nowPosition = 0;
     danMuPackageNum = 0;
     danMuRouteAmount = 6;
-    v = [];
+    velocity = [];
     danMuRouteList = [];
     danMuChildren = [];
     routeMaxLength = [];
     for (var i = 0; i < danMuRouteAmount; i++) {
       ///生成随机速度
-      v.add(nextIntRange(50, 80));
+      velocity.add(nextIntRange(30, 60));
 
       ///初始化轨道对象
       ScrollController scrollController = ScrollController();
       danMuRouteList.add(DanMuRouteModel(
-          velocity: v[i], scrollController: scrollController, show: true));
+          velocity: velocity[i], scrollController: scrollController, show: true));
 
       ///初始化单条轨道中的弹幕
       List<Widget> danMuChild = [];
@@ -98,15 +99,4 @@ class BilibiliVideoPlayerState {
   }
 }
 
-///弹幕轨道模型
-class DanMuRouteModel {
-  int velocity;
-  ScrollController scrollController;
-  bool show;
 
-  DanMuRouteModel({
-    required this.velocity,
-    required this.scrollController,
-    required this.show,
-  });
-}

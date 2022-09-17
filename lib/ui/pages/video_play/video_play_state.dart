@@ -72,10 +72,10 @@ class VideoPlayState {
     isLoadingVideoPlayer = true;
     isLoadingVideoProfile = true;
     isLoadingVideoReply = true;
-    expandedHeight = 200.w;
+    // expandedHeight = 200.w;
     nestedScrollViewController = ScrollController();
     showOrHideIconAndTitleOpacity = 0;
-    cutDownWidgetKey = GlobalKey();
+    cutDownWidgetKey = GlobalKey<ExpandedWidgetState>();
     isExpanded = false;
     allReplies = [];
     keyProfile = GlobalKey<PrimaryScrollContainerState>();

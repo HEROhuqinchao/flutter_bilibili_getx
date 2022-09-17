@@ -52,10 +52,10 @@ Future<void> initialization() async {
       SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
           ///状态栏字体颜色（黑色）
-          statusBarIconBrightness: Brightness.dark,
+          // statusBarIconBrightness: Brightness.dark,
 
           ///状态栏背景色
-          statusBarColor: Colors.white,
+          statusBarColor:Colors.transparent,
         ),
       );
     } else if (Platform.isWindows) {

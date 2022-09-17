@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player_full_screen/bilibili_video_player_full_screen_state.dart';
+import 'package:bilibili_getx/ui/pages/video_play/video_play_logic.dart';
 import 'package:brightness_volume/brightness_volume.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,15 +12,19 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
 import '../../../../core/model/dan_mu_model_02.dart';
 import '../../../../core/service/request/dan_mu_request.dart';
 import '../../../shared/color_radix_change.dart';
 import '../../../shared/math_compute.dart';
 import '../../../shared/text_height_width.dart';
+import '../bilibili_video_player_full_screen/bilibili_video_player_full_screen_logic.dart';
+import '../bilibili_video_player_full_screen/bilibili_video_player_full_screen_view.dart';
 import 'bilibili_video_player_state.dart';
 
 class BilibiliVideoPlayerLogic extends GetxController {
   final BilibiliVideoPlayerState state = BilibiliVideoPlayerState();
+  final VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
 
   @override
   void onReady() {
@@ -40,10 +46,53 @@ class BilibiliVideoPlayerLogic extends GetxController {
     super.onClose();
   }
 
+  void initData() {
+    state.isLoadingVideo = true;
+    state.showBottomBar = true;
+    state.controllerWasPlaying = false;
+    state.dragging = false;
+    state.isFullScreen = false;
+    state.hideTimer = Timer(const Duration(microseconds: 4000), () {});
+    state.videoProgress = false;
+    state.videoVolume = false;
+    state.videoBrightness = false;
+    // state.volume = 0.0;
+    // state.brightness = 0.0;
+
+    state.nowPosition = 0;
+    state.danMuPackageNum = 0;
+    // state.danMuRouteAmount = 6;
+    state.velocity = [];
+    state.danMuRouteList = [];
+    state.danMuChildren = [];
+    state.routeMaxLength = [];
+    for (var i = 0; i < state.danMuRouteAmount; i++) {
+      ///生成随机速度
+      state.velocity.add(nextIntRange(50, 80));
+
+      ///初始化轨道对象
+      ScrollController scrollController = ScrollController();
+      state.danMuRouteList.add(DanMuRouteModel(
+          velocity: state.velocity[i],
+          scrollController: scrollController,
+          show: true));
+
+      ///初始化单条轨道中的弹幕
+      List<Widget> danMuChild = [];
+      state.danMuChildren.add(danMuChild);
+
+      ///轨道的最大长度
+      state.routeMaxLength.add(0);
+    }
+
+    ///弹幕轨道控件
+    state.danMuWidgets = [];
+    // ///获取音量和亮度
+    // fetchVolumeBrightness();
+  }
+
   void initVideo(videoPath) {
-    state.videoPlayerController = VideoPlayerController.network(
-        // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4"
-        videoPath)
+    state.videoPlayerController = VideoPlayerController.network(videoPath)
       ..initialize().then((value) {
         update();
       });
@@ -150,20 +199,22 @@ class BilibiliVideoPlayerLogic extends GetxController {
       }
 
       ///弹幕轨道添加到布局中
-      for (var i = 0; i < state.danMuRouteList.length; i++) {
-        Widget widget = SizedBox(
-          width: 1.sw,
-          height: 25.w,
-          child: SingleChildScrollView(
-            controller: state.danMuRouteList[i].scrollController,
-            scrollDirection: Axis.horizontal,
-            child: StaggeredGrid.count(
-              crossAxisCount: 1,
-              axisDirection: AxisDirection.right,
-              children: state.danMuChildren[i],
+      for (var i = 0; i < state.danMuRouteAmount; i++) {
+        Widget widget = GetBuilder<BilibiliVideoPlayerLogic>(builder: (logic) {
+          return SizedBox(
+            width: 1.sw,
+            height: 15.w,
+            child: SingleChildScrollView(
+              controller: state.danMuRouteList[i].scrollController,
+              scrollDirection: Axis.horizontal,
+              child: StaggeredGrid.count(
+                crossAxisCount: 1,
+                axisDirection: AxisDirection.right,
+                children: state.danMuChildren[i],
+              ),
             ),
-          ),
-        );
+          );
+        });
         state.danMuWidgets.add(widget);
       }
       update();
@@ -284,25 +335,50 @@ class BilibiliVideoPlayerLogic extends GetxController {
     update();
   }
 
-  // ///横屏模式
-  // void openFullScreen() {
-  //   state.isFullScreen = true;
-  //   SystemChrome.setPreferredOrientations(
-  //       [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-  //       overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-  //   update();
-  // }
-  //
-  // ///竖屏模式
-  // void closeFullScreen() {
-  //   state.isFullScreen = false;
-  //   SystemChrome.setPreferredOrientations(
-  //       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-  //       overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-  //   update();
-  // }
+  ///横屏模式
+  void openFullScreen() {
+    state.isFullScreen = true;
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+    videoPlayLogic.setFullScreen(1.sw);
+    update();
+    // Get.lazyPut(() => BilibiliVideoPlayerFullLogic());
+    // BilibiliVideoPlayerFullLogic bilibiliVideoPlayerFullLogic =
+    //     Get.find<BilibiliVideoPlayerFullLogic>();
+    // bilibiliVideoPlayerFullLogic.initVideoFullScreen(
+    //   state.videoPlayerController,
+    //   state.showBottomBar,
+    //   state.controllerWasPlaying,
+    //   state.dragging,
+    //   state.hideTimer,
+    //   state.videoProgress,
+    //   state.videoVolume,
+    //   state.videoBrightness,
+    //   state.volume,
+    //   state.brightness,
+    //   state.danMuRouteList,
+    //   state.danMuChildren,
+    //   state.velocity,
+    //   state.routeMaxLength,
+    //   state.nowPosition,
+    //   state.danMuPackageNum,
+    //   state.danMuWidgets,
+    //   state.danMuRouteAmount,
+    // );
+    // Get.toNamed(BilibiliVideoPlayerFullScreen.routeName);
+  }
+
+  ///竖屏模式
+  void closeFullScreen() {
+    state.isFullScreen = false;
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+    videoPlayLogic.setFullScreen(210.h);
+    update();
+  }
 
   ///开始调节音量或者亮度
   void videoPlayVolumeBrightnessOnVerticalDragStart(DragStartDetails details) {

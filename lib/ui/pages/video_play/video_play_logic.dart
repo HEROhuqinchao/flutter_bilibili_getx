@@ -1,10 +1,13 @@
 import 'package:bilibili_getx/core/service/request/video_play_request.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:bilibili_getx/ui/pages/video_play/video_play_state.dart';
 import '../../shared/params_sign.dart';
+import '../../widgets/expanded_widget.dart';
+import '../../widgets/primary_scroll_container.dart';
 
 class VideoPlayLogic extends GetxController {
   final VideoPlayState state = VideoPlayState();
@@ -29,12 +32,38 @@ class VideoPlayLogic extends GetxController {
     super.onReady();
   }
 
-
   ///销毁控件，取消监听
   @override
   void onClose() {
-    disposeVideoPlayerController();
+    state.nestedScrollViewController.removeListener(() {});
+    state.nestedScrollViewController.dispose();
     super.onClose();
+  }
+
+  void setFullScreen(double height) {
+    state.expandedHeight = height;
+    update();
+  }
+
+  void initData() {
+    state.frequency = 0;
+    state.isLoadingVideoPlayer = true;
+    state.isLoadingVideoProfile = true;
+    state.isLoadingVideoReply = true;
+    state.expandedHeight = 200.w;
+    // state.nestedScrollViewController = ScrollController();
+    state.showOrHideIconAndTitleOpacity = 0;
+    // state.cutDownWidgetKey = GlobalKey<ExpandedWidgetState>();
+    state.isExpanded = false;
+    state.allReplies = [];
+    // state.keyProfile = GlobalKey<PrimaryScrollContainerState>();
+    // state.keyReply = GlobalKey<PrimaryScrollContainerState>();
+    // state.scrollChildKeys = [state.keyProfile, state.keyReply];
+    state.hideStuff = false;
+    // state.barHeight = 70.h;
+    state.displayTapped = false;
+    state.dragging = false;
+    state.showPlayButton = true;
   }
 
   ///获取视频数据
@@ -55,12 +84,6 @@ class VideoPlayLogic extends GetxController {
       state.isLoadingVideoProfile = false;
       update();
     });
-  }
-
-  ///销毁视频的控件
-  void disposeVideoPlayerController() {
-    state.nestedScrollViewController.removeListener(() {});
-    state.nestedScrollViewController.dispose();
   }
 
   ///获取视频回复的评论

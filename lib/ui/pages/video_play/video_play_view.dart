@@ -60,7 +60,6 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
         return WillPopScope(
           onWillPop: () {
             Get.back();
-            logic.disposeVideoPlayerController();
             return Future.value(true);
           },
           child: DefaultTabController(
@@ -708,16 +707,19 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
                             height: 15.sp,
                           ),
                           5.horizontalSpace,
-                          Text(
-                            state.videoProfile.relates![index].owner.name!,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: HYAppTheme.norGrayColor,
-                              fontSize: 12.sp,
+                          Expanded(
+                            child: Text(
+                              state.videoProfile.relates![index].owner.name!,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: HYAppTheme.norGrayColor,
+                                fontSize: 12.sp,
+                              ),
                             ),
                           ),
+                          15.horizontalSpace,
                         ],
                       ),
                       Row(
