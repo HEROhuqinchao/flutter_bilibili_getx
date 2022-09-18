@@ -1,13 +1,11 @@
 import 'package:bilibili_getx/core/service/request/video_play_request.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:bilibili_getx/ui/pages/video_play/video_play_state.dart';
 import '../../shared/params_sign.dart';
-import '../../widgets/expanded_widget.dart';
-import '../../widgets/primary_scroll_container.dart';
+import 'bilibili_video_player/bilibili_video_player_logic.dart';
 
 class VideoPlayLogic extends GetxController {
   final VideoPlayState state = VideoPlayState();
@@ -45,12 +43,11 @@ class VideoPlayLogic extends GetxController {
     update();
   }
 
-  void initData() {
-    state.frequency = 0;
+  void initVideoPlayData() {
     state.isLoadingVideoPlayer = true;
     state.isLoadingVideoProfile = true;
     state.isLoadingVideoReply = true;
-    state.expandedHeight = 200.w;
+    state.expandedHeight = 210.w;
     state.showOrHideIconAndTitleOpacity = 0;
     state.isExpanded = false;
     state.allReplies = [];
@@ -91,5 +88,14 @@ class VideoPlayLogic extends GetxController {
     state.isExpanded = !state.isExpanded;
     state.cutDownWidgetKey.currentState?.widgetShift();
     update();
+  }
+
+  ///显示或者隐藏弹幕
+  void showOrHideDanMu() {
+    state.danMuOpenOrClose = !state.danMuOpenOrClose;
+    Get.lazyPut(() => BilibiliVideoPlayerLogic());
+    BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic =
+        Get.find<BilibiliVideoPlayerLogic>();
+    bilibiliVideoPlayerLogic.showOrHideDanMu(state.danMuOpenOrClose);
   }
 }

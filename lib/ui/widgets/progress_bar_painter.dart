@@ -104,7 +104,7 @@ class ProgressBarPainter extends CustomPainter {
 
     canvas.drawImage(
         assetsImage,
-        Offset(playedPart - barHeight * 2, baseOffset - barHeight * 2),
+        Offset(playedPart - barHeight * 2, baseOffset - barHeight * 1.5),
         handlePaint);
     // canvas.drawCircle(Offset(playedPart, baseOffset + barHeight / 2),
     //     handleHeight, colors.handlePaint);

@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
-import '../../../shared/math_compute.dart';
 
 class BilibiliVideoPlayerState {
+  ///视频的oid
+  late String oid;
+
   ///是否正在加载视频
   late bool isLoadingVideo;
 
@@ -58,50 +60,11 @@ class BilibiliVideoPlayerState {
   late int danMuRouteAmount;
 
   late bool danMuOpenOrClose;
+  late double lastDetalDx;
 
   BilibiliVideoPlayerState() {
-    isLoadingVideo = true;
-    showBottomBar = true;
-    controllerWasPlaying = false;
-    dragging = false;
-    isFullScreen = false;
-    hideTimer = Timer(const Duration(microseconds: 4000), () {});
-    videoProgress = false;
-    videoVolume = false;
-    videoBrightness = false;
-    // volume = 0.0;
-    // brightness = 0.0;
-
-    nowPosition = 0;
-    danMuPackageNum = 0;
     danMuRouteAmount = 6;
-    velocity = [];
-    danMuRouteList = [];
-    danMuChildren = [];
-    routeMaxLength = [];
-    for (var i = 0; i < danMuRouteAmount; i++) {
-      ///生成随机速度
-      velocity.add(nextIntRange(30, 60));
-
-      ///初始化轨道对象
-      ScrollController scrollController = ScrollController();
-      danMuRouteList.add(DanMuRouteModel(
-          velocity: velocity[i], scrollController: scrollController, show: true));
-
-      ///初始化单条轨道中的弹幕
-      List<Widget> danMuChild = [];
-      danMuChildren.add(danMuChild);
-
-      ///轨道的最大长度
-      routeMaxLength.add(0);
-    }
-
-    ///弹幕轨道控件
-    danMuWidgets = [];
-
-    ///弹幕开关
     danMuOpenOrClose = true;
+    lastDetalDx = 0;
   }
 }
-
-

@@ -66,17 +66,14 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
             length: 2,
             child: Scaffold(
               body: NestedScrollView(
+                physics: const ClampingScrollPhysics(),
                 controller: state.nestedScrollViewController,
                 headerSliverBuilder:
                     (BuildContext context, bool innerBoxIsScrolled) {
                   return [
                     SliverAppBar(
-                      // leading: Icon(
-                      //   Icons.keyboard_arrow_left,
-                      //   size: 25.sp,
-                      // ),
                       pinned: true,
-                      floating: true,
+                      floating: false,
                       snap: false,
                       actions: [
                         Container(
@@ -131,6 +128,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                       leading: null,
                       automaticallyImplyLeading: false,
                       toolbarHeight: 40.w,
+                      // backgroundColor: Colors.red,
                       backgroundColor: HYAppTheme.norWhite01Color,
                       title: buildVideoPlayTabBar(),
                       pinned: true,
@@ -157,38 +155,35 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
   PreferredSizeWidget buildVideoPlayTabBar() {
     return PreferredSize(
       ///tab设置底色
-      preferredSize: Size.fromHeight(15.h),
+      preferredSize: Size(1.sw, 1.sh),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Material(
-            color: HYAppTheme.norWhite01Color,
-            child: SizedBox(
-              width: .3.sw,
-              height: 30.w,
-              child: TabBar(
-                controller: tabController,
-                tabs: [
-                  Tab(text: SR.profile.tr),
-                  Tab(text: SR.reply.tr),
-                ],
-                indicatorColor: HYAppTheme.norMainThemeColors,
-                unselectedLabelColor: HYAppTheme.unselectedLabelColor,
-                labelColor: HYAppTheme.norMainThemeColors,
-                indicatorSize: TabBarIndicatorSize.label,
-                labelStyle: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 12.sp,
-                    fontFamily: 'bilibiliFonts'),
-                unselectedLabelStyle: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 12.sp,
-                    fontFamily: 'bilibiliFonts'),
-                indicatorWeight: 2.h,
-                labelPadding: EdgeInsets.zero,
-                indicatorPadding: const EdgeInsets.only(bottom: 6).r,
-              ),
+          SizedBox(
+            width: .3.sw,
+            height: 30.w,
+            child: TabBar(
+              controller: tabController,
+              tabs: [
+                Tab(text: SR.profile.tr),
+                Tab(text: SR.reply.tr),
+              ],
+              indicatorColor: HYAppTheme.norMainThemeColors,
+              unselectedLabelColor: HYAppTheme.unselectedLabelColor,
+              labelColor: HYAppTheme.norMainThemeColors,
+              indicatorSize: TabBarIndicatorSize.label,
+              labelStyle: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 12.sp,
+                  fontFamily: 'bilibiliFonts'),
+              unselectedLabelStyle: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 12.sp,
+                  fontFamily: 'bilibiliFonts'),
+              indicatorWeight: 2.h,
+              labelPadding: EdgeInsets.zero,
+              indicatorPadding: const EdgeInsets.only(bottom: 6).r,
             ),
           ),
           Row(
@@ -198,7 +193,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
               Container(
                 alignment: Alignment.center,
                 width: 60.w,
-                height: 23.h,
+                height: 24.h,
                 decoration: BoxDecoration(
                   color: HYAppTheme.norGrayColor.withOpacity(.3),
                   borderRadius:
@@ -213,20 +208,26 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                   ),
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                width: 30.w,
-                height: 23.h,
-                decoration: BoxDecoration(
-                  color: HYAppTheme.norGrayColor.withOpacity(.2),
-                  borderRadius:
-                      BorderRadius.horizontal(right: Radius.circular(20.r)),
-                ),
-                child: Image.asset(
-                  ImageAssets.danmuOpenPNG,
-                  width: 16.w,
-                  height: 16.w,
-                  fit: BoxFit.fill,
+              GestureDetector(
+                onTap: () {
+                  ///点击显示弹幕或隐藏弹幕
+                  logic.showOrHideDanMu();
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 30.w,
+                  height: 23.h,
+                  decoration: BoxDecoration(
+                    color: HYAppTheme.norGrayColor.withOpacity(.2),
+                    borderRadius:
+                        BorderRadius.horizontal(right: Radius.circular(20.r)),
+                  ),
+                  child: Image.asset(
+                    ImageAssets.danmuOpenPNG,
+                    width: 16.w,
+                    height: 16.w,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ],

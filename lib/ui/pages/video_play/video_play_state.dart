@@ -1,9 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:video_player/video_player.dart';
 
 import '../../../core/model/android/video_play/video_profile_model.dart';
 import '../../../core/model/video_reply_model.dart';
@@ -13,9 +9,6 @@ import '../../widgets/primary_scroll_container.dart';
 class VideoPlayState {
   ///评论数据
   late HYVideoReplyModel videoReply;
-
-  ///视频加载失败重加载次数
-  late int frequency;
 
   ///视频简介及相关视频数据
   late VideoProfileData videoProfile;
@@ -52,11 +45,11 @@ class VideoPlayState {
   late GlobalKey<PrimaryScrollContainerState> keyReply;
   late List<GlobalKey<PrimaryScrollContainerState>> scrollChildKeys;
 
+  ///弹幕显示或者隐藏
   late bool danMuOpenOrClose;
 
   ///初始化
   VideoPlayState() {
-    frequency = 0;
     isLoadingVideoPlayer = true;
     isLoadingVideoProfile = true;
     isLoadingVideoReply = true;

@@ -12,7 +12,11 @@ import 'package:flutter/material.dart';
 import 'package:brightness_volume/brightness_volume.dart';
 
 void main() {
-  runApp(MyApp());
+  List<int> list01 = [1,2,3,4,5];
+  List<int> list02 = [];
+  list02 = list01.where((element) => element > 2).toList();
+  print(list02);
+  // runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {

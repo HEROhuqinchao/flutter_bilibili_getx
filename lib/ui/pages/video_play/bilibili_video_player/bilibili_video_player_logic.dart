@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
+import '../../../../core/model/dan_mu_model_02.dart';
 import '../../../../core/service/request/dan_mu_request.dart';
 import '../../../shared/color_radix_change.dart';
 import '../../../shared/math_compute.dart';
@@ -42,7 +43,8 @@ class BilibiliVideoPlayerLogic extends GetxController {
     super.onClose();
   }
 
-  void initData() {
+
+  void initVideoPlayerVideoData() {
     state.isLoadingVideo = true;
     state.showBottomBar = true;
     state.controllerWasPlaying = false;
@@ -52,12 +54,10 @@ class BilibiliVideoPlayerLogic extends GetxController {
     state.videoProgress = false;
     state.videoVolume = false;
     state.videoBrightness = false;
-    // state.volume = 0.0;
-    // state.brightness = 0.0;
-
+  }
+  void initVideoPlayerDanMuData() {
     state.nowPosition = 0;
     state.danMuPackageNum = 0;
-    // state.danMuRouteAmount = 6;
     state.velocity = [];
     state.danMuRouteList = [];
     state.danMuChildren = [];
@@ -83,11 +83,10 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
     ///弹幕轨道控件
     state.danMuWidgets = [];
-    // ///获取音量和亮度
-    // fetchVolumeBrightness();
   }
 
-  void initVideo(videoPath) {
+  ///初始化弹幕和视频的控制器
+  void initVideoControllerAndDanMuController(videoPath) {
     state.videoPlayerController = VideoPlayerController.network(videoPath)
       ..initialize().then((value) {
         update();
@@ -133,19 +132,127 @@ class BilibiliVideoPlayerLogic extends GetxController {
     state.isLoadingVideo = false;
   }
 
-  void fetchDanMu(oid) {
+  void clearDanMuCache() {
+    state.nowPosition = 0;
+    state.danMuPackageNum = 0;
+    state.danMuChildren.clear();
+    state.routeMaxLength.clear();
+    for (var i = 0; i < state.danMuRouteAmount; i++) {
+      ///初始化单条轨道中的弹幕
+      List<Widget> danMuChild = [];
+      state.danMuChildren.add(danMuChild);
+
+      ///轨道的最大长度
+      state.routeMaxLength.add(0);
+    }
+    // ///弹幕轨道控件
+    // state.danMuWidgets.clear();
+  }
+
+  void updateDanMuData(beginProgress) {
     ///总共弹幕包数
     state.danMuPackageNum =
         state.videoPlayerController.value.duration.inMinutes ~/ 6 + 1;
-    HYDanMuRequest.getDanMuProtoData(oid, 1).then((value) {
+    HYDanMuRequest.getDanMuProtoData(state.oid, 1).then((value) {
       ///发送时间做排序排序
       value.sort((left, right) => left.progress.compareTo(right.progress));
-
-      for (var element in value) {
+      value = value.sublist(0,50);
+      List<DanMuModel02> filterValue = value.where((e) => e.progress > beginProgress).toList();
+      for (var element in filterValue) {
         ///普通弹幕
         if (element.mode == 1 || element.mode == 2 || element.mode == 3) {
           // print(element.content);
           // print(element.progress);
+
+          ///寻找最短的那条轨道
+          int routeMinLengthNumber = getListMin(state.routeMaxLength);
+
+          ///随机选择一条发送(使弹幕混乱）
+          if (Random().nextInt(3) == 1) {
+            routeMinLengthNumber = Random().nextInt(state.danMuRouteAmount);
+          }
+
+          ///判断是否加间距（如果弹幕在很后面发出，需要加上间距）
+          double gap = element.progress /
+              1000 *
+              state.danMuRouteList[routeMinLengthNumber].velocity -
+              state.routeMaxLength[routeMinLengthNumber];
+          double textLength = TextHeightWidth.boundingTextSize(
+            element.content,
+            TextStyle(fontSize: (element.fontsize - 12).sp),
+          ).width;
+          double tempMaxLength = element.progress /
+              1000 *
+              state.danMuRouteList[routeMinLengthNumber].velocity +
+              textLength;
+          if (tempMaxLength > state.routeMaxLength[routeMinLengthNumber]) {
+            state.routeMaxLength[routeMinLengthNumber] = tempMaxLength;
+          } else {
+            state.routeMaxLength[routeMinLengthNumber] += textLength;
+          }
+          if (gap < 0) {
+            gap = 0;
+          }
+          Widget danMu = Container(
+            margin: EdgeInsets.only(left: gap + 5.r),
+            child: Text(element.content,
+                style: TextStyle(
+                  color: ColorRadixChange.hexColor(
+                      element.color.toRadixString(16)),
+                  fontSize: (element.fontsize - 12).sp,
+                  fontWeight: FontWeight.normal,
+                )),
+          );
+          state.danMuChildren[routeMinLengthNumber].add(danMu);
+        } else if (element.mode == 4) {
+          ///底部弹幕
+        } else if (element.mode == 5) {
+          ///顶部弹幕
+        } else {}
+      }
+
+      // ///弹幕轨道添加到布局中
+      // for (var i = 0; i < state.danMuRouteAmount; i++) {
+      //   Widget widget = GetBuilder<BilibiliVideoPlayerLogic>(builder: (logic) {
+      //     return SizedBox(
+      //       width: 1.sw,
+      //       height: 15.w,
+      //       child: SingleChildScrollView(
+      //         controller: state.danMuRouteList[i].scrollController,
+      //         scrollDirection: Axis.horizontal,
+      //         child: StaggeredGrid.count(
+      //           crossAxisCount: 1,
+      //           axisDirection: AxisDirection.right,
+      //           children: state.danMuChildren[i],
+      //         ),
+      //       ),
+      //     );
+      //   });
+      //   state.danMuWidgets.add(widget);
+      // }
+      update();
+    });
+  }
+
+
+  ///视频的oid；开始时间beginProgress
+  void fetchDanMu(oid, beginProgress) {
+    state.oid = oid;
+    ///总共弹幕包数
+    state.danMuPackageNum =
+        state.videoPlayerController.value.duration.inMinutes ~/ 6 + 1;
+    HYDanMuRequest.getDanMuProtoData(oid, 1).then((value) {
+      value = value.sublist(0,50);
+      ///发送时间做排序排序
+      value.sort((left, right) => left.progress.compareTo(right.progress));
+
+      List<DanMuModel02> filterValue = value.where((e) => e.progress > beginProgress).toList();
+
+      for (var element in filterValue) {
+        ///普通弹幕
+        if (element.mode == 1 || element.mode == 2 || element.mode == 3) {
+          print(element.content);
+          print(element.progress);
 
           ///寻找最短的那条轨道
           int routeMinLengthNumber = getListMin(state.routeMaxLength);
@@ -177,7 +284,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
             gap = 0;
           }
           Widget danMu = Container(
-            margin: EdgeInsets.only(left: gap),
+            margin: EdgeInsets.only(left: gap + 5.r),
             child: Text(element.content,
                 style: TextStyle(
                   color: ColorRadixChange.hexColor(
@@ -258,11 +365,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///拖动进度条（全屏）
   void videoPlayScreenOnHorizontalDragUpdate(
-      BuildContext context, Offset globalPosition) {
+      BuildContext context, Offset delta) {
     if (!state.videoPlayerController.value.isInitialized) {
       return;
     }
-    seekToRelativePosition(context, globalPosition);
+    dragToRelativePosition(context, delta);
   }
 
   ///拖动进度条（拖动进度条）
@@ -271,7 +378,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
     if (!state.videoPlayerController.value.isInitialized) {
       return;
     }
-    seekToRelativePosition(context, globalPosition);
+    seekToRelativePosition(context, globalPosition, false);
   }
 
   ///拖动结束
@@ -282,6 +389,10 @@ class BilibiliVideoPlayerLogic extends GetxController {
     }
     state.dragging = false;
     startHideTimer();
+
+    ///清空弹幕轨道的数据，并重新获取该时刻之后的弹幕数据
+    // clearDanMuCache();
+    // updateDanMuData(state.videoPlayerController.value.position.inMilliseconds);
   }
 
   ///点击进度条跳转至某一时刻
@@ -289,7 +400,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
     if (!state.videoPlayerController.value.isInitialized) {
       return;
     }
-    seekToRelativePosition(context, globalPosition);
+    seekToRelativePosition(context, globalPosition, true);
   }
 
   ///隐藏进度条
@@ -312,7 +423,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
   }
 
   ///跳转至某一时刻
-  void seekToRelativePosition(BuildContext context, Offset globalPosition) {
+  void seekToRelativePosition(BuildContext context, Offset globalPosition, bool finishDrag) {
     ///获取父组件
     final box = context.findRenderObject()! as RenderBox;
 
@@ -328,6 +439,19 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
     ///进度跳转
     state.videoPlayerController.seekTo(position);
+
+    if(finishDrag) {
+      ///清空弹幕轨道的数据，并重新获取该时刻之后的弹幕数据
+      clearDanMuCache();
+      updateDanMuData(position.inMilliseconds);
+    }
+    update();
+  }
+
+  ///滑动进度条
+  void dragToRelativePosition(BuildContext context, Offset delta) {
+    Duration duration = Duration(milliseconds: (delta.dx * 200) .toInt());
+    state.videoPlayerController.seekTo(state.videoPlayerController.value.position + duration);
     update();
   }
 
@@ -339,30 +463,6 @@ class BilibiliVideoPlayerLogic extends GetxController {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     videoPlayLogic.setFullScreen(1.sw);
     update();
-    // Get.lazyPut(() => BilibiliVideoPlayerFullLogic());
-    // BilibiliVideoPlayerFullLogic bilibiliVideoPlayerFullLogic =
-    //     Get.find<BilibiliVideoPlayerFullLogic>();
-    // bilibiliVideoPlayerFullLogic.initVideoFullScreen(
-    //   state.videoPlayerController,
-    //   state.showBottomBar,
-    //   state.controllerWasPlaying,
-    //   state.dragging,
-    //   state.hideTimer,
-    //   state.videoProgress,
-    //   state.videoVolume,
-    //   state.videoBrightness,
-    //   state.volume,
-    //   state.brightness,
-    //   state.danMuRouteList,
-    //   state.danMuChildren,
-    //   state.velocity,
-    //   state.routeMaxLength,
-    //   state.nowPosition,
-    //   state.danMuPackageNum,
-    //   state.danMuWidgets,
-    //   state.danMuRouteAmount,
-    // );
-    // Get.toNamed(BilibiliVideoPlayerFullScreen.routeName);
   }
 
   ///竖屏模式
@@ -372,7 +472,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-    videoPlayLogic.setFullScreen(210.h);
+    videoPlayLogic.setFullScreen(220.h);
     update();
   }
 
@@ -413,6 +513,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
         BVUtils.setBrightness(state.brightness.clamp(0, 1));
       }
     }
+    update();
+  }
+
+  void showOrHideDanMu(danMuState) {
+    state.danMuOpenOrClose = danMuState;
     update();
   }
 }

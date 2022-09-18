@@ -36,21 +36,19 @@ class _BilibiliVideoPlayerComponentState
                 },
                 onHorizontalDragUpdate: (DragUpdateDetails details) {
                   logic.videoPlayScreenOnHorizontalDragUpdate(
-                      context, details.globalPosition);
+                      context, details.delta);
                 },
                 onHorizontalDragEnd: (DragEndDetails details) {
                   logic.videoPlayProgressOnHorizontalDragEnd();
                 },
                 onVerticalDragStart: (DragStartDetails details) {
-                  logic.videoPlayVolumeBrightnessOnVerticalDragStart(
-                      details);
+                  logic.videoPlayVolumeBrightnessOnVerticalDragStart(details);
                 },
                 onVerticalDragEnd: (DragEndDetails details) {
                   logic.videoPlayVolumeBrightnessOnVerticalDragEnd();
                 },
                 onVerticalDragUpdate: (DragUpdateDetails details) {
-                  logic.videoPlayVolumeBrightnessOnVerticalDragUpdate(
-                      details);
+                  logic.videoPlayVolumeBrightnessOnVerticalDragUpdate(details);
                 },
                 child: buildVideoPlayer(),
               )
@@ -303,14 +301,14 @@ class _BilibiliVideoPlayerComponentState
         builder: (BuildContext ctx, AsyncSnapshot<ui.Image> snapshot) {
           return snapshot.data != null
               ? Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
+                  width: 1.sw,
+                  height: 1.sh,
                   color: Colors.transparent,
                   child: CustomPaint(
                     painter: ProgressBarPainter(
-                      handleHeight: 2.h,
+                      handleHeight: 4.h,
                       assetsImage: snapshot.data!,
-                      barHeight: 3.h,
+                      barHeight: 4.h,
                       drawShadow: true,
                       videoPlayerValue: state.videoPlayerController.value,
                     ),
@@ -389,14 +387,14 @@ class _BilibiliVideoPlayerComponentState
                     milliseconds: 300,
                   ),
                   child: Container(
-                    alignment: Alignment.bottomCenter,
-                    height: 50.h,
+                    alignment: Alignment.topCenter,
+                    height: 70.h,
                     width: 1.sw,
-                    padding: EdgeInsets.only(left: 10.r, right: 5.r),
+                    padding: EdgeInsets.only(left: 15.r, right: 10.r, bottom: 20.r),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Colors.black.withOpacity(.3),
+                          Colors.black.withOpacity(.7),
                           Colors.transparent,
                         ],
                         begin: Alignment.bottomCenter,
@@ -533,17 +531,20 @@ class _BilibiliVideoPlayerComponentState
 
               ///弹幕
               IgnorePointer(
-                child: Container(
-                  margin: EdgeInsets.only(top: 10.r),
-                  height: 180.w,
-                  width: 1.sw,
-                  child: Stack(
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: state.danMuWidgets,
-                      ),
-                    ],
+                child: Opacity(
+                  opacity: state.danMuOpenOrClose ? 1 : 0,
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10.r),
+                    height: 180.w,
+                    width: 1.sw,
+                    child: Stack(
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: state.danMuWidgets,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               )
