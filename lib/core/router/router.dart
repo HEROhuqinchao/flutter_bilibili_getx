@@ -22,8 +22,6 @@ import '../../ui/pages/main/home/search/search_view.dart';
 import '../../ui/pages/main/main_binding.dart';
 import '../../ui/pages/main/main_view.dart';
 import '../../ui/pages/mine/scan_login/scan_login_view.dart';
-import '../../ui/pages/video_play/bilibili_video_player_full_screen/bilibili_video_player_full_screen_binding.dart';
-import '../../ui/pages/video_play/bilibili_video_player_full_screen/bilibili_video_player_full_screen_view.dart';
 import '../../ui/pages/video_play/video_play_binding.dart';
 
 class AsRouter {
@@ -109,10 +107,5 @@ class AsRouter {
         name: ChatScreen.routeName,
         page: () => MallScreen(),
         binding: MallBinding()),
-    ///视频界面
-    GetPage(
-        name: BilibiliVideoPlayerFullScreen.routeName,
-        page: () => BilibiliVideoPlayerFullScreen(),
-        binding: BilibiliVideoPlayerFullBinding()),
   ];
 }

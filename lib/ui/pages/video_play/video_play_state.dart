@@ -52,19 +52,7 @@ class VideoPlayState {
   late GlobalKey<PrimaryScrollContainerState> keyReply;
   late List<GlobalKey<PrimaryScrollContainerState>> scrollChildKeys;
 
-
-  ///视频进度条
-  ///判断当前视频播放状态
-  late VideoPlayerValue latestValue;
-  late bool hideStuff;
-  late double barHeight;
-  late Timer showAfterExpandCollapseTimer;
-  late Timer hideTimer;
-  late bool displayTapped;
-  late Timer initTimer;
-  late bool dragging;
-  late bool showPlayButton;
-
+  late bool danMuOpenOrClose;
 
   ///初始化
   VideoPlayState() {
@@ -72,7 +60,6 @@ class VideoPlayState {
     isLoadingVideoPlayer = true;
     isLoadingVideoProfile = true;
     isLoadingVideoReply = true;
-    // expandedHeight = 200.w;
     nestedScrollViewController = ScrollController();
     showOrHideIconAndTitleOpacity = 0;
     cutDownWidgetKey = GlobalKey<ExpandedWidgetState>();
@@ -81,10 +68,6 @@ class VideoPlayState {
     keyProfile = GlobalKey<PrimaryScrollContainerState>();
     keyReply = GlobalKey<PrimaryScrollContainerState>();
     scrollChildKeys = [keyProfile, keyReply];
-    hideStuff = false;
-    barHeight = 70.h;
-    displayTapped = false;
-    dragging = false;
-    showPlayButton = true;
+    danMuOpenOrClose = true;
   }
 }

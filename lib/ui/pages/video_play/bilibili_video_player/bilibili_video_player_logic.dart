@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player_full_screen/bilibili_video_player_full_screen_state.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_logic.dart';
 import 'package:brightness_volume/brightness_volume.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,13 +12,10 @@ import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
-import '../../../../core/model/dan_mu_model_02.dart';
 import '../../../../core/service/request/dan_mu_request.dart';
 import '../../../shared/color_radix_change.dart';
 import '../../../shared/math_compute.dart';
 import '../../../shared/text_height_width.dart';
-import '../bilibili_video_player_full_screen/bilibili_video_player_full_screen_logic.dart';
-import '../bilibili_video_player_full_screen/bilibili_video_player_full_screen_view.dart';
 import 'bilibili_video_player_state.dart';
 
 class BilibiliVideoPlayerLogic extends GetxController {

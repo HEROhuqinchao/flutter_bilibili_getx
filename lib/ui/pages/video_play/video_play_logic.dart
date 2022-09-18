@@ -51,19 +51,9 @@ class VideoPlayLogic extends GetxController {
     state.isLoadingVideoProfile = true;
     state.isLoadingVideoReply = true;
     state.expandedHeight = 200.w;
-    // state.nestedScrollViewController = ScrollController();
     state.showOrHideIconAndTitleOpacity = 0;
-    // state.cutDownWidgetKey = GlobalKey<ExpandedWidgetState>();
     state.isExpanded = false;
     state.allReplies = [];
-    // state.keyProfile = GlobalKey<PrimaryScrollContainerState>();
-    // state.keyReply = GlobalKey<PrimaryScrollContainerState>();
-    // state.scrollChildKeys = [state.keyProfile, state.keyReply];
-    state.hideStuff = false;
-    // state.barHeight = 70.h;
-    state.displayTapped = false;
-    state.dragging = false;
-    state.showPlayButton = true;
   }
 
   ///获取视频数据
@@ -101,11 +91,5 @@ class VideoPlayLogic extends GetxController {
     state.isExpanded = !state.isExpanded;
     state.cutDownWidgetKey.currentState?.widgetShift();
     update();
-  }
-
-  void disposeController() {
-    state.hideTimer.cancel();
-    state.initTimer.cancel();
-    state.showAfterExpandCollapseTimer.cancel();
   }
 }

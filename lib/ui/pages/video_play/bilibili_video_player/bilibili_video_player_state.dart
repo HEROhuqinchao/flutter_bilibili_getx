@@ -57,6 +57,8 @@ class BilibiliVideoPlayerState {
   late List<Duration> speedList;
   late int danMuRouteAmount;
 
+  late bool danMuOpenOrClose;
+
   BilibiliVideoPlayerState() {
     isLoadingVideo = true;
     showBottomBar = true;
@@ -96,6 +98,9 @@ class BilibiliVideoPlayerState {
 
     ///弹幕轨道控件
     danMuWidgets = [];
+
+    ///弹幕开关
+    danMuOpenOrClose = true;
   }
 }
 
