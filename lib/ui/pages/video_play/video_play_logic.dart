@@ -98,4 +98,9 @@ class VideoPlayLogic extends GetxController {
         Get.find<BilibiliVideoPlayerLogic>();
     bilibiliVideoPlayerLogic.showOrHideDanMu(state.danMuOpenOrClose);
   }
+
+  void changeVideoState(bool videoIsFinished) {
+    state.videoIsFinished = videoIsFinished;
+    update();
+  }
 }

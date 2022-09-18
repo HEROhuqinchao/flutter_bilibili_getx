@@ -28,7 +28,6 @@ class VideoPlayScreen extends StatefulWidget {
 
 class _VideoPlayScreenState extends State<VideoPlayScreen>
     with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
-
   late TabController tabController;
 
   @override
@@ -65,80 +64,156 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
           child: DefaultTabController(
             length: 2,
             child: Scaffold(
-              body: NestedScrollView(
-                physics: const ClampingScrollPhysics(),
-                controller: state.nestedScrollViewController,
-                headerSliverBuilder:
-                    (BuildContext context, bool innerBoxIsScrolled) {
-                  return [
-                    SliverAppBar(
-                      pinned: true,
-                      floating: false,
-                      snap: false,
-                      actions: [
-                        Container(
-                          margin: EdgeInsets.only(right: 15.sp),
-                          width: 20.sp,
-                          height: 20.sp,
-                          child: Image.asset(
-                            ImageAssets.moreAndroidLightPNG,
-                          ),
-                        )
-                      ],
-                      title: Opacity(
-                        opacity: 1 - state.showOrHideIconAndTitleOpacity,
-                        child: Image.asset(
-                          ImageAssets.videoHomePNG,
-                          width: 20.sp,
-                          height: 20.sp,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      expandedHeight: state.expandedHeight,
-                      flexibleSpace: FlexibleSpaceBar(
-                        title: Opacity(
-                          opacity: state.showOrHideIconAndTitleOpacity,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                ImageAssets.playVideoCustomPNG,
-                                width: 15.sp,
-                                height: 15.sp,
-                              ),
-                              10.horizontalSpace,
-                              Text(
-                                "立即播放",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15.sp,
-                                  color: HYAppTheme.norWhite01Color,
+              body: !state.videoIsFinished
+                  ? NestedScrollView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      headerSliverBuilder:
+                          (BuildContext context, bool innerBoxIsScrolled) {
+                        return [
+                          SliverAppBar(
+                            elevation: 0.1,
+                            pinned: true,
+                            floating: false,
+                            snap: false,
+                            actions: [
+                              Container(
+                                margin: EdgeInsets.only(right: 15.sp),
+                                width: 20.sp,
+                                height: 20.sp,
+                                child: Image.asset(
+                                  ImageAssets.moreAndroidLightPNG,
                                 ),
                               )
                             ],
+                            title: Opacity(
+                              opacity: 1 - state.showOrHideIconAndTitleOpacity,
+                              child: Image.asset(
+                                ImageAssets.videoHomePNG,
+                                width: 20.sp,
+                                height: 20.sp,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            collapsedHeight: 200.w,
+                            expandedHeight: 200.w,
+                            flexibleSpace: FlexibleSpaceBar(
+                              title: Opacity(
+                                opacity: state.showOrHideIconAndTitleOpacity,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      ImageAssets.playVideoCustomPNG,
+                                      width: 15.sp,
+                                      height: 15.sp,
+                                    ),
+                                    10.horizontalSpace,
+                                    Text(
+                                      "立即播放",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 15.sp,
+                                        color: HYAppTheme.norWhite01Color,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              centerTitle: true,
+                              collapseMode: CollapseMode.none,
+                              background: buildVideoPlayVideoPlayer(),
+                            ),
                           ),
-                        ),
-                        centerTitle: true,
-                        collapseMode: CollapseMode.none,
-                        background: buildVideoPlayVideoPlayer(),
-                      ),
+                          SliverAppBar(
+                            elevation: 0.1,
+                            leading: null,
+                            automaticallyImplyLeading: false,
+                            toolbarHeight: 40.w,
+                            // backgroundColor: Colors.red,
+                            backgroundColor: HYAppTheme.norWhite01Color,
+                            title: buildVideoPlayTabBar(),
+                            pinned: true,
+                            floating: false,
+                            snap: false,
+                          ),
+                        ];
+                      },
+                      body: buildVideoPlayTabBarView(),
+                    )
+                  : NestedScrollView(
+                      controller: state.nestedScrollViewController,
+                      headerSliverBuilder:
+                          (BuildContext context, bool innerBoxIsScrolled) {
+                        return [
+                          SliverAppBar(
+                            pinned: true,
+                            floating: false,
+                            snap: false,
+                            actions: [
+                              Container(
+                                margin: EdgeInsets.only(right: 15.sp),
+                                width: 20.sp,
+                                height: 20.sp,
+                                child: Image.asset(
+                                  ImageAssets.moreAndroidLightPNG,
+                                ),
+                              )
+                            ],
+                            title: Opacity(
+                              opacity: 1 - state.showOrHideIconAndTitleOpacity,
+                              child: Image.asset(
+                                ImageAssets.videoHomePNG,
+                                width: 20.sp,
+                                height: 20.sp,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            expandedHeight: state.expandedHeight,
+                            flexibleSpace: FlexibleSpaceBar(
+                              title: Opacity(
+                                opacity: state.showOrHideIconAndTitleOpacity,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      ImageAssets.playVideoCustomPNG,
+                                      width: 15.sp,
+                                      height: 15.sp,
+                                    ),
+                                    10.horizontalSpace,
+                                    Text(
+                                      "立即播放",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 15.sp,
+                                        color: HYAppTheme.norWhite01Color,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              centerTitle: true,
+                              collapseMode: CollapseMode.none,
+                              background: buildVideoPlayVideoRecommend(),
+                            ),
+                          ),
+                          SliverAppBar(
+                            leading: null,
+                            automaticallyImplyLeading: false,
+                            toolbarHeight: 40.w,
+                            // backgroundColor: Colors.red,
+                            backgroundColor: HYAppTheme.norWhite01Color,
+                            title: buildVideoPlayTabBar(),
+                            pinned: true,
+                            floating: false,
+                            snap: false,
+                          ),
+                        ];
+                      },
+                      body: buildVideoPlayTabBarView(),
                     ),
-                    SliverAppBar(
-                      leading: null,
-                      automaticallyImplyLeading: false,
-                      toolbarHeight: 40.w,
-                      // backgroundColor: Colors.red,
-                      backgroundColor: HYAppTheme.norWhite01Color,
-                      title: buildVideoPlayTabBar(),
-                      pinned: true,
-                      floating: false,
-                      snap: false,
-                    ),
-                  ];
-                },
-                body: buildVideoPlayTabBarView(),
-              ),
             ),
           ),
         );
@@ -149,6 +224,19 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
   ///视频和弹幕
   Widget buildVideoPlayVideoPlayer() {
     return const BilibiliVideoPlayerComponent();
+  }
+
+  ///播放结束后推荐其他视频
+  Widget buildVideoPlayVideoRecommend() {
+    return Container(
+      child: Center(
+        child: Image.asset(
+          ImageAssets.playVideoCustomPNG,
+          width: 20.sp,
+          height: 20.sp,
+        ),
+      ),
+    );
   }
 
   ///TabBar
@@ -260,8 +348,6 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
     );
   }
 
-
-
   Widget buildVideoPlayComments() {
     return state.allReplies.isEmpty
         ? const Center(
@@ -356,7 +442,8 @@ class buildVideoProfile extends StatefulWidget {
   State<buildVideoProfile> createState() => _buildVideoProfileState();
 }
 
-class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKeepAliveClientMixin{
+class _buildVideoProfileState extends State<buildVideoProfile>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -392,6 +479,7 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
       ),
     );
   }
+
   Widget buildVideoPlayVideoInfoOwnerInfo(String ownerIcon, String ownerName) {
     return Row(
       children: [
@@ -457,8 +545,8 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
         )
       ],
     );
-
   }
+
   ///视频标题
   Widget buildVideoPlayVideoInfoVideoTitle() {
     String endDateText = getPubData(state.videoProfile.pubdate!).toString();
@@ -472,36 +560,36 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
               Expanded(
                 child: state.isExpanded == false
                     ? Text(
-                  state.videoProfile.title!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: HYAppTheme.norTextColors,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.normal,
-                  ),
-                )
+                        state.videoProfile.title!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: HYAppTheme.norTextColors,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      )
                     : Text(
-                  state.videoProfile.title!,
-                  style: TextStyle(
-                    color: HYAppTheme.norTextColors,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
+                        state.videoProfile.title!,
+                        style: TextStyle(
+                          color: HYAppTheme.norTextColors,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
               ),
               10.horizontalSpace,
               state.isExpanded == true
                   ? Image.asset(
-                ImageAssets.icArrowUpPNG,
-                width: 15.sp,
-                height: 15.sp,
-              )
+                      ImageAssets.icArrowUpPNG,
+                      width: 15.sp,
+                      height: 15.sp,
+                    )
                   : Image.asset(
-                ImageAssets.icArrowDownPNG,
-                width: 15.sp,
-                height: 15.sp,
-              ),
+                      ImageAssets.icArrowDownPNG,
+                      width: 15.sp,
+                      height: 15.sp,
+                    ),
             ],
           ),
           onTap: () {
@@ -740,7 +828,8 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
                               SizedBox(
                                 height: 14.sp,
                                 child: Text(
-                                  changeToWan(state.videoProfile.relates![index].stat["view"]!),
+                                  changeToWan(state.videoProfile.relates![index]
+                                      .stat["view"]!),
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     color: HYAppTheme.norGrayColor,
@@ -858,4 +947,3 @@ class _buildVideoProfileState extends State<buildVideoProfile> with AutomaticKee
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }
-

@@ -48,6 +48,9 @@ class VideoPlayState {
   ///弹幕显示或者隐藏
   late bool danMuOpenOrClose;
 
+  ///视频正在播放
+  late bool videoIsFinished;
+
   ///初始化
   VideoPlayState() {
     isLoadingVideoPlayer = true;
@@ -62,5 +65,6 @@ class VideoPlayState {
     keyReply = GlobalKey<PrimaryScrollContainerState>();
     scrollChildKeys = [keyProfile, keyReply];
     danMuOpenOrClose = true;
+    videoIsFinished = false;
   }
 }

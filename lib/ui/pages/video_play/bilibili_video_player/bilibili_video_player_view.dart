@@ -342,8 +342,8 @@ class _BilibiliVideoPlayerComponentState
         state.videoPlayerController.value.isPlaying
             ? ImageAssets.biliPlayerPlayCanPausePNG
             : ImageAssets.bilibiliPlayerPlayCanPlayPNG,
-        width: 30.sp,
-        height: 30.sp,
+        width: 27.sp,
+        height: 27.sp,
       ),
     );
   }
@@ -388,9 +388,9 @@ class _BilibiliVideoPlayerComponentState
                   ),
                   child: Container(
                     alignment: Alignment.topCenter,
-                    height: 70.h,
+                    height: 60.h,
                     width: 1.sw,
-                    padding: EdgeInsets.only(left: 15.r, right: 10.r, bottom: 20.r),
+                    padding: EdgeInsets.only(left: 15.r, right: 10.r),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -570,8 +570,8 @@ class _BilibiliVideoPlayerComponentState
             },
             child: Image.asset(
               ImageAssets.exitFullScreenPNG,
-              width: 23.sp,
-              height: 23.sp,
+              width: 22.sp,
+              height: 22.sp,
             ),
           )
         : GestureDetector(
@@ -580,8 +580,8 @@ class _BilibiliVideoPlayerComponentState
             },
             child: Image.asset(
               ImageAssets.fullCustomPNG,
-              width: 23.sp,
-              height: 23.sp,
+              width: 22.sp,
+              height: 22.sp,
             ),
           );
   }
