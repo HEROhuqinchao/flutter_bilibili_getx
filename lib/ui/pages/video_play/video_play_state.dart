@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/model/android/video_play/video_profile_model.dart';
 import '../../../core/model/video_reply_model.dart';
@@ -53,6 +54,7 @@ class VideoPlayState {
 
   ///初始化
   VideoPlayState() {
+    expandedHeight = 200.w;
     isLoadingVideoPlayer = true;
     isLoadingVideoProfile = true;
     isLoadingVideoReply = true;

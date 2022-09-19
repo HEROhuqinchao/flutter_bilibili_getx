@@ -94,8 +94,8 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            collapsedHeight: 200.w,
-                            expandedHeight: 200.w,
+                            collapsedHeight: 180.w,
+                            expandedHeight: state.expandedHeight,
                             flexibleSpace: FlexibleSpaceBar(
                               title: Opacity(
                                 opacity: state.showOrHideIconAndTitleOpacity,
@@ -228,13 +228,11 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
 
   ///播放结束后推荐其他视频
   Widget buildVideoPlayVideoRecommend() {
-    return Container(
-      child: Center(
-        child: Image.asset(
-          ImageAssets.playVideoCustomPNG,
-          width: 20.sp,
-          height: 20.sp,
-        ),
+    return Center(
+      child: Image.asset(
+        ImageAssets.playVideoCustomPNG,
+        width: 20.sp,
+        height: 20.sp,
       ),
     );
   }
