@@ -118,4 +118,5 @@ class ImageAssets {
   static String volumePNG = "assets/image/icon/volume.png";
   static String volume0PNG = "assets/image/icon/volume0.png";
   static String brightnessPNG = "assets/image/icon/brightness.png";
+  static String replayPNG = "assets/image/icon/replay.png";
 }

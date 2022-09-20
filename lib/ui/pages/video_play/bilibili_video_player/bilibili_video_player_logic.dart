@@ -175,8 +175,8 @@ class BilibiliVideoPlayerLogic extends GetxController {
       for (var element in filterValue) {
         ///普通弹幕
         if (element.mode == 1 || element.mode == 2 || element.mode == 3) {
-          print(element.content);
-          print(element.progress);
+          // print(element.content);
+          // print(element.progress);
 
           ///寻找最短的那条轨道
           int routeMinLengthNumber = getListMin(state.routeMaxLength);

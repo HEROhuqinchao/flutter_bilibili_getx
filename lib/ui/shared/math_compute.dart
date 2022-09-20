@@ -8,7 +8,7 @@ String formatNum(double num, int position) {
 ///数字转为万为单位
 String changeToWan(int num) {
   return num.toDouble() > 10000
-      ? formatNum(num.toDouble() / 10000, 1) + "万"
+      ? "${formatNum(num.toDouble() / 10000, 1)}万"
       : formatNum(num.toDouble(), 0);
 }
 
@@ -33,10 +33,10 @@ String changeToDurationText(double duration) {
     } else {
       var minutes = duration ~/ 60;
       var seconds = (duration - minutes * 60).toInt();
-      return minutes.toString() + ":" + seconds.toString().padLeft(2, '0');
+      return "$minutes:${seconds.toString().padLeft(2, '0')}";
     }
   } else {
-    return "0:" + duration.toInt().toString().padLeft(2, '0');
+    return "0:${duration.toInt().toString().padLeft(2, '0')}";
   }
 }
 

@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
+import '../../../core/model/android/video_play/video_profile_model.dart';
 import '../../../core/model/video_reply_model.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/math_compute.dart';
@@ -228,13 +229,191 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
 
   ///播放结束后推荐其他视频
   Widget buildVideoPlayVideoRecommend() {
+    ///第一个推荐可能为非视频内容
+    Relate relate = state.videoProfile.relates![0];
+    if (relate.goto == "av") {
+      relate = state.videoProfile.relates![0];
+    } else {
+      relate = state.videoProfile.relates![1];
+    }
     return Container(
-      child: Center(
-        child: Image.asset(
-          ImageAssets.playVideoCustomPNG,
-          width: 20.sp,
-          height: 20.sp,
-        ),
+      padding: EdgeInsets.only(top: 55.r, left: 8.r, right: 8.r),
+      color: HYAppTheme.norTextColors.withOpacity(.9),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "推荐视频",
+            style: TextStyle(
+              color: HYAppTheme.norWhite01Color,
+              fontSize: 14.sp,
+            ),
+          ),
+          10.verticalSpace,
+          Row(
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(5.r),
+                    child: DefaultFadeImage(
+                      imageUrl: relate.pic!,
+                      width: 140.w,
+                      height: 75.w,
+                    ),
+                  ),
+                  Image.asset(
+                    ImageAssets.playVideoCustomPNG,
+                    width: 35.w,
+                    height: 35.w,
+                  ),
+                  Positioned(
+                    right: 10.r,
+                    bottom: 6.r,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: HYAppTheme.norTextColors.withOpacity(.4),
+                          borderRadius: BorderRadius.circular(3.r)),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 5.r, vertical: 2.r),
+                      child: Text(
+                        changeToDurationText(relate.duration!.toDouble()),
+                        style: TextStyle(
+                          fontSize: 13.sp,
+                          color: HYAppTheme.norWhite01Color,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              10.horizontalSpace,
+              Expanded(
+                child: Column(
+                  children: [
+                    Text(
+                      relate.title!,
+                      style: TextStyle(
+                        color: HYAppTheme.norWhite01Color,
+                        fontSize: 15.sp,
+                      ),
+                    ),
+                    10.verticalSpace,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: 16.sp,
+                                  height: 16.sp,
+                                  child: Image.asset(ImageAssets.upGrayPNG),
+                                ),
+                                5.horizontalSpace,
+                                Container(
+                                  child: Text(
+                                    relate.owner.name!,
+                                    style: TextStyle(
+                                      color: HYAppTheme.norWhite01Color,
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            10.verticalSpace,
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 16.sp,
+                                  height: 16.sp,
+                                  child: Image.asset(
+                                      ImageAssets.iconListPlayerPNG),
+                                ),
+                                5.horizontalSpace,
+                                Container(
+                                  height: 16.sp,
+                                  child: Text(
+                                    changeToWan(relate.stat["view"]!),
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        color: HYAppTheme.norWhite01Color),
+                                  ),
+                                ),
+                                10.horizontalSpace,
+                                Container(
+                                  width: 16.sp,
+                                  height: 16.sp,
+                                  child:
+                                      Image.asset(ImageAssets.icDanmuWhitePNG),
+                                ),
+                                5.horizontalSpace,
+                                Container(
+                                  height: 16.sp,
+                                  child: Text(
+                                    changeToWan(relate.stat["danmaku"]!),
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        color: HYAppTheme.norWhite01Color),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: HYAppTheme.norMainThemeColors.withOpacity(.8),
+                            borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 4.r, vertical: 3.r),
+                          child: Text(
+                            "立即播放",
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                color: HYAppTheme.norWhite01Color),
+                          ),
+                        ),
+                        3.horizontalSpace,
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 15.sp,
+                height: 15.sp,
+                child: Image.asset(ImageAssets.replayPNG),
+              ),
+              Container(
+                child: Text("重播"),
+              ),
+              Container(
+                width: 15.sp,
+                height: 15.sp,
+                child: Image.asset(ImageAssets.sharePNG),
+              ),
+              Container(
+                child: Text("分享"),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
