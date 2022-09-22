@@ -1,20 +1,17 @@
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
 import '../../../core/model/android/video_play/video_profile_model.dart';
-import '../../../core/model/video_reply_model.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/math_compute.dart';
 import '../../widgets/expanded_widget.dart';
 import '../../widgets/primary_scroll_container.dart';
 import '../../widgets/video_reply_item.dart';
 import 'bilibili_video_player/bilibili_video_player_view.dart';
-import 'dan_mu/dan_mu_proto.dart';
 import 'video_play_logic.dart';
 
 final logic = Get.find<VideoPlayLogic>();
