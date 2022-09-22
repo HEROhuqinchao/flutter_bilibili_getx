@@ -761,20 +761,20 @@ class Tags {
     required this.actionTags,
   });
 
-  List<dynamic> promotionTagNames;
+  List<dynamic>? promotionTagNames;
   List<String>? marketingTagNames;
   List<String>? saleTypeTagNames;
   String? typeAndLimitTagName;
-  List<dynamic> itemTagNames;
+  List<dynamic>? itemTagNames;
   List<String>? recommendTagNames;
   dynamic feedBoardTag;
   dynamic blindBoxHideTypeNames;
   dynamic blindBoxHasWishNames;
   List<String>? titleTagNames;
-  List<String> tagsSort;
+  List<String>? tagsSort;
   dynamic adTagNames;
   dynamic godlikeTag;
-  List<String> attributeTagNames;
+  List<String>? attributeTagNames;
   List<String>? exclusiveSalePoints;
   dynamic otherSalePoints;
   dynamic blindBoxEuroNames;
@@ -784,29 +784,29 @@ class Tags {
   dynamic actionTags;
 
   factory Tags.fromJson(Map<String, dynamic> json) => Tags(
-        promotionTagNames:
+        promotionTagNames:json["promotionTagNames"] ==null ? null :
             List<dynamic>.from(json["promotionTagNames"].map((x) => x)),
         marketingTagNames:
-            List<String>.from(json["marketingTagNames"].map((x) => x)),
+        json["marketingTagNames"] == null ? null :List<String>.from(json["marketingTagNames"].map((x) => x)),
         saleTypeTagNames: json["saleTypeTagNames"] == null
             ? null
             : List<String>.from(json["saleTypeTagNames"].map((x) => x)),
         typeAndLimitTagName: json["typeAndLimitTagName"] == null
             ? null
             : json["typeAndLimitTagName"],
-        itemTagNames: List<dynamic>.from(json["itemTagNames"].map((x) => x)),
+        itemTagNames: json["itemTagNames"] == null ? null : List<dynamic>.from(json["itemTagNames"].map((x) => x)),
         recommendTagNames:
-            List<String>.from(json["recommendTagNames"].map((x) => x)),
+        json["recommendTagNames"] == null ? null : List<String>.from(json["recommendTagNames"].map((x) => x)),
         feedBoardTag: json["feedBoardTag"],
         blindBoxHideTypeNames: json["blindBoxHideTypeNames"],
         blindBoxHasWishNames: json["blindBoxHasWishNames"],
         titleTagNames: json["titleTagNames"] == null
             ? null
             : List<String>.from(json["titleTagNames"].map((x) => x)),
-        tagsSort: List<String>.from(json["tagsSort"].map((x) => x)),
+        tagsSort: json["tagsSort"] == null ? null : List<String>.from(json["tagsSort"].map((x) => x)),
         adTagNames: json["adTagNames"],
         godlikeTag: json["godlikeTag"],
-        attributeTagNames:
+        attributeTagNames:json["attributeTagNames"] == null ? null :
             List<String>.from(json["attributeTagNames"].map((x) => x)),
         exclusiveSalePoints: json["exclusiveSalePoints"] == null
             ? null
@@ -822,15 +822,15 @@ class Tags {
       );
 
   Map<String, dynamic> toJson() => {
-        "promotionTagNames":
-            List<dynamic>.from(promotionTagNames.map((x) => x)),
+        // "promotionTagNames":
+        //     List<dynamic>.from(promotionTagNames.map((x) => x)),
         "marketingTagNames":
             List<dynamic>.from(marketingTagNames!.map((x) => x)),
         "saleTypeTagNames": saleTypeTagNames == null
             ? null
             : List<dynamic>.from(saleTypeTagNames!.map((x) => x)),
         "typeAndLimitTagName": typeAndLimitTagName,
-        "itemTagNames": List<dynamic>.from(itemTagNames.map((x) => x)),
+        "itemTagNames": List<dynamic>.from(itemTagNames!.map((x) => x)),
         "recommendTagNames":
             List<dynamic>.from(recommendTagNames!.map((x) => x)),
         "feedBoardTag": feedBoardTag,
@@ -839,11 +839,11 @@ class Tags {
         "titleTagNames": titleTagNames == null
             ? null
             : List<dynamic>.from(titleTagNames!.map((x) => x)),
-        "tagsSort": List<String>.from(tagsSort.map((x) => x)),
+        "tagsSort": List<String>.from(tagsSort!.map((x) => x)),
         "adTagNames": adTagNames,
         "godlikeTag": godlikeTag,
         "attributeTagNames":
-            List<dynamic>.from(attributeTagNames.map((x) => x)),
+            List<dynamic>.from(attributeTagNames!.map((x) => x)),
         "exclusiveSalePoints": exclusiveSalePoints == null
             ? null
             : List<dynamic>.from(exclusiveSalePoints!.map((x) => x)),

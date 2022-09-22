@@ -47,7 +47,7 @@ class VideoPlayLogic extends GetxController {
     state.isLoadingVideoPlayer = true;
     state.isLoadingVideoProfile = true;
     state.isLoadingVideoReply = true;
-    state.expandedHeight = 210.w;
+    state.expandedHeight = 190.w;
     state.showOrHideIconAndTitleOpacity = 0;
     state.isExpanded = false;
     state.allReplies = [];
@@ -99,6 +99,7 @@ class VideoPlayLogic extends GetxController {
     bilibiliVideoPlayerLogic.showOrHideDanMu(state.danMuOpenOrClose);
   }
 
+  ///是否结束放映
   void changeVideoState(bool videoIsFinished) {
     state.videoIsFinished = videoIsFinished;
     update();

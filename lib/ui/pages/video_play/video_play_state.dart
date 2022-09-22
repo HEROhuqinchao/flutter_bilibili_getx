@@ -54,7 +54,7 @@ class VideoPlayState {
 
   ///初始化
   VideoPlayState() {
-    expandedHeight = 200.w;
+    expandedHeight = 190.w;
     isLoadingVideoPlayer = true;
     isLoadingVideoProfile = true;
     isLoadingVideoReply = true;

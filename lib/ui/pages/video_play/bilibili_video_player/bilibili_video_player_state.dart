@@ -47,6 +47,8 @@ class BilibiliVideoPlayerState {
   ///当前亮度数值
   late double brightness;
 
+  late bool danMuIsScroll;
+
   late List<DanMuRouteModel> danMuRouteList;
   late List<List<Widget>> danMuChildren;
   late List<int> velocity;

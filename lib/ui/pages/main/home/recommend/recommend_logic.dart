@@ -234,6 +234,7 @@ class RecommendLogic extends GetxController {
             bilibiliVideoPlayerLogic.fetchDanMu(video.playerArgs!.cid!.toString(), 0);
 
             videoPlayLogic.initVideoPlayData();
+            videoPlayLogic.changeVideoState(false);
             videoPlayLogic.fetchVideoView(video.playerArgs!.aid!.toString());
             videoPlayLogic.fetchVideoReply(video.playerArgs!.aid!.toString());
 
