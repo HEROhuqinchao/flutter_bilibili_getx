@@ -246,7 +246,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
           Text(
             "推荐视频",
             style: TextStyle(
-              color: HYAppTheme.norWhite01Color,
+              color: HYAppTheme.norGrayColor,
               fontSize: 14.sp,
             ),
           ),
@@ -260,8 +260,8 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                     borderRadius: BorderRadius.circular(5.r),
                     child: DefaultFadeImage(
                       imageUrl: relate.pic!,
-                      width: 140.w,
-                      height: 75.w,
+                      width: 130.w,
+                      height: 73.w,
                     ),
                   ),
                   Image.asset(
@@ -292,6 +292,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
               10.horizontalSpace,
               Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       relate.title!,
@@ -309,7 +310,6 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                           children: [
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 Container(
                                   width: 16.sp,
@@ -321,8 +321,8 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                                   child: Text(
                                     relate.owner.name!,
                                     style: TextStyle(
-                                      color: HYAppTheme.norWhite01Color,
-                                      fontSize: 14.sp,
+                                      color: HYAppTheme.norGrayColor,
+                                      fontSize: 12.sp,
                                     ),
                                   ),
                                 )
@@ -345,8 +345,8 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                                   child: Text(
                                     changeToWan(relate.stat["view"]!),
                                     style: TextStyle(
-                                        fontSize: 16.sp,
-                                        color: HYAppTheme.norWhite01Color),
+                                        fontSize: 12.sp,
+                                        color: HYAppTheme.norGrayColor),
                                   ),
                                 ),
                                 10.horizontalSpace,
@@ -362,8 +362,8 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                                   child: Text(
                                     changeToWan(relate.stat["danmaku"]!),
                                     style: TextStyle(
-                                        fontSize: 16.sp,
-                                        color: HYAppTheme.norWhite01Color),
+                                        fontSize: 12.sp,
+                                        color: HYAppTheme.norGrayColor),
                                   ),
                                 )
                               ],
@@ -372,11 +372,14 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: HYAppTheme.norMainThemeColors.withOpacity(.8),
-                            borderRadius: BorderRadius.all(Radius.circular(5.r)),
+                            color:
+                                HYAppTheme.norGrayColor.withOpacity(.8),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(3.r)),
                           ),
+                          margin: EdgeInsets.only(right: 6.r),
                           padding: EdgeInsets.symmetric(
-                              horizontal: 4.r, vertical: 3.r),
+                              horizontal: 6.r, vertical: 4.r),
                           child: Text(
                             "立即播放",
                             style: TextStyle(
@@ -384,7 +387,6 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                                 color: HYAppTheme.norWhite01Color),
                           ),
                         ),
-                        3.horizontalSpace,
                       ],
                     ),
                   ],
@@ -392,24 +394,41 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
               )
             ],
           ),
+          15.verticalSpace,
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                width: 15.sp,
-                height: 15.sp,
+                width: 20.sp,
+                height: 20.sp,
                 child: Image.asset(ImageAssets.replayPNG),
               ),
+              5.horizontalSpace,
               Container(
-                child: Text("重播"),
+                child: Text(
+                  "重播",
+                  style: TextStyle(
+                    color: HYAppTheme.norWhite01Color,
+                    fontSize: 16.sp,
+                  ),
+                ),
               ),
+              10.horizontalSpace,
               Container(
-                width: 15.sp,
-                height: 15.sp,
+                width: 20.sp,
+                height: 20.sp,
                 child: Image.asset(ImageAssets.sharePNG),
               ),
+              5.horizontalSpace,
               Container(
-                child: Text("分享"),
+                child: Text(
+                  "分享",
+                  style: TextStyle(
+                    color: HYAppTheme.norWhite01Color,
+                    fontSize: 16.sp,
+                  ),
+                ),
               ),
             ],
           )
