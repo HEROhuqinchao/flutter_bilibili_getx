@@ -104,4 +104,14 @@ const strResEn = {
   ///视频播放
   SR.profile:"profile",
   SR.reply:"reply",
+
+  ///发布界面
+  SR.createLiveRoom : "createLiveRoom",
+  SR.photograph : "photograph",
+  SR.upload : "upload",
+  SR.shareDynamic : "shareDynamic",
+  SR.templateAuthoring : "templateAuthoring",
+  SR.video : "video",
+  SR.photo : "photo",
+  SR.file : "file",
 };

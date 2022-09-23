@@ -1,6 +1,14 @@
+import 'dart:io';
+
+import 'package:bilibili_getx/ui/pages/publish/ready2_publish/ready2_publish_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/upload/upload_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../core/I18n/str_res_keys.dart';
+import '../../shared/app_theme.dart';
 import 'publish_logic.dart';
 
 class PublishScreen extends StatelessWidget {
@@ -11,6 +19,79 @@ class PublishScreen extends StatelessWidget {
     final logic = Get.find<PublishLogic>();
     final state = Get.find<PublishLogic>().state;
 
-    return Container();
+    return SafeArea(
+      child: DefaultTabController(
+        initialIndex: 2,
+        length: 5,
+        child: Scaffold(
+          backgroundColor: HYAppTheme.norTextColors,
+          bottomNavigationBar: TabBar(
+            labelColor: Colors.white,
+            tabs: [
+              Tab(text: SR.createLiveRoom.tr),
+              Tab(text: SR.photograph.tr),
+              Tab(text: SR.upload.tr),
+              Tab(text: SR.shareDynamic.tr),
+              Tab(text: SR.templateAuthoring.tr),
+            ],
+            indicatorColor: HYAppTheme.norMainThemeColors,
+            indicatorWeight: 4.h,
+            indicatorSize: TabBarIndicatorSize.label,
+            padding: const EdgeInsets.all(10).r,
+            labelPadding: const EdgeInsets.symmetric(vertical: 5).r,
+          ),
+          body: state.isLoadingData ? buildLoadingView() : buildPublishView(),
+
+          ///压扁的floatingActionButton
+          floatingActionButton: FloatingActionButton.extended(
+            backgroundColor: HYAppTheme.norMainThemeColors,
+            onPressed: () {
+              Get.toNamed(Ready2PublishView.routeName);
+            },
+            label: Text(
+              "去发布",
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: HYAppTheme.norWhite01Color,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildPublishView() {
+    if (kIsWeb) {
+      ///web端
+      return Container();
+    } else {
+      if (Platform.isAndroid) {
+        return TabBarView(
+          children: [
+            Container(),
+            Container(),
+            UploadScreen(),
+            Container(),
+            Container(),
+          ],
+        );
+      } else {
+        return Container();
+      }
+    }
+  }
+
+  Widget buildLoadingView() {
+    return Center(
+      child: (SizedBox(
+        width: 30.w,
+        height: 30.w,
+        child: const CircularProgressIndicator(
+          color: HYAppTheme.norMainThemeColors,
+        ),
+      )),
+    );
   }
 }

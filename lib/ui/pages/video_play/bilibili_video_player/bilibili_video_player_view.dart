@@ -377,6 +377,39 @@ class _BilibiliVideoPlayerComponentState
                   ),
                 ),
               ),
+              // Positioned(
+              //   top: 0,
+              //   left: 0,
+              //   right: 0,
+              //   child: AnimatedOpacity(
+              //     opacity: state.showBottomBar ? 1 : 0,
+              //     duration: const Duration(
+              //       milliseconds: 300,
+              //     ),
+              //     child: Container(
+              //       alignment: Alignment.topCenter,
+              //       height: 60.h,
+              //       width: 1.sw,
+              //       padding: EdgeInsets.only(left: 15.r, right: 10.r),
+              //       decoration: BoxDecoration(
+              //         gradient: LinearGradient(
+              //           colors: [
+              //             Colors.black.withOpacity(.7),
+              //             Colors.transparent,
+              //           ],
+              //           begin: Alignment.bottomCenter,
+              //           end: Alignment.topCenter,
+              //         ),
+              //       ),
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //         children: [
+              //
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Positioned(
                 bottom: 0,
                 left: 0,

@@ -34,7 +34,7 @@ void main() async{
   await SharedPreferenceUtil.getInstance();
   await initialization();
   runApp(
-    ///视频播放界面有使用到Provider，在此处注册它
+    ///视频播放界面有使用到Provider，在此处注册它 01
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx) => PlayerNotifier.init()),
@@ -101,7 +101,6 @@ class MyApp extends StatelessWidget {
 
           ///起始路由
           initialRoute: MainScreen.routeName,
-          // home: BilibiliVideoPlayerComponent(),
 
           ///路由和绑定
           getPages: AsRouter.getPages,

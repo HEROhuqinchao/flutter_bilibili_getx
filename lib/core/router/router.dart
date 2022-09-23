@@ -8,6 +8,7 @@ import 'package:bilibili_getx/ui/pages/mall/mall_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/upload/upload_binding.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -22,6 +23,7 @@ import '../../ui/pages/main/home/search/search_view.dart';
 import '../../ui/pages/main/main_binding.dart';
 import '../../ui/pages/main/main_view.dart';
 import '../../ui/pages/mine/scan_login/scan_login_view.dart';
+import '../../ui/pages/publish/upload/upload_view.dart';
 import '../../ui/pages/video_play/video_play_binding.dart';
 
 class AsRouter {
@@ -31,9 +33,7 @@ class AsRouter {
     GetPage(
       name: MainScreen.routeName,
       page: () => MainScreen(),
-      bindings: [
-        MainBinding(),
-      ],
+      binding: MainBinding(),
     ),
 
     ///发布界面
@@ -97,15 +97,17 @@ class AsRouter {
         name: VideoPlayScreen.routeName,
         page: () => VideoPlayScreen(),
         binding: VideoPlayBinding()),
-    ///视频播放界面
+
+    ///会员狗界面
     GetPage(
         name: MallScreen.routeName,
         page: () => MallScreen(),
         binding: MallBinding()),
-    ///视频播放界面
+
+    ///发布界面
     GetPage(
-        name: ChatScreen.routeName,
-        page: () => MallScreen(),
-        binding: MallBinding()),
+        name: UploadScreen.routeName,
+        page: () => UploadScreen(),
+        binding: UploadBinding()),
   ];
 }

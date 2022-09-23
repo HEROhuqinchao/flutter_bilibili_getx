@@ -99,4 +99,14 @@ class SR {
   static const profile = "profile";
   static const reply = "reply";
 
+  ///发布界面
+  static const createLiveRoom = "createLiveRoom";
+  static const photograph = " photograph";
+  static const upload = "upload";
+  static const shareDynamic = "shareDynamic";
+  static const templateAuthoring = "templateAuthoring";
+  static const video = "video";
+  static const photo = "photo";
+  static const file = "file";
+
 }

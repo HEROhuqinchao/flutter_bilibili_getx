@@ -58,7 +58,8 @@ dependencies:
   flutter_native_splash: ^2.2.8 #闪屏界面
   flutter_speed_dial: ^6.0.0 #悬浮按钮
   brightness_volume: ^1.0.3 #视频亮度和音量
-
+#  flutter_bmflocation: ^3.2.1 #百度地图
+  video_thumbnail: ^0.5.3 #获取视频的封面
 
 dev_dependencies:
   flutter_test:

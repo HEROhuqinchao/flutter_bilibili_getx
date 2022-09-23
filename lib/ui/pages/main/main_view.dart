@@ -9,6 +9,7 @@ import '../../../core/shared_preferences/shared_preference_util.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/image_asset.dart';
 import '../publish/publish_view.dart';
+import '../publish/upload/upload_logic.dart';
 import 'main_logic.dart';
 
 class MainScreen extends StatelessWidget {
@@ -59,6 +60,7 @@ class MainScreen extends StatelessWidget {
               onTap: (index) {
                 ///发布界面
                 if (index == 2) {
+
                   Get.toNamed(PublishScreen.routeName);
                 } else {
                   logic.updateCurrentIndex(index);

@@ -101,4 +101,14 @@ const strResZh = {
   ///视频播放
   SR.profile:"简介",
   SR.reply:"评论",
+
+  ///发布界面
+  SR.createLiveRoom : "开直播",
+  SR.photograph : "拍摄",
+  SR.upload : "上传",
+  SR.shareDynamic : "发动态",
+  SR.templateAuthoring : "模板创作",
+  SR.video : "视频",
+  SR.photo : "照片",
+  SR.file : "文件夹",
 };
