@@ -590,7 +590,7 @@ class ReplyMember {
   dynamic fansDetail;
   int? following;
   int? isFollowed;
-  UserSailing userSailing;
+  UserSailing? userSailing;
   bool? isContractor;
   String? contractDesc;
   dynamic nftInteraction;
@@ -613,7 +613,7 @@ class ReplyMember {
         fansDetail: json["fans_detail"],
         following: json["following"],
         isFollowed: json["is_followed"],
-        userSailing: UserSailing.fromJson(json["user_sailing"]),
+        userSailing: json["user_sailing"] == null ? null : UserSailing.fromJson(json["user_sailing"]),
         isContractor: json["is_contractor"],
         contractDesc: json["contract_desc"],
         nftInteraction: json["nft_interaction"],
@@ -637,7 +637,7 @@ class ReplyMember {
         "fans_detail": fansDetail,
         "following": following,
         "is_followed": isFollowed,
-        "user_sailing": userSailing.toJson(),
+        "user_sailing": userSailing!.toJson(),
         "is_contractor": isContractor,
         "contract_desc": contractDesc,
         "nft_interaction": nftInteraction,

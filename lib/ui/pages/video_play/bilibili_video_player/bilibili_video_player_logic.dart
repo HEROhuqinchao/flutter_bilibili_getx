@@ -403,13 +403,13 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///拖动结束
   void videoPlayProgressOnHorizontalDragEnd() {
-    // state.videoProgress = false;
-    // if (state.controllerWasPlaying) {
-    //   state.videoPlayerController.play();
-    // }
-    // state.dragging = false;
-    // startHideTimer();
-    //
+    state.videoProgress = false;
+    if (state.controllerWasPlaying) {
+      state.videoPlayerController.play();
+    }
+    state.dragging = false;
+    startHideTimer();
+
     // ///清空弹幕轨道的数据，并重新获取该时刻之后的弹幕数据
     // state.videoPlayerController.pause();
     // clearDanMuCache();
