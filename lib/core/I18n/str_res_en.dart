@@ -114,4 +114,6 @@ const strResEn = {
   SR.video : "video",
   SR.photo : "photo",
   SR.file : "file",
+  SR.editVideo : "editVideo",
+  SR.script : "script",
 };

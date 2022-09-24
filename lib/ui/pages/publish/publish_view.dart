@@ -9,15 +9,12 @@ import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
 import '../../shared/app_theme.dart';
-import 'publish_logic.dart';
 
-class PublishScreen extends StatelessWidget {
+class PublishView extends StatelessWidget {
   static const String routeName = "/publish";
 
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<PublishLogic>();
-    final state = Get.find<PublishLogic>().state;
 
     return SafeArea(
       child: DefaultTabController(
@@ -26,7 +23,7 @@ class PublishScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: HYAppTheme.norTextColors,
           bottomNavigationBar: TabBar(
-            labelColor: Colors.white,
+            labelColor: HYAppTheme.norWhite01Color,
             tabs: [
               Tab(text: SR.createLiveRoom.tr),
               Tab(text: SR.photograph.tr),
@@ -39,8 +36,12 @@ class PublishScreen extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.label,
             padding: const EdgeInsets.all(10).r,
             labelPadding: const EdgeInsets.symmetric(vertical: 5).r,
+            labelStyle: TextStyle(
+                color: HYAppTheme.norWhite01Color,
+                fontWeight: FontWeight.normal,
+                fontSize: 16.sp,fontFamily: 'bilibiliFonts',),
           ),
-          body: state.isLoadingData ? buildLoadingView() : buildPublishView(),
+          body: buildPublishView(),
 
           ///压扁的floatingActionButton
           floatingActionButton: FloatingActionButton.extended(
@@ -53,7 +54,7 @@ class PublishScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14.sp,
                 color: HYAppTheme.norWhite01Color,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
               ),
             ),
           ),
@@ -72,7 +73,7 @@ class PublishScreen extends StatelessWidget {
           children: [
             Container(),
             Container(),
-            UploadScreen(),
+            UploadView(),
             Container(),
             Container(),
           ],

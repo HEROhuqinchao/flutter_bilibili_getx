@@ -1,3 +1,5 @@
+import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
+import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -10,6 +12,7 @@ import '../../shared/app_theme.dart';
 import '../../shared/image_asset.dart';
 import '../publish/publish_view.dart';
 import '../publish/upload/upload_logic.dart';
+import '../video_play/bilibili_video_player/bilibili_video_player_logic.dart';
 import 'main_logic.dart';
 
 class MainScreen extends StatelessWidget {
@@ -60,8 +63,8 @@ class MainScreen extends StatelessWidget {
               onTap: (index) {
                 ///发布界面
                 if (index == 2) {
-
-                  Get.toNamed(PublishScreen.routeName);
+                  BilibiliPermission.requestUploadPermissions();
+                  Get.toNamed(PublishView.routeName);
                 } else {
                   logic.updateCurrentIndex(index);
                 }

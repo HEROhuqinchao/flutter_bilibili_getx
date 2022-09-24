@@ -105,35 +105,43 @@ class BilibiliVideoPlayerLogic extends GetxController {
       }
 
       ///播放结束
-      if (state.videoPlayerController.value.position ==
-          state.videoPlayerController.value.duration) {
-        videoPlayLogic.changeVideoState(true);
+      if(state.haveFinishView) {
+        if (state.videoPlayerController.value.position ==
+            state.videoPlayerController.value.duration) {
+          videoPlayLogic.changeVideoState(true);
+        }
       }
 
+
       ///弹幕与视频播放联动
-      bool lastState = state.controllerWasPlaying;
-      state.controllerWasPlaying = state.videoPlayerController.value.isPlaying;
-      if (lastState != state.controllerWasPlaying) {
-        if (state.controllerWasPlaying) {
-          controlDanMuScroll();
-        } else {
-          for (var item in state.danMuRouteList) {
-            if (item.scrollController.hasClients) {
-              item.scrollController.jumpTo(state.nowPosition);
+      if(state.haveDanMuFunction) {
+        bool lastState = state.controllerWasPlaying;
+        state.controllerWasPlaying = state.videoPlayerController.value.isPlaying;
+        if (lastState != state.controllerWasPlaying) {
+          if (state.controllerWasPlaying) {
+            controlDanMuScroll();
+          } else {
+            for (var item in state.danMuRouteList) {
+              if (item.scrollController.hasClients) {
+                item.scrollController.jumpTo(state.nowPosition);
+              }
             }
           }
+        } else if(!state.danMuIsScroll && state.controllerWasPlaying){
+          controlDanMuScroll();
         }
-      } else if(!state.danMuIsScroll && state.controllerWasPlaying){
-        controlDanMuScroll();
       }
     });
 
     ///监听目前滑动的位置
-    for (var item in state.danMuRouteList) {
-      item.scrollController.addListener(() {
-        state.nowPosition = item.scrollController.position.pixels;
-      });
+    if(state.haveDanMuFunction) {
+      for (var item in state.danMuRouteList) {
+        item.scrollController.addListener(() {
+          state.nowPosition = item.scrollController.position.pixels;
+        });
+      }
     }
+    ///加载完成
     state.isLoadingVideo = false;
   }
 
@@ -409,16 +417,6 @@ class BilibiliVideoPlayerLogic extends GetxController {
     }
     state.dragging = false;
     startHideTimer();
-
-    // ///清空弹幕轨道的数据，并重新获取该时刻之后的弹幕数据
-    // state.videoPlayerController.pause();
-    // clearDanMuCache();
-    // updateDanMuData(state.videoPlayerController.value.position.inMilliseconds);
-    // Timer.periodic(const Duration(seconds: 1), (timer) {
-    //   state.videoPlayerController.play();
-    //   timer.cancel();
-    //
-    // });
   }
 
   ///点击进度条跳转至某一时刻
@@ -429,12 +427,13 @@ class BilibiliVideoPlayerLogic extends GetxController {
     seekToRelativePosition(context, globalPosition);
 
     ///清空弹幕轨道的数据，并重新获取该时刻之后的弹幕数据
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      clearDanMuCache();
-      updateDanMuData(state.videoPlayerController.value.position.inMilliseconds);
-      timer.cancel();
-    });
-
+    if(state.haveDanMuFunction) {
+      Timer.periodic(const Duration(seconds: 1), (timer) {
+        clearDanMuCache();
+        updateDanMuData(state.videoPlayerController.value.position.inMilliseconds);
+        timer.cancel();
+      });
+    }
   }
 
   ///隐藏进度条
@@ -546,7 +545,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
   }
 
   void showOrHideDanMu(danMuState) {
-    state.danMuOpenOrClose = danMuState;
+    state.showDanMu = danMuState;
     update();
   }
 }

@@ -1,32 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+import '../../../../core/channel/bilibili_channel.dart';
 import '../../../../core/model/local_image_model.dart';
 import '../../../../core/model/local_video_model.dart';
 
 class UploadState {
-  ///本地视频数据
-  late List<HYLocalVideoModel> localVideoList;
-
-  ///本地图片
-  late List<HYLocalImageModel> localImageList;
-
   ///上传的数据类型
-  late int upLoadFileType;
-
-  ///封面图片缓存
-  late String imageCache;
-
-  ///当前播放的是哪个视频
-  late int currentVideoIndex;
+  late int fileType;
 
   ///标签控制器
   late TabController tabController;
+
+  ///文件地址
+  late String fileSrc;
+
   UploadState() {
-    localVideoList = [];
-    localImageList = [];
-    upLoadFileType = 0;
-    imageCache = "";
-    currentVideoIndex = 0;
+    fileType = 0;
+    fileSrc = "";
   }
 }

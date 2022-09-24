@@ -6,8 +6,6 @@ import 'publish_logic.dart';
 class PublishBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(()=>UploadLogic());
     Get.lazyPut(() => PublishLogic());
-
   }
 }

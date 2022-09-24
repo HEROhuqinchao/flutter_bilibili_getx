@@ -108,5 +108,6 @@ class SR {
   static const video = "video";
   static const photo = "photo";
   static const file = "file";
-
+  static const editVideo = "editVideo";
+  static const script = "script";
 }

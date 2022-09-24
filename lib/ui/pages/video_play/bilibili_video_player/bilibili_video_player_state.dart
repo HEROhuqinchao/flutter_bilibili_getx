@@ -47,26 +47,31 @@ class BilibiliVideoPlayerState {
   ///当前亮度数值
   late double brightness;
 
+  ///弹幕
   late bool danMuIsScroll;
-
   late List<DanMuRouteModel> danMuRouteList;
   late List<List<Widget>> danMuChildren;
   late List<int> velocity;
-
-  ///弹幕速度
   late List<double> routeMaxLength;
   late double nowPosition;
   late int danMuPackageNum;
   late List<Widget> danMuWidgets;
   late List<Duration> speedList;
   late int danMuRouteAmount;
+  late bool showDanMu;
 
-  late bool danMuOpenOrClose;
-  late double lastDetalDx;
+  ///控制组件是否存在
+  ///是否有全屏功能;是否有弹幕功能;是否有播放结束的界面
+  late bool haveFullScreenFunction;
+  late bool haveDanMuFunction;
+  late bool haveFinishView;
 
   BilibiliVideoPlayerState() {
+    isLoadingVideo = true;
     danMuRouteAmount = 6;
-    danMuOpenOrClose = true;
-    lastDetalDx = 0;
+    showDanMu = true;
+    haveFullScreenFunction = true;
+    haveDanMuFunction = true;
+    haveFinishView = true;
   }
 }

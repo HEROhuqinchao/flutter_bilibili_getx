@@ -66,178 +66,10 @@ class _BilibiliVideoPlayerComponentState
 
   ///垂直视频
   Widget buildVerticalVideo() {
-    return GestureDetector(
-      onTap: () {
-        logic.cancelAndRestartTimer();
-      },
-      onDoubleTap: () {
-        ///双击播放或暂停
-        logic.playOrPauseVideo();
-      },
-      child: AbsorbPointer(
-        ///点击响应的是进度条还是屏幕
-        absorbing: !state.showBottomBar,
-        child: Stack(
-          children: [
-            Container(
-              color: Colors.black,
-              height: 1.sh,
-              width: 1.sw,
-              child: AspectRatio(
-                aspectRatio: state.videoPlayerController.value.aspectRatio,
-                child: VideoPlayer(
-                  state.videoPlayerController,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: AnimatedOpacity(
-                opacity: state.showBottomBar ? 1 : 0,
-                duration: const Duration(
-                  milliseconds: 300,
-                ),
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  height: 60.h,
-                  width: 1.sw,
-                  padding: EdgeInsets.only(left: 10.r, right: 5.r),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.black.withOpacity(.7),
-                        Colors.transparent,
-                      ],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      buildVideoPlayOrPauseButton(),
-                      10.horizontalSpace,
-                      buildVideoPlayProgress(),
-                      10.horizontalSpace,
-                      buildPosition(),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            ///视频的进度显示框
-            state.videoProgress
-                ? Center(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 5.r, horizontal: 10.r),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: HYAppTheme.norTextColors, width: .5.sp),
-                        color: HYAppTheme.norTextColors.withOpacity(.8),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(5.r),
-                        ),
-                      ),
-                      child: Text(
-                        "${formatDuration(state.videoPlayerController.value.position)} / ${formatDuration(state.videoPlayerController.value.duration)}",
-                        style: TextStyle(
-                          color: HYAppTheme.norWhite01Color,
-                          fontSize: 14.sp,
-                        ),
-                      ),
-                    ),
-                  )
-                : const Center(),
-
-            ///视频的亮度值显示框
-            state.videoBrightness
-                ? Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: HYAppTheme.norTextColors.withOpacity(.4),
-                          borderRadius: BorderRadius.all(Radius.circular(5.r))),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(
-                            width: 22.sp,
-                            height: 22.sp,
-                            child: Image.asset(ImageAssets.brightnessPNG),
-                          ),
-                          8.horizontalSpace,
-                          SizedBox(
-                            width: 65.w,
-                            height: 3.w,
-                            child: LinearProgressIndicator(
-                              backgroundColor: HYAppTheme.norWhite01Color,
-                              value: state.brightness,
-                              color: HYAppTheme.norMainThemeColors,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                : const Center(),
-
-            ///视频的音量显示框
-            state.videoVolume
-                ? Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: HYAppTheme.norTextColors.withOpacity(.4),
-                          borderRadius: BorderRadius.all(Radius.circular(5.r))),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          state.volume > 0
-                              ? SizedBox(
-                                  width: 22.sp,
-                                  height: 22.sp,
-                                  child: Image.asset(ImageAssets.volumePNG),
-                                )
-                              : SizedBox(
-                                  width: 22.sp,
-                                  height: 22.sp,
-                                  child: Image.asset(ImageAssets.volume0PNG),
-                                ),
-                          8.horizontalSpace,
-                          SizedBox(
-                            width: 65.w,
-                            height: 3.w,
-                            child: LinearProgressIndicator(
-                              backgroundColor: HYAppTheme.norWhite01Color,
-                              value: state.volume,
-                              color: HYAppTheme.norMainThemeColors,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                : const Center(),
-
-            ///在缓冲
-            state.videoPlayerController.value.isBuffering &&
-                    !state.videoProgress &&
-                    !state.videoVolume
-                ? Center(
-                    child: Image.asset(
-                      ImageAssets.ploadingGif,
-                      width: 25.w,
-                      height: 25.w,
-                    ),
-                  )
-                : const Center(),
-          ],
-        ),
+    return Container(
+      child: Text(
+        "垂直视频功能待完善",
+        style: TextStyle(color: HYAppTheme.norWhite01Color, fontSize: 15.sp),
       ),
     );
   }
@@ -442,7 +274,9 @@ class _BilibiliVideoPlayerComponentState
                         5.horizontalSpace,
                         buildPosition(),
                         5.horizontalSpace,
-                        buildFullScreenButton(),
+                        state.haveFullScreenFunction
+                            ? buildFullScreenButton()
+                            : Container(),
                         5.horizontalSpace,
                       ],
                     ),
@@ -563,24 +397,26 @@ class _BilibiliVideoPlayerComponentState
                   : const Center(),
 
               ///弹幕
-              IgnorePointer(
-                child: Opacity(
-                  opacity: state.danMuOpenOrClose ? 1 : 0,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 10.r),
-                    height: 180.w,
-                    width: 1.sw,
-                    child: Stack(
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: state.danMuWidgets,
+              state.haveDanMuFunction
+                  ? IgnorePointer(
+                      child: Opacity(
+                        opacity: state.showDanMu ? 1 : 0,
+                        child: Container(
+                          margin: EdgeInsets.only(top: 10.r),
+                          height: 180.w,
+                          width: 1.sw,
+                          child: Stack(
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: state.danMuWidgets,
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
+                      ),
+                    )
+                  : Container()
             ],
           ),
         ),

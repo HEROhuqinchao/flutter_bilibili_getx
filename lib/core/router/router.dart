@@ -8,7 +8,6 @@ import 'package:bilibili_getx/ui/pages/mall/mall_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
-import 'package:bilibili_getx/ui/pages/publish/upload/upload_binding.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -35,12 +34,6 @@ class AsRouter {
       page: () => MainScreen(),
       binding: MainBinding(),
     ),
-
-    ///发布界面
-    GetPage(
-        name: PublishScreen.routeName,
-        page: () => PublishScreen(),
-        binding: PublishBinding()),
 
     ///会员购界面
     GetPage(
@@ -106,8 +99,8 @@ class AsRouter {
 
     ///发布界面
     GetPage(
-        name: UploadScreen.routeName,
-        page: () => UploadScreen(),
-        binding: UploadBinding()),
+        name: PublishView.routeName,
+        page: () => PublishView(),
+        binding: PublishBinding()),
   ];
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/ui/pages/main/home/live/live_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
@@ -100,6 +101,7 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
+          // initialRoute: PublishView.routeName,
           initialRoute: MainScreen.routeName,
 
           ///路由和绑定

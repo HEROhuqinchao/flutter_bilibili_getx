@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
+import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -9,17 +10,19 @@ import 'package:video_thumbnail/video_thumbnail.dart';
 import '../../../shared/app_theme.dart';
 import '../../../shared/image_asset.dart';
 import '../../../shared/math_compute.dart';
+import 'local_image/local_image_view.dart';
+import 'local_video/local_video_view.dart';
 import 'upload_logic.dart';
 
-class UploadScreen extends StatefulWidget {
-  static String routeName = "/upload";
 
+
+class UploadView extends StatefulWidget {
   @override
-  State<UploadScreen> createState() => _UploadScreenState();
+  State<UploadView> createState() => _UploadViewState();
 }
 
-class _UploadScreenState extends State<UploadScreen>
-    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+class _UploadViewState extends State<UploadView>
+    with SingleTickerProviderStateMixin {
   final logic = Get.find<UploadLogic>();
   final state = Get.find<UploadLogic>().state;
 
@@ -35,161 +38,90 @@ class _UploadScreenState extends State<UploadScreen>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-    return Column(
-      children: [
-        Stack(
-          children: [
-            Container(
-              padding:
-              const EdgeInsets.only(top: 60, left: 20, right: 20).r,
-              // width: MediaQuery.of(context).size.width - 20.w,
-              height: 350.h,
-              // child: state.upLoadFileType == 0
-              //     ? HYChewieWidget(state
-              //         .localVideoList[state.currentVideoIndex]
-              //         .videoLocation)
-              //     : Image.file(
-              //         File(state.imageCache),
-              //         fit: BoxFit.contain,
-              //       ),
-            ),
-            AppBar(
-              backgroundColor: Colors.transparent,
-              leading: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Icon(
-                  Icons.close,
-                  color: Colors.white,
-                ),
+    return GetBuilder<UploadLogic>(builder: (logic) {
+      return Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(top: 60, left: 20, right: 20).r,
+                height: 350.h,
+                width: 1.sw,
+                child: buildUploadFilePreview(),
               ),
-              actions: [
-                buildUpLoadAction("编辑视频"),
-                buildUpLoadAction("草稿箱"),
-              ],
-            ),
-          ],
-        ),
-        Expanded(
-          child: DefaultTabController(
-            length: 3,
-            child: Column(
-              children: [
-                TabBar(
-                  labelColor: Colors.white,
-                  indicatorColor: HYAppTheme.norTextColors,
-                  controller: state.tabController,
-                  tabs: const [
-                    Tab(text: SR.video),
-                    Tab(text: SR.photo),
-                    Tab(text: SR.file)
-                  ],
+              AppBar(
+                backgroundColor: Colors.transparent,
+                leading: GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: const Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  ),
                 ),
-                Expanded(
+                actions: buildUpLoadActions(),
+              ),
+            ],
+          ),
+          Expanded(
+            child: DefaultTabController(
+              length: 3,
+              child: Column(
+                children: [
+                  TabBar(
+                    labelColor: HYAppTheme.norWhite01Color,
+                    indicatorColor: HYAppTheme.norTextColors,
+                    controller: state.tabController,
+                    indicatorWeight: 1.h,
+                    labelPadding: const EdgeInsets.symmetric(vertical: 2).r,
+                    labelStyle: TextStyle(
+                      color: HYAppTheme.norWhite01Color,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 13.sp,
+                      fontFamily: 'bilibiliFonts',
+                    ),
+                    tabs: [
+                      Tab(text: SR.video.tr),
+                      Tab(text: SR.photo.tr),
+                      Tab(text: SR.file.tr)
+                    ],
+                  ),
+                  Expanded(
                     child: TabBarView(
                       controller: state.tabController,
                       children: [
-                        state.localVideoList.isNotEmpty ? buildUploadVideo() : Container(),
-                        state.localImageList.isNotEmpty ? buildUploadImage() : Container(),
+                        LocalVideoComponent(),
+                        LocalImageComponent(),
                         buildUploadFiles()
                       ],
-                    ))
-              ],
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  ///加载手机内视频内容
-  Widget buildUploadVideo() {
-    return GridView.builder(
-      itemCount: state.localVideoList.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisSpacing: 5.w,
-        mainAxisSpacing: 5.h,
-        crossAxisCount: 3,
-      ),
-      itemBuilder: (ctx, index) {
-        return FutureBuilder(
-          future: getVideoCover(state.localVideoList[index].videoLocation),
-          builder: (ctx, AsyncSnapshot<Uint8List?> snapshot) {
-            return GestureDetector(
-              onTap: () {
-                // ///点击视频播放视频
-                // state.currentVideoIndex = index;
-                // update();
-              },
-              child: snapshot.data != null
-                  ? Stack(
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    child: Image.memory(
-                      snapshot.data!,
-                      fit: BoxFit.cover,
                     ),
-                  ),
-                  Positioned(
-                    right: 5.w,
-                    top: 5.h,
-                    child: Image.asset(
-                      ImageAssets.roundAddPNG,
-                      width: 20.w,
-                      height: 20.h,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 8.h,
-                    right: 8.w,
-                    child: Text(
-                      ///此处要转换单位除以1000变为秒
-                      changeToDurationText(double.parse(
-                          state.localVideoList[index].duration) /
-                          1000.0),
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: HYAppTheme.norWhite01Color,
-                          fontSize: 14.sp),
-                    ),
-                  ),
+                  )
                 ],
-              )
-                  : Container(
-                color: HYAppTheme.norTextColors,
               ),
-            );
-          },
-        );
-      },
-    );
+            ),
+          )
+        ],
+      );
+    });
   }
 
-  ///加载手机内图片内容
-  Widget buildUploadImage() {
-    return GridView.builder(
-      itemCount: state.localImageList.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisSpacing: 5.w,
-        mainAxisSpacing: 5.h,
-        crossAxisCount: 3,
-      ),
-      itemBuilder: (ctx, index) {
-        return GestureDetector(
-          onTap: () {
-            // state.imageCache = state.localImageList[index].imageLocation;
-            // update();
-          },
-          child: Image.file(
-            File(state.localImageList[index].imageLocation),
-            fit: BoxFit.cover,
-          ),
-        );
-      },
-    );
+  Widget buildUploadFilePreview() {
+    if(state.fileType == 0) {
+      ///视频文件
+      return const BilibiliVideoPlayerComponent();
+    } else if(state.fileType == 1){
+      ///图片文件
+      return Image.file(
+        File(state.fileSrc),
+        fit: BoxFit.contain,
+      );
+    } else {
+      ///文件类型
+      return Center(
+        child: Text("文件类型"),
+      );
+    }
   }
 
   ///加载手机内文件夹内容
@@ -202,153 +134,37 @@ class _UploadScreenState extends State<UploadScreen>
     );
   }
 
-  ///获取视频封面
-  Future<Uint8List?> getVideoCover(path) async {
-    Uint8List? uint8list = await VideoThumbnail.thumbnailData(
-      video: path,
-      imageFormat: ImageFormat.PNG,
-      // maxWidth: 128,
-
-      ///图片质量
-      quality: 10,
-    );
-    return uint8list;
-  }
 
   ///编辑视频、草稿箱
-  Widget buildUpLoadAction(String text) {
-    return Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.only(right: 20).r,
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(30.r))),
-      child: Text(
-        text,
-        style: const TextStyle(color: Colors.white),
+  List<Widget> buildUpLoadActions() {
+    return [
+      Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.only(right: 20).r,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(30.r))),
+        child: Text(
+          SR.editVideo.tr,
+          style: TextStyle(
+            color: HYAppTheme.norWhite01Color,
+            fontSize: 14.sp,
+          ),
+        ),
       ),
-    );
+      Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.only(right: 20).r,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(30.r))),
+        child: Text(
+          SR.script.tr,
+          style: TextStyle(
+            color: HYAppTheme.norWhite01Color,
+            fontSize: 14.sp,
+          ),
+        ),
+      )
+    ];
   }
 
-  @override
-  bool get wantKeepAlive => true;
 }
-
-// class HYChewieWidget extends StatefulWidget {
-//   ///视频URL
-//   String url;
-//
-//   HYChewieWidget(this.url, {Key? key}) : super(key: key);
-//
-//   @override
-//   State<HYChewieWidget> createState() => _HYChewieWidgetState();
-// }
-//
-// class _HYChewieWidgetState extends State<HYChewieWidget> {
-//   ///视频播放
-//   late VideoPlayerController _videoPlayerController;
-//   late ChewieController _chewieController;
-//
-//   ///是否加载视频完成
-//   bool isLoadingAccomplished = false;
-//
-//   @override
-//   void initState() {
-//     ///初始化Controller
-//     _videoPlayerController = VideoPlayerController.file(
-//       File(widget.url),
-//     );
-//
-//     ///这里的.initialize().then作用是为了能获取视频的原始比例，而不会把视频的高度压缩
-//     _videoPlayerController.initialize().then((value) {
-//       _chewieController = ChewieController(
-//         allowMuting: false,
-//         videoPlayerController: _videoPlayerController,
-//         autoPlay: false,
-//         customControls: const HYBilibiliControls(
-//           showVideoActions: false,
-//           video: null,
-//         ),
-//       );
-//       isLoadingAccomplished = true;
-//       if (mounted) {
-//         setState(() {});
-//       }
-//     });
-//
-//     super.initState();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     double width = MediaQuery.of(context).size.width;
-//     return isLoadingAccomplished == true
-//         ? Container(
-//       padding: EdgeInsets.zero,
-//       color: HYAppTheme.norTextColors,
-//       alignment: Alignment.topCenter,
-//       height: width /
-//           _chewieController.videoPlayerController.value.aspectRatio,
-//       child: Stack(
-//         children: [
-//           Chewie(
-//             controller: _chewieController,
-//           ),
-//         ],
-//       ),
-//     )
-//         : Container(
-//       height: width / 1.77777777777777777,
-//       color: HYAppTheme.norTextColors,
-//       child: Center(
-//         child: SizedBox(
-//           width: 40.w,
-//           height: 40.h,
-//           child: const CircularProgressIndicator(
-//             color: HYAppTheme.norMainThemeColors,
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-//
-//   @override
-//   void dispose() {
-//     _chewieController.dispose();
-//     _videoPlayerController.dispose();
-//     super.dispose();
-//   }
-//
-//   ///当url发生改变时，注销再创建，
-//   ///如果不先注销，必然会内存溢出，多点几个视频，APP就会GG，直接内存爆了
-//   @override
-//   void didUpdateWidget(covariant HYChewieWidget oldWidget) {
-//     if (oldWidget.url != widget.url) {
-//       if (widget.url == "") return;
-//
-//       ///关键几步如下
-//       if (_chewieController != null) _chewieController.dispose();
-//       if (_videoPlayerController != null) _videoPlayerController.dispose();
-//
-//       ///初始化视频数据
-//       _videoPlayerController = VideoPlayerController.file(
-//         File(widget.url),
-//       );
-//       _videoPlayerController.initialize().then((value) {
-//         _chewieController = ChewieController(
-//           allowMuting: false,
-//           videoPlayerController: _videoPlayerController,
-//           autoPlay: true,
-//           customControls: const HYBilibiliControls(
-//             showVideoActions: false,
-//             video: null,
-//           ),
-//         );
-//         isLoadingAccomplished = true;
-//         if (mounted) {
-//           setState(() {});
-//         }
-//       });
-//     }
-//     super.didUpdateWidget(oldWidget);
-//   }
-// }

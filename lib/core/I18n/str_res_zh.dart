@@ -111,4 +111,6 @@ const strResZh = {
   SR.video : "视频",
   SR.photo : "照片",
   SR.file : "文件夹",
+  SR.editVideo : "编辑视频",
+  SR.script : "草稿",
 };

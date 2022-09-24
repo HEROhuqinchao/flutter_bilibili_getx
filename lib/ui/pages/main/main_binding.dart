@@ -6,6 +6,7 @@ import '../dynamic_circle/dynamic_circle_logic.dart';
 import '../mall/mall_logic.dart';
 import '../mine/mine_logic.dart';
 import '../publish/publish_logic.dart';
+import '../publish/upload/upload_logic.dart';
 import 'home/home_logic.dart';
 import 'home/live/live_logic.dart';
 import 'home/login/login_logic.dart';
@@ -27,5 +28,7 @@ class MainBinding extends Bindings {
     Get.lazyPut(() => RecommendLogic());
     Get.lazyPut(() => LiveLogic());
     Get.lazyPut(() => SearchLogic());
+    Get.lazyPut(() => UploadLogic());
+    Get.lazyPut(() => VideoPlayLogic());
   }
 }
