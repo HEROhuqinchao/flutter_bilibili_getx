@@ -47,15 +47,18 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                         Get.lazyPut(() => BilibiliVideoPlayerLogic());
                         BilibiliVideoPlayerState bilibiliVideoPlayerState =
                             Get.find<BilibiliVideoPlayerLogic>().state;
+
                         bilibiliVideoPlayerState.haveFinishView = false;
                         bilibiliVideoPlayerState.haveFullScreenFunction = false;
                         bilibiliVideoPlayerState.haveDanMuFunction = false;
+                        bilibiliVideoPlayerState.videoOriginalUrl =
+                            state.localVideoList[index].videoLocation;
+
                         BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic =
                             Get.find<BilibiliVideoPlayerLogic>();
                         bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
                         bilibiliVideoPlayerLogic
-                            .initVideoControllerAndDanMuController(
-                                state.localVideoList[index].videoLocation);
+                            .initVideoControllerAndDanMuController();
 
                         ///设置显示类型
                         final logic = Get.find<UploadLogic>();
@@ -90,7 +93,7 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                                             .localVideoList[index].duration) /
                                         1000.0),
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.normal,
                                         color: HYAppTheme.norWhite01Color,
                                         fontSize: 14.sp),
                                   ),
@@ -121,7 +124,7 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
       // maxWidth: 128,
 
       ///图片质量
-      quality: 10,
+      quality: 5,
     );
     return uint8list;
   }

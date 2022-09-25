@@ -5,6 +5,12 @@ import 'dart:ui' as ui;
 import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
 
 class BilibiliVideoPlayerState {
+  ///视频的cid
+  late String cid;
+
+  ///视频的videoOriginalUrl
+  late String videoOriginalUrl;
+
   ///视频的oid
   late String oid;
 

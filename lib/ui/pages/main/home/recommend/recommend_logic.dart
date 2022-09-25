@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_state.dart';
+import 'package:bilibili_getx/ui/pages/video_play/video_play_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -201,6 +203,7 @@ class RecommendLogic extends GetxController {
     );
   }
 
+  ///视频块
   Widget buildRecommendItem(FeedIndexItem video) {
     return GestureDetector(
       onTap: () {
@@ -226,17 +229,28 @@ class RecommendLogic extends GetxController {
             Get.lazyPut(()=>VideoPlayLogic());
             Get.lazyPut(()=>BilibiliVideoPlayerLogic());
             VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
+            VideoPlayState videoPlayState = Get.find<VideoPlayLogic>().state;
             BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
+            BilibiliVideoPlayerState bilibiliVideoPlayerState = Get.find<BilibiliVideoPlayerLogic>().state;
+
+            bilibiliVideoPlayerState.haveDanMuFunction = true;
+            bilibiliVideoPlayerState.haveFullScreenFunction = true;
+            bilibiliVideoPlayerState.haveFinishView = true;
+            bilibiliVideoPlayerState.videoOriginalUrl = video.videoData;
+            bilibiliVideoPlayerState.cid = video.playerArgs!.cid!.toString();
+            bilibiliVideoPlayerState.oid = video.playerArgs!.cid!.toString();
 
             bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
             bilibiliVideoPlayerLogic.initVideoPlayerDanMuData();
-            bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController(video.videoData);
-            bilibiliVideoPlayerLogic.fetchDanMu(video.playerArgs!.cid!.toString(), 0);
+            bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
+            bilibiliVideoPlayerLogic.fetchDanMu(0);
+
+            videoPlayState.aid = video.playerArgs!.aid!.toString();
 
             videoPlayLogic.initVideoPlayData();
             videoPlayLogic.changeVideoState(false);
-            videoPlayLogic.fetchVideoView(video.playerArgs!.aid!.toString());
-            videoPlayLogic.fetchVideoReply(video.playerArgs!.aid!.toString());
+            videoPlayLogic.fetchVideoView();
+            videoPlayLogic.fetchVideoReply();
 
             ///跳转至播放界面
             Get.toNamed(VideoPlayScreen.routeName);

@@ -33,6 +33,12 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   @override
   void onClose() {
+    disposeAllController();
+    super.onClose();
+  }
+
+  ///销毁所有控件
+  void disposeAllController() {
     state.videoPlayerController.removeListener(() {
       update();
     });
@@ -41,7 +47,6 @@ class BilibiliVideoPlayerLogic extends GetxController {
       item.scrollController.removeListener(() {});
       item.scrollController.dispose();
     }
-    super.onClose();
   }
 
   ///初始化视频数据
@@ -93,8 +98,8 @@ class BilibiliVideoPlayerLogic extends GetxController {
   }
 
   ///初始化弹幕和视频的控制器
-  void initVideoControllerAndDanMuController(videoPath) {
-    state.videoPlayerController = VideoPlayerController.network(videoPath)
+  void initVideoControllerAndDanMuController() {
+    state.videoPlayerController = VideoPlayerController.network(state.videoOriginalUrl)
       ..initialize().then((value) {
         update();
       });
@@ -254,13 +259,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
   }
 
   ///视频的oid；开始时间beginProgress
-  void fetchDanMu(oid, beginProgress) {
-    state.oid = oid;
-
+  void fetchDanMu(beginProgress) {
     ///总共弹幕包数
     state.danMuPackageNum =
         state.videoPlayerController.value.duration.inMinutes ~/ 6 + 1;
-    HYDanMuRequest.getDanMuProtoData(oid, 1).then((value) {
+    HYDanMuRequest.getDanMuProtoData(state.oid, 1).then((value) {
       // value = value.sublist(0,10);
       ///发送时间做排序排序
       value.sort((left, right) => left.progress.compareTo(right.progress));

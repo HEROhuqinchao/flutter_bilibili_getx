@@ -203,7 +203,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
 
   ///视频和弹幕
   Widget buildVideoPlayVideoPlayer() {
-    return const BilibiliVideoPlayerComponent();
+    return BilibiliVideoPlayerComponent();
   }
 
   ///播放结束后推荐其他视频

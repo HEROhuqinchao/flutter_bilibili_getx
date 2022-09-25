@@ -13,7 +13,6 @@ import '../../../widgets/progress_bar_painter.dart';
 import 'bilibili_video_player_logic.dart';
 
 class BilibiliVideoPlayerComponent extends StatefulWidget {
-  const BilibiliVideoPlayerComponent({Key? key}) : super(key: key);
 
   @override
   State<BilibiliVideoPlayerComponent> createState() =>

@@ -54,9 +54,9 @@ class VideoPlayLogic extends GetxController {
   }
 
   ///获取视频数据
-  void fetchVideoView(aid) {
+  void fetchVideoView() {
     Map<String, dynamic> params = {
-      'aid': aid,
+      'aid': state.aid,
       'appkey': Constant.appKey,
       'build': '5480400',
       'ts': '1662682722783',
@@ -74,8 +74,8 @@ class VideoPlayLogic extends GetxController {
   }
 
   ///获取视频回复的评论
-  void fetchVideoReply(aid) {
-    HYVideoRequest.getVideoReply(aid, 1, 1).then((value) {
+  void fetchVideoReply() {
+    HYVideoRequest.getVideoReply(state.aid, 1, 1).then((value) {
       state.videoReply = value;
       state.allReplies.addAll(value.replies);
       state.isLoadingVideoReply = false;

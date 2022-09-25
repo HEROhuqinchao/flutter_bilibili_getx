@@ -1,15 +1,10 @@
 import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
 import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:video_thumbnail/video_thumbnail.dart';
 import '../../../shared/app_theme.dart';
-import '../../../shared/image_asset.dart';
-import '../../../shared/math_compute.dart';
 import 'local_image/local_image_view.dart';
 import 'local_video/local_video_view.dart';
 import 'upload_logic.dart';
@@ -109,7 +104,7 @@ class _UploadViewState extends State<UploadView>
   Widget buildUploadFilePreview() {
     if(state.fileType == 0) {
       ///视频文件
-      return const BilibiliVideoPlayerComponent();
+      return Container();
     } else if(state.fileType == 1){
       ///图片文件
       return Image.file(

@@ -8,6 +8,8 @@ import '../../widgets/expanded_widget.dart';
 import '../../widgets/primary_scroll_container.dart';
 
 class VideoPlayState {
+  late String aid;
+
   ///评论数据
   late HYVideoReplyModel videoReply;
 
