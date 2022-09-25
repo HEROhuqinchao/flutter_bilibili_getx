@@ -100,7 +100,17 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                                 ),
                               ],
                             )
-                          : Container(),
+                          : Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "加载中",
+                                style: TextStyle(
+                                  color: HYAppTheme.norWhite01Color,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.normal
+                                ),
+                              ),
+                            ),
                     );
                   },
                 );
@@ -124,7 +134,7 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
       // maxWidth: 128,
 
       ///图片质量
-      quality: 5,
+      quality: 1,
     );
     return uint8list;
   }

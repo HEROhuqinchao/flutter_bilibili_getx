@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
@@ -15,18 +14,21 @@ class UploadView extends StatefulWidget {
   State<UploadView> createState() => _UploadViewState();
 }
 
-class _UploadViewState extends State<UploadView>
-    with SingleTickerProviderStateMixin {
+class _UploadViewState extends State<UploadView> with TickerProviderStateMixin {
   final logic = Get.find<UploadLogic>();
   final state = Get.find<UploadLogic>().state;
 
   @override
   void initState() {
-    // ///监听TabBar和TabBarView，两个都要加，一个是点击，一个是左右滑动监听
-    // state.tabController = TabController(vsync: this, length: 3);
-    // state.tabController.addListener(() {
-    //   logic.updateTabName();
-    // });
+    ///监听TabBar和TabBarView，两个都要加，一个是点击，一个是左右滑动监听
+    state.mainTabController = TabController(vsync: this, length: 2);
+    state.mainTabController.addListener(() {
+      // logic.updateTabName();
+    });
+    state.subTabController = TabController(vsync: this, length: 3);
+    state.subTabController.addListener(() {
+      // logic.updateTabName();
+    });
     super.initState();
   }
 
@@ -45,94 +47,46 @@ class _UploadViewState extends State<UploadView>
             title: buildUpLoadMainTabBar(),
             centerTitle: true,
           ),
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
-            pinned: true,
-            title: buildUpLoadSubTabBar(),
-            centerTitle: true,
-          ),
           SliverFillRemaining(
-            // child: TabBarView(
-            //   children: [
-            //     Container(
-            //       child: Text("全部"),
-            //     ),
-            //     Container(
-            //       child: Text("视频"),
-            //     ),
-            //     Container(
-            //       child: Text("照片"),
-            //     )
-            //   ],
-            // ),
-          )
+            child: TabBarView(
+              controller: state.mainTabController,
+              children: [buildRecentlyFiles(), buildScript()],
+            ),
+          ),
         ],
       );
-      // return Column(
-      //   children: [
-      //     Stack(
-      //       children: [
-      //         Container(
-      //           padding: const EdgeInsets.only(top: 60, left: 20, right: 20).r,
-      //           height: 350.h,
-      //           width: 1.sw,
-      //           child: buildUploadFilePreview(),
-      //         ),
-      //         AppBar(
-      //           backgroundColor: Colors.transparent,
-      //           leading: GestureDetector(
-      //             onTap: () {
-      //               Get.back();
-      //             },
-      //             child: const Icon(
-      //               Icons.close,
-      //               color: Colors.white,
-      //             ),
-      //           ),
-      //           actions: buildUpLoadActions(),
-      //         ),
-      //       ],
-      //     ),
-      //     Expanded(
-      //       child: DefaultTabController(
-      //         length: 3,
-      //         child: Column(
-      //           children: [
-      //             TabBar(
-      //               labelColor: HYAppTheme.norWhite01Color,
-      //               indicatorColor: HYAppTheme.norTextColors,
-      //               controller: state.tabController,
-      //               indicatorWeight: 1.h,
-      //               labelPadding: const EdgeInsets.symmetric(vertical: 2).r,
-      //               labelStyle: TextStyle(
-      //                 color: HYAppTheme.norWhite01Color,
-      //                 fontWeight: FontWeight.normal,
-      //                 fontSize: 13.sp,
-      //                 fontFamily: 'bilibiliFonts',
-      //               ),
-      //               tabs: [
-      //                 Tab(text: SR.video.tr),
-      //                 Tab(text: SR.photo.tr),
-      //                 Tab(text: SR.file.tr)
-      //               ],
-      //             ),
-      //             Expanded(
-      //               child: TabBarView(
-      //                 controller: state.tabController,
-      //                 children: [
-      //                   LocalVideoComponent(),
-      //                   LocalImageComponent(),
-      //                   buildUploadFiles()
-      //                 ],
-      //               ),
-      //             )
-      //           ],
-      //         ),
-      //       ),
-      //     )
-      //   ],
-      // );
     });
+  }
+
+  Widget buildScript() {
+    return Container(
+      child: Text("草稿"),
+    );
+  }
+
+  Widget buildRecentlyFiles() {
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          backgroundColor: Colors.transparent,
+          pinned: true,
+          title: buildUpLoadSubTabBar(),
+          centerTitle: true,
+        ),
+        SliverFillRemaining(
+          child: TabBarView(
+            controller: state.subTabController,
+            children: [
+              Container(
+                child: Text("全部"),
+              ),
+              LocalVideoComponent(),
+              LocalImageComponent()
+            ],
+          ),
+        )
+      ],
+    );
   }
 
   ///顶部主TabBar
@@ -140,6 +94,7 @@ class _UploadViewState extends State<UploadView>
     return DefaultTabController(
       length: 2,
       child: TabBar(
+        controller: state.mainTabController,
         labelColor: HYAppTheme.norWhite01Color,
         indicator: BilibiliRoundUnderlineTabIndicator(
             insets: EdgeInsets.symmetric(horizontal: 25.r),
@@ -186,6 +141,7 @@ class _UploadViewState extends State<UploadView>
     return DefaultTabController(
       length: 3,
       child: TabBar(
+        controller: state.subTabController,
         labelColor: HYAppTheme.norWhite01Color,
         indicator: BilibiliRoundUnderlineTabIndicator(
             borderSide: BorderSide(
