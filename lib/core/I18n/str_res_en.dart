@@ -116,4 +116,6 @@ const strResEn = {
   SR.file : "file",
   SR.editVideo : "editVideo",
   SR.script : "script",
+  SR.recentlyProject: "recently",
+  SR.all: "all"
 };

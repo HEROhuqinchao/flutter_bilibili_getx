@@ -101,8 +101,8 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          // initialRoute: PublishView.routeName,
-          initialRoute: MainScreen.routeName,
+          initialRoute: PublishView.routeName,
+          // initialRoute: MainScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

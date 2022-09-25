@@ -113,4 +113,6 @@ const strResZh = {
   SR.file : "文件夹",
   SR.editVideo : "编辑视频",
   SR.script : "草稿",
+  SR.recentlyProject: "最近项目",
+  SR.all: "全部",
 };

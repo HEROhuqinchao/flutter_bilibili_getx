@@ -30,15 +30,15 @@ class UploadLogic extends GetxController {
 
   ///左滑右划更新
   void updateTabName() {
-    state.fileType = state.tabController.index;
+    // state.fileType = state.tabController.index;
     update();
   }
 
   void fetLocalFileData() {}
 
   void showFileContent(int fileType, String fileSrc) {
-    state.fileType = fileType;
-    state.fileSrc = fileSrc;
+    // state.fileType = fileType;
+    // state.fileSrc = fileSrc;
     update();
   }
 }

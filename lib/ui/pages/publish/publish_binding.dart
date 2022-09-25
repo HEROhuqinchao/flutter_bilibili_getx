@@ -7,5 +7,6 @@ class PublishBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => PublishLogic());
+    Get.lazyPut(()=>UploadLogic());
   }
 }

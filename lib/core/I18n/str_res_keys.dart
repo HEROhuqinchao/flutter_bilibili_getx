@@ -110,4 +110,6 @@ class SR {
   static const file = "file";
   static const editVideo = "editVideo";
   static const script = "script";
+  static const recentlyProject = "recentlyProject";
+  static const all = "all";
 }
