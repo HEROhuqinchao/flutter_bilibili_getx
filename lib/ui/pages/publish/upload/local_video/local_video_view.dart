@@ -10,8 +10,7 @@ import '../../../../shared/app_theme.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/math_compute.dart';
 import '../../../video_play/bilibili_video_player/bilibili_video_player_logic.dart';
-import '../../bilibili_pre_edit_video/bilibili_pre_edit_video_view.dart';
-import '../upload_logic.dart';
+import '../pre_edit_video/pre_edit_video_view.dart';
 import 'local_video_logic.dart';
 
 class LocalVideoComponent extends StatefulWidget {
@@ -54,7 +53,7 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                         bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
                         bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
 
-                        Get.toNamed(BilibiliPreEditVideoView.routeName);
+                        Get.toNamed(PreEditVideoView.routeName);
                       },
                       child: snapshot.data != null
                           ? Stack(

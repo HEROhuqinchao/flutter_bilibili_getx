@@ -16,4 +16,21 @@ class PrePublishVideoLogic extends GetxController {
     // TODO: implement onClose
     super.onClose();
   }
+
+  void checkAgreePolicy(value) {
+    state.agreePolicy = value!;
+    update();
+  }
+
+  void checkTransshipment(value) {
+    state.transshipment = value!;
+    state.selfMade = !value;
+    update();
+  }
+
+  void checkSelfMade(value) {
+    state.selfMade = value!;
+    state.transshipment = !value;
+    update();
+  }
 }

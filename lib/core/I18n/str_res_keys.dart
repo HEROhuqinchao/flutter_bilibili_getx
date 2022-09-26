@@ -119,4 +119,11 @@ class SR {
   static const saveScript = "saveScript";
   static const publish = "publish";
   static const prePublishDesc = "prePublishDesc";
+  static const pleaseInputTitle = "pleaseInputTitle";
+  static const zoneAndLabel = "zoneAndLabel";
+  static const scriptType = "scriptType";
+  static const selfMade = "selfMade";
+  static const transshipment = "transshipment";
+  static const publishSetting = "publishSetting";
+  static const mustInput = "mustInput";
 }

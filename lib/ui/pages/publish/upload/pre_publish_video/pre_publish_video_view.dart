@@ -2,9 +2,10 @@ import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/widgets/row_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/I18n/str_res_keys.dart';
+import '../../../../../core/I18n/str_res_keys.dart';
 import 'pre_publish_video_logic.dart';
 
 class PrePublishVideoView extends StatelessWidget {
@@ -14,11 +15,13 @@ class PrePublishVideoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildPrePublishVideoAppBar(),
-      bottomSheet: buildPrePublishVideoBottomSheet(),
-      body: buildPrePublishVideoBody(),
-    );
+    return GetBuilder<PrePublishVideoLogic>(builder: (logic) {
+      return Scaffold(
+        appBar: buildPrePublishVideoAppBar(),
+        bottomSheet: buildPrePublishVideoBottomSheet(),
+        body: buildPrePublishVideoBody(),
+      );
+    });
   }
 
   ///主要内容
@@ -30,29 +33,38 @@ class PrePublishVideoView extends StatelessWidget {
         child: Column(
           children: [
             buildPreBuildVideoBodyHeader(),
-            Divider(),
-            BilibiliRowButton(
-              title: TextSpan(
-                text: "分区和标签",
-                style:
-                    TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
-              ),
-              tabEvent: () {},
-              fillTypeWidget: TextSpan(
-                text: "（必填）",
-                style:
-                    TextStyle(color: HYAppTheme.norGrayColor, fontSize: 12.sp),
+            const Divider(),
+            GestureDetector(
+              onTap: () {
+                // SmartDialog.show(builder: (ctx) {
+                //   return Container(
+                //     child: Text("data"),
+                //   );
+                // },alignment: Alignment.bottomCenter);
+              },
+              child: BilibiliRowButton(
+                title: TextSpan(
+                  text: SR.zoneAndLabel.tr,
+                  style:
+                      TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
+                ),
+                tabEvent: () {},
+                fillTypeWidget: TextSpan(
+                  text: "（${SR.mustInput.tr}）",
+                  style:
+                      TextStyle(color: HYAppTheme.norGrayColor, fontSize: 12.sp),
+                ),
               ),
             ),
             BilibiliRowButton(
               title: TextSpan(
-                text: "稿件类型",
+                text: SR.scriptType.tr,
                 style:
                     TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
               ),
               tabEvent: () {},
               fillTypeWidget: TextSpan(
-                text: "（必填）",
+                text: "（${SR.mustInput.tr}）",
                 style:
                     TextStyle(color: HYAppTheme.norGrayColor, fontSize: 12.sp),
               ),
@@ -62,15 +74,17 @@ class PrePublishVideoView extends StatelessWidget {
                   Container(
                     height: 20.sp,
                     child: Checkbox(
-                      value: false,
-                      onChanged: (value) {},
+                      value: state.selfMade,
+                      onChanged: (value) {
+                        logic.checkSelfMade(value);
+                      },
                       shape: const CircleBorder(),
                     ),
                   ),
                   Container(
                     height: 15.sp,
                     child: Text(
-                      "自制",
+                      SR.selfMade.tr,
                       style: TextStyle(
                           color: HYAppTheme.norGrayColor, fontSize: 12.sp),
                     ),
@@ -79,15 +93,17 @@ class PrePublishVideoView extends StatelessWidget {
                   Container(
                     height: 20.sp,
                     child: Checkbox(
-                      value: false,
-                      onChanged: (value) {},
+                      value: state.transshipment,
+                      onChanged: (value) {
+                        logic.checkTransshipment(value);
+                      },
                       shape: const CircleBorder(),
                     ),
                   ),
                   Container(
                     height: 15.sp,
                     child: Text(
-                      "转载",
+                      SR.transshipment.tr,
                       style: TextStyle(
                           color: HYAppTheme.norGrayColor, fontSize: 12.sp),
                     ),
@@ -95,10 +111,10 @@ class PrePublishVideoView extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(),
+            const Divider(),
             BilibiliRowButton(
               title: TextSpan(
-                text: "简介",
+                text: SR.profile.tr,
                 style:
                     TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
               ),
@@ -106,7 +122,7 @@ class PrePublishVideoView extends StatelessWidget {
             ),
             BilibiliRowButton(
               title: TextSpan(
-                text: "发布设置",
+                text: SR.publishSetting.tr,
                 style:
                     TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
               ),
@@ -115,7 +131,7 @@ class PrePublishVideoView extends StatelessWidget {
             Divider(),
             BilibiliRowButton(
               title: TextSpan(
-                text: "动态",
+                text: SR.dynamic.tr,
                 style:
                     TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
               ),
@@ -130,6 +146,7 @@ class PrePublishVideoView extends StatelessWidget {
   ///视频及标题
   Widget buildPreBuildVideoBodyHeader() {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           decoration: BoxDecoration(
@@ -148,42 +165,13 @@ class PrePublishVideoView extends StatelessWidget {
                 filled: true,
                 fillColor: HYAppTheme.norWhite01Color,
                 border: InputBorder.none,
-                hintText: "请输入标题（必填）",
+                hintText: SR.pleaseInputTitle.tr,
                 hintStyle: TextStyle(
                   color: HYAppTheme.norGrayColor,
                   fontSize: 12.sp,
                 )),
           ),
         ),
-      ],
-    );
-  }
-
-  Widget buildPrePublishVideoRowButton() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: "分区和标签",
-                style:
-                    TextStyle(color: HYAppTheme.norTextColors, fontSize: 12.sp),
-              ),
-              TextSpan(
-                text: "（必填）",
-                style:
-                    TextStyle(color: HYAppTheme.norGrayColor, fontSize: 10.sp),
-              )
-            ],
-          ),
-        ),
-        Icon(
-          Icons.chevron_right,
-          color: HYAppTheme.norGrayColor,
-          size: 12.sp,
-        )
       ],
     );
   }
@@ -201,8 +189,10 @@ class PrePublishVideoView extends StatelessWidget {
           Row(
             children: [
               Checkbox(
-                value: true,
-                onChanged: (value) {},
+                value: state.agreePolicy,
+                onChanged: (value) {
+                  logic.checkAgreePolicy(value);
+                },
                 shape: const CircleBorder(),
               ),
               Text(
@@ -282,9 +272,10 @@ class PrePublishVideoView extends StatelessWidget {
       title: Text(
         SR.publishVideo.tr,
         style: TextStyle(
-          fontSize: 14.sp,
-          color: HYAppTheme.norTextColors,
-        ),
+            fontSize: 14.sp,
+            color: HYAppTheme.norTextColors,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'bilibiliFonts'),
       ),
       centerTitle: true,
     );

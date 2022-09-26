@@ -121,5 +121,12 @@ const strResZh = {
   SR.blibiliCreativePolicy: "《哔哩哔哩创作公约》",
   SR.saveScript: "存草稿",
   SR.publish: "发布",
-  SR.prePublishDesc: "若存在非官方商业合作，需前往电脑网页端投稿并进行商业声明报备"
+  SR.prePublishDesc: "若存在非官方商业合作，需前往电脑网页端投稿并进行商业声明报备",
+  SR.pleaseInputTitle: "请输入标题",
+  SR.zoneAndLabel: "分区和标签",
+  SR.scriptType: "稿件类型",
+  SR.selfMade: "自制",
+  SR.transshipment: "转载",
+  SR.publishSetting:"发布设置",
+  SR.mustInput:"必填"
 };

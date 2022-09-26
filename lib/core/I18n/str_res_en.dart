@@ -124,5 +124,13 @@ const strResEn = {
   SR.blibiliCreativePolicy: "《blibili Creative Policy》",
   SR.saveScript: "save script",
   SR.publish: "publish",
-  SR.prePublishDesc: "If there is an unofficial business cooperation, you need to go to the computer website to submit an article and file a business statement"
+  SR.prePublishDesc: "If there is an unofficial business cooperation, you need to go to the computer website to submit an article and file a business statement",
+
+  SR.pleaseInputTitle: "please input title",
+  SR.zoneAndLabel: "zone & label",
+  SR.scriptType: "type",
+  SR.selfMade: "self made",
+  SR.transshipment: "transshipment",
+  SR.publishSetting:"setting",
+  SR.mustInput:"must"
 };

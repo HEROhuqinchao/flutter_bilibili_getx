@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
-import 'package:bilibili_getx/ui/pages/publish/pre_publish_video/pre_publish_video_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
