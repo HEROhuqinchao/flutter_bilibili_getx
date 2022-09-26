@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_state.dart';
-import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -11,6 +10,7 @@ import '../../../../shared/app_theme.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/math_compute.dart';
 import '../../../video_play/bilibili_video_player/bilibili_video_player_logic.dart';
+import '../../bilibili_pre_edit_video/bilibili_pre_edit_video_view.dart';
 import '../upload_logic.dart';
 import 'local_video_logic.dart';
 
@@ -43,27 +43,18 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                   builder: (ctx, AsyncSnapshot<Uint8List?> snapshot) {
                     return GestureDetector(
                       onTap: () {
-                        ///初始化视频控件
-                        Get.lazyPut(() => BilibiliVideoPlayerLogic());
-                        BilibiliVideoPlayerState bilibiliVideoPlayerState =
-                            Get.find<BilibiliVideoPlayerLogic>().state;
-
+                        Get.put(BilibiliVideoPlayerLogic());
+                        BilibiliVideoPlayerState bilibiliVideoPlayerState = Get.find<BilibiliVideoPlayerLogic>().state;
                         bilibiliVideoPlayerState.haveFinishView = false;
                         bilibiliVideoPlayerState.haveFullScreenFunction = false;
                         bilibiliVideoPlayerState.haveDanMuFunction = false;
-                        bilibiliVideoPlayerState.videoOriginalUrl =
-                            state.localVideoList[index].videoLocation;
+                        bilibiliVideoPlayerState.videoOriginalUrl = state.localVideoList[index].videoLocation;
 
-                        BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic =
-                            Get.find<BilibiliVideoPlayerLogic>();
+                        BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
                         bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
-                        bilibiliVideoPlayerLogic
-                            .initVideoControllerAndDanMuController();
+                        bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
 
-                        ///设置显示类型
-                        final logic = Get.find<UploadLogic>();
-                        logic.showFileContent(
-                            0, state.localVideoList[index].videoLocation);
+                        Get.toNamed(BilibiliPreEditVideoView.routeName);
                       },
                       child: snapshot.data != null
                           ? Stack(

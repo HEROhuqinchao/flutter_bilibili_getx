@@ -112,4 +112,5 @@ class SR {
   static const script = "script";
   static const recentlyProject = "recentlyProject";
   static const all = "all";
+  static const go2Publish = "go2Publish";
 }

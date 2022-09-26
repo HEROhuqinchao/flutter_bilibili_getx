@@ -117,5 +117,6 @@ const strResEn = {
   SR.editVideo : "editVideo",
   SR.script : "script",
   SR.recentlyProject: "recently",
-  SR.all: "all"
+  SR.all: "all",
+  SR.go2Publish: "next"
 };

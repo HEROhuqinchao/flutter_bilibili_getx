@@ -115,4 +115,5 @@ const strResZh = {
   SR.script : "草稿",
   SR.recentlyProject: "最近项目",
   SR.all: "全部",
+  SR.go2Publish: "去发布"
 };

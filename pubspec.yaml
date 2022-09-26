@@ -55,7 +55,7 @@ dependencies:
   path_provider: ^2.0.11 #获取手机的存储路径
 #  flutter_local_notifications: ^9.1.5 #本地通知
   provider: ^6.0.2 #状态管理provider
-  flutter_native_splash: ^2.2.8 #闪屏界面
+#  flutter_native_splash: ^2.2.8 #闪屏界面
   flutter_speed_dial: ^6.0.0 #悬浮按钮
   brightness_volume: ^1.0.3 #视频亮度和音量
 #  flutter_bmflocation: ^3.2.1 #百度地图

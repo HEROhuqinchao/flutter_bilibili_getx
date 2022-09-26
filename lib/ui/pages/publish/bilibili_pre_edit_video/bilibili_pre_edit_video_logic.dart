@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import 'ready2_publish_state.dart';
+import 'bilibili_pre_edit_video_state.dart';
 
-class Ready2PublishLogic extends GetxController {
-  final Ready2PublishState state = Ready2PublishState();
+class BilibiliPreEditVideoLogic extends GetxController {
+  final BilibiliPreEditVideoState state = BilibiliPreEditVideoState();
 
   @override
   void onReady() {

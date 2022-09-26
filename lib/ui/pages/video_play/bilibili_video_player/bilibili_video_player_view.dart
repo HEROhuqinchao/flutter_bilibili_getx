@@ -56,6 +56,14 @@ class _BilibiliVideoPlayerComponentState
     });
   }
 
+
+  @override
+  void dispose() {
+    print("销毁");
+    Get.delete<BilibiliVideoPlayerComponent>();
+    super.dispose();
+  }
+
   ///构建视频和弹幕
   Widget buildVideoPlayer() {
     return state.videoPlayerController.value.aspectRatio < 1

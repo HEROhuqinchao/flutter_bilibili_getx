@@ -22,7 +22,6 @@ import 'bilibili_video_player_state.dart';
 
 class BilibiliVideoPlayerLogic extends GetxController {
   final BilibiliVideoPlayerState state = BilibiliVideoPlayerState();
-  final VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
 
   @override
   void onReady() {
@@ -99,10 +98,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
 
   ///初始化弹幕和视频的控制器
   void initVideoControllerAndDanMuController() {
-    state.videoPlayerController = VideoPlayerController.network(state.videoOriginalUrl)
-      ..initialize().then((value) {
-        update();
-      });
+    state.videoPlayerController =
+        VideoPlayerController.network(state.videoOriginalUrl)
+          ..initialize().then((value) {
+            update();
+          });
     state.videoPlayerController.addListener(() {
       ///更新进度条
       if (state.videoPlayerController.value.isPlaying) {
@@ -110,18 +110,19 @@ class BilibiliVideoPlayerLogic extends GetxController {
       }
 
       ///播放结束
-      if(state.haveFinishView) {
+      if (state.haveFinishView) {
         if (state.videoPlayerController.value.position ==
             state.videoPlayerController.value.duration) {
+          VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
           videoPlayLogic.changeVideoState(true);
         }
       }
 
-
       ///弹幕与视频播放联动
-      if(state.haveDanMuFunction) {
+      if (state.haveDanMuFunction) {
         bool lastState = state.controllerWasPlaying;
-        state.controllerWasPlaying = state.videoPlayerController.value.isPlaying;
+        state.controllerWasPlaying =
+            state.videoPlayerController.value.isPlaying;
         if (lastState != state.controllerWasPlaying) {
           if (state.controllerWasPlaying) {
             controlDanMuScroll();
@@ -132,20 +133,21 @@ class BilibiliVideoPlayerLogic extends GetxController {
               }
             }
           }
-        } else if(!state.danMuIsScroll && state.controllerWasPlaying){
+        } else if (!state.danMuIsScroll && state.controllerWasPlaying) {
           controlDanMuScroll();
         }
       }
     });
 
     ///监听目前滑动的位置
-    if(state.haveDanMuFunction) {
+    if (state.haveDanMuFunction) {
       for (var item in state.danMuRouteList) {
         item.scrollController.addListener(() {
           state.nowPosition = item.scrollController.position.pixels;
         });
       }
     }
+
     ///加载完成
     state.isLoadingVideo = false;
   }
@@ -153,12 +155,12 @@ class BilibiliVideoPlayerLogic extends GetxController {
   ///控制弹幕滚动
   void controlDanMuScroll() {
     for (var item in state.danMuRouteList) {
-      if (item.scrollController.hasClients && item.scrollController.position.maxScrollExtent > 0) {
+      if (item.scrollController.hasClients &&
+          item.scrollController.position.maxScrollExtent > 0) {
         item.scrollController.animateTo(
             item.scrollController.position.maxScrollExtent,
             duration: Duration(
-                milliseconds:
-                item.scrollController.position.maxScrollExtent *
+                milliseconds: item.scrollController.position.maxScrollExtent *
                     1000 ~/
                     item.velocity),
             curve: Curves.linear);
@@ -252,6 +254,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
         Widget footer = Container(width: 1.sw);
         state.danMuChildren[i].add(footer);
       }
+
       ///弹幕未滚动
       state.danMuIsScroll = false;
       update();
@@ -430,10 +433,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
     seekToRelativePosition(context, globalPosition);
 
     ///清空弹幕轨道的数据，并重新获取该时刻之后的弹幕数据
-    if(state.haveDanMuFunction) {
+    if (state.haveDanMuFunction) {
       Timer.periodic(const Duration(seconds: 1), (timer) {
         clearDanMuCache();
-        updateDanMuData(state.videoPlayerController.value.position.inMilliseconds);
+        updateDanMuData(
+            state.videoPlayerController.value.position.inMilliseconds);
         timer.cancel();
       });
     }
@@ -492,6 +496,8 @@ class BilibiliVideoPlayerLogic extends GetxController {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+
+    VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
     videoPlayLogic.setFullScreen(1.sw);
     update();
   }
@@ -503,6 +509,8 @@ class BilibiliVideoPlayerLogic extends GetxController {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+
+    VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
     videoPlayLogic.setFullScreen(220.h);
     update();
   }

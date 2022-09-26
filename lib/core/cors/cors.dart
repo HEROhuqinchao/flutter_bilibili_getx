@@ -4,7 +4,7 @@ import 'package:shelf_proxy/shelf_proxy.dart';
 /**
  * 本地代理，若运行在web端，需要在这个文件下，用命令dart来启动本地代理，处理跨域的问题
  */
-import 'constant.dart';
+import '../service/utils/constant.dart';
 
 ///前端页面访问本地域名
 const String LocalHost = '127.0.0.1';

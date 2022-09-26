@@ -1,16 +1,14 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
-import 'package:bilibili_getx/ui/pages/main/home/live/live_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
-import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
-import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+// import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
@@ -27,22 +25,21 @@ Size androidScreenSize = const Size(360, 690);
 Size windowsScreenSize = const Size(1080, 1920);
 Size webScreenSize = const Size(360, 690);
 
-void main() async{
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  ///实例化sharedPreference;初始化屏幕适配
-  await ScreenUtil.ensureScreenSize();
-  await SharedPreferenceUtil.getInstance();
-  await initialization();
-  runApp(
-    ///视频播放界面有使用到Provider，在此处注册它 01
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (ctx) => PlayerNotifier.init()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+void main() async {
+  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  if (kIsWeb) {
+    ///网页端目前403，无法运行
+    ///屏幕适配初始化&持久化存储初始化（运行web端请运行cors目录下的cors.dart）
+    ScreenUtil.ensureScreenSize();
+    SharedPreferenceUtil.getInstance();
+    initialization();
+  } else {
+    await ScreenUtil.ensureScreenSize();
+    await SharedPreferenceUtil.getInstance();
+    await initialization();
+  }
+  runApp(const MyApp());
 }
 
 ///初始化
@@ -56,7 +53,7 @@ Future<void> initialization() async {
           // statusBarIconBrightness: Brightness.dark,
 
           ///状态栏背景色
-          statusBarColor:Colors.transparent,
+          statusBarColor: Colors.transparent,
         ),
       );
     } else if (Platform.isWindows) {
@@ -81,8 +78,9 @@ class MyApp extends StatelessWidget {
           SharedPreferenceUtil.setString(
               BilibiliSharedPreference.locale, ui.window.locale.languageCode);
         }
+
         ///移除闪屏
-        FlutterNativeSplash.remove();
+        // FlutterNativeSplash.remove();
         return GetMaterialApp(
           ///去掉右上角的debug
           debugShowCheckedModeBanner: false,

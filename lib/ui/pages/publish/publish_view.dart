@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bilibili_getx/ui/pages/publish/ready2_publish/ready2_publish_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/upload_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -49,22 +48,6 @@ class PublishView extends StatelessWidget {
             ),
           ),
           body: buildPublishView(),
-
-          ///压扁的floatingActionButton
-          floatingActionButton: FloatingActionButton.extended(
-            backgroundColor: HYAppTheme.norMainThemeColors,
-            onPressed: () {
-              Get.toNamed(Ready2PublishView.routeName);
-            },
-            label: Text(
-              "去发布",
-              style: TextStyle(
-                fontSize: 14.sp,
-                color: HYAppTheme.norWhite01Color,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-          ),
         ),
       ),
     );
