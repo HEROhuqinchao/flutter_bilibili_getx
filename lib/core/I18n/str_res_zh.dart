@@ -115,5 +115,11 @@ const strResZh = {
   SR.script : "草稿",
   SR.recentlyProject: "最近项目",
   SR.all: "全部",
-  SR.go2Publish: "去发布"
+  SR.go2Publish: "去发布",
+  SR.publishVideo: "发布视频",
+  SR.iHaveReadAndAccept: "我已经阅读并接受",
+  SR.blibiliCreativePolicy: "《哔哩哔哩创作公约》",
+  SR.saveScript: "存草稿",
+  SR.publish: "发布",
+  SR.prePublishDesc: "若存在非官方商业合作，需前往电脑网页端投稿并进行商业声明报备"
 };

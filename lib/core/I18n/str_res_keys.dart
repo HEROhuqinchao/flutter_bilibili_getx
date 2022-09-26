@@ -113,4 +113,10 @@ class SR {
   static const recentlyProject = "recentlyProject";
   static const all = "all";
   static const go2Publish = "go2Publish";
+  static const publishVideo = "publishVideo";
+  static const iHaveReadAndAccept = "iHaveReadAndAccept";
+  static const blibiliCreativePolicy = "blibiliCreativePolicy";
+  static const saveScript = "saveScript";
+  static const publish = "publish";
+  static const prePublishDesc = "prePublishDesc";
 }

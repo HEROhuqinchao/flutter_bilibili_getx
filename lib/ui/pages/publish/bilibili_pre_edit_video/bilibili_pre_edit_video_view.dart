@@ -1,5 +1,6 @@
 import 'package:bilibili_getx/ui/pages/publish/pre_publish_video/pre_publish_video_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_view.dart';
+import 'package:bilibili_getx/ui/widgets/custom_floating_action_button_location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,8 +11,10 @@ import 'bilibili_pre_edit_video_logic.dart';
 
 class BilibiliPreEditVideoView extends StatefulWidget {
   static String routeName = "/edit_video";
+
   @override
-  _BilibiliPreEditVideoViewState createState() => _BilibiliPreEditVideoViewState();
+  _BilibiliPreEditVideoViewState createState() =>
+      _BilibiliPreEditVideoViewState();
 }
 
 class _BilibiliPreEditVideoViewState extends State<BilibiliPreEditVideoView> {
@@ -22,6 +25,7 @@ class _BilibiliPreEditVideoViewState extends State<BilibiliPreEditVideoView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BilibiliVideoPlayerComponent(),
+
       ///压扁的floatingActionButton
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: HYAppTheme.norMainThemeColors,
@@ -37,6 +41,8 @@ class _BilibiliPreEditVideoViewState extends State<BilibiliPreEditVideoView> {
           ),
         ),
       ),
+      floatingActionButtonLocation: CustomFloatingActionButtonLocation(
+          FloatingActionButtonLocation.endFloat, -5, -80),
     );
   }
 }

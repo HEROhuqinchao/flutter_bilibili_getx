@@ -7,6 +7,8 @@ import 'package:bilibili_getx/ui/pages/mall/mall_binding.dart';
 import 'package:bilibili_getx/ui/pages/mall/mall_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/bilibili_pre_edit_video/bilibili_pre_edit_video_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/pre_publish_video/pre_publish_video_binding.dart';
+import 'package:bilibili_getx/ui/pages/publish/pre_publish_video/pre_publish_video_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
@@ -110,5 +112,11 @@ class AsRouter {
         name: BilibiliPreEditVideoView.routeName,
         page: () => BilibiliPreEditVideoView(),
         binding: BilibiliPreEditVideoBinding()),
+
+    ///预编辑界面
+    GetPage(
+        name: PrePublishVideoView.routeName,
+        page: () => PrePublishVideoView(),
+        binding: PrePublishVideoBinding()),
   ];
 }

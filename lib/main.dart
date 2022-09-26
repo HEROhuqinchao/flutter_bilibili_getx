@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/pre_publish_video/pre_publish_video_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
@@ -92,6 +93,7 @@ class MyApp extends StatelessWidget {
           theme: HYAppTheme.norTheme,
 
           ///I18n国际化
+          ///
           translations: StringRes(),
           locale: locale == "en"
               ? const Locale('en', 'US')
@@ -99,7 +101,7 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          initialRoute: PublishView.routeName,
+          initialRoute: PrePublishVideoView.routeName,
           // initialRoute: MainScreen.routeName,
 
           ///路由和绑定
