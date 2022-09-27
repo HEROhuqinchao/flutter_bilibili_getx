@@ -2,7 +2,7 @@
     package="com.example.bilibili_getx">
 
     <application
-        android:name="${applicationName}"
+        android:name=".MyApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="哔哩哔哩"
         android:networkSecurityConfig="@xml/network_security_config"
@@ -36,7 +36,7 @@
         <!--百度地图-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="Zvxyw1GXimquo9aPvx4qwwuw6SHI0xVV" />
+            android:value="5QpeQ5RIobMHo8tiVDWgzuay5z2mClbD" />
     </application>
 
     <!-- 视频播放权限-->

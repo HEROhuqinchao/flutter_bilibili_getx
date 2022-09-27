@@ -17,4 +17,11 @@ class BilibiliPermission {
       Permission.storage,
     ].request();
   }
+
+  ///定位
+  static void requestBaiDuMapLocationPermissions() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.location,
+    ].request();
+  }
 }

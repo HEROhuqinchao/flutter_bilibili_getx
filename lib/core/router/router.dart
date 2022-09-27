@@ -22,6 +22,8 @@ import '../../ui/pages/main/home/search/search_view.dart';
 import '../../ui/pages/main/main_binding.dart';
 import '../../ui/pages/main/main_view.dart';
 import '../../ui/pages/mine/scan_login/scan_login_view.dart';
+import '../../ui/pages/publish/upload/bai_du_map_location/bai_du_map_location_binding.dart';
+import '../../ui/pages/publish/upload/bai_du_map_location/bai_du_map_location_view.dart';
 import '../../ui/pages/publish/upload/pre_edit_video/pre_edit_video_binding.dart';
 import '../../ui/pages/publish/upload/pre_edit_video/pre_edit_video_view.dart';
 import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_binding.dart';
@@ -117,5 +119,11 @@ class AsRouter {
         name: PrePublishVideoView.routeName,
         page: () => PrePublishVideoView(),
         binding: PrePublishVideoBinding()),
+
+    ///百度地图定位界面
+    GetPage(
+        name: BaiDuMapLocationView.routeName,
+        page: () => BaiDuMapLocationView(),
+        binding: BaiDuMapLocationBinding()),
   ];
 }

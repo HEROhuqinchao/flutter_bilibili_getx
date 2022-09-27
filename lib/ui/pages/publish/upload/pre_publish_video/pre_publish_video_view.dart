@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 import '../../../../../core/I18n/str_res_keys.dart';
 import '../../../../widgets/pop_route.dart';
+import '../bai_du_map_location/bai_du_map_location_view.dart';
 import 'pre_publish_video_logic.dart';
 
 class PrePublishVideoView extends StatelessWidget {
@@ -45,7 +46,8 @@ class PrePublishVideoView extends StatelessWidget {
                     TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
               ),
               tabEvent: () {
-
+                Navigator.push(context,
+                    PopRoute(child: buildZoneAndTopicEditDialog(context)));
               },
               fillTypeWidget: TextSpan(
                 text: "（${SR.mustInput.tr}）",
@@ -164,12 +166,13 @@ class PrePublishVideoView extends StatelessWidget {
   Widget buildSelfMadeContent() {
     return Container(
       width: 1.sw,
-      padding: EdgeInsets.symmetric(horizontal: 10.r, vertical: 5.r),
+      padding: EdgeInsets.symmetric(horizontal: 10.r, vertical: 15.r),
       decoration: BoxDecoration(
         color: HYAppTheme.norGrayColor.withOpacity(.1),
         borderRadius: BorderRadius.all(Radius.circular(4.r)),
       ),
       child: Wrap(
+        runAlignment: WrapAlignment.center,
         alignment: WrapAlignment.spaceBetween,
         children: [
           RichText(
@@ -429,6 +432,85 @@ class PrePublishVideoView extends StatelessWidget {
     );
   }
 
+  ///选择分区及话题
+  Widget buildZoneAndTopicEditDialog(context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Column(
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                color: HYAppTheme.norTextColors.withOpacity(.5),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 10.r, horizontal: 20.r),
+            decoration: BoxDecoration(
+                color: HYAppTheme.norWhite01Color,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(5.r))),
+            width: 1.sw,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: HYAppTheme.norGrayColor,
+                      borderRadius: BorderRadius.all(Radius.circular(50.r))),
+                  height: 4.sp,
+                  width: 35.sp,
+                ),
+                15.verticalSpace,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      SR.cancel.tr,
+                      style: TextStyle(
+                        color: HYAppTheme.norTextColors.withOpacity(.7),
+                        fontSize: 14.sp,
+                      ),
+                    ),
+                    Text(
+                      SR.chooseSectionAndTopic.tr,
+                      style: TextStyle(
+                        color: HYAppTheme.norTextColors,
+                        fontSize: 13.sp,
+                      ),
+                    ),
+                    Text(
+                      SR.save.tr,
+                      style: TextStyle(
+                        color: HYAppTheme.norTextColors,
+                        fontSize: 13.sp,
+                      ),
+                    ),
+                  ],
+                ),
+                ///待写
+                // Container(
+                //   decoration: BoxDecoration(
+                //       color: HYAppTheme.norWhite01Color,
+                //       borderRadius: BorderRadius.all(Radius.circular(5.r))),
+                //   child: Row(
+                //     children: [
+                //       Text("分区")
+                //     ],
+                //   ),
+                // )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   ///编辑简介
   Widget buildProfileEditDialog(context) {
     return Scaffold(
@@ -682,39 +764,44 @@ class PrePublishVideoView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15.r),
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: HYAppTheme.norGrayColor.withOpacity(.5)),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(30.r))),
-                      height: 30.sp,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(
-                            width: 14.sp,
-                            height: 14.sp,
-                            child: Image.asset(ImageAssets.locationGrayPNG),
-                          ),
-                          5.horizontalSpace,
-                          Container(
-                            height: 20.sp,
-                            alignment: Alignment.center,
-                            child: Text(
-                              SR.whereAreYou.tr,
-                              style: TextStyle(
-                                  color: HYAppTheme.norGrayColor,
-                                  fontSize: 12.sp),
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(BaiDuMapLocationView.routeName);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 15.r),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: HYAppTheme.norGrayColor.withOpacity(.5)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30.r))),
+                        height: 30.sp,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(
+                              width: 14.sp,
+                              height: 14.sp,
+                              child: Image.asset(ImageAssets.locationGrayPNG),
                             ),
-                          )
-                        ],
+                            5.horizontalSpace,
+                            Container(
+                              height: 20.sp,
+                              alignment: Alignment.center,
+                              child: Text(
+                                SR.whereAreYou.tr,
+                                style: TextStyle(
+                                    color: HYAppTheme.norGrayColor,
+                                    fontSize: 12.sp),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     20.horizontalSpace,
-                    Container(
+                    SizedBox(
                       height: 16.sp,
                       width: 16.sp,
                       child: Image.asset(ImageAssets.icVoteCommonPNG),

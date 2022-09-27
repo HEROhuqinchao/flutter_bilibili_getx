@@ -145,4 +145,7 @@ const strResZh = {
   SR.transshipmentSrc: "转载来源",
   SR.transshipmentDetail: "转载会显示在视频播放的简介当中",
   SR.transshipmentSrcHintText: "注明视频来源网址",
+  SR.chooseSectionAndTopic: "选择分区及话题",
+  SR.iamHere: "我在这儿",
+  SR.hideLocation: "隐藏位置",
 };

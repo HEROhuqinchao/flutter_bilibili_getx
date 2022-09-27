@@ -149,4 +149,7 @@ const strResEn = {
   SR.transshipmentSrc: "transshipment Source",
   SR.transshipmentDetail: "the reprint will appear in the introduction to the video playback",
   SR.transshipmentSrcHintText: "Indicate the source URL of the video",
+  SR.chooseSectionAndTopic: "choose section & topic",
+  SR.iamHere: "I am here",
+  SR.hideLocation: "hideLocation",
 };

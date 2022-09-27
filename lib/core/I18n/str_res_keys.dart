@@ -141,4 +141,7 @@ class SR {
   static const transshipmentSrc = "transshipmentSrc";
   static const transshipmentDetail = "transshipmentDetail";
   static const transshipmentSrcHintText = "transshipmentSrcHintText";
+  static const chooseSectionAndTopic = "chooseSectionAndTopic";
+  static const iamHere = "iamHere";
+  static const hideLocation = "hideLocation";
 }
