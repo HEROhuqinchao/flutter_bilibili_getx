@@ -152,4 +152,5 @@ const strResEn = {
   SR.chooseSectionAndTopic: "choose section & topic",
   SR.iamHere: "I am here",
   SR.hideLocation: "hideLocation",
+  SR.searchNearbyLocation: "search nearby location",
 };

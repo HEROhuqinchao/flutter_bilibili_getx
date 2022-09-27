@@ -64,7 +64,7 @@ class MainScreen extends StatelessWidget {
                 ///发布界面
                 if (index == 2) {
                   BilibiliPermission.requestUploadPermissions();
-                  Get.toNamed(PublishView.routeName);
+                  Get.toNamed(PublishScreen.routeName);
                 } else {
                   logic.updateCurrentIndex(index);
                 }

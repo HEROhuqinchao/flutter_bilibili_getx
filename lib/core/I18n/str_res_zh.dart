@@ -148,4 +148,5 @@ const strResZh = {
   SR.chooseSectionAndTopic: "选择分区及话题",
   SR.iamHere: "我在这儿",
   SR.hideLocation: "隐藏位置",
+  SR.searchNearbyLocation: "搜索附近地点",
 };

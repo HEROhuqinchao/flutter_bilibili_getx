@@ -8,6 +8,8 @@ import 'package:bilibili_getx/ui/pages/mall/mall_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_binding.dart';
+import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -104,26 +106,32 @@ class AsRouter {
 
     ///发布界面
     GetPage(
-        name: PublishView.routeName,
-        page: () => PublishView(),
+        name: PublishScreen.routeName,
+        page: () => PublishScreen(),
         binding: PublishBinding()),
 
     ///预编辑界面
     GetPage(
-        name: PreEditVideoView.routeName,
-        page: () => PreEditVideoView(),
+        name: PreEditVideoScreen.routeName,
+        page: () => PreEditVideoScreen(),
         binding: PreEditVideoBinding()),
 
     ///预编辑界面
     GetPage(
-        name: PrePublishVideoView.routeName,
-        page: () => PrePublishVideoView(),
+        name: PrePublishVideoScreen.routeName,
+        page: () => PrePublishVideoScreen(),
         binding: PrePublishVideoBinding()),
 
     ///百度地图定位界面
     GetPage(
-        name: BaiDuMapLocationView.routeName,
-        page: () => BaiDuMapLocationView(),
+        name: BaiDuMapLocationScreen.routeName,
+        page: () => BaiDuMapLocationScreen(),
         binding: BaiDuMapLocationBinding()),
+
+    ///搜索地名
+    GetPage(
+        name: SearchLocationScreen.routeName,
+        page: () => SearchLocationScreen(),
+        binding: SearchLocationBinding()),
   ];
 }

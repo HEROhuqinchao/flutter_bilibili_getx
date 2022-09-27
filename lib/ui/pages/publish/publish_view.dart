@@ -10,7 +10,7 @@ import '../../../core/I18n/str_res_keys.dart';
 import '../../shared/app_theme.dart';
 import '../../widgets/round_underline_tab_indicator.dart';
 
-class PublishView extends StatelessWidget {
+class PublishScreen extends StatelessWidget {
   static const String routeName = "/publish";
 
   @override

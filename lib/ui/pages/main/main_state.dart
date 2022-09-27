@@ -17,7 +17,7 @@ class MainState {
     mainIndexStackPages = [
       HomeScreen(),
       DynamicCircleScreen(),
-      PublishView(),
+      PublishScreen(),
       MallScreen(),
       MineScreen(),
     ];

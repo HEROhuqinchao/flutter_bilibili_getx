@@ -53,7 +53,7 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                         bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
                         bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
 
-                        Get.toNamed(PreEditVideoView.routeName);
+                        Get.toNamed(PreEditVideoScreen.routeName);
                       },
                       child: snapshot.data != null
                           ? Stack(

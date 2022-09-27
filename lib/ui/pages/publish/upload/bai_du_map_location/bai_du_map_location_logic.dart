@@ -67,7 +67,7 @@ class BaiDuMapLocationLogic extends GetxController {
     Map iosMap = initIOSOptions().getMap();
     state.locationPlugin.prepareLoc(androidMap, iosMap);
 
-    ///监听结果
+    ///监听结果（监听当前位置的经纬度）
     state.locationPlugin.seriesLocationCallback(
         callback: (BaiduLocation result) {
       if (Constant.isDebug) {
@@ -154,7 +154,7 @@ class BaiDuMapLocationLogic extends GetxController {
   void getBaiduMapPoiList(double latitude, double longitude) async {
     // 构造检索参数
     BMFPoiNearbySearchOption poiNearbySearchOption = BMFPoiNearbySearchOption(
-        keywords: <String>['学校', '市'],
+        keywords: <String>['学校', '市', '公司', '区'],
         location: BMFCoordinate(latitude, longitude),
         radius: 1000,
         isRadiusLimit: true,

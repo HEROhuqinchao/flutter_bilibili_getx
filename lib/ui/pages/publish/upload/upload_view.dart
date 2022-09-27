@@ -45,7 +45,8 @@ class _UploadViewState extends State<UploadView> with TickerProviderStateMixin {
             backgroundColor: Colors.transparent,
             pinned: true,
             title: buildUpLoadMainTabBar(),
-            centerTitle: true,
+            // centerTitle: true,
+            automaticallyImplyLeading: false,
           ),
           SliverFillRemaining(
             child: TabBarView(
@@ -68,10 +69,12 @@ class _UploadViewState extends State<UploadView> with TickerProviderStateMixin {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          leading: null,
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           pinned: true,
           title: buildUpLoadSubTabBar(),
-          centerTitle: true,
+          // centerTitle: true,
         ),
         SliverFillRemaining(
           child: TabBarView(

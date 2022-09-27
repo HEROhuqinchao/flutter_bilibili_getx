@@ -9,7 +9,7 @@ import '../../../video_play/bilibili_video_player/bilibili_video_player_view.dar
 import '../pre_publish_video/pre_publish_video_view.dart';
 import 'pre_edit_video_logic.dart';
 
-class PreEditVideoView extends StatelessWidget {
+class PreEditVideoScreen extends StatelessWidget {
   static String routeName = "/pre_edit_video";
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class PreEditVideoView extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: HYAppTheme.norMainThemeColors,
         onPressed: () {
-          Get.toNamed(PrePublishVideoView.routeName);
+          Get.toNamed(PrePublishVideoScreen.routeName);
         },
         label: Text(
           SR.go2Publish.tr,

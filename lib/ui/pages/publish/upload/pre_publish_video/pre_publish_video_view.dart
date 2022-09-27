@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/ui/pages/publish/upload/bai_du_map_location/bai_du_map_location_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:bilibili_getx/ui/widgets/row_button.dart';
@@ -7,10 +8,9 @@ import 'package:get/get.dart';
 
 import '../../../../../core/I18n/str_res_keys.dart';
 import '../../../../widgets/pop_route.dart';
-import '../bai_du_map_location/bai_du_map_location_view.dart';
 import 'pre_publish_video_logic.dart';
 
-class PrePublishVideoView extends StatelessWidget {
+class PrePublishVideoScreen extends StatelessWidget {
   static String routeName = "/pre_publish_video";
   final logic = Get.find<PrePublishVideoLogic>();
   final state = Get.find<PrePublishVideoLogic>().state;
@@ -766,7 +766,7 @@ class PrePublishVideoView extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(BaiDuMapLocationView.routeName);
+                        Get.toNamed(BaiDuMapLocationScreen.routeName);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 15.r),

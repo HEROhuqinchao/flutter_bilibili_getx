@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_baidu_mapapi_search/flutter_baidu_mapapi_search.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,7 @@ import '../../../../shared/app_theme.dart';
 import '../../../../shared/image_asset.dart';
 import 'bai_du_map_location_logic.dart';
 
-class BaiDuMapLocationView extends StatelessWidget {
+class BaiDuMapLocationScreen extends StatelessWidget {
   final logic = Get.find<BaiDuMapLocationLogic>();
   final state = Get.find<BaiDuMapLocationLogic>().state;
   static String routeName = "/baidu_map_location";
@@ -75,7 +76,7 @@ class BaiDuMapLocationView extends StatelessWidget {
   Widget buildBaiduMapAppBarBottom() {
     return GestureDetector(
       onTap: () {
-        print("搜索");
+        Get.toNamed(SearchLocationScreen.routeName);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20).r,
@@ -91,12 +92,12 @@ class BaiDuMapLocationView extends StatelessWidget {
               height: 15.sp,
               child: Image.asset(ImageAssets.searchCustomPNG),
             ),
-            5.horizontalSpace,
+            8.horizontalSpace,
             Container(
               height: 15.sp,
               alignment: Alignment.center,
               child: Text(
-                "搜索附近地点",
+                SR.searchNearbyLocation.tr,
                 style:
                     TextStyle(color: HYAppTheme.norGrayColor, fontSize: 12.sp),
               ),
