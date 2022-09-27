@@ -120,4 +120,6 @@ class ImageAssets {
   static String brightnessPNG = "assets/image/icon/brightness.png";
   static String replayPNG = "assets/image/icon/replay.png";
   static String expandedDarkPNG = "assets/image/icon/expanded_dark.png";
+  static String locationGrayPNG = "assets/image/icon/location_gray.png";
+  static String queryPNG = "assets/image/icon/query.png";
 }

@@ -1,4 +1,3 @@
-
 import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
 
 const strResZh = {
@@ -24,7 +23,7 @@ const strResZh = {
   SR.fan: '粉丝',
   SR.space: '空间',
   SR.click2Login: '点击登录',
-  SR.normalVip:"正式会员",
+  SR.normalVip: "正式会员",
 
   ///登录界面
   SR.loading: '正在加载...',
@@ -78,18 +77,19 @@ const strResZh = {
   SR.retrySendCode: '重新获取',
   SR.secondRetry: "秒重试",
   SR.userAgreementAndPrivacyPolicyTips: "用户协议与隐私政策提示",
+
   ///搜索
   SR.hotKeys: "B站热搜",
   SR.entireRanking: "完整榜单 > ",
-  SR.filter:"筛选",
-  SR.synthesis:"综合",
-  SR.drama:"番剧",
-  SR.user:"用户",
-  SR.column:"专栏",
-  SR.defaultOrder:"默认排序",
-  SR.newestPublish:"新发布",
-  SR.highVideoPlay:"播放多",
-  SR.highDanmaku:"弹幕多",
+  SR.filter: "筛选",
+  SR.synthesis: "综合",
+  SR.drama: "番剧",
+  SR.user: "用户",
+  SR.column: "专栏",
+  SR.defaultOrder: "默认排序",
+  SR.newestPublish: "新发布",
+  SR.highVideoPlay: "播放多",
+  SR.highDanmaku: "弹幕多",
   SR.searchSomething: "搜索视频、番剧或up主",
 
   ///主页界面
@@ -99,20 +99,20 @@ const strResZh = {
   SR.vipMall: "会员购",
 
   ///视频播放
-  SR.profile:"简介",
-  SR.reply:"评论",
+  SR.profile: "简介",
+  SR.reply: "评论",
 
   ///发布界面
-  SR.createLiveRoom : "开直播",
-  SR.photograph : "拍摄",
-  SR.upload : "上传",
-  SR.shareDynamic : "发动态",
-  SR.templateAuthoring : "模板创作",
-  SR.video : "视频",
-  SR.photo : "照片",
-  SR.file : "文件夹",
-  SR.editVideo : "编辑视频",
-  SR.script : "草稿",
+  SR.createLiveRoom: "开直播",
+  SR.photograph: "拍摄",
+  SR.upload: "上传",
+  SR.shareDynamic: "发动态",
+  SR.templateAuthoring: "模板创作",
+  SR.video: "视频",
+  SR.photo: "照片",
+  SR.file: "文件夹",
+  SR.editVideo: "编辑视频",
+  SR.script: "草稿",
   SR.recentlyProject: "最近项目",
   SR.all: "全部",
   SR.go2Publish: "去发布",
@@ -123,10 +123,26 @@ const strResZh = {
   SR.publish: "发布",
   SR.prePublishDesc: "若存在非官方商业合作，需前往电脑网页端投稿并进行商业声明报备",
   SR.pleaseInputTitle: "请输入标题",
+  SR.pleaseInputDynamic: "编辑此投稿的动态，把稿件推荐给粉丝",
+  SR.pleaseInputProfile: "请输入简介",
   SR.zoneAndLabel: "分区和标签",
   SR.scriptType: "稿件类型",
   SR.selfMade: "自制",
   SR.transshipment: "转载",
-  SR.publishSetting:"发布设置",
-  SR.mustInput:"必填"
+  SR.publishSetting: "发布设置",
+  SR.mustInput: "必填",
+
+  SR.whereAreYou: "你在哪里?",
+  SR.cancel: "取消",
+  SR.save: "确定",
+  SR.publishDynamic: "发布动态",
+  SR.finish: "完成",
+  SR.wonderfulCommentSection: "精彩评论区",
+  SR.publishSettingDesc: "转载稿件装车判定将以定时发布时间为准",
+  SR.timedRelease: "定时发布",
+  SR.transshipmentPermissions: "转载权限",
+  SR.transshipmentDesc: "未经作者授权 禁止转载",
+  SR.transshipmentSrc: "转载来源",
+  SR.transshipmentDetail: "转载会显示在视频播放的简介当中",
+  SR.transshipmentSrcHintText: "注明视频来源网址",
 };

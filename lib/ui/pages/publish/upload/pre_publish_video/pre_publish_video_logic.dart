@@ -1,5 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/I18n/str_res_keys.dart';
+import '../../../../shared/app_theme.dart';
+import '../../../../widgets/profile_edit_dialog.dart';
+import '../../../../widgets/pop_route.dart';
 import 'pre_publish_video_state.dart';
 
 class PrePublishVideoLogic extends GetxController {
@@ -22,15 +29,15 @@ class PrePublishVideoLogic extends GetxController {
     update();
   }
 
-  void checkTransshipment(value) {
-    state.transshipment = value!;
-    state.selfMade = !value;
+  void checkTransshipment() {
+    state.transshipment = true;
+    state.selfMade = false;
     update();
   }
 
-  void checkSelfMade(value) {
-    state.selfMade = value!;
-    state.transshipment = !value;
+  void checkSelfMade() {
+    state.selfMade = true;
+    state.transshipment = false;
     update();
   }
 }

@@ -120,10 +120,25 @@ class SR {
   static const publish = "publish";
   static const prePublishDesc = "prePublishDesc";
   static const pleaseInputTitle = "pleaseInputTitle";
+  static const pleaseInputDynamic = "pleaseInputDynamic";
+  static const pleaseInputProfile = "pleaseInputProfile";
   static const zoneAndLabel = "zoneAndLabel";
   static const scriptType = "scriptType";
   static const selfMade = "selfMade";
   static const transshipment = "transshipment";
   static const publishSetting = "publishSetting";
   static const mustInput = "mustInput";
+  static const whereAreYou = "whereAreYou";
+  static const cancel = "cancel";
+  static const save = "save";
+  static const publishDynamic = "publishDynamic";
+  static const finish = "finish";
+  static const wonderfulCommentSection = "wonderfulCommentSection";
+  static const publishSettingDesc = "publishSettingDesc";
+  static const timedRelease = "timedRelease";
+  static const transshipmentPermissions = "transshipmentPermissions";
+  static const transshipmentDesc = "transshipmentDesc";
+  static const transshipmentSrc = "transshipmentSrc";
+  static const transshipmentDetail = "transshipmentDetail";
+  static const transshipmentSrcHintText = "transshipmentSrcHintText";
 }
