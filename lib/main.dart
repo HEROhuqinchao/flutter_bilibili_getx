@@ -5,6 +5,7 @@ import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_view.dart';
+import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ void main() async {
     ///屏幕适配初始化&持久化存储初始化（运行web端请运行cors目录下的cors.dart）
     ScreenUtil.ensureScreenSize();
     SharedPreferenceUtil.getInstance();
-    initialization();
+    // initialization();
   } else {
     await ScreenUtil.ensureScreenSize();
     await SharedPreferenceUtil.getInstance();
@@ -102,9 +103,10 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          initialRoute: PrePublishVideoScreen.routeName,
+          // initialRoute: PrePublishVideoScreen.routeName,
           // initialRoute: SearchLocationScreen.routeName,
           // initialRoute: MainScreen.routeName,
+          initialRoute: PushMessageScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

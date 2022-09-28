@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
+import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -75,10 +76,8 @@ class MainScreen extends StatelessWidget {
               backgroundColor: HYAppTheme.norMainThemeColors,
               children: [
                 SpeedDialChild(
-                  onTap: () {
-
-                  },
-                  backgroundColor: Colors.white,
+                  onTap: () {},
+                  backgroundColor: HYAppTheme.norWhite01Color,
                   label: '统计',
                   child: ImageIcon(
                     AssetImage(ImageAssets.chartsCustomPNG),
@@ -86,9 +85,9 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
                 SpeedDialChild(
-                  backgroundColor: Colors.white,
+                  backgroundColor: HYAppTheme.norWhite01Color,
                   onTap: () {
-
+                    Get.toNamed(PushMessageScreen.routeName);
                   },
                   label: '推送',
                   child: Icon(
@@ -97,7 +96,7 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
                 SpeedDialChild(
-                  backgroundColor: Colors.white,
+                  backgroundColor: HYAppTheme.norWhite01Color,
                   onTap: () {
                     ///切换语言并保存语言至本地
                     String? locale = SharedPreferenceUtil.getString(
@@ -159,7 +158,7 @@ class MainScreen extends StatelessWidget {
           width: 18.sp,
           height: 18.sp,
           gaplessPlayback:
-          true, //gaplessPlayback: 原图片保持不变，直到图片加载完成时替换图片，这样就不会出现闪烁
+              true, //gaplessPlayback: 原图片保持不变，直到图片加载完成时替换图片，这样就不会出现闪烁
         ),
       ),
       activeIcon: Container(

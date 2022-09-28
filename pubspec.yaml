@@ -63,6 +63,7 @@ dependencies:
   flutter_baidu_mapapi_search: ^3.2.0 #百度地图
   flutter_baidu_mapapi_utils: ^3.2.0 #百度地图
   flutter_baidu_mapapi_base: ^3.2.0 #百度地图
+  jpush_flutter: ^2.3.8 #极光推送
 
 dev_dependencies:
   flutter_test:

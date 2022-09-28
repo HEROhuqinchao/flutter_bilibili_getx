@@ -44,9 +44,17 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         ndk {
-            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","x86_64"
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                //JPush 上注册的包名对应的 Appkey.
+                JPUSH_APPKEY : "7d6d63fa06959ac31ff30914",
+                //暂时填写默认值即可.
+                JPUSH_CHANNEL: "developer-default",
+        ]
     }
 
     buildTypes {
