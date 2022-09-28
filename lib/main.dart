@@ -117,8 +117,8 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: PrePublishVideoScreen.routeName,
           // initialRoute: SearchLocationScreen.routeName,
-          initialRoute: MainScreen.routeName,
-          // initialRoute: BilibiliTestScreen.routeName,
+          // initialRoute: MainScreen.routeName,
+          initialRoute: BilibiliTestScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

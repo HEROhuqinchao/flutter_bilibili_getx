@@ -17,7 +17,7 @@ class BilibiliTestLogic extends GetxController {
   @override
   void onReady() {
     getExternalStorageDirectory()
-        .then((tempDir) => {state.destPath = '${tempDir?.path}/temp.mp4'});
+        .then((tempDir) => {state.destPath = '${tempDir?.path}/'});
 
     ///UI主线程线程 与 下载线程 之间的数据交流
     IsolateNameServer.registerPortWithName(
@@ -28,6 +28,7 @@ class BilibiliTestLogic extends GetxController {
       int progress = data[2];
       update();
     });
+    FlutterDownloader.registerCallback(downloadCallback);
     super.onReady();
   }
 
@@ -50,6 +51,8 @@ class BilibiliTestLogic extends GetxController {
   }
 
   void downloadFile() async {
+    print(state.destPath);
+    print(state.downloadPath);
     final taskId = await FlutterDownloader.enqueue(
       url: state.downloadPath,
       // optional: header send with url (auth token etc)
@@ -60,6 +63,36 @@ class BilibiliTestLogic extends GetxController {
       // click on notification to open downloaded file (for Android)
       openFileFromNotification: true,
     );
+
+    final tasks = await FlutterDownloader.loadTasks();
+  }
+
+  void cancelDownloadFile(taskId) {
+    FlutterDownloader.cancel(taskId: taskId);
+  }
+
+  void cancelAllDownloadFile(){
+    FlutterDownloader.cancelAll();
+  }
+
+  void pauseDownloadFile(taskId){
+    FlutterDownloader.pause(taskId: taskId);
+  }
+
+  void resumeDownloadFile(taskId) {
+    FlutterDownloader.resume(taskId: taskId);
+  }
+
+  void retryDownloadFile(taskId) {
+    FlutterDownloader.retry(taskId: taskId);
+  }
+
+  void removeDownloadFile(taskId){
+    FlutterDownloader.remove(taskId: taskId, shouldDeleteContent:false);
+  }
+
+  void openDownloadFile(taskId){
+    FlutterDownloader.open(taskId: taskId);
   }
 
 // void downloadFile() {
