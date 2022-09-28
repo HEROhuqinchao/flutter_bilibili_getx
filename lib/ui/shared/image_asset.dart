@@ -122,4 +122,8 @@ class ImageAssets {
   static String expandedDarkPNG = "assets/image/icon/expanded_dark.png";
   static String locationGrayPNG = "assets/image/icon/location_gray.png";
   static String queryPNG = "assets/image/icon/query.png";
+  static String lifePNG = "assets/image/icon/life.png";
+  static String shoppingPNG = "assets/image/icon/shopping.png";
+  static String enterprisePNG = "assets/image/icon/enterprise.png";
+  static String educationPNG = "assets/image/icon/education.png";
 }

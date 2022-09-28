@@ -112,7 +112,7 @@ class BaiDuMapLocationLogic extends GetxController {
 
         /// 设置发起定位请求的间隔，int类型，单位ms
         /// 如果设置为0，则代表单次定位，即仅定位一次，默认为0
-        scanspan: 10000);
+        scanspan: 5000);
     return options;
   }
 
