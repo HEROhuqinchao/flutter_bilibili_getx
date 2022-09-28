@@ -9,7 +9,7 @@ class PushMessageLogic extends GetxController {
   @override
   void onInit() {
     ///启动极光推送
-    JPushUtil.startJPush();
+    // JPushUtil.startJPush();
     super.onInit();
   }
 

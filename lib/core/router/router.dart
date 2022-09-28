@@ -14,6 +14,8 @@ import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+import '../../ui/pages/bilibili_test/bilibili_test_binding.dart';
+import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/main/home/comic/comic_binding.dart';
 import '../../ui/pages/main/home/live/live_binding.dart';
@@ -141,5 +143,11 @@ class AsRouter {
         name: PushMessageScreen.routeName,
         page: () => PushMessageScreen(),
         binding: PushMessageBinding()),
+
+    ///搜索地名
+    GetPage(
+        name: BilibiliTestScreen.routeName,
+        page: () => BilibiliTestScreen(),
+        binding: BilibiliTestBinding()),
   ];
 }

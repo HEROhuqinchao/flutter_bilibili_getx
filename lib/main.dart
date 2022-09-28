@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
+import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
@@ -10,6 +11,7 @@ import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 
 // import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,6 +51,16 @@ void main() async {
 Future<void> initialization() async {
   if (!kIsWeb) {
     if (Platform.isAndroid) {
+      ///flutter_downloader
+      WidgetsFlutterBinding.ensureInitialized();
+      await FlutterDownloader.initialize(
+        /// optional: set to false to disable printing logs to console (default: true)
+        debug: true,
+
+        /// option: set to false to disable working with http links (default: false)
+        ignoreSsl: true,
+      );
+
       ///手机状态栏的背景颜色及状态栏文字颜色
       SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(
@@ -105,8 +117,8 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: PrePublishVideoScreen.routeName,
           // initialRoute: SearchLocationScreen.routeName,
-          // initialRoute: MainScreen.routeName,
-          initialRoute: PushMessageScreen.routeName,
+          initialRoute: MainScreen.routeName,
+          // initialRoute: BilibiliTestScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

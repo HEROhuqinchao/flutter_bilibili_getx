@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import 'constant.dart';
 
@@ -26,7 +27,8 @@ class HttpBaseRequest {
     HttpHeaders.acceptHeader: 'application/json,*/*',
     HttpHeaders.contentTypeHeader: 'application/json',
     HttpHeaders.userAgentHeader: ua,
-    HttpHeaders.cookieHeader: 'buvid3=E69A3DAC-8BAD-9D84-8187-B8C7E334EAEE17988infoc'
+    HttpHeaders.cookieHeader:
+        'buvid3=E69A3DAC-8BAD-9D84-8187-B8C7E334EAEE17988infoc'
   };
 
   ///请求xml数据
@@ -92,21 +94,19 @@ class HttpBaseRequest {
 
     ///userAgent
     if (!kIsWeb) {
-      if(Platform.isAndroid) {
+      if (Platform.isAndroid) {
         (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
             (HttpClient client) {
           client.userAgent = null;
           return null;
         };
       }
-    } else {
-
-    }
+    } else {}
 
     ///请求头
     Map<String, dynamic> httpHeaders;
 
-    if(!kIsWeb) {
+    if (!kIsWeb) {
       ///手机端
       if (contentType == 'XML') {
         httpHeaders = xmlHeaders;
@@ -185,4 +185,38 @@ class HttpBaseRequest {
       return Future.error(e);
     }
   }
+
+  ///下载文件
+  ///参考 https://www.jianshu.com/p/21b87161bf0f
+  ///dio的download没有pause，resume功能，故不采用；采用flutter_downloader
+  // static Future download(
+  //   String url,
+  //   String savePath, {
+  //   Map<String, dynamic>? queryParams,
+  //   required CancelToken cancelToken,
+  //   dynamic data,
+  //   Options? options,
+  //   required void Function(int, int) onReceiveProgress,
+  // }) async {
+  //   Dio dio = Dio();
+  //   try {
+  //     return await dio.download(
+  //       url,
+  //       savePath,
+  //       queryParameters: queryParams,
+  //       cancelToken: cancelToken,
+  //       onReceiveProgress: onReceiveProgress,
+  //     );
+  //   } on DioError catch (e) {
+  //     if (CancelToken.isCancel(e)) {
+  //       SmartDialog.showToast('下载已取消!');
+  //     } else {
+  //       if (e.response != null) {
+  //         SmartDialog.showToast(e.response.toString());
+  //       }
+  //     }
+  //   } on Exception catch (e) {
+  //     SmartDialog.showToast(e.toString());
+  //   }
+  // }
 }

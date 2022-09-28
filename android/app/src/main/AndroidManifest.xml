@@ -37,6 +37,37 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="5QpeQ5RIobMHo8tiVDWgzuay5z2mClbD" />
+
+<!--        &lt;!&ndash;flutter_downloader配置&ndash;&gt;-->
+<!--        <provider-->
+<!--            android:name="vn.hunghd.flutterdownloader.DownloadedFileProvider"-->
+<!--            android:authorities="${applicationId}.flutter_downloader.provider"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/provider_paths" />-->
+<!--        </provider>-->
+<!--        <provider-->
+<!--            android:name="androidx.startup.InitializationProvider"-->
+<!--            tools:node="merge"-->
+<!--            android:authorities="${applicationId}.androidx-startup"-->
+<!--            android:exported="false">-->
+<!--            <meta-data-->
+<!--                android:name="androidx.work.WorkManagerInitializer"-->
+<!--                tools:node="remove"-->
+<!--                android:value="androidx.startup" />-->
+<!--        </provider>-->
+<!--        &lt;!&ndash; flutter_downloader 设置下载并发数 &ndash;&gt;-->
+<!--        <provider-->
+<!--            android:name="vn.hunghd.flutterdownloader.FlutterDownloaderInitializer"-->
+<!--            android:authorities="${applicationId}.flutter-downloader-init"-->
+<!--            android:exported="false">-->
+<!--            &lt;!&ndash; changes this number to configure the maximum number of concurrent tasks &ndash;&gt;-->
+<!--            <meta-data-->
+<!--                android:name="vn.hunghd.flutterdownloader.MAX_CONCURRENT_TASKS"-->
+<!--                android:value="5" />-->
+<!--        </provider>-->
     </application>
 
     <!-- 视频播放权限-->

@@ -45,17 +45,17 @@ dependencies:
   shelf_proxy: ^1.0.2 #跨域
   webview_flutter: ^3.0.4 #显示网页
   flutter_easyrefresh: ^2.2.2 #上拉刷新下拉加载
-#  easy_refresh: ^3.0.4+2 #上拉刷新下拉加载
+  #  easy_refresh: ^3.0.4+2 #上拉刷新下拉加载
   flutter_staggered_grid_view: ^0.6.2 #瀑布流布局
   flutter_swiper_null_safety_flutter3: ^2.0.0 #轮播图
   video_player: ^2.2.7 #视频播放插件（原版插件）
   chewie: ^1.3.4 #视频播放插件
-#  flutter_downloader: ^1.7.1 #下载
+  #  flutter_downloader: ^1.7.1 #下载
   device_info_plus: ^4.0.0 #设备信息
   path_provider: ^2.0.11 #获取手机的存储路径
-#  flutter_local_notifications: ^9.1.5 #本地通知
+  #  flutter_local_notifications: ^9.1.5 #本地通知
   provider: ^6.0.2 #状态管理provider
-#  flutter_native_splash: ^2.2.8 #闪屏界面
+  #  flutter_native_splash: ^2.2.8 #闪屏界面
   flutter_speed_dial: ^6.0.0 #悬浮按钮
   brightness_volume: ^1.0.3 #视频亮度和音量
   video_thumbnail: ^0.5.3 #获取视频的封面
@@ -64,6 +64,8 @@ dependencies:
   flutter_baidu_mapapi_utils: ^3.2.0 #百度地图
   flutter_baidu_mapapi_base: ^3.2.0 #百度地图
   jpush_flutter: ^2.3.8 #极光推送
+  open_file: ^3.2.1 #打开文件
+  flutter_downloader: ^1.8.4 #下载文件(dio的download没有暂停功能...)
 
 dev_dependencies:
   flutter_test:
