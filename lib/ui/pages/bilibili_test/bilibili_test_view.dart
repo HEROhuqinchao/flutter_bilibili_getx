@@ -1,5 +1,10 @@
+import 'package:bilibili_getx/core/model/android/video_play/download_video_model.dart';
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import 'bilibili_test_logic.dart';
@@ -16,83 +21,105 @@ class BilibiliTestScreen extends StatelessWidget {
     return GetBuilder<BilibiliTestLogic>(builder: (logic) {
       return Scaffold(
         backgroundColor: Colors.white,
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          ///初始化下载列表
+          logic.iniDownloadList();
+        }),
         body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                child: Text(state.destPath, style: TextStyle(fontWeight: FontWeight.bold),),
-              ),
-              30.verticalSpace,
-              GestureDetector(
-                onTap: () {
-                  logic.downloadFile();
-                },
-                child: Container(
-                  color: Colors.green,
-                  child: Text(
-                    "开始下载",
-                    style: TextStyle(fontSize: 20.sp),
-                  ),
-                ),
-              ),
-              30.verticalSpace,
-              GestureDetector(
-                onTap: () {
-                  // logic.cancelDownload();
-                },
-                child: Container(
-                  color: Colors.green,
-                  child: Text(
-                    "取消下载",
-                    style: TextStyle(fontSize: 20.sp),
-                  ),
-                ),
-              ),
-              30.verticalSpace,
-              GestureDetector(
-                onTap: () {
-                  // logic.deleteFile();
-                },
-                child: Container(
-                  color: Colors.green,
-                  child: Text(
-                    "删除下载内容",
-                    style: TextStyle(fontSize: 20.sp),
-                  ),
-                ),
-              ),
-              30.verticalSpace,
-              Container(
-                width: .8.sw,
-                child: LinearProgressIndicator(
-                  color: Colors.yellow,
-                  value: state.downloadRatio,
-                ),
-              ),
-              30.verticalSpace,
-              Container(
-                child: Text(
-                  state.downloadIndicator,
-                  style: TextStyle(fontSize: 20.sp),
-                ),
-              ),
-              30.verticalSpace,
-              GestureDetector(
-                onTap: (){
-                  logic.openFile();
-                },
-                child: Container(
-                  child: Text(
-                    "打开文件",
-                    style: TextStyle(fontSize: 20.sp),
-                  ),
-                ),
-              )
-            ],
-          ),
+          child: state.downloadVideoList.isNotEmpty
+              ? ListView.builder(
+                  shrinkWrap: true,
+                  itemBuilder: (ctx, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        if (state.downloadVideoList[index].status ==
+                            DownloadTaskStatus.running) {
+                          logic.pauseDownloadFile(index);
+                        } else if (state.downloadVideoList[index].status ==
+                            DownloadTaskStatus.undefined) {
+                          logic.downloadFile(index);
+                        } else if (state.downloadVideoList[index].status ==
+                            DownloadTaskStatus.failed) {
+                          logic.retryDownloadFile(index);
+                        } else if (state.downloadVideoList[index].status ==
+                            DownloadTaskStatus.paused) {
+                          logic.resumeDownloadFile(index);
+                        } else if (state.downloadVideoList[index].status ==
+                            DownloadTaskStatus.complete) {
+                          SmartDialog.showToast("已下载");
+                        }
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 12.r, horizontal: 10.r),
+                        margin: EdgeInsets.symmetric(
+                            vertical: 8.r, horizontal: 13.r),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: HYAppTheme.norMainThemeColors,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(4.r))),
+                        width: 1.sw,
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: .25.sw,
+                              child: Text(
+                                "下载视频$index",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: HYAppTheme.norMainThemeColors
+                                        .withOpacity(.7),
+                                    fontSize: 14.sp),
+                              ),
+                            ),
+                            15.horizontalSpace,
+                            Expanded(
+                                child: LinearProgressIndicator(
+                                  backgroundColor: HYAppTheme.norGrayColor.withOpacity(.5),
+                                  color: HYAppTheme.norMainThemeColors,
+                              value:
+                                  state.downloadVideoList[index].progress / 100,
+                            )),
+                            10.horizontalSpace,
+                            Text("${state.downloadVideoList[index].progress * 100}%"),
+                            30.horizontalSpace,
+                            SizedBox(
+                              width: 20.sp,
+                              height: 20.sp,
+                              child: Image.asset(
+                                buildDownloadStatueIcon(
+                                    state.downloadVideoList[index].status),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  itemCount: 2,
+                )
+              : Container(),
         ),
       );
     });
+  }
+
+  String buildDownloadStatueIcon(DownloadTaskStatus downloadStatue) {
+    if (downloadStatue == DownloadTaskStatus.complete) {
+      return ImageAssets.icVideoDownloadCompletePNG;
+    } else if (downloadStatue == DownloadTaskStatus.paused) {
+      return ImageAssets.icVideoDownloadStopPNG;
+    } else if (downloadStatue == DownloadTaskStatus.running) {
+      return ImageAssets.icVideoDownloadProcessingPNG;
+    } else if (downloadStatue == DownloadTaskStatus.enqueued) {
+      return ImageAssets.icVideoDownloadStopPNG;
+    } else if (downloadStatue == DownloadTaskStatus.failed) {
+      return ImageAssets.icVideoDownloadErrorPNG;
+    } else {
+      return ImageAssets.icVideoDownloadStopPNG;
+    }
   }
 }
