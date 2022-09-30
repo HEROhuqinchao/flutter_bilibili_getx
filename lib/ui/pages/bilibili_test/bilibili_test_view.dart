@@ -78,20 +78,22 @@ class BilibiliTestScreen extends StatelessWidget {
                             15.horizontalSpace,
                             Expanded(
                                 child: LinearProgressIndicator(
-                                  backgroundColor: HYAppTheme.norGrayColor.withOpacity(.5),
-                                  color: HYAppTheme.norMainThemeColors,
-                              value:
-                                  state.downloadVideoList[index].progress / 100,
+                              backgroundColor:
+                                  HYAppTheme.norGrayColor.withOpacity(.5),
+                              color: HYAppTheme.norMainThemeColors,
+                              value: state.downloadVideoList[index].progress < 0
+                                  ? 0
+                                  : state.downloadVideoList[index].progress,
                             )),
                             10.horizontalSpace,
-                            Text("${state.downloadVideoList[index].progress * 100}%"),
+                            Text(
+                                "${(state.downloadVideoList[index].progress * 100).toInt()}%"),
                             30.horizontalSpace,
                             SizedBox(
                               width: 20.sp,
                               height: 20.sp,
                               child: Image.asset(
-                                buildDownloadStatueIcon(
-                                    state.downloadVideoList[index].status),
+                                buildDownloadStatueIcon(index),
                               ),
                             )
                           ],
@@ -107,16 +109,20 @@ class BilibiliTestScreen extends StatelessWidget {
     });
   }
 
-  String buildDownloadStatueIcon(DownloadTaskStatus downloadStatue) {
-    if (downloadStatue == DownloadTaskStatus.complete) {
+  String buildDownloadStatueIcon(index) {
+    if (state.downloadVideoList[index].status == DownloadTaskStatus.complete) {
       return ImageAssets.icVideoDownloadCompletePNG;
-    } else if (downloadStatue == DownloadTaskStatus.paused) {
+    } else if (state.downloadVideoList[index].status ==
+        DownloadTaskStatus.paused) {
       return ImageAssets.icVideoDownloadStopPNG;
-    } else if (downloadStatue == DownloadTaskStatus.running) {
+    } else if (state.downloadVideoList[index].status ==
+        DownloadTaskStatus.running) {
       return ImageAssets.icVideoDownloadProcessingPNG;
-    } else if (downloadStatue == DownloadTaskStatus.enqueued) {
+    } else if (state.downloadVideoList[index].status ==
+        DownloadTaskStatus.enqueued) {
       return ImageAssets.icVideoDownloadStopPNG;
-    } else if (downloadStatue == DownloadTaskStatus.failed) {
+    } else if (state.downloadVideoList[index].status ==
+        DownloadTaskStatus.failed) {
       return ImageAssets.icVideoDownloadErrorPNG;
     } else {
       return ImageAssets.icVideoDownloadStopPNG;

@@ -33,7 +33,7 @@ class BilibiliTestLogic extends GetxController {
     super.onClose();
   }
 
-  void iniDownloadList() {
+  void iniDownloadList() async {
     state.downloadVideoList = [
       DownloadVideoModel(
         downloadPath: "https://media.w3.org/2010/05/sintel/trailer.mp4",
@@ -51,6 +51,17 @@ class BilibiliTestLogic extends GetxController {
       ),
     ];
     update();
+    for (int i = 0; i < state.downloadVideoList.length; i++) {
+      File file =
+          File("${state.destPath}/${state.downloadVideoList[i].fileName}");
+      print("${state.destPath}/${state.downloadVideoList[i].fileName}");
+      var fileIsExist = await file.exists();
+      if(fileIsExist) {
+        state.downloadVideoList[i].progress = 1;
+        state.downloadVideoList[i].status = DownloadTaskStatus.complete;
+        update();
+      }
+    }
   }
 
   void initFlutterDownloader() {
@@ -104,13 +115,13 @@ class BilibiliTestLogic extends GetxController {
 
   void downloadFile(i) async {
     FlutterDownloader.enqueue(
-        fileName: state.downloadVideoList[i].fileName,
-        url: state.downloadVideoList[i].downloadPath,
-        headers: {},
-        savedDir: state.destPath,
-        showNotification: true,
-        openFileFromNotification: true,
-        // saveInPublicStorage: true
+      fileName: state.downloadVideoList[i].fileName,
+      url: state.downloadVideoList[i].downloadPath,
+      headers: {},
+      savedDir: state.destPath,
+      showNotification: true,
+      openFileFromNotification: true,
+      // saveInPublicStorage: true
     ).then((value) {
       state.downloadVideoList[i].taskId = value;
     });
@@ -129,15 +140,27 @@ class BilibiliTestLogic extends GetxController {
   }
 
   void pauseDownloadFile(index) {
-    FlutterDownloader.pause(taskId: state.downloadVideoList[index].taskId!);
+    FlutterDownloader.pause(taskId: state.downloadVideoList[index].taskId!)
+        .then((value) {
+      print("暂停下载");
+      update();
+    });
   }
 
   void resumeDownloadFile(index) {
-    FlutterDownloader.resume(taskId: state.downloadVideoList[index].taskId!);
+    FlutterDownloader.resume(taskId: state.downloadVideoList[index].taskId!)
+        .then((value) {
+      print(value);
+      update();
+    });
   }
 
   void retryDownloadFile(index) {
-    FlutterDownloader.retry(taskId: state.downloadVideoList[index].taskId!);
+    FlutterDownloader.retry(taskId: state.downloadVideoList[index].taskId!)
+        .then((value) {
+      print(value);
+      update();
+    });
   }
 
   void removeDownloadFile(taskId) {
@@ -147,49 +170,4 @@ class BilibiliTestLogic extends GetxController {
   void openDownloadFile(taskId) {
     FlutterDownloader.open(taskId: taskId);
   }
-
-// void downloadFile() {
-//   state.token = CancelToken();
-//   state.downloading = true;
-//   HttpBaseRequest.download(state.downloadPath, state.destPath,
-//       cancelToken: state.token, onReceiveProgress: (received, total) {
-//     if (total != -1) {
-//       if (!state.token.isCancelled) {
-//         state.downloadRatio = (received / total);
-//         if (state.downloadRatio == 1) {
-//           state.downloading = false;
-//         }
-//         state.downloadIndicator =
-//             '${(state.downloadRatio * 100).toStringAsFixed(2)}%';
-//         update();
-//       }
-//     } else {
-//       state.downloading = false;
-//       SmartDialog.showToast('无法获取文件大小，下载失败!');
-//     }
-//   });
-// }
-//
-// void cancelDownload() {
-//   if (state.downloadRatio < 1.0) {
-//     state.token.cancel();
-//     state.downloading = false;
-//     state.downloadRatio = 0;
-//     state.downloadIndicator = '0.00%';
-//     update();
-//   }
-// }
-//
-// void deleteFile() {
-//   try {
-//     File downloadedFile = File(state.destPath);
-//     if (downloadedFile.existsSync()) {
-//       downloadedFile.delete();
-//     } else {
-//       SmartDialog.showToast('文件不存在');
-//     }
-//   } catch (e) {
-//     SmartDialog.showToast(e.toString());
-//   }
-// }
 }

@@ -49,45 +49,39 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-<!--        <provider-->
-<!--            android:name="androidx.startup.InitializationProvider"-->
-<!--            tools:node="merge"-->
-<!--            android:authorities="${applicationId}.androidx-startup"-->
-<!--            android:exported="false">-->
-<!--            <meta-data-->
-<!--                android:name="androidx.work.WorkManagerInitializer"-->
-<!--                tools:node="remove"-->
-<!--                android:value="androidx.startup" />-->
-<!--        </provider>-->
-<!--        &lt;!&ndash; flutter_downloader 设置下载并发数 &ndash;&gt;-->
-<!--        <provider-->
-<!--            android:name="vn.hunghd.flutterdownloader.FlutterDownloaderInitializer"-->
-<!--            android:authorities="${applicationId}.flutter-downloader-init"-->
-<!--            android:exported="false">-->
-<!--            &lt;!&ndash; changes this number to configure the maximum number of concurrent tasks &ndash;&gt;-->
-<!--            <meta-data-->
-<!--                android:name="vn.hunghd.flutterdownloader.MAX_CONCURRENT_TASKS"-->
-<!--                android:value="5" />-->
-<!--        </provider>-->
+        <!--        <provider-->
+        <!--            android:name="androidx.startup.InitializationProvider"-->
+        <!--            tools:node="merge"-->
+        <!--            android:authorities="${applicationId}.androidx-startup"-->
+        <!--            android:exported="false">-->
+        <!--            <meta-data-->
+        <!--                android:name="androidx.work.WorkManagerInitializer"-->
+        <!--                tools:node="remove"-->
+        <!--                android:value="androidx.startup" />-->
+        <!--        </provider>-->
+        <!--        &lt;!&ndash; flutter_downloader 设置下载并发数 &ndash;&gt;-->
+        <!--        <provider-->
+        <!--            android:name="vn.hunghd.flutterdownloader.FlutterDownloaderInitializer"-->
+        <!--            android:authorities="${applicationId}.flutter-downloader-init"-->
+        <!--            android:exported="false">-->
+        <!--            &lt;!&ndash; changes this number to configure the maximum number of concurrent tasks &ndash;&gt;-->
+        <!--            <meta-data-->
+        <!--                android:name="vn.hunghd.flutterdownloader.MAX_CONCURRENT_TASKS"-->
+        <!--                android:value="5" />-->
+        <!--        </provider>-->
     </application>
 
     <!-- 视频播放权限-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位 -->
@@ -102,8 +96,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 </manifest>
