@@ -59,7 +59,6 @@ class _BilibiliVideoPlayerComponentState
 
   @override
   void dispose() {
-    print("销毁");
     Get.delete<BilibiliVideoPlayerComponent>();
     super.dispose();
   }

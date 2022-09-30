@@ -16,6 +16,7 @@ class BilibiliTestLogic extends GetxController {
 
   @override
   void onReady() {
+    ///请求下载的权限
     BilibiliPermission.requestDownloadPermissions();
 
     ///创建下载目录
@@ -56,11 +57,28 @@ class BilibiliTestLogic extends GetxController {
           File("${state.destPath}/${state.downloadVideoList[i].fileName}");
       print("${state.destPath}/${state.downloadVideoList[i].fileName}");
       var fileIsExist = await file.exists();
-      if(fileIsExist) {
+      if (fileIsExist) {
         state.downloadVideoList[i].progress = 1;
         state.downloadVideoList[i].status = DownloadTaskStatus.complete;
         update();
       }
+    }
+  }
+
+  iniDownloadFilePath() async {
+    ///获取外部存储的目录
+    final filepath = await getExternalStorageDirectory();
+    state.destPath = "${filepath!.path}/video_downloads";
+    var file = Directory(state.destPath);
+    try {
+      bool exists = await file.exists();
+      if (!exists) {
+        await file.create();
+      } else if (Constant.isDebug) {
+        print("当前下载目录为${file.path}");
+      }
+    } catch (e) {
+      print(e);
     }
   }
 
@@ -85,28 +103,11 @@ class BilibiliTestLogic extends GetxController {
     FlutterDownloader.registerCallback(downloadCallback);
   }
 
-  iniDownloadFilePath() async {
-    final filepath = await getExternalStorageDirectory();
-    state.destPath = "${filepath!.path}/video_downloads";
-    var file = Directory(state.destPath);
-    try {
-      bool exists = await file.exists();
-      if (!exists) {
-        await file.create();
-      } else if (Constant.isDebug) {
-        print("当前下载目录为${file.path}");
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
-
   @pragma('vm:entry-point')
-  static void downloadCallback(
-      String id, DownloadTaskStatus status, int progress) {
+  static void downloadCallback(taskId, status, progress) {
     final SendPort? send =
         IsolateNameServer.lookupPortByName('downloader_send_port');
-    send?.send([id, status, progress]);
+    send?.send([taskId, status, progress]);
   }
 
   Future<void> openFile() async {

@@ -103,7 +103,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                 fit: BoxFit.cover,
               ),
             ),
-            collapsedHeight: 205.w,
+            collapsedHeight: 180.w,
             flexibleSpace: FlexibleSpaceBar(
               background: buildVideoPlayVideoPlayer(),
             ),

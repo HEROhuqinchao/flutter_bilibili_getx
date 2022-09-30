@@ -40,4 +40,7 @@ class Constant {
 
   ///极光推送AppKey
   static const String jPushAppKey = "70eddda66db85cc65c0ba7f2";
+
+  ///下载地址（存储视频）
+  static const String downloadPath = "";
 }

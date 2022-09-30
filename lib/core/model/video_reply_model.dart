@@ -40,7 +40,7 @@ class HYVideoReplyModel {
   List<HYVideoReplyModelReply> replies;
   Top top;
   List<UpperElement>? topReplies;
-  Folder folder;
+  Folder? folder;
   UpSelection upSelection;
   Cm cm;
   CmInfo cmInfo;
@@ -66,7 +66,7 @@ class HYVideoReplyModel {
             ? null
             : List<UpperElement>.from(
                 json["top_replies"].map((x) => UpperElement.fromJson(x))),
-        folder: Folder.fromJson(json["folder"]),
+        folder: json["folder"] == null ? null : Folder.fromJson(json["folder"]),
         upSelection: UpSelection.fromJson(json["up_selection"]),
         cm: Cm.fromJson(json["cm"]),
         cmInfo: CmInfo.fromJson(json["cm_info"]),
@@ -87,8 +87,8 @@ class HYVideoReplyModel {
         "notice": notice,
         "replies": List<dynamic>.from(replies.map((x) => x.toJson())),
         "top": top.toJson(),
-    // "top_replies": List<dynamic>.from(topReplies.map((x) => x.toJson())),
-        "folder": folder.toJson(),
+        // "top_replies": List<dynamic>.from(topReplies.map((x) => x.toJson())),
+        "folder": folder!.toJson(),
         "up_selection": upSelection.toJson(),
         "cm": cm.toJson(),
         "cm_info": cmInfo.toJson(),
@@ -240,7 +240,7 @@ class Cursor {
   String name;
 
   factory Cursor.fromJson(Map<String, dynamic> json) => Cursor(
-    allCount: json["all_count"] ?? 0,
+        allCount: json["all_count"] ?? 0,
         isBegin: json["is_begin"],
         prev: json["prev"],
         next: json["next"],
@@ -613,7 +613,9 @@ class ReplyMember {
         fansDetail: json["fans_detail"],
         following: json["following"],
         isFollowed: json["is_followed"],
-        userSailing: json["user_sailing"] == null ? null : UserSailing.fromJson(json["user_sailing"]),
+        userSailing: json["user_sailing"] == null
+            ? null
+            : UserSailing.fromJson(json["user_sailing"]),
         isContractor: json["is_contractor"],
         contractDesc: json["contract_desc"],
         nftInteraction: json["nft_interaction"],
@@ -1026,8 +1028,7 @@ class Label {
         imgLabelUriHantStatic: json["img_label_uri_hant_static"],
       );
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "path": path,
         "text": textValues.reverse[labelText],
         "label_theme": labelThemeValues.reverse[labelTheme],
@@ -1504,7 +1505,7 @@ class UpperElement {
         "action": action,
         "member": member.toJson(),
         "content": content.toJson(),
-    // "replies": List<dynamic>.from(replies.map((x) => x.toJson())),
+        // "replies": List<dynamic>.from(replies.map((x) => x.toJson())),
         "assist": assist,
         "folder": folder.toJson(),
         "up_action": upAction.toJson(),
