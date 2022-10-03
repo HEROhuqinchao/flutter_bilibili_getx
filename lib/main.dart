@@ -1,26 +1,16 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
-import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
-import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
-import 'package:bilibili_getx/ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
-import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_view.dart';
-import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
-
-// import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import 'package:provider/provider.dart';
-
 import 'core/I18n/string_res.dart';
-import 'core/notifier/player_notifier.dart';
 import 'core/shared_preferences/bilibili_shared_preference.dart';
 import 'core/shared_preferences/shared_preference_util.dart';
 import 'dart:ui' as ui;
@@ -117,8 +107,8 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: PrePublishVideoScreen.routeName,
           // initialRoute: SearchLocationScreen.routeName,
-          // initialRoute: MainScreen.routeName,
-          initialRoute: BilibiliTestScreen.routeName,
+          initialRoute: MainScreen.routeName,
+          // initialRoute: BilibiliTestScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

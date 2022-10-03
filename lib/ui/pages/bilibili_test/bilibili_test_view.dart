@@ -24,6 +24,10 @@ class BilibiliTestScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(onPressed: () {
           ///初始化下载列表
           logic.iniDownloadList();
+          ///创建下载目录
+          logic.iniDownloadFilePath();
+          ///初始化下载插件
+          logic.initFlutterDownloader();
 
           ///弹出界面
           showVideoShareAndMoreFunctionBottomDialog(context);

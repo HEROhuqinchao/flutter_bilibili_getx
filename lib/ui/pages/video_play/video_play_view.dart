@@ -76,33 +76,15 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
   Widget buildVideoPlayingView() {
     return NestedScrollView(
       physics: const NeverScrollableScrollPhysics(),
-      headerSliverBuilder:
-          (BuildContext context, bool innerBoxIsScrolled) {
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
           SliverAppBar(
+            leading: null,
+            automaticallyImplyLeading: false,
             elevation: 0.1,
             pinned: true,
             floating: false,
             snap: false,
-            actions: [
-              Container(
-                margin: EdgeInsets.only(right: 15.sp),
-                width: 20.sp,
-                height: 20.sp,
-                child: Image.asset(
-                  ImageAssets.moreAndroidLightPNG,
-                ),
-              )
-            ],
-            title: Opacity(
-              opacity: 1 - state.showOrHideIconAndTitleOpacity,
-              child: Image.asset(
-                ImageAssets.videoHomePNG,
-                width: 20.sp,
-                height: 20.sp,
-                fit: BoxFit.cover,
-              ),
-            ),
             collapsedHeight: 180.w,
             flexibleSpace: FlexibleSpaceBar(
               background: buildVideoPlayVideoPlayer(),
@@ -124,12 +106,12 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
       body: buildVideoPlayTabBarView(),
     );
   }
+
   ///播放后的界面
   Widget buildVideoStopPlayingView() {
     return NestedScrollView(
       controller: state.nestedScrollViewController,
-      headerSliverBuilder:
-          (BuildContext context, bool innerBoxIsScrolled) {
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
           SliverAppBar(
             pinned: true,
@@ -216,10 +198,11 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
       relate = state.videoProfile.relates![1];
     }
     return Container(
-      padding: EdgeInsets.only(top: 55.r, left: 8.r, right: 8.r),
+      padding: EdgeInsets.only(top: 40.r, left: 15.r, right: 8.r),
       color: HYAppTheme.norTextColors.withOpacity(.9),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -229,7 +212,6 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
               fontSize: 14.sp,
             ),
           ),
-          10.verticalSpace,
           Row(
             children: [
               Stack(
@@ -239,14 +221,14 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                     borderRadius: BorderRadius.circular(5.r),
                     child: DefaultFadeImage(
                       imageUrl: relate.pic!,
-                      width: 130.w,
-                      height: 73.w,
+                      width: 120.w,
+                      height: 65.w,
                     ),
                   ),
                   Image.asset(
                     ImageAssets.playVideoCustomPNG,
-                    width: 35.w,
-                    height: 35.w,
+                    width: 30.w,
+                    height: 30.w,
                   ),
                   Positioned(
                     right: 10.r,
@@ -277,7 +259,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                       relate.title!,
                       style: TextStyle(
                         color: HYAppTheme.norWhite01Color,
-                        fontSize: 15.sp,
+                        fontSize: 12.sp,
                       ),
                     ),
                     10.verticalSpace,
@@ -290,13 +272,15 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  width: 16.sp,
-                                  height: 16.sp,
+                                SizedBox(
+                                  width: 14.sp,
+                                  height: 14.sp,
                                   child: Image.asset(ImageAssets.upGrayPNG),
                                 ),
                                 5.horizontalSpace,
                                 Container(
+                                  alignment: Alignment.center,
+                                  height: 16.sp,
                                   child: Text(
                                     relate.owner.name!,
                                     style: TextStyle(
@@ -307,19 +291,19 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                                 )
                               ],
                             ),
-                            10.verticalSpace,
+                            5.verticalSpace,
                             Row(
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
+                                SizedBox(
                                   width: 16.sp,
                                   height: 16.sp,
                                   child: Image.asset(
                                       ImageAssets.iconListPlayerPNG),
                                 ),
                                 5.horizontalSpace,
-                                Container(
+                                SizedBox(
                                   height: 16.sp,
                                   child: Text(
                                     changeToWan(relate.stat["view"]!),
@@ -329,14 +313,14 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                                   ),
                                 ),
                                 10.horizontalSpace,
-                                Container(
+                                SizedBox(
                                   width: 16.sp,
                                   height: 16.sp,
                                   child:
                                       Image.asset(ImageAssets.icDanmuWhitePNG),
                                 ),
                                 5.horizontalSpace,
-                                Container(
+                                SizedBox(
                                   height: 16.sp,
                                   child: Text(
                                     changeToWan(relate.stat["danmaku"]!),
@@ -351,8 +335,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color:
-                                HYAppTheme.norGrayColor.withOpacity(.8),
+                            color: HYAppTheme.norGrayColor.withOpacity(.8),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(3.r)),
                           ),
@@ -373,7 +356,6 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
               )
             ],
           ),
-          15.verticalSpace,
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,

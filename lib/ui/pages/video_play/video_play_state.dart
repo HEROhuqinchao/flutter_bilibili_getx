@@ -1,7 +1,10 @@
+import 'dart:isolate';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/model/android/video_play/download_video_model.dart';
 import '../../../core/model/android/video_play/video_profile_model.dart';
 import '../../../core/model/video_reply_model.dart';
 import '../../widgets/expanded_widget.dart';
@@ -53,6 +56,13 @@ class VideoPlayState {
 
   ///视频正在播放
   late bool videoIsFinished;
+
+  /// 下载文件的存储路径
+  late String destPath;
+  late ReceivePort port;
+
+  ///下载列表
+  late List<DownloadVideoModel> downloadVideoList;
 
   ///初始化
   VideoPlayState() {

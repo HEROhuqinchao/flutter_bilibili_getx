@@ -65,7 +65,7 @@ class BilibiliTestLogic extends GetxController {
     }
   }
 
-  iniDownloadFilePath() async {
+  void iniDownloadFilePath() async {
     ///获取外部存储的目录
     final filepath = await getExternalStorageDirectory();
     state.destPath = "${filepath!.path}/video_downloads";

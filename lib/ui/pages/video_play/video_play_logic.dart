@@ -1,9 +1,15 @@
+import 'dart:io';
+import 'dart:isolate';
+import 'dart:ui';
+
 import 'package:bilibili_getx/core/service/request/video_play_request.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:bilibili_getx/ui/pages/video_play/video_play_state.dart';
+import 'package:path_provider/path_provider.dart';
 import '../../shared/params_sign.dart';
 import 'bilibili_video_player/bilibili_video_player_logic.dart';
 
@@ -103,5 +109,50 @@ class VideoPlayLogic extends GetxController {
   void changeVideoState(bool videoIsFinished) {
     state.videoIsFinished = videoIsFinished;
     update();
+  }
+
+  void iniDownloadFilePath() async {
+    ///获取外部存储的目录
+    final filepath = await getExternalStorageDirectory();
+    state.destPath = "${filepath!.path}/video_downloads";
+    var file = Directory(state.destPath);
+    try {
+      bool exists = await file.exists();
+      if (!exists) {
+        await file.create();
+      } else if (Constant.isDebug) {
+        print("当前下载目录为${file.path}");
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void initFlutterDownloader() {
+    ///UI主线程线程 与 下载线程 之间的数据交流
+    IsolateNameServer.registerPortWithName(
+        state.port.sendPort, 'downloader_send_port');
+    state.port.listen((dynamic data) {
+      String id = data[0];
+      DownloadTaskStatus status = data[1];
+      int progress = data[2];
+      for (var i = 0; i < state.downloadVideoList.length; i++) {
+        if (state.downloadVideoList[i].taskId == id) {
+          state.downloadVideoList[i].status = status;
+          state.downloadVideoList[i].progress = progress.toDouble() / 100;
+          print("当前progress为${state.downloadVideoList[i].progress}");
+          update();
+          break;
+        }
+      }
+    });
+    FlutterDownloader.registerCallback(downloadCallback);
+  }
+
+  @pragma('vm:entry-point')
+  static void downloadCallback(taskId, status, progress) {
+    final SendPort? send =
+    IsolateNameServer.lookupPortByName('downloader_send_port');
+    send?.send([taskId, status, progress]);
   }
 }

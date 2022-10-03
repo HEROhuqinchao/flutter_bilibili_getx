@@ -172,13 +172,13 @@ class MineScreen extends StatelessWidget {
         child: Column(
           children: [
             // buildMineAdvertisingA(accountMineData.data.sectionsV2[0]),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 15).r,
-              child: HYIconButtonRow(
-                items: state.accountMineData.data.sectionsV2[0].items,
-                size: 20.sp,
-              ),
-            ),
+            // Container(
+            //   margin: const EdgeInsets.symmetric(vertical: 15).r,
+            //   child: HYIconButtonRow(
+            //     items: state.accountMineData.data.sectionsV2[0].items,
+            //     size: 20.sp,
+            //   ),
+            // ),
             buildMineTitleAndButton(
                 state.accountMineData.data.sectionsV2[1].title!,
                 const Center()),

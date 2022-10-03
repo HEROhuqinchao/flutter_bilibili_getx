@@ -23,8 +23,8 @@ class _HYIconButtonRowState extends State<HYIconButtonRow> {
     }
     return Wrap(
       runAlignment: WrapAlignment.spaceAround,
-      children: widgets,
       runSpacing: 15.r,
+      children: widgets,
     );
   }
 

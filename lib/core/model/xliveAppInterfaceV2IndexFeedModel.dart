@@ -522,7 +522,7 @@ class SmallCardV1 {
   List<Feedback> feedback;
   int flag;
   int broadcastType;
-  List<int> acceptQuality;
+  List<int>? acceptQuality;
   int currentQn;
   int currentQuality;
   String playUrl;
@@ -568,7 +568,7 @@ class SmallCardV1 {
             json["feedback"].map((x) => Feedback.fromJson(x))),
         flag: json["flag"],
         broadcastType: json["broadcast_type"],
-        acceptQuality: List<int>.from(json["accept_quality"].map((x) => x)),
+        acceptQuality: json["accept_quality"] == null ? null : List<int>.from(json["accept_quality"].map((x) => x)),
         currentQn: json["current_qn"],
         currentQuality: json["current_quality"],
         playUrl: json["play_url"],
@@ -615,7 +615,7 @@ class SmallCardV1 {
         "feedback": List<dynamic>.from(feedback.map((x) => x.toJson())),
         "flag": flag,
         "broadcast_type": broadcastType,
-        "accept_quality": List<dynamic>.from(acceptQuality.map((x) => x)),
+        "accept_quality": List<dynamic>.from(acceptQuality!.map((x) => x)),
         "current_qn": currentQn,
         "current_quality": currentQuality,
         "play_url": playUrl,

@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:isolate';
 import 'package:flutter/cupertino.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
+import '../../../../core/model/android/video_play/download_video_model.dart';
 
 class BilibiliVideoPlayerState {
   ///视频的cid
@@ -19,6 +21,9 @@ class BilibiliVideoPlayerState {
 
   ///视频控制器
   late VideoPlayerController videoPlayerController;
+
+  ///是否显示顶部工具栏
+  late bool showTopBar;
 
   ///是否显示底部的工具栏
   late bool showBottomBar;
@@ -72,12 +77,25 @@ class BilibiliVideoPlayerState {
   late bool haveDanMuFunction;
   late bool haveFinishView;
 
+  /// 下载文件的存储路径
+  late String destPath;
+  late ReceivePort port;
+  ///下载列表
+  late List<DownloadVideoModel> downloadVideoList;
+
   BilibiliVideoPlayerState() {
+    showBottomBar = true;
+    showTopBar = true;
     isLoadingVideo = true;
     danMuRouteAmount = 6;
     showDanMu = true;
     haveFullScreenFunction = true;
     haveDanMuFunction = true;
     haveFinishView = true;
+
+    ///缓存视频
+    destPath = "";
+    port = ReceivePort();
+    downloadVideoList = [];
   }
 }
