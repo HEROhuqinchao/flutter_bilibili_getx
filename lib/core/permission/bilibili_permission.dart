@@ -26,7 +26,7 @@ class BilibiliPermission {
   }
 
   ///权限获取
-  static void requestDownloadPermissions() async {
+  static Future requestDownloadPermissions() async {
     Map<Permission, PermissionStatus> statuses = await [
       Permission.storage,
     ].request();

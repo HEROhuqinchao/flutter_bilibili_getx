@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../../core/permission/bilibili_permission.dart';
@@ -766,7 +768,7 @@ class _BilibiliVideoPlayerComponentState
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (ctx, index) {
                   return GestureDetector(
-                    onTap: () {
+                    onTap: () async {
                       if (state.downloadVideoList[index].status ==
                           DownloadTaskStatus.running) {
                         logic.pauseDownloadFile(index);
@@ -781,6 +783,14 @@ class _BilibiliVideoPlayerComponentState
                         logic.resumeDownloadFile(index);
                       } else if (state.downloadVideoList[index].status ==
                           DownloadTaskStatus.complete) {
+                        final String filePath = state.downloadVideoList[index].storagePath!;
+                        final Uri uri = Uri.file(filePath);
+                        if (!File(uri.toFilePath()).existsSync()) {
+                          throw '$uri does not exist!';
+                        }
+                        if (!await launchUrl(uri)) {
+                          throw 'Could not launch $uri';
+                        }
                         SmartDialog.showToast("已下载");
                       }
                     },
@@ -820,7 +830,7 @@ class _BilibiliVideoPlayerComponentState
                           )),
                           10.horizontalSpace,
                           Text(
-                              "${(state.downloadVideoList[index].progress * 100).toInt()}%"),
+                              "${(state.downloadVideoList[index].progress).toInt()}%"),
                           30.horizontalSpace,
                           SizedBox(
                             width: 20.sp,

@@ -12,6 +12,8 @@ class DownloadVideoModel {
 
   double progress;
 
+  String? storagePath;
+
   DownloadVideoModel({
     required this.downloadPath,
     required this.status,
