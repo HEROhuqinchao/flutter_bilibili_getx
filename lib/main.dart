@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'core/I18n/string_res.dart';
+import 'core/jPush_util/jPush_util.dart';
 import 'core/shared_preferences/bilibili_shared_preference.dart';
 import 'core/shared_preferences/shared_preference_util.dart';
 import 'dart:ui' as ui;
@@ -41,6 +42,8 @@ void main() async {
 Future<void> initialization() async {
   if (!kIsWeb) {
     if (Platform.isAndroid) {
+      ///极光推送
+      JPushUtil.startJPush();
       ///flutter_downloader
       WidgetsFlutterBinding.ensureInitialized();
       await FlutterDownloader.initialize(

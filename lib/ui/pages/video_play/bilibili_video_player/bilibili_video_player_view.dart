@@ -9,6 +9,7 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:open_file_plus/open_file_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
@@ -784,13 +785,7 @@ class _BilibiliVideoPlayerComponentState
                       } else if (state.downloadVideoList[index].status ==
                           DownloadTaskStatus.complete) {
                         final String filePath = state.downloadVideoList[index].storagePath!;
-                        final Uri uri = Uri.file(filePath);
-                        if (!File(uri.toFilePath()).existsSync()) {
-                          throw '$uri does not exist!';
-                        }
-                        if (!await launchUrl(uri)) {
-                          throw 'Could not launch $uri';
-                        }
+                        final result = await OpenFile.open(filePath);
                         SmartDialog.showToast("已下载");
                       }
                     },
