@@ -14,6 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:open_file_plus/open_file_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:video_player/video_player.dart';
 
@@ -32,13 +33,16 @@ class BilibiliVideoPlayerLogic extends GetxController {
   final BilibiliVideoPlayerState state = BilibiliVideoPlayerState();
 
   @override
-  void onReady() {
+  void onReady() async {
     ///获取音量和亮度
     fetchVolumeBrightness();
-    ///初始化下载列表
-    iniDownloadList();
+
     ///创建下载目录
-    iniDownloadFilePath();
+    await iniDownloadFilePath();
+
+    ///初始化下载列表
+    await iniDownloadList();
+
     ///初始化下载插件
     initFlutterDownloader();
     super.onReady();
@@ -579,38 +583,26 @@ class BilibiliVideoPlayerLogic extends GetxController {
     update();
   }
 
-  void iniDownloadList() async {
-    state.downloadVideoList = [
-      DownloadVideoModel(
-        downloadPath: "https://media.w3.org/2010/05/sintel/trailer.mp4",
-        fileName: "video01",
-        status: DownloadTaskStatus.undefined,
-        progress: 0,
-        taskId: '',
-      ),
-      DownloadVideoModel(
-        downloadPath: "http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
-        fileName: "video02",
-        status: DownloadTaskStatus.undefined,
-        progress: 0,
-        taskId: '',
-      ),
-    ];
-    update();
+  Future iniDownloadList() async {
     for (int i = 0; i < state.downloadVideoList.length; i++) {
       File file =
-      File("${state.destPath}/${state.downloadVideoList[i].fileName}");
+          File("${state.destPath}/${state.downloadVideoList[i].fileName}");
+      state.downloadVideoList[i].storagePath =
+          "${state.destPath}/${state.downloadVideoList[i].fileName}";
       print("${state.destPath}/${state.downloadVideoList[i].fileName}");
       var fileIsExist = await file.exists();
+      print(file.path);
+      print(fileIsExist);
+      final result = await OpenFile.open(file.path);
       if (fileIsExist) {
-        state.downloadVideoList[i].progress = 1;
+        state.downloadVideoList[i].progress = 100;
         state.downloadVideoList[i].status = DownloadTaskStatus.complete;
         update();
       }
     }
   }
 
-  void iniDownloadFilePath() async {
+  Future iniDownloadFilePath() async {
     ///获取外部存储的目录
     final filepath = await getExternalStorageDirectory();
     state.destPath = "${filepath!.path}/video_downloads";
@@ -651,7 +643,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
   @pragma('vm:entry-point')
   static void downloadCallback(taskId, status, progress) {
     final SendPort? send =
-    IsolateNameServer.lookupPortByName('downloader_send_port');
+        IsolateNameServer.lookupPortByName('downloader_send_port');
     send?.send([taskId, status, progress]);
   }
 

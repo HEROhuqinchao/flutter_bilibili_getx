@@ -6,7 +6,7 @@ import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:get/get.dart';
-import 'package:open_file/open_file.dart';
+// import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import '../../../core/model/android/video_play/download_video_model.dart';
 import 'bilibili_test_state.dart';
@@ -111,7 +111,7 @@ class BilibiliTestLogic extends GetxController {
   }
 
   Future<void> openFile() async {
-    final result = await OpenFile.open(state.destPath);
+    // final result = await OpenFile.open(state.destPath);
   }
 
   void downloadFile(i) async {

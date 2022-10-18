@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:isolate';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
@@ -96,6 +97,21 @@ class BilibiliVideoPlayerState {
     ///缓存视频
     destPath = "";
     port = ReceivePort();
-    downloadVideoList = [];
+    downloadVideoList = [
+      DownloadVideoModel(
+        downloadPath: "https://media.w3.org/2010/05/sintel/trailer.mp4",
+        fileName: "video01",
+        status: DownloadTaskStatus.undefined,
+        progress: 0,
+        taskId: '',
+      ),
+      DownloadVideoModel(
+        downloadPath: "http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+        fileName: "video02",
+        status: DownloadTaskStatus.undefined,
+        progress: 0,
+        taskId: '',
+      ),
+    ];
   }
 }

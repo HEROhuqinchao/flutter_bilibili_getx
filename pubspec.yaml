@@ -64,9 +64,11 @@ dependencies:
   flutter_baidu_mapapi_utils: ^3.2.0 #百度地图
   flutter_baidu_mapapi_base: ^3.2.0 #百度地图
   jpush_flutter: ^2.3.8 #极光推送
-  open_file: ^3.2.1 #打开文件
+#  open_file: ^3.2.1 #打开文件
   flutter_downloader: ^1.8.4 #下载文件(dio的download没有暂停功能...)
 #  just_audio: ^0.9.29 #音频
+  url_launcher: ^6.1.6
+  open_file_plus: ^3.3.0
 
 dev_dependencies:
   flutter_test:
