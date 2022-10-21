@@ -67,8 +67,9 @@ dependencies:
 #  open_file: ^3.2.1 #打开文件
   flutter_downloader: ^1.8.4 #下载文件(dio的download没有暂停功能...)
 #  just_audio: ^0.9.29 #音频
-  url_launcher: ^6.1.6
-  open_file_plus: ^3.3.0
+  url_launcher: ^6.1.6 #打开链接
+  open_file_plus: ^3.3.0 #打开文件
+  fl_chart: ^0.55.2 #图表
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
+import 'package:bilibili_getx/ui/pages/chart/chart_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
@@ -110,7 +111,8 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: PrePublishVideoScreen.routeName,
           // initialRoute: SearchLocationScreen.routeName,
-          initialRoute: MainScreen.routeName,
+          // initialRoute: MainScreen.routeName,
+          initialRoute: ChartView.routeName,
           // initialRoute: BilibiliTestScreen.routeName,
 
           ///路由和绑定

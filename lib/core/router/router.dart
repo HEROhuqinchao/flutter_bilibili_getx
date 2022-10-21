@@ -16,6 +16,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../../ui/pages/bilibili_test/bilibili_test_binding.dart';
 import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
+import '../../ui/pages/chart/chart_binding.dart';
+import '../../ui/pages/chart/chart_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/main/home/comic/comic_binding.dart';
 import '../../ui/pages/main/home/live/live_binding.dart';
@@ -149,5 +151,11 @@ class AsRouter {
         name: BilibiliTestScreen.routeName,
         page: () => BilibiliTestScreen(),
         binding: BilibiliTestBinding()),
+
+    ///图表
+    GetPage(
+        name: ChartView.routeName,
+        page: () => ChartView(),
+        binding: ChartBinding()),
   ];
 }
