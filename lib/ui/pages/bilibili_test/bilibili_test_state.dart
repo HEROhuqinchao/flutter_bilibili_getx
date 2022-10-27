@@ -1,20 +1,11 @@
-import 'dart:isolate';
-
-import 'package:dio/dio.dart';
-
-import '../../../core/model/android/video_play/download_video_model.dart';
-
 class BilibiliTestState {
-  /// 下载文件的存储路径
-  late String destPath;
-  late ReceivePort port;
-
-  ///下载列表
-  late List<DownloadVideoModel> downloadVideoList;
+  late List<bool> option;
+  late bool snapToEnd;
+  late bool isFav;
 
   BilibiliTestState() {
-    destPath = "";
-    port = ReceivePort();
-    downloadVideoList = [];
+    option = [false, true, false, true, true];
+    snapToEnd = true;
+    isFav = true;
   }
 }

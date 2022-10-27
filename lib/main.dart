@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
+import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/chart/chart_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -101,7 +103,6 @@ class MyApp extends StatelessWidget {
           theme: HYAppTheme.norTheme,
 
           ///I18n国际化
-          ///
           translations: StringRes(),
           locale: locale == "en"
               ? const Locale('en', 'US')
@@ -111,9 +112,9 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: PrePublishVideoScreen.routeName,
           // initialRoute: SearchLocationScreen.routeName,
-          // initialRoute: MainScreen.routeName,
-          initialRoute: ChartView.routeName,
-          // initialRoute: BilibiliTestScreen.routeName,
+          // initialRoute: PushMessageScreen.routeName,
+          // initialRoute: ChartView.routeName,
+          initialRoute: BilibiliTestScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

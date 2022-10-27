@@ -70,6 +70,9 @@ dependencies:
   url_launcher: ^6.1.6 #打开链接
   open_file_plus: ^3.3.0 #打开文件
   fl_chart: ^0.55.2 #图表
+  flare_flutter: ^3.0.2 #精致的flare动画
+  lottie: ^1.4.3 #精致的lottie动画
+  rive: ^0.9.1 #精致的rive动画
 
 dev_dependencies:
   flutter_test:
@@ -103,6 +106,7 @@ flutter:
     - assets/json/
     - assets/rsa_key/
     - assets/html/
+    - assets/flare/
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

@@ -2,6 +2,12 @@
 
 采用getx框架重新构造项目
 
+**10月27日**
+flare动画
+一些好看的rive动画
+switch https://rive.app/community/2726-5857-switch-demo/
+爱心按钮、通知按钮 https://rive.app/community/3189-6916-animated-icon-pack/
+进度条 https://rive.app/community/3264-6879-tree-loading-bar/
 
 
 **9月22日**
