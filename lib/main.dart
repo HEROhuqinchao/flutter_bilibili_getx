@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
+import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/chart/chart_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
@@ -47,6 +48,7 @@ Future<void> initialization() async {
     if (Platform.isAndroid) {
       ///极光推送
       JPushUtil.startJPush();
+
       ///flutter_downloader
       WidgetsFlutterBinding.ensureInitialized();
       await FlutterDownloader.initialize(
@@ -67,6 +69,11 @@ Future<void> initialization() async {
           statusBarColor: Colors.transparent,
         ),
       );
+
+      ///注册微信
+      WxUtil.wxRegisterWxApi();
+      ///监听微信回调结果
+      WxUtil.wxDebugResult();
     } else if (Platform.isWindows) {
     } else if (Platform.isIOS) {}
   } else {}

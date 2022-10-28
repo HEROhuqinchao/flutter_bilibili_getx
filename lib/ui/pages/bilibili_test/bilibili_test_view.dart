@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:flare_flutter/flare.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_cache_builder.dart';
@@ -21,6 +22,11 @@ class BilibiliTestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<BilibiliTestLogic>(builder: (logic) {
       return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+
+          },
+        ),
         backgroundColor: Colors.blueGrey,
         body: Center(
           child: MyHomePage(title: '',),

@@ -9,6 +9,8 @@ switch https://rive.app/community/2726-5857-switch-demo/
 爱心按钮、通知按钮 https://rive.app/community/3189-6916-animated-icon-pack/
 进度条 https://rive.app/community/3264-6879-tree-loading-bar/
 
+点击视频左上角的三点更多按钮，有视频下载功能
+
 
 **9月22日**
 

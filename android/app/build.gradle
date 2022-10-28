@@ -53,6 +53,7 @@ android {
                 JPUSH_APPKEY : "7d6d63fa06959ac31ff30914",
                 //暂时填写默认值即可.
                 JPUSH_CHANNEL: "developer-default",
+                TENCENT_APP_ID: "102026031"//腾讯QQ AppId
         ]
     }
 

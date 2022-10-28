@@ -43,4 +43,7 @@ class Constant {
 
   ///下载地址（存储视频）
   static const String downloadPath = "";
+
+  ///QQ appId (实现QQ授权登录、分享说说、分享文本、分享图片、分享网页）
+  static const String tencentAppId = "102026031";
 }
