@@ -352,10 +352,10 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fluwx:
+  fluwx_no_pay:
     dependency: "direct main"
     description:
-      name: fluwx
+      name: fluwx_no_pay
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.11.0"

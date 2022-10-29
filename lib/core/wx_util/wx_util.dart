@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:fluwx/fluwx.dart';
+import 'package:fluwx_no_pay/fluwx_no_pay.dart';
 
 class WxUtil {
   ///注册微信API

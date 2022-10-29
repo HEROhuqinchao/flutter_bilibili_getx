@@ -73,7 +73,8 @@ dependencies:
   flare_flutter: ^3.0.2 #精致的flare动画
   lottie: ^1.4.3 #精致的lottie动画
   rive: ^0.9.1 #精致的rive动画
-  fluwx: ^3.11.0 #微信第三方接入
+#  fluwx: ^3.11.0 #微信第三方接入
+  fluwx_no_pay: ^3.11.0 #微信第三方接入
   tencent_kit: ^4.0.0 #QQ第三方接入
   json_annotation: ^4.5.0 #json默认值
   json_serializable: ^6.5.4 #json序列化？
