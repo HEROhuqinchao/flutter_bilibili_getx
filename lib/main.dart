@@ -6,6 +6,7 @@ import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/chart/chart_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
+import 'package:bilibili_getx/ui/pages/qq_test/qq_test_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -121,7 +122,8 @@ class MyApp extends StatelessWidget {
           // initialRoute: SearchLocationScreen.routeName,
           // initialRoute: PushMessageScreen.routeName,
           // initialRoute: ChartView.routeName,
-          initialRoute: BilibiliTestScreen.routeName,
+          // initialRoute: BilibiliTestScreen.routeName,
+          initialRoute: QqTestView.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

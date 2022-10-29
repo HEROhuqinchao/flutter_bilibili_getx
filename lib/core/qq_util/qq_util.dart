@@ -19,9 +19,8 @@ class QQUtil {
   }
 
   ///检测是否安装QQ
-  static Future<String> checkQQInstalled() async {
-    final String content = '${await Tencent.instance.isQQInstalled()}';
-    return content;
+  static Future<bool> checkQQInstalled() async {
+    return await Tencent.instance.isQQInstalled();
   }
 
   ///QQ授权登录

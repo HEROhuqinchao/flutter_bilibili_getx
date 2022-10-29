@@ -11,6 +11,7 @@ import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_view.dart';
 import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
+import 'package:bilibili_getx/ui/pages/qq_test/qq_test_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -36,6 +37,7 @@ import '../../ui/pages/publish/upload/pre_edit_video/pre_edit_video_view.dart';
 import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_binding.dart';
 import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
 import '../../ui/pages/push_message/push_message_binding.dart';
+import '../../ui/pages/qq_test/qq_test_binding.dart';
 import '../../ui/pages/video_play/video_play_binding.dart';
 
 class AsRouter {
@@ -157,5 +159,11 @@ class AsRouter {
         name: ChartView.routeName,
         page: () => ChartView(),
         binding: ChartBinding()),
+
+    ///图表
+    GetPage(
+        name: QqTestView.routeName,
+        page: () => QqTestView(),
+        binding: QqTestBinding()),
   ];
 }
