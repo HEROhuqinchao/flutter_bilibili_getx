@@ -1,5 +1,5 @@
 name: bilibili_getx
-description: 采用getx框架重新构造项目
+description: 仿bilibili，采用GetX搭建
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -112,6 +112,8 @@ flutter:
     - assets/rsa_key/
     - assets/html/
     - assets/flare/
+    - assets/rive/
+    - assets/lottie/
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

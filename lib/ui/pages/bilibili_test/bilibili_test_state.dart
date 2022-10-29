@@ -1,16 +1,14 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:tencent_kit/tencent_kit.dart';
+import 'package:flutter/services.dart';
+import 'package:rive/rive.dart';
 
 class BilibiliTestState {
-  late List<bool> option;
-  late bool snapToEnd;
-  late bool isFav;
+  Artboard? seaStarSwitchArtBoard;
+  Artboard? liquidDownloadArtBoard;
+  late StateMachineController? controller;
+  late SMIInput<bool>? isPressed;
+  late SMIInput<bool>? startDownload;
+  late SMIInput<double>? downloadProgress;
 
   BilibiliTestState() {
-    option = [false, true, false, true, true];
-    snapToEnd = true;
-    isFav = true;
   }
 }

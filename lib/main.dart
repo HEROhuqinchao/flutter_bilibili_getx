@@ -122,8 +122,8 @@ class MyApp extends StatelessWidget {
           // initialRoute: SearchLocationScreen.routeName,
           // initialRoute: PushMessageScreen.routeName,
           // initialRoute: ChartView.routeName,
-          // initialRoute: BilibiliTestScreen.routeName,
-          initialRoute: QqTestView.routeName,
+          initialRoute: BilibiliTestScreen.routeName,
+          // initialRoute: QqTestView.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,
