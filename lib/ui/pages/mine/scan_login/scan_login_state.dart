@@ -1,5 +1,6 @@
 class ScanLoginState {
+  late String result;
   ScanLoginState() {
-    ///Initialize variables
+    result = "等待...";
   }
 }

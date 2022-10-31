@@ -272,6 +272,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.2.0"
+  flutter_blue:
+    dependency: "direct main"
+    description:
+      name: flutter_blue
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.8.0"
   flutter_bmflocation:
     dependency: "direct main"
     description:
@@ -625,6 +632,27 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.1"
+  qr:
+    dependency: transitive
+    description:
+      name: qr
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.0"
+  qr_flutter:
+    dependency: "direct main"
+    description:
+      name: qr_flutter
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.0"
+  qrscan:
+    dependency: "direct main"
+    description:
+      name: qrscan
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.3.3"
   rive:
     dependency: "direct main"
     description:
@@ -638,7 +666,7 @@ packages:
       name: rxdart
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.27.5"
+    version: "0.26.0"
   shared_preferences:
     dependency: "direct main"
     description:
