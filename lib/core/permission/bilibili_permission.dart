@@ -31,4 +31,14 @@ class BilibiliPermission {
       Permission.storage,
     ].request();
   }
+
+  ///蓝牙
+  static Future requestBlueToothPermissions() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.bluetooth,
+      Permission.bluetoothScan,
+      Permission.bluetoothConnect,
+      Permission.bluetoothAdvertise,
+    ].request();
+  }
 }

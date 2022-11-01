@@ -1,6 +1,5 @@
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
-import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -11,13 +10,14 @@ import '../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../core/shared_preferences/shared_preference_util.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/image_asset.dart';
+import '../functions/blue_tooth_connection/blue_tooth_connection_view.dart';
+import '../functions/qq_share/qq_share_view.dart';
+import '../functions/statistics_chart/statistics_chart_view.dart';
 import '../publish/publish_view.dart';
-import '../publish/upload/upload_logic.dart';
-import '../video_play/bilibili_video_player/bilibili_video_player_logic.dart';
 import 'main_logic.dart';
 
 class MainScreen extends StatelessWidget {
-  static const String routeName = "/";
+  static const String routeName = "/main";
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,9 @@ class MainScreen extends StatelessWidget {
               backgroundColor: HYAppTheme.norMainThemeColors,
               children: [
                 SpeedDialChild(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(StatisticsChartView.routeName);
+                  },
                   backgroundColor: HYAppTheme.norWhite01Color,
                   label: '统计',
                   child: ImageIcon(
@@ -92,6 +94,28 @@ class MainScreen extends StatelessWidget {
                   label: '推送',
                   child: Icon(
                     Icons.announcement_sharp,
+                    size: 10.h,
+                  ),
+                ),
+                SpeedDialChild(
+                  backgroundColor: HYAppTheme.norWhite01Color,
+                  onTap: () {
+                    Get.toNamed(QqShareView.routeName);
+                  },
+                  label: 'QQ分享',
+                  child: Icon(
+                    Icons.share,
+                    size: 10.h,
+                  ),
+                ),
+                SpeedDialChild(
+                  backgroundColor: HYAppTheme.norWhite01Color,
+                  onTap: () {
+                    Get.toNamed(BlueToothConnectionView.routeName);
+                  },
+                  label: '蓝牙',
+                  child: Icon(
+                    Icons.bluetooth,
                     size: 10.h,
                   ),
                 ),

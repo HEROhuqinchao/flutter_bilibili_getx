@@ -4,17 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'chart_logic.dart';
+import 'statistics_chart_logic.dart';
 
-class ChartView extends StatelessWidget {
+class StatisticsChartView extends StatelessWidget {
   static String routeName = "/chart";
   final Color barBackgroundColor = const Color(0xff72d8bf);
-  final logic = Get.find<ChartLogic>();
-  final state = Get.find<ChartLogic>().state;
+  final logic = Get.find<StatisticsChartLogic>();
+  final state = Get.find<StatisticsChartLogic>().state;
   int touchedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
+    final logic = Get.find<StatisticsChartLogic>();
+    final state = Get.find<StatisticsChartLogic>().state;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("图表"),

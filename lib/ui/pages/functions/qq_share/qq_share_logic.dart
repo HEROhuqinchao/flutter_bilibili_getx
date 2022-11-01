@@ -1,11 +1,11 @@
-import 'package:bilibili_getx/core/qq_util/qq_util.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
-import 'qq_test_state.dart';
+import '../../../../core/qq_util/qq_util.dart';
+import 'qq_share_state.dart';
 
-class QqTestLogic extends GetxController {
-  final QqTestState state = QqTestState();
+class QqShareLogic extends GetxController {
+  final QqShareState state = QqShareState();
 
   @override
   void onReady() {

@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
+import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
+import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/foundation.dart';
@@ -44,7 +46,7 @@ Future<void> initialization() async {
   if (!kIsWeb) {
     if (Platform.isAndroid) {
       ///极光推送
-      JPushUtil.startJPush();
+      // JPushUtil.startJPush();
 
       ///flutter_downloader
       WidgetsFlutterBinding.ensureInitialized();
@@ -114,14 +116,8 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          // initialRoute: PrePublishVideoScreen.routeName,
-          // initialRoute: SearchLocationScreen.routeName,
-          // initialRoute: PushMessageScreen.routeName,
-          // initialRoute: ChartView.routeName,
           // initialRoute: MainScreen.routeName,
-          // initialRoute: BilibiliTestScreen.routeName,
-          // initialRoute: QqTestView.routeName,
-          initialRoute: ScanLoginScreen.routeName,
+          initialRoute: BlueToothConnectionView.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

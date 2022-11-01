@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-import 'chart_state.dart';
+import 'statistics_chart_state.dart';
 
-class ChartLogic extends GetxController {
-  final ChartState state = ChartState();
+class StatisticsChartLogic extends GetxController {
+  final StatisticsChartState state = StatisticsChartState();
 
   @override
   void onReady() {

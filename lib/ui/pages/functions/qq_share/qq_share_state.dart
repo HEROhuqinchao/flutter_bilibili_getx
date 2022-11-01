@@ -2,12 +2,11 @@ import 'dart:async';
 
 import 'package:tencent_kit/tencent_kit.dart';
 
-class QqTestState {
+class QqShareState {
   ///获取openId和accessToken
   late LoginResp loginResp;
   late final StreamSubscription<BaseResp> streamSubscription;
-
-  QqTestState() {
+  QqShareState() {
     streamSubscription = Tencent.instance.respStream().listen((event) {
       if (event is LoginResp) {
         loginResp = event;

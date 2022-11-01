@@ -1,4 +1,5 @@
-// 接入微信，准备实现分享到微信的功能，支付的功能，微信授权登录功能
+// 接入微信，准备实现分享到微信的功能，支付的功能，微信授权登录功能（微信开放平台申请移动应用申请不下来）
+// https://zhuanlan.zhihu.com/p/454111586
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -57,5 +58,10 @@ class WxUtil {
   
   static void shareWx() {
     shareToWeChat(WeChatShareTextModel("source text", scene: WeChatScene.SESSION));
+  }
+
+  static void shareImage() async{
+    String imagePath;
+
   }
 }

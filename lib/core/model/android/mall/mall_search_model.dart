@@ -462,7 +462,7 @@ class ListElement {
   String id;
   String? type;
   String tagName;
-  String title;
+  String? title;
   int templateId;
   List<String> imageUrls;
   List<String>? jumpUrls;
@@ -502,7 +502,7 @@ class ListElement {
         id: json["id"],
         type: json["type"],
         tagName: json["tagName"],
-        title: json["title"],
+        title: json["title"] ?? "",
         templateId: json["templateId"],
         imageUrls: List<String>.from(json["imageUrls"].map((x) => x)),
         jumpUrls: json["jumpUrls"] == null ? null : List<String>.from(json["jumpUrls"].map((x) => x)),
