@@ -1,42 +1,41 @@
-import 'dart:async';
-
+import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_state.dart';
+import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_view.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
-
-import '../../../../core/permission/bilibili_permission.dart';
+import '../../../../core/blue_tooth/blue_tooth_util.dart';
 import 'blue_tooth_connection_state.dart';
+import 'blue_tooth_device_operation/blue_tooth_device_operation_logic.dart';
 
 class BlueToothConnectionLogic extends GetxController {
   final BlueToothConnectionState state = BlueToothConnectionState();
 
   @override
   void onReady() {
-    state.bluetoothStateStream.listen((event) {
-      state.bluetoothState = event;
-      update();
-    });
     super.onReady();
   }
 
   @override
   void onClose() {
-    state.timerBlueToothDevices.cancel();
     super.onClose();
   }
 
-  ///开始扫描蓝牙
-  Future<void> startScanBlueTooth() async {
-    BilibiliPermission.requestBlueToothPermissions();
-    state.scanResultStream.listen((event) {
-      state.scanResults = event;
-      update();
-    });
-    FlutterBlue.instance.startScan(timeout: Duration(seconds: 3));
-    state.timerBlueToothDevices = Timer.periodic(Duration(seconds: 2), (timer) {
-      FlutterBlue.instance.connectedDevices.then((value) {
-        state.blueToothDevices = value;
-        update();
-      });
-    });
+  Future startScanBlueTooth() {
+    return BlueToothUtil.startScan();
+  }
+
+  Future stopScanBlueTooth() {
+    return BlueToothUtil.stopScan();
+  }
+
+  void connectBlueToothDevice(ScanResult e) {
+    e.device.connect(timeout: Duration(seconds: 10));
+    startScanBlueTooth();
+  }
+
+  void goToBlueToothDeviceOperation(BluetoothDevice bluetoothDevice) {
+    BlueToothDeviceOperationState deviceOperationState =
+        Get.find<BlueToothDeviceOperationLogic>().state;
+    deviceOperationState.bluetoothDevice = bluetoothDevice;
+    Get.toNamed(BlueToothDeviceOperationView.routeName);
   }
 }

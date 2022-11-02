@@ -3,6 +3,7 @@ import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dar
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_binding.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_logic.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_binding.dart';
@@ -22,6 +23,7 @@ import '../../ui/pages/bilibili_test/bilibili_test_binding.dart';
 import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/functions/animation_compoent/animation_compoent_binding.dart';
+import '../../ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_binding.dart';
 import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
 import '../../ui/pages/functions/qq_share/qq_share_view.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_binding.dart';
@@ -182,5 +184,11 @@ class AsRouter {
         name: StatisticsChartView.routeName,
         page: () => StatisticsChartView(),
         binding: StatisticsChartBinding()),
+
+    ///蓝牙设备操作
+    GetPage(
+        name: BlueToothDeviceOperationView.routeName,
+        page: () => BlueToothDeviceOperationView(),
+        binding: BlueToothDeviceOperationBinding()),
   ];
 }
