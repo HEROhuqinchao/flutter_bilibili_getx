@@ -12,7 +12,7 @@
 |           切换语言            |                          GETX-I18N                          |                           |
 |             视频              |                 MP4格式、流媒体FLV（直播）                  |                           |
 |             音频              |                            欠缺                             |       后台播放音频        |
-|             通知              |                          极光推送                           |                           |
+|             下载              |                       存储目录的获取                        |                           |
 |             蓝牙              |                            欠缺                             |                           |
 |         动画Animation         |                                                             |                           |
 |          弹框Dialog           |                         SmartDialog                         |                           |
@@ -22,13 +22,13 @@
 |          支付宝支付           |                            欠缺                             |                           |
 |       与Android原生通信       |                        MethodChannel                        |                           |
 |           统计图表            |                         flchart插件                         |                           |
-|           状态管理            |                    GETX、Provider（差）                     |           BLOC            |
+|           状态管理            |                    GETX、Provider（差）                     |      BLOC、GETX原理       |
 |     canvas画布及Paint画板     |                             差                              |                           |
-|                               |                                                             |                           |
-|                               |                                                             |                           |
-|                               |                                                             |                           |
-|                               |                                                             |                           |
-|                               |                                                             |                           |
+|   条形码、二维码生成与扫描    |                                                             |                           |
+|        数据持久化存储         |              sharedPreference、SqliteDatabase               |                           |
+|           网络请求            |                           Dio插件                           |                           |
+|           路由管理            |                   根据状态管理不同而不同                    |                           |
+|             上传              |                            欠缺                             |                           |
 |                               |                                                             |                           |
 |                               |                                                             |                           |
 |                               |                                                             |                           |
