@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
@@ -116,8 +117,8 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          initialRoute: MainScreen.routeName,
-          // initialRoute: BlueToothConnectionView.routeName,
+          // initialRoute: MainScreen.routeName,
+          initialRoute: ScanLoginScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

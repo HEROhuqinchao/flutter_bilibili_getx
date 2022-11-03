@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_state.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_view.dart';
 import 'package:flutter_blue/flutter_blue.dart';
@@ -20,6 +21,7 @@ class BlueToothConnectionLogic extends GetxController {
   }
 
   Future startScanBlueTooth() {
+    BilibiliPermission.requestBlueToothPermissions();
     return BlueToothUtil.startScan();
   }
 

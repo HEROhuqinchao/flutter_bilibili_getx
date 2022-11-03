@@ -97,7 +97,10 @@ class BlueToothConnectionView extends StatelessWidget {
             StreamBuilder<List<ScanResult>>(
               builder: (c, s) {
                 return Column(
-                  children: s.data!.map((e) => buildScanResult(e)).toList(),
+                  children: s.data!
+                      // .where((element) => element.device.name.isNotEmpty)
+                      .map((e) => buildScanResult(e))
+                      .toList(),
                 );
               },
               stream: state.scanResults,

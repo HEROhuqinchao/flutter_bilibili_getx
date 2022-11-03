@@ -3,7 +3,7 @@ import 'package:flutter_blue/flutter_blue.dart';
 class BlueToothUtil {
   ///开始扫描
   static Future startScan() {
-    return FlutterBlue.instance.startScan(timeout: Duration(seconds: 4));
+    return FlutterBlue.instance.startScan(timeout: Duration(seconds: 10), scanMode: ScanMode.lowPower);
   }
 
   ///已经连接的蓝牙设备
