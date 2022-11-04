@@ -26,27 +26,30 @@ class StatisticsChartView extends StatelessWidget {
       appBar: AppBar(
         title: Text("图表"),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: AspectRatio(
-            aspectRatio: 1.70,
-            child: DecoratedBox(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(18),
+      body: Padding(
+        padding: EdgeInsets.all(15.r),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: AspectRatio(
+              aspectRatio: 1.70,
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(18),
+                  ),
+                  color: Color(0xff232d37),
                 ),
-                color: Color(0xff232d37),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  right: 18,
-                  left: 12,
-                  top: 24,
-                  bottom: 12,
-                ),
-                child: LineChart(
-                  tempData(),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    right: 18,
+                    left: 12,
+                    top: 24,
+                    bottom: 12,
+                  ),
+                  child: LineChart(
+                    tempData(),
+                  ),
                 ),
               ),
             ),
@@ -250,5 +253,57 @@ class StatisticsChartView extends StatelessWidget {
       axisSide: meta.axisSide,
       child: text,
     );
+  }
+}
+
+class PaperPainter extends CustomPainter {
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    // coordinate.paint(canvas, size);
+    canvas.drawColor(Color.fromRGBO(0, 37, 64, 1), BlendMode.src);
+    canvas.translate(size.width / 2, size.height / 2);
+    Path path = Path();
+    Paint paint = Paint();
+    paint
+      ..color = Colors.blue
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke
+      ..maskFilter = MaskFilter.blur(BlurStyle.solid, 3);
+    path
+      ..moveTo(-40, -100)
+      ..lineTo(-90, -100)
+      ..lineTo(-100, -90)
+      ..lineTo(-150, -90);
+
+    path
+      ..moveTo(40, -100)
+      ..lineTo(90, -100)
+      ..lineTo(100, -90)
+      ..lineTo(150, -90);
+
+    path
+      ..moveTo(-180, -60)
+      ..lineTo(-180, -40);
+
+    path
+      ..moveTo(-180, 100)
+      ..lineTo(-180, 110)
+      ..lineTo(-170, 110);
+
+    path
+      ..moveTo(180, 100)
+      ..lineTo(180, 110)
+      ..lineTo(170, 110);
+
+    path
+      ..moveTo(180, 0)
+      ..lineTo(180, 20);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
