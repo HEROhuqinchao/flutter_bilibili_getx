@@ -117,8 +117,8 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          // initialRoute: MainScreen.routeName,
-          initialRoute: StatisticsChartView.routeName,
+          initialRoute: MainScreen.routeName,
+          // initialRoute: StatisticsChartView.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

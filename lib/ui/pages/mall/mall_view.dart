@@ -817,7 +817,7 @@ class MallScreen extends StatelessWidget {
                     placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
                     placeholderFit: BoxFit.cover,
                     fit: BoxFit.cover,
-                    image: NetworkImage(getImageHttpUrl(item.imageUrls[0])),
+                    image: NetworkImage(getImageHttpUrl(item.imageUrls![0])),
                   ),
                 ),
                 Padding(

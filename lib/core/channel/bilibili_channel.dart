@@ -2,4 +2,5 @@
 class BilibiliChannel {
   static String uploadChannel = "upload_channel";
   static String stayAliveChannel = "stay_alive_channel";
+  static String startServiceChannel = "start_service_channel";
 }

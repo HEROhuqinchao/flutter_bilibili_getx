@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
 
 class JPushUtil {
@@ -13,6 +14,13 @@ class JPushUtil {
       production: true,
       debug: Constant.isDebug,
     );
+    jPush.isNotificationEnabled().then((value) {
+      if(value) {
+        SmartDialog.showToast("已开启");
+      } else {
+        SmartDialog.showToast("貌似有些故障...");
+      }
+    });
     //监听jPush(ios必须配置)
     jPush.applyPushAuthority(
         const NotificationSettingsIOS(sound: true, alert: true, badge: true));

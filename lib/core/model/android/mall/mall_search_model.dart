@@ -464,7 +464,7 @@ class ListElement {
   String tagName;
   String? title;
   int templateId;
-  List<String> imageUrls;
+  List<String>? imageUrls;
   List<String>? jumpUrls;
   String jumpUrlForNa;
   List<double>? price;
@@ -504,7 +504,7 @@ class ListElement {
         tagName: json["tagName"],
         title: json["title"] ?? "",
         templateId: json["templateId"],
-        imageUrls: List<String>.from(json["imageUrls"].map((x) => x)),
+        imageUrls: json["imageUrls"] == null ? null : List<String>.from(json["imageUrls"].map((x) => x)),
         jumpUrls: json["jumpUrls"] == null ? null : List<String>.from(json["jumpUrls"].map((x) => x)),
         jumpUrlForNa: json["jumpUrlForNa"],
         price: json["price"] == null ? null : List<double>.from(json["price"].map((x) => x)),
@@ -556,7 +556,7 @@ class ListElement {
         "tagName": tagName,
         "title": title,
         "templateId": templateId,
-        "imageUrls": List<dynamic>.from(imageUrls.map((x) => x)),
+        "imageUrls": List<dynamic>.from(imageUrls!.map((x) => x)),
         "jumpUrls": List<dynamic>.from(jumpUrls!.map((x) => x)),
         "jumpUrlForNa": jumpUrlForNa,
         "price": List<dynamic>.from(price!.map((x) => x)),

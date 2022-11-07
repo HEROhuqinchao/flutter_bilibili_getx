@@ -1,5 +1,4 @@
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
-import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -11,6 +10,7 @@ import '../../../core/shared_preferences/shared_preference_util.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/image_asset.dart';
 import '../functions/blue_tooth_connection/blue_tooth_connection_view.dart';
+import '../functions/push_message/push_message_view.dart';
 import '../functions/qq_share/qq_share_view.dart';
 import '../functions/statistics_chart/statistics_chart_view.dart';
 import '../publish/publish_view.dart';

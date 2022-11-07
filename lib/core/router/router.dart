@@ -15,7 +15,6 @@ import 'package:bilibili_getx/ui/pages/publish/publish_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_binding.dart';
 import 'package:bilibili_getx/ui/pages/publish/upload/search_location/search_location_view.dart';
-import 'package:bilibili_getx/ui/pages/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -24,6 +23,8 @@ import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/functions/animation_compoent/animation_compoent_binding.dart';
 import '../../ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_binding.dart';
+import '../../ui/pages/functions/push_message/push_message_binding.dart';
+import '../../ui/pages/functions/push_message/push_message_view.dart';
 import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
 import '../../ui/pages/functions/qq_share/qq_share_view.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_binding.dart';
@@ -44,7 +45,6 @@ import '../../ui/pages/publish/upload/pre_edit_video/pre_edit_video_binding.dart
 import '../../ui/pages/publish/upload/pre_edit_video/pre_edit_video_view.dart';
 import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_binding.dart';
 import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
-import '../../ui/pages/push_message/push_message_binding.dart';
 import '../../ui/pages/video_play/video_play_binding.dart';
 
 class AsRouter {

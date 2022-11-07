@@ -19,12 +19,15 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
 public class MainActivity extends FlutterActivity {
     private static final String uploadChannel = "upload_channel";
     //参考 https://blog.csdn.net/qq_38373150/article/details/103677504
     private static final String stayAliveChannel = "stay_alive_channel";
+
+    private Intent serviceIntent;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -59,6 +62,18 @@ public class MainActivity extends FlutterActivity {
                         default:
                             result.notImplemented();
                             break;
+                    }
+                }
+        );
+        //创建一个服务
+        serviceIntent = new Intent(MainActivity.this, MyService.class);
+        new MethodChannel(Objects.requireNonNull(getFlutterEngine()).getDartExecutor().getBinaryMessenger(), "start_service_channel").setMethodCallHandler(
+                new MethodChannel.MethodCallHandler() {
+                    @Override
+                    public void onMethodCall(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
+                        if (call.method.equals("startService")) {
+                            startService();
+                        }
                     }
                 }
         );
@@ -154,7 +169,7 @@ public class MainActivity extends FlutterActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public boolean requestIgnoreBatteryOptimizations() {
-        if(!isIgnoringBatteryOptimizations()) {
+        if (!isIgnoringBatteryOptimizations()) {
             try {
                 Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
                 intent.setData(Uri.parse("package:" + getPackageName()));
@@ -167,8 +182,16 @@ public class MainActivity extends FlutterActivity {
     }
 
     private boolean settingPermission() {
-        Intent intent =  new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
+        Intent intent = new Intent(Settings.ACTION_MANAGE_APPLICATIONS_SETTINGS);
         startActivity(intent);
         return true;
+    }
+
+    private void startService() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        } else {
+            startService(serviceIntent);
+        }
     }
 }
