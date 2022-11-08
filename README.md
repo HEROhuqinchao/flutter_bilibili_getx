@@ -10,7 +10,7 @@
 | 项目目录结构清晰，模块化清晰  |                          UI 和 CORE                          |      功能封装原子性       |
 |           人机交互            | 动画组件（flare、rive、lottie）、UI设计更加美观，更加人性化  |                           |
 |            多平台             |                     目前只是Android熟悉                      |       PC、IOS、Web        |
-|           消息通知            |                           极光推送                           |                           |
+|           消息通知            | 极光推送（对接华为厂商通道）参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10) |      对接其他厂商的       |
 |           切换语言            |                          GETX-I18N                           |                           |
 |             视频              |                  MP4格式、流媒体FLV（直播）                  |                           |
 |             音频              |                             欠缺                             |       后台播放音频        |

@@ -31,16 +31,16 @@
 		"client_id":"1004965912912088256",
 		"client_secret":"3F9E13B823C089D055FC0E2B67A12B3DBA30A0EA2259B756846E6F11CCB22BF8",
 		"project_id":"99536292102685260",
-		"app_id":"107231851",
+		"app_id":"107337891",
 		"api_key":"DAEDACTpFi1qDbzTqK6lPjK6uIaIx7R4PRzp5FDX5zc9Px1C5OCV3Ru4X1O9XCwSEeodeBrgVxjYNRyI0fmqCFI613vE99WuWcrQGQ==",
 		"package_name":"com.example.bilibili_getx"
 	},
 	"oauth_client":{
-		"client_id":"107231851",
+		"client_id":"107337891",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"107231851",
+		"app_id":"107337891",
 		"package_name":"com.example.bilibili_getx"
 	},
 	"service":{
@@ -77,15 +77,15 @@
 		{
 			"package_name":"com.example.bilibili_getx",
 			"client":{
-				"app_id":"107231851"
+				"app_id":"107337891"
 			},
 			"app_info":{
 				"package_name":"com.example.bilibili_getx",
-				"app_id":"107231851"
+				"app_id":"107337891"
 			},
 			"oauth_client":{
 				"client_type":1,
-				"client_id":"107231851"
+				"client_id":"107337891"
 			}
 		}
 	]
