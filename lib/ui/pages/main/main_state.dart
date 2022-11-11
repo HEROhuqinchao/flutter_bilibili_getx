@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_floating/floating/floating.dart';
+import 'package:flutter_floating/floating/manager/floating_manager.dart';
 
 import '../dynamic_circle/dynamic_circle_view.dart';
 import '../mall/mall_view.dart';

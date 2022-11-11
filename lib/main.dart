@@ -2,11 +2,14 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
+import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_view.dart';
+import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -75,8 +78,16 @@ Future<void> initialization() async {
       ///监听微信回调结果
       WxUtil.wxDebugResult();
     } else if (Platform.isWindows) {
+      initWindowsSize();
     } else if (Platform.isIOS) {}
   } else {}
+}
+
+///设置windows端窗口大小,设置最大窗口和最小窗口
+Future<void> initWindowsSize() async {
+  await DesktopWindow.setWindowSize(Size(540, 950));
+  await DesktopWindow.setMinWindowSize(Size(503, 900));
+  await DesktopWindow.setMaxWindowSize(Size(551, 1000));
 }
 
 class MyApp extends StatelessWidget {
@@ -118,7 +129,7 @@ class MyApp extends StatelessWidget {
 
           ///起始路由
           initialRoute: MainScreen.routeName,
-          // initialRoute: StatisticsChartView.routeName,
+          // initialRoute: BilibiliTestScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

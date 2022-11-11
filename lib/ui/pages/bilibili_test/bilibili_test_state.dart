@@ -1,14 +1,13 @@
 import 'package:flutter/services.dart';
+import 'package:flutter_floating/floating/floating.dart';
+import 'package:flutter_floating/floating/manager/floating_manager.dart';
 import 'package:rive/rive.dart';
 
 class BilibiliTestState {
-  Artboard? seaStarSwitchArtBoard;
-  Artboard? liquidDownloadArtBoard;
-  late StateMachineController? controller;
-  late SMIInput<bool>? isPressed;
-  late SMIInput<bool>? startDownload;
-  late SMIInput<double>? downloadProgress;
-
+  ///浮动窗口
+  late FloatingManager floatingManager;
+  late Floating floatingOne;
   BilibiliTestState() {
+    floatingManager = FloatingManager();
   }
 }

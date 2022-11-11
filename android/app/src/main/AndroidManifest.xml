@@ -77,6 +77,7 @@
             </intent-filter>
         </activity>
 
+        <!--华为厂商通道-->
         <service android:name="cn.jpush.android.service.DaemonService"
             android:enabled="true"
             android:exported="true">

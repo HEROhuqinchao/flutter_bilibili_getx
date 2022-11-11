@@ -42,18 +42,7 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                   builder: (ctx, AsyncSnapshot<Uint8List?> snapshot) {
                     return GestureDetector(
                       onTap: () {
-                        Get.put(BilibiliVideoPlayerLogic());
-                        BilibiliVideoPlayerState bilibiliVideoPlayerState = Get.find<BilibiliVideoPlayerLogic>().state;
-                        bilibiliVideoPlayerState.haveFinishView = false;
-                        bilibiliVideoPlayerState.haveFullScreenFunction = false;
-                        bilibiliVideoPlayerState.haveDanMuFunction = false;
-                        bilibiliVideoPlayerState.videoOriginalUrl = state.localVideoList[index].videoLocation;
-
-                        BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
-                        bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
-                        bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
-
-                        Get.toNamed(PreEditVideoScreen.routeName);
+                        logic.go2PreEditScreen(index);
                       },
                       child: snapshot.data != null
                           ? Stack(

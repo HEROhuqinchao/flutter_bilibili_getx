@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
+import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -138,6 +139,17 @@ class MainScreen extends StatelessWidget {
                   label: '切换语言',
                   child: Icon(
                     Icons.abc,
+                    size: 10.h,
+                  ),
+                ),
+                SpeedDialChild(
+                  backgroundColor: HYAppTheme.norWhite01Color,
+                  onTap: () {
+                    Get.toNamed(BilibiliTestScreen.routeName);
+                  },
+                  label: '小窗口',
+                  child: Icon(
+                    Icons.desktop_windows_sharp,
                     size: 10.h,
                   ),
                 ),

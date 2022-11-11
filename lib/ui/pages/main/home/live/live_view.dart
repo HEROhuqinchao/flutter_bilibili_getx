@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:bilibili_getx/ui/pages/live_play/live_play_logic.dart';
+import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
@@ -117,10 +119,11 @@ class LiveScreenState extends State<LiveScreen>
               childCount: state.cardDataSmallCardV1.length,
             ),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 6.r,
-                crossAxisSpacing: 6.r,
-                mainAxisExtent: 140.w),
+              crossAxisCount: 2,
+              mainAxisSpacing: 6.r,
+              crossAxisSpacing: 6.r,
+              mainAxisExtent: 140.w,
+            ),
           )
         ],
       ),
@@ -208,113 +211,120 @@ class LiveScreenState extends State<LiveScreen>
   // }
 
   Widget buildSmallCardV1(CardData item) {
-    return Material(
-      borderRadius: BorderRadius.all(Radius.circular(5.r)),
-      elevation: 1,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(5.r)),
-                child: DefaultFadeImage(
-                  imageUrl: item.smallCardV1!.cover,
-                  width: 1.sw,
-                  height: 90.w,
+    return GestureDetector(
+      onTap: () {
+        ///跳转至直播间
+        logic.go2LivePlay(item);
+      },
+      child: Material(
+        borderRadius: BorderRadius.all(Radius.circular(5.r)),
+        elevation: 1,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(5.r)),
+                  child: DefaultFadeImage(
+                    imageUrl: item.smallCardV1!.cover,
+                    width: 1.sw,
+                    height: 90.w,
+                  ),
                 ),
-              ),
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  width: 1.sw,
-                  height: 25.w,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                    colors: [
-                      Colors.transparent,
-                      Colors.black.withOpacity(.6),
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  )),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    width: 1.sw,
+                    height: 25.w,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                      colors: [
+                        Colors.transparent,
+                        Colors.black.withOpacity(.6),
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    )),
+                  ),
                 ),
-              ),
-              Positioned(
-                left: 8.r,
-                bottom: 5.r,
-                child: SizedBox(
-                  height: 12.sp,
-                  child: Text(
-                    item.smallCardV1!.coverLeftStyle.text,
-                    style: TextStyle(
-                      color: HYAppTheme.norWhite01Color,
-                      fontSize: 10.sp,
+                Positioned(
+                  left: 8.r,
+                  bottom: 5.r,
+                  child: SizedBox(
+                    height: 12.sp,
+                    child: Text(
+                      item.smallCardV1!.coverLeftStyle.text,
+                      style: TextStyle(
+                        color: HYAppTheme.norWhite01Color,
+                        fontSize: 10.sp,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                right: 8.r,
-                bottom: 5.r,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 12.sp,
-                      child: Image.asset(
-                        ImageAssets.seenPNG,
+                Positioned(
+                  right: 8.r,
+                  bottom: 5.r,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
                         height: 12.sp,
-                        width: 12.sp,
-                      ),
-                    ),
-                    5.horizontalSpace,
-                    Container(
-                      alignment: Alignment.center,
-                      height: 12.sp,
-                      child: Text(
-                        item.smallCardV1!.coverRightStyle.text,
-                        style: TextStyle(
-                          color: HYAppTheme.norWhite01Color,
-                          fontSize: 10.sp,
+                        child: Image.asset(
+                          ImageAssets.seenPNG,
+                          height: 12.sp,
+                          width: 12.sp,
                         ),
                       ),
-                    ),
-                  ],
+                      5.horizontalSpace,
+                      Container(
+                        alignment: Alignment.center,
+                        height: 12.sp,
+                        child: Text(
+                          item.smallCardV1!.coverRightStyle.text,
+                          style: TextStyle(
+                            color: HYAppTheme.norWhite01Color,
+                            fontSize: 10.sp,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 8.r, horizontal: 4.r),
+              width: 1.sw,
+              child: Text(
+                item.smallCardV1!.title,
+                style: TextStyle(
+                  color: HYAppTheme.norTextColors,
+                  fontSize: 12.sp,
                 ),
-              )
-            ],
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 8.r, horizontal: 4.r),
-            width: 1.sw,
-            child: Text(
-              item.smallCardV1!.title,
-              style: TextStyle(
-                color: HYAppTheme.norTextColors,
-                fontSize: 12.sp,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 4.r),
-            width: 1.sw,
-            child: Text(
-              item.smallCardV1!.subtitleStyle.text,
-              style: TextStyle(
-                color: HYAppTheme.norGrayColor,
-                fontSize: 10.sp,
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 4.r),
+              width: 1.sw,
+              child: Text(
+                item.smallCardV1!.subtitleStyle.text,
+                style: TextStyle(
+                  color: HYAppTheme.norGrayColor,
+                  fontSize: 10.sp,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

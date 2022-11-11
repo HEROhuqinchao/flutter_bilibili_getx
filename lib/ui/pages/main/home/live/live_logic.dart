@@ -1,21 +1,18 @@
 import 'dart:io';
-import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
-import 'package:bilibili_getx/ui/pages/main/home/home_state.dart';
+import 'package:bilibili_getx/core/model/xliveAppInterfaceV2IndexFeedModel.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/service/request/live_room_list_request.dart';
 import '../../../../../core/service/utils/constant.dart';
-import '../../../../shared/global_key_util.dart';
 import '../../../../shared/params_sign.dart';
+import '../../../live_play/live_play_logic.dart';
+import '../../../live_play/live_play_view.dart';
 import 'live_state.dart';
 
 class LiveLogic extends GetxController {
   final LiveState liveState = LiveState();
-  final HomeState homeState = HomeState();
 
   @override
   void onReady() {
@@ -28,6 +25,13 @@ class LiveLogic extends GetxController {
       }
     } else {}
     super.onReady();
+  }
+
+  ///进入直播间
+  void go2LivePlay(CardData item) {
+    LivePlayLogic livePlayLogic = Get.find<LivePlayLogic>();
+    livePlayLogic.fetchLiveRoomVideoStream(item.smallCardV1!.id);
+    Get.toNamed(LivePlayView.routeName);
   }
 
   ///初始化Android数据

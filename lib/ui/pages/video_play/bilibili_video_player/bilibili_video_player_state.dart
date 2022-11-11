@@ -73,10 +73,12 @@ class BilibiliVideoPlayerState {
   late bool showDanMu;
 
   ///控制组件是否存在
-  ///是否有全屏功能;是否有弹幕功能;是否有播放结束的界面
+  ///是否有全屏功能;是否有弹幕功能;是否有播放结束的界面;是否有进度条;是否有时长
   late bool haveFullScreenFunction;
   late bool haveDanMuFunction;
   late bool haveFinishView;
+  late bool haveProcessSlider;
+  late bool haveProcessTimePosition;
 
   /// 下载文件的存储路径
   late String destPath;
@@ -93,6 +95,8 @@ class BilibiliVideoPlayerState {
     haveFullScreenFunction = true;
     haveDanMuFunction = true;
     haveFinishView = true;
+    haveProcessSlider = true;
+    haveProcessTimePosition = true;
 
     ///缓存视频
     destPath = "";

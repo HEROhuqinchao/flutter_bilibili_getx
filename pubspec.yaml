@@ -74,7 +74,7 @@ dependencies:
   lottie: ^1.4.3 #精致的lottie动画
   rive: ^0.9.1 #精致的rive动画
 #  fluwx: ^3.11.0 #微信第三方接入
-  fluwx_no_pay: ^3.11.0 #微信第三方接入
+  fluwx_no_pay: ^3.11.0 #微信第三方接入(没有支付)
   tencent_kit: ^4.0.0 #QQ第三方接入
   json_annotation: ^4.5.0 #json默认值
   json_serializable: ^6.5.4 #json序列化？
@@ -82,6 +82,8 @@ dependencies:
   flutter_blue: ^0.8.0 #蓝牙
   qr_flutter: ^4.0.0 #生成二维码
   qrscan: ^0.3.3 #扫描二维码,也可以生成二维码
+  flutter_floating: ^1.0.1 #浮动窗口
+  desktop_window: ^0.4.0 #桌面应用大小
 
 dev_dependencies:
   flutter_test:

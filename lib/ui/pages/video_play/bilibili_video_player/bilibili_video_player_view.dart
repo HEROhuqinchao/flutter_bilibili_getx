@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:open_file_plus/open_file_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../../core/permission/bilibili_permission.dart';
@@ -18,6 +16,7 @@ import '../../../shared/math_compute.dart';
 import '../../../widgets/progress_bar_painter.dart';
 import 'bilibili_video_player_logic.dart';
 
+///视频播放界面，传入视频源（videoOriginalUrl），控制需要显示的组件即可
 class BilibiliVideoPlayerComponent extends StatefulWidget {
   @override
   State<BilibiliVideoPlayerComponent> createState() =>
@@ -319,9 +318,13 @@ class _BilibiliVideoPlayerComponentState
                       children: [
                         buildVideoPlayOrPauseButton(),
                         10.horizontalSpace,
-                        buildVideoPlayProgress(),
+                        state.haveProcessSlider
+                            ? buildVideoPlayProgress()
+                            : Container(),
                         5.horizontalSpace,
-                        buildPosition(),
+                        state.haveProcessTimePosition
+                            ? buildPosition()
+                            : Container(),
                         5.horizontalSpace,
                         state.haveFullScreenFunction
                             ? buildFullScreenButton()
@@ -784,7 +787,8 @@ class _BilibiliVideoPlayerComponentState
                         logic.resumeDownloadFile(index);
                       } else if (state.downloadVideoList[index].status ==
                           DownloadTaskStatus.complete) {
-                        final String filePath = state.downloadVideoList[index].storagePath!;
+                        final String filePath =
+                            state.downloadVideoList[index].storagePath!;
                         final result = await OpenFile.open(filePath);
                         SmartDialog.showToast("已下载");
                       }

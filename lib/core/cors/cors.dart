@@ -85,6 +85,11 @@ Future main() async {
   server08.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server08.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
+  var server09 = await shelf_io.serve(
+    proxyHandler(Constant.urlMap["covid"]!),
+    LocalHost,
+    localPort09,
+  );
   server08.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server08.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
@@ -104,4 +109,6 @@ Future main() async {
       '${Constant.urlMap["app"]} -> app Serving at http://${server07.address.host}:${server07.port}');
   print(
       '${Constant.urlMap["mall-web"]} -> mall-web Serving at http://${server08.address.host}:${server08.port}');
+  print(
+      '${Constant.urlMap["covid"]} -> covid Serving at http://${server09.address.host}:${server09.port}');
 }

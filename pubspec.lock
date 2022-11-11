@@ -141,6 +141,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.4"
+  desktop_window:
+    dependency: "direct main"
+    description:
+      name: desktop_window
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.0"
   device_info_plus:
     dependency: "direct main"
     description:
@@ -307,6 +314,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.2"
+  flutter_floating:
+    dependency: "direct main"
+    description:
+      name: flutter_floating
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   flutter_lints:
     dependency: "direct dev"
     description:

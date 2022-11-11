@@ -1,9 +1,9 @@
-import 'dart:async';
-
-import 'package:flutter/services.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_floating/floating/assist/floating_slide_type.dart';
+import 'package:flutter_floating/floating/floating.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:rive/rive.dart';
-import '../../shared/rive_asset.dart';
 import 'bilibili_test_state.dart';
 
 class BilibiliTestLogic extends GetxController {
@@ -11,25 +11,6 @@ class BilibiliTestLogic extends GetxController {
 
   @override
   void onReady() {
-    ///海星Switch
-    rootBundle.load(RiveAssets.seaStarSwitch).then((value) {
-      state.seaStarSwitchArtBoard = RiveFile.import(value).mainArtboard;
-      var controller = StateMachineController.fromArtboard(
-          state.seaStarSwitchArtBoard!, 'State Machine 1');
-      state.seaStarSwitchArtBoard!.addController(controller!);
-      state.isPressed = controller.findInput('isPressed');
-      update();
-    });
-    ///液体下载
-    rootBundle.load(RiveAssets.liquidDownload).then((value) {
-      state.liquidDownloadArtBoard = RiveFile.import(value).mainArtboard;
-      var controller = StateMachineController.fromArtboard(
-          state.liquidDownloadArtBoard!, 'Download');
-      state.liquidDownloadArtBoard!.addController(controller!);
-      state.startDownload = controller.findInput('Download');
-      state.downloadProgress = controller.findInput('Progress');
-      update();
-    });
     super.onReady();
   }
 
@@ -38,21 +19,28 @@ class BilibiliTestLogic extends GetxController {
     super.onClose();
   }
 
-  ///开启按钮
-  void togglePlay() {
-    state.isPressed!.value = !state.isPressed!.value;
-    update();
+  void createFloatingView(context) {
+    state.floatingOne = state.floatingManager.createFloating(
+      "1",
+      Floating(
+        buildFloating(),
+        slideType: FloatingSlideType.onLeftAndTop,
+        isShowLog: false,
+        slideBottomHeight: 100,
+      ),
+    );
+    state.floatingManager.createFloating("1", state.floatingOne);
+    state.floatingOne.open(context);
+    Get.back();
   }
 
-  ///开始下载
-  void startDownloadFile() {
-    state.startDownload!.value = true;
-    Timer.periodic(const Duration(seconds: 1), (timer) {
-      state.downloadProgress!.value += 2;
-      if(state.downloadProgress!.value == 100) {
-        timer.cancel();
-      }
-    });
-    update();
+  ///构建浮动窗口
+  Widget buildFloating() {
+    return Container(
+      color: Colors.amber,
+      width: 200.w,
+      height: 200.w,
+      child: Text("这是界面B"),
+    );
   }
 }

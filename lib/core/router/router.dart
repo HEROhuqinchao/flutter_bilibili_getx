@@ -5,6 +5,7 @@ import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_toot
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_logic.dart';
+import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_binding.dart';
 import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
@@ -29,6 +30,7 @@ import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
 import '../../ui/pages/functions/qq_share/qq_share_view.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_binding.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_view.dart';
+import '../../ui/pages/live_play/live_play_binding.dart';
 import '../../ui/pages/main/home/comic/comic_binding.dart';
 import '../../ui/pages/main/home/live/live_binding.dart';
 import '../../ui/pages/main/home/live/live_view.dart';
@@ -190,5 +192,11 @@ class AsRouter {
         name: BlueToothDeviceOperationView.routeName,
         page: () => BlueToothDeviceOperationView(),
         binding: BlueToothDeviceOperationBinding()),
+
+    ///直播间
+    GetPage(
+        name: LivePlayView.routeName,
+        page: () => LivePlayView(),
+        binding: LivePlayBinding()),
   ];
 }

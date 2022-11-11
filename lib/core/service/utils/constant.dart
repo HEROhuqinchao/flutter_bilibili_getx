@@ -15,6 +15,7 @@ class Constant {
     "login": "https://passport.bilibili.com",
     "mall": "https://mall.bilibili.com",
     "mall-web": "https://show.bilibili.com",
+    "covid": "https://api.vvhan.com/",
   };
 
   ///网页端设置代理,处理跨域问题
@@ -27,6 +28,7 @@ class Constant {
     "search": "http://127.0.0.1:8006",
     "app": "http://127.0.0.1:8007",
     "mall-web": "http://127.0.0.1:8008",
+    "covid": "http://127.0.0.1:8009",
   };
 
   ///是否为debug模式
