@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_floating/floating/assist/floating_slide_type.dart';
 import 'package:flutter_floating/floating/floating.dart';

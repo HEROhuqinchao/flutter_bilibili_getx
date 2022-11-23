@@ -812,12 +812,9 @@ class MallScreen extends StatelessWidget {
                 ClipRRect(
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(5.r)),
-                  child: FadeInImage(
+                  child: DefaultFadeImage(
+                    imageUrl: getImageHttpUrl(item.imageUrls![0]),
                     height: 190.w,
-                    placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-                    placeholderFit: BoxFit.cover,
-                    fit: BoxFit.cover,
-                    image: NetworkImage(getImageHttpUrl(item.imageUrls![0])),
                   ),
                 ),
                 Padding(

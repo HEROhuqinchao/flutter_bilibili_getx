@@ -23,8 +23,13 @@ class LivePlayView extends StatelessWidget {
               Container(
                 width: 1.sw,
                 height: 200.w,
-                child:
-                    state.isLoading ? CircularProgressIndicator() : Container(),
+                child: state.isLoading
+                    ? Container(
+                        width: 40.w,
+                        height: 40.w,
+                        child: CircularProgressIndicator(),
+                      )
+                    : BilibiliVideoPlayerComponent(),
               ),
               Expanded(
                 child: state.isLoading ? Container() : buildDanMuPanel(),
@@ -38,7 +43,7 @@ class LivePlayView extends StatelessWidget {
 
   Widget buildDanMuPanel() {
     return WebView(
-      backgroundColor: HYAppTheme.norTextColors,
+      // backgroundColor: HYAppTheme.norTextColors,
       initialUrl:
           'file:///android_asset/flutter_assets/assets/html/live_dan_mu.html?roomid=${state.roomId}',
       zoomEnabled: false,

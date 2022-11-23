@@ -129,7 +129,7 @@ class MyApp extends StatelessWidget {
 
           ///起始路由
           initialRoute: MainScreen.routeName,
-          // initialRoute: BilibiliTestScreen.routeName,
+          // initialRoute: LivePlayView.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

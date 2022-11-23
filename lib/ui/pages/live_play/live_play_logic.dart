@@ -28,7 +28,7 @@ class LivePlayLogic extends GetxController {
   void initWebView() {
     if (!kIsWeb) {
       if (Platform.isAndroid) {
-        WebView.platform = SurfaceAndroidWebView();
+        WebView.platform = AndroidWebView();
       }
     }
   }
@@ -36,9 +36,10 @@ class LivePlayLogic extends GetxController {
   ///获取直播间的直播视频流flv
   void fetchLiveRoomVideoStream(int roomId) {
     state.roomId = roomId;
+    print(state.roomId);
     HYLiveRoomPlayRequest.getLiveRoomStreamData(state.roomId).then((value) {
       state.playUrl = value.durl[0].url;
-
+      print(state.playUrl);
       ///视频播放控件
       Get.put(BilibiliVideoPlayerLogic());
       BilibiliVideoPlayerState bilibiliVideoPlayerState =

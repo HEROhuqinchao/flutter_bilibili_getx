@@ -504,7 +504,7 @@ class ListElement {
         tagName: json["tagName"],
         title: json["title"] ?? "",
         templateId: json["templateId"],
-        imageUrls: json["imageUrls"] == null ? null : List<String>.from(json["imageUrls"].map((x) => x)),
+        imageUrls: json["imageUrls"] == null ? [] : List<String>.from(json["imageUrls"].map((x) => x)),
         jumpUrls: json["jumpUrls"] == null ? null : List<String>.from(json["jumpUrls"].map((x) => x)),
         jumpUrlForNa: json["jumpUrlForNa"],
         price: json["price"] == null ? null : List<double>.from(json["price"].map((x) => x)),
