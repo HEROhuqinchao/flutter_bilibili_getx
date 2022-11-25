@@ -10,7 +10,7 @@ class WxUtil {
   ///注册微信API
   static void wxRegisterWxApi() {
     registerWxApi(
-        appId: "wxd930ea5d5a228f5f",
+        appId: "wx30d603cbdb550098",
         universalLink: "https://your.univerallink.com/link/");
   }
 
@@ -32,7 +32,7 @@ class WxUtil {
       return;
     }
     payWithWeChat(
-      appId: "appId",
+      appId: "wx30d603cbdb550098",
       partnerId: "partnerId",
       prepayId: "prepayId",
       packageValue: "packageValue",
@@ -57,7 +57,7 @@ class WxUtil {
   }
   
   static void shareWx() {
-    shareToWeChat(WeChatShareTextModel("source text", scene: WeChatScene.SESSION));
+    shareToWeChat(WeChatShareTextModel("你好，我是Flutter", scene: WeChatScene.SESSION));
   }
 
   static void shareImage() async{
