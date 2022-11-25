@@ -213,6 +213,7 @@ class LiveScreenState extends State<LiveScreen>
   Widget buildSmallCardV1(CardData item) {
     return GestureDetector(
       onTap: () {
+        // print(item.smallCardV1!.id);
         ///跳转至直播间
         logic.go2LivePlay(item);
       },

@@ -1121,7 +1121,7 @@ class ReplyReply {
   int assist;
   Folder folder;
   UpAction upAction;
-  bool showFollow;
+  bool? showFollow;
   bool invisible;
   PurpleReplyControl replyControl;
 
@@ -1150,7 +1150,7 @@ class ReplyReply {
         assist: json["assist"],
         folder: Folder.fromJson(json["folder"]),
         upAction: UpAction.fromJson(json["up_action"]),
-        showFollow: json["show_follow"],
+        showFollow: json["show_follow"] ?? false,
         invisible: json["invisible"],
         replyControl: PurpleReplyControl.fromJson(json["reply_control"]),
       );

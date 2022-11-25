@@ -8,10 +8,8 @@ class LivePlayState {
   ///房间号码
   late int roomId;
   late String playUrl;
-  late Completer<WebViewController> completer;
 
   LivePlayState() {
     isLoading = true;
-    completer = Completer<WebViewController>();
   }
 }

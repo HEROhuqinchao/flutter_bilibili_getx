@@ -14,7 +14,7 @@ class LivePlayLogic extends GetxController {
 
   @override
   void onReady() {
-    fetchLiveRoomVideoStream(26311851);
+    // fetchLiveRoomVideoStream(21721813);
     initWebView();
     super.onReady();
   }
@@ -36,7 +36,6 @@ class LivePlayLogic extends GetxController {
   ///获取直播间的直播视频流flv
   void fetchLiveRoomVideoStream(int roomId) {
     state.roomId = roomId;
-    print(state.roomId);
     HYLiveRoomPlayRequest.getLiveRoomStreamData(state.roomId).then((value) {
       state.playUrl = value.durl[0].url;
       print(state.playUrl);
@@ -53,6 +52,7 @@ class LivePlayLogic extends GetxController {
       BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic =
           Get.find<BilibiliVideoPlayerLogic>();
       bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
+      bilibiliVideoPlayerLogic.initVideoPlayerDanMuData();
       bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
 
       state.isLoading = false;

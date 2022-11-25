@@ -30,7 +30,8 @@ class LiveLogic extends GetxController {
   ///进入直播间
   void go2LivePlay(CardData item) {
     LivePlayLogic livePlayLogic = Get.find<LivePlayLogic>();
-    livePlayLogic.fetchLiveRoomVideoStream(item.smallCardV1!.id);
+    livePlayLogic.fetchLiveRoomVideoStream(21721813);
+    // livePlayLogic.fetchLiveRoomVideoStream(item.smallCardV1!.id);
     Get.toNamed(LivePlayView.routeName);
   }
 
