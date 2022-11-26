@@ -14,6 +14,7 @@ import '../functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import '../functions/push_message/push_message_view.dart';
 import '../functions/qq_share/qq_share_view.dart';
 import '../functions/statistics_chart/statistics_chart_view.dart';
+import '../functions/wx_share/wx_share_view.dart';
 import '../publish/publish_view.dart';
 import 'main_logic.dart';
 
@@ -117,6 +118,17 @@ class MainScreen extends StatelessWidget {
                   label: '蓝牙',
                   child: Icon(
                     Icons.bluetooth,
+                    size: 10.h,
+                  ),
+                ),
+                SpeedDialChild(
+                  backgroundColor: HYAppTheme.norWhite01Color,
+                  onTap: () {
+                    Get.toNamed(WxShareView.routeName);
+                  },
+                  label: '微信分享',
+                  child: Icon(
+                    Icons.wechat,
                     size: 10.h,
                   ),
                 ),

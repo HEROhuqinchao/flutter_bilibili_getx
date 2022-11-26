@@ -16,7 +16,7 @@
 
          This Theme is only used starting with V2 of Flutter's Android embedding. -->
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
-        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="android:windowBackground">@drawable/normal_background</item>
     </style>
 
     <string name="flutter_downloader_notification_started">开始下载啦</string>
@@ -25,4 +25,5 @@
     <string name="flutter_downloader_notification_failed">下载失败</string>
     <string name="flutter_downloader_notification_complete">下载好啦</string>
     <string name="flutter_downloader_notification_paused">歇会儿</string>
+    <string name="app_name">哔哩哔哩（仿）</string>
 </resources>

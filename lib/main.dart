@@ -129,7 +129,7 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          initialRoute: WxShareView.routeName,
+          initialRoute: MainScreen.routeName,
           // initialRoute: LivePlayView.routeName,
 
           ///路由和绑定

@@ -6,6 +6,7 @@ import 'wx_share_logic.dart';
 
 class WxShareView extends StatelessWidget {
   static const String routeName = "/wx_share";
+
   @override
   Widget build(BuildContext context) {
     final logic = Get.find<WxShareLogic>();
@@ -13,13 +14,56 @@ class WxShareView extends StatelessWidget {
 
     return Scaffold(
       body: Center(
-        child: Text("微信分享"),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          WxUtil.shareWx();
-        },
-        child: Text("分享"),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.shareWx();
+                },
+                child: Text("分享文本")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.go2WechatMiniProgram();
+                },
+                child: Text("打开小程序")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.weChatShareWebPageModelModel();
+                },
+                child: Text("weChatShareWebPageModelModel")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.weChatShareTextModel();
+                },
+                child: Text("weChatShareTextModel")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.weChatShareMiniProgramModel();
+                },
+                child: Text("weChatShareMiniProgramModel")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.weChatShareImageModel();
+                },
+                child: Text("weChatShareImageModel")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.weChatShareMusicModel();
+                },
+                child: Text("weChatShareMusicModel")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.weChatShareVideoModel();
+                },
+                child: Text("weChatShareVideoModel")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.weChatShareFileModel();
+                },
+                child: Text("weChatShareFileModel")),
+          ],
+        ),
       ),
     );
   }
