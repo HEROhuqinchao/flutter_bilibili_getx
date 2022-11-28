@@ -126,4 +126,6 @@ class ImageAssets {
   static String shoppingPNG = "assets/image/icon/shopping.png";
   static String enterprisePNG = "assets/image/icon/enterprise.png";
   static String educationPNG = "assets/image/icon/education.png";
+  static String forwardPNG = "assets/image/icon/forward.png";
+  static String commentPNG = "assets/image/icon/comment.png";
 }

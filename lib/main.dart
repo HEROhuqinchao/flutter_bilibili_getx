@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
+import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_state.dart';
+import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_view.dart';
@@ -129,8 +131,8 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          initialRoute: MainScreen.routeName,
           // initialRoute: LivePlayView.routeName,
+          initialRoute: MainScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

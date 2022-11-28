@@ -28,7 +28,7 @@ class HttpBaseRequest {
     HttpHeaders.contentTypeHeader: 'application/json',
     HttpHeaders.userAgentHeader: ua,
     HttpHeaders.cookieHeader:
-        'buvid3=E69A3DAC-8BAD-9D84-8187-B8C7E334EAEE17988infoc'
+        "buvid3=84F6E053-B579-35E2-C75E-9F554100BE6834154infoc; i-wanna-go-back=-1; _uuid=94524A93-F3710-A7AD-969A-4910FE1010C4FB1033966infoc; buvid4=77036CCD-6634-BC61-5A85-E99F6702D17E34460-022081609-BvEob4vLVHw3RzM780E09A==; nostalgia_conf=-1; buvid_fp_plain=undefined; b_ut=5; CURRENT_BLACKGAP=0; fingerprint3=c8c54833688179bbaac5bb4d4247ca3a; PVID=1; b_nut=100; CURRENT_FNVAL=4048; rpdid=|(u|JRu)uJ~R0J'uYYmRR|Ymk; innersign=0; sid=8sljt4k6; bp_video_offset_243766934=733436962437857300; hit-new-style-dyn=0; hit-dyn-v2=1; bsource=search_bing; b_lsid=107877F10F_184BCDE1D1A; fingerprint=6cb3b3941340f44452a9ef9098afeabe; buvid_fp=6cb3b3941340f44452a9ef9098afeabe; DedeUserID=243766934; DedeUserID__ckMd5=ad56d1c5d71807ca; SESSDATA=75ac156b,1685170420,5b8cc*b1; bili_jct=468fa0f4a575ef306d5043ebeecfc24e"
   };
 
   ///请求xml数据
@@ -189,34 +189,34 @@ class HttpBaseRequest {
   ///下载文件
   ///参考 https://www.jianshu.com/p/21b87161bf0f
   ///dio的download没有pause，resume功能，故不采用；采用flutter_downloader
-  // static Future download(
-  //   String url,
-  //   String savePath, {
-  //   Map<String, dynamic>? queryParams,
-  //   required CancelToken cancelToken,
-  //   dynamic data,
-  //   Options? options,
-  //   required void Function(int, int) onReceiveProgress,
-  // }) async {
-  //   Dio dio = Dio();
-  //   try {
-  //     return await dio.download(
-  //       url,
-  //       savePath,
-  //       queryParameters: queryParams,
-  //       cancelToken: cancelToken,
-  //       onReceiveProgress: onReceiveProgress,
-  //     );
-  //   } on DioError catch (e) {
-  //     if (CancelToken.isCancel(e)) {
-  //       SmartDialog.showToast('下载已取消!');
-  //     } else {
-  //       if (e.response != null) {
-  //         SmartDialog.showToast(e.response.toString());
-  //       }
-  //     }
-  //   } on Exception catch (e) {
-  //     SmartDialog.showToast(e.toString());
-  //   }
-  // }
+// static Future download(
+//   String url,
+//   String savePath, {
+//   Map<String, dynamic>? queryParams,
+//   required CancelToken cancelToken,
+//   dynamic data,
+//   Options? options,
+//   required void Function(int, int) onReceiveProgress,
+// }) async {
+//   Dio dio = Dio();
+//   try {
+//     return await dio.download(
+//       url,
+//       savePath,
+//       queryParameters: queryParams,
+//       cancelToken: cancelToken,
+//       onReceiveProgress: onReceiveProgress,
+//     );
+//   } on DioError catch (e) {
+//     if (CancelToken.isCancel(e)) {
+//       SmartDialog.showToast('下载已取消!');
+//     } else {
+//       if (e.response != null) {
+//         SmartDialog.showToast(e.response.toString());
+//       }
+//     }
+//   } on Exception catch (e) {
+//     SmartDialog.showToast(e.toString());
+//   }
+// }
 }

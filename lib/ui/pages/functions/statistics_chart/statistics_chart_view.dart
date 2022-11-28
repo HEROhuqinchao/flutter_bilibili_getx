@@ -112,7 +112,7 @@ class StatisticsChartView extends StatelessWidget {
           aspectRatio: 1.7,
           child: BarChart(
             BarChartData(
-              maxY: 500,
+              maxY: 50000,
               gridData: FlGridData(
                 show: false,
               ),
@@ -156,21 +156,17 @@ class StatisticsChartView extends StatelessWidget {
       text = '0';
     } else if (value == 100) {
       text = '100';
-    } else if (value == 200) {
-      text = '200';
-    } else if (value == 300) {
-      text = '300';
-    } else if (value == 400) {
-      text = '400';
     } else if (value == 500) {
       text = '500';
     } else if (value == 1000) {
       text = '1K';
-    } else if (value == 2000) {
-      text = '2K';
-    } else if (value == 3000) {
-      text = '3K';
-    } else {
+    } else if (value == 5000) {
+      text = '5K';
+    } else if (value == 10000) {
+      text = '1W';
+    } else if (value == 50000) {
+      text = '5W';
+    }else {
       return Container();
     }
     return SideTitleWidget(

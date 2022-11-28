@@ -8,7 +8,7 @@ class Constant {
   /// login:登录时需要用到的接口
   static const Map<String, String> urlMap = {
     "live": "https://api.live.bilibili.com",
-    "base": "http://api.bilibili.com",
+    "base": "https://api.bilibili.com",
     "video": "https://m.bilibili.com",
     "app": "http://app.bilibili.com",
     "search": "http://s.search.bilibili.com",
