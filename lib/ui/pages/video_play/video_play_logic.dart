@@ -92,7 +92,7 @@ class VideoPlayLogic extends GetxController {
   ///展开明细或隐藏视频的明细
   void expandedVideoProfileDetail() {
     state.isExpanded = !state.isExpanded;
-    state.cutDownWidgetKey.currentState?.widgetShift();
+    state.cutDownWidgetKey.currentState!.widgetShift();
     update();
   }
 

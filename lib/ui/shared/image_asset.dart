@@ -128,4 +128,5 @@ class ImageAssets {
   static String educationPNG = "assets/image/icon/education.png";
   static String forwardPNG = "assets/image/icon/forward.png";
   static String commentPNG = "assets/image/icon/comment.png";
+  static String banCustomPNG = "assets/image/icon/ban_custom.png";
 }

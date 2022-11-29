@@ -131,8 +131,9 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          // initialRoute: LivePlayView.routeName,
-          initialRoute: MainScreen.routeName,
+          initialRoute: BilibiliTestScreen.routeName,
+          // initialRoute: DynamicCircleScreen.routeName,
+          // initialRoute: MainScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

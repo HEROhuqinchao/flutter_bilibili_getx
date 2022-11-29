@@ -47,20 +47,27 @@ class _BilibiliTestScreenState extends State<BilibiliTestScreen>
         return Scaffold(
           backgroundColor: Colors.blueGrey,
           body: Center(
-            child: GestureDetector(
-              onTap: () {
-                if (isFavor) {
-                  isFavor = false;
-                  setState(() {});
-                }
-              },
-              onLongPress: () {
-                animationController.forward();
-              },
-              onLongPressUp: () {
-                animationController.reverse();
-              },
-              child: !isFavor ? buildUnFavorButton() : buildFavoredButton(),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    if (isFavor) {
+                      isFavor = false;
+                      setState(() {});
+                    }
+                  },
+                  onLongPress: () {
+                    animationController.forward();
+                  },
+                  onLongPressUp: () {
+                    animationController.reverse();
+                  },
+                  child: !isFavor ? buildUnFavorButton() : buildFavoredButton(),
+                ),
+                Container(
+                    width: 1.sw, height: 200.w, child: buildTextLineTest())
+              ],
             ),
           ),
           floatingActionButton: FloatingActionButton(
@@ -70,6 +77,32 @@ class _BilibiliTestScreenState extends State<BilibiliTestScreen>
             child: Text("小窗"),
           ),
         );
+      },
+    );
+  }
+
+  Widget buildTextLineTest() {
+    String yourText = "今天发现\n44.30kg了\n长这么大第一次这么重\n(*´_ゝ｀)最可怕的是\n我也不知道哪里胖了";
+    TextStyle yourStyle = TextStyle(color: Colors.black, height: 1.5);
+    return LayoutBuilder(
+      builder: (ctx, con) {
+        final span = TextSpan(
+          text: yourText,
+          style: yourStyle,
+        );
+        final tp = TextPainter(
+          text: span,
+          textDirection: TextDirection.ltr,
+        );
+        tp.layout(maxWidth: 1.sw - 80.r);
+        final numLines = tp.computeLineMetrics().length;
+        if (numLines > 3) {
+          print("行数超过3");
+          return Text(yourText, style: yourStyle);
+        } else {
+          print("行数没超过3");
+          return Text(yourText, style: yourStyle);
+        }
       },
     );
   }

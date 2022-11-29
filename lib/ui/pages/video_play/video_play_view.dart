@@ -622,7 +622,7 @@ class _buildVideoProfileState extends State<buildVideoProfile>
               buildVideoPlayVideoInfoVideoTitle(),
               8.verticalSpace,
               ExpandedWidget(
-                key: state.cutDownWidgetKey,
+                expandedKey: state.cutDownWidgetKey,
                 defaultHeight: 0,
                 child: buildVideoPlayVideoInfoVideoDetails(),
               ),
@@ -794,7 +794,7 @@ class _buildVideoProfileState extends State<buildVideoProfile>
               style: TextStyle(color: HYAppTheme.norGrayColor, fontSize: 16.sp),
             ),
             8.horizontalSpace,
-            buildIconInfo("assets/image/icon/ban_custom.png", "未经作者授权禁止转载"),
+            buildIconInfo(ImageAssets.banCustomPNG, "未经作者授权禁止转载"),
           ],
         ),
         8.verticalSpace,

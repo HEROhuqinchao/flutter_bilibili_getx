@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'height_reporter.dart';
 
@@ -6,10 +7,14 @@ import 'height_reporter.dart';
 class ExpandedWidget extends StatefulWidget {
   Widget child;
   double defaultHeight;
-  Key key;
+  Key expandedKey;
 
+  ///super(key: expandedKey)这一步重要，将key传递给父亲，才行
   ExpandedWidget(
-      {required this.child, required this.defaultHeight, required this.key});
+      {required this.child,
+      required this.defaultHeight,
+      required this.expandedKey})
+      : super(key: expandedKey);
 
   @override
   State<ExpandedWidget> createState() => ExpandedWidgetState();
@@ -26,11 +31,11 @@ class ExpandedWidgetState extends State<ExpandedWidget>
 
   @override
   void initState() {
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 250));
+    controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 250));
     curve = CurvedAnimation(parent: controller, curve: Curves.easeOut);
     videoDetailsHeightAnimation =
-        Tween(begin: 0.0, end: realHeight).animate(controller);
+        Tween(begin: widget.defaultHeight, end: realHeight).animate(controller);
     scrollController = ScrollController();
     heightReporter = HeightReporter(
       child: widget.child,
@@ -39,13 +44,17 @@ class ExpandedWidgetState extends State<ExpandedWidget>
   }
 
   widgetShift() {
-    // print('heightReporter.getHeight()----${heightReporter.getHeight()}');
+    print('heightReporter.getHeight()----${heightReporter.getHeight()}');
     realHeight = heightReporter.getHeight() ?? 0;
-    videoDetailsHeightAnimation =
-        Tween(begin: 0.0, end: realHeight).animate(controller)
-          ..addListener(() {
-            setState(() {});
-          });
+    videoDetailsHeightAnimation = Tween(
+            begin: widget.defaultHeight > realHeight
+                ? realHeight
+                : widget.defaultHeight,
+            end: realHeight)
+        .animate(controller)
+      ..addListener(() {
+        setState(() {});
+      });
     videoDetailsHeightAnimation.value == widget.defaultHeight
         ? controller.forward()
         : controller.reverse();

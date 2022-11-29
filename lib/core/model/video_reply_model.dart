@@ -42,8 +42,8 @@ class HYVideoReplyModel {
   List<UpperElement>? topReplies;
   Folder? folder;
   UpSelection upSelection;
-  Cm cm;
-  CmInfo cmInfo;
+  Cm? cm;
+  CmInfo? cmInfo;
   Effects effects;
   int assist;
   int blacklist;
@@ -68,8 +68,8 @@ class HYVideoReplyModel {
                 json["top_replies"].map((x) => UpperElement.fromJson(x))),
         folder: json["folder"] == null ? null : Folder.fromJson(json["folder"]),
         upSelection: UpSelection.fromJson(json["up_selection"]),
-        cm: Cm.fromJson(json["cm"]),
-        cmInfo: CmInfo.fromJson(json["cm_info"]),
+        cm: json["cm"] == null ? null : Cm.fromJson(json["cm"]),
+        cmInfo: json["cm_info"] == null ? null : CmInfo.fromJson(json["cm_info"]),
         effects: Effects.fromJson(json["effects"]),
         assist: json["assist"],
         blacklist: json["blacklist"],
@@ -90,8 +90,8 @@ class HYVideoReplyModel {
         // "top_replies": List<dynamic>.from(topReplies.map((x) => x.toJson())),
         "folder": folder!.toJson(),
         "up_selection": upSelection.toJson(),
-        "cm": cm.toJson(),
-        "cm_info": cmInfo.toJson(),
+        "cm": cm!.toJson(),
+        "cm_info": cmInfo!.toJson(),
         "effects": effects.toJson(),
         "assist": assist,
         "blacklist": blacklist,
@@ -359,7 +359,7 @@ class HYVideoReplyModelReply {
   int assist;
   Folder folder;
   UpAction upAction;
-  bool showFollow;
+  bool? showFollow;
   bool invisible;
   UpperReplyControl replyControl;
 
@@ -1449,7 +1449,7 @@ class UpperElement {
   int assist;
   Folder folder;
   UpAction upAction;
-  bool showFollow;
+  bool? showFollow;
   bool invisible;
   UpperReplyControl replyControl;
 
@@ -1606,7 +1606,7 @@ class UpperReply {
   int assist;
   Folder folder;
   UpAction upAction;
-  bool showFollow;
+  bool? showFollow;
   bool invisible;
   PurpleReplyControl replyControl;
 

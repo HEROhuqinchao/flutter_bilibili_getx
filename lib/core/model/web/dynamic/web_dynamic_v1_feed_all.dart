@@ -544,16 +544,16 @@ class Additional {
     required this.type,
   });
 
-  Common common;
+  Common? common;
   String type;
 
   factory Additional.fromJson(Map<String, dynamic> json) => Additional(
-        common: Common.fromJson(json["common"]),
+        common: json["common"] == null ? null : Common.fromJson(json["common"]),
         type: json["type"],
       );
 
   Map<String, dynamic> toJson() => {
-        "common": common.toJson(),
+        "common": common!.toJson(),
         "type": type,
       };
 }
@@ -617,18 +617,18 @@ class Button {
     required this.type,
   });
 
-  JumpStyle jumpStyle;
-  String jumpUrl;
-  int type;
+  JumpStyle? jumpStyle;
+  String? jumpUrl;
+  int? type;
 
   factory Button.fromJson(Map<String, dynamic> json) => Button(
-        jumpStyle: JumpStyle.fromJson(json["jump_style"]),
+        jumpStyle: json["jump_style"] == null ? null : JumpStyle.fromJson(json["jump_style"]),
         jumpUrl: json["jump_url"],
         type: json["type"],
       );
 
   Map<String, dynamic> toJson() => {
-        "jump_style": jumpStyle.toJson(),
+        "jump_style": jumpStyle!.toJson(),
         "jump_url": jumpUrl,
         "type": type,
       };
