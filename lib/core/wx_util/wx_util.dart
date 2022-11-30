@@ -7,11 +7,21 @@ import 'dart:typed_data';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:fluwx_no_pay/fluwx_no_pay.dart';
 
+const wechatThumbImage =
+    "https://ts1.cn.mm.bing.net/th/id/R-C.171e8fe1aa1544a1868ab710eed82d82?rik=FLPxvVVL9C9bnQ&riu=http%3a%2f%2fwww.pp3.cn%2fuploads%2fallimg%2f200710%2f14-200G00Z321.jpg&ehk=Lb0IHCCZIdqYQOi28m%2borU8c1ARGbTEC%2f8WYzfwRuHo%3d&risl=&pid=ImgRaw&r=0";
+const wechatShareImage =
+    "https://tse1-mm.cn.bing.net/th/id/OIP-C.zK_D_msJjzmYsCjccOaT5wHaNK?pid=ImgDet&rs=1";
+const wechatShareMp3 =
+    "http://downsc.chinaz.net/Files/DownLoad/sound1/201906/11582.mp3";
+const wechatShareVideo = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+const wechatShareFile = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+
+///微信分享、跳转小程序(需要关联）
 class WxUtil {
   ///注册微信API
   static void wxRegisterWxApi() {
     registerWxApi(
-        appId: "wx30d603cbdb550098",
+        appId: "wx86eb77cb06e94932",
         universalLink: "https://your.univerallink.com/link/");
   }
 
@@ -64,9 +74,9 @@ class WxUtil {
   ///跳转至小程序
   static void go2WechatMiniProgram() {
     launchWeChatMiniProgram(
-        username: "wxe62ff5986cbf5a5d",
+        username: "gh_03fb2e5e6c78",
         path: "pages/main/main",
-        miniProgramType: WXMiniProgramType.RELEASE);
+        miniProgramType: WXMiniProgramType.PREVIEW);
   }
 
   ///weChatShareWebPageModelModel
@@ -75,8 +85,7 @@ class WxUtil {
       "www.baidu.com",
       title: "百度",
       scene: WeChatScene.SESSION,
-      thumbnail: WeChatImage.network(
-          "https://ts1.cn.mm.bing.net/th/id/R-C.171e8fe1aa1544a1868ab710eed82d82?rik=FLPxvVVL9C9bnQ&riu=http%3a%2f%2fwww.pp3.cn%2fuploads%2fallimg%2f200710%2f14-200G00Z321.jpg&ehk=Lb0IHCCZIdqYQOi28m%2borU8c1ARGbTEC%2f8WYzfwRuHo%3d&risl=&pid=ImgRaw&r=0"),
+      thumbnail: WeChatImage.network(wechatThumbImage),
     );
     shareToWeChat(model);
   }
@@ -84,22 +93,30 @@ class WxUtil {
   ///weChatShareTextModel
   static void weChatShareTextModel() {
     var model = WeChatShareTextModel("www.baidu.com",
-        title: "百度", scene: WeChatScene.SESSION, description: "这是一个文本分享");
+        title: "百度", scene: WeChatScene.SESSION, description: "这是一个链接分享");
     shareToWeChat(model);
   }
 
   ///WeChatShareMiniProgramModel
   static void weChatShareMiniProgramModel() {
     var model = WeChatShareMiniProgramModel(
-        webPageUrl: "pages/main/main", userName: "wxe62ff5986cbf5a5d");
+      path: "pages/poem/poem",
+      userName: "gh_03fb2e5e6c78",
+      thumbnail: WeChatImage.network(wechatThumbImage),
+      title: "小程序",
+      description: "小程序描述",
+      webPageUrl: "www.baidu.com",
+    );
     shareToWeChat(model);
   }
 
   ///weChatShareImageModel
   static void weChatShareImageModel() {
     var model = WeChatShareImageModel(
-      WeChatImage.network(
-          "https://ts1.cn.mm.bing.net/th/id/R-C.171e8fe1aa1544a1868ab710eed82d82?rik=FLPxvVVL9C9bnQ&riu=http%3a%2f%2fwww.pp3.cn%2fuploads%2fallimg%2f200710%2f14-200G00Z321.jpg&ehk=Lb0IHCCZIdqYQOi28m%2borU8c1ARGbTEC%2f8WYzfwRuHo%3d&risl=&pid=ImgRaw&r=0"),
+      WeChatImage.network(wechatShareImage),
+      thumbnail: WeChatImage.network(wechatThumbImage),
+      title: "图片",
+      description: "图片描述",
     );
     shareToWeChat(model);
   }
@@ -107,23 +124,32 @@ class WxUtil {
   ///weChatShareMusicModel
   static void weChatShareMusicModel() {
     var model = WeChatShareMusicModel(
-        musicUrl:
-            "http://m701.music.126.net/20221126094914/f6974087e4d809f91c012e543ac28566/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/21901549053/d71a/478e/3df5/856f3f94d4e27c4a735c21fc3ce24da2.m4a");
+      musicUrl: wechatShareMp3,
+      thumbnail: WeChatImage.network(wechatThumbImage),
+      title: "音乐",
+      description: "音乐描述",
+    );
     shareToWeChat(model);
   }
 
   ///weChatShareVideoModel
   static void weChatShareVideoModel() {
     var model = WeChatShareVideoModel(
-        videoUrl:
-        "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+      videoUrl: wechatShareVideo,
+      thumbnail: WeChatImage.network(wechatThumbImage),
+      title: "视频",
+      description: "视频描述",
+    );
     shareToWeChat(model);
   }
 
   ///weChatShareFileModel
   static void weChatShareFileModel() {
     var model = WeChatShareFileModel(
-        WeChatFile.network("https://ts1.cn.mm.bing.net/th/id/R-C.466bb61cd7cf4e8b7d9cdf645add1d6e?rik=YRZKRLNWLutoZA&riu=http%3a%2f%2f222.186.12.239%3a10010%2fwmxs_161205%2f002.jpg&ehk=WEy01YhyfNzzQNe1oIqxwgbTnzY7dMfmZZHkqpZB5WI%3d&risl=&pid=ImgRaw&r=0"),);
+      title: "一个文件",
+      WeChatFile.network(wechatShareFile),
+      thumbnail: WeChatImage.network(wechatThumbImage),
+    );
     shareToWeChat(model);
   }
 }

@@ -1,13 +1,12 @@
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/expanded_widget.dart';
 import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../core/model/web/dynamic/web_dynamic_v1_feed_all.dart';
-import '../../widgets/height_reporter.dart';
+import '../../widgets/common_rich_text.dart';
 import 'dynamic_circle_logic.dart';
 
 class DynamicCircleScreen extends StatelessWidget {
@@ -17,13 +16,15 @@ class DynamicCircleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DynamicCircleLogic>(builder: (logic) {
-      return Scaffold(
-        body: state.isLoading
-            ? buildDynamicCircleLoading()
-            : buildDynamicCircleContent(),
-      );
-    });
+    return SafeArea(
+      child: GetBuilder<DynamicCircleLogic>(builder: (logic) {
+        return Scaffold(
+          body: state.isLoading
+              ? buildDynamicCircleLoading()
+              : buildDynamicCircleContent(),
+        );
+      }),
+    );
   }
 
   ///加载界面
@@ -65,14 +66,8 @@ class DynamicCircleScreen extends StatelessWidget {
 
   ///DynamicTypeDraw类型
   Widget buildDynamicTypeDraw(DataItem item, index) {
-    bool showMoreButton = false;
-    print(item.modules.moduleDynamic.desc!.text);
-    print(item.modules.moduleDynamic.desc!.text.length);
-    if ((item.modules.moduleDynamic.desc!.text.length) > 50) {
-      showMoreButton = true;
-    }
     return Container(
-      padding: EdgeInsets.all(10.r),
+      padding: EdgeInsets.all(15.r),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5.r),
@@ -118,10 +113,10 @@ class DynamicCircleScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 25.r,
-                height: 25.r,
+                width: 20.r,
+                height: 20.r,
                 child: Image.asset(
-                  ImageAssets.morePNG,
+                  ImageAssets.moreBlackPNG,
                 ),
               )
             ],
@@ -134,40 +129,23 @@ class DynamicCircleScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 10.verticalSpace,
-                ExpandedWidget(
-                  defaultHeight: 60.w,
-                  expandedKey: state.keys[index],
-                  child: buildRichTextNodes(item.modules.moduleDynamic.desc!),
+                CommonRichText(
+                  text: item.modules.moduleDynamic.desc!.text,
+                  richTextNodes: item.modules.moduleDynamic.desc!.richTextNodes,
+                  richText:
+                      buildRichTextNodes(item.modules.moduleDynamic.desc!),
+                  textStyle: TextStyle(
+                    height: 1.5,
+                    color: HYAppTheme.norTextColors,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'bilibiliFonts',
+                  ),
                 ),
-                5.verticalSpace,
-                showMoreButton
-                    ? GestureDetector(
-                        child: state.expandedList[index] == false
-                            ? Text(
-                                "展开",
-                                style: TextStyle(
-                                  color: HYAppTheme.norBlue01Colors,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              )
-                            : Text(
-                                "收缩",
-                                style: TextStyle(
-                                  color: HYAppTheme.norBlue01Colors,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                        onTap: () {
-                          logic.expandText(index);
-                        },
-                      )
-                    : Container(),
-                10.verticalSpace,
+                30.verticalSpace,
                 buildDynamicTypeDrawMajor(
                     item.modules.moduleDynamic.major!.draw!.items),
-                40.verticalSpace,
+                30.verticalSpace,
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -239,7 +217,7 @@ class DynamicCircleScreen extends StatelessWidget {
   }
 
   ///动态文字内容
-  Widget buildRichTextNodes(ItemDesc itemDesc) {
+  List<InlineSpan> buildRichTextNodes(ItemDesc itemDesc) {
     List<InlineSpan> children = [];
     for (var item in itemDesc.richTextNodes) {
       InlineSpan widget;
@@ -286,13 +264,33 @@ class DynamicCircleScreen extends StatelessWidget {
               fontFamily: 'bilibiliFonts'),
         );
         children.add(widget);
+      } else if (item.type == "RICH_TEXT_NODE_TYPE_WEB") {
+        widget = TextSpan(
+          text: item.text,
+          style: TextStyle(
+              height: 1.5,
+              color: HYAppTheme.norBlue01Colors,
+              fontSize: 13.sp,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'bilibiliFonts'),
+        );
+        children.add(widget);
+      } else if (item.type == "RICH_TEXT_NODE_TYPE_AT") {
+        widget = TextSpan(
+          text: item.text,
+          style: TextStyle(
+              height: 1.5,
+              color: HYAppTheme.norYellow01Colors,
+              fontSize: 13.sp,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'bilibiliFonts'),
+        );
+        children.add(widget);
       } else {
-        children.add(TextSpan(text: "未知类型"));
+        print("位置类型");
       }
     }
-    return RichText(
-      text: TextSpan(children: children),
-    );
+    return children;
   }
 
   ///动态图片
@@ -323,8 +321,8 @@ class DynamicCircleScreen extends StatelessWidget {
         );
       } else {
         return SizedBox(
-          width: (items[0].width / 10).r,
-          height: (items[0].height / 10).r,
+          width: (items[0].width / 7).r,
+          height: (items[0].height / 7).r,
           child: Image.network(
             items[0].src,
             fit: BoxFit.cover,

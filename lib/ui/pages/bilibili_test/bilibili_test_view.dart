@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../widgets/common_rich_text.dart';
 import 'bilibili_test_logic.dart';
 
 ///只用于测试的界面!!!!
@@ -40,6 +41,17 @@ class _BilibiliTestScreenState extends State<BilibiliTestScreen>
     super.initState();
   }
 
+  List<InlineSpan> buildHeaderRichText(String text) {
+    List<InlineSpan> children = [];
+    text = "\r\n我喜欢在街上散步看看这个看看那个，这个样子被监控摄像头拍下来想想就很害羞…。";
+    for (int i = 0; i < text.length; i++) {
+      String str = text.substring(i, i + 1);
+      TextSpan textSpan = TextSpan(text: str);
+      children.add(textSpan);
+    }
+    return children;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<BilibiliTestLogic>(
@@ -66,7 +78,11 @@ class _BilibiliTestScreenState extends State<BilibiliTestScreen>
                   child: !isFavor ? buildUnFavorButton() : buildFavoredButton(),
                 ),
                 Container(
-                    width: 1.sw, height: 200.w, child: buildTextLineTest())
+                    width: 1.sw,
+                    height: 200.w,
+                    child: RichText(
+                      text: TextSpan(children: buildHeaderRichText("")),
+                    ))
               ],
             ),
           ),
@@ -81,31 +97,42 @@ class _BilibiliTestScreenState extends State<BilibiliTestScreen>
     );
   }
 
-  Widget buildTextLineTest() {
-    String yourText = "今天发现\n44.30kg了\n长这么大第一次这么重\n(*´_ゝ｀)最可怕的是\n我也不知道哪里胖了";
-    TextStyle yourStyle = TextStyle(color: Colors.black, height: 1.5);
-    return LayoutBuilder(
-      builder: (ctx, con) {
-        final span = TextSpan(
-          text: yourText,
-          style: yourStyle,
-        );
-        final tp = TextPainter(
-          text: span,
-          textDirection: TextDirection.ltr,
-        );
-        tp.layout(maxWidth: 1.sw - 80.r);
-        final numLines = tp.computeLineMetrics().length;
-        if (numLines > 3) {
-          print("行数超过3");
-          return Text(yourText, style: yourStyle);
-        } else {
-          print("行数没超过3");
-          return Text(yourText, style: yourStyle);
-        }
-      },
-    );
-  }
+  // Widget buildTextLineTest() {
+  // return TextLines(
+  //   text: "早！早啊！早上好！おはよう☀[花丸晴琉_早安][花丸晴琉_早安]\n\n以前没有意识到的一个事情，现在在街上看发现周边都装上了监控摄像头！[花丸晴琉_啊咧][花丸晴琉_啊咧]\r\n虽然可以让人安心，但是数量多的惊人[花丸晴琉_惊慌]\r\n我喜欢在街上散步看看这个看看那个，这个样子被监控摄像头拍下来想想就很害羞…。[花丸晴琉_丧][花丸晴琉_无语] ",
+  //   textStyle: TextStyle(
+  //     color: Colors.black,
+  //   ),
+  //   maxWidth: 1.sw - 80.r,
+  //   getLines: (lines) {
+  //     print(lines);
+  //   },
+  // );
+
+  // String yourText = "早！早啊！早上好！おはよう☀[花丸晴琉_早安][花丸晴琉_早安]\n\n以前没有意识到的一个事情，现在在街上看发现周边都装上了监控摄像头！[花丸晴琉_啊咧][花丸晴琉_啊咧]\r\n虽然可以让人安心，但是数量多的惊人[花丸晴琉_惊慌]\r\n我喜欢在街上散步看看这个看看那个，这个样子被监控摄像头拍下来想想就很害羞…。[花丸晴琉_丧][花丸晴琉_无语] ";
+  // TextStyle yourStyle = TextStyle(color: Colors.black, height: 1.5);
+  // return LayoutBuilder(
+  //   builder: (ctx, con) {
+  //     final span = TextSpan(
+  //       text: yourText,
+  //       style: yourStyle,
+  //     );
+  //     final tp = TextPainter(
+  //       text: span,
+  //       textDirection: TextDirection.ltr,
+  //     );
+  //     tp.layout(maxWidth: 1.sw - 80.r);
+  //     final numLines = tp.computeLineMetrics().length;
+  //     if (numLines > 3) {
+  //       print("行数超过3");
+  //       return Text(yourText, style: yourStyle);
+  //     } else {
+  //       print("行数没超过3");
+  //       return Text(yourText, style: yourStyle);
+  //     }
+  //   },
+  // );
+  // }
 
   Widget buildFavoredButton() {
     return Container(

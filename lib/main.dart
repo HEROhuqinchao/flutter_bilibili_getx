@@ -131,9 +131,9 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          initialRoute: BilibiliTestScreen.routeName,
+          // initialRoute: WxShareView.routeName,
           // initialRoute: DynamicCircleScreen.routeName,
-          // initialRoute: MainScreen.routeName,
+          initialRoute: MainScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,
