@@ -2,15 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../core/model/web/dynamic/web_dynamic_v1_feed_all.dart';
 import '../shared/app_theme.dart';
+import '../shared/image_asset.dart';
 import 'fade_image_default.dart';
 
 /// 参考 https://juejin.cn/post/7028151999019352072
 class CommonRichText extends StatefulWidget {
   ///文本内容长度限制
   final String text;
+
   ///完整富文本内容
   final List<InlineSpan> richText;
   final List<PurpleRichTextNode> richTextNodes;
@@ -27,7 +30,7 @@ class CommonRichText extends StatefulWidget {
     this.text = '',
     required this.richText,
     required this.richTextNodes,
-    this.maxLines = 5,
+    this.maxLines = 4,
     this.minLines = 1,
     this.textStyle,
     this.shrinkText = '\n展开',
@@ -83,9 +86,7 @@ class _RichTextState extends State<CommonRichText> {
             // text: !_isExpand ? "" : widget.text.substring(0, endOffset!),
             style: widget.textStyle,
             children: [
-              ...!_isExpand
-                  ? []
-                  : buildHeaderRichText(endOffset!),
+              ...!_isExpand ? [] : buildHeaderRichText(endOffset!),
               ..._isExpand ? [] : widget.richText,
               TextSpan(
                 text: _isExpand ? widget.shrinkText : widget.expandText,
@@ -118,10 +119,10 @@ class _RichTextState extends State<CommonRichText> {
   List<InlineSpan> buildHeaderRichText(int endOffset) {
     int number = 0;
     List<InlineSpan> children = [];
-    for(var item in widget.richTextNodes) {
+    for (var item in widget.richTextNodes) {
       number += item.origText.length;
-      if(number > endOffset) {
-        if(item.type == "RICH_TEXT_NODE_TYPE_TEXT") {
+      if (number > endOffset) {
+        if (item.type == "RICH_TEXT_NODE_TYPE_TEXT") {
           int tempNumber = (number - item.origText.length);
           String text = item.origText.substring(0, endOffset - tempNumber);
           children.add(TextSpan(text: text));
@@ -141,6 +142,13 @@ class _RichTextState extends State<CommonRichText> {
           );
           children.add(child);
         } else if (item.type == "RICH_TEXT_NODE_TYPE_TOPIC") {
+          final Widget svg = SvgPicture.asset(
+            ImageAssets.topicSVG,
+            semanticsLabel: 'topic svg',
+            width: 10.r,
+            height: 10.r,
+          );
+          children.add(WidgetSpan(child: svg));
           child = TextSpan(
             text: item.text,
             style: TextStyle(

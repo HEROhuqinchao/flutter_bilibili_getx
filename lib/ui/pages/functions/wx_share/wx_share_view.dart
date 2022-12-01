@@ -62,6 +62,16 @@ class WxShareView extends StatelessWidget {
                   WxUtil.weChatShareFileModel();
                 },
                 child: Text("weChatShareFileModel")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.wechatShare2Favorite();
+                },
+                child: Text("wechatShare2Favorite")),
+            ElevatedButton(
+                onPressed: () {
+                  WxUtil.wechatShare2TimeLine();
+                },
+                child: Text("wechatShare2TimeLine")),
           ],
         ),
       ),

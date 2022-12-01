@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../shared/shared_util.dart';
-
 
 class HYAppTheme {
   ///字体大小、颜色-共有属性
@@ -66,6 +64,14 @@ class HYAppTheme {
   static const Color norYellow04Colors = Color.fromRGBO(215, 100, 30, 1);
   static const Color norYellow05Colors = Color.fromRGBO(114, 89, 27, 1);
 
+  ///阴影
+  static BoxShadow norBoxShadow = BoxShadow(
+    color: HYAppTheme.norTextColors.withOpacity(.1),
+    blurRadius: 3,
+    spreadRadius: 1,
+    offset: const Offset(0, 0),
+  );
+
   ///默认下的主题
   static final ThemeData norTheme = ThemeData(
     primaryColor: norWhite01Color,
@@ -78,15 +84,15 @@ class HYAppTheme {
   );
 
   ///暗黑模式
-  // static const Color darkTextColors = Colors.green;
-  // static final ThemeData darkTheme = ThemeData(
-  //   primarySwatch: createMaterialColor(Color.fromRGBO(24, 25, 27, 1)),
-  //   canvasColor: Color.fromRGBO(0, 0, 0, 1),
-  //   textTheme: TextTheme(
-      // bodySmall: TextStyle(fontSize: xSmallFontSize),
-      // displaySmall: TextStyle(fontSize: smallFontSize),
-      // displayMedium: TextStyle(fontSize: normalFontSize),
-      // displayLarge: TextStyle(fontSize: largeFontSize),
-    // ),
-  // );
+// static const Color darkTextColors = Colors.green;
+// static final ThemeData darkTheme = ThemeData(
+//   primarySwatch: createMaterialColor(Color.fromRGBO(24, 25, 27, 1)),
+//   canvasColor: Color.fromRGBO(0, 0, 0, 1),
+//   textTheme: TextTheme(
+// bodySmall: TextStyle(fontSize: xSmallFontSize),
+// displaySmall: TextStyle(fontSize: smallFontSize),
+// displayMedium: TextStyle(fontSize: normalFontSize),
+// displayLarge: TextStyle(fontSize: largeFontSize),
+// ),
+// );
 }

@@ -92,8 +92,12 @@ class WxUtil {
 
   ///weChatShareTextModel
   static void weChatShareTextModel() {
-    var model = WeChatShareTextModel("www.baidu.com",
-        title: "百度", scene: WeChatScene.SESSION, description: "这是一个链接分享");
+    var model = WeChatShareTextModel(
+      "www.baidu.com",
+      title: "百度",
+      scene: WeChatScene.SESSION,
+      description: "这是一个链接分享",
+    );
     shareToWeChat(model);
   }
 
@@ -106,6 +110,7 @@ class WxUtil {
       title: "小程序",
       description: "小程序描述",
       webPageUrl: "www.baidu.com",
+      miniProgramType: WXMiniProgramType.PREVIEW,
     );
     shareToWeChat(model);
   }
@@ -149,6 +154,26 @@ class WxUtil {
       title: "一个文件",
       WeChatFile.network(wechatShareFile),
       thumbnail: WeChatImage.network(wechatThumbImage),
+    );
+    shareToWeChat(model);
+  }
+
+  static void wechatShare2Favorite() {
+    var model = WeChatShareTextModel(
+      "www.baidu.com",
+      title: "百度",
+      scene: WeChatScene.FAVORITE,
+      description: "这是一个链接分享",
+    );
+    shareToWeChat(model);
+  }
+
+  static void wechatShare2TimeLine() {
+    var model = WeChatShareTextModel(
+      "www.baidu.com",
+      title: "百度",
+      scene: WeChatScene.TIMELINE,
+      description: "这是一个链接分享",
     );
     shareToWeChat(model);
   }

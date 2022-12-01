@@ -20,18 +20,18 @@ class DynamicCircleLogic extends GetxController {
     DynamicRequest.getWebDynamicV1FeedAll(params).then((value) {
       state.dynamicV1FeedAllData = value;
       state.isLoading = false;
-      for (var i = 0; i < value.data!.items.length; i++) {
-        state.keys.add(GlobalKey<ExpandedWidgetState>());
-        state.expandedList.add(false);
-      }
+      // for (var i = 0; i < value.data!.items.length; i++) {
+        // state.keys.add(GlobalKey<ExpandedWidgetState>());
+        // state.expandedList.add(false);
+      // }
       update();
     });
     super.onReady();
   }
 
-  void expandText(int index) {
-    state.expandedList[index] = !state.expandedList[index];
-    state.keys[index].currentState!.widgetShift();
-    update();
-  }
+  // void expandText(int index) {
+    // state.expandedList[index] = !state.expandedList[index];
+    // state.keys[index].currentState!.widgetShift();
+    // update();
+  // }
 }

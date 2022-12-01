@@ -28,7 +28,7 @@ class HttpBaseRequest {
     HttpHeaders.contentTypeHeader: 'application/json',
     HttpHeaders.userAgentHeader: ua,
     HttpHeaders.cookieHeader:
-        "buvid3=84F6E053-B579-35E2-C75E-9F554100BE6834154infoc; i-wanna-go-back=-1; _uuid=94524A93-F3710-A7AD-969A-4910FE1010C4FB1033966infoc; buvid4=77036CCD-6634-BC61-5A85-E99F6702D17E34460-022081609-BvEob4vLVHw3RzM780E09A==; nostalgia_conf=-1; buvid_fp_plain=undefined; b_ut=5; CURRENT_BLACKGAP=0; fingerprint3=c8c54833688179bbaac5bb4d4247ca3a; PVID=1; b_nut=100; CURRENT_FNVAL=4048; rpdid=|(u|JRu)uJ~R0J'uYYmRR|Ymk; innersign=0; sid=8sljt4k6; bp_video_offset_243766934=733436962437857300; hit-new-style-dyn=0; hit-dyn-v2=1; bsource=search_bing; b_lsid=107877F10F_184BCDE1D1A; fingerprint=6cb3b3941340f44452a9ef9098afeabe; buvid_fp=6cb3b3941340f44452a9ef9098afeabe; DedeUserID=243766934; DedeUserID__ckMd5=ad56d1c5d71807ca; SESSDATA=75ac156b,1685170420,5b8cc*b1; bili_jct=468fa0f4a575ef306d5043ebeecfc24e"
+        "buvid3=84F6E053-B579-35E2-C75E-9F554100BE6834154infoc; i-wanna-go-back=-1; _uuid=94524A93-F3710-A7AD-969A-4910FE1010C4FB1033966infoc; buvid4=77036CCD-6634-BC61-5A85-E99F6702D17E34460-022081609-BvEob4vLVHw3RzM780E09A%3D%3D; nostalgia_conf=-1; buvid_fp_plain=undefined; b_ut=5; CURRENT_BLACKGAP=0; fingerprint3=c8c54833688179bbaac5bb4d4247ca3a; PVID=1; b_nut=100; CURRENT_FNVAL=4048; rpdid=|(u|JRu)uJ~R0J'uYYmRR|Ymk; hit-new-style-dyn=0; hit-dyn-v2=1; innersign=0; b_lsid=62951467_184CC882FE4; sid=65oauv6u; bp_video_offset_243766934=734619628907528200; fingerprint=1b0d06d7ec4bc1a0d1038985b61675b7; buvid_fp=1b0d06d7ec4bc1a0d1038985b61675b7; DedeUserID=243766934; DedeUserID__ckMd5=ad56d1c5d71807ca; SESSDATA=09e12e84%2C1685436133%2C51255*c1; bili_jct=fb776c7f2631ed9a402b09211f24a58a"
   };
 
   ///请求xml数据

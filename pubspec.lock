@@ -356,6 +356,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.2"
+  flutter_svg:
+    dependency: "direct main"
+    description:
+      name: flutter_svg
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.1.6"
   flutter_swiper_null_safety_flutter3:
     dependency: "direct main"
     description:
@@ -520,6 +527,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.8.2"
+  path_drawing:
+    dependency: transitive
+    description:
+      name: path_drawing
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
+  path_parsing:
+    dependency: transitive
+    description:
+      name: path_parsing
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   path_provider:
     dependency: "direct main"
     description:
@@ -590,6 +611,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.9.0"
+  petitparser:
+    dependency: transitive
+    description:
+      name: petitparser
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "5.1.0"
   platform:
     dependency: transitive
     description:
@@ -738,7 +766,7 @@ packages:
     source: hosted
     version: "2.1.1"
   shelf:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: shelf
       url: "https://pub.flutter-io.cn"
@@ -1043,6 +1071,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.0+2"
+  xml:
+    dependency: transitive
+    description:
+      name: xml
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "6.1.0"
   yaml:
     dependency: transitive
     description:
