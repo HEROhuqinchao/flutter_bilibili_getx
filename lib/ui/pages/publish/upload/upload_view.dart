@@ -38,9 +38,14 @@ class _UploadViewState extends State<UploadView> with TickerProviderStateMixin {
       return CustomScrollView(
         slivers: [
           SliverAppBar(
-            leading: Icon(
-              Icons.clear,
-              size: 20.sp,
+            leading: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: Icon(
+                Icons.clear,
+                size: 20.sp,
+              ),
             ),
             backgroundColor: Colors.transparent,
             pinned: true,

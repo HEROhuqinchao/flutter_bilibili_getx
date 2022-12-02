@@ -60,8 +60,8 @@ class StatisticsChartView extends StatelessWidget {
                   ),
                   child: index == 0
                       ? chart001()
-                      : index == 1
-                          ? chart002()
+                      // : index == 1
+                      //     ? chart002()
                           : Container(),
                 ),
               );
@@ -183,7 +183,7 @@ class StatisticsChartView extends StatelessWidget {
 
   Widget bottomTitles(double value, TitleMeta meta) {
     List<String> titles = [];
-    for (int i = 0; i < state.covidData.length; i++) {
+    for (int i = 0; i < 5; i++) {
       titles.add(state.covidData[i].city);
     }
     final Widget text = Text(

@@ -18,8 +18,8 @@ class StatisticsChartLogic extends GetxController {
 
   @override
   void onReady() {
-    fetchChartData();
-    initWindowsSize();
+    // fetchChartData();
+    // initWindowsSize();
     super.onReady();
   }
 
@@ -40,12 +40,12 @@ class StatisticsChartLogic extends GetxController {
   }
 
   ///获取疫情数据
-  void fetchChartData() {
-    HYStatisticChartRequest.fetchCovidProvinceData().then((value) {
-      state.covidData = value!;
-      update();
-    });
-  }
+  // void fetchChartData() {
+  //   HYStatisticChartRequest.fetchCovidProvinceData().then((value) {
+  //     state.covidData = value!;
+  //     update();
+  //   });
+  // }
 
   void createFloatingView(context) {
     state.floatingOne = state.floatingManager.createFloating(

@@ -416,9 +416,14 @@ class PrePublishVideoScreen extends StatelessWidget {
     return AppBar(
       elevation: .8,
       backgroundColor: HYAppTheme.norWhite01Color,
-      leading: const Icon(
-        Icons.arrow_back,
-        color: HYAppTheme.norTextColors,
+      leading: GestureDetector(
+        onTap: () {
+          Get.back();
+        },
+        child: const Icon(
+          Icons.arrow_back,
+          color: HYAppTheme.norTextColors,
+        ),
       ),
       title: Text(
         SR.publishVideo.tr,

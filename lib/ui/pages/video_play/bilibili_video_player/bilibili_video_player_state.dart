@@ -26,6 +26,10 @@ class BilibiliVideoPlayerState {
   ///是否显示顶部工具栏
   late bool showTopBar;
 
+  ///是否显示顶部工具栏的home按钮和更多按钮
+  late bool showTopBarHome;
+  late bool showTopBarMore;
+
   ///是否显示底部的工具栏
   late bool showBottomBar;
 
@@ -89,6 +93,8 @@ class BilibiliVideoPlayerState {
   BilibiliVideoPlayerState() {
     showBottomBar = true;
     showTopBar = true;
+    showTopBarHome = true;
+    showTopBarMore = true;
     isLoadingVideo = true;
     danMuRouteAmount = 6;
     showDanMu = true;

@@ -10,11 +10,13 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -96,8 +98,8 @@ public class MainActivity extends FlutterActivity {
                 String videoLocation = cursor.getString(pathIndex);
                 String duration = cursor.getString(durationIndex);
 
-                //如果时长为空，就舍弃这个视频
-                if (duration == null) {
+                //如果时长为空或者视频不存在，就舍弃这个视频
+                if (duration == null || !fileIsExists(videoLocation)) {
                     continue;
                 }
 
@@ -107,9 +109,9 @@ public class MainActivity extends FlutterActivity {
                 bodyData.put("videoLocation", videoLocation);
                 bodyData.put("duration", duration);
 
-                //            Log.i("MainActivity", "videoName:" + videoName);
-                //            Log.i("MainActivity", "videoLocation:" + videoLocation);
-                //            Log.i("MainActivity", "duration:" + duration);
+//                Log.i("MainActivity", "videoName:" + videoName);
+//                Log.i("MainActivity", "videoLocation:" + videoLocation);
+//                Log.i("MainActivity", "duration:" + duration);
 
                 arguments.put(count, bodyData);
 
@@ -118,6 +120,18 @@ public class MainActivity extends FlutterActivity {
             }
         }
         return arguments;
+    }
+
+    public boolean fileIsExists(String strFile) {
+        try {
+            File file = new File(strFile);
+            if (!file.exists()) {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     //获取本地图片集合

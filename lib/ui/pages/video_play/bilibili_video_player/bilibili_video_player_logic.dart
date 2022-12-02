@@ -61,9 +61,11 @@ class BilibiliVideoPlayerLogic extends GetxController {
       update();
     });
     state.videoPlayerController.dispose();
-    for (var item in state.danMuRouteList) {
-      item.scrollController.removeListener(() {});
-      item.scrollController.dispose();
+    if(state.showDanMu) {
+      for (var item in state.danMuRouteList) {
+        item.scrollController.removeListener(() {});
+        item.scrollController.dispose();
+      }
     }
   }
 

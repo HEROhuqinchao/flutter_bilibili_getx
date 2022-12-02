@@ -11,6 +11,8 @@ import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_view.dart';
 import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
+import 'package:bilibili_getx/ui/pages/publish/publish_logic.dart';
+import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';

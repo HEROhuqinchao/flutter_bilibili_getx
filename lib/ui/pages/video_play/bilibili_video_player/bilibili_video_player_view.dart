@@ -62,6 +62,7 @@ class _BilibiliVideoPlayerComponentState
 
   @override
   void dispose() {
+    logic.disposeAllController();
     Get.delete<BilibiliVideoPlayerComponent>();
     super.dispose();
   }
@@ -191,6 +192,7 @@ class _BilibiliVideoPlayerComponentState
 
   ///水平视频
   Widget buildHorizonVideo() {
+    print("state.showTopBar -- ${state.showTopBar}");
     return GestureDetector(
       onTap: () {
         logic.cancelAndRestartTimer();
@@ -203,21 +205,19 @@ class _BilibiliVideoPlayerComponentState
         absorbing: !state.showBottomBar && !state.showTopBar,
         child: Container(
           color: HYAppTheme.norTextColors,
-          width: 1.sw,
           child: Stack(
+            alignment: Alignment.center,
             children: [
-              Center(
-                child: Container(
-                  color: Colors.black,
-                  width: 1.sw,
-                  child: AspectRatio(
-                    aspectRatio: state.videoPlayerController.value.aspectRatio,
-                    child: VideoPlayer(
-                      state.videoPlayerController,
-                    ),
+              SizedBox(
+                width: 1.sw,
+                child: AspectRatio(
+                  aspectRatio: state.videoPlayerController.value.aspectRatio,
+                  child: VideoPlayer(
+                    state.videoPlayerController,
                   ),
                 ),
               ),
+              ///顶部状态栏
               Positioned(
                 top: 0,
                 left: 0,
@@ -249,21 +249,27 @@ class _BilibiliVideoPlayerComponentState
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(
-                              Icons.arrow_back_rounded,
-                              size: 20.sp,
-                              color: HYAppTheme.norWhite01Color,
+                            GestureDetector(
+                              onTap: (){
+                                print("返回");
+                                Get.back();
+                              },
+                              child: Icon(
+                                Icons.arrow_back_rounded,
+                                size: 20.sp,
+                                color: HYAppTheme.norWhite01Color,
+                              ),
                             ),
                             30.horizontalSpace,
-                            Image.asset(
+                            state.showTopBarHome ? Image.asset(
                               ImageAssets.videoHomePNG,
                               width: 20.sp,
                               height: 20.sp,
                               fit: BoxFit.cover,
-                            ),
+                            ) : Container(),
                           ],
                         ),
-                        GestureDetector(
+                        state.showTopBarMore ? GestureDetector(
                           onTap: () {
                             ///请求下载的权限
                             BilibiliPermission.requestDownloadPermissions();
@@ -283,12 +289,13 @@ class _BilibiliVideoPlayerComponentState
                             height: 20.sp,
                             fit: BoxFit.cover,
                           ),
-                        )
+                        ) : Container()
                       ],
                     ),
                   ),
                 ),
               ),
+              ///底部状态栏
               Positioned(
                 bottom: 0,
                 left: 0,

@@ -32,6 +32,8 @@ class LocalVideoLogic extends GetxController {
           ///这里的duration返回值单位为毫秒，不是秒
           duration: value[i]["duration"] ?? "0",
         ));
+        print(value[i]["videoLocation"]);
+        print(value[i]["videoName"]);
       }
       update();
     });
@@ -40,14 +42,17 @@ class LocalVideoLogic extends GetxController {
   ///跳转至预编辑界面
   void go2PreEditScreen(int index) {
     Get.put(BilibiliVideoPlayerLogic());
+    BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
     BilibiliVideoPlayerState bilibiliVideoPlayerState = Get.find<BilibiliVideoPlayerLogic>().state;
+
+    bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
     bilibiliVideoPlayerState.haveFinishView = false;
     bilibiliVideoPlayerState.haveFullScreenFunction = false;
     bilibiliVideoPlayerState.haveDanMuFunction = false;
+    bilibiliVideoPlayerState.showDanMu = false;
+    bilibiliVideoPlayerState.showTopBarHome = false;
+    bilibiliVideoPlayerState.showTopBarMore = false;
     bilibiliVideoPlayerState.videoOriginalUrl = state.localVideoList[index].videoLocation;
-
-    BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
-    bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
     bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
 
     Get.toNamed(PreEditVideoScreen.routeName);

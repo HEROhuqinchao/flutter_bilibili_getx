@@ -11,7 +11,6 @@ class ComicScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<ComicLogic>();
     final state = Get.find<ComicLogic>().state;
 
     return GetBuilder<ComicLogic>(builder: (logic) {
