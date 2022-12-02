@@ -180,8 +180,32 @@ class _RichTextState extends State<CommonRichText> {
                 fontFamily: 'bilibiliFonts'),
           );
           children.add(child);
+        } else if (item.type == "RICH_TEXT_NODE_TYPE_WEB") {
+          child = TextSpan(
+            text: item.text,
+            style: TextStyle(
+              height: 1.5,
+              color: HYAppTheme.norBlue01Colors,
+              fontSize: 13.sp,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'bilibiliFonts',
+            ),
+          );
+          children.add(child);
+        } else if (item.type == "RICH_TEXT_NODE_TYPE_AT") {
+          child = TextSpan(
+            text: item.text,
+            style: TextStyle(
+              height: 1.5,
+              color: HYAppTheme.norBlue01Colors,
+              fontSize: 13.sp,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'bilibiliFonts',
+            ),
+          );
+          children.add(child);
         } else {
-          print("位置类型");
+          print(item.type);
         }
       }
     }

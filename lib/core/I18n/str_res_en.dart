@@ -10,7 +10,7 @@ const strResEn = {
   ///['直播', '推荐', '热门', '动画', '影视', '共同抗疫', '新征程']
   SR.live: 'live',
   SR.recommend: 'recommend',
-  SR.hot: 'home',
+  SR.hot: 'hot',
   SR.comic: 'comic',
   SR.movie: 'movie',
   SR.covid: 'covid-19',

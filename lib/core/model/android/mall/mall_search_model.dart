@@ -461,7 +461,7 @@ class ListElement {
 
   String id;
   String? type;
-  String tagName;
+  String? tagName;
   String? title;
   int templateId;
   List<String>? imageUrls;
