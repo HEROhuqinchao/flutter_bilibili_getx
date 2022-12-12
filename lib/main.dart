@@ -6,6 +6,7 @@ import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_state.dart';
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/mini_window/mini_window_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_view.dart';
 import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
@@ -90,9 +91,12 @@ Future<void> initialization() async {
 
 ///设置windows端窗口大小,设置最大窗口和最小窗口
 Future<void> initWindowsSize() async {
-  await DesktopWindow.setWindowSize(Size(540, 950));
-  await DesktopWindow.setMinWindowSize(Size(503, 900));
-  await DesktopWindow.setMaxWindowSize(Size(551, 1000));
+  await DesktopWindow.setWindowSize(Size(1040, 1040));
+  await DesktopWindow.setMinWindowSize(Size(1040, 1040));
+  await DesktopWindow.setMaxWindowSize(Size(1040, 1040));
+  // await DesktopWindow.setWindowSize(Size(540, 950));
+  // await DesktopWindow.setMinWindowSize(Size(503, 900));
+  // await DesktopWindow.setMaxWindowSize(Size(551, 1000));
 }
 
 class MyApp extends StatelessWidget {
@@ -135,7 +139,9 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: WxShareView.routeName,
           // initialRoute: DynamicCircleScreen.routeName,
-          initialRoute: MainScreen.routeName,
+          // initialRoute: MainScreen.routeName,
+          // initialRoute: MiniWindowView.routeName,
+          initialRoute: BilibiliTestScreen.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

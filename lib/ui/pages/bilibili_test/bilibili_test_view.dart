@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../widgets/common_rich_text.dart';
 import 'bilibili_test_logic.dart';
 
 ///只用于测试的界面!!!!

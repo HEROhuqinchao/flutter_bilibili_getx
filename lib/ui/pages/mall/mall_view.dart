@@ -809,14 +809,14 @@ class MallScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ClipRRect(
+                item.imageUrls != null ? ClipRRect(
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(5.r)),
                   child: DefaultFadeImage(
                     imageUrl: getImageHttpUrl(item.imageUrls![0]),
                     height: 190.w,
                   ),
-                ),
+                ) : Container(),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
                   child: Column(

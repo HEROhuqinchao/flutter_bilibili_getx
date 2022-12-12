@@ -25,6 +25,8 @@ import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/functions/animation_compoent/animation_compoent_binding.dart';
 import '../../ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_binding.dart';
+import '../../ui/pages/functions/mini_window/mini_window_binding.dart';
+import '../../ui/pages/functions/mini_window/mini_window_view.dart';
 import '../../ui/pages/functions/push_message/push_message_binding.dart';
 import '../../ui/pages/functions/push_message/push_message_view.dart';
 import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
@@ -201,10 +203,16 @@ class AsRouter {
         page: () => LivePlayView(),
         binding: LivePlayBinding()),
 
-    ///直播间
+    ///微信分享
     GetPage(
         name: WxShareView.routeName,
         page: () => WxShareView(),
         binding: WxShareBinding()),
+
+    ///视频小窗口
+    GetPage(
+        name: MiniWindowView.routeName,
+        page: () => MiniWindowView(),
+        binding: MiniWindowBinding()),
   ];
 }
