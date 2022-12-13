@@ -131,4 +131,5 @@ class ImageAssets {
   static String banCustomPNG = "assets/image/icon/ban_custom.png";
   static String moreBlackPNG = "assets/image/icon/more_black.png";
   static String topicSVG = "assets/svg/topic.svg";
+  static String miniWindowClosePng = "assets/image/icon/mini_window_close.png";
 }

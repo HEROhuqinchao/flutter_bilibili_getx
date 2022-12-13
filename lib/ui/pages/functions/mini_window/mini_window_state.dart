@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_floating/floating/floating.dart';
 import 'package:flutter_floating/floating/manager/floating_manager.dart';
@@ -9,6 +11,10 @@ class MiniWindowState {
   late FloatingManager floatingManager;
   late Floating floating;
   late bool isPlaying;
+
+  ///是否显示操作按钮
+  late bool showButtons;
+  late Timer hideTimer;
 
   MiniWindowState() {
     videoPlayerController = VideoPlayerController.network(
