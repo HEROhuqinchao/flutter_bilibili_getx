@@ -5,6 +5,7 @@ import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_toot
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_logic.dart';
+import 'package:bilibili_getx/ui/pages/functions/video_player_example/video_player_example_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_view.dart';
 import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
@@ -33,6 +34,7 @@ import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
 import '../../ui/pages/functions/qq_share/qq_share_view.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_binding.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_view.dart';
+import '../../ui/pages/functions/video_player_example/video_player_example_binding.dart';
 import '../../ui/pages/functions/wx_share/wx_share_binding.dart';
 import '../../ui/pages/live_play/live_play_binding.dart';
 import '../../ui/pages/main/home/comic/comic_binding.dart';
@@ -214,5 +216,11 @@ class AsRouter {
         name: MiniWindowView.routeName,
         page: () => MiniWindowView(),
         binding: MiniWindowBinding()),
+
+    ///视频播放界面测试样例
+    GetPage(
+        name: VideoPlayerExampleView.routeName,
+        page: () => VideoPlayerExampleView(),
+        binding: VideoPlayerExampleBinding()),
   ];
 }

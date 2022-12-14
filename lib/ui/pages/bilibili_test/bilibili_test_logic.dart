@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/ui/pages/functions/mini_window/mini_window_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/video_player_example/video_player_example_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_floating/floating/assist/floating_slide_type.dart';
 import 'package:flutter_floating/floating/floating.dart';
@@ -21,19 +22,7 @@ class BilibiliTestLogic extends GetxController {
   }
 
   void createFloatingView(context) {
-    Get.toNamed(MiniWindowView.routeName);
-    // state.floatingOne = state.floatingManager.createFloating(
-    //   "1",
-    //   Floating(
-    //     buildFloating(),
-    //     slideType: FloatingSlideType.onLeftAndTop,
-    //     isShowLog: false,
-    //     slideBottomHeight: 100,
-    //   ),
-    // );
-    // state.floatingManager.createFloating("1", state.floatingOne);
-    // state.floatingOne.open(context);
-    // Get.back();
+    Get.toNamed(VideoPlayerExampleView.routeName);
   }
 
   ///构建浮动窗口

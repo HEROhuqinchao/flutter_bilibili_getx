@@ -7,7 +7,7 @@ import '../shared/app_theme.dart';
 ///进度条绘制
 class ProgressBarPainter extends CustomPainter {
   ProgressBarPainter({
-    required this.assetsImage,
+    this.assetsImage,
     required this.barHeight,
     required this.handleHeight,
     required this.drawShadow,
@@ -27,7 +27,7 @@ class ProgressBarPainter extends CustomPainter {
   final Paint backgroundPaint = Paint()
     ..color = const Color.fromRGBO(255, 255, 255, .3);
 
-  final ui.Image assetsImage;
+  final ui.Image? assetsImage;
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
@@ -58,7 +58,7 @@ class ProgressBarPainter extends CustomPainter {
 
     ///播放的长度
     final double playedPart =
-    playedPartPercent > 1 ? size.width : playedPartPercent * size.width;
+        playedPartPercent > 1 ? size.width : playedPartPercent * size.width;
     for (final DurationRange range in videoPlayerValue.buffered) {
       final double start =
           range.startFraction(videoPlayerValue.duration) * size.width;
@@ -102,10 +102,12 @@ class ProgressBarPainter extends CustomPainter {
       canvas.drawShadow(shadowPath, Colors.black, 0.2, false);
     }
 
-    canvas.drawImage(
-        assetsImage,
-        Offset(playedPart - barHeight * 2, baseOffset - barHeight * 1.5),
-        handlePaint);
+    if (assetsImage != null) {
+      canvas.drawImage(
+          assetsImage!,
+          Offset(playedPart - barHeight * 2, baseOffset - barHeight * 1.5),
+          handlePaint);
+    }
     // canvas.drawCircle(Offset(playedPart, baseOffset + barHeight / 2),
     //     handleHeight, colors.handlePaint);
   }
