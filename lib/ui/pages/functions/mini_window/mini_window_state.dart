@@ -21,5 +21,6 @@ class MiniWindowState {
         "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
     floatingManager = FloatingManager();
     isPlaying = false;
+    hideTimer = Timer(const Duration(seconds: 3000), () {});
   }
 }

@@ -16,7 +16,16 @@ class MiniWindowLogic extends GetxController {
 
   @override
   void onReady() {
-    state.videoPlayerController.initialize().then((value) => {update()});
+    state.videoPlayerController.initialize().then((value) {
+      state.videoPlayerController.play();
+      state.showButtons = true;
+      state.isPlaying = true;
+      state.hideTimer = Timer(const Duration(seconds: 3), () {
+        state.showButtons = false;
+        update();
+      });
+      update();
+    });
     super.onReady();
   }
 
@@ -40,105 +49,117 @@ class MiniWindowLogic extends GetxController {
 
   ///隐藏按钮
   void hideButtons() {
-    state.hideTimer = Timer(const Duration(seconds: 3000), () {
+    state.hideTimer.cancel();
+    state.hideTimer = Timer(const Duration(seconds: 3), () {
       state.showButtons = false;
+      update();
     });
   }
 
   Widget buildMiniWindow() {
     return GetBuilder<MiniWindowLogic>(
       builder: (logic) {
-        return Stack(
-          alignment: Alignment.center,
-          children: [
-            SizedBox(
-              width: 230.w,
-              height: 130.w,
-              // child: Text("这是一个文本"),
-              child: state.videoPlayerController.value.isInitialized
-                  ? AspectRatio(
-                      aspectRatio:
-                          state.videoPlayerController.value.aspectRatio,
-                      child: VideoPlayer(state.videoPlayerController),
-                    )
-                  : Container(
-                      child: Text("未显示"),
-                    ),
-            ),
-
-            ///背景
-            AnimatedOpacity(
-              opacity: state.showButtons ? 0 : 1,
-              duration: Duration(
-                seconds: 1,
-              ),
-              child: GestureDetector(
-                onTap: () {
-                  print("点击beijing");
-                },
-                child: Container(
+        return GestureDetector(
+          onTap: () {
+            ///点击背景出现按钮并若干秒之后隐藏按钮
+            state.showButtons = true;
+            hideButtons();
+            logic.update();
+          },
+          child: AbsorbPointer(
+            absorbing: !state.showButtons,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
                   width: 230.w,
                   height: 130.w,
-                  color: HYAppTheme.norTextColors.withOpacity(.4),
+                  child: state.videoPlayerController.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio:
+                              state.videoPlayerController.value.aspectRatio,
+                          child: VideoPlayer(state.videoPlayerController),
+                        )
+                      : Container(
+                          child: Text("未显示"),
+                        ),
                 ),
-              ),
-            ),
 
-            ///播放按钮
-            GestureDetector(
-              onTap: () {
-                if (state.isPlaying) {
-                  state.videoPlayerController.pause();
-                  state.isPlaying = false;
-                } else {
-                  state.videoPlayerController.play();
-                  state.isPlaying = true;
-                }
-                logic.update();
-                print("点击");
-              },
-              child: AnimatedOpacity(
-                opacity: state.showButtons ? 0 : 1,
-                duration: Duration(
-                  milliseconds: 500,
-                ),
-                child: Container(
-                  width: 30.w,
-                  height: 30.w,
-                  child: Image.asset(
-                    state.isPlaying
-                        ? ImageAssets.biliPlayerPlayCanPausePNG
-                        : ImageAssets.bilibiliPlayerPlayCanPlayPNG,
-                  ),
-                ),
-              ),
-            ),
-
-            ///关闭按钮
-            Positioned(
-              right: 5.r,
-              top: 5.r,
-              child: GestureDetector(
-                onTap: () {
-                  state.videoPlayerController.pause();
-                  state.isPlaying = false;
-                  state.floating.hideFloating();
-                  logic.update();
-                },
-                child: AnimatedOpacity(
-                  opacity: state.showButtons ? 0 : 1,
+                ///背景
+                AnimatedOpacity(
+                  opacity: state.showButtons ? 1 : 0,
                   duration: Duration(
-                    milliseconds: 500,
+                    milliseconds: 300,
                   ),
                   child: Container(
-                    width: 20.w,
-                    height: 20.w,
-                    child: Image.asset(ImageAssets.miniWindowClosePng),
+                    width: 230.w,
+                    height: 130.w,
+                    color: HYAppTheme.norTextColors.withOpacity(.4),
                   ),
                 ),
-              ),
+
+                ///播放按钮
+                GestureDetector(
+                  onTap: () {
+                    if (state.isPlaying) {
+                      ///暂停时，让按钮显示出来
+                      state.videoPlayerController.pause();
+                      state.isPlaying = false;
+                      state.hideTimer.cancel();
+                      state.showButtons = true;
+                      logic.update();
+                    } else {
+                      ///播放时，若干秒之后就隐藏按钮
+                      state.videoPlayerController.play();
+                      state.isPlaying = true;
+                      logic.update();
+                      hideButtons();
+                    }
+                  },
+                  child: AnimatedOpacity(
+                    opacity: state.showButtons ? 1 : 0,
+                    duration: Duration(
+                      milliseconds: 300,
+                    ),
+                    child: Container(
+                      width: 30.w,
+                      height: 30.w,
+                      child: Image.asset(
+                        state.isPlaying
+                            ? ImageAssets.biliPlayerPlayCanPausePNG
+                            : ImageAssets.bilibiliPlayerPlayCanPlayPNG,
+                      ),
+                    ),
+                  ),
+                ),
+
+                ///关闭按钮
+                Positioned(
+                  right: 5.r,
+                  top: 5.r,
+                  child: GestureDetector(
+                    onTap: () {
+                      state.videoPlayerController.pause();
+                      state.isPlaying = false;
+                      state.floating.hideFloating();
+                      logic.update();
+                    },
+                    child: AnimatedOpacity(
+                      opacity: state.showButtons ? 1 : 0,
+                      duration: Duration(
+                        milliseconds: 300,
+                      ),
+                      child: Container(
+                        width: 20.w,
+                        height: 20.w,
+                        child: Image.asset(ImageAssets.miniWindowClosePng),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         );
       },
     );
