@@ -26,6 +26,8 @@ import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/functions/animation_compoent/animation_compoent_binding.dart';
 import '../../ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_binding.dart';
+import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_binding.dart';
+import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
 import '../../ui/pages/functions/mini_window/mini_window_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_view.dart';
 import '../../ui/pages/functions/push_message/push_message_binding.dart';
@@ -222,5 +224,10 @@ class AsRouter {
         name: VideoPlayerExampleView.routeName,
         page: () => VideoPlayerExampleView(),
         binding: VideoPlayerExampleBinding()),
+    ///画布
+    GetPage(
+        name: CanvasPaintStudyView.routeName,
+        page: () => CanvasPaintStudyView(),
+        binding: CanvasPaintStudyBinding()),
   ];
 }
