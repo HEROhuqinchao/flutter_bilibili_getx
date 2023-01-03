@@ -149,4 +149,5 @@ const strResZh = {
   SR.iamHere: "我在这儿",
   SR.hideLocation: "隐藏位置",
   SR.searchNearbyLocation: "搜索附近地点",
+  SR.searching: "搜索中..."
 };

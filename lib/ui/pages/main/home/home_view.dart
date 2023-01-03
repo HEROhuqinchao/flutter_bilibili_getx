@@ -84,6 +84,10 @@ class _HomeScreenState extends State<HomeScreen>
 
   ///用户头像和搜索
   Widget buildHomeUserIconAndSearch() {
+    TextStyle searchTextStyle = TextStyle(
+      fontSize: 10.sp,
+      color: HYAppTheme.norTextColors,
+    );
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15.r),
       width: 1.sw,
@@ -106,13 +110,23 @@ class _HomeScreenState extends State<HomeScreen>
                     color: HYAppTheme.norWhite02Color,
                     borderRadius: BorderRadius.circular(20.r)),
                 child: Container(
-                    padding:
-                        const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
-                    child: Image.asset(
-                      ImageAssets.searchCustomPNG,
-                      width: 15.sp,
-                      height: 15.sp,
-                    )),
+                  padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      8.horizontalSpace,
+                      Image.asset(
+                        ImageAssets.searchCustomPNG,
+                        width: 15.r,
+                        height: 15.r,
+                      ),
+                      5.horizontalSpace,
+                      state.firstSearchKey.isNotEmpty
+                          ? Text(state.firstSearchKey, style: searchTextStyle)
+                          : Text(SR.searching.tr, style: searchTextStyle)
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
