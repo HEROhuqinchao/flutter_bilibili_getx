@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
 import '../../../../core/model/account_mine.dart';
+import '../../../../core/service/request/home_request.dart';
 import '../../../../core/service/request/login_request.dart';
 import '../../../../core/service/utils/constant.dart';
 import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
@@ -43,10 +44,40 @@ class HomeLogic extends GetxController {
     if (state.tempTeenagerMode == false && state.tempUserAgreement == true) {
       showTeenagerModeDialog();
     }
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       initHomeSliverAppBarHeightY();
     });
+
+    ///搜索推荐关键字
+    fetchSearchSquare();
     super.onReady();
+  }
+
+  ///搜索推荐关键字
+  void fetchSearchSquare() {
+    Map<String, String> params = {
+      'appkey': '1d8b6e7d45233436',
+      'build': '7110300',
+      'c_locale': 'zh_CN',
+      'channel': 'bili',
+      'disable_rcmd': '0',
+      'from': '0',
+      'limit': '10',
+      'mobi_app': 'android',
+      'platform': 'android',
+      's_locale': 'zh_CN',
+      'show': '0',
+      'statistics':
+          '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%227.11.0%22%2C%22abtest%22%3A%22%22%7D',
+      'ts': '1672272837',
+      // 'sign': '9d68cfe8ad480bc03cd86e174340c9bd',
+    };
+    HYHomeRequest.fetchSearchSquareData(params).then((value) {
+      if (value.code == 0) {
+        state.firstSearchKey = value.data!.last.data!.list!.first.title!;
+        update();
+      }
+    });
   }
 
   ///查找是否同意了用户协议
@@ -316,7 +347,7 @@ class HomeLogic extends GetxController {
     ///如果已登录，则加上access_Key字段
     if (state.isLogin == true) {
       String? accessKey =
-      SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
+          SharedPreferenceUtil.getString(BilibiliSharedPreference.accessToken);
       final accessKeyEntry = <String, dynamic>{'access_key': accessKey!};
       params.addEntries(accessKeyEntry.entries);
     }
@@ -342,10 +373,10 @@ class HomeLogic extends GetxController {
       if (notification is ScrollUpdateNotification) {
         state.end = notification.metrics.pixels;
         double temp = state.appBarHeight + (state.start - state.end) / 40;
-        if(temp < 0) {
+        if (temp < 0) {
           temp = 0;
         }
-        if(temp > 0.08.sh) {
+        if (temp > 0.08.sh) {
           temp = 0.08.sh;
         }
         state.appBarHeight = temp;

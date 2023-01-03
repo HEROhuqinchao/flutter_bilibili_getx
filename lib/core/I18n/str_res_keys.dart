@@ -145,4 +145,5 @@ class SR {
   static const iamHere = "iamHere";
   static const hideLocation = "hideLocation";
   static const searchNearbyLocation = "searchNearbyLocation";
+  static const searching = "searching";
 }

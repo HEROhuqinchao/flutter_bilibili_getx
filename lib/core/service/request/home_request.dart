@@ -1,4 +1,5 @@
 import '../../../ui/shared/params_sign.dart';
+import '../../model/android/home/search_square_model.dart';
 import '../../model/feed_index_model.dart';
 import '../../model/video_model.dart';
 import '../utils/http_base_request.dart';
@@ -29,5 +30,11 @@ class HYHomeRequest {
     String url = "/x/v2/feed/index?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request("app", url);
     return HYFeedIndexModel.fromJson(result);
+  }
+
+  static Future<SearchSquareModel> fetchSearchSquareData(params) async{
+    String path = "/x/v2/search/square?${ParamsSign.paramsSerialization(params)}";
+    final result = await HttpBaseRequest.request("app", path);
+    return SearchSquareModel.fromJson(result);
   }
 }

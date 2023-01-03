@@ -153,4 +153,6 @@ const strResEn = {
   SR.iamHere: "I am here",
   SR.hideLocation: "hideLocation",
   SR.searchNearbyLocation: "search nearby location",
+
+  SR.searching: "searching..."
 };
