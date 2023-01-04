@@ -1,20 +1,10 @@
 import 'dart:io';
 
+import 'package:bilibili_getx/core/package_info/package_info_util.dart';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
-import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
-import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_state.dart';
-import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/mini_window/mini_window_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_view.dart';
-import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
-import 'package:bilibili_getx/ui/pages/main/main_view.dart';
-import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
-import 'package:bilibili_getx/ui/pages/publish/publish_logic.dart';
-import 'package:bilibili_getx/ui/pages/publish/publish_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/download_file/download_file_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
@@ -25,7 +15,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'core/I18n/string_res.dart';
-import 'core/jPush_util/jPush_util.dart';
 import 'core/shared_preferences/bilibili_shared_preference.dart';
 import 'core/shared_preferences/shared_preference_util.dart';
 import 'dart:ui' as ui;
@@ -43,10 +32,12 @@ void main() async {
     ///屏幕适配初始化&持久化存储初始化（运行web端请运行cors目录下的cors.dart）
     ScreenUtil.ensureScreenSize();
     SharedPreferenceUtil.getInstance();
+    PackageInfoUtil.getInstance();
     // initialization();
   } else {
     await ScreenUtil.ensureScreenSize();
     await SharedPreferenceUtil.getInstance();
+    await PackageInfoUtil.getInstance();
     await initialization();
   }
   runApp(const MyApp());
@@ -62,10 +53,9 @@ Future<void> initialization() async {
       ///flutter_downloader
       WidgetsFlutterBinding.ensureInitialized();
       await FlutterDownloader.initialize(
-        /// optional: set to false to disable printing logs to console (default: true)
-        debug: true,
-
-        /// option: set to false to disable working with http links (default: false)
+        // optional: set to false to disable printing logs to console (default: true)
+        debug: false,
+        // option: set to false to disable working with http links (default: false)
         ignoreSsl: true,
       );
 
@@ -82,6 +72,7 @@ Future<void> initialization() async {
 
       ///注册微信
       WxUtil.wxRegisterWxApi();
+
       ///监听微信回调结果
       WxUtil.wxDebugResult();
     } else if (Platform.isWindows) {
@@ -142,7 +133,7 @@ class MyApp extends StatelessWidget {
           // initialRoute: DynamicCircleScreen.routeName,
           // initialRoute: MainScreen.routeName,
           // initialRoute: MiniWindowView.routeName,
-          initialRoute: CanvasPaintStudyView.routeName,
+          initialRoute: DownloadFileView.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

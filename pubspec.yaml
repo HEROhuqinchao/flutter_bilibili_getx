@@ -75,7 +75,7 @@ dependencies:
   lottie: ^1.4.3 #精致的lottie动画
   rive: ^0.9.1 #精致的rive动画
 #  fluwx: ^3.11.0 #微信第三方接入
-  fluwx_no_pay: ^3.11.0 #微信第三方接入(没有支付)
+  fluwx_no_pay: ^3.12.2 #微信第三方接入(没有支付)
   tencent_kit: ^4.0.0 #QQ第三方接入
   json_annotation: ^4.5.0 #json默认值
   json_serializable: ^6.5.4 #json序列化？
@@ -86,6 +86,7 @@ dependencies:
   flutter_floating: ^1.0.1 #浮动窗口
   desktop_window: ^0.4.0 #桌面应用大小
   flutter_svg: ^1.1.6 #svg
+  package_info_plus: ^3.0.2 #获取应用的包名、版本等信息
 
 dev_dependencies:
   flutter_test:

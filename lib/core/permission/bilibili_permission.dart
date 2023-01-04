@@ -41,4 +41,11 @@ class BilibiliPermission {
       Permission.bluetoothAdvertise,
     ].request();
   }
+
+  ///下载
+  static Future requestDownload() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.storage,
+    ].request();
+  }
 }
