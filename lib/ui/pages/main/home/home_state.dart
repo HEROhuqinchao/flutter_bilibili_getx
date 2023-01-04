@@ -8,6 +8,9 @@ import '../../../widgets/primary_scroll_container.dart';
 import 'home_view.dart';
 
 class HomeState {
+  ///推荐的搜索关键字
+  late String firstSearchKey;
+
   ///是否同意青少年模式
   late bool tempTeenagerMode;
 
@@ -35,6 +38,7 @@ class HomeState {
   late List<GlobalKey<PrimaryScrollContainerState>> scrollChildKeys;
 
   HomeState() {
+    firstSearchKey = "";
     tempTeenagerMode = false;
 
     ///判断本地协议是否同意
