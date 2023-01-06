@@ -442,8 +442,8 @@ class PurpleContent {
   });
 
   String message;
-  int plat;
-  String device;
+  int? plat;
+  String? device;
   List<dynamic> members;
   Map<String, EmoteValue>? emote;
   Cm jumpUrl;
@@ -1198,8 +1198,8 @@ class FluffyContent {
   });
 
   String message;
-  int plat;
-  String device;
+  int? plat;
+  String? device;
   List<MemberElement> members;
   Map<String, EmoteValue>? emote;
   Cm jumpUrl;

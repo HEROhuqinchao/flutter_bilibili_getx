@@ -8,6 +8,7 @@ import 'animation_compoent_logic.dart';
 
 class AnimationCompoentView extends StatelessWidget {
   static String routeName = "/animation_component";
+
   @override
   Widget build(BuildContext context) {
     final logic = Get.find<AnimationCompoentLogic>();
@@ -22,31 +23,31 @@ class AnimationCompoentView extends StatelessWidget {
               children: [
                 state.seaStarSwitchArtBoard != null
                     ? GestureDetector(
-                  onTap: () {
-                    logic.togglePlay();
-                  },
-                  child: Container(
-                    width: 100.w,
-                    height: 100.w,
-                    child: Rive(
-                      artboard: state.seaStarSwitchArtBoard!,
-                    ),
-                  ),
-                )
+                        onTap: () {
+                          logic.togglePlay();
+                        },
+                        child: Container(
+                          width: 100.w,
+                          height: 100.w,
+                          child: Rive(
+                            artboard: state.seaStarSwitchArtBoard!,
+                          ),
+                        ),
+                      )
                     : Container(),
                 state.liquidDownloadArtBoard != null
                     ? GestureDetector(
-                  onTap: () {
-                    logic.startDownloadFile();
-                  },
-                  child: Container(
-                    width: 50.w,
-                    height: 50.w,
-                    child: Rive(
-                      artboard: state.liquidDownloadArtBoard!,
-                    ),
-                  ),
-                )
+                        onTap: () {
+                          logic.startDownloadFile();
+                        },
+                        child: Container(
+                          width: 50.w,
+                          height: 50.w,
+                          child: Rive(
+                            artboard: state.liquidDownloadArtBoard!,
+                          ),
+                        ),
+                      )
                     : Container(),
                 Container(
                   width: 100.w,
