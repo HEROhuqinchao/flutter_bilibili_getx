@@ -6,6 +6,7 @@ import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/download_file/download_file_view.dart';
+import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
@@ -134,7 +135,7 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: WxShareView.routeName,
           // initialRoute: DynamicCircleScreen.routeName,
-          initialRoute: MainScreen.routeName,
+          initialRoute: ComicScreen.routeName,
           // initialRoute: MiniWindowView.routeName,
           // initialRoute: DownloadFileView.routeName,
 

@@ -53,6 +53,31 @@ class HomeLogic extends GetxController {
     super.onReady();
   }
 
+  ///home主页按钮
+  void fetchXResourceShowTabV2X() {
+    Map<String, dynamic> params = {
+      'appkey': Constant.appKey,
+      'build': '7110300',
+      'c_locale': 'zh_CN',
+      'channel': 'bili',
+      'disable_rcmd': '0',
+      'mobi_app': 'android',
+      'platform': 'android',
+      's_locale': 'zh_CN',
+      'statistics':
+          '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%227.11.0%22%2C%22abtest%22%3A%22%22%7D',
+      'ts': '1673226635',
+    };
+    final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
+    params.addEntries(signEntry.entries);
+
+    HYHomeRequest.fetchXResourceShowTabV2Data(params).then((value) {
+      if (value.code == 0) {
+        update();
+      }
+    });
+  }
+
   ///搜索推荐关键字
   void fetchSearchSquare() {
     Map<String, String> params = {

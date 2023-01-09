@@ -1,5 +1,7 @@
 import '../../../ui/shared/params_sign.dart';
 import '../../model/android/home/search_square_model.dart';
+import '../../model/android/home/x_resource_show_tab_v2_model.dart';
+import '../../model/android/home/pgc_page_bangumi_model.dart';
 import '../../model/feed_index_model.dart';
 import '../../model/video_model.dart';
 import '../utils/http_base_request.dart';
@@ -36,5 +38,19 @@ class HYHomeRequest {
     String path = "/x/v2/search/square?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request("app", path);
     return SearchSquareModel.fromJson(result);
+  }
+
+  ///主页按钮（tab等）
+  static Future<XResourceShowTabV2Model> fetchXResourceShowTabV2Data(params) async{
+    String path = "/x/resource/show/tab/v2?${ParamsSign.paramsSerialization(params)}";
+    final result = await HttpBaseRequest.request("app", path);
+    return XResourceShowTabV2Model.fromJson(result);
+  }
+
+  ///获取动画数据
+  static Future<PgcPageBangumiModel> fetchPageBangumiData(params) async{
+    String path = "/pgc/page/bangumi?${ParamsSign.paramsSerialization(params)}";
+    final result = await HttpBaseRequest.request("base", path);
+    return PgcPageBangumiModel.fromJson(result);
   }
 }

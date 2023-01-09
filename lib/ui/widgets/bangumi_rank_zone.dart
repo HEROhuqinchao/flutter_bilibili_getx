@@ -2,7 +2,7 @@ import 'package:bilibili_getx/ui/widgets/rank_no.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/model/pgc_page_bangumi_model.dart';
+import '../../core/model/android/home/pgc_page_bangumi_model.dart';
 import '../shared/app_theme.dart';
 ///热门番剧区、热门国创区
 class BuildBangumiRankZone extends StatefulWidget {
@@ -85,7 +85,7 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                         ),
                       ),
                       Text(
-                        "${modules[zoneNum].headers![0].title}>",
+                        "${modules[zoneNum].headers![0]!.title}>",
                         style: TextStyle(
                           color: HYAppTheme.norTextColors,
                           fontSize: 12.sp,
@@ -125,7 +125,7 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                                         image: DecorationImage(
                                             image: NetworkImage(
                                                 modules[zoneNum]
-                                                    .items[index]
+                                                    .items![index]!
                                                     .cover!),
                                             fit: BoxFit.cover,
                                             filterQuality:
@@ -144,9 +144,9 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                                     bottom: 5.h,
                                     child: Text(
                                       modules[zoneNum]
-                                          .items[index]
+                                          .items![index]!
                                           .bottomRightBadge!
-                                          .text,
+                                          .text!,
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize:
@@ -161,7 +161,7 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                                 alignment: Alignment.centerLeft,
                                 width: 80.w,
                                 child: Text(
-                                  modules[zoneNum].items[index].title,
+                                  modules[zoneNum].items![index]!.title!,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -175,7 +175,7 @@ class _BuildBangumiRankZoneState extends State<BuildBangumiRankZone> {
                                 alignment: Alignment.centerLeft,
                                 width: 80.w,
                                 child: Text(
-                                  modules[zoneNum].items[index].desc!,
+                                  modules[zoneNum].items![index]!.desc!,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
