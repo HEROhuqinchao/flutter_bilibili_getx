@@ -175,145 +175,151 @@ class ComicLogic extends GetxController {
 
   ///一行两个
   Widget buildDoubleFeedZone(Module module) {
-    return CustomScrollView(
+    return GridView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: module.items!.length,
       controller: state.customScrollController,
-      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      slivers: [
-        SliverGrid(
-          delegate: SliverChildBuilderDelegate(
-            (ctx, index) {
-              return Card(
-                elevation: 1,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                          child: Container(
-                            color: HYAppTheme.norMainThemeColors,
-                            height: 110.r,
-                            child: Image.network(
-                              module.items![index]!.cover!,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1.1,
+        crossAxisSpacing: 8.r,
+        mainAxisSpacing: 8.r,
+      ),
+      itemBuilder: (ctx, index) {
+        return Container(
+          decoration: BoxDecoration(
+              boxShadow: [HYAppTheme.norBoxShadow],
+              borderRadius: BorderRadius.all(Radius.circular(8.r)),
+              color: HYAppTheme.norWhite01Color),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(8.r)),
+                    child: Container(
+                      color: HYAppTheme.norMainThemeColors,
+                      height: 105.r,
+                      width: 1.sw,
+                      child: Image.network(
+                        module.items![index]!.cover!,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      height: 40.r,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8.r)),
+                        gradient: LinearGradient(
+                          colors: [
+                            HYAppTheme.norTextColors.withOpacity(.7),
+                            Colors.transparent,
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      padding:
+                          EdgeInsets.only(right: 8.r, left: 8.r, bottom: 6.r),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            module.items![index]!.bottomLeftBadge!.text!,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10.sp,
                             ),
                           ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
+                          Text(
+                            module.items![index]!.stat!.followView!,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10.sp,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  module.items![index]!.badgeInfo != null
+                      ? Positioned(
                           right: 0,
+                          top: 5.r,
                           child: Container(
-                            alignment: Alignment.bottomCenter,
-                            height: 40.r,
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  HYAppTheme.norTextColors.withOpacity(.7),
-                                  Colors.transparent,
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
+                              color: ColorRadixChange.hexColor(module
+                                  .items![index]!.badgeInfo!.bgColor!
+                                  .substring(1)),
+                              borderRadius: BorderRadius.horizontal(
+                                left: Radius.circular(8.r),
                               ),
                             ),
-                            padding: EdgeInsets.only(
-                                right: 8.r, left: 8.r, bottom: 6.r),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  module.items![index]!.bottomLeftBadge!.text!,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10.sp,
-                                  ),
-                                ),
-                                Text(
-                                  module.items![index]!.stat!.followView!,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10.sp,
-                                  ),
-                                ),
-                              ],
+                            padding: const EdgeInsets.only(
+                              left: 5,
+                              right: 3,
+                              top: 2,
+                              bottom: 4,
+                            ).r,
+                            child: Text(
+                              module.items![index]!.badgeInfo!.text!,
+                              style: TextStyle(
+                                fontSize: 10.sp,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                        module.items![index]!.badgeInfo != null
-                            ? Positioned(
-                                right: 0,
-                                top: 5.r,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: ColorRadixChange.hexColor(module
-                                        .items![index]!.badgeInfo!.bgColor!
-                                        .substring(1)),
-                                    borderRadius: BorderRadius.horizontal(
-                                      left: Radius.circular(8.r),
-                                    ),
-                                  ),
-                                  padding: const EdgeInsets.only(
-                                    left: 5,
-                                    right: 3,
-                                    top: 2,
-                                    bottom: 4,
-                                  ).r,
-                                  child: Text(
-                                    module.items![index]!.badgeInfo!.text!,
-                                    style: TextStyle(
-                                      fontSize: 10.sp,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            : Container()
-                      ],
-                    ),
-                    5.verticalSpace,
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        module.items![index]!.title!,
-                        style: TextStyle(
-                          color: HYAppTheme.norTextColors,
-                          fontSize: 13.sp,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    5.verticalSpace,
-                    Container(
-                      padding: const EdgeInsets.all(2).r,
-                      decoration: BoxDecoration(
-                          color: HYAppTheme.norWhite05Color,
-                          borderRadius: BorderRadius.all(
-                            const Radius.circular(2).r,
-                          )),
-                      child: Text(
-                        module.items![index]!.subTitleLeftBadge == null
-                            ? "0.0"
-                            : module.items![index]!.subTitleLeftBadge!.text!,
-                        style: TextStyle(
-                          color: const Color.fromRGBO(241, 129, 56, 1),
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                    )
-                  ],
+                        )
+                      : Container()
+                ],
+              ),
+              5.verticalSpace,
+              Container(
+                padding: EdgeInsets.only(left: 5.r),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  module.items![index]!.title!,
+                  style: TextStyle(
+                    color: HYAppTheme.norTextColors,
+                    fontSize: 13.sp,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-              );
-            },
-            childCount: module.items!.length,
+              ),
+              5.verticalSpace,
+              Container(
+                margin: EdgeInsets.only(left: 5.r),
+                padding: EdgeInsets.all(2.r),
+                decoration: BoxDecoration(
+                    color: HYAppTheme.norWhite05Color,
+                    borderRadius: BorderRadius.all(
+                      const Radius.circular(2).r,
+                    )),
+                child: Text(
+                  module.items![index]!.subTitleLeftBadge == null
+                      ? "0.0"
+                      : module.items![index]!.subTitleLeftBadge!.text!,
+                  style: TextStyle(
+                    color: const Color.fromRGBO(241, 129, 56, 1),
+                    fontSize: 12.sp,
+                  ),
+                ),
+              )
+            ],
           ),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 1.2),
-        ),
-      ],
+        );
+      },
     );
   }
 }
