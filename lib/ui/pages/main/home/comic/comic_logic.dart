@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bilibili_getx/core/service/request/home_request.dart';
+import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
@@ -176,7 +177,7 @@ class ComicLogic extends GetxController {
   ///一行两个
   Widget buildDoubleFeedZone(Module module) {
     return GridView.builder(
-      padding: EdgeInsets.zero,
+      padding: EdgeInsets.symmetric(vertical: 4.r),
       itemCount: module.items!.length,
       controller: state.customScrollController,
       shrinkWrap: true,
@@ -200,14 +201,9 @@ class ComicLogic extends GetxController {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(8.r)),
-                    child: Container(
-                      color: HYAppTheme.norMainThemeColors,
+                    child: DefaultFadeImage(
+                      imageUrl: module.items![index]!.cover!,
                       height: 105.r,
-                      width: 1.sw,
-                      child: Image.network(
-                        module.items![index]!.cover!,
-                        fit: BoxFit.cover,
-                      ),
                     ),
                   ),
                   Positioned(
