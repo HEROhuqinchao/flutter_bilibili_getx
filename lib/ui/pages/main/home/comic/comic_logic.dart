@@ -33,6 +33,7 @@ class ComicLogic extends GetxController {
     super.onClose();
   }
 
+  ///获取番剧数据
   void fetchComicData() {
     Map<String, dynamic> params = {
       'appkey': Constant.appKey,
@@ -183,7 +184,7 @@ class ComicLogic extends GetxController {
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1.1,
+        childAspectRatio: 1.2,
         crossAxisSpacing: 8.r,
         mainAxisSpacing: 8.r,
       ),
@@ -191,7 +192,7 @@ class ComicLogic extends GetxController {
         return Container(
           decoration: BoxDecoration(
               boxShadow: [HYAppTheme.norBoxShadow],
-              borderRadius: BorderRadius.all(Radius.circular(8.r)),
+              borderRadius: BorderRadius.all(Radius.circular(4.r)),
               color: HYAppTheme.norWhite01Color),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -294,23 +295,36 @@ class ComicLogic extends GetxController {
                 ),
               ),
               5.verticalSpace,
-              Container(
-                margin: EdgeInsets.only(left: 5.r),
-                padding: EdgeInsets.all(2.r),
-                decoration: BoxDecoration(
-                    color: HYAppTheme.norWhite05Color,
-                    borderRadius: BorderRadius.all(
-                      const Radius.circular(2).r,
-                    )),
-                child: Text(
-                  module.items![index]!.subTitleLeftBadge == null
-                      ? "0.0"
-                      : module.items![index]!.subTitleLeftBadge!.text!,
-                  style: TextStyle(
-                    color: const Color.fromRGBO(241, 129, 56, 1),
-                    fontSize: 12.sp,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 5.r),
+                    padding: EdgeInsets.all(2.r),
+                    decoration: BoxDecoration(
+                        color: HYAppTheme.norWhite05Color,
+                        borderRadius: BorderRadius.all(
+                          const Radius.circular(2).r,
+                        )),
+                    child: Text(
+                      module.items![index]!.subTitleLeftBadge == null
+                          ? "0.0"
+                          : module.items![index]!.subTitleLeftBadge!.text!,
+                      style: TextStyle(
+                        color: const Color.fromRGBO(241, 129, 56, 1),
+                        fontSize: 12.sp,
+                      ),
+                    ),
                   ),
-                ),
+                  3.horizontalSpace,
+                  Text(
+                    module.items![index]!.desc!,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      color: HYAppTheme.norGrayColor,
+                    ),
+                  )
+                ],
               )
             ],
           ),

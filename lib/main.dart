@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:bilibili_getx/core/package_info/package_info_util.dart';
 import 'package:bilibili_getx/core/router/router.dart';
+import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:bilibili_getx/core/work_manager/work_manager_util.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
@@ -42,6 +44,7 @@ void main() async {
     await ScreenUtil.ensureScreenSize();
     await SharedPreferenceUtil.getInstance();
     await PackageInfoUtil.getInstance();
+    await WorkManagerUtil.initialize();
     await initialization();
   }
   runApp(const MyApp());
@@ -54,11 +57,11 @@ Future<void> initialization() async {
       ///极光推送
       // JPushUtil.startJPush();
 
-      ///flutter_downloader
+      ///下载（flutter_downloader）
       WidgetsFlutterBinding.ensureInitialized();
       await FlutterDownloader.initialize(
         // optional: set to false to disable printing logs to console (default: true)
-        debug: false,
+        debug: Constant.isDebug,
         // option: set to false to disable working with http links (default: false)
         ignoreSsl: true,
       );
@@ -79,6 +82,8 @@ Future<void> initialization() async {
 
       ///监听微信回调结果
       WxUtil.wxDebugResult();
+
+
     } else if (Platform.isWindows) {
       initWindowsSize();
     } else if (Platform.isIOS) {}
