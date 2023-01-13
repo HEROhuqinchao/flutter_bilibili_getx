@@ -33,7 +33,7 @@
 |             上传              |                             欠缺                             |                           |
 |            甘特图             | [如何用Excel快速制作甘特图？（超详细！） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/271043355) |                           |
 |     微信分享、跳转小程序      |                            已实现                            |                           |
-|                               |                                                              |                           |
+|          workmanager          | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |                           |
 |                               |                                                              |                           |
 
 采用getx框架重新构造项目

@@ -14,6 +14,7 @@ import '../../../../shared/color_radix_change.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/params_sign.dart';
 import '../../../../widgets/bangumi_swiper_pagination.dart';
+import '../../../../widgets/rank_no.dart';
 import 'comic_state.dart';
 
 class ComicLogic extends GetxController {
@@ -76,8 +77,8 @@ class ComicLogic extends GetxController {
           } else if (style == "double_feed") {
             state.widgets.add(buildDoubleFeedZone(module));
           } else if (style == "fall_feed") {
-          } else {
-            print("未知类型");
+          } else if (style == "fall_feed_multi_card") {
+            state.widgets.add(buildRankZone(module));
           }
         }
       }
@@ -85,6 +86,174 @@ class ComicLogic extends GetxController {
         update();
       });
     });
+  }
+
+  ///榜单区
+  Widget buildRankZone(Module module) {
+    return Stack(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadiusDirectional.circular(5.r),
+          child: Opacity(
+            opacity: .2,
+            child: DefaultFadeImage(
+              imageUrl: module.cover!,
+              height: 230.r,
+              fit: BoxFit.fitWidth,
+            ),
+          ),
+        ),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                  top: 10.r, left: 10.r, right: 10.r, bottom: 5.r),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    module.title!,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: HYAppTheme.norTextColors,
+                      fontFamily: 'bilibiliFonts',
+                      fontSize: 16.sp,
+                    ),
+                  ),
+                  3.verticalSpace,
+                  Text(
+                    "${module.headers![0]!.title!}>",
+                    style: TextStyle(
+                      color: HYAppTheme.norTextColors,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 10.r),
+              child: Text(
+                module.desc!,
+                style: TextStyle(
+                  color: HYAppTheme.norTextColors,
+                  fontSize: 12.sp,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 220.r,
+              child: ListView.separated(
+                padding: EdgeInsets.symmetric(vertical: 10.r),
+                // controller: _rankScrollController,
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                // physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (ctx, index) {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(8.r),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  boxShadow: [HYAppTheme.norBoxShadow]),
+                              height: 150.r,
+                              width: 110.r,
+                              child: DefaultFadeImage(
+                                imageUrl: module.items![index]!.cover!,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            child: Container(
+                              height: 40.r,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(8.r),
+                                  bottomRight: Radius.circular(8.r),
+                                ),
+                                gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  colors: [
+                                    HYAppTheme.norTextColors.withOpacity(.5),
+                                    HYAppTheme.norTextColors.withOpacity(.1),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 0,
+                            top: 0,
+                            child: RankNo(
+                              text: (index + 1).toString(),
+                              color: Constant.rankColor[index],
+                            ),
+                          ),
+                          Positioned(
+                            right: 5.r,
+                            bottom: 5.r,
+                            child: Text(
+                              module.items![index]!.bottomRightBadge!.text!,
+                              style: TextStyle(
+                                color: HYAppTheme.norWhite01Color,
+                                fontSize: 8.sp,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      3.verticalSpace,
+                      SizedBox(
+                        width: 110.r,
+                        child: Text(
+                          module.items![index]!.title!,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: HYAppTheme.norTextColors,
+                            fontSize: 12.sp,
+                          ),
+                        ),
+                      ),
+                      3.verticalSpace,
+                      SizedBox(
+                        width: 110.r,
+                        child: Text(
+                          module.items![index]!.desc!,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: HYAppTheme.norTextColors,
+                            fontSize: 12.sp,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+                itemCount: module.items!.length,
+                separatorBuilder: (BuildContext context, int index) {
+                  return 5.horizontalSpace;
+                },
+                // itemCount: _modules[zoneNum].items.length,
+              ),
+            )
+          ],
+        ),
+      ],
+    );
   }
 
   ///广告栏

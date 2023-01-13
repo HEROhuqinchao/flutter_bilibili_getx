@@ -72,6 +72,9 @@ class HYAppTheme {
     offset: const Offset(0, 0),
   );
 
+  ///渐变黑色区域（凸显白色的字）
+
+
   ///默认下的主题
   static final ThemeData norTheme = ThemeData(
     primaryColor: norWhite01Color,

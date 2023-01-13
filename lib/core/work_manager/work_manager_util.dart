@@ -22,8 +22,7 @@ class WorkManagerUtil {
 
   ///只会运行一次的任务（One off task registration）
   static void registerOneOffTask(String uniqueName, String taskName) {
-    Workmanager().registerOneOffTask(
-        uniqueName, taskName,
+    Workmanager().registerOneOffTask(uniqueName, taskName,
 
         ///处理取消，多个任务可以用同一个标记Tag
         tag: "tag",
@@ -35,7 +34,6 @@ class WorkManagerUtil {
         ///延迟执行
         initialDelay: const Duration(seconds: 10),
         constraints: Constraints(
-
           ///网络条件
           networkType: NetworkType.connected,
 
@@ -60,9 +58,12 @@ class WorkManagerUtil {
           'string': 'string',
           'array': [1, 2, 3]
         },
+
+        ///用于指示工作管理器应以【指数】/【linear线性】方式增加退避时间
         backoffPolicy: BackoffPolicy.exponential,
-        backoffPolicyDelay: const Duration(seconds: 10)
-    );
+
+        ///延迟一定时间
+        backoffPolicyDelay: const Duration(seconds: 10));
   }
 
   ///会间隔一段时间执行一次的任务（Periodic task registration）
