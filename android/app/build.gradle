@@ -26,9 +26,9 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 apply plugin: 'com.huawei.agconnect'
 
-def keystorePropertiesFile = rootProject.file("key.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//def keystorePropertiesFile = rootProject.file("key.properties")
+//def keystoreProperties = new Properties()
+//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 
 
@@ -67,18 +67,18 @@ android {
 
     //配置签名
     signingConfigs {
-        release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-        }
-        debug {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-        }
+//        release {
+//            keyAlias keystoreProperties['keyAlias']
+//            keyPassword keystoreProperties['keyPassword']
+//            storeFile file(keystoreProperties['storeFile'])
+//            storePassword keystoreProperties['storePassword']
+//        }
+//        debug {
+//            keyAlias keystoreProperties['keyAlias']
+//            keyPassword keystoreProperties['keyPassword']
+//            storeFile file(keystoreProperties['storeFile'])
+//            storePassword keystoreProperties['storePassword']
+//        }
     }
 
     buildTypes {
