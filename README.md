@@ -23,7 +23,7 @@
 |            QQ分享             |                            已实现                            |                           |
 |          支付宝支付           |                             欠缺                             |                           |
 |       与Android原生通信       |                        MethodChannel                         |                           |
-|           统计图表            |                         flchart插件                          |                           |
+|           统计图表            | flchart插件（https://pub.flutter-io.cn/packages/fl_chart）、syncfusion_flutter_charts（flutter推荐）；Android端可以采用MPAndroidChart（点数很多时可以试试这个，flutter的chart插件，点数过多效果较差） |                           |
 |           状态管理            |                     GETX、Provider（差）                     |      BLOC、GETX原理       |
 |     canvas画布及Paint画板     |                              差                              |                           |
 |   条形码、二维码生成与扫描    |                                                              |                           |
@@ -33,8 +33,8 @@
 |             上传              |                             欠缺                             |                           |
 |            甘特图             | [如何用Excel快速制作甘特图？（超详细！） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/271043355) |                           |
 |     微信分享、跳转小程序      |                            已实现                            |                           |
-|          workmanager          | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |                           |
-|                               |                                                              |                           |
+|          workmanager          | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |        还不太熟悉         |
+|      显示Android原生界面      |                       显示Android界面                        |      MPAndroidChart       |
 
 采用getx框架重新构造项目
 
