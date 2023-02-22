@@ -44,7 +44,7 @@ void main() async {
     await ScreenUtil.ensureScreenSize();
     await SharedPreferenceUtil.getInstance();
     await PackageInfoUtil.getInstance();
-    await WorkManagerUtil.initialize();
+    // await WorkManagerUtil.initialize();
     await initialization();
   }
   runApp(const MyApp());

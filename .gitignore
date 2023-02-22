@@ -32,6 +32,8 @@ migrate_working_dir/
 .pub/
 /build/
 
+pubspec.lock
+
 # Web related
 
 # Symbolication related
@@ -44,3 +46,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+
+# iOS
+ios/DerivedData/
+ios/Pods/
+ios/Podfile.lock
+ios/pod.log
