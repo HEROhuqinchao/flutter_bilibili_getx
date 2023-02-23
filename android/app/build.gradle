@@ -22,9 +22,9 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-apply plugin: 'com.huawei.agconnect'
 
 //def keystorePropertiesFile = rootProject.file("key.properties")
 //def keystoreProperties = new Properties()
@@ -34,8 +34,8 @@ apply plugin: 'com.huawei.agconnect'
 
 
 android {
-    compileSdkVersion 33
-    ndkVersion flutter.ndkVersion
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion '25.1.8937393'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,13 +47,14 @@ android {
         applicationId "com.example.bilibili_getx"
         // You can update the following values to match your application needs. 
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
+        // 很多依赖的最低sdkVersion都在20以上, 不要用flutter.minSdkVersion
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         ndk {
             //选择要添加的对应 cpu 类型的 .so 库。
-            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'mips', 'mips64', 'arm64-v8a'
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
@@ -91,6 +92,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
 }
 
 flutter {
@@ -99,7 +104,6 @@ flutter {
 
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.huawei.hms:push:6.5.0.300'
-    implementation 'cn.jiguang.sdk.plugin:huawei:4.8.4'
+    implementation 'com.huawei.hms:push:6.7.0.300'
+    implementation 'cn.jiguang.sdk.plugin:huawei:4.9.0'
 }

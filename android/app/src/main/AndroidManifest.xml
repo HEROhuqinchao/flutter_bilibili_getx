@@ -78,22 +78,6 @@
             </intent-filter>
         </activity>
 
-        <!--华为厂商通道-->
-        <service android:name="cn.jpush.android.service.DaemonService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter >
-                <action android:name="cn.jpush.android.intent.DaemonService" />
-                <category android:name="${applicationId}"/>
-            </intent-filter>
-        </service>
-        <service android:name=".services.HmsService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
@@ -122,12 +106,5 @@
                 tools:replace="android:resource" />
         </provider>
     </application>
-
-    <!--适配Android11，使应用可以访问HMS Core（APK）-->
-    <queries>
-        <intent>
-            <action android:name="com.huawei.hms.core.aidlservice" />
-        </intent>
-    </queries>
 
 </manifest>
