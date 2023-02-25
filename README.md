@@ -4,37 +4,37 @@
 
 尽量还是不要停留在做界面的阶段，多了解一些还是有好处的
 
-|             能力              |                            完成度                            |           计划            |
-| :---------------------------: | :----------------------------------------------------------: | :-----------------------: |
-| 对接接口（get请求、post请求） |                        json、protobuf                        | 实现更多类型的数据（xml） |
-| 项目目录结构清晰，模块化清晰  |                          UI 和 CORE                          |      功能封装原子性       |
-|           人机交互            | 动画组件（flare、rive、lottie）、UI设计更加美观，更加人性化  |                           |
-|            多平台             |                     目前只是Android熟悉                      |       PC、IOS、Web        |
-|           消息通知            | 极光推送（对接华为厂商通道）参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10) |      对接其他厂商的       |
-|           切换语言            |                          GETX-I18N                           |                           |
-|             视频              |                  MP4格式、流媒体FLV（直播）                  |                           |
-|             音频              |                             欠缺                             |       后台播放音频        |
-|             下载              |                        存储目录的获取                        |                           |
-|             蓝牙              | flutter_blue，只能扫到一些没名称的，扫不到手机的蓝牙，需要pin的蓝牙 |                           |
-|         动画Animation         |                                                              |                           |
-|          弹框Dialog           |                         SmartDialog                          |                           |
-|           分页加载            |                           基本都有                           |                           |
-|      微信分享、微信支付       |                          未申请成功                          |                           |
-|            QQ分享             |                            已实现                            |                           |
-|          支付宝支付           |                             欠缺                             |                           |
-|       与Android原生通信       |                        MethodChannel                         |                           |
-|           统计图表            | flchart插件（https://pub.flutter-io.cn/packages/fl_chart）、syncfusion_flutter_charts（flutter推荐）；Android端可以采用MPAndroidChart（点数很多时可以试试这个，flutter的chart插件，点数过多效果较差） |                           |
-|           状态管理            |                     GETX、Provider（差）                     |      BLOC、GETX原理       |
-|     canvas画布及Paint画板     |                              差                              |                           |
-|   条形码、二维码生成与扫描    |                                                              |                           |
-|        数据持久化存储         |               sharedPreference、SqliteDatabase               |                           |
-|           网络请求            |                           Dio插件                            |                           |
-|           路由管理            |                    根据状态管理不同而不同                    |                           |
-|             上传              |                             欠缺                             |                           |
-|            甘特图             | [如何用Excel快速制作甘特图？（超详细！） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/271043355) |                           |
-|     微信分享、跳转小程序      |                            已实现                            |                           |
-|          workmanager          | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |        还不太熟悉         |
-|      显示Android原生界面      |                       显示Android界面                        |      MPAndroidChart       |
+|              能力              |                            完成度                            |           计划            |
+| :----------------------------: | :----------------------------------------------------------: | :-----------------------: |
+| 对接接口（get请求、post请求）  |                        json、protobuf                        | 实现更多类型的数据（xml） |
+|  项目目录结构清晰，模块化清晰  |                          UI 和 CORE                          |      功能封装原子性       |
+|            人机交互            | 动画组件（flare、rive、lottie）、UI设计更加美观，更加人性化  |                           |
+|             多平台             |                     目前只是Android熟悉                      |       PC、IOS、Web        |
+|            消息通知            | 极光推送（对接华为厂商通道）参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10) |      对接其他厂商的       |
+|            切换语言            |                          GETX-I18N                           |                           |
+|              视频              |                  MP4格式、流媒体FLV（直播）                  |                           |
+|              音频              |                             欠缺                             |       后台播放音频        |
+|              下载              |                        存储目录的获取                        |                           |
+|              蓝牙              | flutter_blue，只能扫到一些没名称的，扫不到手机的蓝牙，需要pin的蓝牙 |                           |
+|         动画Animation          |                                                              |                           |
+|           弹框Dialog           |                         SmartDialog                          |                           |
+|            分页加载            |                           基本都有                           |                           |
+| 微信分享、微信支付、跳转小程序 |                          分享已实现                          |                           |
+|             QQ分享             |                            已实现                            |                           |
+|           支付宝支付           |                             欠缺                             |                           |
+|       与Android原生通信        |                        MethodChannel                         |                           |
+|            统计图表            | [flchart插件](https://pub.flutter-io.cn/packages/fl_chart)、syncfusion_flutter_charts（flutter推荐）；Android端可以采用MPAndroidChart（点数很多时可以试试这个，flutter的chart插件，点数过多效果较差） |                           |
+|            状态管理            |                     GETX、Provider（差）                     |      BLOC、GETX原理       |
+|     canvas画布及Paint画板      |                              差                              |                           |
+|    条形码、二维码生成与扫描    | [mobile_scanner](https://pub.flutter-io.cn/packages/mobile_scanner)（推荐）、[qrscan](https://pub.flutter-io.cn/packages/qrscan/install) |                           |
+|         数据持久化存储         |               sharedPreference、SqliteDatabase               |                           |
+|            网络请求            |                           Dio插件                            |                           |
+|            路由管理            |                    根据状态管理不同而不同                    |                           |
+|              上传              |                             欠缺                             |                           |
+|             甘特图             | [如何用Excel快速制作甘特图？（超详细！） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/271043355) |                           |
+|                                |                                                              |                           |
+|          workmanager           | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |        还不太熟悉         |
+|      显示Android原生界面       |                       显示Android界面                        |      MPAndroidChart       |
 
 采用getx框架重新构造项目
 

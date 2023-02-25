@@ -23,6 +23,9 @@ class HYAppTheme {
   ///普通模式
   ///白色
   static const Color norTextColors = Colors.black;
+
+  static const Color norBlackColors = Colors.black;
+
   static const Color norWhite01Color = Colors.white;
   static const Color norWhite02Color = Color.fromRGBO(246, 247, 249, 1);
   static const Color norWhite03Color = Color.fromRGBO(255, 236, 240, 1);

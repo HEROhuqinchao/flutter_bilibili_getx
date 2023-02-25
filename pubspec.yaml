@@ -83,6 +83,7 @@ dependencies:
   flutter_blue: ^0.8.0 #蓝牙
   qr_flutter: ^4.0.0 #生成二维码
   qrscan: ^0.3.3 #扫描二维码,也可以生成二维码
+  mobile_scanner: ^2.1.0 #扫描二维码（效果比qrScan好一些）
   flutter_floating: ^1.0.1 #浮动窗口
   desktop_window: ^0.4.0 #桌面应用大小
   flutter_svg: ^1.1.6 #svg
@@ -92,6 +93,7 @@ dependencies:
   syncfusion_flutter_xlsio: ^20.4.49-beta #生成excel 插件二 （功能较多）
   image: ^4.0.15 #处理图片
   animations: ^2.0.7 #动画转场
+  image_picker: ^0.8.6+3 #图片选择
 
 dev_dependencies:
   flutter_test:
