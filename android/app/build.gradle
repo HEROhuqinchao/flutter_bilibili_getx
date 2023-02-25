@@ -102,4 +102,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.huawei.hms:push:6.5.0.300'
     implementation 'cn.jiguang.sdk.plugin:huawei:4.8.4'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
 }

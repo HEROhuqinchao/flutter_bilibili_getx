@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:bilibili_getx/core/package_info/package_info_util.dart';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
-import 'package:bilibili_getx/core/work_manager/work_manager_util.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
@@ -44,7 +43,7 @@ void main() async {
     await ScreenUtil.ensureScreenSize();
     await SharedPreferenceUtil.getInstance();
     await PackageInfoUtil.getInstance();
-    await WorkManagerUtil.initialize();
+    // await WorkManagerUtil.initialize();
     await initialization();
   }
   runApp(const MyApp());

@@ -1,11 +1,22 @@
 import 'dart:convert';
-import 'dart:typed_data';
+
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img_lib;
 import 'package:dio/dio.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 
-class OutputExcel {
+class OutputExcelUtil {
+  OutputExcelUtil._internal();
+
+  factory OutputExcelUtil() => _instance;
+  static late final OutputExcelUtil _instance = OutputExcelUtil._internal();
+  static late Workbook workbook;
+
+  static getInstance() {
+    workbook = Workbook();
+    return _instance;
+  }
+
   ///添加网络图片
   static Future<Worksheet> addUrlImage({
     required int width,

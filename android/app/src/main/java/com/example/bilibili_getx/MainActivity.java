@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
@@ -207,5 +208,13 @@ public class MainActivity extends FlutterActivity {
         } else {
             startService(serviceIntent);
         }
+    }
+
+    //使用HistoryChartView
+    @Override
+    public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+        super.configureFlutterEngine(flutterEngine);
+        MyPlugin myPlugin = new MyPlugin();
+        flutterEngine.getPlugins().add(myPlugin);
     }
 }

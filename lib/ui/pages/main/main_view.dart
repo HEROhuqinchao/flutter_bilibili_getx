@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:flutter/material.dart';
@@ -29,13 +30,24 @@ class MainScreen extends StatelessWidget {
       builder: (logic) {
         return SafeArea(
           child: Scaffold(
-            body: IndexedStack(
-              ///显示哪一个页面
-              index: state.currentIndex,
-
-              ///显示那些页面
-              children: state.mainIndexStackPages,
+            ///页面切换动画效果
+            body: PageTransitionSwitcher(
+              transitionBuilder: (child, animation, secondaryAnimation) {
+                return FadeThroughTransition(
+                  animation: animation,
+                  secondaryAnimation: secondaryAnimation,
+                  child: child,
+                );
+              },
+              child: state.mainIndexStackPages[state.currentIndex],
             ),
+            // body: IndexedStack(
+            //   ///显示哪一个页面
+            //   index: state.currentIndex,
+            //
+            //   ///显示那些页面
+            //   children: state.mainIndexStackPages,
+            // ),
 
             ///底部导航栏
             bottomNavigationBar: BottomNavigationBar(
