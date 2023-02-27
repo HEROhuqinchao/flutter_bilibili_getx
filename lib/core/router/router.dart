@@ -1,4 +1,3 @@
-import 'package:bilibili_getx/ui/pages/chat/chat_view.dart';
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_binding.dart';
@@ -61,13 +60,15 @@ import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_bindin
 import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
 import '../../ui/pages/video_play/video_play_binding.dart';
 
+///定义页面的路由
 class AsRouter {
-  static const String initialRoute = MainScreen.routeName;
+  ///初始路由
+  static const String initialRoute = MainView.routeName;
   static List<GetPage> getPages = [
     ///起始路由
     GetPage(
-      name: MainScreen.routeName,
-      page: () => MainScreen(),
+      name: MainView.routeName,
+      page: () => MainView(),
       binding: MainBinding(),
     ),
 
@@ -240,6 +241,7 @@ class AsRouter {
         name: DownloadFileView.routeName,
         page: () => DownloadFileView(),
         binding: DownloadFileBinding()),
+
     ///Android原生
     GetPage(
         name: FlutterAndroidView.routeName,

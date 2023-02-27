@@ -29,8 +29,9 @@ import '../utils/http_base_request.dart';
 //   'ts': '1659266022',
 //   'sign': '9b58aebd3e6c0a1021031ed8e5b0522b'
 // };
+///会员购
 class HYMallRequest {
-  ///请求会员购的数据
+  ///Android端请求会员购的数据
   static Future<MallSearchModel> fetchAndroidMallData(params) async {
     String url = "/mall-c-search/home/index/v2?${ParamsSign.paramsSerialization(params)}";
     final result = await HttpBaseRequest.request("mall", url);
@@ -43,6 +44,7 @@ class HYMallRequest {
   }
   // https://show.bilibili.com/api/ticket/project/listconf?city_id=-1&platform=pc
   // https://show.bilibili.com/api/ticket/city/list?channel=4
+  ///Web端请求会员购界面数据
   static Future<TicketProjectListV2Model> fetchWebMallData() async {
     String url = "/api/ticket/project/listV2?version=134&page=1&pagesize=16&area=330200&filter=&platform=web&p_type=%E5%85%A8%E9%83%A8%E7%B1%BB%E5%9E%8B";
     final result = await HttpBaseRequest.request("mall-web", url);

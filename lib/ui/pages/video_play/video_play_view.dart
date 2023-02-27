@@ -837,8 +837,8 @@ class _buildVideoProfileState extends State<buildVideoProfile>
       children: [
         Image.asset(
           icon,
-          width: 24.w,
-          height: 24.w,
+          width: 24.r,
+          height: 24.r,
           color: HYAppTheme.norGray03Color,
         ),
         10.verticalSpace,

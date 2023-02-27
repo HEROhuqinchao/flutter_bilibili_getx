@@ -158,6 +158,7 @@ class WxUtil {
     shareToWeChat(model);
   }
 
+  ///wechatShare2Favorite
   static void wechatShare2Favorite() {
     var model = WeChatShareTextModel(
       "www.baidu.com",
@@ -168,6 +169,7 @@ class WxUtil {
     shareToWeChat(model);
   }
 
+  ///wechatShare2TimeLine
   static void wechatShare2TimeLine() {
     var model = WeChatShareTextModel(
       "www.baidu.com",

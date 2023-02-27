@@ -30,11 +30,10 @@ class MineScreen extends StatelessWidget {
                     elevation: .5,
                     actions: buildMineActions(),
                     bottom: PreferredSize(
-                      preferredSize: Size(double.infinity, 200.h),
+                      preferredSize: Size(1.sw, 200.r),
                       child: Container(
                         padding:
-                            const EdgeInsets.only(left: 15, right: 15, top: 25)
-                                .r,
+                            EdgeInsets.only(left: 15.r, right: 15.r, top: 25.r),
                         child: Column(
                           children: [
                             buildMineUserInfoRow(),
@@ -90,10 +89,10 @@ class MineScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(15.r),
                                 )),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ).r,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 12.r,
+                              vertical: 6.r,
+                            ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -106,7 +105,7 @@ class MineScreen extends StatelessWidget {
                                 Text(
                                   item.button.text!,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: HYAppTheme.norWhite01Color,
                                       fontSize: 12.sp,
                                       fontWeight: FontWeight.normal,
                                       fontFamily: 'bilibiliFonts'),
@@ -123,7 +122,7 @@ class MineScreen extends StatelessWidget {
           if (index == state.accountMineData.data.sectionsV2.length - 1) {
             widgets.add(
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10).r,
+                margin: EdgeInsets.symmetric(horizontal: 10.r),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -145,7 +144,7 @@ class MineScreen extends StatelessWidget {
             ///按钮列表
             widgets.add(
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 15).r,
+                padding: EdgeInsets.symmetric(vertical: 15.r),
                 child: HYIconButtonRow(
                   size: 20.sp,
                   items: item.items,
@@ -157,8 +156,8 @@ class MineScreen extends StatelessWidget {
         index++;
       }
       return Container(
-        padding: const EdgeInsets.all(15).r,
-        color: Colors.white,
+        padding: EdgeInsets.all(15.r),
+        color: HYAppTheme.norWhite01Color,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: widgets,
@@ -167,8 +166,8 @@ class MineScreen extends StatelessWidget {
     } else {
       ///未登录时
       return Container(
-        padding: const EdgeInsets.all(15).r,
-        color: Colors.white,
+        padding: EdgeInsets.all(15.r),
+        color: HYAppTheme.norWhite01Color,
         child: Column(
           children: [
             // buildMineAdvertisingA(accountMineData.data.sectionsV2[0]),
@@ -243,7 +242,7 @@ class MineScreen extends StatelessWidget {
                 ),
                 10.horizontalSpace,
                 Text(
-                  "设置",
+                  SR.settings.tr,
                   style: TextStyle(
                       fontSize: 16.sp, color: HYAppTheme.norTextColors),
                 ),
@@ -355,10 +354,10 @@ class MineScreen extends StatelessWidget {
                   SR.follower),
             ),
             Container(
-              height: 20.h,
-              padding: const EdgeInsets.symmetric(horizontal: 60).r,
+              height: 20.r,
+              padding: EdgeInsets.symmetric(horizontal: 60.r),
               decoration: BoxDecoration(
-                  border: Border.symmetric(vertical: BorderSide(width: .2.w))),
+                  border: Border.symmetric(vertical: BorderSide(width: .2.r))),
             ),
           ],
         ),
@@ -422,9 +421,8 @@ class MineScreen extends StatelessWidget {
                         ),
                         5.verticalSpace,
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                                  horizontal: 2, vertical: 2)
-                              .r,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 2.r, vertical: 2.r),
                           decoration: BoxDecoration(
                               border: Border.all(
                                   color: HYAppTheme.norMainThemeColors),
@@ -510,12 +508,12 @@ class MineScreen extends StatelessWidget {
   ///成为大会员
   Widget buildMineAppBarFooter() {
     return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15).r,
+      width: 1.sw,
+      padding: EdgeInsets.symmetric(vertical: 10.r, horizontal: 15.r),
       decoration: BoxDecoration(
         color: HYAppTheme.norWhite03Color,
         borderRadius: BorderRadius.vertical(top: Radius.circular(4.r)),
-        border: Border.all(color: HYAppTheme.norPink05Colors, width: .5.w),
+        border: Border.all(color: HYAppTheme.norPink05Colors, width: .5.r),
       ),
       child: Stack(
         children: [
@@ -591,7 +589,7 @@ class MineScreen extends StatelessWidget {
 
   Widget buildMineTitleAndButton(String title, Widget button) {
     return Container(
-      padding: const EdgeInsets.only(top: 5, bottom: 0, left: 10, right: 5).r,
+      padding: EdgeInsets.only(top: 5.r, bottom: 0.r, left: 10.r, right: 5.r),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

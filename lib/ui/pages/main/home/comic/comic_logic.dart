@@ -353,9 +353,9 @@ class ComicLogic extends GetxController {
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1.2,
+        childAspectRatio: 1.1,
         crossAxisSpacing: 8.r,
-        mainAxisSpacing: 8.r,
+        mainAxisSpacing: 12.r,
       ),
       itemBuilder: (ctx, index) {
         return Container(
@@ -464,36 +464,38 @@ class ComicLogic extends GetxController {
                 ),
               ),
               5.verticalSpace,
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 5.r),
-                    padding: EdgeInsets.all(2.r),
-                    decoration: BoxDecoration(
-                        color: HYAppTheme.norWhite05Color,
-                        borderRadius: BorderRadius.all(
-                          const Radius.circular(2).r,
-                        )),
-                    child: Text(
-                      module.items![index]!.subTitleLeftBadge == null
-                          ? "0.0"
-                          : module.items![index]!.subTitleLeftBadge!.text!,
-                      style: TextStyle(
-                        color: const Color.fromRGBO(241, 129, 56, 1),
-                        fontSize: 12.sp,
+              Expanded(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 5.r),
+                      padding: EdgeInsets.all(2.r),
+                      decoration: BoxDecoration(
+                          color: HYAppTheme.norWhite05Color,
+                          borderRadius: BorderRadius.all(
+                            const Radius.circular(2).r,
+                          )),
+                      child: Text(
+                        module.items![index]!.subTitleLeftBadge == null
+                            ? "0.0"
+                            : module.items![index]!.subTitleLeftBadge!.text!,
+                        style: TextStyle(
+                          color: const Color.fromRGBO(241, 129, 56, 1),
+                          fontSize: 12.sp,
+                        ),
                       ),
                     ),
-                  ),
-                  3.horizontalSpace,
-                  Text(
-                    module.items![index]!.desc!,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: HYAppTheme.norGrayColor,
-                    ),
-                  )
-                ],
+                    3.horizontalSpace,
+                    Text(
+                      module.items![index]!.desc!,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: HYAppTheme.norGrayColor,
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),

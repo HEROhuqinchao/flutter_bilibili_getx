@@ -28,13 +28,9 @@ class HomeLogic extends GetxController {
   final HomeState state = HomeState();
 
   @override
-  void onInit() {
-    initHomeUserInfo();
-    super.onInit();
-  }
-
-  @override
   void onReady() {
+    initHomeUserInfo();
+
     ///判断是否同意用户协议
     if (state.tempUserAgreement == false) {
       initUserAgreement();
@@ -95,7 +91,6 @@ class HomeLogic extends GetxController {
       'statistics':
           '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%227.11.0%22%2C%22abtest%22%3A%22%22%7D',
       'ts': '1672272837',
-      // 'sign': '9d68cfe8ad480bc03cd86e174340c9bd',
     };
     HYHomeRequest.fetchSearchSquareData(params).then((value) {
       if (value.code == 0) {
@@ -198,13 +193,13 @@ class HomeLogic extends GetxController {
                   onTap: () {
                     SmartDialog.showToast("不同意就没法用了呦~");
                     if (kIsWeb) {
-                      Get.offAndToNamed(MainScreen.routeName);
+                      Get.offAndToNamed(MainView.routeName);
                     } else {
                       if (Platform.isAndroid || Platform.isIOS) {
                         ///退出APP(不同意协议就退出）
                         SystemNavigator.pop();
                       } else if (Platform.isWindows) {
-                        Get.offAndToNamed(MainScreen.routeName);
+                        Get.offAndToNamed(MainView.routeName);
                       }
                     }
                   },

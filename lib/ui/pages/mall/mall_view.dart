@@ -39,7 +39,7 @@ class MallScreen extends StatelessWidget {
             }
           } else {
             return Container(
-              margin: EdgeInsets.only(top: 30.h),
+              margin: EdgeInsets.only(top: 30.r),
               alignment: Alignment.topCenter,
               width: 1.sw,
               child: const RefreshProgressIndicator(
@@ -72,7 +72,7 @@ class MallScreen extends StatelessWidget {
             slivers: [
               SliverAppBar(
                 backgroundColor: Colors.white,
-                expandedHeight: 90.h,
+                expandedHeight: 90.r,
                 title: Opacity(
                   opacity: state.appBarOpacity,
                   child: Row(
@@ -148,8 +148,8 @@ class MallScreen extends StatelessWidget {
   ///搜索（顶部的简单搜索框）
   Widget buildAndroidMallViewSimpleSearch() {
     return Container(
-      height: 30.h,
-      width: 230.w,
+      height: 30.r,
+      width: 230.r,
       decoration: BoxDecoration(
         color: HYAppTheme.norWhite07Color,
         borderRadius: BorderRadius.all(Radius.circular(8.r)),
@@ -183,7 +183,7 @@ class MallScreen extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            height: 30.h,
+            height: 30.r,
             decoration: BoxDecoration(
               color: HYAppTheme.norWhite07Color,
               borderRadius: BorderRadius.all(Radius.circular(8.r)),
@@ -287,12 +287,12 @@ class MallScreen extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   children: [
                     Container(
-                      height: 75.w,
+                      height: 75.r,
                     ),
                     Container(
                       decoration: BoxDecoration(boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(.1),
+                          color: HYAppTheme.norTextColors.withOpacity(.1),
                           offset: const Offset(1, 1),
                           spreadRadius: 1,
                           blurRadius: 1,
@@ -301,9 +301,9 @@ class MallScreen extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(5.r)),
                         child: DefaultFadeImage(
-                          height: 56.h,
+                          height: 56.r,
                           imageUrl: getImageHttpUrl(item.bgImage),
-                          width: 110.w,
+                          width: 110.r,
                         ),
                       ),
                     ),
@@ -312,8 +312,8 @@ class MallScreen extends StatelessWidget {
                       bottom: 0,
                       child: DefaultFadeImage(
                         imageUrl: getImageHttpUrl(item.itemImage),
-                        width: 50.w,
-                        height: 72.h,
+                        width: 50.r,
+                        height: 72.r,
                       ),
                     ),
                     Positioned(
@@ -361,8 +361,8 @@ class MallScreen extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(4.r)),
                           child: FadeInImage(
-                            width: 45.w,
-                            height: 45.w,
+                            width: 45.r,
+                            height: 45.r,
                             fit: BoxFit.cover,
                             placeholderFit: BoxFit.cover,
                             placeholder:
@@ -405,8 +405,8 @@ class MallScreen extends StatelessWidget {
           children: [
             DefaultFadeImage(
               imageUrl: getImageHttpUrl(item.imageUrl),
-              width: 40.w,
-              height: 40.w,
+              width: 40.r,
+              height: 40.r,
             ),
             2.verticalSpace,
             Text(
@@ -425,7 +425,7 @@ class MallScreen extends StatelessWidget {
     }
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.r),
-      height: 70.w,
+      height: 70.r,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: children,
@@ -562,8 +562,8 @@ class MallScreen extends StatelessWidget {
               children: [
                 DefaultFadeImage(
                   imageUrl: state.vo.newBlocks[0].blockItemVOs[0].imageUrl,
-                  width: 60.w,
-                  height: 60.w,
+                  width: 60.r,
+                  height: 60.r,
                 ),
                 10.verticalSpace,
                 PriceMark(
@@ -583,8 +583,8 @@ class MallScreen extends StatelessWidget {
               children: [
                 DefaultFadeImage(
                   imageUrl: state.vo.newBlocks[0].blockItemVOs[1].imageUrl,
-                  width: 60.w,
-                  height: 60.w,
+                  width: 60.r,
+                  height: 60.r,
                 ),
                 10.verticalSpace,
                 PriceMark(
@@ -618,18 +618,18 @@ class MallScreen extends StatelessWidget {
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.1),
+              color: HYAppTheme.norTextColors.withOpacity(.1),
               offset: const Offset(1, 1),
               spreadRadius: .5,
               blurRadius: 1,
             )
           ],
-          color: Colors.white,
+          color: HYAppTheme.norWhite01Color,
           borderRadius: BorderRadius.all(Radius.circular(3.r))),
       child: Stack(
         children: [
           SizedBox(
-            width: 70.w,
+            width: 70.r,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -646,7 +646,7 @@ class MallScreen extends StatelessWidget {
                 DefaultFadeImage(
                   imageUrl: getImageHttpUrl(
                       state.vo.newBlocks[index].blockItemVOs[0].imageUrl),
-                  height: 60.w,
+                  height: 60.r,
                 )
               ],
             ),
@@ -809,14 +809,16 @@ class MallScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                item.imageUrls != null ? ClipRRect(
-                  borderRadius:
-                      BorderRadius.vertical(top: Radius.circular(5.r)),
-                  child: DefaultFadeImage(
-                    imageUrl: getImageHttpUrl(item.imageUrls![0]),
-                    height: 190.w,
-                  ),
-                ) : Container(),
+                item.imageUrls != null
+                    ? ClipRRect(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(5.r)),
+                        child: DefaultFadeImage(
+                          imageUrl: getImageHttpUrl(item.imageUrls![0]),
+                          height: 190.r,
+                        ),
+                      )
+                    : Container(),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 5.r, horizontal: 5.r),
                   child: Column(
@@ -933,7 +935,7 @@ class MallScreen extends StatelessWidget {
               controller: ScrollController(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisExtent: 120.w,
+                  mainAxisExtent: 120.r,
                   mainAxisSpacing: 10.r,
                   crossAxisSpacing: 10.r),
               itemBuilder: (ctx, index) {
@@ -949,7 +951,7 @@ class MallScreen extends StatelessWidget {
             ),
           )
         : Container(
-            margin: EdgeInsets.only(top: 30.h),
+            margin: EdgeInsets.only(top: 30.r),
             alignment: Alignment.topCenter,
             width: 1.sw,
             child: const RefreshProgressIndicator(
@@ -969,8 +971,8 @@ class MallScreen extends StatelessWidget {
         logic.mouseExitAction(index);
       },
       child: Container(
-        width: 172.w,
-        height: 72.w,
+        width: 172.r,
+        height: 72.r,
         decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
@@ -992,8 +994,8 @@ class MallScreen extends StatelessWidget {
   ///内容
   Widget buildMallItemContent(int index) {
     return Positioned(
-      left: 6.w,
-      bottom: 5.w,
+      left: 6.r,
+      bottom: 5.r,
       child: MouseRegion(
         onHover: (event) {
           logic.mouseHoverAction(index);
@@ -1008,14 +1010,14 @@ class MallScreen extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(5.r)),
               child: Container(
-                width: 55.w,
-                height: 75.w,
+                width: 55.r,
+                height: 75.r,
                 margin: EdgeInsets.only(bottom: state.coverBottomGap[index]),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: HYAppTheme.norWhite01Color,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(.3),
+                      color: HYAppTheme.norTextColors.withOpacity(.3),
                       offset: const Offset(1.0, 1.0),
                       blurRadius: 2,
                       spreadRadius: 2,
@@ -1033,13 +1035,13 @@ class MallScreen extends StatelessWidget {
             8.horizontalSpace,
             Container(
               margin: EdgeInsets.only(bottom: 5.r),
-              height: 52.w,
+              height: 52.r,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: 100.w,
+                    width: 100.r,
                     child: Text(
                       state.result[index].projectName,
                       style: TextStyle(
@@ -1117,7 +1119,7 @@ class MallScreen extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: "  起  ",
+                              text: "  ${SR.up.tr}  ",
                               style: TextStyle(
                                 color: HYAppTheme.norGrayColor,
                                 fontSize: 10.sp,
@@ -1132,7 +1134,7 @@ class MallScreen extends StatelessWidget {
                             border: Border.all(
                                 color: HYAppTheme.norMainThemeColors)),
                         child: Text(
-                          "独家",
+                          SR.exclusive.tr,
                           style: TextStyle(
                             color: HYAppTheme.norMainThemeColors,
                             fontSize: 10.sp,

@@ -3,9 +3,7 @@ import '../../model/live_room_stream_model.dart';
 import '../../model/online_gold_rank_model.dart';
 import '../utils/http_base_request.dart';
 
-/**
- *直播这里接口是web端的，待改
- **/
+///直播这里接口是web端的，待改
 class HYLiveRoomPlayRequest {
   static Future<HYLiveRoomStreamModel> getLiveRoomStreamData(int cid) async {
     final url = "/room/v1/Room/playUrl?cid=$cid";

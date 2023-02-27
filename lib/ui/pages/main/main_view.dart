@@ -20,7 +20,7 @@ import '../functions/wx_share/wx_share_view.dart';
 import '../publish/publish_view.dart';
 import 'main_logic.dart';
 
-class MainScreen extends StatelessWidget {
+class MainView extends StatelessWidget {
   static const String routeName = "/main";
 
   @override
@@ -98,7 +98,7 @@ class MainScreen extends StatelessWidget {
                   label: '统计',
                   child: ImageIcon(
                     AssetImage(ImageAssets.chartsCustomPNG),
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -109,7 +109,7 @@ class MainScreen extends StatelessWidget {
                   label: '推送',
                   child: Icon(
                     Icons.announcement_sharp,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -120,7 +120,7 @@ class MainScreen extends StatelessWidget {
                   label: 'QQ分享',
                   child: Icon(
                     Icons.share,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -131,7 +131,7 @@ class MainScreen extends StatelessWidget {
                   label: '蓝牙',
                   child: Icon(
                     Icons.bluetooth,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -142,7 +142,7 @@ class MainScreen extends StatelessWidget {
                   label: '微信分享',
                   child: Icon(
                     Icons.wechat,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -164,7 +164,7 @@ class MainScreen extends StatelessWidget {
                   label: '切换语言',
                   child: Icon(
                     Icons.abc,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -175,7 +175,7 @@ class MainScreen extends StatelessWidget {
                   label: '小窗口',
                   child: Icon(
                     Icons.desktop_windows_sharp,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -186,7 +186,7 @@ class MainScreen extends StatelessWidget {
                   label: 'Android原生',
                   child: Icon(
                     Icons.android_rounded,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
               ],
@@ -201,7 +201,7 @@ class MainScreen extends StatelessWidget {
     return BottomNavigationBarItem(
       label: "",
       icon: Container(
-        margin: EdgeInsets.only(top: 8.h),
+        margin: EdgeInsets.only(top: 8.r),
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15).r,
         decoration: BoxDecoration(
           color: HYAppTheme.norMainThemeColors,

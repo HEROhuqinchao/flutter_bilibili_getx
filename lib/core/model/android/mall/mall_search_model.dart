@@ -1186,7 +1186,7 @@ class BlockItemVo {
   int? itemId;
   String itemName;
   String imageUrl;
-  String tag;
+  String? tag;
   String jumpUrl;
   bool isShowPrice;
   String? priceSymbol;
@@ -1200,7 +1200,7 @@ class BlockItemVo {
         itemId: json["itemId"] == null ? null : json["itemId"],
         itemName: json["itemName"],
         imageUrl: json["imageUrl"],
-        tag: json["tag"] == null ? null : json["tag"],
+        tag: json["tag"],
         jumpUrl: json["jumpUrl"],
         isShowPrice: json["isShowPrice"],
         priceSymbol: json["priceSymbol"],

@@ -3,9 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../../model/big_data_model.dart';
 
-/**
- * 获取本地的json数据，用于图表
- */
+/// 获取本地的json数据，用于图表
 class HYJsonParse {
   static Future<HyBigDataModel> getBigData() async {
     //1、加载json文件,loadString返回的类型是Future，所以是异步操作

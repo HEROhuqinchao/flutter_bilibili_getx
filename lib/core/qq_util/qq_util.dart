@@ -7,6 +7,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:tencent_kit/tencent_kit.dart';
 
 ///参考 https://github.com/RxReader/tencent_kit
+///QQ分享
 class QQUtil {
   ///3.1.0版本之后的授予权限
   static void initPermissionGranted() async {

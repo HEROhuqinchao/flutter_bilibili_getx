@@ -1,3 +1,4 @@
+///关键字
 class SR {
   ///主页、动态、会员购、我的
   static const home = 'home';
@@ -146,4 +147,9 @@ class SR {
   static const hideLocation = "hideLocation";
   static const searchNearbyLocation = "searchNearbyLocation";
   static const searching = "searching";
+  static const points = "points";
+  static const people = "people";
+  static const up = "up";
+  static const exclusive = "exclusive";
+  static const settings = "settings";
 }

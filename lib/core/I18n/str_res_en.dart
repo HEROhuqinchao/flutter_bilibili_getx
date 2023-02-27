@@ -1,5 +1,6 @@
 import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
 
+///英文
 const strResEn = {
   ///首页、动态、会员购、我的
   SR.home: 'home',
@@ -154,5 +155,10 @@ const strResEn = {
   SR.hideLocation: "hideLocation",
   SR.searchNearbyLocation: "search nearby location",
 
-  SR.searching: "searching..."
+  SR.searching: "searching...",
+  SR.points: "points",
+  SR.people: "people",
+  SR.up: "up",
+  SR.exclusive: "exclusive",
+  SR.settings: "settings",
 };

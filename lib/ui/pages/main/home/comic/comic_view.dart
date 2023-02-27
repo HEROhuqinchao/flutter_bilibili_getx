@@ -17,7 +17,7 @@ class ComicScreen extends StatelessWidget {
       return Scaffold(
         body: state.widgets.isNotEmpty
             ? Container(
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 10).r,
+                padding: EdgeInsets.only(left: 10.r, right: 10.r, top: 10.r),
                 child: EasyRefresh(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -26,7 +26,7 @@ class ComicScreen extends StatelessWidget {
                 ),
               )
             : Container(
-                margin: EdgeInsets.only(top: 30.h),
+                margin: EdgeInsets.only(top: 30.r),
                 alignment: Alignment.topCenter,
                 width: 1.sw,
                 child: const RefreshProgressIndicator(

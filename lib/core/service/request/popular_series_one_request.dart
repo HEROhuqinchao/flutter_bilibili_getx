@@ -2,9 +2,7 @@
 import '../../model/popular_series_one_model.dart';
 import '../utils/http_base_request.dart';
 
-/**
- * 为图表使用的接口
- */
+/// 为图表使用的接口
 class PopularSeriesOneRequest {
   ///第五十九期每周必看
   static Future<HYPopularSeriesOneModel> getPopularSeriesOneData() async {

@@ -47,7 +47,7 @@ class LiveScreenState extends State<LiveScreen>
           }
         } else {
           return Container(
-            margin: EdgeInsets.only(top: 30.h),
+            margin: EdgeInsets.only(top: 30.r),
             alignment: Alignment.topCenter,
             width: 1.sw,
             child: const RefreshProgressIndicator(
@@ -122,7 +122,7 @@ class LiveScreenState extends State<LiveScreen>
               crossAxisCount: 2,
               mainAxisSpacing: 6.r,
               crossAxisSpacing: 6.r,
-              mainAxisExtent: 140.w,
+              mainAxisExtent: 140.r,
             ),
           )
         ],
@@ -194,21 +194,13 @@ class LiveScreenState extends State<LiveScreen>
             fontWeight: FontWeight.normal,
             fontFamily: 'bilibiliFonts',
           ),
-          indicatorWeight: 1.h,
+          indicatorWeight: 1.r,
           isScrollable: true,
           tabs: tabs,
         ),
       ),
     );
   }
-
-  // Widget buildActivityCardV1(CardData item) {
-  //   return state.cardDataActivityCardV1 == null
-  //       ? Container(
-  //           color: Colors.yellow,
-  //         )
-  //       : Container();
-  // }
 
   Widget buildSmallCardV1(CardData item) {
     return GestureDetector(
@@ -231,7 +223,7 @@ class LiveScreenState extends State<LiveScreen>
                   child: DefaultFadeImage(
                     imageUrl: item.smallCardV1!.cover,
                     width: 1.sw,
-                    height: 90.w,
+                    height: 90.r,
                   ),
                 ),
                 Positioned(
@@ -240,7 +232,7 @@ class LiveScreenState extends State<LiveScreen>
                   right: 0,
                   child: Container(
                     width: 1.sw,
-                    height: 25.w,
+                    height: 25.r,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                       colors: [
