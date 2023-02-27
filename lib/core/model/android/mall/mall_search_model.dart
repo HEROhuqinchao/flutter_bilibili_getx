@@ -1200,7 +1200,7 @@ class BlockItemVo {
         itemId: json["itemId"] == null ? null : json["itemId"],
         itemName: json["itemName"],
         imageUrl: json["imageUrl"],
-        tag: json["tag"],
+        tag: json["tag"] == null ? null : json["tag"],
         jumpUrl: json["jumpUrl"],
         isShowPrice: json["isShowPrice"],
         priceSymbol: json["priceSymbol"],

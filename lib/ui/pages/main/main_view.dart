@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -174,6 +175,17 @@ class MainScreen extends StatelessWidget {
                   label: '小窗口',
                   child: Icon(
                     Icons.desktop_windows_sharp,
+                    size: 10.h,
+                  ),
+                ),
+                SpeedDialChild(
+                  backgroundColor: HYAppTheme.norWhite01Color,
+                  onTap: () {
+                    Get.toNamed(FlutterAndroidView.routeName);
+                  },
+                  label: 'Android原生',
+                  child: Icon(
+                    Icons.android_rounded,
                     size: 10.h,
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bilibili_getx/core/system/system_preferred_orientations/system_preferred_orientations_util.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../../core/channel/channel_util.dart';
@@ -10,10 +11,12 @@ class FlutterAndroidLogic extends GetxController {
 
   @override
   void onReady() {
-    List<Map<int, double>> points = [];
-    for (int i = 0; i < 10000; i++) {
-      Map<int, double> point = {
-        i: Random().nextDouble() * 1000.0,
+    SystemPreferredOrientationsUtil.setHorizontal();
+    List<Map<String, double>> points = [];
+    for (double i = 0; i < 2000; i++) {
+      Map<String, double> point = {
+        "x": i,
+        "y": Random().nextDouble() * 1000.0,
       };
       points.add(point);
     }
