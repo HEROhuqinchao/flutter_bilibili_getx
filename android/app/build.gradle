@@ -104,4 +104,6 @@ dependencies {
     implementation 'cn.jiguang.sdk.plugin:huawei:4.8.4'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
+    //图表
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
