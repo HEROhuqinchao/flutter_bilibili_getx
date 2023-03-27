@@ -96,10 +96,13 @@ class ComicLogic extends GetxController {
           borderRadius: BorderRadiusDirectional.circular(5.r),
           child: Opacity(
             opacity: .2,
-            child: DefaultFadeImage(
-              imageUrl: module.cover!,
-              height: 230.r,
-              fit: BoxFit.fitWidth,
+            child: Container(
+              color: HYAppTheme.norGray04Color,
+              child: DefaultFadeImage(
+                imageUrl: module.cover!,
+                height: 250.r,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -361,7 +364,7 @@ class ComicLogic extends GetxController {
         return Container(
           decoration: BoxDecoration(
               boxShadow: [HYAppTheme.norBoxShadow],
-              borderRadius: BorderRadius.all(Radius.circular(4.r)),
+              borderRadius: BorderRadius.all(Radius.circular(8.r)),
               color: HYAppTheme.norWhite01Color),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -370,7 +373,7 @@ class ComicLogic extends GetxController {
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(8.r)),
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(8.r)),
                     child: DefaultFadeImage(
                       imageUrl: module.items![index]!.cover!,
                       height: 105.r,
@@ -384,7 +387,6 @@ class ComicLogic extends GetxController {
                       alignment: Alignment.bottomCenter,
                       height: 40.r,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8.r)),
                         gradient: LinearGradient(
                           colors: [
                             HYAppTheme.norTextColors.withOpacity(.7),
