@@ -1,5 +1,6 @@
 import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
 
+///中文
 const strResZh = {
   ///首页、动态、
   SR.home: '首页',
@@ -149,5 +150,10 @@ const strResZh = {
   SR.iamHere: "我在这儿",
   SR.hideLocation: "隐藏位置",
   SR.searchNearbyLocation: "搜索附近地点",
-  SR.searching: "搜索中..."
+  SR.searching: "搜索中...",
+  SR.points: "分",
+  SR.people: "人",
+  SR.up: "起",
+  SR.exclusive: "独家",
+  SR.settings: "设置",
 };

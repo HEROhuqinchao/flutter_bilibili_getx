@@ -2,6 +2,7 @@ import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
 
+///极光推送
 class JPushUtil {
   ///初始化极光推送
   static void startJPush() {

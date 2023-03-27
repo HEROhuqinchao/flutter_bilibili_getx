@@ -1,7 +1,7 @@
 import 'package:permission_handler/permission_handler.dart';
 
+///权限获取
 class BilibiliPermission {
-  ///权限获取
   static void requestAllPermissions() async {
     Map<Permission, PermissionStatus> statuses = await [
       Permission.phone,

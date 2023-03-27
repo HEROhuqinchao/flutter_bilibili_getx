@@ -32,8 +32,8 @@ class DynamicCircleScreen extends StatelessWidget {
   Widget buildDynamicCircleLoading() {
     return Center(
       child: SizedBox(
-        width: 50.w,
-        height: 50.w,
+        width: 50.r,
+        height: 50.r,
         child: const CircularProgressIndicator(
           color: HYAppTheme.norMainThemeColors,
         ),

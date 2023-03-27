@@ -36,7 +36,6 @@ class HYDanMuRequest {
 
   /// 新版本 弹幕 protobuf格式的数据
   /// 不再使用XML的数据弹幕数据，改用请求proto格式的弹幕数据
-
   static Future<List<DanMuModel02>> getDanMuProtoData(
       String oid, int segmentIndex) async {
     String url =

@@ -1,9 +1,9 @@
-import 'package:bilibili_getx/ui/pages/chat/chat_view.dart';
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_binding.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_logic.dart';
 import 'package:bilibili_getx/ui/pages/functions/video_player_example/video_player_example_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_view.dart';
@@ -30,6 +30,7 @@ import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_binding.d
 import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
 import '../../ui/pages/functions/download_file/download_file_binding.dart';
 import '../../ui/pages/functions/download_file/download_file_view.dart';
+import '../../ui/pages/functions/flutter_android/flutter_android_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_view.dart';
 import '../../ui/pages/functions/push_message/push_message_binding.dart';
@@ -59,13 +60,15 @@ import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_bindin
 import '../../ui/pages/publish/upload/pre_publish_video/pre_publish_video_view.dart';
 import '../../ui/pages/video_play/video_play_binding.dart';
 
+///定义页面的路由
 class AsRouter {
-  static const String initialRoute = MainScreen.routeName;
+  ///初始路由
+  static const String initialRoute = MainView.routeName;
   static List<GetPage> getPages = [
     ///起始路由
     GetPage(
-      name: MainScreen.routeName,
-      page: () => MainScreen(),
+      name: MainView.routeName,
+      page: () => MainView(),
       binding: MainBinding(),
     ),
 
@@ -238,5 +241,11 @@ class AsRouter {
         name: DownloadFileView.routeName,
         page: () => DownloadFileView(),
         binding: DownloadFileBinding()),
+
+    ///Android原生
+    GetPage(
+        name: FlutterAndroidView.routeName,
+        page: () => FlutterAndroidView(),
+        binding: FlutterAndroidBinding()),
   ];
 }

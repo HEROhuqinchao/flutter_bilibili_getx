@@ -22,7 +22,7 @@ class PublishScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: HYAppTheme.norTextColors,
           bottomNavigationBar: Container(
-            height: 50.w,
+            height: 50.r,
             child: TabBar(
               labelColor: HYAppTheme.norWhite01Color,
               tabs: [
@@ -77,8 +77,8 @@ class PublishScreen extends StatelessWidget {
   Widget buildLoadingView() {
     return Center(
       child: (SizedBox(
-        width: 30.w,
-        height: 30.w,
+        width: 30.r,
+        height: 30.r,
         child: const CircularProgressIndicator(
           color: HYAppTheme.norMainThemeColors,
         ),

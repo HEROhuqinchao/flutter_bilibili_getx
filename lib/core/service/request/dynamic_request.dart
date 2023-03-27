@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import '../../model/web/dynamic/web_dynamic_v1_feed_all.dart';
 import '../utils/http_base_request.dart';
 
+///动态
 class DynamicRequest {
   static Future<void> getDynUnLoginRcmdData() async{
     String url = "/bilibili.app.dynamic.v2.Dynamic/DynUnLoginRcmd";

@@ -3,6 +3,7 @@ import '../../model/live_rooms_model.dart';
 import '../../model/xliveAppInterfaceV2IndexFeedModel.dart';
 import '../utils/http_base_request.dart';
 
+///直播界面
 class HYLiveRequest {
   static Future<HYLiveRoomsModel> getLiveRoomsData() async {
     const url = "/xlive/web-interface/v1/index/getList?platform=web";

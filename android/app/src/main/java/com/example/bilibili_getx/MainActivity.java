@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import com.example.bilibili_getx.flutter_android.MyPlugin;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.Objects;
@@ -214,7 +216,6 @@ public class MainActivity extends FlutterActivity {
     @Override
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         super.configureFlutterEngine(flutterEngine);
-        MyPlugin myPlugin = new MyPlugin();
-        flutterEngine.getPlugins().add(myPlugin);
+        flutterEngine.getPlugins().add(new MyPlugin());
     }
 }

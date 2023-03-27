@@ -1186,7 +1186,7 @@ class BlockItemVo {
   int? itemId;
   String itemName;
   String imageUrl;
-  String tag;
+  String? tag;
   String jumpUrl;
   bool isShowPrice;
   String? priceSymbol;

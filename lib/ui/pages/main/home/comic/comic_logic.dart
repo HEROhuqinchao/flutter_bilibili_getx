@@ -96,10 +96,13 @@ class ComicLogic extends GetxController {
           borderRadius: BorderRadiusDirectional.circular(5.r),
           child: Opacity(
             opacity: .2,
-            child: DefaultFadeImage(
-              imageUrl: module.cover!,
-              height: 230.r,
-              fit: BoxFit.fitWidth,
+            child: Container(
+              color: HYAppTheme.norGray04Color,
+              child: DefaultFadeImage(
+                imageUrl: module.cover!,
+                height: 250.r,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -353,15 +356,15 @@ class ComicLogic extends GetxController {
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1.2,
+        childAspectRatio: 1.1,
         crossAxisSpacing: 8.r,
-        mainAxisSpacing: 8.r,
+        mainAxisSpacing: 12.r,
       ),
       itemBuilder: (ctx, index) {
         return Container(
           decoration: BoxDecoration(
               boxShadow: [HYAppTheme.norBoxShadow],
-              borderRadius: BorderRadius.all(Radius.circular(4.r)),
+              borderRadius: BorderRadius.all(Radius.circular(8.r)),
               color: HYAppTheme.norWhite01Color),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -370,7 +373,7 @@ class ComicLogic extends GetxController {
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(8.r)),
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(8.r)),
                     child: DefaultFadeImage(
                       imageUrl: module.items![index]!.cover!,
                       height: 105.r,
@@ -384,7 +387,6 @@ class ComicLogic extends GetxController {
                       alignment: Alignment.bottomCenter,
                       height: 40.r,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8.r)),
                         gradient: LinearGradient(
                           colors: [
                             HYAppTheme.norTextColors.withOpacity(.7),
@@ -464,36 +466,38 @@ class ComicLogic extends GetxController {
                 ),
               ),
               5.verticalSpace,
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 5.r),
-                    padding: EdgeInsets.all(2.r),
-                    decoration: BoxDecoration(
-                        color: HYAppTheme.norWhite05Color,
-                        borderRadius: BorderRadius.all(
-                          const Radius.circular(2).r,
-                        )),
-                    child: Text(
-                      module.items![index]!.subTitleLeftBadge == null
-                          ? "0.0"
-                          : module.items![index]!.subTitleLeftBadge!.text!,
-                      style: TextStyle(
-                        color: const Color.fromRGBO(241, 129, 56, 1),
-                        fontSize: 12.sp,
+              Expanded(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 5.r),
+                      padding: EdgeInsets.all(2.r),
+                      decoration: BoxDecoration(
+                          color: HYAppTheme.norWhite05Color,
+                          borderRadius: BorderRadius.all(
+                            const Radius.circular(2).r,
+                          )),
+                      child: Text(
+                        module.items![index]!.subTitleLeftBadge == null
+                            ? "0.0"
+                            : module.items![index]!.subTitleLeftBadge!.text!,
+                        style: TextStyle(
+                          color: const Color.fromRGBO(241, 129, 56, 1),
+                          fontSize: 12.sp,
+                        ),
                       ),
                     ),
-                  ),
-                  3.horizontalSpace,
-                  Text(
-                    module.items![index]!.desc!,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: HYAppTheme.norGrayColor,
-                    ),
-                  )
-                ],
+                    3.horizontalSpace,
+                    Text(
+                      module.items![index]!.desc!,
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: HYAppTheme.norGrayColor,
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter_blue/flutter_blue.dart';
 
+///蓝牙工具类
 class BlueToothUtil {
   ///开始扫描
   static Future startScan() {

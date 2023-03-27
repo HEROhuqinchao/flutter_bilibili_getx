@@ -77,11 +77,12 @@ class _BilibiliTestScreenState extends State<BilibiliTestScreen>
                   child: !isFavor ? buildUnFavorButton() : buildFavoredButton(),
                 ),
                 Container(
-                    width: 1.sw,
-                    height: 200.w,
-                    child: RichText(
-                      text: TextSpan(children: buildHeaderRichText("")),
-                    ))
+                  width: 1.sw,
+                  height: 200.w,
+                  child: RichText(
+                    text: TextSpan(children: buildHeaderRichText("")),
+                  ),
+                )
               ],
             ),
           ),

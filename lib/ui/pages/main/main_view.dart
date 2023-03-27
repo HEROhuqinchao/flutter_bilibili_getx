@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -19,7 +20,7 @@ import '../functions/wx_share/wx_share_view.dart';
 import '../publish/publish_view.dart';
 import 'main_logic.dart';
 
-class MainScreen extends StatelessWidget {
+class MainView extends StatelessWidget {
   static const String routeName = "/main";
 
   @override
@@ -97,7 +98,7 @@ class MainScreen extends StatelessWidget {
                   label: '统计',
                   child: ImageIcon(
                     AssetImage(ImageAssets.chartsCustomPNG),
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -108,7 +109,7 @@ class MainScreen extends StatelessWidget {
                   label: '推送',
                   child: Icon(
                     Icons.announcement_sharp,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -119,7 +120,7 @@ class MainScreen extends StatelessWidget {
                   label: 'QQ分享',
                   child: Icon(
                     Icons.share,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -130,7 +131,7 @@ class MainScreen extends StatelessWidget {
                   label: '蓝牙',
                   child: Icon(
                     Icons.bluetooth,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -141,7 +142,7 @@ class MainScreen extends StatelessWidget {
                   label: '微信分享',
                   child: Icon(
                     Icons.wechat,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -163,7 +164,7 @@ class MainScreen extends StatelessWidget {
                   label: '切换语言',
                   child: Icon(
                     Icons.abc,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -174,7 +175,18 @@ class MainScreen extends StatelessWidget {
                   label: '小窗口',
                   child: Icon(
                     Icons.desktop_windows_sharp,
-                    size: 10.h,
+                    size: 10.r,
+                  ),
+                ),
+                SpeedDialChild(
+                  backgroundColor: HYAppTheme.norWhite01Color,
+                  onTap: () {
+                    Get.toNamed(FlutterAndroidView.routeName);
+                  },
+                  label: 'Android原生',
+                  child: Icon(
+                    Icons.android_rounded,
+                    size: 10.r,
                   ),
                 ),
               ],
@@ -189,7 +201,7 @@ class MainScreen extends StatelessWidget {
     return BottomNavigationBarItem(
       label: "",
       icon: Container(
-        margin: EdgeInsets.only(top: 8.h),
+        margin: EdgeInsets.only(top: 8.r),
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15).r,
         decoration: BoxDecoration(
           color: HYAppTheme.norMainThemeColors,
