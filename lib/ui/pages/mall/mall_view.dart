@@ -561,7 +561,8 @@ class MallScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 DefaultFadeImage(
-                  imageUrl: state.vo.newBlocks[0].blockItemVOs[0].imageUrl,
+                  imageUrl: getImageHttpUrl(
+                      state.vo.newBlocks[0].blockItemVOs[0].imageUrl),
                   width: 60.r,
                   height: 60.r,
                 ),
@@ -582,7 +583,7 @@ class MallScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 DefaultFadeImage(
-                  imageUrl: state.vo.newBlocks[0].blockItemVOs[1].imageUrl,
+                  imageUrl: getImageHttpUrl(state.vo.newBlocks[0].blockItemVOs[1].imageUrl),
                   width: 60.r,
                   height: 60.r,
                 ),
