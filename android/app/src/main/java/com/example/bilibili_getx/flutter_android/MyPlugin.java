@@ -23,7 +23,6 @@ public class MyPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler 
     private MyFlutterViewFactory myFlutterViewFactory;
     String chartChannel = "chart_channel";
 
-
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
         methodChannel = new MethodChannel(binding.getBinaryMessenger(), chartChannel);

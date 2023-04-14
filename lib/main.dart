@@ -140,7 +140,8 @@ class MyApp extends StatelessWidget {
           ///起始路由
           // initialRoute: WxShareView.routeName,
           // initialRoute: DynamicCircleScreen.routeName,
-          initialRoute: MainView.routeName,
+          // initialRoute: MainView.routeName,
+          initialRoute: CanvasPaintStudyView.routeName,
           // initialRoute: MiniWindowView.routeName,
           // initialRoute: DownloadFileView.routeName,
 

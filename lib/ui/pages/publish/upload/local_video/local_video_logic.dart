@@ -23,7 +23,7 @@ class LocalVideoLogic extends GetxController {
 
   ///获取手机本地的视频
   fetchLocalVideo() {
-    ChannelUtil.methodChannel.invokeMethod("getVideos").then((value) {
+    ChannelUtil.getMediaMethodChannel.invokeMethod("getVideos").then((value) {
       for (int i = 0; i < value.length; i++) {
         state.localVideoList.add(HYLocalVideoModel(
           videoLocation: value[i]["videoLocation"],

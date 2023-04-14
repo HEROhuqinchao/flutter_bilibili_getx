@@ -3,17 +3,19 @@ import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
+import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'dart:ui' as ui;
 import 'canvas_paint_study_logic.dart';
+import 'coordinate.dart';
 
+// https://juejin.cn/book/6844733827265331214/section/6844733827311468551
 class CanvasPaintStudyView extends StatelessWidget {
   static String routeName = "/canvas_paint_study";
   final logic = Get.find<CanvasPaintStudyLogic>();
-  final state = Get
-      .find<CanvasPaintStudyLogic>()
-      .state;
+  final state = Get.find<CanvasPaintStudyLogic>().state;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,10 @@ class CanvasPaintStudyView extends StatelessWidget {
           color: Colors.white,
           child: state.img != null
               ? CustomPaint(
-            painter: PaperPainter(
-              state.img,
-            ),
-          )
+                  painter: PaperPainter(
+                    state.img,
+                  ),
+                )
               : Container(),
         );
       },
@@ -64,7 +66,9 @@ class PaperPainter extends CustomPainter {
     // example021(canvas, size);
     // example023(canvas, size);
     // example024(canvas, size);
-    example025(canvas, size);
+    // example025(canvas, size);
+    // example028(canvas, size);
+    example029(canvas, size);
   }
 
   @override
@@ -236,8 +240,7 @@ class PaperPainter extends CustomPainter {
 
   void example010(Canvas canvas) {
     ///BlendMode invertColors
-    Paint paint = Paint()
-      ..invertColors = true;
+    Paint paint = Paint()..invertColors = true;
     canvas.drawCircle(Offset(100, 100), 50, paint..color = Colors.red);
     canvas.drawCircle(
       Offset(140, 70),
@@ -298,8 +301,7 @@ class PaperPainter extends CustomPainter {
   }
 
   void example013(Canvas canvas, ui.Image image) {
-    Paint paint = Paint()
-      ..maskFilter = MaskFilter.blur(BlurStyle.inner, 20);
+    Paint paint = Paint()..maskFilter = MaskFilter.blur(BlurStyle.inner, 20);
     canvas.drawImageRect(
       image,
       Rect.fromLTRB(0, 0, image.width.toDouble(), image.height.toDouble()),
@@ -312,9 +314,7 @@ class PaperPainter extends CustomPainter {
   void example014(Canvas canvas, ui.Image image) {
     // Paint paint = Paint()..imageFilter = ui.ImageFilter.blur(sigmaX: 0.8,sigmaY: 0.8);
     Paint paint = Paint()
-      ..imageFilter = ui.ImageFilter.matrix(Matrix4
-          .skew(pi / 4, 0)
-          .storage);
+      ..imageFilter = ui.ImageFilter.matrix(Matrix4.skew(pi / 4, 0).storage);
     canvas.drawImageRect(
       image,
       Rect.fromLTRB(0, 0, image.width.toDouble(), image.height.toDouble()),
@@ -476,7 +476,7 @@ class PaperPainter extends CustomPainter {
       ..color = Colors.blue
       ..strokeWidth = 1.5;
     Rect rectFromCenter =
-    Rect.fromCenter(center: Offset(0, 0), width: 160, height: 160);
+        Rect.fromCenter(center: Offset(0, 0), width: 160, height: 160);
     canvas.drawRect(rectFromCenter, paint);
     Rect rectFromLTRB = Rect.fromLTRB(-120, -120, -80, -80);
     canvas.drawRect(rectFromLTRB, paint..color = Colors.red);
@@ -494,7 +494,7 @@ class PaperPainter extends CustomPainter {
       ..color = Colors.blue
       ..strokeWidth = 1.5;
     Rect rectFromCenter =
-    Rect.fromCenter(center: Offset(0, 0), width: 100, height: 160);
+        Rect.fromCenter(center: Offset(0, 0), width: 100, height: 160);
     canvas.drawRRect(RRect.fromRectXY(rectFromCenter, 100, 20), paint);
 
     canvas.drawRRect(
@@ -518,8 +518,7 @@ class PaperPainter extends CustomPainter {
 
   void example025(Canvas canvas, Size size) {
     canvas.translate(size.width / 2, size.height / 2);
-    Paint paint = Paint()
-      ..color = Colors.blue;
+    Paint paint = Paint()..color = Colors.blue;
     canvas.save();
     canvas.translate(-200, 0);
     canvas.drawCircle(Offset(0, 0), 60, paint);
@@ -556,7 +555,9 @@ class PaperPainter extends CustomPainter {
 
   void example027(Canvas canvas) {
     var rect = Rect.fromCenter(center: Offset(0, 0), width: 100, height: 100);
-    Paint paint = Paint()..style = PaintingStyle.stroke..strokeWidth = 2;
+    Paint paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
     canvas.save();
     canvas.translate(-200, 0);
     canvas.drawArc(rect, 0, pi / 2 * 3, false, paint);
@@ -566,11 +567,71 @@ class PaperPainter extends CustomPainter {
     canvas.save();
     canvas.translate(200, 0);
     var a = pi / 8;
-    canvas.drawArc(rect, a, 2 * pi - a.abs() * 2, true, paint..color = Colors.yellowAccent);
+    canvas.drawArc(rect, a, 2 * pi - a.abs() * 2, true,
+        paint..color = Colors.yellowAccent);
     canvas.translate(40, 0);
     canvas.drawCircle(Offset(0, 0), 6, paint);
     canvas.translate(25, 0);
     canvas.drawCircle(Offset(0, 0), 6, paint);
     canvas.restore();
+  }
+
+  void example028(Canvas canvas, Size size) async {
+    Coordinate coordinate = Coordinate();
+    coordinate.paint(canvas, size);
+    canvas.translate(size.width / 2, size.height / 2);
+    late Paint paint = Paint()
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 0.5
+      ..color = Colors.blue;
+    canvas.drawImage(
+        image!, Offset(image!.width / 2, image!.height / 2), paint);
+  }
+
+  void example029(Canvas canvas, Size size) async {
+    Coordinate coordinate = Coordinate();
+    coordinate.paint(canvas, size);
+    canvas.translate(size.width / 2, size.height / 2);
+    late Paint paint = Paint()
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 0.5
+      ..color = Colors.blue;
+    if (image != null) {
+      // canvas.drawImageNine(
+      //     image!,
+      //     Rect.fromCenter(
+      //         center: Offset(image!.width / 2, image!.height - 6.0),
+      //         width: 10,
+      //         height: 2.0),
+      //     Rect.fromCenter(center: Offset(0, 0), width: 300, height: 300),
+      //     paint);
+      //
+      // canvas.drawImage(image!, Offset(0, 0), paint);
+      // canvas.drawRect(
+      //     Rect.fromCenter(
+      //         center: Offset(image!.width / 2, image!.height - 6.0),
+      //         width: 10,
+      //         height: 2.0),
+      //     paint);
+      //
+      // canvas.drawImageNine(
+      //     image!,
+      //     Rect.fromCenter(
+      //         center: Offset(image!.width / 2, image!.height - 6.0),
+      //         width: image!.width - 20.0,
+      //         height: 2.0),
+      //     Rect.fromCenter(center: Offset(0, 0), width: 100, height: 50)
+      //         .translate(250, 0),
+      //     paint);
+
+      canvas.drawImageNine(
+          image!,
+          Rect.fromCenter(
+              center: Offset(image!.width / 2, image!.height - 6.0),
+              width: image!.width - 10.0,
+              height: 2.0),
+          Rect.fromCenter(center: Offset(0, 0), width: 190, height: 250),
+          paint);
+    }
   }
 }
