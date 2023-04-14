@@ -84,6 +84,8 @@ public class MainActivity extends FlutterActivity {
                     }
                 }
         );
+        //注册百度语音识别
+        AsrPlugin.registerWith(registerFor("com.example.asr_plugin.AsrPlugin"));
     }
 
     //获取本地视频集合
