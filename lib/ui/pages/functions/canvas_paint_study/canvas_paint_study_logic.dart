@@ -23,20 +23,9 @@ class CanvasPaintStudyLogic extends GetxController {
   }
 
   void loadImage() async {
-    state.img = await _loadImage(AssetImage(ImageAssets.appLogoPNG));
+    state.img = await decodeImageFromList(
+        (await rootBundle.load(ImageAssets.rightChatPng)).buffer.asUint8List());
     update();
-  }
-
-  Future<ui.Image> _loadImage(ImageProvider provider) {
-    Completer<ui.Image> completer = Completer<ui.Image>();
-    ImageStream stream = provider.resolve(ImageConfiguration());
-    state.listener = ImageStreamListener((info, synchronousCall) {
-      final ui.Image image = info.image;
-      completer.complete(image);
-      stream.removeListener(state.listener);
-    });
-    stream.addListener(state.listener);
-    return completer.future;
   }
 
   @override

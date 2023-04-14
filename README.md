@@ -35,6 +35,7 @@
 |                                |                                                              |                           |
 |          workmanager           | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |        还不太熟悉         |
 |      显示Android原生界面       |                       显示Android界面                        |      MPAndroidChart       |
+|      显示3D(glb.gltf)       |                       插件[model_viewer_plus](https://pub.flutter-io.cn/packages/model_viewer_plus/install)、[模型下载]([50个最好的免费下载3D模型的网站（内附网址） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/40680702))                       |             |
 
 采用getx框架重新构造项目
 

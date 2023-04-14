@@ -16,12 +16,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Stack"),
-        ),
-        body: LiveCycleWidget(),
-      ),
+      home: LiveCycleWidget(),
     );
   }
 }
@@ -30,77 +25,117 @@ class LiveCycleWidget extends StatefulWidget {
   const LiveCycleWidget({Key? key}) : super(key: key);
 
   @override
-  State<LiveCycleWidget> createState() {
-    print("createState");
-    return _LiveCycleWidgetState();
-  }
+  State<LiveCycleWidget> createState() => _LiveCycleWidgetState();
 }
 
-class _LiveCycleWidgetState extends State<LiveCycleWidget> {
-  _LiveCycleWidgetState() {
-    print("构造函数");
-  }
-
-  List<Widget> children = [];
-
+class _LiveCycleWidgetState extends State<LiveCycleWidget>
+    with WidgetsBindingObserver {
   @override
   void initState() {
-    print("initState()");
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
   @override
-  void didChangeDependencies() {
-    print("didChangeDependencies");
-    super.didChangeDependencies();
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 
   @override
-  void didUpdateWidget(covariant LiveCycleWidget oldWidget) {
-    print("didUpdateWidget");
-    super.didUpdateWidget(oldWidget);
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.inactive:
+        print('AppLifecycleState.inactive');
+        break;
+      case AppLifecycleState.paused:
+        print('AppLifecycleState.paused');
+        break;
+      case AppLifecycleState.resumed:
+        print('AppLifecycleState.resumed');
+        break;
+      case AppLifecycleState.detached:
+        print('AppLifecycleState.detached');
+        break;
+    }
+    super.didChangeAppLifecycleState(state);
   }
 
   @override
   Widget build(BuildContext context) {
-    print("build");
-    return Column(
-      children: [
-        ElevatedButton(
-          onPressed: () {
-            children.add(Container(
-              child: Text("data"),
-            ));
-            setState(() {});
-          },
-          child: Text("点击"),
-        ),
-        ...children,
-      ],
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (ctx) {
+                return ChildrenWidget();
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
 
-// class BasicMessageExample extends StatefulWidget {
-//   const BasicMessageExample({Key? key}) : super(key: key);
-//
-//   @override
-//   State<BasicMessageExample> createState() => _BasicMessageExampleState();
-// }
-//
-// class _BasicMessageExampleState extends State<BasicMessageExample> {
-//   static const _channel =
-//       BasicMessageChannel('basic_message_001', JSONMessageCodec());
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () async {
-//           final String reply = await _channel.send('Hello World') as String;
-//           print(reply);
-//         },
-//       ),
-//     );
-//   }
-// }
+class ChildrenWidget extends StatefulWidget {
+  const ChildrenWidget({Key? key}) : super(key: key);
+
+  @override
+  State<ChildrenWidget> createState() => _ChildrenWidgetState();
+}
+
+class _ChildrenWidgetState extends State<ChildrenWidget>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.inactive:
+        print('AppLifecycleState.inactive');
+        break;
+      case AppLifecycleState.paused:
+        print('AppLifecycleState.paused');
+        break;
+      case AppLifecycleState.resumed:
+        print('AppLifecycleState.resumed');
+        break;
+      case AppLifecycleState.detached:
+        print('AppLifecycleState.detached');
+        break;
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          child: Text(
+            "data",
+            style: TextStyle(color: HYAppTheme.norMainThemeColors),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+
+        },
+      ),
+    );
+  }
+}
