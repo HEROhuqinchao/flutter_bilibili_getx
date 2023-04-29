@@ -1,13 +1,11 @@
 import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui';
-
-import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
-import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'dart:ui' as ui;
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'canvas_paint_study_logic.dart';
 import 'coordinate.dart';
 
@@ -43,6 +41,7 @@ class PaperPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    canvas.translate(size.width / 2, size.height / 2);
     // example001(canvas);
     // example002(canvas);
     // example003(canvas);
@@ -68,7 +67,11 @@ class PaperPainter extends CustomPainter {
     // example024(canvas, size);
     // example025(canvas, size);
     // example028(canvas, size);
-    example029(canvas, size);
+    // example029(canvas, size);
+    // example030(canvas, TextAlign.center);
+    // example031(canvas);
+    // example032(canvas);
+    example033(canvas);
   }
 
   @override
@@ -633,5 +636,108 @@ class PaperPainter extends CustomPainter {
           Rect.fromCenter(center: Offset(0, 0), width: 190, height: 250),
           paint);
     }
+  }
+
+  ///文本绘制
+  ///drawParagraph绘制文字
+  void example030(Canvas canvas, TextAlign textAlign) {
+    ///构造基本样式
+    var builder = ui.ParagraphBuilder(
+      ui.ParagraphStyle(
+        textAlign: textAlign,
+        fontSize: 40,
+        textDirection: TextDirection.ltr,
+        maxLines: 1,
+      ),
+    );
+    builder.pushStyle(
+      ui.TextStyle(
+        color: Colors.black87,
+        textBaseline: ui.TextBaseline.alphabetic,
+      ),
+    );
+    //添加文字
+    builder.addText("Flutter Unit Text");
+    //生成Paragraph
+    ui.Paragraph paragraph = builder.build();
+    //对于布局限制区域
+    paragraph.layout(ui.ParagraphConstraints(width: 300));
+    canvas.drawParagraph(paragraph, Offset(0, 0));
+    canvas.drawRect(Rect.fromLTRB(0, 0, 300, 40),
+        Paint()..color = Colors.blue.withAlpha(33));
+  }
+
+  ///TextPainter 绘制文字
+  void example031(Canvas canvas) {
+    var textPainter = TextPainter(
+      text: TextSpan(
+        text: 'Flutter Unit',
+        style: TextStyle(
+          fontSize: 40,
+          color: Colors.blue,
+        ),
+      ),
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+    //绘制布局
+    textPainter.layout();
+    //进行绘制
+    textPainter.paint(canvas, Offset.zero);
+  }
+
+  ///TextPainter获取文字范围
+  void example032(Canvas canvas) {
+    // 设置画笔样式
+    Paint textPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    TextPainter textPainter = TextPainter(
+      text: TextSpan(
+        text: 'Flutter Unit',
+        style: TextStyle(
+          foreground: textPaint,
+          fontSize: 40,
+          // color: Colors.black,
+        ),
+      ),
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout();
+    Size size = textPainter.size;
+    textPainter.paint(canvas, Offset(-size.width / 2, -size.height / 2));
+    canvas.drawRect(
+      Rect.fromLTRB(0, 0, size.width, size.height)
+          .translate(-size.width / 2, -size.height / 2),
+      Paint()..color = Colors.blue.withAlpha(33),
+    );
+  }
+
+  ///绘制文本方位
+  void example033(Canvas canvas) {
+    var builder = ui.ParagraphBuilder(ui.ParagraphStyle(
+      textAlign: TextAlign.left,
+      // textAlign: TextAlign.center,
+      fontSize: 40,
+      textDirection: TextDirection.ltr,
+      maxLines: 1,
+    ))
+      ..pushStyle(
+        ui.TextStyle(
+          color: Colors.black87,
+          textBaseline: ui.TextBaseline.alphabetic,
+        ),
+      )
+      ..addText("Flutter Unit");
+    canvas.drawParagraph(
+      builder.build()
+        ..layout(
+          ui.ParagraphConstraints(width: 300),
+        ),
+      Offset(0, -100),
+    );
+    canvas.drawRect(Rect.fromLTRB(0, -100, 300, -60),
+        Paint()..color = Colors.blue.withAlpha(33));
   }
 }

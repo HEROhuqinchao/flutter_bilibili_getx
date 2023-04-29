@@ -1,6 +1,5 @@
 package com.example.bilibili_getx;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,13 +10,10 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-
-import com.example.bilibili_getx.flutter_android.MyPlugin;
 
 import java.io.File;
 import java.util.HashMap;
@@ -87,7 +83,7 @@ public class MainActivity extends FlutterActivity {
                 }
         );
         //注册百度语音识别
-        AsrPlugin.registerWith(registerFor("com.example.asr_plugin.AsrPlugin"));
+//        AsrPlugin.registerWith(registerFor("com.example.asr_plugin.AsrPlugin"));
     }
 
     //获取本地视频集合
@@ -222,8 +218,6 @@ public class MainActivity extends FlutterActivity {
     @Override
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         super.configureFlutterEngine(flutterEngine);
-        //MethodChannel
-        flutterEngine.getPlugins().add(new MyPlugin());
         //BasicMessageChannel
         BasicMessageChannel basicMessageChannel = new BasicMessageChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), "basic_message_001", JSONMessageCodec.INSTANCE);
         basicMessageChannel.setMessageHandler((message, reply) -> {

@@ -16,126 +16,50 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LiveCycleWidget(),
+      home: TestExample(),
     );
   }
 }
 
-class LiveCycleWidget extends StatefulWidget {
-  const LiveCycleWidget({Key? key}) : super(key: key);
+class TestExample extends StatefulWidget {
+  const TestExample({Key? key}) : super(key: key);
 
   @override
-  State<LiveCycleWidget> createState() => _LiveCycleWidgetState();
+  State<TestExample> createState() => _TestExampleState();
 }
 
-class _LiveCycleWidgetState extends State<LiveCycleWidget>
-    with WidgetsBindingObserver {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addObserver(this);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.inactive:
-        print('AppLifecycleState.inactive');
-        break;
-      case AppLifecycleState.paused:
-        print('AppLifecycleState.paused');
-        break;
-      case AppLifecycleState.resumed:
-        print('AppLifecycleState.resumed');
-        break;
-      case AppLifecycleState.detached:
-        print('AppLifecycleState.detached');
-        break;
-    }
-    super.didChangeAppLifecycleState(state);
-  }
-
+class _TestExampleState extends State<TestExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (ctx) {
-                return ChildrenWidget();
-              },
-            ),
-          );
+          AsrManager.start().then((value) {
+            print(value);
+          });
         },
       ),
+      body: Container(),
     );
   }
 }
 
-class ChildrenWidget extends StatefulWidget {
-  const ChildrenWidget({Key? key}) : super(key: key);
 
-  @override
-  State<ChildrenWidget> createState() => _ChildrenWidgetState();
-}
+class AsrManager {
+  static const MethodChannel _channel = MethodChannel('asr_plugin');
 
-class _ChildrenWidgetState extends State<ChildrenWidget>
-    with WidgetsBindingObserver {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addObserver(this);
-    super.initState();
+  ///开始录音
+  static Future<String> start({Map? params}) async {
+    return await _channel.invokeMethod('start', params ?? {});
   }
 
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
+  ///停止录音
+  static Future<String> stop() async {
+    return await _channel.invokeMethod('stop');
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.inactive:
-        print('AppLifecycleState.inactive');
-        break;
-      case AppLifecycleState.paused:
-        print('AppLifecycleState.paused');
-        break;
-      case AppLifecycleState.resumed:
-        print('AppLifecycleState.resumed');
-        break;
-      case AppLifecycleState.detached:
-        print('AppLifecycleState.detached');
-        break;
-    }
-    super.didChangeAppLifecycleState(state);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          child: Text(
-            "data",
-            style: TextStyle(color: HYAppTheme.norMainThemeColors),
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },
-      ),
-    );
+  ///取消录音
+  static Future<String> cancel() async {
+    return await _channel.invokeMethod('cancel');
   }
 }
