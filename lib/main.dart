@@ -8,6 +8,7 @@ import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/download_file/download_file_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
@@ -141,7 +142,8 @@ class MyApp extends StatelessWidget {
           // initialRoute: WxShareView.routeName,
           // initialRoute: DynamicCircleScreen.routeName,
           // initialRoute: MainView.routeName,
-          initialRoute: CanvasPaintStudyView.routeName,
+          initialRoute: PushMessageScreen.routeName,
+          // initialRoute: CanvasPaintStudyView.routeName,
           // initialRoute: MiniWindowView.routeName,
           // initialRoute: DownloadFileView.routeName,
 

@@ -10,16 +10,19 @@ class JPushUtil {
     //配置jPush(不要省略）
     //debug就填debug:true，生产环境production:true
     jPush.setup(
-      appKey: '7d6d63fa06959ac31ff30914',
+      appKey: Constant.jPushAppKey,
       channel: 'developer-default',
       production: true,
       debug: Constant.isDebug,
     );
+    jPush
+        .getRegistrationID()
+        .then((value) => print("Registration id - ${value}"));
     jPush.isNotificationEnabled().then((value) {
-      if(value) {
-        SmartDialog.showToast("已开启");
+      if (value) {
+        print("已开启");
       } else {
-        SmartDialog.showToast("貌似有些故障...");
+        print("貌似有些故障...");
       }
     });
     //监听jPush(ios必须配置)
