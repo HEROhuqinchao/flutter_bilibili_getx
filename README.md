@@ -27,25 +27,23 @@
 |       与Android原生通信        |                        MethodChannel                         |                           |
 |            统计图表            | [flchart插件](https://pub.flutter-io.cn/packages/fl_chart)、syncfusion_flutter_charts（flutter推荐）；Android端可以采用MPAndroidChart（点数很多时可以试试这个，flutter的chart插件，点数过多效果较差） |                           |
 |            状态管理            |                     GETX、Provider（差）                     |      BLOC、GETX原理       |
-|     canvas画布及Paint画板      |                              差                              |                           |
+|     canvas画布及Paint画板      |                              [妙笔生花Flutter](https://juejin.cn/book/6844733827265331214)                              |                           |
 |    条形码、二维码生成与扫描    | [mobile_scanner](https://pub.flutter-io.cn/packages/mobile_scanner)（推荐）、[qrscan](https://pub.flutter-io.cn/packages/qrscan/install) |                           |
 |         数据持久化存储         |               sharedPreference、SqliteDatabase               |                           |
 |            网络请求            |                           Dio插件                            |                           |
 |            路由管理            |                    根据状态管理不同而不同                    |                           |
-|              上传              |                             欠缺                             |                           |
+|              上传              |   视频压缩、图片压缩。获取视频缩略图；上传方式formdata                             |                           |
 |             甘特图             | [如何用Excel快速制作甘特图？（超详细！） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/271043355) |                           |
 |                                |                                                              |                           |
 |          workmanager           | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |        还不太熟悉         |
 |      显示Android原生界面       |                       显示Android界面                        |      MPAndroidChart       |
 |      显示3D(glb.gltf)       |                       插件[model_viewer_plus](https://pub.flutter-io.cn/packages/model_viewer_plus/install)、[模型下载]([50个最好的免费下载3D模型的网站（内附网址） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/40680702))                               ||
 |            上传文件            |表单FormData，大文件分块，多线程；||
-|视频、图片处理|视频压缩、图片压缩。获取视频缩略图||
+|正则表达式，检测输入|||
+|连websocket，sokcketio|||
 
 sqlite
 第三方软件打开
-字符串匹配
-websocket
-音频
 
 **11月30日**
 
