@@ -3,6 +3,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
 
 ///极光推送
+///https://www.jiguang.cn/push
 class JPushUtil {
   ///初始化极光推送
   static void startJPush() {
@@ -15,9 +16,13 @@ class JPushUtil {
       production: true,
       debug: Constant.isDebug,
     );
+
+    ///用RegistrationID单独给某人发送通知
     jPush
         .getRegistrationID()
         .then((value) => print("Registration id - ${value}"));
+
+    ///是否开启了通知
     jPush.isNotificationEnabled().then((value) {
       if (value) {
         print("已开启");
@@ -25,7 +30,8 @@ class JPushUtil {
         print("貌似有些故障...");
       }
     });
-    //监听jPush(ios必须配置)
+
+    ///监听jPush(ios必须配置)
     jPush.applyPushAuthority(
         const NotificationSettingsIOS(sound: true, alert: true, badge: true));
     jPush.addEventHandler(
