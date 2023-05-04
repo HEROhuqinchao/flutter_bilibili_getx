@@ -71,7 +71,8 @@ class PaperPainter extends CustomPainter {
     // example030(canvas, TextAlign.center);
     // example031(canvas);
     // example032(canvas);
-    example033(canvas);
+    // example033(canvas);
+    example034(canvas);
   }
 
   @override
@@ -739,5 +740,73 @@ class PaperPainter extends CustomPainter {
     );
     canvas.drawRect(Rect.fromLTRB(0, -100, 300, -60),
         Paint()..color = Colors.blue.withAlpha(33));
+  }
+
+  void example034(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.deepPurpleAccent
+      ..style = PaintingStyle.fill;
+    path
+      ..moveTo(0, 0)
+      ..lineTo(60, 80)
+      ..lineTo(60, 0)
+      ..lineTo(0, -80)
+      ..close();
+    canvas.drawPath(path, paint);
+    paint
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
+    path
+      ..moveTo(0, 0)
+      ..lineTo(-60, 80)
+      ..lineTo(-60, 0)
+      ..lineTo(0, -80);
+    canvas.drawPath(path, paint);
+  }
+
+  ///相对位置
+  void example035(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.green
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(100, 120)
+      ..relativeLineTo(-10, -60)
+      ..relativeLineTo(60, -10)
+      ..close();
+    canvas.drawPath(path, paint);
+    path.reset();
+    paint
+      ..style = PaintingStyle.stroke
+      ..color = Colors.green
+      ..strokeWidth = 2;
+    path
+      ..relativeMoveTo(-200, 0)
+      ..relativeLineTo(100, 120)
+      ..relativeLineTo(-10, -60)
+      ..relativeLineTo(60, -10)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  ///指定矩形区域，形成椭圆
+  void example036(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    var rect = Rect.fromCenter(center: Offset(0, 0), width: 160, height: 100);
+    path.lineTo(30, 30);
+    path.arcTo(rect, 0, pi * 1.5, false);
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(200, 0);
+    path.lineTo(200, 0);
+    path.arcTo(rect, 0, pi * 1.5, false);
+    canvas.drawPath(path, paint);
   }
 }

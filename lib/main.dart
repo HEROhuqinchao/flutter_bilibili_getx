@@ -1,17 +1,13 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:bilibili_getx/core/package_info/package_info_util.dart';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
-import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/download_file/download_file_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/push_message/push_message_view.dart';
-import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
-import 'package:bilibili_getx/ui/pages/main/main_view.dart';
-import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/mini_window/mini_window_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/scan_qr/scan_qr_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
@@ -21,10 +17,10 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+
 import 'core/I18n/string_res.dart';
 import 'core/shared_preferences/bilibili_shared_preference.dart';
 import 'core/shared_preferences/shared_preference_util.dart';
-import 'dart:ui' as ui;
 
 Size defaultSize = const Size(360, 690);
 Size androidScreenSize = const Size(360, 690);
@@ -142,8 +138,9 @@ class MyApp extends StatelessWidget {
           // initialRoute: WxShareView.routeName,
           // initialRoute: DynamicCircleScreen.routeName,
           // initialRoute: MainView.routeName,
-          initialRoute: PushMessageScreen.routeName,
+          // initialRoute: PushMessageScreen.routeName,
           // initialRoute: CanvasPaintStudyView.routeName,
+          initialRoute: ScanQrView.routeName,
           // initialRoute: MiniWindowView.routeName,
           // initialRoute: DownloadFileView.routeName,
 

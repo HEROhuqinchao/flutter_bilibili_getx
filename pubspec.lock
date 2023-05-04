@@ -426,10 +426,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_smart_dialog
-      sha256: de4c4ff47ee2c859df5bdcbf607ef9251ff1e8e698aaa533efb6de5ea4a56323
+      sha256: da7ed8fe78e301e3c2cdaa533d13ed3edcf1853c1ba1a7383b481739569f7b2a
       url: "https://pub.dev"
     source: hosted
-    version: "4.9.0+4"
+    version: "4.9.0+6"
   flutter_speed_dial:
     dependency: "direct main"
     description:
@@ -684,10 +684,10 @@ packages:
     dependency: "direct main"
     description:
       name: mobile_scanner
-      sha256: "531725451c7506f4c57b4720da1fe33a1394cdf9d4a5075a3a2dd51e21113928"
+      sha256: da55204e5439bc8dc058df56231a7a1d513c6ec9cbad84492f56d493382d296f
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "3.2.0"
   nested:
     dependency: transitive
     description:

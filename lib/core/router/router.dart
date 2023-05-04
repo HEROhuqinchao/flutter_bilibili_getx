@@ -37,6 +37,8 @@ import '../../ui/pages/functions/push_message/push_message_binding.dart';
 import '../../ui/pages/functions/push_message/push_message_view.dart';
 import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
 import '../../ui/pages/functions/qq_share/qq_share_view.dart';
+import '../../ui/pages/functions/scan_qr/scan_qr_binding.dart';
+import '../../ui/pages/functions/scan_qr/scan_qr_view.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_binding.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_view.dart';
 import '../../ui/pages/functions/video_player_example/video_player_example_binding.dart';
@@ -247,5 +249,11 @@ class AsRouter {
         name: FlutterAndroidView.routeName,
         page: () => FlutterAndroidView(),
         binding: FlutterAndroidBinding()),
+
+    ///Android原生
+    GetPage(
+        name: ScanQrView.routeName,
+        page: () => ScanQrView(),
+        binding: ScanQrBinding()),
   ];
 }
