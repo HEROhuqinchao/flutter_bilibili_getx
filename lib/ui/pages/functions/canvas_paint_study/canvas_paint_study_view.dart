@@ -72,7 +72,12 @@ class PaperPainter extends CustomPainter {
     // example031(canvas);
     // example032(canvas);
     // example033(canvas);
-    example034(canvas);
+    // example034(canvas);
+    // example037(canvas);
+    // example038(canvas);
+    // example039(canvas);
+    // example040(canvas);
+    example041(canvas);
   }
 
   @override
@@ -808,5 +813,122 @@ class PaperPainter extends CustomPainter {
     path.lineTo(200, 0);
     path.arcTo(rect, 0, pi * 1.5, false);
     canvas.drawPath(path, paint);
+  }
+
+  ///点定弧线
+  void example037(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path.lineTo(80, -40);
+    path
+      ..arcToPoint(
+        //圆弧的终点
+        Offset(40, 40),
+        //圆弧的半径
+        radius: Radius.circular(60),
+        //优劣弧
+        largeArc: false,
+      )
+      ..close();
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(200, 0);
+    path.lineTo(80, -40);
+    path
+      ..arcToPoint(Offset(40, 40), radius: Radius.circular(60), largeArc: true)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  ///圆锥曲线
+  void example038(Canvas canvas) {
+    final Offset p1 = Offset(80, -100);
+    final Offset p2 = Offset(160, 0);
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path.conicTo(p1.dx, p1.dy, p2.dx, p2.dy, 1);
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(-180, 0);
+    path.conicTo(p1.dx, p1.dy, p2.dx, p2.dy, .5);
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(-180, 0);
+    path.conicTo(p1.dx, p1.dy, p2.dx, p2.dy, 1.5);
+    canvas.drawPath(path, paint);
+  }
+
+  ///二阶贝塞尔曲线
+  void example039(Canvas canvas) {
+    final Offset p1 = Offset(100, -100);
+    final Offset p2 = Offset(160, 50);
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path.quadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+    path.relativeQuadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+    canvas.drawPath(path, paint);
+  }
+
+  ///三阶贝塞尔曲线
+  void example040(Canvas canvas) {
+    final Offset p1 = Offset(-10, -10);
+    final Offset p2 = Offset(50, 90);
+    final Offset p3 = Offset(200, 150);
+    Path path = Path();
+    Paint paint = Paint();
+    paint
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    // path.cubicTo(p1.dx, p1.dy, p2.dx, p2.dy, p3.dx, p3.dy);
+    path.relativeCubicTo(p1.dx, p1.dy, p2.dx, p2.dy, p3.dx, p3.dy);
+    canvas.drawPath(path, paint);
+  }
+
+  ///路径上添加类圆形矩形
+  void example041(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    Rect rect = Rect.fromPoints(Offset(100, 100), Offset(160, 160));
+    path
+      ..lineTo(100, 100)
+      ..addRect(rect)
+      ..relativeLineTo(100, -100)
+      ..addRRect(RRect.fromRectXY(rect.translate(100, -100), 10, 10))
+      ..addOval(rect)
+      ..relativeLineTo(100, -100)
+      ..addArc(rect.translate(100, -100), 0, pi);
+    canvas.drawPath(path, paint);
+  }
+
+  ///添加多边形路径，添加路径
+  void example042(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    var p0 = Offset(100, 100);
+    path
+      ..lineTo(100, 100)
+      ..addPolygon(
+        [
+          p0,
+          p0.translate(20, -20),
+        ],
+        true,
+      );
   }
 }

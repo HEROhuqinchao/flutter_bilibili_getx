@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import com.example.bilibili_getx.flutter_android.MyPlugin;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.Objects;
@@ -218,10 +220,6 @@ public class MainActivity extends FlutterActivity {
     @Override
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         super.configureFlutterEngine(flutterEngine);
-        //BasicMessageChannel
-        BasicMessageChannel basicMessageChannel = new BasicMessageChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), "basic_message_001", JSONMessageCodec.INSTANCE);
-        basicMessageChannel.setMessageHandler((message, reply) -> {
-            reply.reply("Reply from Android");
-        });
+        flutterEngine.getPlugins().add(new MyPlugin());
     }
 }
