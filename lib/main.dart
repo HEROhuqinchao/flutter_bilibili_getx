@@ -5,11 +5,7 @@ import 'package:bilibili_getx/core/package_info/package_info_util.dart';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
-import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/mini_window/mini_window_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/scan_qr/scan_qr_view.dart';
-import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
@@ -141,8 +137,9 @@ class MyApp extends StatelessWidget {
           // initialRoute: DynamicCircleScreen.routeName,
           // initialRoute: MainView.routeName,
           // initialRoute: PushMessageScreen.routeName,
+          initialRoute: MyWeChatView.routeName,
           // initialRoute: CanvasPaintStudyView.routeName,
-          initialRoute: FlutterAndroidView.routeName,
+          // initialRoute: FlutterAndroidView.routeName,
           // initialRoute: ScanQrView.routeName,
           // initialRoute: MiniWindowView.routeName,
           // initialRoute: DownloadFileView.routeName,

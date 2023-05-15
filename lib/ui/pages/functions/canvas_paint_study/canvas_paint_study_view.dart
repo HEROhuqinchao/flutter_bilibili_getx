@@ -77,7 +77,16 @@ class PaperPainter extends CustomPainter {
     // example038(canvas);
     // example039(canvas);
     // example040(canvas);
-    example041(canvas);
+    // example041(canvas);
+    // example042(canvas);
+    // example043(canvas, size);
+    // example044(canvas);
+    // example045(canvas);
+    // example046(canvas);
+    // example047(canvas);
+    // example048(canvas);
+    // example049(canvas);
+    example050(canvas);
   }
 
   @override
@@ -927,8 +936,184 @@ class PaperPainter extends CustomPainter {
         [
           p0,
           p0.translate(20, -20),
+          p0.translate(40, -20),
+          p0.translate(60, 0),
         ],
         true,
+      )
+      ..addPath(
+          Path()..relativeQuadraticBezierTo(125, -100, 260, 0), Offset(0, 0))
+      ..lineTo(160, 100);
+    canvas.drawPath(path, paint);
+  }
+
+  ///坐标轴
+  void example043(Canvas canvas, Size size) {
+    double step = 10;
+    Path path = Path();
+    Paint paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = .5
+      ..color = Colors.green;
+    for (int i = 0; i < size.width / 2 / step; i++) {
+      path.moveTo(step * i, -size.height / 2);
+      path.relativeLineTo(0, size.height);
+      path.moveTo(-step * i, -size.height / 2);
+      path.relativeLineTo(0, size.height);
+    }
+
+    for (int i = 0; i < size.height / 2 / step; i++) {
+      path.moveTo(-size.width / 2, step * i);
+      path.relativeLineTo(size.width, 0);
+      path.moveTo(-size.width / 2, -step * i);
+      path.relativeLineTo(size.width, 0);
+    }
+    canvas.drawPath(path, paint);
+  }
+
+  ///路径操作
+  void example044(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path
+      ..lineTo(100, 100)
+      ..relativeLineTo(0, -50)
+      //路径封闭
+      ..close();
+    canvas.drawPath(path, paint);
+    //指定点Offset对路径进行平移，并返回一条新路径
+    canvas.drawPath(path.shift(Offset(100, 0)), paint);
+  }
+
+  ///路径判断点；获取路径所在区域
+  void example045(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30);
+    canvas.drawPath(path, paint);
+    print(path.contains(Offset(20, 20)));
+    print(path.contains(Offset(0, 20)));
+    Rect bounds = path.getBounds();
+    canvas.drawRect(
+      bounds,
+      Paint()
+        ..color = Colors.purpleAccent
+        ..style = PaintingStyle.stroke,
+    );
+  }
+
+  ///transform路径变换
+  void example046(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purple
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    for (int i = 0; i < 4; i++) {
+      canvas.drawPath(
+          path.transform(Matrix4.rotationZ(i * pi / 2).storage), paint);
+    }
+  }
+
+  ///路径联合生成新路径
+  void example047(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint();
+    paint
+      ..color = Colors.purple
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    var pathOval = Path()
+      ..addOval(
+        Rect.fromCenter(center: Offset(0, 0), width: 60, height: 60),
       );
+    canvas.drawPath(
+        Path.combine(PathOperation.difference, path, pathOval), paint);
+    canvas.translate(120, 0);
+    canvas.drawPath(
+        Path.combine(PathOperation.intersect, path, pathOval), paint);
+    canvas.translate(120, 0);
+    canvas.drawPath(Path.combine(PathOperation.union, path, pathOval), paint);
+    canvas.translate(-120 * 3, 0);
+    canvas.drawPath(
+        Path.combine(PathOperation.reverseDifference, path, pathOval), paint);
+    canvas.translate(-120, 0);
+    canvas.drawPath(Path.combine(PathOperation.xor, path, pathOval), paint);
+  }
+
+  ///PathMetric获得路径长度length、路径索引contourIndex、路径是否闭合isClosed
+  ///computeMetrics获得一组路径测量信息
+  void example048(Canvas canvas) {
+    Paint paint = Paint();
+    paint
+      ..color = Colors.purple
+      ..style = PaintingStyle.fill;
+    Path path = Path();
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    path.addOval(Rect.fromCenter(center: Offset.zero, width: 50, height: 50));
+    canvas.drawPath(path, paint);
+    PathMetrics pms = path.computeMetrics();
+    Tangent tangent;
+    pms.forEach((pm) {
+      print(
+          "--length:-${pm.length}----contourIndex:-${pm.contourIndex}----isClosed:-${pm.isClosed}");
+    });
+  }
+
+  void example049(Canvas canvas) {
+    Paint paint = Paint()
+      ..color = Colors.purple
+      ..strokeWidth = 1
+      ..style = PaintingStyle.stroke;
+    Path path = Path();
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    path.addOval(Rect.fromCenter(center: Offset.zero, width: 50, height: 50));
+    PathMetrics pathMetrics = path.computeMetrics();
+    pathMetrics.forEach((pathMetric) {
+      Tangent? tangent =
+          pathMetric.getTangentForOffset(pathMetric.length * 0.5);
+      if (tangent == null) return;
+      canvas.drawCircle(
+          tangent.position, 5, Paint()..color = Colors.deepOrange);
+      canvas.drawPath(path, paint);
+    });
+  }
+
+  void example050(Canvas canvas) {
+    Paint paint = Paint()..style = PaintingStyle.stroke;
+    Path path = Path()
+      ..lineTo(40, 40)
+      ..relativeLineTo(0, -40)
+      ..close();
+    canvas.drawPath(path, paint);
   }
 }

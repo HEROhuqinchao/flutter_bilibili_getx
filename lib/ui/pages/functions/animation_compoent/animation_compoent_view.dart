@@ -6,6 +6,7 @@ import 'package:rive/rive.dart';
 
 import 'animation_compoent_logic.dart';
 
+///动画（river&lottie）
 class AnimationCompoentView extends StatelessWidget {
   static String routeName = "/animation_component";
 

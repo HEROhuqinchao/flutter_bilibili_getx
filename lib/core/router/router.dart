@@ -25,6 +25,8 @@ import '../../ui/pages/bilibili_test/bilibili_test_binding.dart';
 import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/functions/animation_compoent/animation_compoent_binding.dart';
+import '../../ui/pages/functions/animation_study/animation_study_binding.dart';
+import '../../ui/pages/functions/animation_study/animation_study_view.dart';
 import '../../ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_binding.dart';
 import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_binding.dart';
 import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
@@ -33,6 +35,8 @@ import '../../ui/pages/functions/download_file/download_file_view.dart';
 import '../../ui/pages/functions/flutter_android/flutter_android_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_view.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat_binding.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat_view.dart';
 import '../../ui/pages/functions/push_message/push_message_binding.dart';
 import '../../ui/pages/functions/push_message/push_message_view.dart';
 import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
@@ -255,5 +259,19 @@ class AsRouter {
         name: ScanQrView.routeName,
         page: () => ScanQrView(),
         binding: ScanQrBinding()),
+
+    ///动画
+    GetPage(
+      name: AnimationStudyView.routeName,
+      page: () => AnimationStudyView(),
+      binding: AnimationStudyBinding(),
+    ),
+
+    ///myWechat
+    GetPage(
+      name: MyWeChatView.routeName,
+      page: () => MyWeChatView(),
+      binding: MyWeChatBinding(),
+    ),
   ];
 }
