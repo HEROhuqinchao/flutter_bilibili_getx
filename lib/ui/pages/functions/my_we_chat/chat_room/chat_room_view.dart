@@ -212,6 +212,7 @@ class ChatRoomView extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8.r),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment:
             isLeft ? MainAxisAlignment.start : MainAxisAlignment.end,
         children: [
@@ -230,7 +231,7 @@ class ChatRoomView extends StatelessWidget {
                       left: 10.r,
                       child: CustomPaint(
                         painter: RoundTriangleWidget(
-                          color: greenColor,
+                          color: whiteColor,
                           height: -4.r,
                         ),
                       ),
@@ -240,31 +241,33 @@ class ChatRoomView extends StatelessWidget {
                       right: 10.r,
                       child: CustomPaint(
                         painter: RoundTriangleWidget(
-                          color: whiteColor,
+                          color: greenColor,
                           height: 4.r,
                         ),
                       ),
                     ),
               isLeft
                   ? Container(
+                      width: 1.sw - 120.r,
                       margin: EdgeInsets.only(left: 9.8.r),
                       padding: EdgeInsets.all(10.r),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(3.r),
                         ),
-                        color: greenColor,
+                        color: whiteColor,
                       ),
                       child: Text(state.chatRoomMessageList[index].msg),
                     )
                   : Container(
+                      width: 1.sw - 120.r,
                       margin: EdgeInsets.only(right: 9.8.r),
                       padding: EdgeInsets.all(10.r),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(3.r),
                         ),
-                        color: whiteColor,
+                        color: greenColor,
                       ),
                       child: Text(state.chatRoomMessageList[index].msg),
                     ),

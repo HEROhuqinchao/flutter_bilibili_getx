@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/animation.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,20 @@ class ChatRoomLogic extends GetxController {
 
   @override
   void onReady() {
+    state.focusNode.addListener(() {
+      if (state.focusNode.hasFocus) {
+        ///延迟计算最大滑动距离，配合resizeToAvoidBottomInset，键盘顶住布局
+        Future.delayed(Duration(milliseconds: 500), () {
+          double max =
+              state.messageListScrollController.position.maxScrollExtent;
+          state.messageListScrollController.animateTo(
+            max,
+            duration: Duration(milliseconds: 200),
+            curve: Curves.linear,
+          );
+        });
+      }
+    });
     super.onReady();
   }
 
