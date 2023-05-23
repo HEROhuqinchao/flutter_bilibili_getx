@@ -40,7 +40,9 @@
 |      显示3D(glb.gltf)       |                       插件[model_viewer_plus](https://pub.flutter-io.cn/packages/model_viewer_plus/install)、[模型下载]([50个最好的免费下载3D模型的网站（内附网址） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/40680702))                               ||
 |            上传文件            |表单FormData，大文件分块，多线程；||
 |正则表达式，检测输入|||
-|连websocket，sokcketio|||
+|连websocket，sokcketio|my_wechat_view||
+|页面图片过多问题致使内存爆了|ResizeImage，TabView(KeepAlive)，局部刷新StreamBuild等||
+|上线Apple Store；上线各大平台|Apple Store（ok）；Android暂无||
 
 sqlite
 第三方软件打开

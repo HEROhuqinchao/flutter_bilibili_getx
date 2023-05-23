@@ -134,4 +134,8 @@ class ImageAssets {
   static String miniWindowClosePng = "assets/image/icon/mini_window_close.png";
   static String circleBluePng = "assets/image/icon/circle_blue.png";
   static String rightChatPng = "assets/image/icon/right_chat.png";
+
+  static String addMoreButtonPng = "assets/image/icon/add_more_button.png";
+  static String emojiPng = "assets/image/icon/emoji.png";
+  static String speakingPng = "assets/image/icon/speaking.png";
 }

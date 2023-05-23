@@ -35,6 +35,8 @@ import '../../ui/pages/functions/download_file/download_file_view.dart';
 import '../../ui/pages/functions/flutter_android/flutter_android_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_view.dart';
+import '../../ui/pages/functions/my_we_chat/chat_room/chat_room_binding.dart';
+import '../../ui/pages/functions/my_we_chat/chat_room/chat_room_view.dart';
 import '../../ui/pages/functions/my_we_chat/my_we_chat_binding.dart';
 import '../../ui/pages/functions/my_we_chat/my_we_chat_view.dart';
 import '../../ui/pages/functions/push_message/push_message_binding.dart';
@@ -272,6 +274,13 @@ class AsRouter {
       name: MyWeChatView.routeName,
       page: () => MyWeChatView(),
       binding: MyWeChatBinding(),
+    ),
+
+    ///chatRoom
+    GetPage(
+      name: ChatRoomView.routeName,
+      page: () => ChatRoomView(),
+      binding: ChatRoomBinding(),
     ),
   ];
 }

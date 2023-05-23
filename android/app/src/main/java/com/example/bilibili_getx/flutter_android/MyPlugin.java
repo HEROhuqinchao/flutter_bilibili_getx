@@ -43,7 +43,7 @@ public class MyPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler 
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull MethodChannel.Result result) {
         //flutter会传递信息至此
-        if(Objects.equals(call.method, "chartData")) {
+        if (Objects.equals(call.method, "chartData")) {
             try {
                 JSONObject root = new JSONObject((String) call.arguments);
                 JSONArray data = root.getJSONArray("data");
