@@ -103,7 +103,8 @@ class ImageAssets {
   static String moreBlockPNG = "assets/image/icon/more_block.png";
   static String playVideoCustomPNG = "assets/image/icon/play_video_custom.png";
   static String videoHomePNG = "assets/image/icon/video_home.png";
-  static String moreAndroidLightPNG = "assets/image/icon/more_android_light.png";
+  static String moreAndroidLightPNG =
+      "assets/image/icon/more_android_light.png";
   static String danmuClosePNG = "assets/image/icon/danmu_close.png";
   static String danmuOpenPNG = "assets/image/icon/danmu_open.png";
   static String likeCustomPNG = "assets/image/icon/like_custom.png";
@@ -138,4 +139,15 @@ class ImageAssets {
   static String addMoreButtonPng = "assets/image/icon/add_more_button.png";
   static String emojiPng = "assets/image/icon/emoji.png";
   static String speakingPng = "assets/image/icon/speaking.png";
+  static String keyBoardPng = "assets/image/icon/key_board.png";
+
+  static String photoGalleryPng = "assets/image/icon/photo_gallery.png";
+  static String takePhotoPng = "assets/image/icon/take_photo.png";
+  static String videoCallPng = "assets/image/icon/video_call.png";
+  static String locationPng = "assets/image/icon/wechat_location.png";
+  static String voiceInputPng = "assets/image/icon/voice_input.png";
+  static String myCollectionPng = "assets/image/icon/my_collection.png";
+  static String idCardPng = "assets/image/icon/id_card.png";
+  static String filePng = "assets/image/icon/file.png";
+  static String musicPng = "assets/image/icon/music.png";
 }

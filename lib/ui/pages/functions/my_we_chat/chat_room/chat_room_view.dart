@@ -1,8 +1,12 @@
+import 'dart:convert';
+
+import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:bilibili_getx/ui/widgets/triangle_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
 import 'package:get/get.dart';
 
 import 'chat_room_logic.dart';
@@ -20,7 +24,8 @@ class ChatRoomView extends StatelessWidget {
     return GetBuilder<ChatRoomLogic>(builder: (logic) {
       return Scaffold(
         ///键盘顶住布局
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset:
+            (!state.isEmojiMode && !state.isVoiceMode) ? true : false,
         backgroundColor: Color.fromRGBO(237, 237, 237, 1),
         appBar: buildMyWeChatViewAppBar(),
         body: Column(
@@ -28,8 +33,7 @@ class ChatRoomView extends StatelessWidget {
             Expanded(
               child: GestureDetector(
                 onTap: () {
-                  ///点击列表取消输入焦点
-                  state.focusNode.unfocus();
+                  logic.hideInput();
                 },
                 child: Container(
                   color: HYAppTheme.norWhite01Color,
@@ -50,10 +54,141 @@ class ChatRoomView extends StatelessWidget {
               ),
             ),
             buildMyWeChatViewInputComponent(),
+            buildEmojiAndMoreBlock(context),
           ],
         ),
       );
     });
+  }
+
+  ///表情符块
+  buildEmojiAndMoreBlock(BuildContext context) {
+    return Container(
+      color: Color.fromRGBO(247, 247, 247, 1),
+      height: state.emojiBlockHeight,
+      child: state.isEmojiMode
+          ? FutureBuilder(
+              future: DefaultAssetBundle.of(context)
+                  .loadString("assets/emoji/emojis.json"),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<dynamic> emojis = json.decode(snapshot.data.toString());
+                  return GridView.builder(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 5.r,
+                      horizontal: 10.r,
+                    ),
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 8,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          logic
+                              .updateInputTextByEmoji(emojis[index]["unicode"]);
+                        },
+                        child: Center(
+                          child: Text(
+                            String.fromCharCode(emojis[index]["unicode"]),
+                            style: TextStyle(fontSize: 20.sp),
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: emojis.length,
+                  );
+                }
+                return Container();
+              },
+            )
+          : state.isAddMoreMode
+              ? Swiper(
+                  itemBuilder: (BuildContext context, int index) {
+                    return GridView.builder(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15.r,
+                        horizontal: 10.r,
+                      ),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                      ),
+                      itemBuilder: (ctx, iIndex) {
+                        return buildMoreImageButton(
+                          image: state
+                              .moreBlockImageButtonList[index][iIndex].image,
+                          text: state
+                              .moreBlockImageButtonList[index][iIndex].text,
+                          onTap: state
+                              .moreBlockImageButtonList[index][iIndex].onTap,
+                        );
+                      },
+                      itemCount: state.moreBlockImageButtonList[index].length,
+                    );
+                  },
+                  itemCount: state.moreBlockImageButtonList.length,
+                  pagination: SwiperPagination(
+                    alignment: Alignment.bottomCenter,
+                    builder: DotSwiperPaginationBuilder(
+                      size: 5.sp,
+                      activeSize: 5.sp,
+                      color: HYAppTheme.norGrayColor,
+                      activeColor: HYAppTheme.norBlackColors,
+                    ),
+                  ),
+                  loop: false,
+                )
+              : Container(),
+    );
+  }
+
+  ///按钮块
+  buildMoreImageButton(
+      {required String image,
+      required Function() onTap,
+      required String text}) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.all(
+            Radius.circular(15.r),
+          ),
+          child: Material(
+            color: HYAppTheme.norWhite01Color,
+            borderRadius: BorderRadius.all(
+              Radius.circular(15.r),
+            ),
+            child: Ink(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15.r),
+                ),
+              ),
+              child: InkWell(
+                onTap: onTap,
+                child: Container(
+                  padding: EdgeInsets.all(10.r),
+                  child: Image.asset(
+                    image,
+                    width: 25.r,
+                    height: 25.r,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        5.verticalSpace,
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 12.sp,
+            color: HYAppTheme.norTextColors,
+          ),
+        )
+      ],
+    );
   }
 
   ///聊天室的头部
@@ -110,36 +245,65 @@ class ChatRoomView extends StatelessWidget {
         horizontal: 10.r,
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          buildMyWeChatViewIconButton(ImageAssets.speakingPng),
-          10.horizontalSpace,
-          Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(
-                Radius.circular(3.r),
-              ),
-              child: TextField(
-                focusNode: state.focusNode,
-                controller: state.textEditingController,
-                onChanged: (str) {
-                  logic.updateInputText(str);
-                },
-                decoration: InputDecoration(
-                  isDense: true,
-                  filled: true,
-                  fillColor: HYAppTheme.norWhite01Color,
-                  border: InputBorder.none,
-                  hintText: "说点什么呗~",
-                ),
-              ),
-            ),
+          buildMyWeChatViewIconButton(
+            state.isVoiceMode
+                ? ImageAssets.keyBoardPng
+                : ImageAssets.speakingPng,
+            () {
+              logic.updateVoiceInput();
+            },
           ),
           10.horizontalSpace,
-          buildMyWeChatViewIconButton(ImageAssets.emojiPng),
+          state.isVoiceMode
+              ? Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(3.r),
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 8.r),
+                      color: HYAppTheme.norWhite01Color,
+                      alignment: Alignment.center,
+                      child: Text("按住 说话"),
+                    ),
+                  ),
+                )
+              : Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(3.r),
+                    ),
+                    child: TextField(
+                      focusNode: state.focusNode,
+                      controller: state.textEditingController,
+                      onChanged: (str) {
+                        logic.updateInputText(str);
+                      },
+                      decoration: InputDecoration(
+                        isDense: true,
+                        filled: true,
+                        fillColor: HYAppTheme.norWhite01Color,
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ),
+          10.horizontalSpace,
+          buildMyWeChatViewIconButton(
+            state.isEmojiMode ? ImageAssets.keyBoardPng : ImageAssets.emojiPng,
+            () {
+              logic.updateEmoji();
+            },
+          ),
           10.horizontalSpace,
           state.inputText.isEmpty
               ? buildMyWeChatViewIconButton(
                   ImageAssets.addMoreButtonPng,
+                  () {
+                    logic.updateAddMoreButton();
+                  },
                 )
               : Material(
                   borderRadius: BorderRadius.all(
@@ -165,11 +329,11 @@ class ChatRoomView extends StatelessWidget {
   }
 
   ///按钮控件
-  buildMyWeChatViewIconButton(String image) {
+  buildMyWeChatViewIconButton(String image, Function() onTap) {
     return Material(
       color: Color.fromRGBO(247, 247, 247, 1),
       child: InkWell(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           padding: EdgeInsets.all(2.r),
           child: Image(
@@ -248,7 +412,7 @@ class ChatRoomView extends StatelessWidget {
                     ),
               isLeft
                   ? Container(
-                      width: 1.sw - 120.r,
+                      constraints: BoxConstraints(maxWidth: 1.sw - 120.r),
                       margin: EdgeInsets.only(left: 9.8.r),
                       padding: EdgeInsets.all(10.r),
                       decoration: BoxDecoration(
@@ -260,7 +424,7 @@ class ChatRoomView extends StatelessWidget {
                       child: Text(state.chatRoomMessageList[index].msg),
                     )
                   : Container(
-                      width: 1.sw - 120.r,
+                      constraints: BoxConstraints(maxWidth: 1.sw - 120.r),
                       margin: EdgeInsets.only(right: 9.8.r),
                       padding: EdgeInsets.all(10.r),
                       decoration: BoxDecoration(

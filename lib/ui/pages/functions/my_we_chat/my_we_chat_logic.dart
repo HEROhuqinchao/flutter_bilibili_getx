@@ -22,9 +22,9 @@ class MyWeChatLogic extends GetxController {
         "token": "{\"userId\": \"user001\"}",
       },
     );
-
     ///监听消息接受
     state.webSocketChannel.stream.listen((event) {
+      print(event);
       try {
         final receiveData = ReceiveDataModel.fromJson(json.decode(event));
         state.latestMsgData[receiveData.sender] = receiveData;
