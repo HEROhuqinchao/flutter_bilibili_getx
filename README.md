@@ -44,9 +44,10 @@
 |正则表达式，检测输入|||
 |连websocket，sokcketio|my_wechat_view||
 |页面图片过多问题致使内存爆了|ResizeImage，TabView(KeepAlive)，局部刷新StreamBuild等||
-|上线Apple Store；上线各大平台|Apple Store（ok）；Android暂无||
+|上线Apple Store；上线各大平台|Apple Store（ok）；Android暂无|公司不上线Android，我自己开发一个APP上线去！哼|
 |CameraX|[实现拍照和录像](https://blog.csdn.net/sheng_er_sheng/article/details/130923458)||
-|Kotlin|[资料](https://book.kotlincn.net/text/basic-syntax.html)|一星期拿下|
+|Kotlin|[资料](https://book.kotlincn.net/text/basic-syntax.html)[个人更新csdn](https://blog.csdn.net/sheng_er_sheng/article/details/130940725)|一星期拿下|
+|Android Service|[Service学习记录更新博客](https://blog.csdn.net/sheng_er_sheng/article/details/130999373)||
 
 sqlite 第三方软件打开
 
