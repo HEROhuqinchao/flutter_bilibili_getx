@@ -1,4 +1,6 @@
 import 'package:bilibili_getx/core/service/request/wechat_request.dart';
+import 'package:bilibili_getx/ui/pages/functions/my_we_chat/wechat_login/wechat_login_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/my_we_chat/wechat_register/wechat_register_view.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
@@ -37,7 +39,7 @@ class WechatRegisterLogic extends GetxController {
         state.password.isNotEmpty) {
       WechatRequest.registerUser(params).then((value) {
         if (value.code == 0) {
-          Get.back();
+          Get.offAndToNamed(WechatLoginView.routeName);
         }
         SmartDialog.showToast(value.message!);
       });

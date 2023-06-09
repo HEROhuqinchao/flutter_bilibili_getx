@@ -43,17 +43,8 @@ class ChatRoomLogic extends GetxController {
         state.emojiBlockHeight = 0.r;
         state.isEmojiMode = false;
         update();
-
-        ///延迟计算最大滑动距离，配合resizeToAvoidBottomInset，键盘顶住布局
-        Future.delayed(Duration(milliseconds: 500), () {
-          double max =
-              state.messageListScrollController.position.maxScrollExtent;
-          state.messageListScrollController.animateTo(
-            max,
-            duration: Duration(milliseconds: 200),
-            curve: Curves.linear,
-          );
-        });
+        ///滚动到底部
+        beginScrollToBottom();
       }
     });
     super.onReady();
@@ -64,6 +55,20 @@ class ChatRoomLogic extends GetxController {
     state.messageListScrollController.dispose();
     state.focusNode.dispose();
     super.onClose();
+  }
+
+  ///滚动到底部
+  beginScrollToBottom() {
+    ///延迟计算最大滑动距离，配合resizeToAvoidBottomInset，键盘顶住布局
+    Future.delayed(Duration(milliseconds: 500), () {
+      double max =
+          state.messageListScrollController.position.maxScrollExtent;
+      state.messageListScrollController.animateTo(
+        max,
+        duration: Duration(milliseconds: 200),
+        curve: Curves.linear,
+      );
+    });
   }
 
   ///发送信息
@@ -105,6 +110,8 @@ class ChatRoomLogic extends GetxController {
       state.inputText = "";
       state.textEditingController.text = "";
       update();
+
+      beginScrollToBottom();
     } else {
       SmartDialog.showToast("内容为空");
     }

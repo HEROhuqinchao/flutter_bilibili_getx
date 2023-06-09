@@ -3,14 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../../../../core/model/wechat/text_button_model.dart';
-import '../../../../../../widgets/show_bottom_menu.dart';
-import '../../../wechat_register/wechat_register_view.dart';
 import 'we_chat_setting_logic.dart';
 
 class WeChatSettingView extends StatelessWidget {
   static String routeName = "/wechat_setting";
-  final logic = Get.put(WeChatSettingLogic());
+  final logic = Get.find<WeChatSettingLogic>();
   final state = Get.find<WeChatSettingLogic>().state;
 
   @override

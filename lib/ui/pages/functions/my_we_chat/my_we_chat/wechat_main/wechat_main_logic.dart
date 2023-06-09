@@ -82,6 +82,17 @@ class WechatMainLogic extends GetxController {
       );
     }
     chatRoomLogic.update();
+
+    ///延迟计算最大滑动距离，配合resizeToAvoidBottomInset，键盘顶住布局
+    Future.delayed(Duration(milliseconds: 500), () {
+      double max = chatRoomLogic
+          .state.messageListScrollController.position.maxScrollExtent;
+      chatRoomLogic.state.messageListScrollController.animateTo(
+        max,
+        duration: Duration(milliseconds: 200),
+        curve: Curves.linear,
+      );
+    });
     Get.toNamed(ChatRoomView.routeName);
   }
 

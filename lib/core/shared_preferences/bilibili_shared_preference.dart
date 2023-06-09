@@ -17,4 +17,8 @@ class BilibiliSharedPreference {
 
   ///记录本地语言（英文、中文）
   static const String locale = "locale";
+
+  ///微信登录账号和密码
+  static const String wechatTel = "wechat_tel";
+  static const String wechatPassword = "wechat_password";
 }

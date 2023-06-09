@@ -1,3 +1,6 @@
+import 'package:bilibili_getx/core/shared_preferences/bilibili_shared_preference.dart';
+import 'package:bilibili_getx/core/shared_preferences/shared_preference_util.dart';
+import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_logic.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -107,6 +110,8 @@ class WeChatSettingLogic extends GetxController {
   loginOut() {
     WechatMainLogic wechatMainLogic = Get.find<WechatMainLogic>();
     wechatMainLogic.state.webSocketChannel.sink.close();
+    SharedPreferenceUtil.setString(BilibiliSharedPreference.wechatTel, "");
+    SharedPreferenceUtil.setString(BilibiliSharedPreference.wechatPassword, "");
     Get.offAllNamed(WechatLoginView.routeName);
   }
 }

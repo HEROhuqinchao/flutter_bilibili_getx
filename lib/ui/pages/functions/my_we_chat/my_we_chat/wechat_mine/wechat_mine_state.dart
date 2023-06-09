@@ -10,39 +10,6 @@ class WechatMineState {
   late List<TextButtonModel> textButtons;
 
   WechatMineState() {
-    textButtons = [
-      TextButtonModel(
-        text: "服务",
-        icon: ImageAssets.wechatServicePng,
-        onTap: () {},
-      ),
-      TextButtonModel(
-        text: "收藏",
-        icon: ImageAssets.wechatCollectionPng,
-        onTap: () {},
-      ),
-      TextButtonModel(
-        text: "朋友圈",
-        icon: ImageAssets.wechatFriendCirclePng,
-        onTap: () {},
-      ),
-      TextButtonModel(
-        text: "卡包",
-        icon: ImageAssets.wechatPackagePng,
-        onTap: () {},
-      ),
-      TextButtonModel(
-        text: "表情",
-        icon: ImageAssets.wechatEmojiPng,
-        onTap: () {},
-      ),
-      TextButtonModel(
-        text: "设置",
-        icon: ImageAssets.wechatSettingPng,
-        onTap: () {
-          Get.toNamed(WeChatSettingView.routeName);
-        },
-      ),
-    ];
+    textButtons = [];
   }
 }

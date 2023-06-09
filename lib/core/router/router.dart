@@ -302,6 +302,7 @@ class AsRouter {
       page: () => WechatRegisterView(),
       binding: WechatRegisterBinding(),
     ),
+
     ///微信设置界面
     GetPage(
       name: WeChatSettingView.routeName,
