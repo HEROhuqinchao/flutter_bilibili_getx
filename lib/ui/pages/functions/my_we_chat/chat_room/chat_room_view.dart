@@ -1,9 +1,7 @@
 import 'dart:convert';
 
-import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/triangle_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
@@ -208,7 +206,7 @@ class ChatRoomView extends StatelessWidget {
       ),
       elevation: .1,
       title: Text(
-        state.userModel.name,
+        state.userModel.userName!,
         style: TextStyle(
           fontSize: 14.sp,
           color: HYAppTheme.norBlackColors,
@@ -372,7 +370,8 @@ class ChatRoomView extends StatelessWidget {
 
   ///聊天气泡
   buildChatRoomChatItem(int index) {
-    bool isLeft = state.chatRoomMessageList[index].sender != state.loginUserId;
+    bool isLeft =
+        state.chatRoomMessageList[index].sender != state.isLoginUserId;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8.r),
       child: Row(
@@ -450,6 +449,7 @@ class ChatRoomView extends StatelessWidget {
   }
 }
 
+///三角
 class RoundTriangleWidget extends CustomPainter {
   ///填充颜色
   Color color;

@@ -1,9 +1,9 @@
-import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-import '../my_we_chat_state.dart';
+import '../../../../../core/model/wechat/receive_data_model.dart';
+import '../../../../../core/model/wechat/wechat_users_model.dart';
+import '../my_we_chat/my_we_chat_state.dart';
 
 class ChatRoomState {
   ///当前聊天人信息
@@ -25,7 +25,7 @@ class ChatRoomState {
   late TextEditingController textEditingController;
 
   ///登录人的id
-  late String loginUserId;
+  late String isLoginUserId;
 
   ///焦点
   late FocusNode focusNode;
@@ -50,17 +50,10 @@ class ChatRoomState {
 
   ChatRoomState() {
     inputText = "";
-    chatRoomMessageList = [
-      // ReceiveDataModel(
-      //     sender: 'user002',
-      //     msg:
-      //         '模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息模拟消息',
-      //     date: '10002',
-      //     avatar: 'https://static.runoob.com/images/demo/demo2.jpg'),
-    ];
+    chatRoomMessageList = [];
     messageListScrollController = ScrollController();
     textEditingController = TextEditingController();
-    loginUserId = "user001";
+    isLoginUserId = "";
     focusNode = FocusNode();
     isEmojiMode = false;
     isVoiceMode = false;

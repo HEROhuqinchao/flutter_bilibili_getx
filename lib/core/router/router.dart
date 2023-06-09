@@ -37,8 +37,14 @@ import '../../ui/pages/functions/mini_window/mini_window_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_view.dart';
 import '../../ui/pages/functions/my_we_chat/chat_room/chat_room_binding.dart';
 import '../../ui/pages/functions/my_we_chat/chat_room/chat_room_view.dart';
-import '../../ui/pages/functions/my_we_chat/my_we_chat_binding.dart';
-import '../../ui/pages/functions/my_we_chat/my_we_chat_view.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_binding.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_view.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/we_chat_setting/we_chat_setting_binding.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/we_chat_setting/we_chat_setting_view.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_login/wechat_login_binding.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_login/wechat_login_view.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_register/wechat_register_binding.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_register/wechat_register_view.dart';
 import '../../ui/pages/functions/push_message/push_message_binding.dart';
 import '../../ui/pages/functions/push_message/push_message_view.dart';
 import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
@@ -256,7 +262,7 @@ class AsRouter {
         page: () => FlutterAndroidView(),
         binding: FlutterAndroidBinding()),
 
-    ///Android原生
+    ///扫描二维码
     GetPage(
         name: ScanQrView.routeName,
         page: () => ScanQrView(),
@@ -281,6 +287,26 @@ class AsRouter {
       name: ChatRoomView.routeName,
       page: () => ChatRoomView(),
       binding: ChatRoomBinding(),
+    ),
+
+    ///仿微信登录界面
+    GetPage(
+      name: WechatLoginView.routeName,
+      page: () => WechatLoginView(),
+      binding: WechatLoginBinding(),
+    ),
+
+    ///仿微信注册界面
+    GetPage(
+      name: WechatRegisterView.routeName,
+      page: () => WechatRegisterView(),
+      binding: WechatRegisterBinding(),
+    ),
+    ///微信设置界面
+    GetPage(
+      name: WeChatSettingView.routeName,
+      page: () => WeChatSettingView(),
+      binding: MyWeChatSettingBinding(),
     ),
   ];
 }

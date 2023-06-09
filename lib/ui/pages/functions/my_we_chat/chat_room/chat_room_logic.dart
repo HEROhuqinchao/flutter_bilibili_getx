@@ -3,7 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/model/wechat/receive_data_model.dart';
+import '../../../../../core/sqlite/sqlite_util.dart';
 import '../../../../shared/image_asset.dart';
+import '../my_we_chat/my_we_chat_state.dart';
 import 'chat_room_state.dart';
 
 class ChatRoomLogic extends GetxController {
@@ -67,13 +70,38 @@ class ChatRoomLogic extends GetxController {
   sendMessage() {
     if (state.inputText.isNotEmpty) {
       int sendTime = DateTime.now().millisecondsSinceEpoch;
-      String data =
-          "{\"users\": [\"${state.loginUserId}\",\"${state.userModel.userId}\"],"
+
+      ///存储消息发送
+      SqliteUtil.insertTable(
+        tableName: SqliteUtil.tableWechatMessageHistory,
+        map: {
+          SqliteUtil.columnSenderId: state.isLoginUserId,
+          SqliteUtil.columnReceiverId: state.userModel.userId,
+          SqliteUtil.columnMessageContent: state.inputText,
+          SqliteUtil.columnMessageDate: sendTime,
+          SqliteUtil.columnUserAvatar:
+              "https://static.runoob.com/images/demo/demo2.jpg",
+        },
+      );
+
+      ///更新消息列表
+      state.chatRoomMessageList.add(ReceiveDataModel(
+        sender: state.isLoginUserId,
+        receiver: state.userModel.userId!,
+        msg: state.inputText,
+        date: sendTime,
+        avatar: "https://static.runoob.com/images/demo/demo2.jpg",
+      ));
+
+      ///发送至服务端
+      String data = "{\"users\": [\"${state.userModel.userId}\"],"
           "\"msg\": \"${state.inputText}\","
           "\"date\": \"$sendTime\","
           "\"avatar\": \"https://static.runoob.com/images/demo/demo2.jpg\","
-          "\"sender\": \"${state.loginUserId}\"}";
+          "\"sender\": \"${state.isLoginUserId}\"}";
       state.webSocketChannel.sink.add(data);
+
+      ///清空输入框
       state.inputText = "";
       state.textEditingController.text = "";
       update();

@@ -150,4 +150,14 @@ class ImageAssets {
   static String idCardPng = "assets/image/icon/id_card.png";
   static String filePng = "assets/image/icon/file.png";
   static String musicPng = "assets/image/icon/music.png";
+
+  ///wechat
+  static String wechatSearchPng = "assets/image/wechat/search.png";
+  static String wechatAddPng = "assets/image/wechat/add.png";
+  static String wechatServicePng = "assets/image/wechat/service.png";
+  static String wechatCollectionPng = "assets/image/wechat/collection.png";
+  static String wechatFriendCirclePng = "assets/image/wechat/friend_circle.png";
+  static String wechatPackagePng = "assets/image/wechat/package.png";
+  static String wechatEmojiPng = "assets/image/wechat/emoji.png";
+  static String wechatSettingPng = "assets/image/wechat/setting.png";
 }

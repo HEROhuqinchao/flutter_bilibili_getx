@@ -21,3 +21,9 @@ MaterialColor createMaterialColor(Color color) {
   }
   return MaterialColor(color.value, swatch);
 }
+
+///时间戳转为日期
+String datetimeStampToYearMonthDay(int datetimeStamp) {
+  DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(datetimeStamp);
+  return "${dateTime.year}.${dateTime.month}.${dateTime.day}";
+}
