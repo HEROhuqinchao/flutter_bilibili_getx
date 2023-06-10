@@ -18,7 +18,7 @@ class Constant {
     "mall": "https://mall.bilibili.com",
     "mall-web": "https://show.bilibili.com",
     "covid": "https://api.vvhan.com/",
-    "wechat": "http://192.168.43.122:3000"
+    "wechat": "http://192.168.43.50:3000"
   };
 
   ///网页端设置代理,处理跨域问题
