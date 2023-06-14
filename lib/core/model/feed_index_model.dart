@@ -527,8 +527,8 @@ class ThreePointV2 {
   factory ThreePointV2.fromJson(Map<String, dynamic> json) => ThreePointV2(
         title: json["title"],
         type: json["type"],
-        icon: json["icon"] == null ? null : json["icon"],
-        subtitle: json["subtitle"] == null ? null : json["subtitle"],
+        icon: json["icon"],
+        subtitle: json["subtitle"],
         reasons: json["reasons"] == null
             ? null
             : List<DislikeReason>.from(

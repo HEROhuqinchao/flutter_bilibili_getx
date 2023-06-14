@@ -17,9 +17,7 @@ class HYDanMuRequest {
   //   // return HYRelationStatModel.fromJson(result);
   // }
 
-  /**
-   * 这里使用静态的数据，不使用网络请求
-   */
+  /// 这里使用静态的数据，不使用网络请求
   // static Future<List<String>> getDanMuData() async {
   //   final document = XmlDocument.parse(xmlTest);
   //   final xmlString = document.toXmlString(pretty: true, indent: '\t');
@@ -34,14 +32,20 @@ class HYDanMuRequest {
   //   return danMuList;
   // }
 
+  HYDanMuRequest._internal();
+
+  static final HYDanMuRequest _instance = HYDanMuRequest._internal();
+
+  factory HYDanMuRequest() => _instance;
+
   /// 新版本 弹幕 protobuf格式的数据
   /// 不再使用XML的数据弹幕数据，改用请求proto格式的弹幕数据
-  static Future<List<DanMuModel02>> getDanMuProtoData(
+  Future<List<DanMuModel02>> getDanMuProtoData(
       String oid, int segmentIndex) async {
     String url =
         "/x/v2/dm/list/seg.so?type=1&oid=$oid&segment_index=$segmentIndex";
     // print(url);
-    final responseResult = await HttpBaseRequest.request("base", url,
+    final responseResult = await HttpBaseRequest().request("base", url,
         contentType: "PROTO", responseType: ResponseType.bytes);
     // print(responseResult.toString());
     Int8List int8Data = Int8List.fromList(responseResult);

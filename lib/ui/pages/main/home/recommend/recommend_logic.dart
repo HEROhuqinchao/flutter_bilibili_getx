@@ -18,7 +18,6 @@ import '../../../../shared/app_theme.dart';
 import '../../../../shared/color_radix_change.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/params_sign.dart';
-import '../../../../widgets/recommend_item.dart';
 import '../../../video_play/bilibili_video_player/bilibili_video_player_logic.dart';
 import '../../../video_play/video_play_logic.dart';
 import '../../../video_play/video_play_view.dart';
@@ -74,7 +73,7 @@ class RecommendLogic extends GetxController {
 
   ///获取数据
   void fetchFeedIndexData() {
-    HYHomeRequest.getFeedIndexData(fetchFeedIndexParamsWithSign())
+    HYHomeRequest().getFeedIndexData(fetchFeedIndexParamsWithSign())
         .then((value) async {
       state.feedIndexItemList.addAll(value.data.items);
       initHomeRecommendWidgets();
@@ -150,7 +149,7 @@ class RecommendLogic extends GetxController {
   }
 
   void refreshRecommendItemData() async {
-    HYHomeRequest.getFeedIndexData(
+    HYHomeRequest().getFeedIndexData(
       fetchFeedIndexParamsWithSign(),
     ).then((value) {
       refreshVideosData(value.data.items);
@@ -208,7 +207,7 @@ class RecommendLogic extends GetxController {
     return GestureDetector(
       onTap: () {
         if (video.goto == "av") {
-          HYVideoRequest.getMp4VideoPlayData(video.args!.aid!)
+          HYVideoRequest().getMp4VideoPlayData(video.args!.aid!)
               .then((value) {
             ///匹配字符串readyVideoUrl: 到readyDuration之间的字符串
             RegExp exp =
@@ -305,7 +304,7 @@ class RecommendLogic extends GetxController {
 
   ///加载数据（上拉动作）
   void loadRecommendItemData() {
-    HYHomeRequest.getFeedIndexData(fetchFeedIndexParamsWithSign())
+    HYHomeRequest().getFeedIndexData(fetchFeedIndexParamsWithSign())
         .then((value) {
       loadMoreVideosData(value.data.items);
       state.homeRecommendWidgets

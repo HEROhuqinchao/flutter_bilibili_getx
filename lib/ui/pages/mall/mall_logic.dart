@@ -104,7 +104,7 @@ class MallLogic extends GetxController {
     };
     final signEntry = <String, dynamic>{"sign": ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
-    HYMallRequest.fetchAndroidMoreMallData(params).then((value) {
+    HYMallRequest().fetchAndroidMoreMallData(params).then((value) {
       state.total += state.total;
       state.vo.feeds.list.addAll(value.list);
       update();
@@ -154,7 +154,7 @@ class MallLogic extends GetxController {
     };
     final signEntry = <String, dynamic>{"sign": ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
-    HYMallRequest.fetchAndroidMallData(params).then((value) {
+    HYMallRequest().fetchAndroidMallData(params).then((value) {
       state.vo = value.data.vo;
       state.isLoadingMallData = false;
       update();
@@ -165,7 +165,7 @@ class MallLogic extends GetxController {
 
   ///获取web端的数据
   void webFetchMallData() {
-    HYMallRequest.fetchWebMallData().then((value) {
+    HYMallRequest().fetchWebMallData().then((value) {
       state.total = value.data.total;
       state.result = value.data.result!;
       for (int i = 0; i < state.total; i++) {

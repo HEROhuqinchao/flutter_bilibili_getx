@@ -187,7 +187,7 @@ class DynamicCircleScreen extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5.r),
                 child: DefaultFadeImage(
-                  imageUrl: moduleDynamic.major!.archive!.cover,
+                  imageUrl: moduleDynamic.major.archive!.cover,
                   width: 310.w,
                   height: 180.w,
                 ),
@@ -207,7 +207,7 @@ class DynamicCircleScreen extends StatelessWidget {
                       color: HYAppTheme.norTextColors.withOpacity(.5),
                     ),
                     child: Text(
-                      moduleDynamic.major!.archive!.durationText,
+                      moduleDynamic.major.archive!.durationText,
                       style: TextStyle(
                         color: HYAppTheme.norWhite01Color,
                         fontSize: 12.sp,
@@ -216,7 +216,7 @@ class DynamicCircleScreen extends StatelessWidget {
                   ),
                   8.horizontalSpace,
                   Text(
-                    "${moduleDynamic.major!.archive!.stat.play}观看",
+                    "${moduleDynamic.major.archive!.stat.play}观看",
                     style: TextStyle(
                       color: HYAppTheme.norWhite01Color,
                       fontSize: 11.sp,
@@ -224,7 +224,7 @@ class DynamicCircleScreen extends StatelessWidget {
                   ),
                   5.horizontalSpace,
                   Text(
-                    "${moduleDynamic.major!.archive!.stat.danmaku}弹幕",
+                    "${moduleDynamic.major.archive!.stat.danmaku}弹幕",
                     style: TextStyle(
                       color: HYAppTheme.norWhite01Color,
                       fontSize: 11.sp,
@@ -247,7 +247,7 @@ class DynamicCircleScreen extends StatelessWidget {
           width: 1.sw,
           alignment: Alignment.centerLeft,
           child: Text(
-            moduleDynamic.major!.archive!.title,
+            moduleDynamic.major.archive!.title,
             style: TextStyle(
               fontSize: 14.sp,
               color: HYAppTheme.norTextColors,

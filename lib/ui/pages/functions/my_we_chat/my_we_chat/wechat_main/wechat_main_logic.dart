@@ -34,7 +34,7 @@ class WechatMainLogic extends GetxController {
 
   ///获取用户列表
   getWechatUsers() {
-    WechatRequest.getWechatUsers().then((value) {
+    WechatRequest().getWechatUsers().then((value) {
       if (value.code == 0) {
         state.userList.clear();
         state.userList.addAll(value.data!);

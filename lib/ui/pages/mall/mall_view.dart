@@ -348,7 +348,7 @@ class MallScreen extends StatelessWidget {
                 children: children,
               );
             } else {
-              return Container(
+              return SizedBox(
                 width: 1.sw,
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -567,15 +567,18 @@ class MallScreen extends StatelessWidget {
                   height: 60.r,
                 ),
                 10.verticalSpace,
-                PriceMark(
-                  text:
-                      (state.vo.newBlocks[0].blockItemVOs[0].priceSymbol! == "¥"
-                              ? "￥"
-                              : state.vo.newBlocks[0].blockItemVOs[0]
-                                  .priceSymbol!) +
-                          state.vo.newBlocks[0].blockItemVOs[0].priceDesc![0],
-                  color: Colors.deepPurple.withOpacity(.7),
-                )
+                state.vo.newBlocks[0].blockItemVOs[0].priceSymbol != null
+                    ? PriceMark(
+                        text: (state.vo.newBlocks[0].blockItemVOs[0]
+                                        .priceSymbol! ==
+                                    "¥"
+                                ? "￥"
+                                : state.vo.newBlocks[0].blockItemVOs[0]
+                                    .priceSymbol!) +
+                            state.vo.newBlocks[0].blockItemVOs[0].priceDesc![0],
+                        color: Colors.deepPurple.withOpacity(.7),
+                      )
+                    : Container(),
               ],
             ),
             10.horizontalSpace,
@@ -583,20 +586,24 @@ class MallScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 DefaultFadeImage(
-                  imageUrl: getImageHttpUrl(state.vo.newBlocks[0].blockItemVOs[1].imageUrl),
+                  imageUrl: getImageHttpUrl(
+                      state.vo.newBlocks[0].blockItemVOs[1].imageUrl),
                   width: 60.r,
                   height: 60.r,
                 ),
                 10.verticalSpace,
-                PriceMark(
-                  text:
-                      (state.vo.newBlocks[0].blockItemVOs[0].priceSymbol! == "¥"
-                              ? "￥"
-                              : state.vo.newBlocks[0].blockItemVOs[0]
-                                  .priceSymbol!) +
-                          state.vo.newBlocks[0].blockItemVOs[0].priceDesc![0],
-                  color: Colors.deepPurple.withOpacity(.7),
-                )
+                state.vo.newBlocks[0].blockItemVOs[0].priceSymbol != null
+                    ? PriceMark(
+                        text: (state.vo.newBlocks[0].blockItemVOs[0]
+                                        .priceSymbol! ==
+                                    "¥"
+                                ? "￥"
+                                : state.vo.newBlocks[0].blockItemVOs[0]
+                                    .priceSymbol!) +
+                            state.vo.newBlocks[0].blockItemVOs[0].priceDesc![0],
+                        color: Colors.deepPurple.withOpacity(.7),
+                      )
+                    : Container(),
               ],
             ),
           ],

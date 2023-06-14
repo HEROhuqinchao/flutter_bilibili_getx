@@ -6,7 +6,6 @@ import 'package:bilibili_getx/ui/pages/functions/my_we_chat/wechat_login/wechat_
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
-import '../../../../../core/model/wechat_login_model.dart';
 import '../../../../../core/service/request/wechat_request.dart';
 import 'my_we_chat_state.dart';
 
@@ -42,7 +41,7 @@ class MyWeChatLogic extends GetxController {
         "tel": wechatTel,
         "password": wechatPassword,
       };
-      WechatRequest.loginUser(params).then((value) {
+      WechatRequest().loginUser(params).then((value) {
         if (value.code == 0) {
           ///初始化子页面数据
           WechatMainLogic wechatMainLogic = Get.find<WechatMainLogic>();

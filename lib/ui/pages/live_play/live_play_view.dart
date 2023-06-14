@@ -31,14 +31,14 @@ class _LivePlayViewState extends State<LivePlayView> {
           return Scaffold(
             body: Column(
               children: [
-                Container(
+                SizedBox(
                   width: 1.sw,
                   height: 200.w,
                   child: state.isLoading
-                      ? Container(
+                      ? SizedBox(
                           width: 40.w,
                           height: 40.w,
-                          child: CircularProgressIndicator(),
+                          child: const CircularProgressIndicator(),
                         )
                       : BilibiliVideoPlayerComponent(),
                 ),

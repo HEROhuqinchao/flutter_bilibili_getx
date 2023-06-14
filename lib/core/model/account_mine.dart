@@ -301,18 +301,18 @@ class SectionsV2 {
         items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
         style: json["style"],
         button: Button.fromJson(json["button"]),
-        type: json["type"] == null ? null : json["type"],
+        type: json["type"],
         title: json["title"] ?? "",
-        upTitle: json["up_title"] == null ? null : json["up_title"],
+        upTitle: json["up_title"],
       );
 
   Map<String, dynamic> toJson() => {
         "items": List<dynamic>.from(items.map((x) => x.toJson())),
         "style": style,
         "button": button.toJson(),
-        "type": type == null ? null : type,
-        "title": title == null ? null : title,
-        "up_title": upTitle == null ? null : upTitle,
+        "type": type,
+        "title": title,
+        "up_title": upTitle,
       };
 }
 
@@ -330,17 +330,17 @@ class Button {
   int? style;
 
   factory Button.fromJson(Map<String, dynamic> json) => Button(
-        text: json["text"] == null ? null : json["text"],
-        url: json["url"] == null ? null : json["url"],
-        icon: json["icon"] == null ? null : json["icon"],
-        style: json["style"] == null ? null : json["style"],
+        text: json["text"],
+        url: json["url"],
+        icon: json["icon"],
+        style: json["style"],
       );
 
   Map<String, dynamic> toJson() => {
-        "text": text == null ? null : text,
-        "url": url == null ? null : url,
-        "icon": icon == null ? null : icon,
-        "style": style == null ? null : style,
+        "text": text,
+        "url": url,
+        "icon": icon,
+        "style": style,
       };
 }
 
@@ -374,16 +374,16 @@ class Item {
         title: json["title"],
         uri: json["uri"],
         icon: json["icon"],
-        needLogin: json["need_login"] == null ? null : json["need_login"],
+        needLogin: json["need_login"],
         commonOpItem: json["common_op_item"] == null
             ? null
             : CommonOpItem.fromJson(json["common_op_item"]),
         globalRedDot:
-            json["global_red_dot"] == null ? null : json["global_red_dot"],
-        display: json["display"] == null ? null : json["display"],
-        redDot: json["red_dot"] == null ? null : json["red_dot"],
+            json["global_red_dot"],
+        display: json["display"],
+        redDot: json["red_dot"],
         redDotForNew:
-            json["red_dot_for_new"] == null ? null : json["red_dot_for_new"],
+            json["red_dot_for_new"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -391,12 +391,12 @@ class Item {
         "title": title,
         "uri": uri,
         "icon": icon,
-        "need_login": needLogin == null ? null : needLogin,
+        "need_login": needLogin,
         "common_op_item": commonOpItem == null ? null : commonOpItem!.toJson(),
-        "global_red_dot": globalRedDot == null ? null : globalRedDot,
-        "display": display == null ? null : display,
-        "red_dot": redDot == null ? null : redDot,
-        "red_dot_for_new": redDotForNew == null ? null : redDotForNew,
+        "global_red_dot": globalRedDot,
+        "display": display,
+        "red_dot": redDot,
+        "red_dot_for_new": redDotForNew,
       };
 }
 
@@ -418,25 +418,23 @@ class CommonOpItem {
   String? linkContainerColor;
 
   factory CommonOpItem.fromJson(Map<String, dynamic> json) => CommonOpItem(
-        title: json["title"] == null ? null : json["title"],
-        titleIcon: json["title_icon"] == null ? null : json["title_icon"],
-        linkType: json["link_type"] == null ? null : json["link_type"],
-        titleColor: json["title_color"] == null ? null : json["title_color"],
+        title: json["title"],
+        titleIcon: json["title_icon"],
+        linkType: json["link_type"],
+        titleColor: json["title_color"],
         backgroundColor:
-            json["background_color"] == null ? null : json["background_color"],
-        linkContainerColor: json["link_container_color"] == null
-            ? null
-            : json["link_container_color"],
+            json["background_color"],
+        linkContainerColor: json["link_container_color"],
       );
 
   Map<String, dynamic> toJson() => {
-        "title": title == null ? null : title,
-        "title_icon": titleIcon == null ? null : titleIcon,
-        "link_type": linkType == null ? null : linkType,
-        "title_color": titleColor == null ? null : titleColor,
-        "background_color": backgroundColor == null ? null : backgroundColor,
+        "title": title,
+        "title_icon": titleIcon,
+        "link_type": linkType,
+        "title_color": titleColor,
+        "background_color": backgroundColor,
         "link_container_color":
-            linkContainerColor == null ? null : linkContainerColor,
+            linkContainerColor,
       };
 }
 

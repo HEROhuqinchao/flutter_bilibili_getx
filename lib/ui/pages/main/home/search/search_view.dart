@@ -131,7 +131,7 @@ class _SearchScreenState extends State<SearchScreen>
               onChanged: (inputText) {
                 if (inputText.isNotEmpty) {
                   ///根据输入的关键词返回包含相关关键词
-                  HYSearchRequest.getSearchKeywordRecommendData(inputText).then(
+                  HYSearchRequest().getSearchKeywordRecommendData(inputText).then(
                     (value) {
                       ///若查询出结果
                       if (value.result != null) {

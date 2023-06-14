@@ -1,8 +1,6 @@
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -15,10 +13,11 @@ import 'scan_qr_logic.dart';
 class ScanQrView extends StatelessWidget {
   static String routeName = "/scan_qr";
 
+  final logic = Get.find<ScanQrLogic>();
+  final state = Get.find<ScanQrLogic>().state;
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<ScanQrLogic>();
-    final state = Get.find<ScanQrLogic>().state;
+
 
     return GetBuilder<ScanQrLogic>(builder: (logic) {
       return Scaffold(
@@ -55,7 +54,7 @@ class ScanQrView extends StatelessWidget {
                 ///扫描结果展示
                 onDetect: (capture) {
                   final List<Barcode> barcodes = capture.barcodes;
-                  final Uint8List? image = capture.image;
+                  // final Uint8List? image = capture.image;
                   for (final barcode in barcodes) {
                     debugPrint('Barcode found! ${barcode.rawValue}');
                   }

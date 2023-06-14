@@ -36,7 +36,7 @@ class LivePlayLogic extends GetxController {
   ///获取直播间的直播视频流flv
   void fetchLiveRoomVideoStream(int roomId) {
     state.roomId = roomId;
-    HYLiveRoomPlayRequest.getLiveRoomStreamData(state.roomId).then((value) {
+    HYLiveRoomPlayRequest().getLiveRoomStreamData(state.roomId).then((value) {
       state.playUrl = value.durl[0].url;
       print(state.playUrl);
       ///视频播放控件

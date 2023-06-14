@@ -70,7 +70,7 @@ class LiveLogic extends GetxController {
     ///加上sign字段
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
-    HYLiveRequest.getXliveAppInterfaceV2IndexFeedData(params).then((value) {
+    HYLiveRequest().getXliveAppInterfaceV2IndexFeedData(params).then((value) {
       liveState.cardList = value.data.cardList;
       liveState.isLoadingLiveData = false;
       update();

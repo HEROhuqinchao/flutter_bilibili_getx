@@ -1,4 +1,3 @@
-import 'package:bilibili_getx/ui/widgets/pop_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +6,7 @@ import '../shared/app_theme.dart';
 ///预发布界面的一行行按钮
 class BilibiliRowButton extends StatelessWidget {
   BilibiliRowButton(
-      {this.fillTypeWidget,
+      {super.key, this.fillTypeWidget,
       this.rightWidget,
       required this.title,
       required this.tabEvent});

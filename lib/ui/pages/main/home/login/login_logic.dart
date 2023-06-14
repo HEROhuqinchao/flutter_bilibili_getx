@@ -1,13 +1,12 @@
 import 'dart:convert';
 
 import 'package:bilibili_getx/ui/pages/main/home/home_view.dart';
-import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
-import 'package:bilibili_getx/ui/pages/main/main_view.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+
 import '../../../../../core/service/request/login_request.dart';
 import '../../../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../../../core/shared_preferences/shared_preference_util.dart';
@@ -152,7 +151,7 @@ class LoginLogic extends GetxController {
 
     ///表单格式提交数据(FormData为dio包里的）
     FormData data = FormData.fromMap(originalQuery);
-    HYLoginRequest.sendSMSMessage(data).then((value) {
+    HYLoginRequest().sendSMSMessage(data).then((value) {
       if (value.isEmpty) {
         SmartDialog.showToast("短信发送失败");
       } else {
@@ -164,7 +163,7 @@ class LoginLogic extends GetxController {
   ///短信验证码登录
   void messageVerifyLogin() {
     ///获取公钥key和盐值hash
-    HYLoginRequest.getPassportLogin().then((value) {
+    HYLoginRequest().getPassportLogin().then((value) {
       Map<String, dynamic> originalQuery = {
         'appkey': state.appKey,
         'bili_local_id':
@@ -210,7 +209,7 @@ class LoginLogic extends GetxController {
       FormData data = FormData.fromMap(originalQuery);
 
       ///短信验证码登录
-      HYLoginRequest.messageCodeLogin(data).then((value) {
+      HYLoginRequest().messageCodeLogin(data).then((value) {
         int code = jsonDecode(value)["code"];
         if (code == 0) {
           ///保存重要数据到本地
@@ -236,7 +235,7 @@ class LoginLogic extends GetxController {
 
   ///账号密码登录（目前还是会跳转到短信验证）
   void userNameAndPasswordLogin() {
-    HYLoginRequest.getPassportLogin().then((value) {
+    HYLoginRequest().getPassportLogin().then((value) {
       HYEncrypt.encryption(value.hashKeyData.hash + state.passwordText,
               value.hashKeyData.key)
           .then((rsaPassword) {
@@ -282,7 +281,7 @@ class LoginLogic extends GetxController {
         ///表单格式提交数据
         FormData data = FormData.fromMap(originalQuery);
 
-        HYLoginRequest.passwordLogin(data).then((value) {
+        HYLoginRequest().passwordLogin(data).then((value) {
           state.webViewUrl = jsonDecode(value)["data"]["url"];
         });
       });

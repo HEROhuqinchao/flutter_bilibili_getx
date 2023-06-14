@@ -261,7 +261,7 @@ class Banner {
         "av_id": avId,
         "is_ad": isAd,
         "ad_transparent_content": adTransparentContent == null
-            ? null
+            ? ""
             : adTransparentContent?.toJson(),
         "show_ad_icon": showAdIcon,
       };
@@ -631,7 +631,7 @@ class RoomListList {
       );
 
   Map<String, dynamic> toJson() => {
-        "head_box": headBox == null ? null : headBox?.toJson(),
+        "head_box": headBox == null ? "null" : headBox?.toJson(),
         "area_v2_id": areaV2Id,
         "area_v2_parent_id": areaV2ParentId,
         "area_v2_name": areaV2Name,

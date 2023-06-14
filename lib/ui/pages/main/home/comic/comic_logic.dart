@@ -64,7 +64,7 @@ class ComicLogic extends GetxController {
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
 
-    HYHomeRequest.fetchPageBangumiData(params).then((value) {
+    HYHomeRequest().fetchPageBangumiData(params).then((value) {
       if (value.code == 0) {
         for (final module in value.result!.modules!) {
           String? style = module!.style;

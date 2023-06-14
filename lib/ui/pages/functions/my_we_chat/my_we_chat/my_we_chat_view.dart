@@ -2,9 +2,7 @@ import 'dart:io';
 
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/we_chat_contacts/we_chat_contacts_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_explore/wechat_explore_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_main/wechat_main_logic.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_main/wechat_main_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/wechat_mine_logic.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/wechat_mine_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
@@ -13,17 +11,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../../../../core/model/wechat_login_model.dart';
+
 import 'my_we_chat_logic.dart';
 
 ///仿微信主页面
 class MyWeChatView extends StatelessWidget {
   static String routeName = "/my_wechat";
 
+  final logic = Get.find<MyWeChatLogic>();
+  final state = Get.find<MyWeChatLogic>().state;
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<MyWeChatLogic>();
-    final state = Get.find<MyWeChatLogic>().state;
+
     return WillPopScope(
       ///返回按钮退出界面
       onWillPop: () async {

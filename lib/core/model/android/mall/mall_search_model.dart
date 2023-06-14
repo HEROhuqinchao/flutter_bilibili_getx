@@ -129,6 +129,7 @@ class Vo {
   int tabLayout;
   String slogan;
   CategoryTabVo categoryTabVo;
+
   // Map<String, int> homeLayoutVo;
   dynamic pageTemplate;
   List<MarketingList> marketingList;
@@ -350,8 +351,8 @@ class EntryList {
         nightImgUrl: json["nightImgUrl"],
         jumpUrl: json["jumpUrl"],
         title: json["title"],
-        tips: json["tips"] == null ? null : json["tips"],
-        tipsType: json["tipsType"] == null ? null : json["tipsType"],
+        tips: json["tips"],
+        tipsType: json["tipsType"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -359,8 +360,8 @@ class EntryList {
         "nightImgUrl": nightImgUrl,
         "jumpUrl": jumpUrl,
         "title": title,
-        "tips": tips == null ? null : tips,
-        "tipsType": tipsType == null ? null : tipsType,
+        "tips": tips,
+        "tipsType": tipsType,
       };
 }
 
@@ -504,11 +505,19 @@ class ListElement {
         tagName: json["tagName"],
         title: json["title"] ?? "",
         templateId: json["templateId"],
-        imageUrls: json["imageUrls"] == null ? [] : List<String>.from(json["imageUrls"].map((x) => x)),
-        jumpUrls: json["jumpUrls"] == null ? null : List<String>.from(json["jumpUrls"].map((x) => x)),
+        imageUrls: json["imageUrls"] == null
+            ? []
+            : List<String>.from(json["imageUrls"].map((x) => x)),
+        jumpUrls: json["jumpUrls"] == null
+            ? null
+            : List<String>.from(json["jumpUrls"].map((x) => x)),
         jumpUrlForNa: json["jumpUrlForNa"],
-        price: json["price"] == null ? null : List<double>.from(json["price"].map((x) => x)),
-        priceDesc: json["priceDesc"] == null ? null : List<String>.from(json["priceDesc"].map((x) => x)),
+        price: json["price"] == null
+            ? null
+            : List<double>.from(json["price"].map((x) => x)),
+        priceDesc: json["priceDesc"] == null
+            ? null
+            : List<String>.from(json["priceDesc"].map((x) => x)),
         priceSymbol: json["priceSymbol"],
         hasWished: json["hasWished"],
         logData: json["logData"],
@@ -517,7 +526,9 @@ class ListElement {
         itemsId: json["itemsId"],
         itemType: json["itemType"],
         saleType: json["saleType"],
-        ugcList: json["ugcList"] == null ? null : List<dynamic>.from(json["ugcList"].map((x) => x)),
+        ugcList: json["ugcList"] == null
+            ? null
+            : List<dynamic>.from(json["ugcList"].map((x) => x)),
         tags: json["tags"] == null ? null : Tags.fromJson(json["tags"]),
         ugcSize: json["ugcSize"],
         like: json["like"],
@@ -528,20 +539,22 @@ class ListElement {
         brandId: json["brandId"],
         presaleDeliveryTimeStr: json["presaleDeliveryTimeStr"],
         itemsType: json["itemsType"],
-        subSkuList: json["subSkuList"] == null ? null : List<SubSkuList>.from(
-            json["subSkuList"].map((x) => SubSkuList.fromJson(x))),
+        subSkuList: json["subSkuList"] == null
+            ? null
+            : List<SubSkuList>.from(
+                json["subSkuList"].map((x) => SubSkuList.fromJson(x))),
         jumpLinkType: json["jumpLinkType"],
         hasWishedCount:
-            json["hasWishedCount"] == null ? null : json["hasWishedCount"],
+            json["hasWishedCount"],
         hasWishedDesc:
-            json["hasWishedDesc"] == null ? null : json["hasWishedDesc"],
+            json["hasWishedDesc"],
         canFav: json["canFav"],
         benefitInfos: json["benefitInfos"] == null
             ? null
             : List<BenefitInfo>.from(
                 json["benefitInfos"].map((x) => BenefitInfo.fromJson(x))),
         benefitLayout:
-            json["benefitLayout"] == null ? null : json["benefitLayout"],
+            json["benefitLayout"],
         advState: json["advState"] == null
             ? null
             : AdvState.fromJson(json["advState"]),
@@ -582,13 +595,13 @@ class ListElement {
         "itemsType": itemsType,
         "subSkuList": List<dynamic>.from(subSkuList!.map((x) => x.toJson())),
         "jumpLinkType": jumpLinkType,
-        "hasWishedCount": hasWishedCount == null ? null : hasWishedCount,
-        "hasWishedDesc": hasWishedDesc == null ? null : hasWishedDesc,
+        "hasWishedCount": hasWishedCount,
+        "hasWishedDesc": hasWishedDesc,
         "canFav": canFav,
         "benefitInfos": benefitInfos == null
             ? null
             : List<dynamic>.from(benefitInfos!.map((x) => x.toJson())),
-        "benefitLayout": benefitLayout ?? null,
+        "benefitLayout": benefitLayout,
         "advState": advState == null ? null : advState!.toJson(),
         "tagPrefix": tagPrefix == null
             ? null
@@ -784,30 +797,36 @@ class Tags {
   dynamic actionTags;
 
   factory Tags.fromJson(Map<String, dynamic> json) => Tags(
-        promotionTagNames:json["promotionTagNames"] ==null ? null :
-            List<dynamic>.from(json["promotionTagNames"].map((x) => x)),
-        marketingTagNames:
-        json["marketingTagNames"] == null ? null :List<String>.from(json["marketingTagNames"].map((x) => x)),
+        promotionTagNames: json["promotionTagNames"] == null
+            ? null
+            : List<dynamic>.from(json["promotionTagNames"].map((x) => x)),
+        marketingTagNames: json["marketingTagNames"] == null
+            ? null
+            : List<String>.from(json["marketingTagNames"].map((x) => x)),
         saleTypeTagNames: json["saleTypeTagNames"] == null
             ? null
             : List<String>.from(json["saleTypeTagNames"].map((x) => x)),
-        typeAndLimitTagName: json["typeAndLimitTagName"] == null
+        typeAndLimitTagName: json["typeAndLimitTagName"],
+        itemTagNames: json["itemTagNames"] == null
             ? null
-            : json["typeAndLimitTagName"],
-        itemTagNames: json["itemTagNames"] == null ? null : List<dynamic>.from(json["itemTagNames"].map((x) => x)),
-        recommendTagNames:
-        json["recommendTagNames"] == null ? null : List<String>.from(json["recommendTagNames"].map((x) => x)),
+            : List<dynamic>.from(json["itemTagNames"].map((x) => x)),
+        recommendTagNames: json["recommendTagNames"] == null
+            ? null
+            : List<String>.from(json["recommendTagNames"].map((x) => x)),
         feedBoardTag: json["feedBoardTag"],
         blindBoxHideTypeNames: json["blindBoxHideTypeNames"],
         blindBoxHasWishNames: json["blindBoxHasWishNames"],
         titleTagNames: json["titleTagNames"] == null
             ? null
             : List<String>.from(json["titleTagNames"].map((x) => x)),
-        tagsSort: json["tagsSort"] == null ? null : List<String>.from(json["tagsSort"].map((x) => x)),
+        tagsSort: json["tagsSort"] == null
+            ? null
+            : List<String>.from(json["tagsSort"].map((x) => x)),
         adTagNames: json["adTagNames"],
         godlikeTag: json["godlikeTag"],
-        attributeTagNames:json["attributeTagNames"] == null ? null :
-            List<String>.from(json["attributeTagNames"].map((x) => x)),
+        attributeTagNames: json["attributeTagNames"] == null
+            ? null
+            : List<String>.from(json["attributeTagNames"].map((x) => x)),
         exclusiveSalePoints: json["exclusiveSalePoints"] == null
             ? null
             : List<String>.from(json["exclusiveSalePoints"].map((x) => x)),
@@ -973,26 +992,26 @@ class SubIpTab {
   factory SubIpTab.fromJson(Map<String, dynamic> json) => SubIpTab(
         name: json["name"],
         jumpUrl: json["jumpUrl"],
-        jumpUrlH5: json["jumpUrlH5"] == null ? null : json["jumpUrlH5"],
+        jumpUrlH5: json["jumpUrlH5"],
         imageUrl: json["imageUrl"],
         nightImageUrl:
-            json["nightImageUrl"] == null ? null : json["nightImageUrl"],
+            json["nightImageUrl"],
         index: json["index"],
         type: json["type"],
         logo: json["logo"],
-        imgTag: json["imgTag"] == null ? null : json["imgTag"],
+        imgTag: json["imgTag"],
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
         "jumpUrl": jumpUrl,
-        "jumpUrlH5": jumpUrlH5 == null ? null : jumpUrlH5,
+        "jumpUrlH5": jumpUrlH5,
         "imageUrl": imageUrl,
-        "nightImageUrl": nightImageUrl == null ? null : nightImageUrl,
+        "nightImageUrl": nightImageUrl,
         "index": index,
         "type": type,
         "logo": logo,
-        "imgTag": imgTag == null ? null : imgTag,
+        "imgTag": imgTag,
       };
 }
 
@@ -1125,13 +1144,13 @@ class NewBlock {
         index: json["index"],
         type: json["type"],
         position: json["position"],
-        tagImg: json["tagImg"] ?? null,
+        tagImg: json["tagImg"],
         tags: json["tags"] == null
             ? null
             : List<String>.from(json["tags"].map((x) => x)),
         blockItemVOs: List<BlockItemVo>.from(
             json["blockItemVOs"].map((x) => BlockItemVo.fromJson(x))),
-        icon: json["icon"] == null ? null : json["icon"],
+        icon: json["icon"],
         activityEndTimestamp: json["activityEndTimestamp"],
         activityEndText: json["activityEndText"],
         inActivity: json["inActivity"],
@@ -1150,10 +1169,10 @@ class NewBlock {
         "index": index,
         "type": type,
         "position": position,
-        "tagImg": tagImg == null ? null : tagImg,
+        "tagImg": tagImg,
         "tags": tags == null ? null : List<dynamic>.from(tags!.map((x) => x)),
         "blockItemVOs": List<dynamic>.from(blockItemVOs.map((x) => x.toJson())),
-        "icon": icon == null ? null : icon,
+        "icon": icon,
         "activityEndTimestamp": activityEndTimestamp,
         "activityEndText": activityEndText,
         "inActivity": inActivity,
@@ -1184,11 +1203,11 @@ class BlockItemVo {
   });
 
   int? itemId;
-  String itemName;
+  String? itemName;
   String imageUrl;
   String? tag;
-  String jumpUrl;
-  bool isShowPrice;
+  String? jumpUrl;
+  bool? isShowPrice;
   String? priceSymbol;
   List<String>? priceDesc;
   dynamic priceSymbolImg;
@@ -1197,7 +1216,7 @@ class BlockItemVo {
   String? linePriceDesc;
 
   factory BlockItemVo.fromJson(Map<String, dynamic> json) => BlockItemVo(
-        itemId: json["itemId"] == null ? null : json["itemId"],
+        itemId: json["itemId"],
         itemName: json["itemName"],
         imageUrl: json["imageUrl"],
         tag: json["tag"],
@@ -1219,7 +1238,7 @@ class BlockItemVo {
       );
 
   Map<String, dynamic> toJson() => {
-        "itemId": itemId == null ? null : itemId,
+        "itemId": itemId,
         "itemName": itemName,
         "imageUrl": imageUrl,
         "tag": tag,

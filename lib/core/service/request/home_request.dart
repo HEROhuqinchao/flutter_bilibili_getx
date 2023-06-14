@@ -10,15 +10,19 @@ import '../utils/http_base_request.dart';
 class HYHomeRequest {
   // https://app.bilibili.com/x/resource/show/tab/v2?build=6720300&platform=android
   // https://app.bilibili.com/x/v2/feed/index
-  /**
-   * rid为分区编号，必填
-   * pn为页数
-   * ps为一页几项video数据
-   */
-  static Future<List<HYVideoModel>> getVideoData(
+  /// rid为分区编号，必填
+  /// pn为页数
+  /// ps为一页几项video数据
+  HYHomeRequest._internal();
+
+  static final HYHomeRequest _instance = HYHomeRequest._internal();
+
+  factory HYHomeRequest() => _instance;
+
+  Future<List<HYVideoModel>> getVideoData(
       int rid, int pn, int ps) async {
     final url = "/x/web-interface/dynamic/region?rid=$rid&pn=$pn&ps=$ps";
-    final result = await HttpBaseRequest.request("base", url);
+    final result = await HttpBaseRequest().request("base", url);
     final videoArray = result["data"]["archives"];
     List<HYVideoModel> videos = [];
     for (var json in videoArray) {
@@ -28,29 +32,31 @@ class HYHomeRequest {
   }
 
   ///首页视频（新接口）
-  static Future<HYFeedIndexModel> getFeedIndexData(params) async {
+  Future<HYFeedIndexModel> getFeedIndexData(params) async {
     String url = "/x/v2/feed/index?${ParamsSign.paramsSerialization(params)}";
-    final result = await HttpBaseRequest.request("app", url);
+    final result = await HttpBaseRequest().request("app", url);
     return HYFeedIndexModel.fromJson(result);
   }
 
-  static Future<SearchSquareModel> fetchSearchSquareData(params) async{
-    String path = "/x/v2/search/square?${ParamsSign.paramsSerialization(params)}";
-    final result = await HttpBaseRequest.request("app", path);
+  Future<SearchSquareModel> fetchSearchSquareData(params) async {
+    String path =
+        "/x/v2/search/square?${ParamsSign.paramsSerialization(params)}";
+    final result = await HttpBaseRequest().request("app", path);
     return SearchSquareModel.fromJson(result);
   }
 
   ///主页按钮（tab等）
-  static Future<XResourceShowTabV2Model> fetchXResourceShowTabV2Data(params) async{
-    String path = "/x/resource/show/tab/v2?${ParamsSign.paramsSerialization(params)}";
-    final result = await HttpBaseRequest.request("app", path);
+  Future<XResourceShowTabV2Model> fetchXResourceShowTabV2Data(params) async {
+    String path =
+        "/x/resource/show/tab/v2?${ParamsSign.paramsSerialization(params)}";
+    final result = await HttpBaseRequest().request("app", path);
     return XResourceShowTabV2Model.fromJson(result);
   }
 
   ///获取动画数据
-  static Future<PgcPageBangumiModel> fetchPageBangumiData(params) async{
+  Future<PgcPageBangumiModel> fetchPageBangumiData(params) async {
     String path = "/pgc/page/bangumi?${ParamsSign.paramsSerialization(params)}";
-    final result = await HttpBaseRequest.request("base", path);
+    final result = await HttpBaseRequest().request("base", path);
     return PgcPageBangumiModel.fromJson(result);
   }
 }
