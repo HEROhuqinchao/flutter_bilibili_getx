@@ -4,19 +4,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 ///持久化存储数据
 class SharedPreferenceUtil {
-  ///单例模式，只能创建唯一的一个实例
-  SharedPreferenceUtil._internal();
-
-  factory SharedPreferenceUtil() => _instance;
-  static late final SharedPreferenceUtil _instance =
-      SharedPreferenceUtil._internal();
-
   static late SharedPreferences _preferences;
 
-  ///对外抛出的调用的方法
-  static Future<SharedPreferenceUtil> getInstance() async {
+  ///初始化SharedPreference
+  static void initSharedPreference() async {
     _preferences = await SharedPreferences.getInstance();
-    return _instance;
   }
 
   /// 根据key存储int类型

@@ -48,6 +48,7 @@
 |CameraX|[实现拍照和录像](https://blog.csdn.net/sheng_er_sheng/article/details/130923458)||
 |Kotlin|[资料](https://book.kotlincn.net/text/basic-syntax.html)[个人更新csdn](https://blog.csdn.net/sheng_er_sheng/article/details/130940725)|一星期拿下|
 |Android Service|[Service学习记录更新博客](https://blog.csdn.net/sheng_er_sheng/article/details/130999373)||
+|设计模式|单例模式、工厂模式|[设计模式更新](https://blog.csdn.net/sheng_er_sheng/article/details/131181391)|
 
 sqlite 第三方软件打开
 

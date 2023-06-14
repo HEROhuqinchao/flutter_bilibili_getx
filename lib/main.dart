@@ -34,12 +34,12 @@ void main() async {
     ///网页端目前403，无法运行
     ///屏幕适配初始化&持久化存储初始化（运行web端请运行cors目录下的cors.dart）
     ScreenUtil.ensureScreenSize();
-    SharedPreferenceUtil.getInstance();
+    SharedPreferenceUtil.initSharedPreference();
     PackageInfoUtil.getInstance();
     // initialization();
   } else {
     await ScreenUtil.ensureScreenSize();
-    await SharedPreferenceUtil.getInstance();
+    SharedPreferenceUtil.initSharedPreference();
     await PackageInfoUtil.getInstance();
     // await WorkManagerUtil.initialize();
     await initialization();
