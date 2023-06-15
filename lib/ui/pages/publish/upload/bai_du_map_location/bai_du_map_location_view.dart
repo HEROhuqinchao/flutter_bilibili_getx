@@ -87,7 +87,7 @@ class BaiDuMapLocationScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               width: 15.sp,
               height: 15.sp,
               child: Image.asset(ImageAssets.searchCustomPNG),

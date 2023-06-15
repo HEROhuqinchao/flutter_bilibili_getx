@@ -212,7 +212,7 @@ class Range {
 
   Map<String, dynamic> toJson() => {
         "avgPlay": avgPlay,
-        "date": date == null ? null : date?.toIso8601String(),
+        "date": date == null ? "null" : date?.toIso8601String(),
         "key": key,
         "percent": percent,
       };

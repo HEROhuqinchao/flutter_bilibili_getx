@@ -25,6 +25,8 @@ import '../../ui/pages/bilibili_test/bilibili_test_binding.dart';
 import '../../ui/pages/bilibili_test/bilibili_test_view.dart';
 import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/functions/animation_compoent/animation_compoent_binding.dart';
+import '../../ui/pages/functions/animation_study/animation_study_binding.dart';
+import '../../ui/pages/functions/animation_study/animation_study_view.dart';
 import '../../ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_binding.dart';
 import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_binding.dart';
 import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
@@ -33,10 +35,22 @@ import '../../ui/pages/functions/download_file/download_file_view.dart';
 import '../../ui/pages/functions/flutter_android/flutter_android_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_binding.dart';
 import '../../ui/pages/functions/mini_window/mini_window_view.dart';
+import '../../ui/pages/functions/my_we_chat/chat_room/chat_room_binding.dart';
+import '../../ui/pages/functions/my_we_chat/chat_room/chat_room_view.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_binding.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_view.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/we_chat_setting/we_chat_setting_binding.dart';
+import '../../ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/we_chat_setting/we_chat_setting_view.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_login/wechat_login_binding.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_login/wechat_login_view.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_register/wechat_register_binding.dart';
+import '../../ui/pages/functions/my_we_chat/wechat_register/wechat_register_view.dart';
 import '../../ui/pages/functions/push_message/push_message_binding.dart';
 import '../../ui/pages/functions/push_message/push_message_view.dart';
 import '../../ui/pages/functions/qq_share/qq_share_binding.dart';
 import '../../ui/pages/functions/qq_share/qq_share_view.dart';
+import '../../ui/pages/functions/scan_qr/scan_qr_binding.dart';
+import '../../ui/pages/functions/scan_qr/scan_qr_view.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_binding.dart';
 import '../../ui/pages/functions/statistics_chart/statistics_chart_view.dart';
 import '../../ui/pages/functions/video_player_example/video_player_example_binding.dart';
@@ -247,5 +261,53 @@ class AsRouter {
         name: FlutterAndroidView.routeName,
         page: () => FlutterAndroidView(),
         binding: FlutterAndroidBinding()),
+
+    ///扫描二维码
+    GetPage(
+        name: ScanQrView.routeName,
+        page: () => ScanQrView(),
+        binding: ScanQrBinding()),
+
+    ///动画
+    GetPage(
+      name: AnimationStudyView.routeName,
+      page: () => AnimationStudyView(),
+      binding: AnimationStudyBinding(),
+    ),
+
+    ///myWechat
+    GetPage(
+      name: MyWeChatView.routeName,
+      page: () => MyWeChatView(),
+      binding: MyWeChatBinding(),
+    ),
+
+    ///chatRoom
+    GetPage(
+      name: ChatRoomView.routeName,
+      page: () => ChatRoomView(),
+      binding: ChatRoomBinding(),
+    ),
+
+    ///仿微信登录界面
+    GetPage(
+      name: WechatLoginView.routeName,
+      page: () => WechatLoginView(),
+      binding: WechatLoginBinding(),
+    ),
+
+    ///仿微信注册界面
+    GetPage(
+      name: WechatRegisterView.routeName,
+      page: () => WechatRegisterView(),
+      binding: WechatRegisterBinding(),
+    ),
+
+    ///微信设置界面
+    GetPage(
+      name: WeChatSettingView.routeName,
+      page: () => WeChatSettingView(),
+      binding: MyWeChatSettingBinding(),
+    ),
   ];
 }

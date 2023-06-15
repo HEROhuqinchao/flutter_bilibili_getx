@@ -38,7 +38,7 @@ dependencies:
   permission_handler: ^8.3.0 #权限获取
   flutter_screenutil: ^5.5.3+2 #屏幕适配
   shared_preferences: ^2.0.15 #共享存储
-  flutter_smart_dialog: ^4.5.4+2 #弹框
+  flutter_smart_dialog: ^4.9.0+6 #弹框
   dio: ^4.0.6 #网络请求
   protobuf: ^2.1.0 #proto
   encrypt: ^5.0.1 #加密
@@ -66,7 +66,7 @@ dependencies:
   flutter_baidu_mapapi_base: ^3.2.0 #百度地图
   jpush_flutter: ^2.4.0 #极光推送
   #  open_file: ^3.2.1 #打开文件
-  flutter_downloader: ^1.8.4 #下载文件(dio的download没有暂停功能...)
+  flutter_downloader: ^1.10.4 #下载文件(dio的download没有暂停功能...)
   #  just_audio: ^0.9.29 #音频
   url_launcher: ^6.1.6 #打开链接
   open_file_plus: ^3.3.0 #打开文件
@@ -83,7 +83,7 @@ dependencies:
   flutter_blue: ^0.8.0 #蓝牙
   qr_flutter: ^4.0.0 #生成二维码
   qrscan: ^0.3.3 #扫描二维码,也可以生成二维码
-  mobile_scanner: ^2.1.0 #扫描二维码（效果比qrScan好一些）
+  mobile_scanner: ^3.2.0 #扫描二维码（效果比qrScan好一些）
   flutter_floating: ^1.0.1 #浮动窗口
   desktop_window: ^0.4.0 #桌面应用大小
   flutter_svg: ^1.1.6 #svg
@@ -94,6 +94,11 @@ dependencies:
   image: ^4.0.15 #处理图片
   animations: ^2.0.7 #动画转场
   image_picker: ^0.8.6+3 #图片选择
+  sqflite: ^2.2.6 #sqlite数据库
+  path: any
+  web_socket_channel: ^2.3.0 #websocket
+  light_compressor: ^2.0.1 #压缩视频文件
+  flutter_image_compress: ^1.1.3 #压缩图片
 
 dev_dependencies:
   flutter_test:
@@ -131,6 +136,8 @@ flutter:
     - assets/rive/
     - assets/lottie/
     - assets/svg/
+    - assets/emoji/
+    - assets/image/wechat/
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

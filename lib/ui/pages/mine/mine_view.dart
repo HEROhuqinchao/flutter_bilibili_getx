@@ -596,10 +596,11 @@ class MineScreen extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-                color: HYAppTheme.norTextColors,
-                fontSize: 14.sp,
-                fontWeight: FontWeight.normal,
-                fontFamily: 'bilibiliFonts'),
+              color: HYAppTheme.norTextColors,
+              fontSize: 14.sp,
+              fontWeight: FontWeight.normal,
+              fontFamily: 'bilibiliFonts',
+            ),
           ),
           button
         ],

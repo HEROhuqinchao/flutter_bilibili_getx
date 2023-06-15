@@ -11,19 +11,19 @@ import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 
 public class MyFlutterViewFactory extends PlatformViewFactory {
+    public MyFlutterView myFlutterView;
 
-    public  FlutterView flutterView;
-    private MethodChannel myMethodChannel;
-
-    public MyFlutterViewFactory(@Nullable MessageCodec<Object> createArgsCodec, MethodChannel methodChannel) {
+    /**
+     * @param createArgsCodec the codec used to decode the args parameter of {@link #create}.
+     */
+    public MyFlutterViewFactory(@Nullable MessageCodec<Object> createArgsCodec) {
         super(createArgsCodec);
-        myMethodChannel = methodChannel;
     }
 
     @NonNull
     @Override
     public PlatformView create(Context context, int viewId, @Nullable Object args) {
-        flutterView = new FlutterView(context);
-        return flutterView;
+        myFlutterView = new MyFlutterView(context);
+        return myFlutterView;
     }
 }

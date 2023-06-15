@@ -83,16 +83,16 @@ class Data {
     trackid: json["trackid"],
     list: List<ListElement>.from(json["list"].map((x) => ListElement.fromJson(x))),
     expStr: json["exp_str"],
-    title: json["title"] == null ? null : json["title"],
-    pages: json["pages"] == null ? null : json["pages"],
+    title: json["title"],
+    pages: json["pages"],
   );
 
   Map<String, dynamic> toJson() => {
     "trackid": trackid,
     "list": List<dynamic>.from(list!.map((x) => x.toJson())),
     "exp_str": expStr,
-    "title": title == null ? null : title,
-    "pages": pages == null ? null : pages,
+    "title": title,
+    "pages": pages,
   };
 }
 
@@ -132,39 +132,39 @@ class ListElement {
   int? moreSearchType;
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
-    keyword: json["keyword"] == null ? null : json["keyword"],
-    status: json["status"] == null ? null : json["status"],
-    nameType: json["name_type"] == null ? null : json["name_type"],
-    showName: json["show_name"] == null ? null : json["show_name"],
-    wordType: json["word_type"] == null ? null : json["word_type"],
-    icon: json["icon"] == null ? null : json["icon"],
+    keyword: json["keyword"],
+    status: json["status"],
+    nameType: json["name_type"],
+    showName: json["show_name"],
+    wordType: json["word_type"],
+    icon: json["icon"],
     position: json["position"],
-    moduleId: json["module_id"] == null ? null : json["module_id"],
-    hotId: json["hot_id"] == null ? null : json["hot_id"],
-    title: json["title"] == null ? null : json["title"],
-    param: json["param"] == null ? null : json["param"],
-    type: json["type"] == null ? null : json["type"],
+    moduleId: json["module_id"],
+    hotId: json["hot_id"],
+    title: json["title"],
+    param: json["param"],
+    type: json["type"],
     id: json["id"] == null ? null : json["id"].toDouble(),
-    pubTime: json["pub_time"] == null ? null : json["pub_time"],
-    moreSearchType: json["more_search_type"] == null ? null : json["more_search_type"],
+    pubTime: json["pub_time"],
+    moreSearchType: json["more_search_type"],
   );
 
   Map<String, dynamic> toJson() => {
-    "keyword": keyword == null ? null : keyword,
-    "status": status == null ? null : status,
-    "name_type": nameType == null ? null : nameType,
-    "show_name": showName == null ? null : showName,
-    "word_type": wordType == null ? null : wordType,
-    "icon": icon == null ? null : icon,
+    "keyword": keyword,
+    "status": status,
+    "name_type": nameType,
+    "show_name": showName,
+    "word_type": wordType,
+    "icon": icon,
     "position": position,
-    "module_id": moduleId == null ? null : moduleId,
-    "hot_id": hotId == null ? null : hotId,
-    "title": title == null ? null : title,
-    "param": param == null ? null : param,
-    "type": type == null ? null : type,
-    "id": id == null ? null : id,
-    "pub_time": pubTime == null ? null : pubTime,
-    "more_search_type": moreSearchType == null ? null : moreSearchType,
+    "module_id": moduleId,
+    "hot_id": hotId,
+    "title": title,
+    "param": param,
+    "type": type,
+    "id": id,
+    "pub_time": pubTime,
+    "more_search_type": moreSearchType,
   };
 }
 

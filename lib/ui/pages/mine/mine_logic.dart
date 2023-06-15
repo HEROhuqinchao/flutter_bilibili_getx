@@ -1,4 +1,3 @@
-import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:get/get.dart';
 
 import '../../../core/model/account_mine.dart';
@@ -69,7 +68,7 @@ class MineLogic extends GetxController {
     ///加上sign字段
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
-    HYLoginRequest.getAccountMineData(params).then((value) {
+    HYLoginRequest().getAccountMineData(params).then((value) {
       state.accountMineData = value;
       state.finishLoading = true;
       update();

@@ -72,7 +72,7 @@ class VideoPlayLogic extends GetxController {
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
 
-    HYVideoRequest.getVideoView(params).then((value) {
+    HYVideoRequest().getVideoView(params).then((value) {
       state.videoProfile = value.data;
       state.isLoadingVideoProfile = false;
       update();
@@ -81,7 +81,7 @@ class VideoPlayLogic extends GetxController {
 
   ///获取视频回复的评论
   void fetchVideoReply() {
-    HYVideoRequest.getVideoReply(state.aid, 1, 1).then((value) {
+    HYVideoRequest().getVideoReply(state.aid, 1, 1).then((value) {
       state.videoReply = value;
       state.allReplies.addAll(value.replies);
       state.isLoadingVideoReply = false;
@@ -152,7 +152,7 @@ class VideoPlayLogic extends GetxController {
   @pragma('vm:entry-point')
   static void downloadCallback(taskId, status, progress) {
     final SendPort? send =
-    IsolateNameServer.lookupPortByName('downloader_send_port');
+        IsolateNameServer.lookupPortByName('downloader_send_port');
     send?.send([taskId, status, progress]);
   }
 }

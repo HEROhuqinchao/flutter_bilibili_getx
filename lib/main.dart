@@ -1,16 +1,12 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:bilibili_getx/core/package_info/package_info_util.dart';
 import 'package:bilibili_getx/core/router/router.dart';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:bilibili_getx/core/sqlite/sqlite_util.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
-import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/download_file/download_file_view.dart';
-import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
-import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
@@ -20,10 +16,10 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+
 import 'core/I18n/string_res.dart';
 import 'core/shared_preferences/bilibili_shared_preference.dart';
 import 'core/shared_preferences/shared_preference_util.dart';
-import 'dart:ui' as ui;
 
 Size defaultSize = const Size(360, 690);
 Size androidScreenSize = const Size(360, 690);
@@ -37,12 +33,12 @@ void main() async {
     ///网页端目前403，无法运行
     ///屏幕适配初始化&持久化存储初始化（运行web端请运行cors目录下的cors.dart）
     ScreenUtil.ensureScreenSize();
-    SharedPreferenceUtil.getInstance();
+    SharedPreferenceUtil.initSharedPreference();
     PackageInfoUtil.getInstance();
     // initialization();
   } else {
     await ScreenUtil.ensureScreenSize();
-    await SharedPreferenceUtil.getInstance();
+    SharedPreferenceUtil.initSharedPreference();
     await PackageInfoUtil.getInstance();
     // await WorkManagerUtil.initialize();
     await initialization();
@@ -83,7 +79,8 @@ Future<void> initialization() async {
       ///监听微信回调结果
       WxUtil.wxDebugResult();
 
-
+      ///初始化数据库
+      await SqliteUtil.getInstance();
     } else if (Platform.isWindows) {
       initWindowsSize();
     } else if (Platform.isIOS) {}
@@ -141,6 +138,11 @@ class MyApp extends StatelessWidget {
           // initialRoute: WxShareView.routeName,
           // initialRoute: DynamicCircleScreen.routeName,
           initialRoute: MainView.routeName,
+          // initialRoute: PushMessageScreen.routeName,
+          // initialRoute: MyWeChatView.routeName,
+          // initialRoute: CanvasPaintStudyView.routeName,
+          // initialRoute: FlutterAndroidView.routeName,
+          // initialRoute: ScanQrView.routeName,
           // initialRoute: MiniWindowView.routeName,
           // initialRoute: DownloadFileView.routeName,
 

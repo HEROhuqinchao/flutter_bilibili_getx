@@ -7,7 +7,7 @@ import 'package:shelf_proxy/shelf_proxy.dart';
 import '../service/utils/constant.dart';
 
 ///前端页面访问本地域名
-const String LocalHost = '127.0.0.1';
+const String localHost = '127.0.0.1';
 
 //前端页面访问本地端口号
 const int localPort02 = 8002;
@@ -23,7 +23,7 @@ const int localPort09 = 8009;
 Future main() async {
   var server01 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["live"]!),
-    LocalHost,
+    localHost,
     localPort01,
   );
   server01.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
@@ -31,7 +31,7 @@ Future main() async {
 
   var server02 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["base"]!),
-    LocalHost,
+    localHost,
     localPort02,
   );
   server02.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
@@ -39,7 +39,7 @@ Future main() async {
 
   var server03 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["video"]!),
-    LocalHost,
+    localHost,
     localPort03,
   );
   server03.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
@@ -47,7 +47,7 @@ Future main() async {
 
   var server04 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["login"]!),
-    LocalHost,
+    localHost,
     localPort04,
   );
   server04.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
@@ -55,7 +55,7 @@ Future main() async {
 
   var server05 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["mall"]!),
-    LocalHost,
+    localHost,
     localPort05,
   );
   server05.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
@@ -63,7 +63,7 @@ Future main() async {
 
   var server06 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["search"]!),
-    LocalHost,
+    localHost,
     localPort06,
   );
   server06.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
@@ -71,7 +71,7 @@ Future main() async {
 
   var server07 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["app"]!),
-    LocalHost,
+    localHost,
     localPort07,
   );
   server07.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
@@ -79,36 +79,36 @@ Future main() async {
 
   var server08 = await shelf_io.serve(
     proxyHandler(Constant.urlMap["mall-web"]!),
-    LocalHost,
+    localHost,
     localPort08,
   );
   server08.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server08.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
-  var server09 = await shelf_io.serve(
-    proxyHandler(Constant.urlMap["covid"]!),
-    LocalHost,
-    localPort09,
-  );
+  // var server09 = await shelf_io.serve(
+  //   proxyHandler(Constant.urlMap["covid"]!),
+  //   localHost,
+  //   localPort09,
+  // );
   server08.defaultResponseHeaders.add('Access-Control-Allow-Origin', '*');
   server08.defaultResponseHeaders.add('Access-Control-Allow-Credentials', true);
 
-  print(
-      '${Constant.urlMap["live"]} -> live Serving at http://${server01.address.host}:${server01.port}');
-  print(
-      '${Constant.urlMap["base"]} -> base Serving at http://${server02.address.host}:${server02.port}');
-  print(
-      '${Constant.urlMap["video"]} -> video Serving at http://${server03.address.host}:${server03.port}');
-  print(
-      '${Constant.urlMap["login"]} -> login Serving at http://${server04.address.host}:${server04.port}');
-  print(
-      '${Constant.urlMap["mall"]} -> mall Serving at http://${server05.address.host}:${server05.port}');
-  print(
-      '${Constant.urlMap["search"]} -> search Serving at http://${server06.address.host}:${server06.port}');
-  print(
-      '${Constant.urlMap["app"]} -> app Serving at http://${server07.address.host}:${server07.port}');
-  print(
-      '${Constant.urlMap["mall-web"]} -> mall-web Serving at http://${server08.address.host}:${server08.port}');
-  print(
-      '${Constant.urlMap["covid"]} -> covid Serving at http://${server09.address.host}:${server09.port}');
+  // print(
+  //     '${Constant.urlMap["live"]} -> live Serving at http://${server01.address.host}:${server01.port}');
+  // print(
+  //     '${Constant.urlMap["base"]} -> base Serving at http://${server02.address.host}:${server02.port}');
+  // print(
+  //     '${Constant.urlMap["video"]} -> video Serving at http://${server03.address.host}:${server03.port}');
+  // print(
+  //     '${Constant.urlMap["login"]} -> login Serving at http://${server04.address.host}:${server04.port}');
+  // print(
+  //     '${Constant.urlMap["mall"]} -> mall Serving at http://${server05.address.host}:${server05.port}');
+  // print(
+  //     '${Constant.urlMap["search"]} -> search Serving at http://${server06.address.host}:${server06.port}');
+  // print(
+  //     '${Constant.urlMap["app"]} -> app Serving at http://${server07.address.host}:${server07.port}');
+  // print(
+  //     '${Constant.urlMap["mall-web"]} -> mall-web Serving at http://${server08.address.host}:${server08.port}');
+  // print(
+  //     '${Constant.urlMap["covid"]} -> covid Serving at http://${server09.address.host}:${server09.port}');
 }

@@ -125,6 +125,7 @@ class _BilibiliVideoPlayerComponentState
 
   Widget buildBilibiliVideoProgressBar(context) {
     return GestureDetector(
+      ///拖动
       onHorizontalDragStart: (DragStartDetails details) {
         logic.videoPlayProgressOnHorizontalDragStart();
       },
@@ -135,6 +136,7 @@ class _BilibiliVideoPlayerComponentState
       onHorizontalDragEnd: (DragEndDetails details) {
         logic.videoPlayProgressOnHorizontalDragEnd();
       },
+      ///点击
       onTapDown: (TapDownDetails details) {
         logic.videoPlayProgressOnTapDown(context, details.globalPosition);
       },

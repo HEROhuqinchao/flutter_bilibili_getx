@@ -10,19 +10,16 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
-import '../../../../core/model/account_mine.dart';
 import '../../../../core/service/request/home_request.dart';
 import '../../../../core/service/request/login_request.dart';
 import '../../../../core/service/utils/constant.dart';
 import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../../core/shared_preferences/shared_preference_util.dart';
 import '../../../shared/app_theme.dart';
-import '../../../shared/global_key_util.dart';
 import '../../../shared/image_asset.dart';
 import '../../../shared/params_sign.dart';
 import '../../../widgets/bilibili_scroll.dart';
 import 'home_state.dart';
-import 'home_view.dart';
 
 class HomeLogic extends GetxController {
   final HomeState state = HomeState();
@@ -67,7 +64,7 @@ class HomeLogic extends GetxController {
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
 
-    HYHomeRequest.fetchXResourceShowTabV2Data(params).then((value) {
+    HYHomeRequest().fetchXResourceShowTabV2Data(params).then((value) {
       if (value.code == 0) {
         update();
       }
@@ -92,7 +89,7 @@ class HomeLogic extends GetxController {
           '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%227.11.0%22%2C%22abtest%22%3A%22%22%7D',
       'ts': '1672272837',
     };
-    HYHomeRequest.fetchSearchSquareData(params).then((value) {
+    HYHomeRequest().fetchSearchSquareData(params).then((value) {
       if (value.code == 0) {
         state.firstSearchKey = value.data!.last.data!.list!.first.title!;
         update();
@@ -375,7 +372,7 @@ class HomeLogic extends GetxController {
     ///加上sign字段
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
-    HYLoginRequest.getAccountMineData(params).then((value) {
+    HYLoginRequest().getAccountMineData(params).then((value) {
       state.userLogo = value.data.face;
       update();
     });

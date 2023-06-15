@@ -2,7 +2,6 @@
 //
 //     final hyVideoReplyModel = hyVideoReplyModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 HYVideoReplyModel hyVideoReplyModelFromJson(String str) =>
@@ -514,7 +513,7 @@ class EmoteValue {
         meta: Meta.fromJson(json["meta"]),
         mtime: json["mtime"],
         jumpTitle: json["jump_title"],
-        gifUrl: json["gif_url"] == null ? null : json["gif_url"],
+        gifUrl: json["gif_url"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -528,7 +527,7 @@ class EmoteValue {
         "meta": meta.toJson(),
         "mtime": mtime,
         "jump_title": jumpTitle,
-        "gif_url": gifUrl == null ? null : gifUrl,
+        "gif_url": gifUrl,
       };
 }
 
@@ -817,8 +816,8 @@ class UserSailing {
       );
 
   Map<String, dynamic> toJson() => {
-        "pendant": pendant == null ? null : pendant?.toJson(),
-        "cardbg": cardbg == null ? null : cardbg?.toJson(),
+        "pendant": pendant == null ? "null" : pendant?.toJson(),
+        "cardbg": cardbg == null ? "null" : cardbg?.toJson(),
         "cardbg_with_focus": cardbgWithFocus,
       };
 }
@@ -1351,20 +1350,16 @@ class UpperReplyControl {
 
   factory UpperReplyControl.fromJson(Map<String, dynamic> json) =>
       UpperReplyControl(
-        subReplyEntryText: json["sub_reply_entry_text"] == null
-            ? null
-            : json["sub_reply_entry_text"],
-        subReplyTitleText: json["sub_reply_title_text"] == null
-            ? null
-            : json["sub_reply_title_text"],
+        subReplyEntryText: json["sub_reply_entry_text"],
+        subReplyTitleText: json["sub_reply_title_text"],
         timeDesc: json["time_desc"],
       );
 
   Map<String, dynamic> toJson() => {
         "sub_reply_entry_text":
-            subReplyEntryText == null ? null : subReplyEntryText,
+            subReplyEntryText,
         "sub_reply_title_text":
-            subReplyTitleText == null ? null : subReplyTitleText,
+            subReplyTitleText,
         "time_desc": timeDesc,
       };
 }

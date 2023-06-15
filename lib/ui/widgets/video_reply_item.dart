@@ -372,7 +372,7 @@ class _VideoReplyItemState extends State<VideoReplyItem> with AutomaticKeepAlive
                   haveHead = false;
                 }
               }
-              var spans;
+              TextSpan spans;
               if (spanList.isEmpty) {
                 ///没有使用表情
                 spans = TextSpan(

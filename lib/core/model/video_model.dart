@@ -5,7 +5,6 @@
 import 'dart:convert';
 
 import '../../ui/shared/math_compute.dart';
-import '../service/request/video_play_request.dart';
 
 HYVideoModel hyVideoModelFromJson(String str) =>
     HYVideoModel.fromJson(json.decode(str));

@@ -18,6 +18,7 @@ class Constant {
     "mall": "https://mall.bilibili.com",
     "mall-web": "https://show.bilibili.com",
     "covid": "https://api.vvhan.com/",
+    "wechat": "http://192.168.43.50:3000"
   };
 
   ///网页端设置代理,处理跨域问题
@@ -43,7 +44,7 @@ class Constant {
   static const String appSec = '560c52ccd288fed045859ed18bffd973';
 
   ///极光推送AppKey
-  static const String jPushAppKey = "70eddda66db85cc65c0ba7f2";
+  static const String jPushAppKey = '7d6d63fa06959ac31ff30914';
 
   ///下载地址（存储视频）
   static const String downloadPath = "";
@@ -74,4 +75,6 @@ class Constant {
     const Color.fromRGBO(122, 134, 150, .5),
     const Color.fromRGBO(122, 134, 150, .5),
   ];
+
+
 }

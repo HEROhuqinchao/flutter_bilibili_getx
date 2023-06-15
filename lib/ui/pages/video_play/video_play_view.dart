@@ -360,19 +360,17 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 width: 20.sp,
                 height: 20.sp,
                 child: Image.asset(ImageAssets.replayPNG),
               ),
               5.horizontalSpace,
-              Container(
-                child: Text(
-                  "重播",
-                  style: TextStyle(
-                    color: HYAppTheme.norWhite01Color,
-                    fontSize: 16.sp,
-                  ),
+              Text(
+                "重播",
+                style: TextStyle(
+                  color: HYAppTheme.norWhite01Color,
+                  fontSize: 16.sp,
                 ),
               ),
               10.horizontalSpace,

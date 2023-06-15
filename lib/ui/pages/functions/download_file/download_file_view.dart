@@ -1,12 +1,11 @@
 import 'package:bilibili_getx/core/package_info/package_info_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-
-import 'download_file_logic.dart';
 
 class DownloadFileView extends StatefulWidget {
   static const String routeName = "/download_file";
+
+  const DownloadFileView({super.key});
 
   @override
   State<DownloadFileView> createState() => _DownloadFileViewState();
@@ -15,12 +14,12 @@ class DownloadFileView extends StatefulWidget {
 class _DownloadFileViewState extends State<DownloadFileView> {
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<DownloadFileLogic>();
-    final state = Get.find<DownloadFileLogic>().state;
+    // final logic = Get.find<DownloadFileLogic>();
+    // final state = Get.find<DownloadFileLogic>().state;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("下载文件"),
+        title: const Text("下载文件"),
       ),
       body: SingleChildScrollView(
         child: Container(

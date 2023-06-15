@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:bilibili_getx/core/system/system_preferred_orientations/system_preferred_orientations_util.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import '../../../core/permission/bilibili_permission.dart';
+
 import '../../../core/system/system_ui_overlay_style/system_ui_overlay_style_util.dart';
 import 'main_state.dart';
 
@@ -13,11 +10,11 @@ class MainLogic extends GetxController {
   @override
   void onInit() {
     ///手机端获取权限
-    if (!kIsWeb) {
-      if (Platform.isAndroid) {
-        BilibiliPermission.requestAllPermissions();
-      }
-    }
+    // if (!kIsWeb) {
+    //   if (Platform.isAndroid) {
+    //     BilibiliPermission.requestAllPermissions();
+    //   }
+    // }
     SystemPreferredOrientationsUtil.setVertical();
     SystemUiOverlayStyleUtil.setWhiteSystemUiOverlayStyle();
     super.onInit();

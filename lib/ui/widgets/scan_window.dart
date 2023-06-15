@@ -121,7 +121,7 @@ class ScannerOverlay extends CustomPainter {
     );
     final cornerPaint = Paint()
       ..strokeWidth = 5
-      ..color = cornerColor ?? Colors.blue
+      ..color = cornerColor
       ..style = PaintingStyle.stroke;
     canvas.drawPath(backgroundWithCutout, backgroundPaint);
     canvas.translate(center.dx, center.dy);

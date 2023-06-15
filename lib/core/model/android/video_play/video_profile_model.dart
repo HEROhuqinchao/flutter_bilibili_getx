@@ -2,7 +2,6 @@
 //
 //     final videoProfileModel = videoProfileModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 VideoProfileModel videoProfileModelFromJson(String str) =>
@@ -433,18 +432,18 @@ class Reason {
 
   factory Reason.fromJson(Map<String, dynamic> json) => Reason(
         id: json["id"],
-        mid: json["mid"] == null ? null : json["mid"],
+        mid: json["mid"],
         name: json["name"],
-        tagId: json["tag_id"] == null ? null : json["tag_id"],
-        rid: json["rid"] == null ? null : json["rid"],
+        tagId: json["tag_id"],
+        rid: json["rid"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "mid": mid == null ? null : mid,
+        "mid": mid,
         "name": name,
-        "tag_id": tagId == null ? null : tagId,
-        "rid": rid == null ? null : rid,
+        "tag_id": tagId,
+        "rid": rid,
       };
 }
 
@@ -539,16 +538,16 @@ class ElecList {
         title: json["title"],
         elecNum: json["elec_num"],
         isCustomize: json["is_customize"],
-        minElec: json["min_elec"] == null ? null : json["min_elec"],
-        maxElec: json["max_elec"] == null ? null : json["max_elec"],
+        minElec: json["min_elec"],
+        maxElec: json["max_elec"],
       );
 
   Map<String, dynamic> toJson() => {
         "title": title,
         "elec_num": elecNum,
         "is_customize": isCustomize,
-        "min_elec": minElec == null ? null : minElec,
-        "max_elec": maxElec == null ? null : maxElec,
+        "min_elec": minElec,
+        "max_elec": maxElec,
       };
 }
 
@@ -994,22 +993,22 @@ class Relate {
         goto: json["goto"],
         param: json["param"],
         uri: json["uri"],
-        desc: json["desc"] == null ? null : json["desc"],
-        adIndex: json["ad_index"] == null ? null : json["ad_index"],
-        cmMark: json["cm_mark"] == null ? null : json["cm_mark"],
-        srcId: json["src_id"] == null ? null : json["src_id"],
-        requestId: json["request_id"] == null ? null : json["request_id"],
-        creativeId: json["creative_id"] == null ? null : json["creative_id"],
-        type: json["type"] == null ? null : json["type"],
-        cover: json["cover"] == null ? null : json["cover"],
-        isAd: json["is_ad"] == null ? null : json["is_ad"],
-        isAdLoc: json["is_ad_loc"] == null ? null : json["is_ad_loc"],
-        adCb: json["ad_cb"] == null ? null : json["ad_cb"],
-        showUrl: json["show_url"] == null ? null : json["show_url"],
-        clickUrl: json["click_url"] == null ? null : json["click_url"],
-        clientIp: json["client_ip"] == null ? null : json["client_ip"],
+        desc: json["desc"],
+        adIndex: json["ad_index"],
+        cmMark: json["cm_mark"],
+        srcId: json["src_id"],
+        requestId: json["request_id"],
+        creativeId: json["creative_id"],
+        type: json["type"],
+        cover: json["cover"],
+        isAd: json["is_ad"],
+        isAdLoc: json["is_ad_loc"],
+        adCb: json["ad_cb"],
+        showUrl: json["show_url"],
+        clickUrl: json["click_url"],
+        clientIp: json["client_ip"],
         extra: json["extra"] == null ? null : Extra.fromJson(json["extra"]),
-        cardIndex: json["card_index"] == null ? null : json["card_index"],
+        cardIndex: json["card_index"],
         trackid: json["trackid"],
         fromSourceType: json["from_source_type"],
         fromSourceId: json["from_source_id"],
@@ -1017,10 +1016,10 @@ class Relate {
         badgeStyle: json["BadgeStyle"],
         powerIconStyle: json["PowerIconStyle"],
         rankInfo: json["rank_info"],
-        aid: json["aid"] == null ? null : json["aid"],
-        pic: json["pic"] == null ? null : json["pic"],
-        duration: json["duration"] == null ? null : json["duration"],
-        cid: json["cid"] == null ? null : json["cid"],
+        aid: json["aid"],
+        pic: json["pic"],
+        duration: json["duration"],
+        cid: json["cid"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -1030,22 +1029,22 @@ class Relate {
         "goto": goto,
         "param": param,
         "uri": uri,
-        "desc": desc == null ? null : desc,
-        "ad_index": adIndex == null ? null : adIndex,
-        "cm_mark": cmMark == null ? null : cmMark,
-        "src_id": srcId == null ? null : srcId,
-        "request_id": requestId == null ? null : requestId,
-        "creative_id": creativeId == null ? null : creativeId,
-        "type": type == null ? null : type,
-        "cover": cover == null ? null : cover,
-        "is_ad": isAd == null ? null : isAd,
-        "is_ad_loc": isAdLoc == null ? null : isAdLoc,
-        "ad_cb": adCb == null ? null : adCb,
-        "show_url": showUrl == null ? null : showUrl,
-        "click_url": clickUrl == null ? null : clickUrl,
-        "client_ip": clientIp == null ? null : clientIp,
+        "desc": desc,
+        "ad_index": adIndex,
+        "cm_mark": cmMark,
+        "src_id": srcId,
+        "request_id": requestId,
+        "creative_id": creativeId,
+        "type": type,
+        "cover": cover,
+        "is_ad": isAd,
+        "is_ad_loc": isAdLoc,
+        "ad_cb": adCb,
+        "show_url": showUrl,
+        "click_url": clickUrl,
+        "client_ip": clientIp,
         "extra": extra == null ? null : extra!.toJson(),
-        "card_index": cardIndex == null ? null : cardIndex,
+        "card_index": cardIndex,
         "trackid": trackid,
         "from_source_type": fromSourceType,
         "from_source_id": fromSourceId,
@@ -1053,10 +1052,10 @@ class Relate {
         "BadgeStyle": badgeStyle,
         "PowerIconStyle": powerIconStyle,
         "rank_info": rankInfo,
-        "aid": aid == null ? null : aid,
-        "pic": pic == null ? null : pic,
-        "duration": duration == null ? null : duration,
-        "cid": cid == null ? null : cid,
+        "aid": aid,
+        "pic": pic,
+        "duration": duration,
+        "cid": cid,
       };
 }
 

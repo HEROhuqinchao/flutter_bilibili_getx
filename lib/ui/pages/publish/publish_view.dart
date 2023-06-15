@@ -21,7 +21,7 @@ class PublishScreen extends StatelessWidget {
         length: 5,
         child: Scaffold(
           backgroundColor: HYAppTheme.norTextColors,
-          bottomNavigationBar: Container(
+          bottomNavigationBar: SizedBox(
             height: 50.r,
             child: TabBar(
               labelColor: HYAppTheme.norWhite01Color,
