@@ -4,6 +4,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/model/wechat/receive_data_model.dart';
+import '../../../../../core/model/wechat/send_data_factory.dart';
 import '../../../../../core/sqlite/sqlite_util.dart';
 import '../../../../shared/image_asset.dart';
 import '../my_we_chat/my_we_chat_state.dart';
@@ -43,6 +44,7 @@ class ChatRoomLogic extends GetxController {
         state.emojiBlockHeight = 0.r;
         state.isEmojiMode = false;
         update();
+
         ///滚动到底部
         beginScrollToBottom();
       }
@@ -61,8 +63,7 @@ class ChatRoomLogic extends GetxController {
   beginScrollToBottom() {
     ///延迟计算最大滑动距离，配合resizeToAvoidBottomInset，键盘顶住布局
     Future.delayed(Duration(milliseconds: 500), () {
-      double max =
-          state.messageListScrollController.position.maxScrollExtent;
+      double max = state.messageListScrollController.position.maxScrollExtent;
       state.messageListScrollController.animateTo(
         max,
         duration: Duration(milliseconds: 200),
@@ -99,12 +100,27 @@ class ChatRoomLogic extends GetxController {
       ));
 
       ///发送至服务端
-      String data = "{\"users\": [\"${state.userModel.userId}\"],"
-          "\"msg\": \"${state.inputText}\","
-          "\"date\": \"$sendTime\","
-          "\"avatar\": \"https://static.runoob.com/images/demo/demo2.jpg\","
-          "\"sender\": \"${state.isLoginUserId}\"}";
-      state.webSocketChannel.sink.add(data);
+      // String data = "{\"users\": [\"${state.userModel.userId}\"],"
+      //     "\"msg\": \"${state.inputText}\","
+      //     "\"date\": \"$sendTime\","
+      //     "\"avatar\": \"https://static.runoob.com/images/demo/demo2.jpg\","
+      //     "\"sender\": \"${state.isLoginUserId}\"}";
+      // state.webSocketChannel.sink.add(data);
+
+      ///使用简单工厂模式实现发送文本类型数据
+      BaseSendDataModel baseSendDataModel = BaseSendDataModel(
+        users: [state.userModel.userId!],
+        sender: state.isLoginUserId,
+        date: sendTime,
+        avatar: "https://static.runoob.com/images/demo/demo2.jpg",
+      );
+      SendDataModel sendTextData = SendDataFactory.createSendData(
+        sendDataType: SendDataType.text,
+        baseSendDataModel: baseSendDataModel,
+        msg: state.inputText,
+      );
+      String textJson = sendTextData.buildString();
+      state.webSocketChannel.sink.add(textJson);
 
       ///清空输入框
       state.inputText = "";
