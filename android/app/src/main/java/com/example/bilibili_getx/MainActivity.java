@@ -24,6 +24,8 @@ import java.util.Objects;
 
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.JSONMessageCodec;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
@@ -216,6 +218,12 @@ public class MainActivity extends FlutterActivity {
     @Override
     public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         super.configureFlutterEngine(flutterEngine);
+        //MethodChannel
         flutterEngine.getPlugins().add(new MyPlugin());
+        //BasicMessageChannel
+        BasicMessageChannel basicMessageChannel = new BasicMessageChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), "basic_message_001", JSONMessageCodec.INSTANCE);
+        basicMessageChannel.setMessageHandler((message, reply) -> {
+            reply.reply("Reply from Android");
+        });
     }
 }

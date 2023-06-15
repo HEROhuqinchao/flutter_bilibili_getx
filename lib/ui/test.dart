@@ -2,6 +2,7 @@ import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(MyApp());
@@ -19,22 +20,31 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text("Stack"),
         ),
-        body: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              child: Container(
-                color: HYAppTheme.norGray04Color,
-                child: DefaultFadeImage(
-                  imageUrl:
-                      "http://i0.hdslb.com/bfs/bangumi/image/2719084adaed21fd49d9fd9ecd2fc7b304a06b3a.png",
-                  height: 200,
-                ),
-              ),
-            ),
-            Text("data"),
-          ],
-        ),
+        body: BasicMessageExample(),
+      ),
+    );
+  }
+}
+
+class BasicMessageExample extends StatefulWidget {
+  const BasicMessageExample({Key? key}) : super(key: key);
+
+  @override
+  State<BasicMessageExample> createState() => _BasicMessageExampleState();
+}
+
+class _BasicMessageExampleState extends State<BasicMessageExample> {
+  static const _channel =
+      BasicMessageChannel('basic_message_001', JSONMessageCodec());
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final String reply = await _channel.send('Hello World') as String;
+          print(reply);
+        },
       ),
     );
   }

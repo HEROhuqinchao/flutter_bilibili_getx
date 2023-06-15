@@ -20,7 +20,7 @@ class LocalImageLogic extends GetxController {
 
   void fetchLocalImage() {
     ///获取手机本地照片
-    ChannelUtil.methodChannel.invokeMethod("getPhotos").then((value) {
+    ChannelUtil.getMediaMethodChannel.invokeMethod("getPhotos").then((value) {
       for (int i = 0; i < value.length; i++) {
         state.localImageList.add(
           HYLocalImageModel(
