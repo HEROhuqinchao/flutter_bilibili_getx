@@ -99,23 +99,23 @@ class SendDataFactory {
   }
 }
 
-main() {
-  BaseSendDataModel baseSendDataModel = BaseSendDataModel(
-    users: ["2", "3"],
-    sender: '4',
-    date: 5,
-    avatar: '6',
-  );
-  SendDataModel sendTextData = SendDataFactory.createSendData(
-      sendDataType: SendDataType.text,
-      baseSendDataModel: baseSendDataModel,
-      msg: "我发送了文本消息");
-  SendDataModel sendPhotoData = SendDataFactory.createSendData(
-      sendDataType: SendDataType.photo,
-      baseSendDataModel: baseSendDataModel,
-      photoFilePath: "这是一张图片地址");
-  String textJson = sendTextData.buildString();
-  String photoJson = sendPhotoData.buildString();
-  print(textJson);
-  print(photoJson);
-}
+// main() {
+//   BaseSendDataModel baseSendDataModel = BaseSendDataModel(
+//     users: ["2", "3"],
+//     sender: '4',
+//     date: 5,
+//     avatar: '6',
+//   );
+//   SendDataModel sendTextData = SendDataFactory.createSendData(
+//       sendDataType: SendDataType.text,
+//       baseSendDataModel: baseSendDataModel,
+//       msg: "我发送了文本消息");
+//   SendDataModel sendPhotoData = SendDataFactory.createSendData(
+//       sendDataType: SendDataType.photo,
+//       baseSendDataModel: baseSendDataModel,
+//       photoFilePath: "这是一张图片地址");
+//   String textJson = sendTextData.buildString();
+//   String photoJson = sendPhotoData.buildString();
+//   print(textJson);
+//   print(photoJson);
+// }

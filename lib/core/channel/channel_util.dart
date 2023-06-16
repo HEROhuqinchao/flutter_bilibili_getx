@@ -8,14 +8,23 @@ import 'bilibili_channel.dart';
 /// BasicMessageChannel 传递字符串和半结构化信息
 /// EventChannel 数据流的通信（监听）
 class ChannelUtil {
-  ///获取媒体
-  static MethodChannel getMediaMethodChannel =
-      MethodChannel(BilibiliChannel.uploadChannel);
-  static MethodChannel stayAliveChannel =
-      MethodChannel(BilibiliChannel.stayAliveChannel);
-  static MethodChannel startServiceChannel =
-      MethodChannel(BilibiliChannel.startServiceChannel);
-  static MethodChannel chartChannel =
-      MethodChannel(BilibiliChannel.chartChannel);
+  late MethodChannel getMediaMethodChannel;
+  late MethodChannel stayAliveChannel;
+  late MethodChannel startServiceChannel;
+  late MethodChannel chartChannel;
+  late MethodChannel takeMediaChannel;
 
+  ChannelUtil._internal() {
+    getMediaMethodChannel = MethodChannel(BilibiliChannel.uploadChannel);
+    stayAliveChannel = MethodChannel(BilibiliChannel.stayAliveChannel);
+    startServiceChannel = MethodChannel(BilibiliChannel.startServiceChannel);
+    chartChannel = MethodChannel(BilibiliChannel.chartChannel);
+
+    ///获取媒体
+    takeMediaChannel = MethodChannel(BilibiliChannel.takeMediaChannel);
+  }
+
+  static final ChannelUtil _instance = ChannelUtil._internal();
+
+  factory ChannelUtil() => _instance;
 }

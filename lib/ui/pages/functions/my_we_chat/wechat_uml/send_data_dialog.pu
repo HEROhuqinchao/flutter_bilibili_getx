@@ -6,32 +6,32 @@ class BaseSendDataModel{
     String avatar; //头像
 }
 abstract SendDataModel {
-    String() buildString //生成数据文本格式
+    +String() buildString //生成数据文本格式
 }
 note left: 抽象用户发送的数据
 
 class TextData {
     String msg; //文字
-    String() buildString
+    +String() buildString
 }
 
 class PictureData {
     File file; //图片文件
-    String() buildString
+    +String() buildString
 }
 
 class VideoData {
     File file; //视频文件
-    String() buildString
+    +String() buildString
 }
 
 class audioData {
     File file; //音频文件
-    String() buildString
+    +String() buildString
 }
 
 class SendDataFactory {
-    SendDataModel() createSendData //创建发送消息
+    {abstract} SendDataModel() createSendData //创建发送消息
 }
 note left: 简单工厂
 BaseSendDataModel <--* SendDataModel

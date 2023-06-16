@@ -24,7 +24,7 @@ class FlutterAndroidLogic extends GetxController {
       "msg": "图表",
       "data": points,
     };
-    ChannelUtil.chartChannel.invokeMethod("chartData", map.toString()).then((value) {
+    ChannelUtil().chartChannel.invokeMethod("chartData", map.toString()).then((value) {
       print(value);
       state.loading = false;
       update();

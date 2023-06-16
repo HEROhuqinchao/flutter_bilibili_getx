@@ -20,7 +20,7 @@ class PushMessageLogic extends GetxController {
   @override
   void onReady() {
     ///获取手机本地照片
-    ChannelUtil.stayAliveChannel.invokeMethod("battery_optimization").then((value) {
+    ChannelUtil().stayAliveChannel.invokeMethod("battery_optimization").then((value) {
       print(value);
       update();
     });
@@ -33,7 +33,7 @@ class PushMessageLogic extends GetxController {
   }
 
   void settingPermission() {
-    ChannelUtil.stayAliveChannel.invokeMethod("setting_optimization").then((value) {
+    ChannelUtil().stayAliveChannel.invokeMethod("setting_optimization").then((value) {
       print(value);
       update();
     });
@@ -41,7 +41,7 @@ class PushMessageLogic extends GetxController {
 
   void startService() async {
     if(Platform.isAndroid) {
-      ChannelUtil.startServiceChannel.invokeMethod("startService").then((value) {
+      ChannelUtil().startServiceChannel.invokeMethod("startService").then((value) {
         print(value);
         update();
       });
