@@ -89,14 +89,14 @@ public class MainActivity extends FlutterActivity {
         //注册百度语音识别
 //        AsrPlugin.registerWith(registerFor("com.example.asr_plugin.AsrPlugin"));
         //注册开启Android的拍摄功能
-        new MethodChannel(Objects.requireNonNull(getFlutterEngine()).getDartExecutor().getBinaryMessenger(), takeMediaChannel).setMethodCallHandler((call, result) -> {
-            if ("takeMediaAndroid".equals(call.method)) {
-                openTakeMediaView();
-                result.success("启动Android的拍摄功能");
-            } else {
-                result.success("没有对应的方法");
-            }
-        });
+//        new MethodChannel(Objects.requireNonNull(getFlutterEngine()).getDartExecutor().getBinaryMessenger(), takeMediaChannel).setMethodCallHandler((call, result) -> {
+//            if ("takeMediaAndroid".equals(call.method)) {
+//                openTakeMediaView();
+//                result.success("启动Android的拍摄功能");
+//            } else {
+//                result.success("没有对应的方法");
+//            }
+//        });
     }
 
     //获取本地视频集合
@@ -189,10 +189,10 @@ public class MainActivity extends FlutterActivity {
         return arguments;
     }
 
-    private void openTakeMediaView() {
-        Intent intent = new Intent(this, TakeMediaActivity.class);
-        startActivity(intent);
-    }
+//    private void openTakeMediaView() {
+//        Intent intent = new Intent(this, TakeMediaActivity.class);
+//        startActivity(intent);
+//    }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private boolean isIgnoringBatteryOptimizations() {
