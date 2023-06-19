@@ -14,7 +14,7 @@
 |  项目目录结构清晰，模块化清晰  |                          UI 和 CORE                          |      功能封装原子性       |
 |            人机交互            | 动画组件（flare、rive、lottie）、UI设计更加美观，更加人性化  |                           |
 |             多平台             |                     目前只是Android熟悉                      |       PC、IOS、Web        |
-|            消息通知            | 极光推送（对接华为厂商通道）参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10) |      对接其他厂商的       |
+|            消息通知            | 极光推送（对接华为厂商通道）参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10)；后端实现推送[nodejs-jpush-async](https://www.bookstack.cn/read/jpush/45.md) |      对接其他厂商的       |
 |            切换语言            |                          GETX-I18N                           |                           |
 |              视频              |                  MP4格式、流媒体FLV（直播）                  |                           |
 |              音频              |                             欠缺                             |       后台播放音频        |
@@ -28,7 +28,7 @@
 |           支付宝支付           |                             欠缺                             |                           |
 |       与Android原生通信        |                        MethodChannel                         |                           |
 |            统计图表            | [flchart插件](https://pub.flutter-io.cn/packages/fl_chart)、syncfusion_flutter_charts（flutter推荐）；Android端可以采用MPAndroidChart（点数很多时可以试试这个，flutter的chart插件，点数过多效果较差） |                           |
-|            状态管理            |                     GETX、Provider（差）                     |      BLOC、GETX原理       |
+|            状态管理            |                     GETX、Provider（差）                     |      BLOC（复杂）、GETX原理      |
 |     canvas画布及Paint画板      |                              [妙笔生花Flutter](https://juejin.cn/book/6844733827265331214)                              |                           |
 |    条形码、二维码生成与扫描    | [mobile_scanner](https://pub.flutter-io.cn/packages/mobile_scanner)（推荐）、[qrscan](https://pub.flutter-io.cn/packages/qrscan/install) |                           |
 |         数据持久化存储         |               sharedPreference、SqliteDatabase               |                           |

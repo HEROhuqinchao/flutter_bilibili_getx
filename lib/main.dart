@@ -8,6 +8,7 @@ import 'package:bilibili_getx/core/sqlite/sqlite_util.dart';
 import 'package:bilibili_getx/core/wx_util/wx_util.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_study/animation_study_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/push_message/push_message_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
@@ -142,6 +143,7 @@ class MyApp extends StatelessWidget {
           // initialRoute: PushMessageScreen.routeName,
           // initialRoute: MyWeChatView.routeName,
           initialRoute: AnimationStudyView.routeName,
+          // initialRoute: PushMessageScreen.routeName,
           // initialRoute: CanvasPaintStudyView.routeName,
           // initialRoute: FlutterAndroidView.routeName,
           // initialRoute: ScanQrView.routeName,
