@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jpush-async": "^4.1.0"
+  }
+}
