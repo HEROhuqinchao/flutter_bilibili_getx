@@ -21,24 +21,24 @@ class ScanLoginScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              QrImage(
-                data: "www.baidu.com",
-                version: QrVersions.auto,
-                gapless: false,
-                size: 200.w,
-                embeddedImage: AssetImage(ImageAssets.teenagerModePNG),
-                embeddedImageStyle: QrEmbeddedImageStyle(
-                    size: Size(40.w, 40.w)),
-                errorStateBuilder: (ctx, err) {
-                  return const Center(
-                    child: Text(
-                      "出错了,请稍后再试!",
-                      textAlign: TextAlign.center,
-                    ),
-                  );
-                },
-                semanticsLabel: "描述",
-              ),
+              // QrImage(
+              //   data: "www.baidu.com",
+              //   version: QrVersions.auto,
+              //   gapless: false,
+              //   size: 200.w,
+              //   embeddedImage: AssetImage(ImageAssets.teenagerModePNG),
+              //   embeddedImageStyle: QrEmbeddedImageStyle(
+              //       size: Size(40.w, 40.w)),
+              //   errorStateBuilder: (ctx, err) {
+              //     return const Center(
+              //       child: Text(
+              //         "出错了,请稍后再试!",
+              //         textAlign: TextAlign.center,
+              //       ),
+              //     );
+              //   },
+              //   semanticsLabel: "描述",
+              // ),
               ElevatedButton(
                 onPressed: () {
                   logic.scanQrCode();

@@ -1,0 +1,119 @@
+@startmindmap
+* 路线图
+
+** Flutter
+***_ 项目框架
+****_ 原理层
+*****_ 三棵树
+*****_ 核心模块
+******[#lightblue] Gesture
+******[#lightblue] Animation
+******[#lightblue] Canvas
+
+***_ 业务功能/工具类
+****_ 弹窗
+*****_ SmartDialog插件
+****_ 蓝牙
+*****_ flutterBlue插件
+****_ 音视频
+*****_ video_player插件
+*****[#lightblue] 音频
+****_ 下载/上传/压缩
+*****_ 下载插件flutterDownloader
+*****[#lightblue] 大文件分块上传
+*****[#lightblue] 上传 MultipartFile FormData
+****_ 国际化I18N
+****_ 轻量化存储
+*****_ Sqlite
+*****_ SharedPreference
+****_ Http请求
+*****_ dio
+*****[#lightblue] HttpClient、http库
+****_ 图表
+*****_ fl_chart(点数庞大性能差,代码结构清晰)
+*****_ syncfusion_flutter_charts(点数庞大性能差,代码结构清晰)
+*****_ MPAndroidChart & MPIOSChart(点数庞大性能优,需要原生通信)
+****_ 二维码扫描
+*****_ mobile_scanner
+*****_ qrscan
+****_ 3D模型
+*****_ model_viewer_plus
+****_ websocket
+*****_ web_socket_channel插件
+****_ 性能优化
+*****_ ResizeImage(减少图片内存)
+*****_ 局部刷新(不要全刷新界面;采用StreamBuilder/ChangeNotifier)
+
+***_ 第三方功能
+****[#lightblue] 支付
+****_ 分享
+*****_ 微信分享
+******_ fluwx
+*****_ QQ分享
+******_ 腾讯开放平台
+****_ 推送
+*****_ 极光推送
+******_ 推送方式
+*******_ 全推送
+*******_ 推送Tag
+*******_ 单个推送
+*****_ 本地推送
+******_ flutter_local_notifications
+
+***_ 原生通信/界面
+****_ Channel
+*****[#lightblue] MethodChannel
+*****[#lightblue] BasicMessageChannel
+*****[#lightblue] EventChannel
+
+****_ PlatformView
+
+***_ 状态管理
+****_ GetX
+*****_ 路由管理
+*****_ 状态管理
+****_ Bloc
+****_ Provider
+
+** Android
+***_ 语言
+****_ JAVA
+****_ Kotlin
+***_ 上线
+***_ 功能
+****_ Media3
+****_ service
+****_ CameraX
+****_ workManager
+****_ MPAndroidChart
+
+** Ios
+***_ 上线
+****_ appStore
+
+** 微信小程序
+
+** 其他
+***_ uml图
+****_ 甘特图
+****_ 类图
+****_ 用例图
+****_ 时序图
+***_ 正则表达式
+***_ 设计模式
+****_ 工厂模式
+*****_ 简单工厂
+*****_ 工厂方法
+*****_ 抽象工厂
+****_ 单例模式
+****_ 观察者模式
+****_ 适配器模式
+
+***_ Sql
+
+** nodeJS
+***_ 接口
+***_ 数据库操作
+***_ nodejs-websocket
+***_ 极光推送消息
+@endmindmap

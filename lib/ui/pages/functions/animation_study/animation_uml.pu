@@ -1,35 +1,39 @@
 @startuml
-abstract class Animation {
-    
-}
-abstract class Animatable {
-    T() transform
-    Animation() animate
-    Animatable() chain
-}
 abstract class Listenable
-class Tween {
-    T begin
-    T end
+abstract class Animatable {
+    transform()
+    animate()
+    chain()
+}
+class Animation {
+    addListener()
+    addStatusListener()
 }
 class AnimationController {
-    double value
-    Duration duration 
-    double lowerBound
-    double upperBound
-    AnimationBehavior animationBehavior
-    TickerProvider vsync
+    forward()
+    fling()
+    reverse()
+    repeat()
 }
-class CurvedAnimation {
-    Animation parent
-    Curve curve
+note bottom :"动画控制器"
+class Tween {
+    double begin
+    double end
 }
-class AnimatedBuilder {
+class TweenSquence {
+    TweenSquenceItem[]
+}
+class CurveTween {
+    Animation animation
+}
+class AnimationBuilder {
     Listenable listenable
-    Widget builder
+    builder()
 }
-Animation <|-- AnimationController
+note left: "widget组件"
 Listenable <|-- Animation
+Listenable <|-- AnimationController
 Animatable <|-- Tween
-Animation <|-- CurvedAnimation
+Animatable <|-- TweenSquence
+Animatable <|-- CurveTween
 @enduml
