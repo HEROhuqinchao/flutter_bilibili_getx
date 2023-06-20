@@ -11,15 +11,32 @@ class _CircleAnimationState extends State<CircleAnimation>
     with SingleTickerProviderStateMixin {
   final Duration animDuration = const Duration(milliseconds: 1000);
   late AnimationController _controller;
-  final ColorTween tween = ColorTween(begin: Colors.blue, end: Colors.red);
+  final ColorTween colorTween = ColorTween(begin: Colors.blue, end: Colors.red);
+  final CurveTween curveTween = CurveTween(curve: Curves.ease);
   late Animation<Color?> colorAnima;
+  late TweenSequence tweenSequence;
+
   @override
   void initState() {
     _controller = AnimationController(
       vsync: this,
       duration: animDuration,
     );
-    colorAnima = tween.animate(_controller);
+    colorAnima = colorTween.animate(_controller);
+    // colorTween.chain(curveTween);
+    Animation<double> tempOne =
+        CurvedAnimation(parent: _controller, curve: Curves.easeInSine);
+    Animation<Color?> tempTwo = ColorTween(begin: Colors.red, end: Colors.green)
+        .chain(CurveTween(curve: Curves.linear))
+        .animate(_controller);
+    tweenSequence = TweenSequence([
+      TweenSequenceItem(
+          tween: CurveTween(curve: Curves.slowMiddle), weight: 20),
+      TweenSequenceItem(
+          tween: CurveTween(curve: Curves.slowMiddle), weight: 40),
+      TweenSequenceItem(
+          tween: CurveTween(curve: Curves.slowMiddle), weight: 40),
+    ]);
     super.initState();
   }
 

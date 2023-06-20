@@ -1,0 +1,35 @@
+@startuml
+abstract class Animation {
+    
+}
+abstract class Animatable {
+    T() transform
+    Animation() animate
+    Animatable() chain
+}
+abstract class Listenable
+class Tween {
+    T begin
+    T end
+}
+class AnimationController {
+    double value
+    Duration duration 
+    double lowerBound
+    double upperBound
+    AnimationBehavior animationBehavior
+    TickerProvider vsync
+}
+class CurvedAnimation {
+    Animation parent
+    Curve curve
+}
+class AnimatedBuilder {
+    Listenable listenable
+    Widget builder
+}
+Animation <|-- AnimationController
+Listenable <|-- Animation
+Animatable <|-- Tween
+Animation <|-- CurvedAnimation
+@enduml
