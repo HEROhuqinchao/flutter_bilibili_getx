@@ -22,8 +22,8 @@ class ToggleRotate extends StatefulWidget {
 
 class _ToggleRotateState extends State<ToggleRotate>
     with TickerProviderStateMixin {
-  AnimationController? animationController;
-  Animation<double>? animation;
+  late AnimationController animationController;
+  late Animation<double> animation;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _ToggleRotateState extends State<ToggleRotate>
       value: widget.initRadius,
     );
     animation = CurvedAnimation(
-      parent: animationController!,
+      parent: animationController,
       curve: Curves.decelerate,
     );
     super.initState();
@@ -41,8 +41,25 @@ class _ToggleRotateState extends State<ToggleRotate>
 
   @override
   void dispose() {
-    animationController!.dispose();
+    animationController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant ToggleRotate oldWidget) {
+    if (oldWidget.initRadius != widget.initRadius) {
+      animationController.dispose();
+      animationController = AnimationController(
+        vsync: this,
+        value: widget.initRadius,
+        duration: widget.duration,
+      );
+      animation = CurvedAnimation(
+        parent: animationController,
+        curve: Curves.decelerate,
+      );
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -50,16 +67,15 @@ class _ToggleRotateState extends State<ToggleRotate>
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        animationController!.reset();
-        animationController!.forward();
+        animationController.forward();
       },
       child: AnimatedBuilder(
-        animation: animationController!,
+        animation: animation,
         builder: (context, child) {
           return Transform(
             alignment: Alignment.center,
             transform: Matrix4.rotationZ(
-              widget.radius * animation!.value + widget.initRadius / 180 * pi,
+              widget.radius * animation.value,
             ),
             child: Image(
               width: 100,
@@ -70,24 +86,6 @@ class _ToggleRotateState extends State<ToggleRotate>
         },
       ),
     );
-  }
-
-  @override
-  void didUpdateWidget(ToggleRotate oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.initRadius != widget.initRadius) {
-      animationController!.dispose();
-      animationController = AnimationController(
-        vsync: this,
-        duration: widget.duration,
-        value: widget.initRadius,
-      );
-      animation = CurvedAnimation(
-        parent: animationController!,
-        curve: Curves.decelerate,
-      );
-    }
-
   }
 }
 
@@ -118,7 +116,7 @@ class _Part008State extends State<Part008> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Slider(
-                  max: 180,
+                  max: 1,
                   min: 0,
                   value: value,
                   onChanged: (value) {
@@ -133,7 +131,7 @@ class _Part008State extends State<Part008> {
                     imageProvider: AssetImage(
                       ImageAssets.arPNG,
                     ),
-                    radius: 2 * pi,
+                    radius: 60 / 180 * pi,
                     duration: Duration(seconds: 1),
                   ),
                 ),
