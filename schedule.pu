@@ -54,6 +54,7 @@
 ****_ 推送
 *****_ 极光推送
 ******_ 推送方式
+*******_ 厂商推送
 *******_ 全推送
 *******_ 推送Tag
 *******_ 单个推送
@@ -62,7 +63,7 @@
 
 ***_ 原生通信/界面
 ****_ Channel
-*****[#lightblue] MethodChannel
+*****_ MethodChannel
 *****[#lightblue] BasicMessageChannel
 *****[#lightblue] EventChannel
 
@@ -78,18 +79,18 @@
 ** Android
 ***_ 语言
 ****_ JAVA
-****_ Kotlin
-***_ 上线
+****[#lightblue] Kotlin
+***[#lightblue] 上线
 ***_ 功能
-****_ Media3
+****[#lightblue] Media3
 ****_ service
 ****_ CameraX
-****_ workManager
+****[#lightblue] workManager
 ****_ MPAndroidChart
 
 ** Ios
 ***_ 上线
-****_ appStore
+****[#lightblue] appStore
 
 ** 微信小程序
 
@@ -116,4 +117,6 @@
 ***_ 数据库操作
 ***_ nodejs-websocket
 ***_ 极光推送消息
+****_ 全推送
+****_ 指定推送
 @endmindmap

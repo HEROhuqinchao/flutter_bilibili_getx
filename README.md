@@ -1,5 +1,5 @@
 # bilibili_getx
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/b68a87a3407f475994bfcacada4a62fb.png)
 ## 2023年4月8日有感
 
 数量恐怖的业务界面，繁琐，无趣！是时候向Flutter framework进发了！了解更多的深层次的原理，才是硬实力的表现，加油！！！
