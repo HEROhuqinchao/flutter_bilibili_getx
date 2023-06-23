@@ -1,6 +1,6 @@
 # bilibili_getx
 
-![1](https://img-blog.csdnimg.cn/b68a87a3407f475994bfcacada4a62fb.png)
+![image-1](https://img-blog.csdnimg.cn/b68a87a3407f475994bfcacada4a62fb.png)
 
 **沉淀知识**
 
