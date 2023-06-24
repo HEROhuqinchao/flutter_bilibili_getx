@@ -437,7 +437,7 @@ class DescButton {
   String? uri;
   String event;
   int type;
-  String eventV2;
+  String? eventV2;
 
   factory DescButton.fromJson(Map<String, dynamic> json) => DescButton(
         text: json["text"] ?? "",

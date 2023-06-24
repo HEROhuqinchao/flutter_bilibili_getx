@@ -1173,14 +1173,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0"
-  tencent_kit:
-    dependency: "direct main"
-    description:
-      name: tencent_kit
-      sha256: "2ccb2915199d76672c8580b887a47c969aa45912413379cad001141d7a07c371"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "4.0.0"
   term_glyph:
     dependency: transitive
     description:

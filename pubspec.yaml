@@ -76,7 +76,7 @@ dependencies:
   rive: ^0.9.1 #精致的rive动画
   #  fluwx: ^3.11.0 #微信第三方接入
   fluwx_no_pay: ^3.12.2 #微信第三方接入(没有支付)
-  tencent_kit: ^4.0.0 #QQ第三方接入
+#  tencent_kit: ^6.0.1 #QQ第三方接入
   json_annotation: ^4.5.0 #json默认值
   json_serializable: ^6.5.4 #json序列化？
   flutter_cache_manager: ^3.3.0 #缓存图片
