@@ -1,0 +1,54 @@
+@startmindmap
+* Flutter动画
+** 动画器
+*** Curve
+****_ transform (按照某种规则变化的数值变化器)
+*** Animation
+**** CurvedAnimation
+*****_ parent
+*****_ curve
+**** AnimationController
+*****_ 属性
+******_ value 初始值
+******_ duration 时长
+******_ reverseDuration 反向时长
+******_ lowerBound 下界
+******_ upperBound 上界
+******_ animationBehavior 行为
+*****_ TickerProvider 轨迹
+*****_ 流程
+******_ 创建
+******_ 销毁
+*******_ dispose
+******_ 动画操作
+*******_ forward 前
+*******_ reverse 返
+*******_ repeat 重复
+*******_ reset 重置
+*******_ stop 停止
+*******_ fling 运动阻尼(animateWith)
+*******_ animateTo 运动到Target
+*******_ animateBack 反向运动到Target
+******_ 界面更新
+*******_ AnimatedBuilder (局部)
+********_ controller.value (可监听对象Listenable)
+*****_ 监听动画器状态
+******_ addSttusListener(AnimationStatus)
+*******_ dismissed 下界
+*******_ forward 下往上
+*******_ reverse 反向
+*******_ completed 上界
+*** Animatable
+**** 抽象方法
+*****_ transform(value)
+*****_ evaluate(controller)
+
+**** Tween
+*****_ ColorTween
+
+** 动画组件
+*** 显示动画
+*** 隐式动画
+*** 其他动画组件
+
+@endmindmap
