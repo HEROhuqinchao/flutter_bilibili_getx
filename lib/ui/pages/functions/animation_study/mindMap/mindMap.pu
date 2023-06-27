@@ -52,11 +52,6 @@
 *****_ TextStyleTween
 **** TweenSequence([TweenSequenceItem])
 
-** 动画组件
-*** 显示动画
-*** 隐式动画
-*** 其他动画组件
-
 ** 实现动画的一般流程
 *** 分析动画静态如何构建
 ****_ 一般组件
@@ -79,4 +74,14 @@
 *** 动画结合静态属性使组件运动，并刷新界面
 ****_ CustomPainter(repaint: animation)
 ****_ setState()
+
+** 动画组件
+*** 显示动画
+****_ RotationTransion 旋转
+****_ ScaleTransition 缩放
+****_ SlideTansition 平移
+****_ AlignTransition 对齐至某一位置
+
+*** 隐式动画
+*** 其他动画组件
 @endmindmap
