@@ -40,11 +40,17 @@
 *******_ completed 上界
 *** Animatable
 **** 抽象方法
-*****_ transform(value)
-*****_ evaluate(controller)
+*****_ value = transform(value)
+*****_ value = evaluate(controller)
+*****_ animation = animate(Animation)
+*****_ animatable = chain(Animatable)
 
 **** Tween
+*****_ (begin to end) & leap 方法
 *****_ ColorTween
+*****_ CurveTween(curve)
+*****_ TextStyleTween
+**** TweenSequence([TweenSequenceItem])
 
 ** 动画组件
 *** 显示动画
