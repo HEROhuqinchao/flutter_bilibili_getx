@@ -57,4 +57,26 @@
 *** 隐式动画
 *** 其他动画组件
 
+** 实现动画的一般流程
+*** 分析动画静态如何构建
+****_ 一般组件
+****_ Canvas绘制(CustomPaint + CustomPainter)
+*** 分析动画执行的变化量
+****_ 位置的变化 Offset/Path
+****_ 旋转 canvas.rotate
+****_ 大小颜色等
+*** 构建动画器
+****_ AnimationController
+*** 定义动画如何变化
+****_ 1.Animatable
+*****_ tween
+*****_ tweenSequence
+****_ 2.animation
+*****_ Animatable.animate(animation)
+****_ 3.value
+*****_ Animatable.evaluate(animation)
+*****_ Animatable.transform(animation.value)
+*** 动画结合静态属性使组件运动，并刷新界面
+****_ CustomPainter(repaint: animation)
+****_ setState()
 @endmindmap
