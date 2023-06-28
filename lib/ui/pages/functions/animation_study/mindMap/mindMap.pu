@@ -74,14 +74,21 @@
 *** 动画结合静态属性使组件运动，并刷新界面
 ****_ CustomPainter(repaint: animation)
 ****_ setState()
+*** 注意事项
+****_ setState() 频率低可以使用
+****_ Listenable 频率高需要局部刷新
 
 ** 动画组件
 *** 显示动画
-****_ RotationTransion 旋转
-****_ ScaleTransition 缩放
-****_ SlideTansition 平移
-****_ AlignTransition 对齐至某一位置
-
+****_ AnimatedWidget
+*****_ AnimatedBuilder
+*****_ RotationTransion 旋转
+*****_ DecoratedBoxTransition decoration动画
+*****_ ScaleTransition 缩放
+*****_ SlideTansition 平移
+*****_ AlignTransition 对齐至某一位置
+****_ AnimatedBuilder
 *** 隐式动画
+****_ AnimatedOpacity
 *** 其他动画组件
 @endmindmap
