@@ -80,15 +80,49 @@
 
 ** 动画组件
 *** 显示动画
-****_ AnimatedWidget
+****_ 常用组件
+*****_ AnimatedWidget
+******_ RotationTransion 旋转
+******_ DecoratedBoxTransition decoration动画
+******_ ScaleTransition 缩放
+******_ SlideTansition 平移
+******_ AlignTransition 对齐至某一位置
 *****_ AnimatedBuilder
-*****_ RotationTransion 旋转
-*****_ DecoratedBoxTransition decoration动画
-*****_ ScaleTransition 缩放
-*****_ SlideTansition 平移
-*****_ AlignTransition 对齐至某一位置
-****_ AnimatedBuilder
+****_ 优缺点
+*****_ 局部刷新
+*****_ 需传入动画器,操作动画器
+*****_ 动画器服务多个显式动画组件
+****_ 源码层面
+*****_ AnimatedWidget / _AnimatedState
+******_ Listenable -> didUpdateWidget(listenable) -> setState()
+*****_ AnimatedBuilder
+******_ Listenable + builder
 *** 隐式动画
-****_ AnimatedOpacity
+****_ 常用组件
+*****_ AnimatedOpacity 透明度
+*****_ AnimatedDefaultTextStyle 文字样式
+*****_ AnimatedAlign 对齐
+*****_ AnimatedContainer 容器动画
+*****_ TweenAnimationBuidler 渐变动画器
+****_ 优缺点
+*****_ 无需传入动画器,每个动画组件会创建一个动画器
+*****_ 无法随意控制动画开启停止
+****_ 源码层面(Animatedpadding)
+*****_ Animatedpadding(ImplicitlyAnimatedWidget)
+******_ ImplicitlyAnimatedWidgetState createState()
+*******_ animationController / animation
+*******_ initState()
+********_ onEnd
+********_ _constructTweens
+********_ didUpdateTweens 空实现
+*******_ forEachTween (通过visitor维护Tween的值)
+*******_ didUpdateWidget (更新Tween)
+******_ 成员对象(curve/duration/onEnd)
+*****_ _AnimatedPaddingState(AnimatedWidgetBaseState)
+******_ 定义要动画的属性(如Padding)
+******_ forEachTween (通过visitor维护Tween的值)
+******_ build()
+*****_ AnimatedWidgetBaseState(ImplicitlyAnimatedWidgetState)
+******_ 监听动画器并setState()
 *** 其他动画组件
 @endmindmap

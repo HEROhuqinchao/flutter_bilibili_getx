@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: AnimatedOpacityExample()),
+      body: Center(child: AnimatedPaddingExample()),
     );
   }
 }
@@ -163,6 +163,210 @@ class _AnimatedOpacityExampleState extends State<AnimatedOpacityExample> {
             width: 100,
             height: 100,
             color: HYAppTheme.norMainThemeColors,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class AnimatedDefaultTextStyleExample extends StatefulWidget {
+  const AnimatedDefaultTextStyleExample({super.key});
+
+  @override
+  State<AnimatedDefaultTextStyleExample> createState() =>
+      _AnimatedDefaultTextStyleExampleState();
+}
+
+class _AnimatedDefaultTextStyleExampleState
+    extends State<AnimatedDefaultTextStyleExample>
+    with SingleTickerProviderStateMixin {
+  bool switchValue = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Switch(
+          value: switchValue,
+          onChanged: (value) {
+            switchValue = !switchValue;
+            setState(() {});
+          },
+        ),
+        AnimatedDefaultTextStyle(
+          child: Text("你好"),
+          style: switchValue
+              ? TextStyle(
+                  color: HYAppTheme.norBlackColors,
+                  fontSize: 20,
+                )
+              : TextStyle(
+                  fontSize: 60,
+                  color: HYAppTheme.norBlue01Colors,
+                ),
+          duration: Duration(seconds: 1),
+        ),
+      ],
+    );
+  }
+}
+
+///AnimatedAlign
+class AnimatedAlignExample extends StatefulWidget {
+  const AnimatedAlignExample({super.key});
+
+  @override
+  State<AnimatedAlignExample> createState() => _AnimatedAlignExampleState();
+}
+
+class _AnimatedAlignExampleState extends State<AnimatedAlignExample> {
+  bool switchValue = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      direction: Axis.vertical,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Switch(
+          value: switchValue,
+          onChanged: (value) {
+            switchValue = !switchValue;
+            setState(() {});
+          },
+        ),
+        Container(
+          color: HYAppTheme.norMainThemeColors,
+          width: 100,
+          height: 100,
+          child: AnimatedAlign(
+            alignment: switchValue ? Alignment.bottomLeft : Alignment.topRight,
+            duration: Duration(seconds: 1),
+            child: Text("你好"),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+///AnimatedContainer
+class AnimatedContainerExample extends StatefulWidget {
+  const AnimatedContainerExample({super.key});
+
+  @override
+  State<AnimatedContainerExample> createState() =>
+      _AnimatedContainerExampleState();
+}
+
+class _AnimatedContainerExampleState extends State<AnimatedContainerExample> {
+  bool switchValue = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      children: [
+        Switch(
+          value: switchValue,
+          onChanged: (value) {
+            switchValue = !switchValue;
+            setState(() {});
+          },
+        ),
+        AnimatedContainer(
+          decoration: switchValue
+              ? BoxDecoration(
+                  color: HYAppTheme.norMainThemeColors,
+                  borderRadius: BorderRadius.all(Radius.circular(10)))
+              : BoxDecoration(
+                  color: HYAppTheme.norBlue01Colors,
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+          duration: Duration(seconds: 1),
+          child: Container(
+            width: 100,
+            height: 100,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+///TweenAnimationBuilder
+class TweenAnimationBuilderExample extends StatefulWidget {
+  const TweenAnimationBuilderExample({super.key});
+
+  @override
+  State<TweenAnimationBuilderExample> createState() =>
+      _TweenAnimationBuilderExampleState();
+}
+
+class _TweenAnimationBuilderExampleState
+    extends State<TweenAnimationBuilderExample> {
+  bool switchValue = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      children: [
+        Switch(
+          value: switchValue,
+          onChanged: (value) {
+            switchValue = !switchValue;
+            setState(() {});
+          },
+        ),
+        TweenAnimationBuilder(
+          tween: ColorTween(
+              begin: Colors.red, end: switchValue ? Colors.blue : Colors.green),
+          duration: Duration(seconds: 1),
+          builder: (ctx, color, child) {
+            return Container(
+              color: color as Color,
+              width: 100,
+              height: 100,
+            );
+          },
+        )
+      ],
+    );
+  }
+}
+
+///AnimatedPadding
+class AnimatedPaddingExample extends StatefulWidget {
+  const AnimatedPaddingExample({super.key});
+
+  @override
+  State<AnimatedPaddingExample> createState() => _AnimatedPaddingExampleState();
+}
+
+class _AnimatedPaddingExampleState extends State<AnimatedPaddingExample> {
+  final EdgeInsets beginOpacity = EdgeInsets.all(10);
+  final EdgeInsets endPadding = EdgeInsets.all(30);
+  bool switchValue = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      children: [
+        Switch(
+          value: switchValue,
+          onChanged: (value) {
+            switchValue = !switchValue;
+            setState(() {});
+          },
+        ),
+        Container(
+          width: 100,
+          height: 100,
+          color: Colors.blue,
+          child: AnimatedPadding(
+            padding: switchValue ? beginOpacity : endPadding,
+            duration: Duration(seconds: 1),
+            child: Text("你好"),
           ),
         ),
       ],

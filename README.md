@@ -1,56 +1,84 @@
 # bilibili_getx
 
-![image-20230623085512510](./img.png)
+接下来的学习计划（没计划确实不行，就跟个无头苍蝇🪰在乱撞）
+
+|   计划内容   | 完成 | 时间 |
+| ---- | ---- | ---- |
+| 学习Flutter[动画册子](https://juejin.cn/book/6965102582473687071/section/6982013736080900130?enter_from=course_center&utm_source=course_center)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131258061) | (11/17) | 2023.6.28-2023.6.30 |
+| Flutter[手势册子](https://juejin.cn/book/6896378716427911181/section/6957884860782346275?enter_from=course_center&utm_source=course_center)，更新BLOG | 3/15 | 2023.7.1-2023.7.5 |
+| Flutter[Canvas](https://juejin.cn/book/6844733827265331214/section/6844733827214999565?enter_from=course_center&utm_source=course_center)，更新BLOG | 进度丢失，重学（0/21） | 2023.7.6-2023.7.13 |
+| Flutter内存优化方案搜集 |  | 2023.6.28-～ |
+| Android [应用数据和文件](https://developer.android.google.cn/guide/topics/data?hl=zh-cn)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131348897) |  | 2023.6.28-2023.7.5 |
+| Android [Kotlin语法](https://book.kotlincn.net)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130940725) | 至扩展 | 2023.6.28-2023.7.13 |
+| 待补充 | / | / |
+|  |  |  |
+|  |  |  |
+
+![目前进度](./img.png)
 
 **沉淀知识**
+2023年6月28日更新
 
-尽量还是不要停留在做界面的阶段，多了解一些还是有好处的
+| 技术              | 进度                                                         | 规划                                                         | 优先级（1-5） |
+| ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
+|**Flutter篇***|/|/|/|
+| Flutter框架类知识 | [Flutter框架笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131279994) | 总结三棵树、学习完[手势册子](https://juejin.cn/book/6896378716427911181?enter_from=course_center&utm_source=course_center)、[动画册子](https://juejin.cn/book/6965102582473687071?enter_from=course_center&utm_source=course_center)、[Canvas册子](https://juejin.cn/book/6844733827265331214?enter_from=course_center&utm_source=course_center) | 1             |
+| 弹窗              | [smartDialog](https://pub-web.flutter-io.cn/packages/flutter_smart_dialog/install) | 其他弹框                                                     | 5             |
+| 蓝牙              | [flutterBlue](https://pub-web.flutter-io.cn/packages/flutter_blue) | 实战                                                         | 5             |
+| 音视频            | [video_player](https://pub-web.flutter-io.cn/packages/video_player);流媒体FLV(直播) | 音频，音乐类软件                                             | 2             |
+| 上传              | FormData + MutilPartFile                                     | 分块上传                                                     | 2             |
+| 下载              | [flutter_downloader](https://pub-web.flutter-io.cn/packages/flutter_downloader) | 断点继续上传                                                 | 2             |
+| 压缩              | [light_compress](https://pub-web.flutter-io.cn/packages/light_compressor/install) | 无                                                           | 5             |
+| 国际化I18N        | translations                                                 | 无                                                           | 5             |
+| 轻量化存储        | [sqlite](https://pub-web.flutter-io.cn/packages/sqflite)/[sharedpreference](shared_preferences) | 无                                                           | 5             |
+| 网络请求          | [dio](https://pub-web.flutter-io.cn/packages/dio/install)    | HttpClient/Http库                                            | 2             |
+| 图表              | [fl_chart](https://pub-web.flutter-io.cn/packages/fl_chart)/[syncfusion_flutter_charts](https://pub-web.flutter-io.cn/packages/syncfusion_flutter_charts)/MPAndroidChart & MPIOSChart(点数很多时可以试试这个，flutter的chart插件，点数过多效果较差) | 无                                                           | 5             |
+| 二维码扫描        | [mobile_scanner](https://pub-web.flutter-io.cn/packages/mobile_scanner)/[qrscan](https://pub-web.flutter-io.cn/packages/qrscan) | 无                                                           | 5             |
+| 3D模型            | [model_viewer_plus](https://pub-web.flutter-io.cn/packages/model_viewer_plus) | 无                                                           | 5             |
+| websocket         | [web_socket_channel](https://pub-web.flutter-io.cn/packages/web_socket_channel) | 无                                                           | 5             |
+| 性能优化          | ResizeImage减少图片内存/局部刷新(Listenable/StreamBuilder)   | 继续补充                                                     | 1             |
+| 支付              | 无                                                           | 无                                                           | 5             |
+| 分享              | 微信分享/QQ分享/                                             | 无                                                           | 5             |
+| 微信小程序              | 跳转微信小程序 [fluwx](https://pub-web.flutter-io.cn/packages/fluwx) | 无                                                           | 5             |
+| 极光推送          | 华为厂商推送/全推送/单个推送;极光推送(对接华为厂商通道)参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10)；后端实现推送[nodejs-jpush-async](https://www.bookstack.cn/read/jpush/45.md) | Tag推送                                                      | 2             |
+| 本地推送          | [flutter_local_notifications](https://pub-web.flutter-io.cn/packages/flutter_local_notifications) | 无                                                           | 5             |
+| channel           | MethodChannel                                                | BasicMessageChannel/EventChannel                             | 5             |
+| 原生界面          | AndroidView/UiKitView                                        | 无                                                           | 5             |
+| 状态管理          | GETX                                                         | Provider/Bloc                                                | 2             |
+| 预制动画 | 动画组件（flare、rive、lottie） |                                                              |               |
+| 路由管理 | GETX(initRoute + getPages) |  |  |
+|      |  |  |  |
+| **Android篇**     | / | / | / |
+| 编程语言 | JAVA | [Kotlin学习BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130940725) | 1 |
+| 上线APP流程 | 无 |  | 1 |
+| Service | [Service笔记](https://blog.csdn.net/sheng_er_sheng/article/details/130999373) | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 1 |
+| Media3 | [Media3笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131164987) | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 1 |
+| workManager | 无 |                                                              | 1 |
+| 应用存储数据 | [应用存储数据笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131348897) | 继续补充 | 1 |
+| CameraX | [CameraX例子BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130923458) |                                                              | 1 |
+| **IOS篇** | / | / | / |
+| 上线 | appStore | 上线AppStore流程/GooglePlay流程 | 1 |
+| 原生Swift | 无 |                                                              | 1 |
+|                   |                                                              |                                                              |               |
+| **项目管理篇** | / | / | / |
+| 原型 | Axure/墨刀 | 无 | 2 |
+| uml图 | [甘特图](https://zhuanlan.zhihu.com/p/271043355)/类图/时序图/用例图 | 继续补充 | 2 |
+|  |                                                              |                                                              |               |
+| **其他** | / | / | / |
+| 正则表达式 | 无 | 无 | 5 |
+|  |  |  |  |
+|  |  |  |  |
+| **NodeJs篇** | / | / | / |
+| express | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 无 | 5 |
+| nodejs-websocket | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 无 | 5 |
+|  |  |  |  |
+| **项目开发经验** | / | / | / |
+| 项目目录结构清晰，模块化清晰 | 封装思想 |  |  |
+| 设计模式 | [设计模式笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131181391) | 继续补充 | 2 |
 
-|              能力              |                            完成度                            |           计划            |
-| :----------------------------: | :----------------------------------------------------------: | :-----------------------: |
-| 对接接口（get请求、post请求）  |                        json、protobuf                        | 实现更多类型的数据（xml） |
-|  项目目录结构清晰，模块化清晰  |                          UI 和 CORE                          |      功能封装原子性       |
-|            人机交互            | 动画组件（flare、rive、lottie）、UI设计更加美观，更加人性化  |                           |
-|             多平台             |                     目前只是Android熟悉                      |       PC、IOS、Web        |
-|            消息通知            | 极光推送（对接华为厂商通道）参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10)；后端实现推送[nodejs-jpush-async](https://www.bookstack.cn/read/jpush/45.md) |      对接其他厂商的       |
-|            切换语言            |                          GETX-I18N                           |                           |
-|              视频              |                  MP4格式、流媒体FLV（直播）                  |                           |
-|              音频              |                             欠缺                             |       后台播放音频        |
-|              下载              |                        存储目录的获取                        |                           |
-|              蓝牙              | flutter_blue，只能扫到一些没名称的，扫不到手机的蓝牙，需要pin的蓝牙 |                           |
-|         动画Animation          |                                                              |                           |
-|           弹框Dialog           |                         SmartDialog                          |                           |
-|            分页加载            |                           基本都有                           |                           |
-| 微信分享、微信支付、跳转小程序 |                          分享已实现                          |                           |
-|             QQ分享             |                            已实现                            |                           |
-|           支付宝支付           |                             欠缺                             |                           |
-|       与Android原生通信        |                        MethodChannel                         |                           |
-|            统计图表            | [flchart插件](https://pub.flutter-io.cn/packages/fl_chart)、syncfusion_flutter_charts（flutter推荐）；Android端可以采用MPAndroidChart（点数很多时可以试试这个，flutter的chart插件，点数过多效果较差） |                           |
-|            状态管理            |                     GETX、Provider（差）                     |      BLOC（复杂）、GETX原理      |
-|     canvas画布及Paint画板      |                              [妙笔生花Flutter](https://juejin.cn/book/6844733827265331214)                              |                           |
-|    条形码、二维码生成与扫描    | [mobile_scanner](https://pub.flutter-io.cn/packages/mobile_scanner)（推荐）、[qrscan](https://pub.flutter-io.cn/packages/qrscan/install) |                           |
-|         数据持久化存储         |               sharedPreference、SqliteDatabase               |                           |
-|            网络请求            |                           Dio插件                            |                           |
-|            路由管理            |                    根据状态管理不同而不同                    |                           |
-|              上传              |   视频压缩、图片压缩。获取视频缩略图；上传方式formdata                             |                           |
-|             甘特图             | [如何用Excel快速制作甘特图？（超详细！） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/271043355) |                           |
-|                                |                                                              |                           |
-|          workmanager           | 1、[Android WorkManager,看这一篇就够了_fallinux的博客-CSDN博客_android workmanager](https://blog.csdn.net/weixin_42730358/article/details/105326794) 2、[workmanager插件地址](https://pub.flutter-io.cn/packages/workmanager) |        还不太熟悉         |
-|      显示Android原生界面       |                       显示Android界面                        |      MPAndroidChart       |
-|      显示3D(glb.gltf)       |                       插件[model_viewer_plus](https://pub.flutter-io.cn/packages/model_viewer_plus/install)、[模型下载]([50个最好的免费下载3D模型的网站（内附网址） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/40680702))                               ||
-|            上传文件            |表单FormData，大文件分块，多线程；||
-|正则表达式，检测输入|||
-|连websocket，sokcketio|my_wechat_view||
-|页面图片过多问题致使内存爆了|ResizeImage，TabView(KeepAlive)，局部刷新StreamBuild等||
-|上线Apple Store；上线各大平台|Apple Store（ok）；Android暂无|公司不上线Android，我自己开发一个APP上线去！哼|
-|CameraX|[实现拍照和录像](https://blog.csdn.net/sheng_er_sheng/article/details/130923458)||
-|Kotlin|[资料](https://book.kotlincn.net/text/basic-syntax.html)[个人更新csdn](https://blog.csdn.net/sheng_er_sheng/article/details/130940725)|一星期拿下|
-|Android Service|[Service学习记录更新博客](https://blog.csdn.net/sheng_er_sheng/article/details/130999373)||
-|设计模式|单例模式、工厂模式|[设计模式更新](https://blog.csdn.net/sheng_er_sheng/article/details/131181391)|
 
-sqlite 第三方软件打开
 
-**11月30日**
+**2022年11月30日**
 
 华为通道（极光推送）
 
@@ -60,14 +88,14 @@ QQ分享、微信分享、微信小程序
 
 动态
 
-**10月27日**
+**2022年10月27日**
 flare动画 一些好看的rive动画 switch https://rive.app/community/2726-5857-switch-demo/
 爱心按钮、通知按钮 https://rive.app/community/3189-6916-animated-icon-pack/
 进度条 https://rive.app/community/3264-6879-tree-loading-bar/
 
 点击视频左上角的三点更多按钮，有视频下载功能
 
-**9月22日**
+**2022年9月22日**
 
 不更新不行啦，虽然代码一直在更新，但还得做些视频哈哈，否则对不起我这60个粉丝哈哈
 
@@ -99,11 +127,11 @@ flare动画 一些好看的rive动画 switch https://rive.app/community/2726-585
 
 ok，差不多是这样的啦
 
-**9月11日**
+**2022年9月11日**
 
 【我宁可痛苦，也不要麻木】[20年前的农村女性，竟狠狠 戳中了我的心_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1KP41157tb?spm_id_from=333.337.search-card.all.click&vd_source=9577d8766a1c3a48233a9f8f750633c4)
 
-**9月4日更新**
+**2022年9月4日更新**
 
 昨天写了下会员购这一块 先看一下效果 头部是下拉会展开，上滑会收缩的效果 再是下面的的轮播图，水平滑动的列表 最后一部分是瀑布流的布局 整体效果看起来是这样的 感觉还是有些卡顿的
 
