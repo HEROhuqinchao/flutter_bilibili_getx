@@ -7,8 +7,8 @@ import 'package:get/get_core/src/get_main.dart';
 main() {
   runApp(
     MaterialApp(
-      // home: MyApp(),
-      home: GreenPage(),
+      home: MyApp(),
+      // home: GreenPage(),
     ),
   );
 }
@@ -20,10 +20,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        // child: AnimDemo(),
+        child: AnimDemo(),
         // child: CupertinoActivityIndicatorExample(),
         // child: AnimatedCrossFadeExample(),
-        child: AnimatedSwitcherExample(),
+        // child: AnimatedSwitcherExample(),
       ),
     );
   }
@@ -46,7 +46,9 @@ class _AnimDemoState extends State<AnimDemo>
     animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 1),
-    );
+    )..addListener(() {
+      print("监听");
+    });
     super.initState();
   }
 
@@ -239,7 +241,6 @@ class GreenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Animation
     return Scaffold(
       backgroundColor: Colors.green,
       appBar: AppBar(

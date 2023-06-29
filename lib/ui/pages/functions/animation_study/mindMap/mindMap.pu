@@ -4,7 +4,7 @@
 *** Curve
 ****_ transform (按照某种规则变化的数值变化器)
 *** Animation
-**** CurvedAnimation
+**** CurveAnimation
 *****_ parent
 *****_ curve
 **** AnimationController
@@ -143,11 +143,32 @@
 ****_ Navigator.of.push(PageRouteBuilder(_,_,_,transitionsBuilder))
 *** 框架层
 **** Curve
+*****_ transformInternal 对t转换
+*****_ 限定 double -> double
 **** Animatable<T>
+*****_ transform() -> (double -> Object)
 **** Animation<T>
 *****_ 监听或者销毁Listenable对象
 *****_ 获取value
 *****_ 定义动画属性及drive方法
+**** 关系
+***** Animatable 与 Animation
+******_ Animation = Animatable.animate(Animation)
+******_ Animation = Animation.drive(Animatable)
+******_ Value = Animatable.evaluate(Animation)
+***** Animation 与 Curve
+******_ Animation = CurvedAnimation(parent, curve)
+******_ value = Curve.transform(Animation.value)
+***** Animatable 与 Curve
+******_ CurveTween(curve) - 优势可以用chain
+***** Animatable 与 Animatable
+******_ Animatable = Animatable<T>.chain(Animatable<double>)
+***** Animation 与 Animation
+******_ Animation = CurvedAnimation(Animation, curve)
+***** Curve 与 Curve
+******_ Curve = FlippedCurve(Curve) 反转Curve
+**** AnimationController
+
 @endmindmap
 
 @startuml
@@ -160,16 +181,53 @@ abstract class ValueListenable {
     T get value
 }
 note left: 定义了value的返回方法
-abstract class Animation {
+abstract class Animation #aliceblue{
     Animation drive(Animtable)
 }
 class AnimationController
-class CurvedAnimation
+class CurveAnimation
 class AlwaysStoppedAnimation
 Listenable <|-- Animation
 Listenable <|-- ValueListenable
 ValueListenable <|.. Animation
 Animation <|-- AnimationController
-Animation <|-- CurvedAnimation
+Animation <|-- CurveAnimation
 Animation <|-- AlwaysStoppedAnimation
+
+abstract class Animatable #aliceblue{
+    T transform(double t)
+    T evaluate(animation)
+    Animation<T> animate(Animation<double> parent)
+    Animation<T> chain(Animation<double> parent)
+}
+note right: double -> Object
+class TweenSequence
+class Tween
+class CurveTween
+class ColorTween
+class XTween
+Animatable <|-- TweenSequence
+Animatable <|-- Tween
+Animatable <|-- CurveTween
+Tween <|-- ColorTween
+Tween <|-- XTween
+
+abstract class ParametricCurve {
+    T transform()
+    T transformInternal()
+}
+abstract class Curve #aliceblue{
+    T transform()
+    Curve flipped()
+}
+note right: double -> double
+class Cubic
+class XCurve
+ParametricCurve <|-- Curve
+Curve <|-- Cubic
+Curve <|-- XCurve
+
+Curve -[thickness=4]- Animatable
+Curve -[thickness=4]- Animation
+Animatable -[thickness=4]- Animation
 @enduml

@@ -6,9 +6,9 @@
 ****_ 原理层
 *****_ 三棵树
 *****_ 核心模块
-******[#lightblue] Gesture
-******[#lightblue] Animation
-******[#lightblue] Canvas
+******_ Gesture
+******_ Animation
+******_ Canvas
 
 ***_ 业务功能/工具类
 ****_ 弹窗
@@ -17,18 +17,18 @@
 *****_ flutterBlue插件
 ****_ 音视频
 *****_ video_player插件
-*****[#lightblue] 音频
+*****_ 音频
 ****_ 下载/上传/压缩
 *****_ 下载插件flutterDownloader
-*****[#lightblue] 大文件分块上传
-*****[#lightblue] 上传 MultipartFile FormData
+*****_ 大文件分块上传
+*****_ 上传 MultipartFile FormData
 ****_ 国际化I18N
 ****_ 轻量化存储
 *****_ Sqlite
 *****_ SharedPreference
 ****_ Http请求
 *****_ dio
-*****[#lightblue] HttpClient、http库
+*****_ HttpClient、http库
 ****_ 图表
 *****_ fl_chart(点数庞大性能差,代码结构清晰)
 *****_ syncfusion_flutter_charts(点数庞大性能差,代码结构清晰)
@@ -45,7 +45,8 @@
 *****_ 局部刷新(不要全刷新界面;采用StreamBuilder/ChangeNotifier)
 
 ***_ 第三方功能
-****[#lightblue] 支付
+****_ 支付
+****_ 跳转微信小程序
 ****_ 分享
 *****_ 微信分享
 ******_ fluwx
@@ -64,33 +65,31 @@
 ***_ 原生通信/界面
 ****_ Channel
 *****_ MethodChannel
-*****[#lightblue] BasicMessageChannel
-*****[#lightblue] EventChannel
+*****_ BasicMessageChannel
+*****_ EventChannel
 
 ****_ PlatformView
 
-***_ 状态管理
+***_ 状态管理/路由管理方案
 ****_ GetX
-*****_ 路由管理
-*****_ 状态管理
 ****_ Bloc
 ****_ Provider
 
 ** Android
 ***_ 语言
 ****_ JAVA
-****[#lightblue] Kotlin
-***[#lightblue] 上线
+****_ Kotlin
+***_ 上线
 ***_ 功能
-****[#lightblue] Media3
+****_ Media3
 ****_ service
 ****_ CameraX
-****[#lightblue] workManager
-****_ MPAndroidChart
+****_ workManager
 
 ** Ios
 ***_ 上线
-****[#lightblue] appStore
+****_ appStore
+****_ Google play
 
 ** 微信小程序
 
@@ -109,11 +108,10 @@
 ****_ 单例模式
 ****_ 观察者模式
 ****_ 适配器模式
-
-***_ Sql
+****_ 装饰者模式
 
 ** nodeJS
-***_ 接口
+***_ express
 ***_ 数据库操作
 ***_ nodejs-websocket
 ***_ 极光推送消息
