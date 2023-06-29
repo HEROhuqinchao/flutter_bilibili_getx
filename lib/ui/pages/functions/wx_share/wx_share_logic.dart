@@ -7,13 +7,13 @@ class WxShareLogic extends GetxController {
 
   @override
   void onReady() {
-    // TODO: implement onReady
+    print("onReady");
     super.onReady();
   }
 
   @override
   void onClose() {
-    // TODO: implement onClose
+    print("onClose");
     super.onClose();
   }
 }

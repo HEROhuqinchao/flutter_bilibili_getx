@@ -124,5 +124,52 @@
 ******_ build()
 *****_ AnimatedWidgetBaseState(ImplicitlyAnimatedWidgetState)
 ******_ 监听动画器并setState()
-*** 其他动画组件
+*** 其他动画组件(内置动画组件)
+****_ AnimatedIcon
+*****_ CustomPaint绘制预制好的帧列表,通过repaint
+****_ CupertinoActivityIndicator
+*****_ initState() -> 初始化AnimationController
+*****_ didUpdateWidget() -> controller控制动画
+*****_ builder() -> CustomPaint绘制
+*****_ super(repaint) -> 监听animation并重绘
+****_ AnimatedCrossFade
+*****_ FadeTransition
+*****_ AnimatedSize
+****_ AnimatedSwitcher
+****_ FlutterLogo
+****_ ExpandIcon
+****_ RefreshIndicator
+*** 路由动画
+****_ Navigator.of.push(PageRouteBuilder(_,_,_,transitionsBuilder))
+*** 框架层
+**** Curve
+**** Animatable<T>
+**** Animation<T>
+*****_ 监听或者销毁Listenable对象
+*****_ 获取value
+*****_ 定义动画属性及drive方法
 @endmindmap
+
+@startuml
+abstract class Listenable {
+    void addListenable(VoidCallback listener)
+    void removeListener(VoidCallback listener)
+}
+note left: 注册注销对该Listenable对象的监听
+abstract class ValueListenable {
+    T get value
+}
+note left: 定义了value的返回方法
+abstract class Animation {
+    Animation drive(Animtable)
+}
+class AnimationController
+class CurvedAnimation
+class AlwaysStoppedAnimation
+Listenable <|-- Animation
+Listenable <|-- ValueListenable
+ValueListenable <|.. Animation
+Animation <|-- AnimationController
+Animation <|-- CurvedAnimation
+Animation <|-- AlwaysStoppedAnimation
+@enduml
