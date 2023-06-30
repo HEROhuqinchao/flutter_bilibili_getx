@@ -203,9 +203,10 @@
 ******_ _ticker.start & simulation
 *****_ 关闭与销毁
 ******_ _ticker.dispose() -> TickerFuture#cancel
-**** 绘制的性能优化
+**** 绘制的性能优化及调试
 *****_ 抽离静态绘制
-*****_ RepaintBoundary 隔离绘制区域
+*****_ RepaintBoundary 隔离绘制组件区域
+*****_ debugDumpRenderTree()
 @endmindmap
 
 @startuml
