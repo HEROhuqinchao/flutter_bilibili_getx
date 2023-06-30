@@ -168,7 +168,10 @@
 ***** Curve 与 Curve
 ******_ Curve = FlippedCurve(Curve) 反转Curve
 **** AnimationController
-
+*****_ 实现Animation的抽象方法
+******_ AnimationLocalStatusListenersMixin
+******_ AnimationEagerListenerMixin
+******_ AnimationLocalListenersMixin
 @endmindmap
 
 @startuml
