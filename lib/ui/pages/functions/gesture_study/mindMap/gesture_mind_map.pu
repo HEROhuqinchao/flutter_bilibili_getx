@@ -1,0 +1,51 @@
+@startmindmap
+* 手势
+** 竞技层
+*** GestureArenaManager 竞技场管理者
+*** GestureArenaMember 竞技场参赛者接口
+*** _GestureArena 竞技场对象
+*** GestureArenaEntry 竞技场信息发送器
+** 手势数据层
+*** PointerEvent
+** 常用手势
+*** Tap
+**** onTap
+**** onTapCancelsz
+**** onTapDown
+***** TapDownDetails
+****** localPoaition(相对组件左上角)
+****** globalPosition(相对屏幕左上角)
+****** kind(触电设备类型)
+**** onTapUp
+***** TapUpDetails
+*** DoubleTap
+**** onDoubleTap
+**** onDoubleTapCancel
+*** LongPress
+**** onLongPressStart
+**** onLongPress
+**** onLongPressMoveUpdate
+***** offsetFromOrigin 开始触点到当前触点(全局)
+***** localOffsetFromOrigin 开始触点到当前触点(相对)
+**** onLongPressEnd
+***** localPosition
+***** globalPosition
+***** velocity 结束时速度
+**** onLongPressUp
+*** Pan
+**** onPanDown
+**** onPanStart
+***** DragStartDetails
+****** sourceTimeStamp
+****** kind
+**** onPanUpdate
+***** DragUpdateDetails
+****** delta
+****** sourceTimeStamp
+****** primaryDelta
+**** onPanEnd
+***** DragEndDetails
+****** velocity
+****** primaryVelocity
+**** onPanCancel
+@endmindmap
