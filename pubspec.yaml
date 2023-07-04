@@ -88,7 +88,7 @@ dependencies:
   desktop_window: ^0.4.0 #桌面应用大小
   flutter_svg: ^1.1.6 #svg
   package_info_plus: ^3.0.2 #获取应用的包名、版本等信息
-  workmanager: ^0.5.1 #workmanager
+#  workmanager: ^0.5.1 #workmanager
   excel: ^2.0.1 #生成excel (功能较少）
   syncfusion_flutter_xlsio: ^20.4.49-beta #生成excel 插件二 （功能较多）
   image: ^4.0.15 #处理图片
