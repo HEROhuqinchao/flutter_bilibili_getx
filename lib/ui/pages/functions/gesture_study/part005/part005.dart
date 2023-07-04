@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'gesture_painter.dart';
@@ -9,9 +8,15 @@ main() {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   final ValueNotifier<Matrix4> matrix =
       ValueNotifier<Matrix4>(Matrix4.identity());
+
   Matrix4 recodeMatrix = Matrix4.identity();
 
   @override

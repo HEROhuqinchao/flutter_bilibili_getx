@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +6,9 @@ class GesturePainter extends CustomPainter {
     ..color = Colors.green
     ..style = PaintingStyle.stroke;
   Path gridPath = Path();
-  late final ValueListenable<Matrix4> matrix;
+  ValueListenable<Matrix4> matrix;
 
-  GesturePainter(this.matrix);
+  GesturePainter(this.matrix) : super(repaint: matrix);
 
   @override
   void paint(Canvas canvas, Size size) {

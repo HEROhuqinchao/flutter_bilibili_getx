@@ -58,8 +58,8 @@ class HYVideoReplyModel {
         cursor: Cursor.fromJson(json["cursor"]),
         hots: json["hots"],
         notice: json["notice"],
-        replies: List<HYVideoReplyModelReply>.from(
-            json["replies"].map((x) => HYVideoReplyModelReply.fromJson(x))),
+        replies: json["replies"] != null ? List<HYVideoReplyModelReply>.from(
+            json["replies"].map((x) => HYVideoReplyModelReply.fromJson(x))) : [],
         top: Top.fromJson(json["top"]),
         topReplies: json["top_replies"] == null
             ? null
@@ -68,7 +68,8 @@ class HYVideoReplyModel {
         folder: json["folder"] == null ? null : Folder.fromJson(json["folder"]),
         upSelection: UpSelection.fromJson(json["up_selection"]),
         cm: json["cm"] == null ? null : Cm.fromJson(json["cm"]),
-        cmInfo: json["cm_info"] == null ? null : CmInfo.fromJson(json["cm_info"]),
+        cmInfo:
+            json["cm_info"] == null ? null : CmInfo.fromJson(json["cm_info"]),
         effects: Effects.fromJson(json["effects"]),
         assist: json["assist"],
         blacklist: json["blacklist"],
@@ -246,7 +247,9 @@ class Cursor {
         isEnd: json["is_end"],
         mode: json["mode"],
         showType: json["show_type"],
-        supportMode: List<int>.from(json["support_mode"].map((x) => x)),
+        supportMode: json["support_mode"] != null
+            ? List<int>.from(json["support_mode"].map((x) => x))
+            : [],
         name: json["name"],
       );
 
@@ -1356,10 +1359,8 @@ class UpperReplyControl {
       );
 
   Map<String, dynamic> toJson() => {
-        "sub_reply_entry_text":
-            subReplyEntryText,
-        "sub_reply_title_text":
-            subReplyTitleText,
+        "sub_reply_entry_text": subReplyEntryText,
+        "sub_reply_title_text": subReplyTitleText,
         "time_desc": timeDesc,
       };
 }

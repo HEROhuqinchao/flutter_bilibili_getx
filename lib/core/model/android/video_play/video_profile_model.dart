@@ -116,6 +116,7 @@ class VideoProfileData {
   List<DislikeReason>? dislikeReasons;
   DislikeReasonsV2? dislikeReasonsV2;
   int? dmSeg;
+
   // List<Cm>? cms;
   CmConfig? cmConfig;
   String? shortLink;
@@ -473,7 +474,9 @@ class Elec {
             ? null
             : List<ListElement>.from(
                 json["list"].map((x) => ListElement.fromJson(x))),
-        elecSet: ElecSet.fromJson(json["elec_set"]),
+        elecSet: json["elec_set"] != null
+            ? ElecSet.fromJson(json["elec_set"])
+            : null,
       );
 
   Map<String, dynamic> toJson() => {
@@ -1147,7 +1150,9 @@ class Extra {
         productId: json["product_id"],
         reportTime: json["report_time"],
         salesType: json["sales_type"],
-        showUrls: json["show_urls"] == null ? null : List<String>.from(json["show_urls"].map((x) => x)),
+        showUrls: json["show_urls"] == null
+            ? null
+            : List<String>.from(json["show_urls"].map((x) => x)),
         specialIndustry: json["special_industry"],
         specialIndustryStyle: json["special_industry_style"],
         specialIndustryTips: json["special_industry_tips"],
@@ -1269,6 +1274,7 @@ class Card {
   String ottJumpUrl;
   String priceDesc;
   String priceSymbol;
+
   // List<QualityInfo> qualityInfos;
   bool supportTransition;
   String title;
