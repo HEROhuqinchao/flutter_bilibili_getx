@@ -1,0 +1,63 @@
+@startuml
+abstract class GestureRecognizerFactory {
+    T constructor()
+    void initializer(T instance)
+}
+class GestureRecognizerFactoryWithHandlers {
+    GestureRecognizerFactoryConstructor _constructor
+    GestureRecognizerFactoryInitializer _initializer
+}
+GestureRecognizerFactory <|-- GestureRecognizerFactoryWithHandlers
+
+abstract class GestureDetector
+note left of GestureDetector: Map<Type, GestureRecognizerFactory> gestures只要出现手势,\n则为Gestures添加一个元素\n<TapGestureRecognizer, GestureRecognizerFactoryWithHandlers>
+
+abstract class GestureArenaMember
+GestureArenaMember <|-- GestureDetector
+@enduml
+
+@startuml
+abstract class GestureArenaMember {
+    void acceptGesture(int pointer)
+    void rejectGesture(int pointer)
+}
+abstract class GestureRecognizer 
+GestureArenaMember <|-- GestureRecognizer
+
+abstract class OneSequenceGestureRecognizer
+class DoubleTapGestureRecognizer
+class MultiTapGestureRecognizer
+abstract class MultiDragGestureRecognizer
+class ImmediateMultiDragGestureRecognizer
+class HorizontalMultiDragGestureRecognizer
+class VerticalMultiDragGestureRecognizer
+class DelayedMultiDragGestureRecognizer
+MultiDragGestureRecognizer <|-- ImmediateMultiDragGestureRecognizer
+MultiDragGestureRecognizer <|-- HorizontalMultiDragGestureRecognizer
+MultiDragGestureRecognizer <|-- VerticalMultiDragGestureRecognizer
+MultiDragGestureRecognizer <|-- DelayedMultiDragGestureRecognizer
+
+GestureRecognizer <|-- OneSequenceGestureRecognizer
+GestureRecognizer <|-- DoubleTapGestureRecognizer
+GestureRecognizer <|-- MultiTapGestureRecognizer
+GestureRecognizer <|-- MultiDragGestureRecognizer
+
+abstract class DragGestureRecognizer
+class HorizontalDragGestureRecognizer
+class VerticalDragGestureRecognizer
+class PanGestureRecognizer
+OneSequenceGestureRecognizer <|-- DragGestureRecognizer
+DragGestureRecognizer <|-- HorizontalDragGestureRecognizer
+DragGestureRecognizer <|-- VerticalDragGestureRecognizer
+DragGestureRecognizer <|-- PanGestureRecognizer
+
+abstract class PrimaryPointerGestureRecognizer
+abstract class BaseTapGestureRecognizer
+class TapGestureRecognizer
+OneSequenceGestureRecognizer <|-- PrimaryPointerGestureRecognizer
+PrimaryPointerGestureRecognizer <|-- BaseTapGestureRecognizer
+BaseTapGestureRecognizer <|-- TapGestureRecognizer
+
+class LongPressGestureRecognizer
+PrimaryPointerGestureRecognizer <|-- LongPressGestureRecognizer
+@enduml
