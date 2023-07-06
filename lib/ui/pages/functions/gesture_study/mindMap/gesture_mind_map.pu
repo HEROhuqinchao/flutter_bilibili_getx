@@ -212,7 +212,54 @@
 ***_ addAllowedPointer
 ****_ 双击计时器 _doubleTapTimer
 ****_ _trackTap -> 创建_TapTracker
-****_ TapTracker
-*****_ event PointerDownEvent
-*****_ 
+*****_ TapTracker(记录落下时的触点信息)
+******_ event PointerDownEvent 指针数据
+******_ entry GestureArenaEntry 传递给竞技场的消息
+******_ doubleTapMinTime Duration 双击的最小时长
+***_ _handleUpEvent
+****_ 整体逻辑
+*****_ PointerEvent
+*****_ PointerDownEvent
+*****_ PointerCancelEvent
+****_ 移动距离校验
+*****_ isWithinGlobalTolerance
+****_ 注册第一点
+*****_ 开启双击计时器
+*****_ 挂起竞技场(单击与双击)
+*****_ 冻结追踪器(stopTrackingPointer -> 将_handleEvent从pointerRouter移除)
+*****_ 清空追踪(_clearTrackers) -> 清空trackers
+****_ 第二点
+*****_ isPointerAllowed
+*****_ addAllowedPointer
+******_ isWithinGlobalTolerance -> 检测两次点击是否小于tolerance
+******_ hasElapsedMinTime || hasSameButton -> 检验最短超时时间 || 检验两次点击按键类型是否一致
+******_ onDoubleTapDown != null
+*****_ onDoubleTapDown 
+******_ 生成TapDownDetails
+******_ invokeCallback回调onDoubleTapDown
+******_ _trackTap
+******_ GestureBinding.dispatchEvent -> _handleEvent -> _registerSecondTap
+*****_ onDoubleTap
+******_ _registerSecondTap -> tracker.entry.resolve(GestureDisposition.accepted) 主动宣布胜利
+******_ 停止追踪tracker
+******_ 触发onDoubleTap回调
+*****_ onDoubleTapCancel
+******_ 在_reject & _reset 触发
+******_ _doubleTapTimer超时会_reset,第二次的点击_firstTap为null -> 不会触发onDoubleCancel
+*****_ 总结
+******_ kDoubleTapMinTime = 40ms 限制双击最小时间
+******_ kDoubleTapTimeout = 300ms 限制双击最大时间
+******_ kDoubleTapTouchSlop = 18逻辑像素 限制第一次点击移动距离
+******_ kDoubleTapSlop = 100逻辑像素 限制第二次点击移动距离
+** 竞技场视角看双击事件
+***_ 竞技场的创建和参赛者入场
+****_ 按下 -> _trackTap -> 竞技场管理者add
+***_ 竞技场裁决
+****_ _reject -> tracker.entry.resolve() -> 竞技场管理者裁决
+****_ 满足双击 -> _registerSecondTap -> 表示自己获胜
+***_ 双击事件中成功和失败的回调
+****_ _registerSecondTap 胜利必然
+****_ 当竞技失败时,除了rejectGesture外,也是需要rejected来告诉竞技场让我离场的
+***_ 竞技场的释放release
+****_ _reset -> release -> isHeld = false -> 分胜负
 @endmindmap
