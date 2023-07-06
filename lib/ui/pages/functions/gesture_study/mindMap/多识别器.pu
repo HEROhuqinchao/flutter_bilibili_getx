@@ -1,0 +1,43 @@
+@startmindmap
+* 多手势竞技
+** 对象
+***_ DoubleTapGestureRecognizer
+***_ TapGestureRecognizer
+** 创建
+***_ 1.initState
+***_ 2._syncAll
+***_ 3.GestureRecognizerFactory.constructor()
+** 加入竞技场
+***_ Listener
+****_ _handlePointerDown
+*****_ addPointer 
+******_ 追踪触点
+*******_ startTrackingPointer
+********_ 在pointerRouter注册handleEvent
+******_ 竞技者入场
+*******_ _addPointerToArena
+*******_ GestureBinding.instance.gestureArena.add
+*******_ 返回GestureArenaEntry
+*****_ addPointer(双击)
+******_ _trackTap
+******_ GestureBinding.instance.gestureArena.add
+******_ 返回GestureArenaEntry
+*****_ 追踪触点
+******_ startTrackingPointer
+******_ 在pointerRouter注册handleEvent
+*****_ 竞技者关闭
+******_ handleEvent 接收触点事件
+******_ pointerRouter.route分发事件
+******_ 竞技场处理不同手势的逻辑(PointerDownEvent -> close)
+** 标准双击事件
+***_ pointerRouter 事件通知 单击
+****_ 单击 -> handlePrimaryPointer -> _chekcUp
+****_ 单击 -> stopTrackingPointer
+***_ pointerRouter 事件通知 双击
+****_ <18逻辑像素 -> _registerFirstTap
+****_ 竞技场hold挂起
+****_ _freezeTracker -> 取消追踪第一个触点
+** 竞技场清扫
+***_ hasPendingSweep = true
+***_ 
+@enduml
