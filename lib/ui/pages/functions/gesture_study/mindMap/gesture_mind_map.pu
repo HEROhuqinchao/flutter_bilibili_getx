@@ -163,5 +163,56 @@
 ****_ 通过_addPointerToArena得到GestureArenaEntry(使用GestureBinding.gestureArena将参赛者加入到竞技场)
 ****_ 没有竞技场会创建竞技场并返回GestureArenaEntry
 ** 单机手势检测器进入竞技场之后
+***_ 参赛者状态 ready -> possible
 ***_ 延迟任务开启
+***_ 定义时长deadline
+***_ 延迟执行 didExceedDeadline
+***_ 延迟任务的取消 _stopTimer
+** 单击手势检测器执行回调
+***_ handleEvent触发
+****_ GestureBinding.dispatchEvent分发事件
+****_ pointerRouter.route方法会执行注册进来的方法 -> handleEvent
+***_ handleEvent判断逻辑
+****_ _gestureAccepted 参赛则胜利
+****_ preAcceptSlopTolerance 18逻辑像素
+***_ handlePrimaryPointer 
+****_ PointerUpEvent 检测抬起
+****_ PointerCancelEvent 检测取消
+****_ event.button 检测类型
+***_ 单击事件回调何时触发
+****_ 竞技场管理者执行close
+****_ _tryToResolveArena 尝试裁决
+****_ acceptGesture 逻辑判断后触发胜利者方法
+****_ 执行 handlePrimaryPointer 触发onTapUp
+***_ 触点追踪的取消
+****_ PointerUpEvent || PointerCancelEvent -> stopTrackingPointer
+** 竞技场视角看待单击事件
+***_ 竞技场的创建
+****_ 竞技场add方法
+****_ 得到竞技场state并加入参赛者member
+***_ 竞技场的裁决触发
+****_ 单个单击手势 -> 没有和竞技场联系
+****_ super.resolve -> 遍历_entries通过resolve发送disposition,交由竞技场管理者处理
+***_ 竞技场裁决逻辑
+****_ resolve -> 若拒绝则触发参赛者的rejectGesture
+***_ 单击手势被拒绝时
+****_ rejectGesture
+****_ 停止计时器 && 维护状态量
+****_ 触发onTapCancel
+***_ 单击手势何时会胜利
+****_ 单击手势没有resolve(GestureDisposition.accepted)
+****_ 只有 _resolveByDefault
+***_ 竞技场的关闭与清扫
+****_ GestureBinding 触发 handleEvent
+****_ PointerDownEvent -> close; PointerUpEvent -> sweep;
+** 双击手势检测器(DoubleTapGesturerecognizer)
+***_ 校验触点是否允许 isPointerAllowed
+****_ 非_firstTap不被注册
+****_ 三个回调函数都为null不被注册
+***_ addAllowedPointer
+****_ 双击计时器 _doubleTapTimer
+****_ _trackTap -> 创建_TapTracker
+****_ TapTracker
+*****_ event PointerDownEvent
+*****_ 
 @endmindmap

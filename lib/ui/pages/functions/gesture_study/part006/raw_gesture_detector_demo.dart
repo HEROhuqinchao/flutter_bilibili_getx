@@ -18,13 +18,25 @@ class _RawGestureDetectorDemoState extends State<RawGestureDetectorDemo> {
       gestures: <Type, GestureRecognizerFactory>{
         TapGestureRecognizer:
             GestureRecognizerFactoryWithHandlers<TapGestureRecognizer>(
-                () => TapGestureRecognizer(), (instance) {
-          instance
-            ..onTapDown = _tapDown
-            ..onTapUp = _tapUp
-            ..onTap = _tap
-            ..onTapCancel = _tapCancel;
-        }),
+          () => TapGestureRecognizer(),
+          (instance) {
+            instance
+              ..onTapDown = _tapDown
+              ..onTapUp = _tapUp
+              ..onTap = _tap
+              ..onTapCancel = _tapCancel;
+          },
+        ),
+        DoubleTapGestureRecognizer:
+            GestureRecognizerFactoryWithHandlers<DoubleTapGestureRecognizer>(
+          () => DoubleTapGestureRecognizer(),
+          (instance) {
+            instance
+              ..onDoubleTap = _doubleTap
+              ..onDoubleTapDown = _doubleTapDown
+              ..onDoubleTapCancel = _doubleTapCancel;
+          },
+        ),
       },
       child: Container(
         width: 100.0,
@@ -65,4 +77,10 @@ class _RawGestureDetectorDemoState extends State<RawGestureDetectorDemo> {
       color = Colors.orange;
     });
   }
+
+  void _doubleTap() {}
+
+  void _doubleTapCancel() {}
+
+  void _doubleTapDown(TapDownDetails details) {}
 }
