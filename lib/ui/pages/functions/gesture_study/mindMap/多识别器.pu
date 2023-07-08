@@ -37,7 +37,19 @@
 ****_ <18逻辑像素 -> _registerFirstTap
 ****_ 竞技场hold挂起
 ****_ _freezeTracker -> 取消追踪第一个触点
-** 竞技场清扫
-***_ hasPendingSweep = true
-***_ 
+***_ 竞技场清扫
+****_ hasPendingSweep = true
+***_ 第二触点
+****_ pointerRouter 注册第二触点的_handleEvent
+****_ _trackTap 双击检测器会加入到第二个竞技场
+****_ 双击检测器 _registerSecondTap 主动请示胜利
+****_ 两个竞技场的单击检测器 分别调用 rejectGesture
+** 单击事件
+***_ 双击计时器超时
+****_ _startDoubleTimer超时执行_reset -> _reject / gestureArena.release
+****_ _reject -> _tryToResolveArena -> 异步_resolveByDefault
+****_ release -> sweep -> 首位获胜
+***_ 单击获胜
+****_ 触发双击的_reset() -> 清扫竞技场
+****_ 双击发送_reject -> 异步_resolveByDefault -> 竞技场移除则不处理
 @enduml

@@ -19,66 +19,66 @@
 **沉淀知识**
 2023年6月28日更新
 
-| 技术                         | 进度                                                         | 规划                                                         | 优先级（1-5） |
-| ---------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
-| **Flutter篇***               | /                                                            | /                                                            | /             |
-| Flutter框架类知识            | [Flutter框架笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131279994) | 总结三棵树、学习完[手势册子](https://juejin.cn/book/6896378716427911181?enter_from=course_center&utm_source=course_center)、[动画册子](https://juejin.cn/book/6965102582473687071?enter_from=course_center&utm_source=course_center)、[Canvas册子](https://juejin.cn/book/6844733827265331214?enter_from=course_center&utm_source=course_center) | 1             |
-| 弹窗                         | [smartDialog](https://pub-web.flutter-io.cn/packages/flutter_smart_dialog/install) | 其他弹框                                                     | 5             |
-| 蓝牙                         | [flutterBlue](https://pub-web.flutter-io.cn/packages/flutter_blue) | 实战                                                         | 5             |
-| 音视频                       | [video_player](https://pub-web.flutter-io.cn/packages/video_player);流媒体FLV(直播) | 音频，音乐类软件                                             | 2             |
-| 上传                         | FormData + MutilPartFile                                     | 分块上传                                                     | 2             |
-| 下载                         | [flutter_downloader](https://pub-web.flutter-io.cn/packages/flutter_downloader) | 断点继续上传                                                 | 2             |
-| 压缩                         | [light_compress](https://pub-web.flutter-io.cn/packages/light_compressor/install) | 无                                                           | 5             |
-| 国际化I18N                   | translations                                                 | 无                                                           | 5             |
-| 轻量化存储                   | [sqlite](https://pub-web.flutter-io.cn/packages/sqflite)/[sharedpreference](shared_preferences) | 无                                                           | 5             |
-| 网络请求                     | [dio](https://pub-web.flutter-io.cn/packages/dio/install)    | HttpClient/Http库                                            | 2             |
-| 图表                         | [fl_chart](https://pub-web.flutter-io.cn/packages/fl_chart)/[syncfusion_flutter_charts](https://pub-web.flutter-io.cn/packages/syncfusion_flutter_charts)/MPAndroidChart & MPIOSChart(点数很多时可以试试这个，flutter的chart插件，点数过多效果较差) | 无                                                           | 5             |
-| 二维码扫描                   | [mobile_scanner](https://pub-web.flutter-io.cn/packages/mobile_scanner)/[qrscan](https://pub-web.flutter-io.cn/packages/qrscan) | 无                                                           | 5             |
-| 3D模型                       | [model_viewer_plus](https://pub-web.flutter-io.cn/packages/model_viewer_plus) | 无                                                           | 5             |
-| websocket                    | [web_socket_channel](https://pub-web.flutter-io.cn/packages/web_socket_channel) | 无                                                           | 5             |
-| 性能优化                     | ResizeImage减少图片内存/局部刷新(Listenable/StreamBuilder)/绘制性能优化RepaintBoundary,作用是分隔开渲染对象 | 继续补充                                                     | 1             |
-| 支付                         | 无                                                           | 无                                                           | 5             |
-| 分享                         | 微信分享/QQ分享/                                             | 无                                                           | 5             |
-| 微信小程序                   | 跳转微信小程序 [fluwx](https://pub-web.flutter-io.cn/packages/fluwx) | 无                                                           | 5             |
-| 极光推送                     | 华为厂商推送/全推送/单个推送;极光推送(对接华为厂商通道)参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10)；后端实现推送[nodejs-jpush-async](https://www.bookstack.cn/read/jpush/45.md) | Tag推送                                                      | 2             |
-| 本地推送                     | [flutter_local_notifications](https://pub-web.flutter-io.cn/packages/flutter_local_notifications) | 无                                                           | 5             |
-| channel                      | MethodChannel                                                | BasicMessageChannel/EventChannel                             | 5             |
-| 原生界面                     | AndroidView/UiKitView                                        | 无                                                           | 5             |
-| 状态管理                     | GETX                                                         | Provider/Bloc                                                | 2             |
-| 预制动画                     | 动画组件（flare、rive、lottie）                              |                                                              |               |
-| 路由管理                     | GETX(initRoute + getPages)                                   |                                                              |               |
-| Key                          |                                                              |                                                              |               |
-| Hero动画                     |                                                              |                                                              |               |
-| DevTools/Debug               |                                                              |                                                              |               |
-|                              |                                                              |                                                              |               |
-|                              |                                                              |                                                              |               |
-| **Android篇**                | /                                                            | /                                                            | /             |
-| 编程语言                     | JAVA                                                         | [Kotlin学习BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130940725) | 1             |
-| 上线APP流程                  | 无                                                           |                                                              | 1             |
-| Service                      | [Service笔记](https://blog.csdn.net/sheng_er_sheng/article/details/130999373) | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 1             |
-| Media3                       | [Media3笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131164987) | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 1             |
-| workManager                  | 无                                                           |                                                              | 1             |
-| 应用存储数据                 | [应用存储数据笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131348897) | 继续补充                                                     | 1             |
-| CameraX                      | [CameraX例子BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130923458) |                                                              | 1             |
-| **IOS篇**                    | /                                                            | /                                                            | /             |
-| 上线                         | appStore                                                     | 上线AppStore流程/GooglePlay流程                              | 1             |
-| 原生Swift                    | 无                                                           |                                                              | 1             |
-|                              |                                                              |                                                              |               |
-| **项目管理篇**               | /                                                            | /                                                            | /             |
-| 原型                         | Axure/墨刀                                                   | 无                                                           | 2             |
-| uml图                        | [甘特图](https://zhuanlan.zhihu.com/p/271043355)/类图/时序图/用例图 | 继续补充                                                     | 2             |
-|                              |                                                              |                                                              |               |
-| **其他**                     | /                                                            | /                                                            | /             |
-| 正则表达式                   | 无                                                           | 无                                                           | 5             |
-|                              |                                                              |                                                              |               |
-|                              |                                                              |                                                              |               |
-| **NodeJs篇**                 | /                                                            | /                                                            | /             |
-| express                      | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 无                                                           | 5             |
-| nodejs-websocket             | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 无                                                           | 5             |
-|                              |                                                              |                                                              |               |
-| **项目开发经验**             | /                                                            | /                                                            | /             |
-| 项目目录结构清晰，模块化清晰 | 封装思想                                                     |                                                              |               |
-| 设计模式                     | [设计模式笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131181391) | 继续补充                                                     | 2             |
+| 技术               | 进度                                                         | 规划                                                         | 优先级（1-5） |
+|------------------| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
+| **Flutter篇***    | /                                                            | /                                                            | /             |
+| Flutter框架类知识     | [Flutter框架笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131279994) | 总结三棵树、学习完[手势册子](https://juejin.cn/book/6896378716427911181?enter_from=course_center&utm_source=course_center)、[动画册子](https://juejin.cn/book/6965102582473687071?enter_from=course_center&utm_source=course_center)、[Canvas册子](https://juejin.cn/book/6844733827265331214?enter_from=course_center&utm_source=course_center) | 1             |
+| 弹窗               | [smartDialog](https://pub-web.flutter-io.cn/packages/flutter_smart_dialog/install) | 其他弹框                                                     | 5             |
+| 蓝牙               | [flutterBlue](https://pub-web.flutter-io.cn/packages/flutter_blue) | 实战                                                         | 5             |
+| 音视频              | [video_player](https://pub-web.flutter-io.cn/packages/video_player);流媒体FLV(直播) | 音频，音乐类软件                                             | 2             |
+| 上传               | FormData + MutilPartFile                                     | 分块上传                                                     | 2             |
+| 下载               | [flutter_downloader](https://pub-web.flutter-io.cn/packages/flutter_downloader) | 断点继续上传                                                 | 2             |
+| 压缩               | [light_compress](https://pub-web.flutter-io.cn/packages/light_compressor/install) | 无                                                           | 5             |
+| 国际化I18N          | translations                                                 | 无                                                           | 5             |
+| 轻量化存储            | [sqlite](https://pub-web.flutter-io.cn/packages/sqflite)/[sharedpreference](shared_preferences) | 无                                                           | 5             |
+| 网络请求             | [dio](https://pub-web.flutter-io.cn/packages/dio/install)    | HttpClient/Http库                                            | 2             |
+| 图表               | [fl_chart](https://pub-web.flutter-io.cn/packages/fl_chart)/[syncfusion_flutter_charts](https://pub-web.flutter-io.cn/packages/syncfusion_flutter_charts)/MPAndroidChart & MPIOSChart(点数很多时可以试试这个，flutter的chart插件，点数过多效果较差) | 无                                                           | 5             |
+| 二维码扫描            | [mobile_scanner](https://pub-web.flutter-io.cn/packages/mobile_scanner)/[qrscan](https://pub-web.flutter-io.cn/packages/qrscan) | 无                                                           | 5             |
+| 3D模型             | [model_viewer_plus](https://pub-web.flutter-io.cn/packages/model_viewer_plus) | 无                                                           | 5             |
+| websocket        | [web_socket_channel](https://pub-web.flutter-io.cn/packages/web_socket_channel) | 无                                                           | 5             |
+| 性能优化             | ResizeImage减少图片内存/局部刷新(Listenable/StreamBuilder)/绘制性能优化RepaintBoundary,作用是分隔开渲染对象 | 继续补充                                                     | 1             |
+| 支付               | 无                                                           | 无                                                           | 5             |
+| 分享               | 微信分享/QQ分享/                                             | 无                                                           | 5             |
+| 微信小程序            | 跳转微信小程序 [fluwx](https://pub-web.flutter-io.cn/packages/fluwx) | 无                                                           | 5             |
+| 极光推送             | 华为厂商推送/全推送/单个推送;极光推送(对接华为厂商通道)参考 [在Flutter中使用极光推送集成华为通道踩坑 - aquilahkj - 博客园 (cnblogs.com)](https://www.cnblogs.com/aquilahkj/p/15005775.html)  [(55条消息) flutter 极光推送 华为 厂商通道_qq_614149475的博客-CSDN博客](https://blog.csdn.net/qq_51633443/article/details/124044443?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-124044443-blog-118027993.pc_relevant_recovery_v2&utm_relevant_index=10)；后端实现推送[nodejs-jpush-async](https://www.bookstack.cn/read/jpush/45.md) | Tag推送                                                      | 2             |
+| 本地推送             | [flutter_local_notifications](https://pub-web.flutter-io.cn/packages/flutter_local_notifications) | 无                                                           | 5             |
+| channel          | MethodChannel                                                | BasicMessageChannel/EventChannel                             | 5             |
+| 原生界面             | AndroidView/UiKitView                                        | 无                                                           | 5             |
+| 状态管理             | GETX                                                         | Provider/Bloc                                                | 2             |
+| 预制动画             | 动画组件（flare、rive、lottie）                              |                                                              |               |
+| 路由管理             | GETX(initRoute + getPages)                                   |                                                              |               |
+| Key              |                                                              |                                                              |               |
+| Hero动画           |                                                              |                                                              |               |
+| DevTools/Debug   |                                                              |                                                              |               |
+| sizeAndViewsIn   |                                                              |                                                              |               |
+|                  |                                                              |                                                              |               |
+| **Android篇**     | /                                                            | /                                                            | /             |
+| 编程语言             | JAVA                                                         | [Kotlin学习BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130940725) | 1             |
+| 上线APP流程          | 无                                                           |                                                              | 1             |
+| Service          | [Service笔记](https://blog.csdn.net/sheng_er_sheng/article/details/130999373) | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 1             |
+| Media3           | [Media3笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131164987) | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 1             |
+| workManager      | 无                                                           |                                                              | 1             |
+| 应用存储数据           | [应用存储数据笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131348897) | 继续补充                                                     | 1             |
+| CameraX          | [CameraX例子BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130923458) |                                                              | 1             |
+| **IOS篇**         | /                                                            | /                                                            | /             |
+| 上线               | appStore                                                     | 上线AppStore流程/GooglePlay流程                              | 1             |
+| 原生Swift          | 无                                                           |                                                              | 1             |
+|                  |                                                              |                                                              |               |
+| **项目管理篇**        | /                                                            | /                                                            | /             |
+| 原型               | Axure/墨刀                                                   | 无                                                           | 2             |
+| uml图             | [甘特图](https://zhuanlan.zhihu.com/p/271043355)/类图/时序图/用例图 | 继续补充                                                     | 2             |
+|                  |                                                              |                                                              |               |
+| **其他**           | /                                                            | /                                                            | /             |
+| 正则表达式            | 无                                                           | 无                                                           | 5             |
+|                  |                                                              |                                                              |               |
+|                  |                                                              |                                                              |               |
+| **NodeJs篇**      | /                                                            | /                                                            | /             |
+| express          | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 无                                                           | 5             |
+| nodejs-websocket | [仿微信](https://blog.csdn.net/sheng_er_sheng/article/details/131128764) | 无                                                           | 5             |
+|                  |                                                              |                                                              |               |
+| **项目开发经验**       | /                                                            | /                                                            | /             |
+| 项目目录结构清晰，模块化清晰   | 封装思想                                                     |                                                              |               |
+| 设计模式             | [设计模式笔记](https://blog.csdn.net/sheng_er_sheng/article/details/131181391) | 继续补充                                                     | 2             |
 
 
 
