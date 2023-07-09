@@ -640,6 +640,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.1"
+  image_pickers:
+    dependency: "direct main"
+    description:
+      name: image_pickers
+      sha256: "845d9f294b32a76fd0add1e5f51d7b33e460ed186f1d36f827d72d1ae937cca7"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.4+1"
   intl:
     dependency: transitive
     description:

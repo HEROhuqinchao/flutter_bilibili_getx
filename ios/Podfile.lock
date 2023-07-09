@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - BaiduMapKit/Base (6.5.5)
   - BaiduMapKit/Search (6.5.5):
     - BaiduMapKit/Base
@@ -74,6 +89,11 @@ PODS:
   - GTMSessionFetcher/Core (2.3.0)
   - image_picker_ios (0.0.1):
     - Flutter
+  - image_pickers (0.0.1):
+    - AFNetworking
+    - Flutter
+    - SDWebImage
+    - ZLPhotoBrowser (~> 4.3.9)
   - JCore (4.2.0)
   - JPush (5.0.0):
     - JCore (>= 2.0.0)
@@ -155,6 +175,9 @@ PODS:
     - Flutter
   - webview_flutter_wkwebview (0.0.1):
     - Flutter
+  - ZLPhotoBrowser (4.3.9):
+    - ZLPhotoBrowser/Core (= 4.3.9)
+  - ZLPhotoBrowser/Core (4.3.9)
 
 DEPENDENCIES:
   - brightness_volume (from `.symlinks/plugins/brightness_volume/ios`)
@@ -169,6 +192,7 @@ DEPENDENCIES:
   - flutter_image_compress (from `.symlinks/plugins/flutter_image_compress/ios`)
   - fluwx_no_pay (from `.symlinks/plugins/fluwx_no_pay/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - image_pickers (from `.symlinks/plugins/image_pickers/ios`)
   - jpush_flutter (from `.symlinks/plugins/jpush_flutter/ios`)
   - light_compressor (from `.symlinks/plugins/light_compressor/ios`)
   - mobile_scanner (from `.symlinks/plugins/mobile_scanner/ios`)
@@ -186,6 +210,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - BaiduMapKit
     - BMKLocationKit
     - FMDB
@@ -208,6 +233,7 @@ SPEC REPOS:
     - Protobuf
     - SDWebImage
     - SDWebImageWebPCoder
+    - ZLPhotoBrowser
 
 EXTERNAL SOURCES:
   brightness_volume:
@@ -234,6 +260,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/fluwx_no_pay/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
+  image_pickers:
+    :path: ".symlinks/plugins/image_pickers/ios"
   jpush_flutter:
     :path: ".symlinks/plugins/jpush_flutter/ios"
   light_compressor:
@@ -264,6 +292,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   BaiduMapKit: 3b79c1d77521fddfebfd62a5ab4663740bee5784
   BMKLocationKit: a68845e2771bb3028feb638186d96124f4f142cd
   brightness_volume: e63139ebe38e642937d5cd286b58c9a9890f1725
@@ -285,6 +314,7 @@ SPEC CHECKSUMS:
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
+  image_pickers: 4406949954a5eb4fac5ada5f13810e6419ef4467
   JCore: ea09330f4b5b5031f37c40cf6facc669ffc172be
   JPush: 4f1c88acfd13660b8e128bd7e4c56bb115f35e06
   jpush_flutter: d3b70542430de253c82a8b8f7c72d6fc6d16c913
@@ -312,6 +342,7 @@ SPEC CHECKSUMS:
   video_thumbnail: c4e2a3c539e247d4de13cd545344fd2d26ffafd1
   wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f
   webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
+  ZLPhotoBrowser: 02b3569b8f702d2e153e8fdb1f6b32fef3a2867c
 
 PODFILE CHECKSUM: 1959d098c91d8a792531a723c4a9d7e9f6a01e38
 

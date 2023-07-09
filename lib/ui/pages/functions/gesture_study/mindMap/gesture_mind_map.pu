@@ -262,4 +262,50 @@
 ****_ 当竞技失败时,除了rejectGesture外,也是需要rejected来告诉竞技场让我离场的
 ***_ 竞技场的释放release
 ****_ _reset -> release -> isHeld = false -> 分胜负
+** listener
+***_ 回调事件
+****_ onPointerDown
+****_ onPointerMove
+****_ onPointerUp
+****_ onPointerCancel
+****_ onPointerHover
+****_ onPointerSignal
+***_ 回调触发方式
+****_ GestureBinding 进行事件分发
+***_ 与RawGestureDetector关系
+****_ 手势检测器addPointer
+****_ startTrackingPointOne -handleMyEvent-> 注入到pointerRouter
+****_ 触点变化回调handleMyEvent
+***_ 组件分发回调事件
+****_ RenderPointerListener
+*****_ RenderProxyBoxWithHitTestBehavior
+******_ hitTest
+******_ hitTestSelf
+******_ HitTestBehavior 处理点击行为
+*******_ deferChild(子组件响应)
+*******_ opaque(自身相应，不影响后者)
+*******_ translucent(半透明)
+***_ 维护RenderObject对象
+****_ createRenderObject
+****_ updateRenderObject
+***_ handleEvent 出处
+****_ GestureBinding.dispatchEvent -> HitTestResult -> hitTestResult.path -> HitTestTarget
+****_ RenderObject implement HitTestTarget -> target.handleEvent
+****_ _handlePointerEventImmediately -> HitTest(HitTestResult, event.position)
+****_ RenderBinding.hitTest -> renderView.hitTest(根节点执行hitTest)
+***_ 渲染过程
+****_ Widget
+*****_ 创建Element
+*****_ 创建和维护RenderObject
+****_ Element
+*****_ 随着根节点的mount -> 创建Element -> 挂载 -> 元素树
+*****_ renderView = RenderObject数根节点
+***_ hitTest
+****_ 引用传递 -> 树中每一个RenderObject执行add(HitTestEntry(this))
+** 总结
+***_ 按下 -> GestureBinding 事件分发
+***_ _handlePointerEventImmediately -> renderView.hitTest -> 渲染对象树所有节点hitTest
+***_ 满足测试的渲染对象 ->dispatchEvent -> 触发handleEvent
+***_ RenderPointerListener监听触点事件 -> Listener -> RawGestureDetector
+***_ 触点关联手势检测器 -pointerRouter追踪触点-> 分发事件接收通知 -> 回调方法进行手势校验 -> 胜负判定 
 @endmindmap

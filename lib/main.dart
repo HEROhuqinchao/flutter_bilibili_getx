@@ -106,6 +106,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      ///与键盘是否遮挡输入框有关
       rebuildFactor: RebuildFactors.sizeAndViewInsets,
       minTextAdapt: true,
       splitScreenMode: true,
