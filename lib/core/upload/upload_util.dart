@@ -80,23 +80,25 @@ class UploadFileUtil {
   ///分块文件上传
   ///https://blog.csdn.net/weixin_43223804/article/details/113563831
   ///录制视频
-  Future getVideo() async {
+  Future<XFile?> getVideo() async {
     final XFile? file = await _picker.pickVideo(
       source: ImageSource.camera,
       maxDuration: const Duration(seconds: 60),
     );
+    return file;
   }
 
   ///选择手机上的视频
   Future<List<Media>> chooseVideo() async {
-    List<Media> listVideoPaths = await ImagePickers.pickerPaths(
+    List<Media> videos = await ImagePickers.pickerPaths(
       galleryMode: GalleryMode.video,
       selectCount: 1,
     );
-    return listVideoPaths;
+    return videos;
   }
 
-  getFileChunks(String filePath, String url) async{
+  ///获取分块文件
+  getFileChunks(String filePath, String url) async {
     File file = File(filePath);
     var sFile = await file.open();
     var x = 0;
@@ -112,9 +114,10 @@ class UploadFileUtil {
       x = x + len;
       request.add(val);
       await request.flush();
+      print(len);
       HttpClientResponse response = await request.close();
       String responseBody = await response.transform(utf8.decoder).join();
-      if(json.decode(responseBody)["code"] == 0) {
+      if (json.decode(responseBody)["code"] == 0) {
         await sFile.close();
         print("上传完成");
       }
