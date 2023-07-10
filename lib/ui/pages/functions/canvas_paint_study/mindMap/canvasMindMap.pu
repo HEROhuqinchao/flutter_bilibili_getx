@@ -1,0 +1,16 @@
+@startmindmap
+* Flutter 绘制
+** 绘制的要素
+***_ Canvas 纸
+***_ Paint 画笔
+***_ Path 路径
+***_ Color 颜色
+** 画笔 Paint
+*** isAntiAlias 抗锯齿
+*** style 画笔类型
+****_ PaintingStyle.stroke
+****_ PaintingStyle.fill
+*** color 颜色
+*** strokeWidth 线宽
+
+@endmindmap
