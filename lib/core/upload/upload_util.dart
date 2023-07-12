@@ -5,7 +5,7 @@ import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:image_pickers/image_pickers.dart';
+// import 'package:image_pickers/image_pickers.dart';
 import 'package:light_compressor/light_compressor.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -89,13 +89,13 @@ class UploadFileUtil {
   }
 
   ///选择手机上的视频
-  Future<List<Media>> chooseVideo() async {
-    List<Media> videos = await ImagePickers.pickerPaths(
-      galleryMode: GalleryMode.video,
-      selectCount: 1,
-    );
-    return videos;
-  }
+  // Future<List<Media>> chooseVideo() async {
+  //   List<Media> videos = await ImagePickers.pickerPaths(
+  //     galleryMode: GalleryMode.video,
+  //     selectCount: 1,
+  //   );
+  //   return videos;
+  // }
 
   ///获取分块文件
   getFileChunks(String filePath, String url) async {

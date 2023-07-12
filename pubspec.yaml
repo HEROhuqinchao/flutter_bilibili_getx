@@ -94,7 +94,7 @@ dependencies:
   image: ^4.0.15 #处理图片
   animations: ^2.0.7 #动画转场
   image_picker: ^0.8.7+5 #拍摄媒体
-  image_pickers: ^2.0.4+1 #选择文件
+#  image_pickers: ^2.0.4+1 #选择文件
   sqflite: ^2.2.6 #sqlite数据库
   path: any
   web_socket_channel: ^2.3.0 #websocket
