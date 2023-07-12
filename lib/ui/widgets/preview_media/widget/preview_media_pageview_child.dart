@@ -128,11 +128,14 @@ class _PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
                       // positionBefore = details.focalPoint;
                     }
 
+                    ///单指
                     if (details.pointerCount == 1) {
                       dragBefore = details.focalPoint;
+                      ///已经放大，平移图片
                       if (newScale != 1) {
                         scaleState = ScaleState.pan;
                       } else {
+                        ///下拉收起图片
                         scaleState = ScaleState.dragOut;
                       }
                     }
@@ -152,28 +155,35 @@ class _PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
                       );
                     }
                     if (details.pointerCount == 1) {
+                      print(delta.distance);
                       if (scaleState == ScaleState.pan) {
                         position = position + details.focalPointDelta;
-                        streamController.sink.add(TransformValue(
-                          scale: newScale,
-                          rotation: newRotation,
-                          offset: position,
-                        ));
                       } else if (scaleState == ScaleState.dragOut) {
                         delta = details.focalPointDelta;
                         position = position + details.focalPointDelta;
                         newScale = newScale - (delta.dy / kScale);
-                        streamController.sink.add(TransformValue(
-                          scale: newScale,
-                          rotation: newRotation,
-                          offset: position,
-                        ));
+
+                        ///返回原大小原位置
+                        if (newScale >= 1) {
+                          scaleState = ScaleState.backToOriginal;
+                        }
                       }
+                      streamController.sink.add(TransformValue(
+                        scale: newScale,
+                        rotation: newRotation,
+                        offset: position,
+                      ));
                     }
                   }
                   ..onEnd = (details) {
                     if (scaleState == ScaleState.dragOut) {
                       SmartDialog.dismiss();
+                    } else if (scaleState == ScaleState.backToOriginal) {
+                      streamController.sink.add(TransformValue(
+                        scale: 1,
+                        rotation: 0,
+                        offset: const Offset(0, 0),
+                      ));
                     }
                     scaleBefore = newScale;
                     rotationBefore = newRotation;
