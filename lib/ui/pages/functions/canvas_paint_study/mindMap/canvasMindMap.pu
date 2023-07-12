@@ -12,5 +12,21 @@
 ****_ PaintingStyle.fill
 *** color 颜色
 *** strokeWidth 线宽
-
+*** strokeCap 线帽类型
+****_ butt 不出头
+****_ round 圆头
+****_ square 方头
+*** strokeJoin 线接类型 （path）
+****_ bevel 斜角
+****_ miter 锐角
+****_ round 圆角
+*** strokeMiterLimit 斜接限制
+****_ 数字越大允许出现的尖角越尖
+*** shader 着色器
+*** blendMode 混合模式（将目标与颜色叠合）
+*** invertColors 是否反色
+*** colorFilter 颜色滤镜
+*** maskFilter 遮罩滤镜 -> blur
+*** imageFilter 图片滤镜
+*** filterQuality 滤镜质量
 @endmindmap
