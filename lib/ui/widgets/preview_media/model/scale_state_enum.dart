@@ -1,5 +1,7 @@
 enum ScaleState {
+  none,
   pan,
   dragOut,
-  backToOriginal
+  backToOriginal,
+  doubleTapScale,
 }

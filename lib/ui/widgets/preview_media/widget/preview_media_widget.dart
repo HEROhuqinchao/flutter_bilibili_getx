@@ -22,7 +22,7 @@ class _PreviewMediaWidgetState extends State<PreviewMediaWidget> {
         itemCount: widget.mediaList.length,
         itemBuilder: (ctx, index) {
           return PreviewMediaPageViewChild(
-            widget.mediaList[index],
+            url: widget.mediaList[index],
           );
         },
       ),
