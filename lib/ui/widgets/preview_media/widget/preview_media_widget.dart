@@ -3,6 +3,8 @@ import 'package:bilibili_getx/ui/widgets/preview_media/widget/preview_media_page
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../model/scale_boundaries.dart';
+
 class PreviewMediaWidget extends StatefulWidget {
   final List<String> mediaList;
 
