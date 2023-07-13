@@ -63,5 +63,6 @@ class PhotoPanGestureRecognizer extends ScaleGestureRecognizer {
     }
     final move = _initialFocalPoint! - _currentFocalPoint!;
     // final bool shouldMove = hitDetector!;
+    acceptGesture(event.pointer);
   }
 }

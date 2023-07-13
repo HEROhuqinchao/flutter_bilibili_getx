@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../../../shared/app_theme.dart';
+import '../mixin/hit_corners_detector.dart';
 import '../model/media_type_model.dart';
 import '../model/scale_state_enum.dart';
 import '../model/transform_value.dart';
@@ -42,7 +43,10 @@ class PreviewMediaPageViewChild extends StatefulWidget {
 }
 
 class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
-    with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
+    with
+        AutomaticKeepAliveClientMixin,
+        SingleTickerProviderStateMixin,
+        HitCornersDetector {
   ///缩放之前
   late double scaleBefore;
 
@@ -88,6 +92,9 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
   ///容器内child大小
   late Size childSize;
 
+  ///平移量
+  late double panX;
+
   @override
   void initState() {
     scaleBefore = 1;
@@ -102,6 +109,7 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
       vsync: this,
       duration: const Duration(milliseconds: 200),
     );
+    gestures = {};
 
     ///双击手势检测
     gestures[DoubleTapGestureRecognizer] =
@@ -124,6 +132,7 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
           ..onEnd = onScaleEnd;
       },
     );
+    panX = 0;
     super.initState();
   }
 
@@ -141,7 +150,6 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
       builder: (ctx, constraints) {
         outerSize = constraints.biggest;
         childSize = outerSize;
-        print(outerSize);
         return StreamBuilder<TransformValue>(
           initialData: TransformValue(
             scale: newScale,
@@ -238,8 +246,10 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
 
   ///缩放更新
   onScaleUpdate(details) {
+    delta = details.focalPointDelta;
     if (details.pointerCount == 2) {
-      delta = details.focalPointDelta;
+      // panX += delta.dx;
+      // print("平移量$panX");
       notifyUpdate(
         scale: scaleBefore * details.scale,
         rotation: rotationBefore + details.rotation,
@@ -248,8 +258,9 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
     }
     if (details.pointerCount == 1) {
       if (scaleState == ScaleState.pan) {
+        panX += delta.dx;
         notifyUpdate(
-          offset: newPosition + details.focalPointDelta,
+          offset: newPosition + delta,
         );
       } else {
         Offset nowLocalFocalPoint = details.localFocalPoint;
@@ -338,5 +349,13 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
       newRotation = rotation;
     }
     animationController.forward(from: 0);
+    // print("外部大小${outerSize.width}");
+    // print("内部大小${childSize.width * (scale ?? newScale)}");
+    final double computedWidth = outerSize.width;
+    final double screenWidth = childSize.width * (scale ?? newScale);
+    final double widthDiff = computedWidth - screenWidth;
+    final double minX = ((0 - 1).abs() / 2) * widthDiff * -1;
+    final double maxX = ((0 + 1).abs() / 2) * widthDiff;
+    // print("移动区间范围$minX 到 $maxX");
   }
 }
