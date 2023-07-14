@@ -1,12 +1,12 @@
 import 'dart:async';
 
+import 'package:bilibili_getx/ui/widgets/preview_media/change_notifier/view_size_change_notifier.dart';
 import 'package:bilibili_getx/ui/widgets/preview_media/util/util.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../../../shared/app_theme.dart';
-import '../mixin/hit_corners_detector.dart';
 import '../model/media_type_model.dart';
 import '../model/scale_state_enum.dart';
 import '../model/transform_value.dart';
@@ -28,14 +28,18 @@ class PreviewMediaPageViewChild extends StatefulWidget {
   ///下拉多少距离关闭预览
   final double closePreviewDistance;
 
+  ///背景颜色
+  final Color backgroundColor;
+
   const PreviewMediaPageViewChild({
     super.key,
     required this.url,
-    this.kScaleSpeed = 300,
+    this.kScaleSpeed = 250,
     this.doubleTapScale = 1.5,
-    this.minScale = .5,
-    this.closePreviewDistance = 50,
-  });
+    this.minScale = .2,
+    this.closePreviewDistance = 100,
+    backgroundColor,
+  }) : backgroundColor = backgroundColor ?? const Color.fromRGBO(0, 0, 0, 1);
 
   @override
   State<PreviewMediaPageViewChild> createState() =>
@@ -43,10 +47,7 @@ class PreviewMediaPageViewChild extends StatefulWidget {
 }
 
 class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
-    with
-        AutomaticKeepAliveClientMixin,
-        SingleTickerProviderStateMixin,
-        HitCornersDetector {
+    with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
   ///缩放之前
   late double scaleBefore;
 
@@ -83,17 +84,13 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
   ///转换为矩阵的区间动画
   late Tween<Matrix4> tweenMatrix4;
 
-  ///维护手势检测器
-  late Map<Type, GestureRecognizerFactory<GestureRecognizer>> gestures;
+  late ViewSizeChangeNotifier viewSizeChangeNotifier;
 
-  ///外部容器大小
-  late Size outerSize;
+  ///恢复原大小
+  late bool backToOriginal = false;
 
-  ///容器内child大小
-  late Size childSize;
-
-  ///平移量
-  late double panX;
+  ///关闭预览界面
+  late bool dismissPreview = false;
 
   @override
   void initState() {
@@ -104,35 +101,12 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
     newPosition = const Offset(0.0, 0.0);
     delta = const Offset(0.0, 0.0);
     streamController = StreamController<TransformValue>.broadcast();
-    scaleState = ScaleState.none;
+    scaleState = ScaleState.originalSize;
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
     );
-    gestures = {};
-
-    ///双击手势检测
-    gestures[DoubleTapGestureRecognizer] =
-        GestureRecognizerFactoryWithHandlers<DoubleTapGestureRecognizer>(
-      () => DoubleTapGestureRecognizer(),
-      (DoubleTapGestureRecognizer instance) {
-        ///双击放大和回到初始状态
-        instance.onDoubleTap = onDoubleTap;
-      },
-    );
-
-    ///scale手势检测
-    gestures[PhotoPanGestureRecognizer] =
-        GestureRecognizerFactoryWithHandlers<PhotoPanGestureRecognizer>(
-      () => PhotoPanGestureRecognizer(),
-      (PhotoPanGestureRecognizer instance) {
-        instance
-          ..onStart = onScaleStart
-          ..onUpdate = onScaleUpdate
-          ..onEnd = onScaleEnd;
-      },
-    );
-    panX = 0;
+    viewSizeChangeNotifier = ViewSizeChangeNotifier();
     super.initState();
   }
 
@@ -146,39 +120,37 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return LayoutBuilder(
-      builder: (ctx, constraints) {
-        outerSize = constraints.biggest;
-        childSize = outerSize;
-        return StreamBuilder<TransformValue>(
-          initialData: TransformValue(
-            scale: newScale,
-            rotation: newRotation,
-            offset: delta,
-            scaleBefore: newScale,
-            rotationBefore: newRotation,
-            offsetBefore: delta,
-          ),
-          stream: streamController.stream,
-          builder: (ctx, transformValue) {
-            return Container(
-              color: HYAppTheme.norBlackColors
-                  .withOpacity(opacityValue(transformValue.data!.scale)),
-              child: _mediaType == MediaTypeModel.images
-                  ? buildImageEdit(
-                      imageUrl: widget.url,
-                      transformValue: transformValue,
-                    )
-                  : _mediaType == MediaTypeModel.video
-                      ? Container()
-                      : Container(
-                          child: const Text("非视频和图片类型"),
-                        ),
-            );
-          },
-        );
-      },
-    );
+    return LayoutBuilder(builder: (ctx, cons) {
+      viewSizeChangeNotifier.setOuterSize = cons.biggest;
+      viewSizeChangeNotifier.setChildSize = cons.biggest;
+      return StreamBuilder<TransformValue>(
+        initialData: TransformValue(
+          scale: newScale,
+          rotation: newRotation,
+          offset: delta,
+          scaleBefore: newScale,
+          rotationBefore: newRotation,
+          offsetBefore: delta,
+        ),
+        stream: streamController.stream,
+        builder: (ctx, transformValue) {
+          return Container(
+            color: widget.backgroundColor
+                .withOpacity(opacityValue(transformValue.data!.scale)),
+            child: _mediaType == MediaTypeModel.images
+                ? buildImageEdit(
+                    imageUrl: widget.url,
+                    transformValue: transformValue,
+                  )
+                : _mediaType == MediaTypeModel.video
+                    ? Container()
+                    : Container(
+                        child: const Text("非视频和图片类型"),
+                      ),
+          );
+        },
+      );
+    });
   }
 
   @override
@@ -190,7 +162,25 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
     required AsyncSnapshot<TransformValue> transformValue,
   }) {
     return RawGestureDetector(
-      gestures: gestures, //ClipRect 放大范围裁剪
+      gestures: {
+        DoubleTapGestureRecognizer:
+            GestureRecognizerFactoryWithHandlers<DoubleTapGestureRecognizer>(
+          () => DoubleTapGestureRecognizer(),
+          (DoubleTapGestureRecognizer instance) {
+            instance.onDoubleTap = onDoubleTap;
+          },
+        ),
+        PhotoPanGestureRecognizer:
+            GestureRecognizerFactoryWithHandlers<PhotoPanGestureRecognizer>(
+          () => PhotoPanGestureRecognizer(viewSizeChangeNotifier),
+          (PhotoPanGestureRecognizer instance) {
+            instance
+              ..onStart = onScaleStart
+              ..onUpdate = onScaleUpdate
+              ..onEnd = onScaleEnd;
+          },
+        )
+      }, //ClipRect 放大范围裁剪
       child: transformValue.hasData
           ? AnimatedBuilder(
               animation: animationController,
@@ -213,21 +203,36 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
     );
   }
 
-  ///双击回调方法
+  ///双击放大和回到初始状态
   onDoubleTap() {
-    scaleState = ScaleState.pan;
-    notifyUpdate(
-      scale: getNewScale,
-      rotation: 0,
-      offset: const Offset(0, 0),
-    );
+    if (newScale == 1) {
+      scaleState = ScaleState.zoomedIn;
+      viewSizeChangeNotifier.setScale = widget.doubleTapScale;
+      notifyUpdate(
+        scale: widget.doubleTapScale,
+        rotation: 0,
+        offset: const Offset(0, 0),
+      );
+    } else {
+      scaleState = ScaleState.originalSize;
+      viewSizeChangeNotifier.setScale = 1;
+      notifyUpdate(
+        scale: 1,
+        rotation: 0,
+        offset: const Offset(0, 0),
+      );
+    }
+    viewSizeChangeNotifier.panX = 0;
   }
 
   ///缩放开始
   onScaleStart(details) {
+    backToOriginal = false;
+    dismissPreview = false;
+
     ///双指放大
     if (details.pointerCount == 2) {
-      scaleState = ScaleState.doubleTapScale;
+      // scaleState = ScaleState.doubleTapScale;
     }
 
     ///单指
@@ -235,11 +240,13 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
       dragBefore = details.focalPoint;
 
       ///已经放大，平移图片
-      if (newScale != 1) {
-        scaleState = ScaleState.pan;
-      } else {
+      if (newScale > 1) {
+        scaleState = ScaleState.zoomedIn;
+      } else if (newScale == 1) {
         ///下拉收起图片
-        scaleState = ScaleState.backToOriginal;
+        scaleState = ScaleState.originalSize;
+      } else if (newScale < 1) {
+        scaleState = ScaleState.zoomedOut;
       }
     }
   }
@@ -248,8 +255,6 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
   onScaleUpdate(details) {
     delta = details.focalPointDelta;
     if (details.pointerCount == 2) {
-      // panX += delta.dx;
-      // print("平移量$panX");
       notifyUpdate(
         scale: scaleBefore * details.scale,
         rotation: rotationBefore + details.rotation,
@@ -257,14 +262,16 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
       );
     }
     if (details.pointerCount == 1) {
-      if (scaleState == ScaleState.pan) {
-        panX += delta.dx;
-        notifyUpdate(
-          offset: newPosition + delta,
-        );
-      } else {
+      if (scaleState == ScaleState.zoomedIn) {
+        ///判断是否要回弹到边界
+        bool canPan = viewSizeChangeNotifier.decideIfPan();
+        if (canPan) {
+          notifyUpdate(
+            offset: newPosition + delta,
+          );
+        }
+      } else if (scaleState == ScaleState.originalSize) {
         Offset nowLocalFocalPoint = details.localFocalPoint;
-        delta = details.focalPointDelta;
 
         ///最初按下的位置更下则缩放，高于最初的位置则不缩放
         if (pointsHigher(dragBefore, nowLocalFocalPoint)) {
@@ -283,19 +290,22 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
         if (pointsDistance(nowLocalFocalPoint, dragBefore) >
                 widget.closePreviewDistance &&
             pointsHigher(dragBefore, nowLocalFocalPoint)) {
-          scaleState = ScaleState.dragOut;
+          dismissPreview = true;
+          backToOriginal = false;
         } else {
-          scaleState = ScaleState.backToOriginal;
+          dismissPreview = false;
+          backToOriginal = true;
         }
       }
     }
+    // print(scaleState);
   }
 
   ///缩放结束
   onScaleEnd(details) {
-    if (scaleState == ScaleState.dragOut) {
+    if (dismissPreview) {
       SmartDialog.dismiss();
-    } else if (scaleState == ScaleState.backToOriginal) {
+    } else if (backToOriginal) {
       notifyUpdate(
         scale: 1,
         rotation: 0,
@@ -311,7 +321,7 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
 
   ///透明度
   double opacityValue(double scale) =>
-      scaleState == ScaleState.dragOut ? scale.clamp(0, 1) : 1;
+      scaleState == ScaleState.originalSize ? scale.clamp(0, 1) : 1;
 
   ///点位高低
   bool pointsHigher(Offset pointA, Offset pointB) =>
@@ -320,8 +330,6 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
   ///点与点之间的距离
   double pointsDistance(Offset pointA, Offset pointB) =>
       (pointA - pointB).distance;
-
-  double get getNewScale => newScale == 1 ? widget.doubleTapScale : 1;
 
   ///通知更新
   void notifyUpdate({
@@ -349,13 +357,8 @@ class PreviewMediaPageViewChildState extends State<PreviewMediaPageViewChild>
       newRotation = rotation;
     }
     animationController.forward(from: 0);
-    // print("外部大小${outerSize.width}");
-    // print("内部大小${childSize.width * (scale ?? newScale)}");
-    final double computedWidth = outerSize.width;
-    final double screenWidth = childSize.width * (scale ?? newScale);
-    final double widthDiff = computedWidth - screenWidth;
-    final double minX = ((0 - 1).abs() / 2) * widthDiff * -1;
-    final double maxX = ((0 + 1).abs() / 2) * widthDiff;
-    // print("移动区间范围$minX 到 $maxX");
+
+    ///更新放缩
+    viewSizeChangeNotifier.setScale = newScale;
   }
 }

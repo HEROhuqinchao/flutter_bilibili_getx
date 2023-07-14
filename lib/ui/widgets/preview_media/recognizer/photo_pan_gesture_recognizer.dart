@@ -1,3 +1,4 @@
+import 'package:bilibili_getx/ui/widgets/preview_media/change_notifier/view_size_change_notifier.dart';
 import 'package:flutter/gestures.dart';
 
 ///处理图片平移与PageView左右滑动
@@ -9,8 +10,11 @@ class PhotoPanGestureRecognizer extends ScaleGestureRecognizer {
   ///限制接受两个点
   bool ready = true;
 
-  PhotoPanGestureRecognizer();
+  late ViewSizeChangeNotifier viewSizeChangeNotifier;
 
+  PhotoPanGestureRecognizer(this.viewSizeChangeNotifier);
+
+  ///接收触点信息
   @override
   void handleEvent(PointerEvent event) {
     _operatePointerEvent(event);
@@ -19,6 +23,7 @@ class PhotoPanGestureRecognizer extends ScaleGestureRecognizer {
     super.handleEvent(event);
   }
 
+  ///加入允许的触点（触点入场）
   @override
   void addAllowedPointer(PointerDownEvent event) {
     if (ready) {
@@ -28,12 +33,14 @@ class PhotoPanGestureRecognizer extends ScaleGestureRecognizer {
     super.addAllowedPointer(event);
   }
 
+  ///停止追踪触点
   @override
   void didStopTrackingLastPointer(int pointer) {
     ready = true;
     super.didStopTrackingLastPointer(pointer);
   }
 
+  ///维护触点数组
   _operatePointerEvent(PointerEvent event) {
     if (event is PointerMoveEvent) {
       if (!event.synthesized) {
@@ -47,6 +54,7 @@ class PhotoPanGestureRecognizer extends ScaleGestureRecognizer {
     _initialFocalPoint = _currentFocalPoint;
   }
 
+  ///似乎算了个平均值（参考PhotoView里面的）
   _updateDistance() {
     final int count = _pointerLocations.keys.length;
     Offset focalPoint = Offset.zero;
@@ -57,12 +65,15 @@ class PhotoPanGestureRecognizer extends ScaleGestureRecognizer {
     }
   }
 
+  ///关键（宣判哪些手势/触点获胜）
   _decideIfWeAcceptPointerEvent(PointerEvent event) {
     if (event is! PointerMoveEvent) {
       return;
     }
-    final move = _initialFocalPoint! - _currentFocalPoint!;
-    // final bool shouldMove = hitDetector!;
-    acceptGesture(event.pointer);
+    viewSizeChangeNotifier.setMove = _initialFocalPoint! - _currentFocalPoint!;
+    final bool shouldMove = viewSizeChangeNotifier.decideIfPan();
+    if (shouldMove || _pointerLocations.keys.length > 1) {
+      acceptGesture(event.pointer);
+    }
   }
 }

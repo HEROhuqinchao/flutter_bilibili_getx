@@ -33,9 +33,11 @@ class MyApp extends StatelessWidget {
             body: Center(
               child: GestureDetector(
                 onTap: () {
-                  SmartDialog.show(builder: (ctx) {
-                    return PreviewMediaWidget(images);
-                  });
+                  SmartDialog.show(
+                    builder: (ctx) {
+                      return PreviewMediaWidget(images);
+                    },
+                  );
                 },
                 child: Container(
                   width: 100,
