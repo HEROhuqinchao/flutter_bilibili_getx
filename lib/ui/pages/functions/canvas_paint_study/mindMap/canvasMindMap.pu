@@ -6,27 +6,63 @@
 ***_ Path 路径
 ***_ Color 颜色
 ** 画笔 Paint
-*** isAntiAlias 抗锯齿
-*** style 画笔类型
+***_ isAntiAlias 抗锯齿
+***_ style 画笔类型
 ****_ PaintingStyle.stroke
 ****_ PaintingStyle.fill
-*** color 颜色
-*** strokeWidth 线宽
-*** strokeCap 线帽类型
+***_ color 颜色
+***_ strokeWidth 线宽
+***_ strokeCap 线帽类型
 ****_ butt 不出头
 ****_ round 圆头
 ****_ square 方头
-*** strokeJoin 线接类型 （path）
+***_ strokeJoin 线接类型 （path）
 ****_ bevel 斜角
 ****_ miter 锐角
 ****_ round 圆角
-*** strokeMiterLimit 斜接限制
+***_ strokeMiterLimit 斜接限制
 ****_ 数字越大允许出现的尖角越尖
-*** shader 着色器
-*** blendMode 混合模式（将目标与颜色叠合）
-*** invertColors 是否反色
-*** colorFilter 颜色滤镜
-*** maskFilter 遮罩滤镜 -> blur
-*** imageFilter 图片滤镜
-*** filterQuality 滤镜质量
+***_ shader 着色器
+***_ blendMode 混合模式（将目标与颜色叠合）
+***_ invertColors 是否反色
+***_ 滤镜
+****_ colorFilter 颜色滤镜
+****_ maskFilter 遮罩滤镜 -> blur
+****_ imageFilter 图片滤镜
+****_ filterQuality 滤镜质量
+** 画布 Canvas
+***_ 平移变换 canvas.translate()
+***_ 缩放变换
+****_ 沿x轴镜像 -> canvas.scale(1, -1)
+****_ 沿y轴镜像 -> canvas.scale(-1, 1)
+****_ 沿原点镜像 -> canvas.scale(-1, -1)
+***_ 旋转变换 canvas.rotate()
+***_ 绘制点
+****_ drawPoints
+*****_ PointMode.points 点模式
+*****_ PointMode.lines 线段模式
+****_ drawRawPoints 绘制点集合
+***_ 绘制线
+****_ drawLine
+***_ 类矩阵绘制
+****_ drawRect
+*****_ Rect.fromCenter
+*****_ Rect.fromLTRB 矩形左上右下构造
+*****_ Rect.fromLTWH 矩形左上宽高构造
+*****_ Rect.fromCircle 矩形内切圆构造
+*****_ Rect.fromPoints 矩形两点构造
+****_ drawRRect
+*****_ RRect.fromRectXY
+*****_ RRect.fromLTRBXY
+*****_ RRect.fromLTRBR
+*****_ RRect.fromLTRBAndCorners
+*****_ RRect.fromRectAndCorners
+****_ drawDRRect 绘制两个圆角矩形差域
+****_ drawCircle 圆
+****_ drawOval 椭圆
+****_ drawArc(矩形区域,起始弧度,扫描弧度,是否连中心,画笔) 圆弧
+***_ 其他绘制
+**** drawColor 绘制颜色
+**** drawPaint 绘制画笔
+
 @endmindmap
