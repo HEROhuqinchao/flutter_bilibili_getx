@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/widgets/custom/bilibili_scroll.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +19,6 @@ import '../../../../core/shared_preferences/shared_preference_util.dart';
 import '../../../shared/app_theme.dart';
 import '../../../shared/image_asset.dart';
 import '../../../shared/params_sign.dart';
-import '../../../widgets/bilibili_scroll.dart';
 import 'home_state.dart';
 
 class HomeLogic extends GetxController {

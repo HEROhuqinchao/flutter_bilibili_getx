@@ -1,9 +1,8 @@
+import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../../core/I18n/str_res_keys.dart';
-import '../shared/app_theme.dart';
 
 ///编辑简介的弹框
 class ProfileEditDialog extends StatelessWidget {

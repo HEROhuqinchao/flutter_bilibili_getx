@@ -1,13 +1,11 @@
 import 'package:bilibili_getx/core/shared_preferences/bilibili_shared_preference.dart';
 import 'package:bilibili_getx/core/shared_preferences/shared_preference_util.dart';
-import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_logic.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../../core/model/wechat/text_button_model.dart';
-import '../../../../../../widgets/show_bottom_menu.dart';
+import '../../../../../../widgets/custom/show_bottom_menu.dart';
 import '../../../wechat_login/wechat_login_view.dart';
-import '../../../wechat_register/wechat_register_view.dart';
 import '../../wechat_main/wechat_main_logic.dart';
 import 'we_chat_setting_state.dart';
 

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PriceMark extends StatelessWidget {
-  Color color;
-  String text;
+  final Color color;
+  final String text;
 
-  PriceMark({Key? key, required this.color, required this.text})
+  const PriceMark({Key? key, required this.color, required this.text})
       : super(key: key);
 
   @override

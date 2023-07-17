@@ -1,10 +1,7 @@
-import 'dart:math';
-
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../shared/app_theme.dart';
 
 /// 经典Header
 class BilibiliClassicalHeader extends Header {

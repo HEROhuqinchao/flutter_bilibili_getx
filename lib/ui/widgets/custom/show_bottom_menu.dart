@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
-import '../shared/app_theme.dart';
+import '../../shared/app_theme.dart';
 
 void showBottomMenu(BuildContext context, List<Widget> textButtons) {
   showModalBottomSheet(
     context: context,
     builder: (ctx) {
       return Container(
-        color: Color.fromRGBO(109, 109, 109, 1),
+        color: const Color.fromRGBO(109, 109, 109, 1),
         child: ClipRRect(
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(10.r),
@@ -18,7 +17,7 @@ void showBottomMenu(BuildContext context, List<Widget> textButtons) {
             color: HYAppTheme.norWhite09Color,
             child: ListView.separated(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (ctx, index) {
                 return textButtons[index];
               },

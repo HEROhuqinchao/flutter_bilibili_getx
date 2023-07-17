@@ -2,6 +2,9 @@ import 'dart:io';
 
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
+import 'package:bilibili_getx/ui/widgets/custom/bangumi_swiper_pagination.dart';
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/price_mark.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
@@ -12,15 +15,14 @@ import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
 import '../../shared/math_compute.dart';
-import '../../widgets/bangumi_swiper_pagination.dart';
-import '../../widgets/fade_image_default.dart';
-import '../../widgets/price_mark.dart';
 import 'mall_logic.dart';
 
 class MallScreen extends StatelessWidget {
   static const String routeName = "/mall";
   final logic = Get.find<MallLogic>();
   final state = Get.find<MallLogic>().state;
+
+   MallScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -838,7 +840,7 @@ class MallScreen extends StatelessWidget {
                           children: [
                             item.tags != null
                                 ? TextSpan(children: titleTagNames)
-                                : TextSpan(),
+                                : const TextSpan(),
                             TextSpan(
                               text: item.title,
                               style: TextStyle(
@@ -856,13 +858,13 @@ class MallScreen extends StatelessWidget {
                           children: [
                             item.tags != null
                                 ? TextSpan(children: recommendTagNames)
-                                : TextSpan(),
+                                : const TextSpan(),
                             item.tags != null
                                 ? TextSpan(children: serviceTagNames)
-                                : TextSpan(),
+                                : const TextSpan(),
                             item.tags != null
                                 ? TextSpan(children: marketingTagNames)
-                                : TextSpan(),
+                                : const TextSpan(),
                           ],
                         ),
                       ),

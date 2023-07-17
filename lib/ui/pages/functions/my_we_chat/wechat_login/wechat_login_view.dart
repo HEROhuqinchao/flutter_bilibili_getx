@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../widgets/show_bottom_menu.dart';
+import '../../../../widgets/custom/show_bottom_menu.dart';
 import '../wechat_register/wechat_register_view.dart';
 import 'wechat_login_logic.dart';
 

@@ -1,5 +1,3 @@
-import 'dart:ui' as ui;
-
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
 
@@ -18,31 +16,24 @@ class Paper extends StatelessWidget {
 }
 
 class PaperCustomPainter extends CustomPainter with Grid {
-  Paint _paint = Paint();
 
   @override
   void paint(Canvas canvas, Size size) {
     drawGrid(canvas, size);
     drawAxis(canvas, size);
-    drawPaint(canvas, size);
+    drawShadow(canvas);
   }
 
   @override
   bool shouldRepaint(covariant PaperCustomPainter oldDelegate) => false;
 
-  drawPaint(Canvas canvas, Size size) {
-    var colors = [
-      Color(0xFFF60C0C),
-      Color(0xFFF3B913),
-      Color(0xFFE7F716),
-      Color(0xFF3DF30B),
-      Color(0xFF0DF6EF),
-      Color(0xFF0829FB),
-      Color(0xFFB709F4),
-    ];
-    var pos = [1.0 / 7, 2.0 / 7, 3.0 / 7, 4.0 / 7, 5.0 / 7, 6.0 / 7, 1.0];
-    _paint.shader = ui.Gradient.linear(Offset.zero, Offset(size.width, 0), colors, pos, TileMode.clamp);
-    _paint.blendMode = BlendMode.lighten;
-    canvas.drawPaint(_paint);
+  drawShadow(Canvas canvas) {
+    Path path = Path();
+    path.lineTo(80, 80);
+    path.lineTo(-80, 80);
+    path.close();
+    canvas.drawShadow(path, color, 3, true);
+    canvas.translate(200, 0);
+    canvas.drawShadow(path, Colors.red, 3, false);
   }
 }

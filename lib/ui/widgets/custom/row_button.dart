@@ -1,24 +1,27 @@
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../shared/app_theme.dart';
-
 ///预发布界面的一行行按钮
 class BilibiliRowButton extends StatelessWidget {
-  BilibiliRowButton(
-      {super.key, this.fillTypeWidget,
+  const BilibiliRowButton(
+      {super.key,
+      this.fillTypeWidget,
       this.rightWidget,
       required this.title,
       required this.tabEvent});
 
   ///标题
-  TextSpan title;
+  final TextSpan title;
+
   ///是否为必填
-  TextSpan? fillTypeWidget;
+  final TextSpan? fillTypeWidget;
+
   ///右侧箭头
-  Widget? rightWidget;
+  final Widget? rightWidget;
+
   ///点击事件
-  Function tabEvent;
+  final Function tabEvent;
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +36,7 @@ class BilibiliRowButton extends StatelessWidget {
           children: [
             Text.rich(
               TextSpan(
-                children: [
-                  title,
-                  fillTypeWidget ??
-                      TextSpan(
-                        text: "",
-                      )
-                ],
+                children: [title, fillTypeWidget ?? const TextSpan(text: "")],
               ),
             ),
             rightWidget ??

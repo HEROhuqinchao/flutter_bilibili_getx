@@ -1,17 +1,16 @@
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../shared/app_theme.dart';
 
 ///轮播图的底部的指示标志
 class BangumiSwiperPagination extends StatefulWidget {
   ///当前的页面的下标
-  int currentIndex;
+  final int currentIndex;
 
   ///总共几个页面
-  int itemCount;
+  final int itemCount;
 
-  BangumiSwiperPagination(
+  const BangumiSwiperPagination(
       {Key? key, required this.currentIndex, required this.itemCount})
       : super(key: key);
 
@@ -67,12 +66,12 @@ class _BangumiSwiperPaginationState extends State<BangumiSwiperPagination> {
 
 class RoundRectSwiperPagination extends StatefulWidget {
   ///当前的页面的下标
-  int currentIndex;
+  final int currentIndex;
 
   ///总共几个页面
-  int itemCount;
+  final int itemCount;
 
-  RoundRectSwiperPagination(
+  const RoundRectSwiperPagination(
       {Key? key, required this.currentIndex, required this.itemCount})
       : super(key: key);
 

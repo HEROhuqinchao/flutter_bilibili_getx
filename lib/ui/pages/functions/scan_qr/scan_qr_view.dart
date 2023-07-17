@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../../../widgets/scan_window.dart';
+import '../../../widgets/custom/scan_window.dart';
 import 'scan_qr_logic.dart';
 
 ///扫描二维码（扫描文件和定制扫描界面）

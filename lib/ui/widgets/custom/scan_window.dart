@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../shared/app_theme.dart';
+import '../../shared/app_theme.dart';
 
 ///矩形扫描框
 class RectScanWindow extends StatefulWidget {
-  Container? scanLine;
-  int? lineScanDuration;
-  Color? backgroundColor;
+  final Container? scanLine;
+  final int? lineScanDuration;
+  final Color? backgroundColor;
 
-  RectScanWindow({
+  const RectScanWindow({
     super.key,
     this.scanLine,
     this.lineScanDuration,

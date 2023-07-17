@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
-import '../shared/app_theme.dart';
 
 ///进度条绘制
 class ProgressBarPainter extends CustomPainter {

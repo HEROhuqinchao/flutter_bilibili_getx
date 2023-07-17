@@ -1,3 +1,5 @@
+import 'package:bilibili_getx/ui/widgets/custom/rectangle_checkBox.dart';
+import 'package:bilibili_getx/ui/widgets/custom/timer_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,14 +9,14 @@ import 'package:get/get.dart';
 import '../../../../../core/I18n/str_res_keys.dart';
 import '../../../../shared/app_theme.dart';
 import '../../../../shared/image_asset.dart';
-import '../../../../widgets/rectangle_checkBox.dart';
-import '../../../../widgets/timer_button.dart';
 import 'login_logic.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = "/home/login";
   final logic = Get.find<LoginLogic>();
   final state = Get.find<LoginLogic>().state;
+
+   LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

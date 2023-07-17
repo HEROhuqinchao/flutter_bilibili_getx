@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
 import '../../shared/app_theme.dart';
-import '../../widgets/round_underline_tab_indicator.dart';
+import '../../widgets/custom/round_underline_tab_indicator.dart';
 
 class PublishScreen extends StatelessWidget {
   static const String routeName = "/publish";

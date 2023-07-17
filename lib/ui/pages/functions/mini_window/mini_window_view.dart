@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bilibili_getx/ui/widgets/progress_bar_painter.dart';
+import 'package:bilibili_getx/ui/widgets/custom/progress_bar_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

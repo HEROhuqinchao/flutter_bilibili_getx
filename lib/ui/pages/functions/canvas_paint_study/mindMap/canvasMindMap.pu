@@ -64,5 +64,6 @@
 ***_ 其他绘制
 **** drawColor 绘制颜色
 **** drawPaint 绘制画笔
-
+**** drawShadow(path路径, color颜色, elevation影深, transparentOccluder) 绘制阴影
+**** drawPath 绘制路径
 @endmindmap

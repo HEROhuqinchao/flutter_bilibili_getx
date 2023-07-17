@@ -1,14 +1,14 @@
+import 'package:bilibili_getx/core/model/account_mine.dart';
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/model/account_mine.dart';
-import '../shared/app_theme.dart';
-
 class HYIconButtonRow extends StatefulWidget {
-  double size;
-  List<Item> items;
+  final double size;
+  final List<Item> items;
 
-  HYIconButtonRow({required this.size, required this.items});
+  const HYIconButtonRow({super.key, required this.size, required this.items});
 
   @override
   State<HYIconButtonRow> createState() => _HYIconButtonRowState();
@@ -32,7 +32,9 @@ class _HYIconButtonRowState extends State<HYIconButtonRow> {
       BuildContext context, String icon, String text, String realRoute) {
     return GestureDetector(
       onTap: () {
-        print(realRoute);
+        if (kDebugMode) {
+          print(realRoute);
+        }
         // Navigator.of(context).pushNamed(realRoute);
       },
       child: SizedBox(
@@ -42,9 +44,9 @@ class _HYIconButtonRowState extends State<HYIconButtonRow> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              child: Image.network(icon),
               width: widget.size,
               height: widget.size,
+              child: Image.network(icon),
             ),
             10.verticalSpace,
             Text(

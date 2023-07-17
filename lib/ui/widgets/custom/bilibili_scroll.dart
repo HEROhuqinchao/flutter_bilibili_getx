@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 ///自定义侧边栏的滚动条样式
 class BilibiliScroll extends StatefulWidget {
   ///滚动条
-  Widget scrollBar;
+  final Widget scrollBar;
 
   ///被滚动的child
-  Widget child;
+  final Widget child;
 
-  BilibiliScroll({required this.scrollBar, required this.child});
+  const BilibiliScroll({super.key, required this.scrollBar, required this.child});
 
   @override
   State<BilibiliScroll> createState() => _BilibiliScrollState();

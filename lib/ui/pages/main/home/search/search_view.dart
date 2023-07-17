@@ -1,3 +1,6 @@
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/highlight_str_in_text.dart';
+import 'package:bilibili_getx/ui/widgets/custom/user_level.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,13 +14,12 @@ import '../../../../../core/service/request/search_request.dart';
 import '../../../../shared/app_theme.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/math_compute.dart';
-import '../../../../widgets/fade_image_default.dart';
-import '../../../../widgets/highlight_str_in_text.dart';
-import '../../../../widgets/user_level.dart';
 import 'search_logic.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = "/home/search";
+
+  const SearchScreen({super.key});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -1499,7 +1501,7 @@ class _SearchScreenState extends State<SearchScreen>
       height: 45.r,
       child: Text(
         num,
-        style: TextStyle(
+        style: const TextStyle(
           color: HYAppTheme.norTextColors,
         ),
       ),

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../shared/app_theme.dart';
+import '../../shared/app_theme.dart';
 
 ///广告栏
 class AdvertisingRow extends StatelessWidget {
-  String image;
-  String title;
-  Widget rightBtn;
+  final String image;
+  final String title;
+  final Widget rightBtn;
 
-  AdvertisingRow(
+  const AdvertisingRow(
       {Key? key,
       required this.image,
       required this.title,

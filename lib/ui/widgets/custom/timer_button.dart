@@ -1,30 +1,31 @@
 import 'dart:async';
 
+import 'package:bilibili_getx/core/I18n/str_res_keys.dart';
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import '../../core/I18n/str_res_keys.dart';
-import '../shared/app_theme.dart';
 
 ///倒计时的按钮（例如发送验证码的按钮）
 class TimerButton extends StatefulWidget {
   ///倒计时时间
-  int timeClock;
+  final int timeClock;
 
   ///按钮初始文本
-  String originalButtonText;
+  final String originalButtonText;
 
   ///按钮点击后再重新恢复后的文本
-  String retryButtonText;
+  final String retryButtonText;
 
   ///点击执行的操作
-  Function() onTap;
+  final Function() onTap;
 
   ///计时器是否有用
-  bool isEnable;
+  final bool isEnable;
 
-  TimerButton({Key? key,
+  const TimerButton({
+    Key? key,
     this.timeClock = 60,
     this.originalButtonText = SR.sendCode,
     this.retryButtonText = SR.retrySendCode,
@@ -95,20 +96,16 @@ class _TimerButtonState extends State<TimerButton> {
         padding: const EdgeInsets.only(left: 20).r,
         child: isRunning == false
             ? Text(
-          _iAmClean == true
+                _iAmClean == true
                     ? widget.originalButtonText.tr
                     : widget.retryButtonText.tr,
                 style: TextStyle(
-                  color: HYAppTheme.norMainThemeColors,
-                  fontSize: 12.sp
-                ),
+                    color: HYAppTheme.norMainThemeColors, fontSize: 12.sp),
               )
             : Text(
-          timeClock.toString() + SR.secondRetry.tr,
-                style: TextStyle(
-                  color: HYAppTheme.norGrayColor,
-                  fontSize: 12.sp
-                ),
+                timeClock.toString() + SR.secondRetry.tr,
+                style:
+                    TextStyle(color: HYAppTheme.norGrayColor, fontSize: 12.sp),
               ),
       ),
     );

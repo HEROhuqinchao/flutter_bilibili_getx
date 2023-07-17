@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 ///NestedScrollView嵌套tabView会导致，多列表同时滑动，而NestedScrollview里的body无法使用controller，否则失去联动效果
 ///参照 https://www.jianshu.com/p/ab473fb8ceb0 处理这种问题
 class PrimaryScrollContainer extends StatefulWidget {
   final Widget child;
 
-  PrimaryScrollContainer({
+  const PrimaryScrollContainer({
     required GlobalKey<PrimaryScrollContainerState> key,
     required this.child,
   }) : super(key: key);
@@ -118,7 +119,9 @@ class ScrollControllerWrapper implements ScrollController {
       return true;
     }.call());
     if (fake) {
-      print("detach is innner");
+      if (kDebugMode) {
+        print("detach is innner");
+      }
     }
     if (inner.positions.contains(position)) {
       inner.detach(position!);

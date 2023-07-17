@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 ///需要网络加载的图片，默认给以一张图片
 class DefaultFadeImage extends StatelessWidget {
   ///网络加载的图片地址
-  String imageUrl;
-  double width;
-  double height;
-  BoxFit fit;
+  final String imageUrl;
+  final double width;
+  final double height;
+  final BoxFit fit;
 
-  DefaultFadeImage({
+  DefaultFadeImage({super.key,
     required this.imageUrl,
     this.width = double.infinity,
     this.height = double.infinity,

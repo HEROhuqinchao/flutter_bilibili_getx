@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
+///获取高度
 class HeightReporter extends StatelessWidget {
   final Widget child;
+  late final double _height;
 
-  HeightReporter({required this.child});
-
-  double? _height = 0;
+  HeightReporter({super.key, required this.child}) {
+    _height = 0;
+  }
 
   double? getHeight() {
     return _height;
   }
+
+  set setHeight(double value) => _height = value;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +24,8 @@ class HeightReporter extends StatelessWidget {
       },
     );
 
-    Future.delayed(Duration(milliseconds: 200)).then((e) {
-      _height = context.size?.height;
+    Future.delayed(const Duration(milliseconds: 200)).then((e) {
+      setHeight = context.size!.height;
       // debugPrint('Height is ${context.size?.height}');
     });
 

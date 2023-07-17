@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'height_reporter.dart';
 
 //参考https://www.jianshu.com/p/a55184ee0d24
 class ExpandedWidget extends StatefulWidget {
-  Widget child;
-  double defaultHeight;
-  Key expandedKey;
+  final Widget child;
+  final double defaultHeight;
+  final Key expandedKey;
 
   ///super(key: expandedKey)这一步重要，将key传递给父亲，才行
   ExpandedWidget(
@@ -37,9 +36,7 @@ class ExpandedWidgetState extends State<ExpandedWidget>
     videoDetailsHeightAnimation =
         Tween(begin: widget.defaultHeight, end: realHeight).animate(controller);
     scrollController = ScrollController();
-    heightReporter = HeightReporter(
-      child: widget.child,
-    );
+    heightReporter = HeightReporter(child: widget.child);
     super.initState();
   }
 

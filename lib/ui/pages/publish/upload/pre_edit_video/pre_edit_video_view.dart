@@ -1,10 +1,10 @@
+import 'package:bilibili_getx/ui/widgets/custom/custom_floating_action_button_location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/I18n/str_res_keys.dart';
 import '../../../../shared/app_theme.dart';
-import '../../../../widgets/custom_floating_action_button_location.dart';
 import '../../../video_play/bilibili_video_player/bilibili_video_player_view.dart';
 import '../pre_publish_video/pre_publish_video_view.dart';
 import 'pre_edit_video_logic.dart';
@@ -12,16 +12,18 @@ import 'pre_edit_video_logic.dart';
 class PreEditVideoScreen extends StatefulWidget {
   static String routeName = "/pre_edit_video";
 
+  const PreEditVideoScreen({super.key});
+
   @override
   State<PreEditVideoScreen> createState() => _PreEditVideoScreenState();
 }
 
 class _PreEditVideoScreenState extends State<PreEditVideoScreen> {
+  final logic = Get.find<PreEditVideoLogic>();
+  final state = Get.find<PreEditVideoLogic>().state;
+
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<PreEditVideoLogic>();
-    final state = Get.find<PreEditVideoLogic>().state;
-
     return SafeArea(
       child: Scaffold(
         // appBar: AppBar(
@@ -45,7 +47,7 @@ class _PreEditVideoScreenState extends State<PreEditVideoScreen> {
         //     ),
         //   ),
         // ),
-        body: BilibiliVideoPlayerComponent(),
+        body: const BilibiliVideoPlayerComponent(),
 
         ///压扁的floatingActionButton
         floatingActionButton: FloatingActionButton.extended(

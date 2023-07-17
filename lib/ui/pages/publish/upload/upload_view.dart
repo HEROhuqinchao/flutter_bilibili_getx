@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../shared/app_theme.dart';
-import '../../../widgets/round_underline_tab_indicator.dart';
+import '../../../widgets/custom/round_underline_tab_indicator.dart';
 import 'local_image/local_image_view.dart';
 import 'local_video/local_video_view.dart';
 import 'upload_logic.dart';

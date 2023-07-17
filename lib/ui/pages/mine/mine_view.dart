@@ -1,5 +1,8 @@
 import 'package:bilibili_getx/ui/pages/mine/scan_login/scan_login_view.dart';
-import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/advertising_row.dart';
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/icon_button_row.dart';
+import 'package:bilibili_getx/ui/widgets/custom/user_level.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -9,15 +12,14 @@ import '../../../core/I18n/str_res_keys.dart';
 import '../../../core/model/account_mine.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/image_asset.dart';
-import '../../widgets/advertising_row.dart';
-import '../../widgets/icon_button_row.dart';
-import '../../widgets/user_level.dart';
 import 'mine_logic.dart';
 
 class MineScreen extends StatelessWidget {
   static const String routeName = "/mine";
   final logic = Get.find<MineLogic>();
   final state = Get.find<MineLogic>().state;
+
+   MineScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -298,7 +300,7 @@ class MineScreen extends StatelessWidget {
   List<Widget> buildMineActions() {
     return [
       IconButton(
-          onPressed: () => print("bilibili_connect"),
+          onPressed: () => {},
           icon: Image.asset(
             ImageAssets.bilibiliConnectPNG,
             width: 18.sp,
@@ -316,14 +318,14 @@ class MineScreen extends StatelessWidget {
             color: HYAppTheme.norGrayColor,
           )),
       IconButton(
-          onPressed: () => print("clothes"),
+          onPressed: () => {},
           icon: DefaultFadeImage(
             imageUrl: state.accountMineData.data.mallHome.icon,
             width: 18.sp,
             height: 18.sp,
           )),
       IconButton(
-          onPressed: () => print("dark_model"),
+          onPressed: () => {},
           icon: Image.asset(
             ImageAssets.darkModelPNG,
             width: 18.sp,

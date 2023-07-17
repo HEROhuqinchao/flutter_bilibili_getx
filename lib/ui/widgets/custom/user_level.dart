@@ -1,5 +1,5 @@
+import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
-import '../shared/image_asset.dart';
 
 List<String> _levelImage = [
   ImageAssets.icLv0PNG,
@@ -12,9 +12,9 @@ List<String> _levelImage = [
 ];
 
 class UserLevel extends StatelessWidget {
-  int level;
+  final int level;
 
-  UserLevel({Key? key, required this.level}) : super(key: key);
+  const UserLevel({Key? key, required this.level}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:bilibili_getx/core/service/request/home_request.dart';
-import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/bangumi_swiper_pagination.dart';
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety_flutter3/flutter_swiper_null_safety_flutter3.dart';
@@ -13,8 +14,7 @@ import '../../../../shared/app_theme.dart';
 import '../../../../shared/color_radix_change.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/params_sign.dart';
-import '../../../../widgets/bangumi_swiper_pagination.dart';
-import '../../../../widgets/rank_no.dart';
+import '../../../../widgets/custom/rank_no.dart';
 import 'comic_state.dart';
 
 class ComicLogic extends GetxController {

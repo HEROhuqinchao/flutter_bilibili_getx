@@ -1,21 +1,22 @@
-import 'package:bilibili_getx/ui/widgets/user_level.dart';
+import 'package:bilibili_getx/ui/widgets/custom/user_level.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/model/video_reply_model.dart';
-import '../shared/app_theme.dart';
-import '../shared/image_asset.dart';
-import '../shared/math_compute.dart';
+import '../../../../../core/model/video_reply_model.dart';
+import '../../shared/app_theme.dart';
+import '../../shared/image_asset.dart';
+import '../../shared/math_compute.dart';
 
 class VideoReplyItem extends StatefulWidget {
-  HYVideoReplyModelReply reply;
+  final HYVideoReplyModelReply reply;
 
-  VideoReplyItem(this.reply, {Key? key}) : super(key: key);
+  const VideoReplyItem(this.reply, {Key? key}) : super(key: key);
 
   @override
   State<VideoReplyItem> createState() => _VideoReplyItemState();
 }
 
-class _VideoReplyItemState extends State<VideoReplyItem> with AutomaticKeepAliveClientMixin{
+class _VideoReplyItemState extends State<VideoReplyItem>
+    with AutomaticKeepAliveClientMixin {
   ///内容行数
   int maxLines = 5;
 
@@ -58,9 +59,7 @@ class _VideoReplyItemState extends State<VideoReplyItem> with AutomaticKeepAlive
                     ),
                   ),
                   5.horizontalSpace,
-                  UserLevel(
-                    level: widget.reply.member.levelInfo.currentLevel,
-                  ),
+                  UserLevel(level: widget.reply.member.levelInfo.currentLevel),
                 ],
               ),
               5.verticalSpace,
@@ -174,8 +173,7 @@ class _VideoReplyItemState extends State<VideoReplyItem> with AutomaticKeepAlive
                           ? GestureDetector(
                               child: Container(
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 10)
-                                        .r,
+                                    const EdgeInsets.symmetric(vertical: 10).r,
                                 child: Text(
                                   "展开",
                                   style: TextStyle(
@@ -199,9 +197,9 @@ class _VideoReplyItemState extends State<VideoReplyItem> with AutomaticKeepAlive
                           : maxLines == 999
                               ? GestureDetector(
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                            vertical: 10)
-                                        .r,
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 10)
+                                            .r,
                                     child: Text(
                                       "收起",
                                       style: TextStyle(
@@ -394,7 +392,7 @@ class _VideoReplyItemState extends State<VideoReplyItem> with AutomaticKeepAlive
                   children: [
                     TextSpan(
                         style: TextStyle(
-                          color: Color.fromRGBO(24, 114, 164, 1),
+                          color: HYAppTheme.norBlue02Colors,
                           fontSize: 14.sp,
                           fontWeight: FontWeight.normal,
                           fontFamily: 'bilibiliFonts',

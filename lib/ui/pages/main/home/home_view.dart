@@ -5,6 +5,8 @@ import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/search/search_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_logic.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:bilibili_getx/ui/widgets/custom/primary_scroll_container.dart';
+import 'package:bilibili_getx/ui/widgets/custom/rectangle_checkBox.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,14 +15,14 @@ import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
 import '../../../shared/image_asset.dart';
-import '../../../widgets/primary_scroll_container.dart';
-import '../../../widgets/rectangle_checkBox.dart';
 import 'home_logic.dart';
 import 'live/live_view.dart';
 import 'login/login_view.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/home";
+
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -186,11 +188,11 @@ class _HomeScreenState extends State<HomeScreen>
             children: [
               PrimaryScrollContainer(
                 key: state.scrollChildKeys[0],
-                child: LiveScreen(),
+                child: const LiveScreen(),
               ),
               PrimaryScrollContainer(
                 key: state.scrollChildKeys[1],
-                child: RecommendScreen(),
+                child: const RecommendScreen(),
               ),
               PrimaryScrollContainer(
                 key: state.scrollChildKeys[2],

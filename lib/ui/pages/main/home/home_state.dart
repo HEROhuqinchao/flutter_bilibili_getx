@@ -1,11 +1,9 @@
+import 'package:bilibili_getx/ui/widgets/custom/primary_scroll_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../../core/shared_preferences/shared_preference_util.dart';
-import '../../../widgets/primary_scroll_container.dart';
-import 'home_view.dart';
 
 class HomeState {
   ///推荐的搜索关键字

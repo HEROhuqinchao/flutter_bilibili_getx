@@ -1,12 +1,12 @@
+import 'package:bilibili_getx/core/model/web/dynamic/web_dynamic_v1_feed_all.dart';
+import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../core/model/web/dynamic/web_dynamic_v1_feed_all.dart';
-import '../shared/app_theme.dart';
-import '../shared/image_asset.dart';
 import 'fade_image_default.dart';
 
 /// 参考 https://juejin.cn/post/7028151999019352072
@@ -39,10 +39,11 @@ class CommonRichText extends StatefulWidget {
     this.onExpand,
   });
 
-  _RichTextState createState() => _RichTextState();
+  @override
+  RichTextState createState() => RichTextState();
 }
 
-class _RichTextState extends State<CommonRichText> {
+class RichTextState extends State<CommonRichText> {
   bool _isExpand = true;
 
   @override
@@ -205,7 +206,9 @@ class _RichTextState extends State<CommonRichText> {
           );
           children.add(child);
         } else {
-          print(item.type);
+          if (kDebugMode) {
+            print(item.type);
+          }
         }
       }
     }

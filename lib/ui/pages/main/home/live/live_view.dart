@@ -1,11 +1,9 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/service/utils/constant.dart';
-import 'package:bilibili_getx/ui/pages/live_play/live_play_logic.dart';
-import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +16,8 @@ import 'live_logic.dart';
 
 class LiveScreen extends StatefulWidget {
   static const String routeName = "/home/live";
+
+  const LiveScreen({super.key});
 
   @override
   State<LiveScreen> createState() => LiveScreenState();
@@ -61,9 +61,7 @@ class LiveScreenState extends State<LiveScreen>
   }
 
   Widget initWebLiveView() {
-    return Container(
-      child: Text("data"),
-    );
+    return const Text("data");
   }
 
   ///初始化Android界面
@@ -79,7 +77,9 @@ class LiveScreenState extends State<LiveScreen>
         state.cardDataSmallCardV1.add(item.cardData);
       } else {
         if (Constant.isDebug) {
-          print("不存在${item.cardType}");
+          if (kDebugMode) {
+            print("不存在${item.cardType}");
+          }
         }
       }
     }

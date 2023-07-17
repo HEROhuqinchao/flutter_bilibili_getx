@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
+import 'package:bilibili_getx/ui/widgets/custom/progress_bar_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -13,11 +14,12 @@ import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../../core/permission/bilibili_permission.dart';
 import '../../../shared/math_compute.dart';
-import '../../../widgets/progress_bar_painter.dart';
 import 'bilibili_video_player_logic.dart';
 
 ///视频播放界面，传入视频源（videoOriginalUrl），控制需要显示的组件即可
 class BilibiliVideoPlayerComponent extends StatefulWidget {
+  const BilibiliVideoPlayerComponent({super.key});
+
   @override
   State<BilibiliVideoPlayerComponent> createState() =>
       _BilibiliVideoPlayerComponentState();
@@ -76,11 +78,9 @@ class _BilibiliVideoPlayerComponentState
 
   ///垂直视频
   Widget buildVerticalVideo() {
-    return Container(
-      child: Text(
-        "垂直视频功能待完善",
-        style: TextStyle(color: HYAppTheme.norWhite01Color, fontSize: 15.sp),
-      ),
+    return Text(
+      "垂直视频功能待完善",
+      style: TextStyle(color: HYAppTheme.norWhite01Color, fontSize: 15.sp),
     );
   }
 
@@ -194,7 +194,7 @@ class _BilibiliVideoPlayerComponentState
 
   ///水平视频
   Widget buildHorizonVideo() {
-    print("state.showTopBar -- ${state.showTopBar}");
+    // print("state.showTopBar -- ${state.showTopBar}");
     return GestureDetector(
       onTap: () {
         logic.cancelAndRestartTimer();
@@ -253,7 +253,7 @@ class _BilibiliVideoPlayerComponentState
                           children: [
                             GestureDetector(
                               onTap: (){
-                                print("返回");
+                                // print("返回");
                                 Get.back();
                               },
                               child: Icon(
@@ -616,7 +616,7 @@ class _BilibiliVideoPlayerComponentState
                   },
                   itemCount: 11,
                   separatorBuilder: (BuildContext context, int index) {
-                    return Container(
+                    return SizedBox(
                       width: 20.r,
                       height: 20.r,
                     );
@@ -700,7 +700,7 @@ class _BilibiliVideoPlayerComponentState
                   },
                   itemCount: 10,
                   separatorBuilder: (BuildContext context, int index) {
-                    return Container(
+                    return SizedBox(
                       width: 20.r,
                       height: 20.r,
                     );
@@ -736,7 +736,7 @@ class _BilibiliVideoPlayerComponentState
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
+          SizedBox(
             width: 45.r,
             height: 45.r,
             child: Image.asset(imageName),
@@ -754,7 +754,7 @@ class _BilibiliVideoPlayerComponentState
       builder: (BuildContext context) {
         return GetBuilder<BilibiliVideoPlayerLogic>(builder: (logic) {
           return SingleChildScrollView(
-            child: Container(
+            child: SizedBox(
               height: .5.sh,
               child: Column(
                 children: [
@@ -798,7 +798,7 @@ class _BilibiliVideoPlayerComponentState
                           DownloadTaskStatus.complete) {
                         final String filePath =
                             state.downloadVideoList[index].storagePath!;
-                        final result = await OpenFile.open(filePath);
+                        await OpenFile.open(filePath);
                         SmartDialog.showToast("已下载");
                       }
                     },
