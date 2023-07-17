@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RankNo extends StatelessWidget {
-  Color color;
-  String text;
+  final Color color;
+  final String text;
 
-  RankNo({Key? key, required this.color, required this.text})
+  const RankNo({Key? key, required this.color, required this.text})
       : super(key: key);
 
   @override

@@ -5,8 +5,7 @@ class BilibiliRoundUnderlineTabIndicator extends Decoration {
   BilibiliRoundUnderlineTabIndicator({
     required this.borderSide,
     this.insets = EdgeInsets.zero,
-  })  : assert(borderSide != null),
-        assert(insets != null);
+  });
 
   final BorderSide borderSide;
   final EdgeInsetsGeometry insets;
@@ -39,8 +38,6 @@ class BilibiliRoundUnderlineTabIndicator extends Decoration {
   }
 
   Rect _indicatorRectFor(Rect rect, TextDirection textDirection) {
-    assert(rect != null);
-    assert(textDirection != null);
     final Rect indicator = insets.resolve(textDirection).deflateRect(rect);
     return Rect.fromLTWH(
       indicator.left,
@@ -58,14 +55,12 @@ class BilibiliRoundUnderlineTabIndicator extends Decoration {
 
 class _UnderlinePainter extends BoxPainter {
   _UnderlinePainter(this.decoration, VoidCallback? onChanged)
-      : assert(decoration != null),
-        super(onChanged);
+      : super(onChanged);
 
   final BilibiliRoundUnderlineTabIndicator decoration;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    assert(configuration != null);
     assert(configuration.size != null);
     final Rect rect = offset & configuration.size!;
     final TextDirection textDirection = configuration.textDirection!;
