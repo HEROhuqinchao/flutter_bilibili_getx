@@ -10,9 +10,11 @@
 | Flutter内存优化方案搜集                                                                                                                                                                                                    |                  | 2023.6.28-～         |
 | Android [应用数据和文件](https://developer.android.google.cn/guide/topics/data?hl=zh-cn)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131348897)                                                         | 延后               | 2023.6.28-2023.7.5  |
 | Android [Kotlin语法](https://book.kotlincn.net)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130940725)                                                                                             | 至扩展              | 2023.6.28-2023.7.13 |
-| 预览媒体组件封装                                                                                                                                                                                                           | /                | /                   |
+| 预览媒体组件封装/设计模式更新抽象工厂模式                                                                                                                                                                                              | /                | /                   |
 |                                                                                                                                                                                                                    |                  |                     |
 |                                                                                                                                                                                                                    |                  |                     |
+
+https://www.jianshu.com/p/66d3520e0841
 
 ![目前进度](./image.png)
 
