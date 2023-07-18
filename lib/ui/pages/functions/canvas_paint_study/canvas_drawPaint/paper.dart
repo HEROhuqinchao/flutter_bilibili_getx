@@ -18,7 +18,7 @@ class Paper extends StatelessWidget {
 }
 
 class PaperCustomPainter extends CustomPainter with Grid {
-  Paint _paint = Paint();
+  final Paint _paint = Paint();
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -41,7 +41,8 @@ class PaperCustomPainter extends CustomPainter with Grid {
       Color(0xFFB709F4),
     ];
     var pos = [1.0 / 7, 2.0 / 7, 3.0 / 7, 4.0 / 7, 5.0 / 7, 6.0 / 7, 1.0];
-    _paint.shader = ui.Gradient.linear(Offset.zero, Offset(size.width, 0), colors, pos, TileMode.clamp);
+    _paint.shader = ui.Gradient.linear(
+        Offset.zero, Offset(size.width, 0), colors, pos, TileMode.clamp);
     _paint.blendMode = BlendMode.lighten;
     canvas.drawPaint(_paint);
   }

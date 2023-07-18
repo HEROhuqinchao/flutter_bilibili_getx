@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class WidgetFactory {
+buildButton()
+buildDialog(BuildContext context)
+}
+
+class AndroidWidgetFactory
+class IosWidgetFactory
+class WebWidgetFactory
+class WindowsWidgetFactory
+
+WidgetFactory <|-- AndroidWidgetFactory
+WidgetFactory <|-- IosWidgetFactory
+WidgetFactory <|-- WebWidgetFactory
+WidgetFactory <|-- WindowsWidgetFactory
+@enduml
