@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import '../../../../../../core/model/wechat/receive_data_model.dart';

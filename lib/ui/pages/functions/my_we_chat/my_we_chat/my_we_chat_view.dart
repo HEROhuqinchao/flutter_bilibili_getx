@@ -6,6 +6,7 @@ import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_ma
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/wechat_mine_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
+import 'package:bilibili_getx/ui/widgets/widget_factory/abstract_factory/widget_factory_singleton.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +16,7 @@ import 'package:get/get.dart';
 import 'my_we_chat_logic.dart';
 
 ///仿微信主页面
-class MyWeChatView extends StatelessWidget {
+class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
   static String routeName = "/my_wechat";
 
   final logic = Get.find<MyWeChatLogic>();
@@ -49,7 +50,7 @@ class MyWeChatView extends StatelessWidget {
                   body: IndexedStack(
                     index: state.currentIndex,
                     children: [
-                      WechatMainView(),
+                      const WechatMainView(),
                       WechatExploreView(),
                       const WeChatContactsView(),
                       WechatMineView(),
@@ -147,14 +148,22 @@ class MyWeChatView extends StatelessWidget {
   ) {
     return BottomNavigationBarItem(
       label: title,
-      icon: Container(
-        margin: EdgeInsets.only(bottom: 8.sp),
-        child: Image.asset(
-          "assets/image/wechat/${iconName}_unselected.png",
-          width: 18.sp,
-          height: 18.sp,
-          gaplessPlayback: true,
-        ),
+      icon: StreamBuilder<int>(
+        stream: state.streamController.stream,
+        builder: (ctx, snapshot) {
+          return wFactory().buildRightTag(
+            mainPart: Container(
+              margin: EdgeInsets.only(bottom: 8.sp),
+              child: Image.asset(
+                "assets/image/wechat/${iconName}_unselected.png",
+                width: 18.sp,
+                height: 18.sp,
+                gaplessPlayback: true,
+              ),
+            ),
+            tagPart: Text("${snapshot.data ?? 0}"),
+          );
+        },
       ),
       activeIcon: Container(
         margin: EdgeInsets.only(bottom: 8.sp),

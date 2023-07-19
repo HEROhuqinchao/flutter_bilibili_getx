@@ -197,6 +197,7 @@ class MainView extends StatelessWidget {
     );
   }
 
+  ///发布按钮
   BottomNavigationBarItem buildBottomNavigationBarCenterBarItem() {
     return BottomNavigationBarItem(
       label: "",

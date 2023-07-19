@@ -140,18 +140,8 @@ class MyApp extends StatelessWidget {
           fallbackLocale: const Locale('zh', 'CN'),
 
           ///起始路由
-          // initialRoute: WxShareView.routeName,
-          // initialRoute: DynamicCircleScreen.routeName,
-          initialRoute: MainView.routeName,
-          // initialRoute: PushMessageScreen.routeName,
-          // initialRoute: MyWeChatView.routeName,
-          // initialRoute: AnimationStudyView.routeName,
-          // initialRoute: PushMessageScreen.routeName,
-          // initialRoute: CanvasPaintStudyView.routeName,
-          // initialRoute: FlutterAndroidView.routeName,
-          // initialRoute: ScanQrView.routeName,
-          // initialRoute: MiniWindowView.routeName,
-          // initialRoute: DownloadFileView.routeName,
+          // initialRoute: MainView.routeName,
+          initialRoute: MyWeChatView.routeName,
 
           ///路由和绑定
           getPages: AsRouter.getPages,

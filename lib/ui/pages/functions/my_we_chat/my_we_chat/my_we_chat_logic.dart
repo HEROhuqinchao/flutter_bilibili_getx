@@ -23,6 +23,12 @@ class MyWeChatLogic extends GetxController {
     super.onReady();
   }
 
+  @override
+  void onClose() {
+    state.streamController.close();
+    super.onClose();
+  }
+
   updateCurrentIndex(int index) {
     state.currentIndex = index;
     update();

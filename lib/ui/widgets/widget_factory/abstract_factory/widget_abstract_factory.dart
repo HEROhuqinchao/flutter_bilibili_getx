@@ -12,7 +12,7 @@ abstract class WidgetFactory {
     double? elevation,
   });
 
-  //构建弹框
+  ///构建弹框
   void buildDialog(
     BuildContext context, {
     BorderRadius? borderRadius,
@@ -20,5 +20,13 @@ abstract class WidgetFactory {
     Color? color,
     Size? size,
     Widget? child,
+  });
+
+  ///组件右上角标志
+  Widget buildRightTag({
+    Widget? mainPart,
+    Color? color,
+    Widget? tagPart,
+    bool? showTagPart,
   });
 }

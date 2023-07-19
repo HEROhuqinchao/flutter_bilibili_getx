@@ -6,6 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // IOS风格组件工厂
 class IosWidgetFactory extends WidgetFactory {
+  IosWidgetFactory._internal();
+
+  static final IosWidgetFactory _instance = IosWidgetFactory._internal();
+
+  factory IosWidgetFactory.getInstance() => _instance;
+
   @override
   Widget buildButton({
     Color? color,
@@ -94,5 +100,17 @@ class IosWidgetFactory extends WidgetFactory {
     );
 
     overlayState.insert(overlayEntry);
+  }
+
+  @override
+  Widget buildRightTag({
+    Widget? mainPart,
+    Color? color,
+    Widget? tagPart,
+    bool? showTagPart,
+  }) {
+    return Stack(
+      children: [],
+    );
   }
 }

@@ -6,6 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // android风格组件工厂
 class AndroidWidgetFactory extends WidgetFactory {
+  AndroidWidgetFactory._internal();
+
+  static final AndroidWidgetFactory _instance =
+      AndroidWidgetFactory._internal();
+
+  factory AndroidWidgetFactory.getInstance() => _instance;
+
   @override
   Widget buildButton({
     Color? color,
@@ -81,5 +88,38 @@ class AndroidWidgetFactory extends WidgetFactory {
     );
 
     overlayState.insert(overlayEntry);
+  }
+
+  @override
+  Widget buildRightTag({
+    Widget? mainPart,
+    Color? color,
+    Widget? tagPart,
+    bool? showTagPart,
+  }) {
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.grey,
+            borderRadius: BorderRadius.all(Radius.circular(4.r)),
+          ),
+          width: 40.r,
+          height: 40.r,
+          child: mainPart,
+        ),
+        Positioned(
+          right: 5.r,
+          top: 5.r,
+          child: tagPart ??
+              Container(
+                width: 10.r,
+                height: 10.r,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.red),
+              ),
+        ),
+      ],
+    );
   }
 }

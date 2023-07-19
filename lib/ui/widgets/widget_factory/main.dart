@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'abstract_factory/widget_abstract_factory.dart';
+import 'abstract_factory/widget_factory_singleton.dart';
 
 main() {
   runApp(
@@ -19,18 +20,9 @@ main() {
   );
 }
 
-class MyApp extends StatelessWidget {
-  late final WidgetFactory widgetFactory;
-
+class MyApp extends StatelessWidget with WidgetFactoryPlugin {
   @override
   Widget build(BuildContext context) {
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      widgetFactory = AndroidWidgetFactory();
-    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
-      widgetFactory = IosWidgetFactory();
-    } else {
-      return Container();
-    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -43,10 +35,10 @@ class MyApp extends StatelessWidget {
               height: 50.r,
             ),
             200.verticalSpace,
-            widgetFactory.buildButton(
+            wFactory().buildButton(
               child: const Text("button"),
               onTap: () {
-                widgetFactory.buildDialog(
+                wFactory().buildDialog(
                   context,
                   child: Container(
                     color: Colors.white,
@@ -57,7 +49,7 @@ class MyApp extends StatelessWidget {
                   ),
                 );
               },
-            )
+            ),
           ],
         ),
       ),
