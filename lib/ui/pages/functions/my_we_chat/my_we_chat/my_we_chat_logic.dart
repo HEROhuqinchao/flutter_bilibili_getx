@@ -7,6 +7,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/service/request/wechat_request.dart';
+import '../../../../../core/sqlite/sqlite_util.dart';
 import 'my_we_chat_state.dart';
 
 class MyWeChatLogic extends GetxController {
@@ -47,8 +48,11 @@ class MyWeChatLogic extends GetxController {
         "tel": wechatTel,
         "password": wechatPassword,
       };
-      WechatRequest().loginUser(params).then((value) {
+      WechatRequest().loginUser(params).then((value) async {
         if (value.code == 0) {
+          ///初始化数据库
+          await SqliteUtil.getInstance(wechatTel);
+
           ///初始化子页面数据
           WechatMainLogic wechatMainLogic = Get.find<WechatMainLogic>();
           wechatMainLogic.state.isLoginUserId = value.data!.userId!;

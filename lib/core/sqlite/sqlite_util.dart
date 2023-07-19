@@ -14,9 +14,9 @@ class SqliteUtil {
   factory SqliteUtil() => _instance;
   static late Database database;
 
-  ///获取数据库
-  static getInstance() async {
-    database = await getDatabase(databaseName);
+  ///获取数据库(不同用户建立不同数据库）
+  static getInstance(String databaseName) async {
+    database = await getDatabase("wechat$databaseName.db");
     return _instance;
   }
 
@@ -63,6 +63,7 @@ class SqliteUtil {
   static String columnMessageContent = "columnMessageContent";
   static String columnMessageDate = "columnMessageDate";
   static String columnUserAvatar = "columnUserAvatar";
+  static String columnMessageReadTime = "columnMessageReadTime";
 
   ///列表表项
   static Map<ColumnIdType, String> columnTypeMap = {
@@ -134,7 +135,27 @@ class SqliteUtil {
     List? whereArgs,
     required String orderBy,
   }) async {
-    return await database.query(tableName, where: where, whereArgs: whereArgs, orderBy: orderBy);
+    return await database.query(
+      tableName,
+      where: where,
+      whereArgs: whereArgs,
+      orderBy: orderBy,
+    );
+  }
+
+  ///更新数据项
+  static updateTable({
+    required String tableName,
+    required Map<String, dynamic> map,
+    String? where,
+    List? whereArgs,
+  }) async {
+    await database.update(
+      tableName,
+      map,
+      where: where,
+      whereArgs: whereArgs,
+    );
   }
 }
 

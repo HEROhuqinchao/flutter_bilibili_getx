@@ -81,9 +81,6 @@ Future<void> initialization() async {
 
       ///监听微信回调结果
       WxUtil.wxDebugResult();
-
-      ///初始化数据库
-      await SqliteUtil.getInstance();
     } else if (Platform.isWindows) {
       initWindowsSize();
     } else if (Platform.isIOS) {}

@@ -70,6 +70,26 @@ class WechatMainLogic extends GetxController {
         state.isLoginUserId,
       ],
     );
+
+    ///更新消息阅读的时间
+    await SqliteUtil.updateTable(
+      tableName: SqliteUtil.tableWechatMessageHistory,
+      map: {
+        SqliteUtil.columnMessageReadTime: DateTime.now().millisecondsSinceEpoch
+      },
+      where: "("
+          "(${SqliteUtil.columnSenderId} = ? AND ${SqliteUtil.columnReceiverId} = ?) "
+          "OR (${SqliteUtil.columnReceiverId} = ? AND ${SqliteUtil.columnSenderId} = ?)"
+          ") "
+          "AND (${SqliteUtil.columnMessageReadTime} = 0)",
+      whereArgs: [
+        state.userList[index].userId!,
+        state.isLoginUserId,
+        state.userList[index].userId!,
+        state.isLoginUserId,
+      ],
+    );
+
     chatRoomLogic.state.chatRoomMessageList.clear();
     for (Map map in messageList) {
       chatRoomLogic.state.chatRoomMessageList.add(
@@ -79,6 +99,7 @@ class WechatMainLogic extends GetxController {
           msg: map[SqliteUtil.columnMessageContent],
           date: map[SqliteUtil.columnMessageDate],
           avatar: map[SqliteUtil.columnUserAvatar],
+          isRead: true,
         ),
       );
     }
@@ -107,6 +128,7 @@ class WechatMainLogic extends GetxController {
         SqliteUtil.columnMessageContent: receiveData.msg,
         SqliteUtil.columnMessageDate: receiveData.date,
         SqliteUtil.columnUserAvatar: receiveData.avatar,
+        SqliteUtil.columnMessageReadTime: 0, //读消息的时间
       },
     );
   }
@@ -126,9 +148,15 @@ class WechatMainLogic extends GetxController {
         msg: map[SqliteUtil.columnMessageContent],
         date: map[SqliteUtil.columnMessageDate],
         avatar: map[SqliteUtil.columnUserAvatar],
+        isRead: judgeReadState(map[SqliteUtil.columnMessageDate],
+            map[SqliteUtil.columnMessageReadTime]),
       );
     }
     update();
+  }
+
+  bool judgeReadState(int receiveDate, int readDate) {
+    return receiveDate < readDate;
   }
 
   ///连接服务

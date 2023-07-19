@@ -97,6 +97,7 @@ class ChatRoomLogic extends GetxController {
         msg: state.inputText,
         date: sendTime,
         avatar: "https://static.runoob.com/images/demo/demo2.jpg",
+        isRead: true,
       ));
 
       ///发送至服务端
