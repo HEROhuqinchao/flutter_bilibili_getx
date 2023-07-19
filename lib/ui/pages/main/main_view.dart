@@ -13,7 +13,6 @@ import '../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../core/shared_preferences/shared_preference_util.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/image_asset.dart';
-import '../functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import '../functions/push_message/push_message_view.dart';
 import '../functions/qq_share/qq_share_view.dart';
 import '../functions/statistics_chart/statistics_chart_view.dart';
@@ -127,7 +126,6 @@ class MainView extends StatelessWidget {
                 SpeedDialChild(
                   backgroundColor: HYAppTheme.norWhite01Color,
                   onTap: () {
-                    Get.toNamed(BlueToothConnectionView.routeName);
                   },
                   label: '蓝牙',
                   child: Icon(

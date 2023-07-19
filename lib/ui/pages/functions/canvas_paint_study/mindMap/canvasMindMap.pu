@@ -62,8 +62,12 @@
 ****_ drawOval 椭圆
 ****_ drawArc(矩形区域,起始弧度,扫描弧度,是否连中心,画笔) 圆弧
 ***_ 其他绘制
-**** drawColor 绘制颜色
-**** drawPaint 绘制画笔
-**** drawShadow(path路径, color颜色, elevation影深, transparentOccluder) 绘制阴影
-**** drawPath 绘制路径
+****_ drawColor 绘制颜色
+****_ drawPaint 绘制画笔
+****_ drawShadow(path路径, color颜色, elevation影深, transparentOccluder) 绘制阴影
+****_ drawPath 绘制路径
+***_ 画布裁剪
+****_ clipRect(rect 矩形, doAntiAlias 是否抗锯齿, clipOn intersect裁内部/difference裁外部)
+****_ clipRRect(RRect 圆形矩阵)
+****_ clipPath 路径裁剪
 @endmindmap

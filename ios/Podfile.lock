@@ -21,12 +21,8 @@ PODS:
     - BaiduMapKit/Utils (= 6.5.5)
     - Flutter
     - flutter_baidu_mapapi_base
-  - flutter_blue (0.0.1):
+  - flutter_blue_plus (0.0.1):
     - Flutter
-    - flutter_blue/Protos (= 0.0.1)
-  - flutter_blue/Protos (0.0.1):
-    - Flutter
-    - Protobuf (~> 3.11.4)
   - flutter_bmflocation (3.4.0):
     - BMKLocationKit (~> 2.0.8)
     - Flutter
@@ -131,7 +127,6 @@ PODS:
   - "permission_handler (5.1.0+2)":
     - Flutter
   - PromisesObjC (2.2.0)
-  - Protobuf (3.11.4)
   - SDWebImage (5.17.0):
     - SDWebImage/Core (= 5.17.0)
   - SDWebImage/Core (5.17.0)
@@ -163,7 +158,7 @@ DEPENDENCIES:
   - flutter_baidu_mapapi_base (from `.symlinks/plugins/flutter_baidu_mapapi_base/ios`)
   - flutter_baidu_mapapi_search (from `.symlinks/plugins/flutter_baidu_mapapi_search/ios`)
   - flutter_baidu_mapapi_utils (from `.symlinks/plugins/flutter_baidu_mapapi_utils/ios`)
-  - flutter_blue (from `.symlinks/plugins/flutter_blue/ios`)
+  - flutter_blue_plus (from `.symlinks/plugins/flutter_blue_plus/ios`)
   - flutter_bmflocation (from `.symlinks/plugins/flutter_bmflocation/ios`)
   - flutter_downloader (from `.symlinks/plugins/flutter_downloader/ios`)
   - flutter_image_compress (from `.symlinks/plugins/flutter_image_compress/ios`)
@@ -205,7 +200,6 @@ SPEC REPOS:
     - MLKitVision
     - nanopb
     - PromisesObjC
-    - Protobuf
     - SDWebImage
     - SDWebImageWebPCoder
 
@@ -222,8 +216,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_baidu_mapapi_search/ios"
   flutter_baidu_mapapi_utils:
     :path: ".symlinks/plugins/flutter_baidu_mapapi_utils/ios"
-  flutter_blue:
-    :path: ".symlinks/plugins/flutter_blue/ios"
+  flutter_blue_plus:
+    :path: ".symlinks/plugins/flutter_blue_plus/ios"
   flutter_bmflocation:
     :path: ".symlinks/plugins/flutter_bmflocation/ios"
   flutter_downloader:
@@ -272,7 +266,7 @@ SPEC CHECKSUMS:
   flutter_baidu_mapapi_base: 4f9256710144738294f83d249a14e24334f208bd
   flutter_baidu_mapapi_search: 2f693a0f8e9f44f2aeda26236977694c736642c3
   flutter_baidu_mapapi_utils: 3eb2fa8aa291930df880f1503ac4f4a628c228d3
-  flutter_blue: eeb381dc4727a0954dede73515f683865494b370
+  flutter_blue_plus: 5cb46a0d66c6cacebf7551e0e5a6bfa345ccc224
   flutter_bmflocation: dabfc2e2b5463fd63cb50e824363a34d50a4551f
   flutter_downloader: b7301ae057deadd4b1650dc7c05375f10ff12c39
   flutter_image_compress: 5a5e9aee05b6553048b8df1c3bc456d0afaac433
@@ -302,7 +296,6 @@ SPEC CHECKSUMS:
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   SDWebImage: 750adf017a315a280c60fde706ab1e552a3ae4e9
   SDWebImageWebPCoder: af09429398d99d524cae2fe00f6f0f6e491ed102
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126

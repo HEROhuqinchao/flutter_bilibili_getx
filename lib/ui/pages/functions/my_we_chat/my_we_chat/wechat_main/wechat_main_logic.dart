@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/my_we_chat_logic.dart';
 import 'package:flutter/animation.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:web_socket_channel/io.dart';
 
@@ -84,12 +85,12 @@ class WechatMainLogic extends GetxController {
     chatRoomLogic.update();
 
     ///延迟计算最大滑动距离，配合resizeToAvoidBottomInset，键盘顶住布局
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       double max = chatRoomLogic
           .state.messageListScrollController.position.maxScrollExtent;
       chatRoomLogic.state.messageListScrollController.animateTo(
         max,
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         curve: Curves.linear,
       );
     });
@@ -156,18 +157,20 @@ class WechatMainLogic extends GetxController {
 
         ///延迟计算最大滑动距离
         if (chatRoomLogic.state.messageListScrollController.hasClients) {
-          Future.delayed(Duration(milliseconds: 500)).then((value) {
+          Future.delayed(const Duration(milliseconds: 500)).then((value) {
             double max = chatRoomLogic
                 .state.messageListScrollController.position.maxScrollExtent;
             chatRoomLogic.state.messageListScrollController.animateTo(
               max,
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               curve: Curves.linear,
             );
           });
         }
       } catch (e) {
-        print("$e-$event");
+        if (kDebugMode) {
+          print("$e-$event");
+        }
       }
     });
   }

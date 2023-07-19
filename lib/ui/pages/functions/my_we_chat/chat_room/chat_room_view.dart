@@ -9,13 +9,15 @@ import 'package:get/get.dart';
 
 import 'chat_room_logic.dart';
 
-Color greenColor = Color.fromRGBO(149, 236, 105, 1);
-Color whiteColor = Color.fromRGBO(224, 224, 224, 1);
+Color greenColor = const Color.fromRGBO(149, 236, 105, 1);
+Color whiteColor = const Color.fromRGBO(224, 224, 224, 1);
 
 class ChatRoomView extends StatelessWidget {
   static String routeName = "/chat_room";
   final logic = Get.put(ChatRoomLogic());
   final state = Get.find<ChatRoomLogic>().state;
+
+  ChatRoomView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ChatRoomView extends StatelessWidget {
         ///键盘顶住布局
         resizeToAvoidBottomInset:
             (!state.isEmojiMode && !state.isVoiceMode) ? true : false,
-        backgroundColor: Color.fromRGBO(237, 237, 237, 1),
+        backgroundColor: const Color.fromRGBO(237, 237, 237, 1),
         appBar: buildMyWeChatViewAppBar(),
         body: Column(
           children: [
@@ -62,7 +64,7 @@ class ChatRoomView extends StatelessWidget {
   ///表情符块
   buildEmojiAndMoreBlock(BuildContext context) {
     return Container(
-      color: Color.fromRGBO(247, 247, 247, 1),
+      color: const Color.fromRGBO(247, 247, 247, 1),
       height: state.emojiBlockHeight,
       child: state.isEmojiMode
           ? FutureBuilder(
@@ -77,7 +79,7 @@ class ChatRoomView extends StatelessWidget {
                       horizontal: 10.r,
                     ),
                     shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 8,
                     ),
                     itemBuilder: (BuildContext context, int index) {
@@ -108,7 +110,7 @@ class ChatRoomView extends StatelessWidget {
                         vertical: 15.r,
                         horizontal: 10.r,
                       ),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 4,
                       ),
                       itemBuilder: (ctx, iIndex) {
@@ -192,14 +194,14 @@ class ChatRoomView extends StatelessWidget {
   ///聊天室的头部
   buildMyWeChatViewAppBar() {
     return AppBar(
-      backgroundColor: Color.fromRGBO(237, 237, 237, 1),
+      backgroundColor: const Color.fromRGBO(237, 237, 237, 1),
       toolbarHeight: 40.r,
       centerTitle: true,
       leading: GestureDetector(
         onTap: () {
           Get.back();
         },
-        child: Icon(
+        child: const Icon(
           Icons.chevron_left,
           color: HYAppTheme.norBlackColors,
         ),
@@ -217,7 +219,7 @@ class ChatRoomView extends StatelessWidget {
           onTap: () {},
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 8.r),
-            child: Icon(
+            child: const Icon(
               Icons.more_horiz_rounded,
               color: HYAppTheme.norBlackColors,
             ),
@@ -230,7 +232,7 @@ class ChatRoomView extends StatelessWidget {
   ///输入框
   buildMyWeChatViewInputComponent() {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color.fromRGBO(247, 247, 247, 1),
         border: Border(
           top: BorderSide(
@@ -264,7 +266,7 @@ class ChatRoomView extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 8.r),
                       color: HYAppTheme.norWhite01Color,
                       alignment: Alignment.center,
-                      child: Text("按住 说话"),
+                      child: const Text("按住 说话"),
                     ),
                   ),
                 )
@@ -279,7 +281,7 @@ class ChatRoomView extends StatelessWidget {
                       onChanged: (str) {
                         logic.updateInputText(str);
                       },
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         isDense: true,
                         filled: true,
                         fillColor: HYAppTheme.norWhite01Color,
@@ -317,7 +319,7 @@ class ChatRoomView extends StatelessWidget {
                         vertical: 8.r,
                         horizontal: 12.r,
                       ),
-                      child: Text("发送"),
+                      child: const Text("发送"),
                     ),
                   ),
                 ),
@@ -329,7 +331,7 @@ class ChatRoomView extends StatelessWidget {
   ///按钮控件
   buildMyWeChatViewIconButton(String image, Function() onTap) {
     return Material(
-      color: Color.fromRGBO(247, 247, 247, 1),
+      color: const Color.fromRGBO(247, 247, 247, 1),
       child: InkWell(
         onTap: onTap,
         child: Container(
@@ -350,7 +352,7 @@ class ChatRoomView extends StatelessWidget {
       borderRadius: BorderRadius.all(
         Radius.circular(3.r),
       ),
-      color: Color.fromRGBO(247, 247, 247, 1),
+      color: const Color.fromRGBO(247, 247, 247, 1),
       child: InkWell(
         onTap: () {},
         child: ClipRRect(

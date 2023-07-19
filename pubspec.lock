@@ -382,14 +382,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.4.1"
-  flutter_blue:
+  flutter_blue_plus:
     dependency: "direct main"
     description:
-      name: flutter_blue
-      sha256: f7f76b9b80455b0375693ec96c276fadb01e94d8441fa1740a64980cd1aeda5c
+      name: flutter_blue_plus
+      sha256: c2d5c68f0779339f23f1aa70558d53b18d30c661a7b697925dbfc34e0f2d120c
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.8.0"
+    version: "1.7.5"
   flutter_bmflocation:
     dependency: "direct main"
     description:
@@ -692,10 +692,10 @@ packages:
     dependency: "direct main"
     description:
       name: light_compressor
-      sha256: "53165b7a6b79a5de4ad781d7de7d7bf49fe55ddfb67fa6d0cd97869c0b68e831"
+      sha256: "9c4ac5bb6d651b8b00b5c9b6c7b542730895647b50927931161e164c4da82704"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.1"
+    version: "2.1.0"
   lints:
     dependency: transitive
     description:
@@ -1289,18 +1289,18 @@ packages:
     dependency: transitive
     description:
       name: video_player_avfoundation
-      sha256: a3bfaf088915a62dd85260193a838610971590d69ee9825c500ee50954223411
+      sha256: "4953303409bd03baa1edf8231e18b325ed42eeca717db1e0310a5f0ff93a34a9"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.4.7"
+    version: "2.4.8"
   video_player_platform_interface:
     dependency: transitive
     description:
       name: video_player_platform_interface
-      sha256: a8c4dcae2a7a6e7cc1d7f9808294d968eca1993af34a98e95b9bdfa959bec684
+      sha256: "1ca9acd7a0fb15fb1a990cb554e6f004465c6f37c99d2285766f08a4b2802988"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "6.1.0"
+    version: "6.2.0"
   video_player_web:
     dependency: transitive
     description:

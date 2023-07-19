@@ -20,9 +20,11 @@ class MyWeChatView extends StatelessWidget {
 
   final logic = Get.find<MyWeChatLogic>();
   final state = Get.find<MyWeChatLogic>().state;
+
+  MyWeChatView({super.key});
+
   @override
   Widget build(BuildContext context) {
-
     return WillPopScope(
       ///返回按钮退出界面
       onWillPop: () async {
@@ -42,72 +44,14 @@ class MyWeChatView extends StatelessWidget {
                   appBar: (state.currentIndex == 0 ||
                           state.currentIndex == 1 ||
                           state.currentIndex == 2)
-                      ? AppBar(
-                          centerTitle: true,
-                          backgroundColor: HYAppTheme.norWhite01Color,
-                          leading: (state.currentIndex != 1 &&
-                                  state.currentIndex != 2)
-                              ? GestureDetector(
-                                  onTap: () {},
-                                  child: Icon(
-                                    Icons.more_horiz,
-                                    color: HYAppTheme.norBlackColors,
-                                  ),
-                                )
-                              : null,
-                          elevation: .1,
-                          title: (state.currentIndex == 0)
-                              ? Text(
-                                  "微信(${state.friendsNumber - 1})",
-                                  style: TextStyle(
-                                    fontSize: 15.sp,
-                                    color: HYAppTheme.norBlackColors,
-                                  ),
-                                )
-                              : (state.currentIndex == 1)
-                                  ? Text(
-                                      "通讯录",
-                                      style: TextStyle(
-                                        fontSize: 15.sp,
-                                        color: HYAppTheme.norBlackColors,
-                                      ),
-                                    )
-                                  : (state.currentIndex == 2)
-                                      ? Text(
-                                          "发现",
-                                          style: TextStyle(
-                                            fontSize: 15.sp,
-                                            color: HYAppTheme.norBlackColors,
-                                          ),
-                                        )
-                                      : Container(),
-                          actions: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.r),
-                              child: Image.asset(
-                                ImageAssets.wechatSearchPng,
-                                width: 20.r,
-                                height: 20.r,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.r),
-                              child: Image.asset(
-                                ImageAssets.wechatAddPng,
-                                width: 23.r,
-                                height: 23.r,
-                              ),
-                            ),
-                            5.horizontalSpace,
-                          ],
-                        )
+                      ? buildMyWeChatAppBar()
                       : null,
                   body: IndexedStack(
                     index: state.currentIndex,
                     children: [
                       WechatMainView(),
                       WechatExploreView(),
-                      WeChatContactsView(),
+                      const WeChatContactsView(),
                       WechatMineView(),
                     ],
                   ),
@@ -135,8 +79,72 @@ class MyWeChatView extends StatelessWidget {
     );
   }
 
+  ///头部
+  AppBar buildMyWeChatAppBar() {
+    return AppBar(
+      centerTitle: true,
+      backgroundColor: HYAppTheme.norWhite01Color,
+      leading: (state.currentIndex != 1 && state.currentIndex != 2)
+          ? GestureDetector(
+              onTap: () {},
+              child: const Icon(
+                Icons.more_horiz,
+                color: HYAppTheme.norBlackColors,
+              ),
+            )
+          : null,
+      elevation: .1,
+      title: (state.currentIndex == 0)
+          ? Text(
+              "微信(${state.friendsNumber - 1})",
+              style: TextStyle(
+                fontSize: 15.sp,
+                color: HYAppTheme.norBlackColors,
+              ),
+            )
+          : (state.currentIndex == 1)
+              ? Text(
+                  "通讯录",
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    color: HYAppTheme.norBlackColors,
+                  ),
+                )
+              : (state.currentIndex == 2)
+                  ? Text(
+                      "发现",
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        color: HYAppTheme.norBlackColors,
+                      ),
+                    )
+                  : Container(),
+      actions: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.r),
+          child: Image.asset(
+            ImageAssets.wechatSearchPng,
+            width: 20.r,
+            height: 20.r,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.r),
+          child: Image.asset(
+            ImageAssets.wechatAddPng,
+            width: 23.r,
+            height: 23.r,
+          ),
+        ),
+        5.horizontalSpace,
+      ],
+    );
+  }
+
   BottomNavigationBarItem buildBottomNavigationBarItem(
-      String title, String iconName) {
+    String title,
+    String iconName,
+  ) {
     return BottomNavigationBarItem(
       label: title,
       icon: Container(

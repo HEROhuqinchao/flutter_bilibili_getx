@@ -4,7 +4,9 @@ import 'dart:io';
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:image_picker/image_picker.dart';
+
 // import 'package:image_pickers/image_pickers.dart';
 import 'package:light_compressor/light_compressor.dart';
 import 'package:path_provider/path_provider.dart';
@@ -27,14 +29,20 @@ class UploadFileUtil {
             AndroidConfig(isSharedStorage: false, saveAt: SaveAt.Downloads),
         ios: IOSConfig(saveInGallery: false),
       );
-
-      ///dio中Multipart文件上传
-      return MultipartFile.fromFileSync(
-        //压缩文件的路径
-        response.destinationPath,
-        //压缩文件的名称
-        filename: videoName,
-      );
+      if (response is OnSuccess) {
+        ///dio中Multipart文件上传
+        final String outputFile = response.destinationPath;
+        return MultipartFile.fromFileSync(
+          //压缩文件的路径
+          outputFile,
+          //压缩文件的名称
+          filename: videoName,
+        );
+      } else if (response is OnFailure) {
+        SmartDialog.showToast("压缩失败");
+      } else if (response is OnCancelled) {
+        SmartDialog.showToast("取消压缩");
+      }
     } else {
       if (Constant.isDebug) {
         print("文件不存在");

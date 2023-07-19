@@ -1,8 +1,5 @@
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_binding.dart';
-import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_connection_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_logic.dart';
 import 'package:bilibili_getx/ui/pages/functions/video_player_example/video_player_example_view.dart';
@@ -27,7 +24,6 @@ import '../../ui/pages/dynamic_circle/dynamic_circle_view.dart';
 import '../../ui/pages/functions/animation_compoent/animation_compoent_binding.dart';
 import '../../ui/pages/functions/animation_study/animation_study_binding.dart';
 import '../../ui/pages/functions/animation_study/animation_study_view.dart';
-import '../../ui/pages/functions/blue_tooth_connection/blue_tooth_device_operation/blue_tooth_device_operation_binding.dart';
 import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_binding.dart';
 import '../../ui/pages/functions/canvas_paint_study/canvas_paint_study_view.dart';
 import '../../ui/pages/functions/download_file/download_file_binding.dart';
@@ -202,23 +198,11 @@ class AsRouter {
         page: () => AnimationCompoentView(),
         binding: AnimationCompoentBinding()),
 
-    ///蓝牙
-    GetPage(
-        name: BlueToothConnectionView.routeName,
-        page: () => BlueToothConnectionView(),
-        binding: BlueToothConnectionBinding()),
-
     ///统计图表
     GetPage(
         name: StatisticsChartView.routeName,
         page: () => StatisticsChartView(),
         binding: StatisticsChartBinding()),
-
-    ///蓝牙设备操作
-    GetPage(
-        name: BlueToothDeviceOperationView.routeName,
-        page: () => BlueToothDeviceOperationView(),
-        binding: BlueToothDeviceOperationBinding()),
 
     ///直播间
     GetPage(

@@ -80,7 +80,8 @@ dependencies:
   json_annotation: ^4.5.0 #json默认值
   json_serializable: ^6.5.4 #json序列化？
   flutter_cache_manager: ^3.3.0 #缓存图片
-  flutter_blue: ^0.8.0 #蓝牙
+#  flutter_blue: ^0.8.0 #蓝牙
+  flutter_blue_plus: ^1.5.2 #蓝牙
   qr_flutter: ^4.0.0 #生成二维码
   qrscan: ^0.3.3 #扫描二维码,也可以生成二维码
   mobile_scanner: ^3.2.0 #扫描二维码（效果比qrScan好一些）
