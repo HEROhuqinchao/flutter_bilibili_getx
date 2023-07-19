@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
@@ -49,6 +50,7 @@ class UploadFileUtil {
       }
       return null;
     }
+    return null;
   }
 
   ///获取文件大小
@@ -86,49 +88,78 @@ class UploadFileUtil {
   }
 
   ///分块文件上传
-  ///https://blog.csdn.net/weixin_43223804/article/details/113563831
-  ///录制视频
-  Future<XFile?> getVideo() async {
-    final XFile? file = await _picker.pickVideo(
-      source: ImageSource.camera,
-      maxDuration: const Duration(seconds: 60),
-    );
-    return file;
-  }
-
-  ///选择手机上的视频
-  // Future<List<Media>> chooseVideo() async {
-  //   List<Media> videos = await ImagePickers.pickerPaths(
-  //     galleryMode: GalleryMode.video,
-  //     selectCount: 1,
-  //   );
-  //   return videos;
-  // }
-
-  ///获取分块文件
-  getFileChunks(String filePath, String url) async {
-    File file = File(filePath);
+  uploadChunks({
+    required String baseUrl,
+    required String path,
+    required File file,
+    int? chunkSize,
+    Map<String, String>? body,
+    String? chunkFieldName,
+    Map<String, String>? headers,
+    String? chunkName,
+  }) async {
+    ///分块默认1MB大小
+    chunkSize = chunkSize ?? 1024 * 1024;
     var sFile = await file.open();
+
+    ///上传部分的大小
     var x = 0;
     var fileSize = file.lengthSync();
-    var chunkSize = 1000000;
-    List<int> val;
+    List<int> bytes = [];
+
+    ///当前是第几块
+    int chunkId = 0;
     while (x < fileSize) {
-      var isLast = fileSize - x >= chunkSize ? 'no' : 'yes';
-      var httpClient = HttpClient();
-      var request = await httpClient.postUrl(Uri.parse(url));
       var len = fileSize - x >= chunkSize ? chunkSize : fileSize - x;
-      val = sFile.readSync(len).toList();
-      x = x + len;
-      request.add(val);
-      await request.flush();
-      print(len);
-      HttpClientResponse response = await request.close();
-      String responseBody = await response.transform(utf8.decoder).join();
-      if (json.decode(responseBody)["code"] == 0) {
-        await sFile.close();
-        print("上传完成");
+      bytes = sFile.readSync(len).toList();
+      x += len;
+
+      ///请求上传
+      var request = http.MultipartRequest('POST', Uri.parse("$baseUrl$path"));
+      chunkId++;
+
+      ///post body体和file块（字节转为分块文件）
+      request.fields.addAll(body ?? {});
+      request.files.add(http.MultipartFile.fromBytes(
+        chunkFieldName ?? 'chunk',
+        bytes,
+        filename: chunkName ?? "chunk$chunkId",
+      ));
+
+      ///请求头
+      request.headers.addAll(headers ?? {});
+      http.StreamedResponse response = await request.send();
+      if (Constant.isDebug) {
+        print("-------request begin-------");
+        print("URL：$baseUrl$path");
+        print("请求方式：POST");
+        print("请求头：");
+        request.headers.forEach((key, value) {
+          print("$key : $value");
+        });
+        print("参数为$body");
+      }
+
+      ///上传结果
+      if (response.statusCode == 200) {
+        final result = await response.stream.bytesToString();
+        print(jsonDecode(result));
+      } else {
+        print(response.reasonPhrase);
       }
     }
+  }
+
+  ///获取分块数
+  int getFileChunkNum(File file, int chunkSize) {
+    var x = 0;
+    var fileSize = file.lengthSync();
+    int chunkNum = 0;
+    while (x < fileSize) {
+      var len = fileSize - x >= chunkSize ? chunkSize : fileSize - x;
+      x += len;
+      chunkNum++;
+    }
+    return chunkNum;
   }
 }
