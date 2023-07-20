@@ -12,13 +12,14 @@ import '../../../../../../core/sqlite/sqlite_util.dart';
 import '../../../../../../core/web_socket_channel/web_socket_util.dart';
 import '../../chat_room/chat_room_logic.dart';
 import '../../chat_room/chat_room_view.dart';
+import '../message_change_notifier/message_change_notifier.dart';
 import 'wechat_main_state.dart';
 
 class WechatMainLogic extends GetxController {
   final WechatMainState state = WechatMainState();
 
   ///初始化数据
-  iniWeChat() {
+  iniWeChatMain() {
     state.latestMsgData = {};
     state.userList = [];
     state.messageHistoryList = [];
@@ -72,7 +73,7 @@ class WechatMainLogic extends GetxController {
     );
 
     ///更新消息阅读的时间
-    await SqliteUtil.updateTable(
+    int? updateNumber = await SqliteUtil.updateTable(
       tableName: SqliteUtil.tableWechatMessageHistory,
       map: {
         SqliteUtil.columnMessageReadTime: DateTime.now().millisecondsSinceEpoch
@@ -89,7 +90,9 @@ class WechatMainLogic extends GetxController {
         state.isLoginUserId,
       ],
     );
+    MessageChangeNotifier.getInstance().readMessage(updateNumber ?? 0);
 
+    ///更新聊天室内的聊天记录
     chatRoomLogic.state.chatRoomMessageList.clear();
     for (Map map in messageList) {
       chatRoomLogic.state.chatRoomMessageList.add(
@@ -115,6 +118,9 @@ class WechatMainLogic extends GetxController {
         curve: Curves.linear,
       );
     });
+
+    ///进入聊天室
+    chatRoomLogic.state.isStay = true;
     Get.toNamed(ChatRoomView.routeName);
   }
 
@@ -173,15 +179,27 @@ class WechatMainLogic extends GetxController {
     state.webSocketChannel.stream.listen((event) {
       // print(event);
       try {
-        final receiveData = ReceiveDataModel.fromJson(json.decode(event));
-        saveMessageToDatabase(receiveData);
-        state.latestMsgData[receiveData.sender] = receiveData;
-        update();
-
         ///将消息发送给聊天室
+        final receiveData = ReceiveDataModel.fromJson(json.decode(event));
         ChatRoomLogic chatRoomLogic = Get.find<ChatRoomLogic>();
         chatRoomLogic.state.chatRoomMessageList.add(receiveData);
         chatRoomLogic.update();
+
+        ///存储信息到本地(同时更新已读未读状态)
+        if (chatRoomLogic.state.isStay) {
+          if(chatRoomLogic.state.userModel != null) {
+            String chatRoomUserId = chatRoomLogic.state.userModel!.userId!;
+            if (chatRoomUserId == receiveData.sender) {
+              receiveData.isRead = true;
+            }
+          }
+        } else {
+          ///更新未读消息数量
+          MessageChangeNotifier.getInstance().receiveMessage(1);
+        }
+        saveMessageToDatabase(receiveData);
+        state.latestMsgData[receiveData.sender] = receiveData;
+        update();
 
         ///延迟计算最大滑动距离
         if (chatRoomLogic.state.messageListScrollController.hasClients) {

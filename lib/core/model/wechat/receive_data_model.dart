@@ -23,6 +23,6 @@ class ReceiveDataModel {
         msg: json["msg"],
         date: json["date"],
         avatar: json["avatar"],
-        isRead: json["isRead"],
+        isRead: json["isRead"] ?? false,
       );
 }

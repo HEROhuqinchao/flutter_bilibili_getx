@@ -7,7 +7,7 @@ import '../my_we_chat/my_we_chat_state.dart';
 
 class ChatRoomState {
   ///当前聊天人信息
-  late UserModel userModel;
+  late UserModel? userModel;
 
   ///输入的内容
   late String inputText;
@@ -48,7 +48,11 @@ class ChatRoomState {
   ///更多按钮
   late List<List<ImageButtonModel>> moreBlockImageButtonList;
 
+  ///是否进入到聊天室(用于消息的已读未读的判断)
+  late bool isStay;
+
   ChatRoomState() {
+    userModel = null;
     inputText = "";
     chatRoomMessageList = [];
     messageListScrollController = ScrollController();
@@ -61,6 +65,7 @@ class ChatRoomState {
     emojiBlockHeight = 0;
     moreBlockHeight = 0;
     moreBlockImageButtonList = [];
+    isStay = false;
   }
 }
 

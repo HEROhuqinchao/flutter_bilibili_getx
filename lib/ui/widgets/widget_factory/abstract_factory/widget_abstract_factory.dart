@@ -27,6 +27,5 @@ abstract class WidgetFactory {
     Widget? mainPart,
     Color? color,
     Widget? tagPart,
-    bool? showTagPart,
   });
 }

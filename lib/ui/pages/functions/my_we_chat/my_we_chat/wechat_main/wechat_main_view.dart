@@ -21,12 +21,6 @@ class _WechatMainViewState extends State<WechatMainView>
   final state = Get.find<WechatMainLogic>().state;
 
   @override
-  void initState() {
-    logic.iniWeChat();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     super.build(context);
     return GetBuilder<WechatMainLogic>(

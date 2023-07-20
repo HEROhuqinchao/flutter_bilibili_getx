@@ -21,44 +21,46 @@ class ChatRoomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ChatRoomLogic>(builder: (logic) {
-      return Scaffold(
-        ///键盘顶住布局
-        resizeToAvoidBottomInset:
-            (!state.isEmojiMode && !state.isVoiceMode) ? true : false,
-        backgroundColor: const Color.fromRGBO(237, 237, 237, 1),
-        appBar: buildMyWeChatViewAppBar(),
-        body: Column(
-          children: [
-            Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  logic.hideInput();
-                },
-                child: Container(
-                  color: HYAppTheme.norWhite01Color,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    // reverse: true,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 15.r,
-                      vertical: 5.r,
+    return GetBuilder<ChatRoomLogic>(
+      builder: (logic) {
+        return Scaffold(
+          ///键盘顶住布局
+          resizeToAvoidBottomInset:
+              (!state.isEmojiMode && !state.isVoiceMode) ? true : false,
+          backgroundColor: const Color.fromRGBO(237, 237, 237, 1),
+          appBar: buildMyWeChatViewAppBar(),
+          body: Column(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    logic.hideInput();
+                  },
+                  child: Container(
+                    color: HYAppTheme.norWhite01Color,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      // reverse: true,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 15.r,
+                        vertical: 5.r,
+                      ),
+                      controller: state.messageListScrollController,
+                      itemBuilder: (ctx, index) {
+                        return buildChatRoomChatItem(index);
+                      },
+                      itemCount: state.chatRoomMessageList.length,
                     ),
-                    controller: state.messageListScrollController,
-                    itemBuilder: (ctx, index) {
-                      return buildChatRoomChatItem(index);
-                    },
-                    itemCount: state.chatRoomMessageList.length,
                   ),
                 ),
               ),
-            ),
-            buildMyWeChatViewInputComponent(),
-            buildEmojiAndMoreBlock(context),
-          ],
-        ),
-      );
-    });
+              buildMyWeChatViewInputComponent(),
+              buildEmojiAndMoreBlock(context),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   ///表情符块
@@ -79,7 +81,8 @@ class ChatRoomView extends StatelessWidget {
                       horizontal: 10.r,
                     ),
                     shrinkWrap: true,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 8,
                     ),
                     itemBuilder: (BuildContext context, int index) {
@@ -110,7 +113,8 @@ class ChatRoomView extends StatelessWidget {
                         vertical: 15.r,
                         horizontal: 10.r,
                       ),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 4,
                       ),
                       itemBuilder: (ctx, iIndex) {
@@ -208,7 +212,7 @@ class ChatRoomView extends StatelessWidget {
       ),
       elevation: .1,
       title: Text(
-        state.userModel.userName!,
+        state.userModel!.userName!,
         style: TextStyle(
           fontSize: 14.sp,
           color: HYAppTheme.norBlackColors,

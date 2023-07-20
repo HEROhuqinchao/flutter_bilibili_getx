@@ -95,29 +95,23 @@ class AndroidWidgetFactory extends WidgetFactory {
     Widget? mainPart,
     Color? color,
     Widget? tagPart,
-    bool? showTagPart,
   }) {
     return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.all(Radius.circular(4.r)),
-          ),
-          width: 40.r,
-          height: 40.r,
-          child: mainPart,
-        ),
+        mainPart!,
         Positioned(
-          right: 5.r,
-          top: 5.r,
-          child: tagPart ??
-              Container(
-                width: 10.r,
-                height: 10.r,
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.red),
-              ),
+          right: 0.r,
+          top: 0.r,
+          child: Container(
+            alignment: Alignment.center,
+            width: 15.sp,
+            height: 15.sp,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.red,
+            ),
+            child: tagPart,
+          ),
         ),
       ],
     );

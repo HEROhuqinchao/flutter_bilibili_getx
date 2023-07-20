@@ -14,11 +14,6 @@ class MyWeChatLogic extends GetxController {
   final MyWeChatState state = MyWeChatState();
 
   @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
   void onReady() {
     loginWechat();
     super.onReady();
@@ -56,6 +51,7 @@ class MyWeChatLogic extends GetxController {
           ///初始化子页面数据
           WechatMainLogic wechatMainLogic = Get.find<WechatMainLogic>();
           wechatMainLogic.state.isLoginUserId = value.data!.userId!;
+          wechatMainLogic.iniWeChatMain();
           WechatMineLogic wechatMineLogic = Get.find<WechatMineLogic>();
           wechatMineLogic.state.wechatLoginData = value.data!;
           state.loading = false;

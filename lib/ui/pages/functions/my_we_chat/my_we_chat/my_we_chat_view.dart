@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:bilibili_getx/core/service/utils/constant.dart';
+import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/message_change_notifier/message_change_notifier.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/we_chat_contacts/we_chat_contacts_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_explore/wechat_explore_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_main/wechat_main_view.dart';
@@ -65,10 +67,26 @@ class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
                     elevation: .1,
                     backgroundColor: HYAppTheme.norWhite09Color,
                     items: [
-                      buildBottomNavigationBarItem("微信", "wechat_main"),
-                      buildBottomNavigationBarItem("通讯录", "contacts"),
-                      buildBottomNavigationBarItem("发现", "explore"),
-                      buildBottomNavigationBarItem("我", "mine"),
+                      buildBottomNavigationBarItem(
+                        title: "微信",
+                        iconName: "wechat_main",
+                        showTagPart: true,
+                      ),
+                      buildBottomNavigationBarItem(
+                        title: "通讯录",
+                        iconName: "contacts",
+                        showTagPart: false,
+                      ),
+                      buildBottomNavigationBarItem(
+                        title: "发现",
+                        iconName: "explore",
+                        showTagPart: false,
+                      ),
+                      buildBottomNavigationBarItem(
+                        title: "我",
+                        iconName: "mine",
+                        showTagPart: false,
+                      ),
                     ],
                     onTap: (index) {
                       logic.updateCurrentIndex(index);
@@ -142,38 +160,70 @@ class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
     );
   }
 
-  BottomNavigationBarItem buildBottomNavigationBarItem(
-    String title,
-    String iconName,
-  ) {
+  BottomNavigationBarItem buildBottomNavigationBarItem({
+    required String title,
+    required String iconName,
+    required bool showTagPart,
+  }) {
     return BottomNavigationBarItem(
       label: title,
-      icon: StreamBuilder<int>(
-        stream: state.streamController.stream,
-        builder: (ctx, snapshot) {
-          return wFactory().buildRightTag(
-            mainPart: Container(
-              margin: EdgeInsets.only(bottom: 8.sp),
+      icon: showTagPart
+          ? ValueListenableBuilder<int>(
+              valueListenable: MessageChangeNotifier.getInstance(),
+              builder: (_, __, ___) {
+                return wFactory().buildRightTag(
+                  mainPart: Container(
+                    padding: EdgeInsets.all(6.sp),
+                    child: Image.asset(
+                      "assets/image/wechat/${iconName}_unselected.png",
+                      width: 22.sp,
+                      height: 22.sp,
+                      gaplessPlayback: true,
+                    ),
+                  ),
+                  tagPart: Text(
+                    "${MessageChangeNotifier.getInstance().message}",
+                  ),
+                );
+              },
+            )
+          : Container(
+              padding: EdgeInsets.all(6.sp),
               child: Image.asset(
                 "assets/image/wechat/${iconName}_unselected.png",
-                width: 18.sp,
-                height: 18.sp,
+                width: 22.sp,
+                height: 22.sp,
                 gaplessPlayback: true,
               ),
             ),
-            tagPart: Text("${snapshot.data ?? 0}"),
-          );
-        },
-      ),
-      activeIcon: Container(
-        margin: EdgeInsets.only(bottom: 8.sp),
-        child: Image.asset(
-          "assets/image/wechat/${iconName}_selected.png",
-          width: 18.sp,
-          height: 18.sp,
-          gaplessPlayback: true,
-        ),
-      ),
+      activeIcon: showTagPart
+          ? ValueListenableBuilder<int>(
+              valueListenable: MessageChangeNotifier.getInstance(),
+              builder: (_, __, ___) {
+                return wFactory().buildRightTag(
+                  mainPart: Container(
+                    padding: EdgeInsets.all(6.sp),
+                    child: Image.asset(
+                      "assets/image/wechat/${iconName}_selected.png",
+                      width: 22.sp,
+                      height: 22.sp,
+                      gaplessPlayback: true,
+                    ),
+                  ),
+                  tagPart:
+                      Text("${MessageChangeNotifier.getInstance().message}"),
+                );
+              },
+            )
+          : Container(
+              padding: EdgeInsets.all(6.sp),
+              child: Image.asset(
+                "assets/image/wechat/${iconName}_selected.png",
+                width: 22.sp,
+                height: 22.sp,
+                gaplessPlayback: true,
+              ),
+            ),
     );
   }
 }

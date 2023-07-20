@@ -62,11 +62,11 @@ class ChatRoomLogic extends GetxController {
   ///滚动到底部
   beginScrollToBottom() {
     ///延迟计算最大滑动距离，配合resizeToAvoidBottomInset，键盘顶住布局
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       double max = state.messageListScrollController.position.maxScrollExtent;
       state.messageListScrollController.animateTo(
         max,
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         curve: Curves.linear,
       );
     });
@@ -82,7 +82,7 @@ class ChatRoomLogic extends GetxController {
         tableName: SqliteUtil.tableWechatMessageHistory,
         map: {
           SqliteUtil.columnSenderId: state.isLoginUserId,
-          SqliteUtil.columnReceiverId: state.userModel.userId,
+          SqliteUtil.columnReceiverId: state.userModel!.userId,
           SqliteUtil.columnMessageContent: state.inputText,
           SqliteUtil.columnMessageDate: sendTime,
           SqliteUtil.columnUserAvatar:
@@ -93,7 +93,7 @@ class ChatRoomLogic extends GetxController {
       ///更新消息列表
       state.chatRoomMessageList.add(ReceiveDataModel(
         sender: state.isLoginUserId,
-        receiver: state.userModel.userId!,
+        receiver: state.userModel!.userId!,
         msg: state.inputText,
         date: sendTime,
         avatar: "https://static.runoob.com/images/demo/demo2.jpg",
@@ -110,7 +110,7 @@ class ChatRoomLogic extends GetxController {
 
       ///使用简单工厂模式实现发送文本类型数据
       BaseSendDataModel baseSendDataModel = BaseSendDataModel(
-        users: [state.userModel.userId!],
+        users: [state.userModel!.userId!],
         sender: state.isLoginUserId,
         date: sendTime,
         avatar: "https://static.runoob.com/images/demo/demo2.jpg",

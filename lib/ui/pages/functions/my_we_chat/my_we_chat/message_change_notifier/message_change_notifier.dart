@@ -1,7 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
-class MessageChangeNotifier extends ChangeNotifier {
+class MessageChangeNotifier extends ValueNotifier<int> {
   int message = 0;
+
+  MessageChangeNotifier._internal() : super(0);
+
+  static final MessageChangeNotifier _instance =
+      MessageChangeNotifier._internal();
+
+  factory MessageChangeNotifier.getInstance() => _instance;
 
   ///获取数据库中所有该用户的未读消息
   initLocalUnreadMessage(String userId) {
@@ -11,6 +18,7 @@ class MessageChangeNotifier extends ChangeNotifier {
   ///接受消息
   receiveMessage(int messageNumber) {
     message += messageNumber;
+    print(message);
     notifyListeners();
   }
 

@@ -39,7 +39,9 @@ class TextData implements SendDataModel {
 
   @override
   String buildString() {
-    String dataStr = "{\"users\": [\"${baseSendDataModel.users.toString()}\"],"
+    int length = baseSendDataModel.users.toString().length;
+    String users = baseSendDataModel.users.toString().substring(1, length - 1);
+    String dataStr = "{\"users\": [\"$users\"],"
         "\"msg\": \"$msg\","
         "\"date\": \"${baseSendDataModel.date}\","
         "\"avatar\": \"${baseSendDataModel.avatar}\","
@@ -62,7 +64,9 @@ class PhotoData implements SendDataModel {
 
   @override
   String buildString() {
-    String dataStr = "{\"users\": [\"${baseSendDataModel.users.toString()}\"],"
+    int length = baseSendDataModel.users.length;
+    String users = baseSendDataModel.users.toString().substring(1, length - 1);
+    String dataStr = "{\"users\": [\"$users\"],"
         "\"msg\": \"$photoFilePath\","
         // "\"msg\": \"${MultipartFile.fromFileSync(photoFilePath)}\","
         "\"date\": \"${baseSendDataModel.date}\","

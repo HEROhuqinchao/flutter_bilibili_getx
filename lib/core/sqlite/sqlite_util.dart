@@ -46,6 +46,7 @@ class SqliteUtil {
             columnMessageContent: ColumnIdType.text,
             columnMessageDate: ColumnIdType.int,
             columnUserAvatar: ColumnIdType.text,
+            columnMessageReadTime: ColumnIdType.int,
           },
           db: db,
         );
@@ -54,7 +55,7 @@ class SqliteUtil {
   }
 
   ///数据库名
-  static String databaseName = "bilibili-V5.db";
+  // static String databaseName = "bilibili-V5.db";
 
   ///存储历史消息
   static String tableWechatMessageHistory = "tableWechatMessageHistory";

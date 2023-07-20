@@ -5,6 +5,7 @@ import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_mi
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/sqlite/sqlite_util.dart';
 import '../my_we_chat/my_we_chat_logic.dart';
 import '../my_we_chat/my_we_chat_view.dart';
 import '../my_we_chat/wechat_main/wechat_main_logic.dart';
@@ -19,15 +20,20 @@ class WechatLoginLogic extends GetxController {
       "tel": state.tel,
       "password": state.password,
     };
-    WechatRequest().loginUser(params).then((value) {
+    WechatRequest().loginUser(params).then((value) async {
       if (value.code == 0) {
+        ///初始化数据库
+        await SqliteUtil.getInstance(state.tel);
+
         ///初始化子页面数据
         WechatMainLogic wechatMainLogic = Get.find<WechatMainLogic>();
         wechatMainLogic.state.isLoginUserId = value.data!.userId!;
+        wechatMainLogic.iniWeChatMain();
         WechatMineLogic wechatMineLogic = Get.find<WechatMineLogic>();
         wechatMineLogic.state.wechatLoginData = value.data!;
         MyWeChatLogic myWeChatLogic = Get.find<MyWeChatLogic>();
         myWeChatLogic.state.loading = false;
+
         ///保存密码和账号
         SharedPreferenceUtil.setString(
             BilibiliSharedPreference.wechatTel, state.tel);
