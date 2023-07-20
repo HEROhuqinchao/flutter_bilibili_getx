@@ -1,3 +1,5 @@
+import 'package:bilibili_getx/ui/widgets/widget_factory/abstract_factory/widget_abstract_factory.dart';
+import 'package:bilibili_getx/ui/widgets/widget_factory/abstract_factory/widget_factory_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -6,6 +8,7 @@ import '../../../../../../core/model/wechat/receive_data_model.dart';
 import '../../../../../shared/app_theme.dart';
 import '../../../../../shared/image_asset.dart';
 import '../../../../../shared/shared_util.dart';
+import '../message_change_notifier/message_change_notifier.dart';
 import 'wechat_main_logic.dart';
 
 class WechatMainView extends StatefulWidget {
@@ -16,7 +19,7 @@ class WechatMainView extends StatefulWidget {
 }
 
 class _WechatMainViewState extends State<WechatMainView>
-    with AutomaticKeepAliveClientMixin {
+    with AutomaticKeepAliveClientMixin, WidgetFactoryPlugin {
   final logic = Get.find<WechatMainLogic>();
   final state = Get.find<WechatMainLogic>().state;
 
@@ -51,23 +54,11 @@ class _WechatMainViewState extends State<WechatMainView>
             child: Container(
               padding: EdgeInsets.symmetric(
                 vertical: 8.r,
-                horizontal: 15.r,
+                horizontal: 10.r,
               ),
               child: Row(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(4.r),
-                    ),
-                    child: Container(
-                      color: HYAppTheme.norGrayColor,
-                      width: 50.r,
-                      height: 50.r,
-                      child: Image.asset(
-                        ImageAssets.arPNG,
-                      ),
-                    ),
-                  ),
+                  buildWechatMainUserLogo(userId),
                   Expanded(
                     child: Container(
                       padding: EdgeInsets.symmetric(
@@ -101,5 +92,37 @@ class _WechatMainViewState extends State<WechatMainView>
             ),
           )
         : Container();
+  }
+
+  ///头像部分
+  Widget buildWechatMainUserLogo(String userId) {
+    return ValueListenableBuilder(
+      valueListenable: MessageChangeNotifier.getInstance(),
+      builder: (_, __, ___) {
+        return wFactory().buildRightTag(
+          mainPart: Container(
+            padding: EdgeInsets.all(6.sp),
+            child: Container(
+              padding: EdgeInsets.all(3.r),
+              decoration: BoxDecoration(
+                  color: HYAppTheme.norGrayColor,
+                  borderRadius:
+                  BorderRadius.all(Radius.circular(3.r))),
+              width: 43.sp,
+              height: 43.sp,
+              child: Image.asset(
+                ImageAssets.arPNG,
+              ),
+            ),
+          ),
+          tagPart: Text(
+            "${MessageChangeNotifier.getInstance().userUnReadMessage(userId)}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        );
+      },
+    );
   }
 }

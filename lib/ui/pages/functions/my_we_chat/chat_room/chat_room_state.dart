@@ -51,22 +51,7 @@ class ChatRoomState {
   ///是否进入到聊天室(用于消息的已读未读的判断)
   late bool isStay;
 
-  ChatRoomState() {
-    userModel = null;
-    inputText = "";
-    chatRoomMessageList = [];
-    messageListScrollController = ScrollController();
-    textEditingController = TextEditingController();
-    isLoginUserId = "";
-    focusNode = FocusNode();
-    isEmojiMode = false;
-    isVoiceMode = false;
-    isAddMoreMode = false;
-    emojiBlockHeight = 0;
-    moreBlockHeight = 0;
-    moreBlockImageButtonList = [];
-    isStay = false;
-  }
+  ChatRoomState() {}
 }
 
 class ImageButtonModel {

@@ -1,4 +1,5 @@
 import 'package:flutter/animation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
@@ -13,8 +14,22 @@ import 'chat_room_state.dart';
 class ChatRoomLogic extends GetxController {
   final ChatRoomState state = ChatRoomState();
 
-  @override
-  void onReady() {
+  ///初始化
+  initChatRoom() {
+    state.userModel = null;
+    state.inputText = "";
+    state.chatRoomMessageList = [];
+    state.messageListScrollController = ScrollController();
+    state.textEditingController = TextEditingController();
+    state.isLoginUserId = "";
+    state.focusNode = FocusNode();
+    state.isEmojiMode = false;
+    state.isVoiceMode = false;
+    state.isAddMoreMode = false;
+    state.emojiBlockHeight = 0;
+    state.moreBlockHeight = 0;
+    state.moreBlockImageButtonList = [];
+    state.isStay = false;
     state.moreBlockImageButtonList = [
       [
         ImageButtonModel(
@@ -49,14 +64,6 @@ class ChatRoomLogic extends GetxController {
         beginScrollToBottom();
       }
     });
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    state.messageListScrollController.dispose();
-    state.focusNode.dispose();
-    super.onClose();
   }
 
   ///滚动到底部
@@ -87,6 +94,7 @@ class ChatRoomLogic extends GetxController {
           SqliteUtil.columnMessageDate: sendTime,
           SqliteUtil.columnUserAvatar:
               "https://static.runoob.com/images/demo/demo2.jpg",
+          SqliteUtil.columnMessageReadTime: sendTime,
         },
       );
 

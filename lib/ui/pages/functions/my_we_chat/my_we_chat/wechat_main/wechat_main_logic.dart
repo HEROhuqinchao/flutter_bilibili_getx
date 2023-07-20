@@ -53,6 +53,7 @@ class WechatMainLogic extends GetxController {
   ///进入聊天室
   go2ChatRoom(int index) async {
     ChatRoomLogic chatRoomLogic = Get.find<ChatRoomLogic>();
+    chatRoomLogic.initChatRoom();
     chatRoomLogic.state.userModel = state.userList[index];
     chatRoomLogic.state.webSocketChannel = state.webSocketChannel;
     chatRoomLogic.state.isLoginUserId = state.isLoginUserId;
@@ -73,24 +74,21 @@ class WechatMainLogic extends GetxController {
     );
 
     ///更新消息阅读的时间
-    int? updateNumber = await SqliteUtil.updateTable(
+    await SqliteUtil.updateTable(
       tableName: SqliteUtil.tableWechatMessageHistory,
       map: {
         SqliteUtil.columnMessageReadTime: DateTime.now().millisecondsSinceEpoch
       },
-      where: "("
-          "(${SqliteUtil.columnSenderId} = ? AND ${SqliteUtil.columnReceiverId} = ?) "
-          "OR (${SqliteUtil.columnReceiverId} = ? AND ${SqliteUtil.columnSenderId} = ?)"
-          ") "
-          "AND (${SqliteUtil.columnMessageReadTime} = 0)",
+      where:
+          "${SqliteUtil.columnSenderId} = ? AND ${SqliteUtil.columnReceiverId} = ? "
+          "AND ${SqliteUtil.columnMessageReadTime} = 0",
       whereArgs: [
-        state.userList[index].userId!,
-        state.isLoginUserId,
         state.userList[index].userId!,
         state.isLoginUserId,
       ],
     );
-    MessageChangeNotifier.getInstance().readMessage(updateNumber ?? 0);
+    MessageChangeNotifier.getInstance()
+        .readMessage(state.userList[index].userId!);
 
     ///更新聊天室内的聊天记录
     chatRoomLogic.state.chatRoomMessageList.clear();
@@ -139,7 +137,7 @@ class WechatMainLogic extends GetxController {
     );
   }
 
-  ///拉取所有本地消息
+  ///拉取所有本地消息（同时统计所有未读消息）
   Future<void> getMessageHistoryFromDatabase() async {
     final messageList = await SqliteUtil.queryTable(
       tableName: SqliteUtil.tableWechatMessageHistory,
@@ -147,22 +145,38 @@ class WechatMainLogic extends GetxController {
     );
     state.messageHistoryList.clear();
     state.messageHistoryList.addAll(messageList);
+    Map<String, int> unReadMessageMap = {};
     for (Map map in messageList) {
+      bool isRead = judgeReadState(map[SqliteUtil.columnMessageDate],
+          map[SqliteUtil.columnMessageReadTime]);
       state.latestMsgData[map[SqliteUtil.columnSenderId]] = ReceiveDataModel(
         sender: map[SqliteUtil.columnSenderId],
         receiver: map[SqliteUtil.columnReceiverId],
         msg: map[SqliteUtil.columnMessageContent],
         date: map[SqliteUtil.columnMessageDate],
         avatar: map[SqliteUtil.columnUserAvatar],
-        isRead: judgeReadState(map[SqliteUtil.columnMessageDate],
-            map[SqliteUtil.columnMessageReadTime]),
+        isRead: isRead,
       );
+
+      ///记录未读消息
+      if (!isRead) {
+        String senderId = map[SqliteUtil.columnSenderId];
+        int? value = unReadMessageMap[senderId];
+        if (value != null) {
+          unReadMessageMap[senderId] = value + 1;
+        } else {
+          unReadMessageMap[senderId] = 1;
+        }
+      }
     }
+    MessageChangeNotifier.getInstance()
+        .initLocalUnreadMessage(unReadMessageMap);
     update();
   }
 
-  bool judgeReadState(int receiveDate, int readDate) {
-    return receiveDate < readDate;
+  bool judgeReadState(int receiveDate, int? readDate) {
+    if (readDate == null) return false;
+    return receiveDate <= readDate;
   }
 
   ///连接服务
@@ -187,7 +201,7 @@ class WechatMainLogic extends GetxController {
 
         ///存储信息到本地(同时更新已读未读状态)
         if (chatRoomLogic.state.isStay) {
-          if(chatRoomLogic.state.userModel != null) {
+          if (chatRoomLogic.state.userModel != null) {
             String chatRoomUserId = chatRoomLogic.state.userModel!.userId!;
             if (chatRoomUserId == receiveData.sender) {
               receiveData.isRead = true;
@@ -195,7 +209,8 @@ class WechatMainLogic extends GetxController {
           }
         } else {
           ///更新未读消息数量
-          MessageChangeNotifier.getInstance().receiveMessage(1);
+          MessageChangeNotifier.getInstance()
+              .receiveMessage(receiveData.sender);
         }
         saveMessageToDatabase(receiveData);
         state.latestMsgData[receiveData.sender] = receiveData;

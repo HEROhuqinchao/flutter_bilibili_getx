@@ -12,12 +12,26 @@ import 'chat_room_logic.dart';
 Color greenColor = const Color.fromRGBO(149, 236, 105, 1);
 Color whiteColor = const Color.fromRGBO(224, 224, 224, 1);
 
-class ChatRoomView extends StatelessWidget {
+class ChatRoomView extends StatefulWidget {
   static String routeName = "/chat_room";
+
+  ChatRoomView({super.key});
+
+  @override
+  State<ChatRoomView> createState() => _ChatRoomViewState();
+}
+
+class _ChatRoomViewState extends State<ChatRoomView> {
   final logic = Get.put(ChatRoomLogic());
   final state = Get.find<ChatRoomLogic>().state;
 
-  ChatRoomView({super.key});
+  @override
+  void dispose() {
+    state.isStay = false;
+    state.messageListScrollController.dispose();
+    state.focusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

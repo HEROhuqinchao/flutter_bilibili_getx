@@ -160,6 +160,7 @@ class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
     );
   }
 
+  ///底部按钮
   BottomNavigationBarItem buildBottomNavigationBarItem({
     required String title,
     required String iconName,
@@ -168,7 +169,7 @@ class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
     return BottomNavigationBarItem(
       label: title,
       icon: showTagPart
-          ? ValueListenableBuilder<int>(
+          ? ValueListenableBuilder<Map<String, int>>(
               valueListenable: MessageChangeNotifier.getInstance(),
               builder: (_, __, ___) {
                 return wFactory().buildRightTag(
@@ -182,7 +183,7 @@ class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
                     ),
                   ),
                   tagPart: Text(
-                    "${MessageChangeNotifier.getInstance().message}",
+                    "${MessageChangeNotifier.getInstance().allUnReadMessage}",
                   ),
                 );
               },
@@ -197,7 +198,7 @@ class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
               ),
             ),
       activeIcon: showTagPart
-          ? ValueListenableBuilder<int>(
+          ? ValueListenableBuilder<Map<String, int>>(
               valueListenable: MessageChangeNotifier.getInstance(),
               builder: (_, __, ___) {
                 return wFactory().buildRightTag(
@@ -210,8 +211,8 @@ class MyWeChatView extends StatelessWidget with WidgetFactoryPlugin {
                       gaplessPlayback: true,
                     ),
                   ),
-                  tagPart:
-                      Text("${MessageChangeNotifier.getInstance().message}"),
+                  tagPart: Text(
+                      "${MessageChangeNotifier.getInstance().allUnReadMessage}"),
                 );
               },
             )
