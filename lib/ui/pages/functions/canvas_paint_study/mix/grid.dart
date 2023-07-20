@@ -4,27 +4,27 @@ import 'package:flutter/material.dart';
 
 mixin Grid {
   late Paint _gridPaint;
-  final double step = 20;
-  final double strokeWidth = .5;
-  final Color color = Colors.grey;
+  final double _step = 20;
+  final double _strokeWidth = .5;
+  final Color _color = Colors.grey;
   late Paint _dotPaint;
   late Paint _axisPaint;
 
   void _drawBottomRight(Canvas canvas, Size size) {
-    Paint _gridPaint = Paint()
+    Paint gridPaint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth
-      ..color = color;
+      ..strokeWidth = _strokeWidth
+      ..color = _color;
     canvas.save();
-    for (int i = 0; i < size.height / 2 / step; i++) {
-      canvas.drawLine(Offset(0, 0), Offset(size.width / 2, 0), _gridPaint);
-      canvas.translate(0, step);
+    for (int i = 0; i < size.height / 2 / _step; i++) {
+      canvas.drawLine(const Offset(0, 0), Offset(size.width / 2, 0), gridPaint);
+      canvas.translate(0, _step);
     }
     canvas.restore();
     canvas.save();
-    for (int i = 0; i < size.width / 2 / step; i++) {
-      canvas.drawLine(Offset(0, 0), Offset(0, size.height / 2), _gridPaint);
-      canvas.translate(step, 0);
+    for (int i = 0; i < size.width / 2 / _step; i++) {
+      canvas.drawLine(const Offset(0, 0), Offset(0, size.height / 2), gridPaint);
+      canvas.translate(_step, 0);
     }
     canvas.restore();
   }

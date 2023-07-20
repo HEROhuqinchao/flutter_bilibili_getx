@@ -32,7 +32,7 @@ class PaperCustomPainter extends CustomPainter with Grid {
     path.lineTo(80, 80);
     path.lineTo(-80, 80);
     path.close();
-    canvas.drawShadow(path, color, 3, true);
+    canvas.drawShadow(path, Colors.blue, 3, true);
     canvas.translate(200, 0);
     canvas.drawShadow(path, Colors.red, 3, false);
   }
