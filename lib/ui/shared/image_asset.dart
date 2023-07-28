@@ -162,4 +162,5 @@ class ImageAssets {
   static String wechatSettingPng = "assets/image/wechat/setting.png";
 
   static String canvasAvatarPng = "assets/image/canvas/avatar.png";
+  static String rainPng = "assets/image/canvas/rain.png";
 }

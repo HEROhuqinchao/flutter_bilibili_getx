@@ -6,13 +6,13 @@
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|---------------------|
 | 学习Flutter[动画册子](https://juejin.cn/book/6965102582473687071/section/6982013736080900130?enter_from=course_center&utm_source=course_center)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131258061) | 完成               | 2023.6.28-2023.6.30 |
 | Flutter[手势册子](https://juejin.cn/book/6896378716427911181/section/6957884860782346275?enter_from=course_center&utm_source=course_center)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131323197)   | 完成               | 2023.7.1-2023.7.5   |
-| Flutter[Canvas](https://juejin.cn/book/6844733827265331214/section/6844733827214999565?enter_from=course_center&utm_source=course_center)，更新BLOG                                                                   | 进度丢失，重学（5/21）主推进 | 2023.7.20-2023.7.25 |
+| Flutter[Canvas](https://juejin.cn/book/6844733827265331214/section/6844733827214999565?enter_from=course_center&utm_source=course_center)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131635411) | 进度丢失，重学（5/21）主推进 | 2023.7.20-2023.7.25 |
 | Flutter内存优化方案搜集                                                                                                                                                                                                    |                  | 2023.6.28-～         |
 | Android [应用数据和文件](https://developer.android.google.cn/guide/topics/data?hl=zh-cn)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131348897)                                                         | 延后               | 2023.6.28-~         |
 | Android [Kotlin语法](https://book.kotlincn.net)，更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/130940725)                                                                                             | 延后               | 2023.6.28-~         |
 | 预览媒体组件封装(widgets/preview_media)                                                                                                                                                                                    | 初步完成             | 2023.7.13-2023.7.20 |
 | 推进Flutter设计模式（抽象工厂模式实践 & 观察者模式应用于仿微信模块），更新[BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131181391)   和 [BLOG](https://blog.csdn.net/sheng_er_sheng/article/details/131128764)                        | 完成               | 2023.7.13-2023.7.20 |
-|                                                                                                                                                                                                                    |                  |                     |
+| 推进Flutter Flame游戏                                                                                                                                                                                                  |                  |                     |
 
 https://www.jianshu.com/p/66d3520e0841
 

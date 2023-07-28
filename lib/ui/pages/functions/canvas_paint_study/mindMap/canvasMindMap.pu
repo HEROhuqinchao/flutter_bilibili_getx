@@ -70,4 +70,108 @@
 ****_ clipRect(rect 矩形, doAntiAlias 是否抗锯齿, clipOn intersect裁内部/difference裁外部)
 ****_ clipRRect(RRect 圆形矩阵)
 ****_ clipPath 路径裁剪
+***_ 图片绘制
+****_ drawImage 绘制图片
+****_ drawImageRect 绘制图片，矩形裁剪
+****_ drawImageNine 制定区域缩放
+****_ drawAtlas Sprite图
+****_ drawRawAtlas drawAtlas底层实现
+***_ 文本绘制
+****_ canvas.drawParagraph 绘制文字
+****_ TextPainter.layout()进行布局 -> TextPainter.paint()获取尺寸
+** 路径 Path
+***_ 移动
+****_ moveTo 移动至某点
+****_ relativeMoveTo 相对移动至某点
+***_ 直线
+****_ lineTo 画一条直线
+****_ relativeLineTo 相对位置画一条线
+***_ 圆弧
+****_ arcTo(Rect 矩形, beginArc 起始圆弧, endArc 扫描圆弧, foreMoveTo 是否移动到起点)
+****_ arcToPoint(point 圆弧终点, radius 圆弧半径, largeArc 是否使用优弧, clockwise顺时针)
+****_ relativeArcToPoint
+***_ 圆锥曲线
+****_ conicTo(pointA.dx, pointA.dy, pointB.dx, pointB.dy, w)
+*****_ w > 1 双曲线
+*****_ w = 1 抛物线
+*****_ w < 1 椭圆线
+****_ relativeConicTo
+***_ 贝塞尔曲线
+****_ quadraticBezierTo(controlPoint 控制点, endPoint 结束点) 二阶贝塞尔曲线
+****_ relativeQuadraticBezierTo
+****_ cubicTo(controlPointA 控制点A, controlPointB 控制点B, endPoint 结束点)
+***_ 路径添加已有形状
+****_ addRect & addRRect 添加类矩形
+****_ addOval & addArc 添加类圆形
+****_ addPolygon & addPath 多边形和路径
+***_ 路径操作
+****_ path.close() 路径封闭
+****_ path.reset() 清除路径内容
+****_ path.shift() 路径平移
+****_ path.contains(offset) 判断路径是否包含点
+****_ path.getBounds() 获取路径所在的矩形区域
+****_ path.transform(Matrix4) 路径变换(旋转/平移/缩放/斜切)
+****_  path.combine() 
+*****_ PathOperation.difference 路径不同之处
+*****_ PathOperation.intersect 路径交集
+*****_ PathOperation.reverseDifference 路径不同之处的反向
+*****_ PathOperation.xor 路径交集的反向
+*****_ PathOperation.union 路径的并集
+****_ Path.computeMetrics() 获得一组路径的测量信息PathMetrics
+*****_ PathMetric
+******_ length 路径长度
+******_ contourIndex 路径索引
+******_ isClosed 路径是否闭合
+*****_ PathMetric.getTangentForOffset(x) 获取路径为x的点信息Tangent
+*****_ PathMetric.extractPath(start, end) 获取Path
+****_ Canvas & Path
+*****_ 转换至中心点
+******_ canvas.translate(size.width / 2, size.height / 2)
+******_ Matrix4.translationValues(size.width / 2, size.height / 2) -> m4.multiply(matrix4) -> path.transform(Matrix4.storage)
+** Color
+***_ image.getPixel 获取某一点的颜色rgb
+***_ paint.shader
+****_ Gradient.linear 渐变着色器
+*****_ Offset from 渐变起点
+*****_ Offset to 渐变终点
+*****_ List<Color> colors 渐变色
+*****_ List<double> colorStops 每个颜色所处的分辨率
+*****_ TileMode tileMode 模式(clamp/mirror/repeated)
+*****_ Float64List matrix4 变换矩阵
+****_ ImageShader 图片着色器
+*****_ ui.Image
+*****_ TileMode 水平方向模式
+*****_ TileMode 竖直方向模式
+*****_ Float64List matrix4 变化矩阵
+***_ paint.colorFilter 颜色过滤器
+****_ ColorFilter.mode(Color color, BlendMode blendMode) 颜色模式
+****_ ColorFilter.matrix(List<double> matrix) 颜色矩阵变换
+***_ paint.maskFilter 遮罩滤镜
+****_ MaskFilter.blur(BlurStyle, sigma 高斯模糊的偏差) 
+*****_ BlurStyle.inner
+*****_ BlurStyle.outer
+*****_ BlurStyle.solid
+*****_ BlurStyle.normal
+***_ paint.imageFilter 图片滤镜
+****_ ImageFilter.blur(sigmaX x方向模糊, sigmaY y方向模糊)
+****_ ImageFilter.matrix(Matrix4) 矩阵变换
+***_ paint.filterQuality
+****_ FilterQuality (none / low / medium / high)
+** CustomPaint
+***_ painter / foregroundPainter (背景画板 / 前景画板)
+***_ 画布的尺寸
+****_ CustomPaint - size
+****_ Wrap 固定尺寸的组件
+****_ LayoutBuilder 获取布局区域
+****_ isComplex 生成光栅缓存
+****_ willChange 栅格缓存是否应该被告知这幅画可能在下一帧改变
+***_ CustomPainter
+****_ paint调用(RenderCustomPaint -> override paint())
+****_ shouldRepaint回调(RenderCustomPaint -> _didUpdatePainter)
+****_ 绘制区域裁剪(canvas.clipRect(Offset.zero & size))
+****_ 监听器(传入Listenable对象)
+** 画布的刷新
+***_ 传入Listenable
+***_ 合并多个监听对象Listenable.merge
+** 粒子
 @endmindmap
