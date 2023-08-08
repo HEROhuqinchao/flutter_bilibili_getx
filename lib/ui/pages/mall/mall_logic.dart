@@ -37,18 +37,19 @@ class MallLogic extends GetxController {
 
   ///上滑时使标题渐渐消失
   void hideTitle(ScrollNotification notification) {
-    if(notification.metrics.axisDirection == AxisDirection.down || notification.metrics.axisDirection == AxisDirection.up) {
+    if (notification.metrics.axisDirection == AxisDirection.down ||
+        notification.metrics.axisDirection == AxisDirection.up) {
       double temp = notification.metrics.pixels;
-      if (temp >40.h && temp < 60.h) {
+      if (temp > 40.h && temp < 60.h) {
         double last = state.appBarOpacity;
-        if(last != 0) {
+        if (last != 0) {
           state.appBarOpacity = 0;
           update();
         }
       }
       if (temp >= 0 && temp <= 40.h) {
         double last = state.appBarOpacity;
-        if(last != 1) {
+        if (last != 1) {
           state.appBarOpacity = 1;
           update();
         }
@@ -68,10 +69,10 @@ class MallLogic extends GetxController {
 
   ///轮播图滑动扩展
   void expandSwiperHeight(ScrollNotification notification) {
-    if(notification is ScrollUpdateNotification){
+    if (notification is ScrollUpdateNotification) {
       double temp = notification.metrics.pixels;
       double k = temp / 6;
-      state.swiperHeight =  97.w + k.w;
+      state.swiperHeight = 97.w + k.w;
       update();
     }
   }
@@ -148,7 +149,7 @@ class MallLogic extends GetxController {
       'platform': 'android',
       's_locale': 'zh_CN',
       'statistics':
-      '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
+          '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%226.72.0%22%2C%22abtest%22%3A%22%22%7D',
       'tribeVersion': '0',
       'ts': '1661902346',
     };

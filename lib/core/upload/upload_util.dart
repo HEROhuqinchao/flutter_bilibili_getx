@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:image_picker/image_picker.dart';
 
 // import 'package:image_pickers/image_pickers.dart';
 import 'package:light_compressor/light_compressor.dart';
@@ -15,7 +13,11 @@ import 'package:path_provider/path_provider.dart';
 ///上传文件
 ///压缩文件（压缩视频、压缩图片、选择文件）
 class UploadFileUtil {
-  final ImagePicker _picker = ImagePicker();
+  UploadFileUtil._internal();
+
+  static final UploadFileUtil _instance = UploadFileUtil._internal();
+
+  factory UploadFileUtil() => _instance;
 
   ///压缩视频
   Future<MultipartFile?> compressVideo(

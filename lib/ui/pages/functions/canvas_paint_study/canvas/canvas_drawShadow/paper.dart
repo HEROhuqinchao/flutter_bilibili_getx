@@ -16,7 +16,6 @@ class Paper extends StatelessWidget {
 }
 
 class PaperCustomPainter extends CustomPainter with Grid {
-
   @override
   void paint(Canvas canvas, Size size) {
     drawGrid(canvas, size);

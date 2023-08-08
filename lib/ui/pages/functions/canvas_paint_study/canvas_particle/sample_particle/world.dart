@@ -1,12 +1,7 @@
 import 'dart:async';
 import 'dart:math';
-import 'dart:typed_data';
-import 'package:image/image.dart' as image;
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_particle/sample_particle/particle_manage.dart';
-import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:path/path.dart';
 import './particle.dart';
 
 class World extends StatefulWidget {

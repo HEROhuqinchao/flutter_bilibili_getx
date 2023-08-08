@@ -7,7 +7,6 @@ import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dar
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '';
 
 main() {
   WidgetsFlutterBinding.ensureInitialized();

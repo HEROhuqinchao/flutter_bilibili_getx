@@ -7,40 +7,40 @@ class PackageInfoUtil {
   static final PackageInfoUtil _instance = PackageInfoUtil._internal();
 
   factory PackageInfoUtil() => _instance;
-  static late PackageInfo packageInfo;
+  static late PackageInfo? packageInfo = null;
 
   static Future<PackageInfoUtil> getInstance() async {
-    packageInfo = await PackageInfo.fromPlatform();
+    packageInfo ??= await PackageInfo.fromPlatform();
     return _instance;
   }
 
   ///获取app的name
-  static getAppName() {
-    return packageInfo.appName;
+  String? getAppName() {
+    return packageInfo?.appName;
   }
 
   ///获取包名
-  static getPackageName() {
-    return packageInfo.packageName;
+  String? getPackageName() {
+    return packageInfo?.packageName;
   }
 
   ///获取版本号
-  static getVersion() {
-    return packageInfo.version;
+  String? getVersion() {
+    return packageInfo?.version;
   }
 
   ///获取buildNumber
-  static getBuildNumber() {
-    return packageInfo.buildNumber;
+  String? getBuildNumber() {
+    return packageInfo?.buildNumber;
   }
 
   ///获取buildSignature
-  static getBuildSignature() {
-    return packageInfo.buildSignature;
+  String? getBuildSignature() {
+    return packageInfo?.buildSignature;
   }
 
   ///获取下载商店
-  static getInstallerStore() {
-    return packageInfo.installerStore;
+  String? getInstallerStore() {
+    return packageInfo?.installerStore;
   }
 }

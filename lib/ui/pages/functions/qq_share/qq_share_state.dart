@@ -1,5 +1,3 @@
-import 'dart:async';
-
 // import 'package:tencent_kit/tencent_kit.dart';
 
 class QqShareState {

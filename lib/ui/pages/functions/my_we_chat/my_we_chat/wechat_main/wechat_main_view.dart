@@ -1,4 +1,3 @@
-import 'package:bilibili_getx/ui/widgets/widget_factory/abstract_factory/widget_abstract_factory.dart';
 import 'package:bilibili_getx/ui/widgets/widget_factory/abstract_factory/widget_factory_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -106,8 +105,7 @@ class _WechatMainViewState extends State<WechatMainView>
               padding: EdgeInsets.all(3.r),
               decoration: BoxDecoration(
                   color: HYAppTheme.norGrayColor,
-                  borderRadius:
-                  BorderRadius.all(Radius.circular(3.r))),
+                  borderRadius: BorderRadius.all(Radius.circular(3.r))),
               width: 43.sp,
               height: 43.sp,
               child: Image.asset(

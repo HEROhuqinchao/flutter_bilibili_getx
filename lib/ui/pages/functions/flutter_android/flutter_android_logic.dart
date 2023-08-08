@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:bilibili_getx/core/system/system_preferred_orientations/system_preferred_orientations_util.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../../core/channel/channel_util.dart';
 import 'flutter_android_state.dart';
@@ -24,7 +23,10 @@ class FlutterAndroidLogic extends GetxController {
       "msg": "图表",
       "data": points,
     };
-    ChannelUtil().chartChannel.invokeMethod("chartData", map.toString()).then((value) {
+    ChannelUtil()
+        .chart
+        ?.invokeMethod("chartData", map.toString())
+        .then((value) {
       print(value);
       state.loading = false;
       update();

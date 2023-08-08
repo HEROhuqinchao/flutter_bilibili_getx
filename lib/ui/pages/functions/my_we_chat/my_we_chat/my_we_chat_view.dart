@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bilibili_getx/core/service/utils/constant.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/message_change_notifier/message_change_notifier.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/we_chat_contacts/we_chat_contacts_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_explore/wechat_explore_view.dart';

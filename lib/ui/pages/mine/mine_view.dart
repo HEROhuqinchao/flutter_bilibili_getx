@@ -19,7 +19,7 @@ class MineScreen extends StatelessWidget {
   final logic = Get.find<MineLogic>();
   final state = Get.find<MineLogic>().state;
 
-   MineScreen({super.key});
+  MineScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

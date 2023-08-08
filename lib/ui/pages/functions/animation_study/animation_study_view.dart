@@ -43,11 +43,11 @@ class AnimationStudyView extends StatelessWidget {
     return paint;
   }
 
+  final logic = Get.find<AnimationStudyLogic>();
+  final state = Get.find<AnimationStudyLogic>().state;
+
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<AnimationStudyLogic>();
-    final state = Get.find<AnimationStudyLogic>().state;
-
     return Center(
       child: Text(
         "你好",

@@ -12,6 +12,7 @@ class SearchLogic extends GetxController {
   void onReady() {
     ///初始化监听输入框输入
     initFocusNode();
+
     ///获取搜索热词
     initSearchKeywords();
     super.onReady();

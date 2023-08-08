@@ -7,23 +7,19 @@ import 'package:flutter/services.dart';
 class SystemPreferredOrientationsUtil {
   ///水平
   static void setHorizontal() {
-    if (!kIsWeb) {
-      if (Platform.isAndroid || Platform.isIOS) {
-        SystemChrome.setPreferredOrientations([
-          DeviceOrientation.landscapeLeft,
-          DeviceOrientation.landscapeRight
-        ]);
-      }
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
+      SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     }
   }
 
   ///垂直
   static setVertical() {
-    if (!kIsWeb) {
-      if (Platform.isAndroid || Platform.isIOS) {
-        SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-      }
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
+      SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     }
   }
 }

@@ -59,7 +59,6 @@ class _IChartsState extends State<ICharts> with SingleTickerProviderStateMixin {
 }
 
 class ChartPainter extends CustomPainter {
-  double _kBarPadding = 10;
   final List<double> yData = [88, 98, 70, 80, 100, 75];
   final List<String> xData = ["7月", "8月", "9月", "10月", "11月", "12月"];
   Path axisPath = Path();

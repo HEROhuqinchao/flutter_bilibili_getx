@@ -260,9 +260,8 @@ class Banner {
         "live_status": liveStatus,
         "av_id": avId,
         "is_ad": isAd,
-        "ad_transparent_content": adTransparentContent == null
-            ? ""
-            : adTransparentContent?.toJson(),
+        "ad_transparent_content":
+            adTransparentContent == null ? "" : adTransparentContent?.toJson(),
         "show_ad_icon": showAdIcon,
       };
 }
@@ -343,7 +342,7 @@ class RecommendRoomList {
   int areaV2Id;
   int areaV2ParentId;
   String areaV2Name;
-  AreaV2ParentName? areaV2ParentName;
+  String? areaV2ParentName;
   String cover;
   String link;
   int online;
@@ -370,8 +369,7 @@ class RecommendRoomList {
         areaV2Id: json["area_v2_id"],
         areaV2ParentId: json["area_v2_parent_id"],
         areaV2Name: json["area_v2_name"],
-        areaV2ParentName:
-            areaV2ParentNameValues.map[json["area_v2_parent_name"]],
+        areaV2ParentName: json["area_v2_parent_name"],
         cover: json["cover"],
         link: json["link"],
         online: json["online"],
@@ -398,7 +396,7 @@ class RecommendRoomList {
         "area_v2_id": areaV2Id,
         "area_v2_parent_id": areaV2ParentId,
         "area_v2_name": areaV2Name,
-        "area_v2_parent_name": areaV2ParentNameValues.reverse[areaV2ParentName],
+        "area_v2_parent_name": areaV2ParentName,
         "cover": cover,
         "link": link,
         "online": online,
@@ -421,28 +419,6 @@ class RecommendRoomList {
         "show_ad_icon": showAdIcon,
       };
 }
-
-enum AreaV2ParentName {
-  EMPTY,
-  AREA_V2_PARENT_NAME,
-  PURPLE,
-  FLUFFY,
-  TENTACLED,
-  STICKY,
-  INDIGO,
-  INDECENT
-}
-
-final areaV2ParentNameValues = EnumValues({
-  "虚拟主播": AreaV2ParentName.AREA_V2_PARENT_NAME,
-  "电台": AreaV2ParentName.EMPTY,
-  "单机游戏": AreaV2ParentName.FLUFFY,
-  "赛事": AreaV2ParentName.INDECENT,
-  "网游": AreaV2ParentName.INDIGO,
-  "娱乐": AreaV2ParentName.PURPLE,
-  "手游": AreaV2ParentName.STICKY,
-  "学习": AreaV2ParentName.TENTACLED
-});
 
 class NewSwitchInfo {
   NewSwitchInfo({
@@ -564,7 +540,7 @@ class RoomListList {
   int areaV2Id;
   int areaV2ParentId;
   String areaV2Name;
-  AreaV2ParentName? areaV2ParentName;
+  String? areaV2ParentName;
   int broadcastType;
   String cover;
   String link;
@@ -599,8 +575,7 @@ class RoomListList {
         areaV2Id: json["area_v2_id"],
         areaV2ParentId: json["area_v2_parent_id"],
         areaV2Name: json["area_v2_name"],
-        areaV2ParentName:
-            areaV2ParentNameValues.map[json["area_v2_parent_name"]],
+        areaV2ParentName: json["area_v2_parent_name"],
         broadcastType: json["broadcast_type"],
         cover: json["cover"],
         link: json["link"],
@@ -635,7 +610,7 @@ class RoomListList {
         "area_v2_id": areaV2Id,
         "area_v2_parent_id": areaV2ParentId,
         "area_v2_name": areaV2Name,
-        "area_v2_parent_name": areaV2ParentNameValues.reverse[areaV2ParentName],
+        "area_v2_parent_name": areaV2ParentName,
         "broadcast_type": broadcastType,
         "cover": cover,
         "link": link,
@@ -707,18 +682,18 @@ class PendantInfo {
   String name;
   int position;
   String text;
-  BgColor? bgColor;
+  String? bgColor;
   String bgPic;
   int pendantId;
   int priority;
   int createdAt;
 
   factory PendantInfo.fromJson(Map<String, dynamic> json) => PendantInfo(
-        type: typeValues.map[json["type"]],
+        type: json["type"],
         name: json["name"],
         position: json["position"],
         text: json["text"],
-        bgColor: bgColorValues.map[json["bg_color"]],
+        bgColor: json["bg_color"],
         bgPic: json["bg_pic"],
         pendantId: json["pendant_id"],
         priority: json["priority"],
@@ -726,26 +701,17 @@ class PendantInfo {
       );
 
   Map<String, dynamic> toJson() => {
-        "type": typeValues.reverse[type],
+        "type": type,
         "name": name,
         "position": position,
         "text": text,
-        "bg_color": bgColorValues.reverse[bgColor],
+        "bg_color": bgColor,
         "bg_pic": bgPic,
         "pendant_id": pendantId,
         "priority": priority,
         "created_at": createdAt,
       };
 }
-
-enum BgColor { FB9_E60, FFA726 }
-
-final bgColorValues =
-    EnumValues({"#FB9E60": BgColor.FB9_E60, "#FFA726": BgColor.FFA726});
-
-enum Type { MOBILE_INDEX_BADGE }
-
-final typeValues = EnumValues({"mobile_index_badge": Type.MOBILE_INDEX_BADGE});
 
 class Verify {
   Verify({
@@ -809,18 +775,4 @@ class ModuleInfo {
         "sort": sort,
         "count": count,
       };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

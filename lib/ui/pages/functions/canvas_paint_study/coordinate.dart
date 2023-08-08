@@ -12,9 +12,9 @@ class Coordinate {
 
   Coordinate(
       {this.step = 20,
-        this.strokeWidth = .5,
-        this.axisColor = Colors.blue,
-        this.gridColor = Colors.grey});
+      this.strokeWidth = .5,
+      this.axisColor = Colors.blue,
+      this.gridColor = Colors.grey});
 
   final Paint _gridPaint = Paint();
 
@@ -77,7 +77,7 @@ class Coordinate {
     canvas.save();
     for (int i = 0; i < size.width / 2 / step; i++) {
       canvas.drawLine(Offset(0, 0), Offset(0, size.height / 2), _gridPaint);
-      canvas.translate(step , 0);
+      canvas.translate(step, 0);
     }
     canvas.restore();
   }

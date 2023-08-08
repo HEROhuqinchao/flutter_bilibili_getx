@@ -32,10 +32,10 @@ class MapRoot {
   }
 
   Map<String, dynamic> toJson() => {
-    'type': type,
-    'name': name,
-    'features': features,
-  };
+        'type': type,
+        'name': name,
+        'features': features,
+      };
 
   @override
   String toString() {
@@ -57,16 +57,16 @@ class Features {
   static Features? fromJson(jsonRes) => jsonRes == null
       ? null
       : Features(
-    type: jsonRes['type'],
-    properties: Properties.fromJson(jsonRes['properties']),
-    geometry: Geometry.fromJson(jsonRes['geometry']),
-  );
+          type: jsonRes['type'],
+          properties: Properties.fromJson(jsonRes['properties']),
+          geometry: Geometry.fromJson(jsonRes['geometry']),
+        );
 
   Map<String, dynamic> toJson() => {
-    'type': type,
-    'properties': properties,
-    'geometry': geometry,
-  };
+        'type': type,
+        'properties': properties,
+        'geometry': geometry,
+      };
 
   @override
   String toString() {
@@ -143,17 +143,17 @@ class Properties {
   }
 
   Map<String, dynamic> toJson() => {
-    'adcode': adcode,
-    'name': name,
-    'center': center,
-    'centroid': centroid,
-    'childrenNum': childrenNum,
-    'level': level,
-    'parent': parent,
-    'subFeatureIndex': subFeatureIndex,
-    'acroutes': acroutes,
-    'adchar': adchar,
-  };
+        'adcode': adcode,
+        'name': name,
+        'center': center,
+        'centroid': centroid,
+        'childrenNum': childrenNum,
+        'level': level,
+        'parent': parent,
+        'subFeatureIndex': subFeatureIndex,
+        'acroutes': acroutes,
+        'adchar': adchar,
+      };
 
   @override
   String toString() {
@@ -171,12 +171,12 @@ class Parent {
   static Parent? fromJson(jsonRes) => jsonRes == null
       ? null
       : Parent(
-    adcode: jsonRes['adcode'],
-  );
+          adcode: jsonRes['adcode'],
+        );
 
   Map<String, dynamic> toJson() => {
-    'adcode': adcode,
-  };
+        'adcode': adcode,
+      };
 
   @override
   String toString() {
@@ -197,23 +197,23 @@ class Geometry {
     if (jsonRes == null) return null;
 
     List<List<List<Offset>>>? coordinates =
-    jsonRes['coordinates'] is List ? [] : null;
+        jsonRes['coordinates'] is List ? [] : null;
 
-    bool fourLever =false;
+    bool fourLever = false;
     if (jsonRes['coordinates'] is List) {
-      if (jsonRes['coordinates'][0] is List){
-        if (jsonRes['coordinates'][0][0] is List){
-          if (jsonRes['coordinates'][0][0][0] is List){
-            fourLever =true;
+      if (jsonRes['coordinates'][0] is List) {
+        if (jsonRes['coordinates'][0][0] is List) {
+          if (jsonRes['coordinates'][0][0][0] is List) {
+            fourLever = true;
           }
         }
       }
     }
 
-    if(!fourLever){
+    if (!fourLever) {
       if (coordinates != null) {
         for (var level0 in jsonRes['coordinates']) {
-          List<List<Offset>> lever0=[];
+          List<List<Offset>> lever0 = [];
           if (level0 != null) {
             List<Offset> items1 = [];
             for (var item1 in level0 is List ? level0 : []) {
@@ -227,7 +227,7 @@ class Geometry {
           coordinates.add(lever0);
         }
       }
-    }else{
+    } else {
       if (coordinates != null) {
         for (var level0 in jsonRes['coordinates']) {
           if (level0 != null) {
@@ -252,17 +252,16 @@ class Geometry {
       }
     }
 
-
     return Geometry(
       type: jsonRes['type'],
-      coordinates: coordinates??[],
+      coordinates: coordinates ?? [],
     );
   }
 
   Map<String, dynamic> toJson() => {
-    'type': type,
-    'coordinates': coordinates,
-  };
+        'type': type,
+        'coordinates': coordinates,
+      };
 
   @override
   String toString() {

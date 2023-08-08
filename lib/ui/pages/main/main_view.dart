@@ -2,7 +2,6 @@ import 'package:animations/animations.dart';
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -22,11 +21,11 @@ import 'main_logic.dart';
 
 class MainView extends StatelessWidget {
   static const String routeName = "/main";
+  final logic = Get.find<MainLogic>();
+  final state = Get.find<MainLogic>().state;
 
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<MainLogic>();
-    final state = Get.find<MainLogic>().state;
     return GetBuilder<MainLogic>(
       builder: (logic) {
         return SafeArea(
@@ -76,11 +75,12 @@ class MainView extends StatelessWidget {
                 buildBottomNavigationBarItem(SR.mall.tr.toUpperCase(), "vip"),
                 buildBottomNavigationBarItem(SR.mine.tr.toUpperCase(), "mine"),
               ],
-              onTap: (index) {
+              onTap: (index) async {
                 ///发布界面
                 if (index == 2) {
-                  BilibiliPermission.requestUploadPermissions();
-                  Get.toNamed(PublishScreen.routeName);
+                  final value =
+                      await BilibiliPermission().requestPhotosPermissions();
+                  if (value) Get.toNamed(PublishScreen.routeName);
                 } else {
                   logic.updateCurrentIndex(index);
                 }
@@ -125,8 +125,7 @@ class MainView extends StatelessWidget {
                 ),
                 SpeedDialChild(
                   backgroundColor: HYAppTheme.norWhite01Color,
-                  onTap: () {
-                  },
+                  onTap: () {},
                   label: '蓝牙',
                   child: Icon(
                     Icons.bluetooth,

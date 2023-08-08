@@ -1,8 +1,5 @@
-import 'dart:typed_data';
 import 'dart:ui' as ui;
-import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import './particle.dart';
 
 class ParticleManage extends ChangeNotifier {

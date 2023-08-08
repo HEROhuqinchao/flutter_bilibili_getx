@@ -1077,11 +1077,10 @@ class PaperPainter extends CustomPainter {
     path.addOval(Rect.fromCenter(center: Offset.zero, width: 50, height: 50));
     canvas.drawPath(path, paint);
     PathMetrics pms = path.computeMetrics();
-    Tangent tangent;
-    pms.forEach((pm) {
+    for (var pm in pms) {
       print(
           "--length:-${pm.length}----contourIndex:-${pm.contourIndex}----isClosed:-${pm.isClosed}");
-    });
+    }
   }
 
   void example049(Canvas canvas) {

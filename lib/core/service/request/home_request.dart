@@ -19,8 +19,7 @@ class HYHomeRequest {
 
   factory HYHomeRequest() => _instance;
 
-  Future<List<HYVideoModel>> getVideoData(
-      int rid, int pn, int ps) async {
+  Future<List<HYVideoModel>> getVideoData(int rid, int pn, int ps) async {
     final url = "/x/web-interface/dynamic/region?rid=$rid&pn=$pn&ps=$ps";
     final result = await HttpBaseRequest().request("base", url);
     final videoArray = result["data"]["archives"];

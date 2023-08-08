@@ -8,7 +8,8 @@ class BilibiliScroll extends StatefulWidget {
   ///被滚动的child
   final Widget child;
 
-  const BilibiliScroll({super.key, required this.scrollBar, required this.child});
+  const BilibiliScroll(
+      {super.key, required this.scrollBar, required this.child});
 
   @override
   State<BilibiliScroll> createState() => _BilibiliScrollState();

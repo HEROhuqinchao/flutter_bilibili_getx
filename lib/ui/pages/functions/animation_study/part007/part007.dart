@@ -2,14 +2,15 @@ import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
 
 class CircleShineImage extends StatefulWidget {
-  late double maxBlurRadius;
-  late Color color;
-  late Duration duration;
-  late Curve curve;
-  late ImageProvider imageProvider;
-  late double radius;
+  late final double maxBlurRadius;
+  late final Color color;
+  late final Duration duration;
+  late final Curve curve;
+  late final ImageProvider imageProvider;
+  late final double radius;
 
   CircleShineImage({
+    super.key,
     required this.maxBlurRadius,
     required this.color,
     required this.duration,

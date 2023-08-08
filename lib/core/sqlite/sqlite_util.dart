@@ -12,11 +12,11 @@ class SqliteUtil {
   static final SqliteUtil _instance = SqliteUtil._internal();
 
   factory SqliteUtil() => _instance;
-  static late Database database;
+  static late Database? database = null;
 
   ///获取数据库(不同用户建立不同数据库）
   static getInstance(String databaseName) async {
-    database = await getDatabase("wechat$databaseName.db");
+    database ??= await getDatabase("wechat$databaseName.db");
     return _instance;
   }
 
@@ -95,7 +95,7 @@ class SqliteUtil {
         ? await db
             .execute(createTableSql(tableName: tableName, columns: columns))
         : await database
-            .execute(createTableSql(tableName: tableName, columns: columns));
+            ?.execute(createTableSql(tableName: tableName, columns: columns));
   }
 
   ///根据条件删数据
@@ -109,7 +109,7 @@ class SqliteUtil {
         tempSql += " && ";
       }
     });
-    await database.execute("DELETE FROM $tableName $tempSql");
+    await database?.execute("DELETE FROM $tableName $tempSql");
   }
 
   ///插入数据
@@ -126,17 +126,17 @@ class SqliteUtil {
     columns = columns.substring(0, columns.length - 1);
     values = values.substring(0, values.length - 1);
     String sql = 'INSERT INTO $tableName($columns) VALUES($values)';
-    await database.execute(sql);
+    await database?.execute(sql);
   }
 
   ///查询数据
-  static Future<List<Map>> queryTable({
+  static Future<List<Map<String, Object?>>?> queryTable({
     required String tableName,
     String? where,
     List? whereArgs,
     required String orderBy,
   }) async {
-    return await database.query(
+    return await database?.query(
       tableName,
       where: where,
       whereArgs: whereArgs,
@@ -151,7 +151,7 @@ class SqliteUtil {
     String? where,
     List? whereArgs,
   }) async {
-    await database.update(
+    await database?.update(
       tableName,
       map,
       where: where,

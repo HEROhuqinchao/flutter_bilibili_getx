@@ -12,7 +12,6 @@ class GesturePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Rect zone = Offset.zero & size;
     canvas.translate(size.width / 2, size.height / 2);
     canvas.transform(matrix.value.storage);
     drawSomething(canvas, size);

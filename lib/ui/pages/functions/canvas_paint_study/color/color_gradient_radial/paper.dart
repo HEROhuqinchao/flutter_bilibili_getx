@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';

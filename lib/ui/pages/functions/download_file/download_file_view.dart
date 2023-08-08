@@ -27,7 +27,7 @@ class _DownloadFileViewState extends State<DownloadFileView> {
           child: Column(
             children: [
               Text(
-                "当前APP版本${PackageInfoUtil.getVersion()}",
+                "当前APP版本${PackageInfoUtil().getVersion()}",
                 style: TextStyle(
                   fontSize: 30.sp,
                 ),

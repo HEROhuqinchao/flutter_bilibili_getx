@@ -1,7 +1,6 @@
 import 'package:bilibili_getx/ui/pages/dynamic_circle/dynamic_circle_binding.dart';
 import 'package:bilibili_getx/ui/pages/functions/animation_compoent/animation_compoent_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/statistics_chart/statistics_chart_logic.dart';
 import 'package:bilibili_getx/ui/pages/functions/video_player_example/video_player_example_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/wx_share/wx_share_view.dart';
 import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';

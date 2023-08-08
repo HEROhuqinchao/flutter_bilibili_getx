@@ -21,8 +21,10 @@ enum ScaleState {
   // original
   ///原始大小
   originalSize,
+
   ///放大
   zoomedIn,
+
   ///缩小
   zoomedOut,
 }

@@ -378,12 +378,10 @@ class Item {
         commonOpItem: json["common_op_item"] == null
             ? null
             : CommonOpItem.fromJson(json["common_op_item"]),
-        globalRedDot:
-            json["global_red_dot"],
+        globalRedDot: json["global_red_dot"],
         display: json["display"],
         redDot: json["red_dot"],
-        redDotForNew:
-            json["red_dot_for_new"],
+        redDotForNew: json["red_dot_for_new"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -422,8 +420,7 @@ class CommonOpItem {
         titleIcon: json["title_icon"],
         linkType: json["link_type"],
         titleColor: json["title_color"],
-        backgroundColor:
-            json["background_color"],
+        backgroundColor: json["background_color"],
         linkContainerColor: json["link_container_color"],
       );
 
@@ -433,8 +430,7 @@ class CommonOpItem {
         "link_type": linkType,
         "title_color": titleColor,
         "background_color": backgroundColor,
-        "link_container_color":
-            linkContainerColor,
+        "link_container_color": linkContainerColor,
       };
 }
 

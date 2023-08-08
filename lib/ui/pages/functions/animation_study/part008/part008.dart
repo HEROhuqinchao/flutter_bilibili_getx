@@ -4,12 +4,13 @@ import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
 
 class ToggleRotate extends StatefulWidget {
-  late ImageProvider imageProvider;
-  late double radius;
-  late Duration duration;
-  late double initRadius;
+  final ImageProvider imageProvider;
+  final double radius;
+  final Duration duration;
+  final double initRadius;
 
-  ToggleRotate({
+  const ToggleRotate({
+    super.key,
     required this.imageProvider,
     required this.radius,
     required this.duration,

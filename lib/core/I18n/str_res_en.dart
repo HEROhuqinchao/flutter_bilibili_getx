@@ -23,8 +23,7 @@ const strResEn = {
   SR.follower: 'follower',
   SR.fan: 'fan',
   SR.space: 'space',
-  SR.normalVip:"normal vip",
-
+  SR.normalVip: "normal vip",
 
   ///登录界面
   SR.click2Login: 'click to login',
@@ -83,17 +82,17 @@ const strResEn = {
       "user agreement and privacy policy tips",
 
   ///搜索
-  SR.hotKeys:"hot keys",
-  SR.entireRanking:"entire ranking",
-  SR.filter:"filter",
-  SR.synthesis:"synthesis",
-  SR.drama:"drama",
-  SR.user:"user",
-  SR.column:"column",
-  SR.defaultOrder:"default order",
-  SR.newestPublish:"newest publish",
-  SR.highVideoPlay:"high video play",
-  SR.highDanmaku:"high danmaku",
+  SR.hotKeys: "hot keys",
+  SR.entireRanking: "entire ranking",
+  SR.filter: "filter",
+  SR.synthesis: "synthesis",
+  SR.drama: "drama",
+  SR.user: "user",
+  SR.column: "column",
+  SR.defaultOrder: "default order",
+  SR.newestPublish: "newest publish",
+  SR.highVideoPlay: "high video play",
+  SR.highDanmaku: "high danmaku",
   SR.searchSomething: "search videos, drama or up...",
 
   ///主页
@@ -103,20 +102,20 @@ const strResEn = {
   SR.vipMall: "VIP Mall",
 
   ///视频播放
-  SR.profile:"profile",
-  SR.reply:"reply",
+  SR.profile: "profile",
+  SR.reply: "reply",
 
   ///发布界面
-  SR.createLiveRoom : "createLiveRoom",
-  SR.photograph : "photograph",
-  SR.upload : "upload",
-  SR.shareDynamic : "shareDynamic",
-  SR.templateAuthoring : "templateAuthoring",
-  SR.video : "video",
-  SR.photo : "photo",
-  SR.file : "file",
-  SR.editVideo : "editVideo",
-  SR.script : "script",
+  SR.createLiveRoom: "createLiveRoom",
+  SR.photograph: "photograph",
+  SR.upload: "upload",
+  SR.shareDynamic: "shareDynamic",
+  SR.templateAuthoring: "templateAuthoring",
+  SR.video: "video",
+  SR.photo: "photo",
+  SR.file: "file",
+  SR.editVideo: "editVideo",
+  SR.script: "script",
   SR.recentlyProject: "recently",
   SR.all: "all",
   SR.go2Publish: "next",
@@ -125,17 +124,19 @@ const strResEn = {
   SR.blibiliCreativePolicy: "《blibili Creative Policy》",
   SR.saveScript: "save script",
   SR.publish: "publish",
-  SR.prePublishDesc: "If there is an unofficial business cooperation, you need to go to the computer website to submit an article and file a business statement",
+  SR.prePublishDesc:
+      "If there is an unofficial business cooperation, you need to go to the computer website to submit an article and file a business statement",
 
   SR.pleaseInputTitle: "please input title",
-  SR.pleaseInputDynamic: "edit the dynamics of this submission and recommend it to fans",
+  SR.pleaseInputDynamic:
+      "edit the dynamics of this submission and recommend it to fans",
   SR.pleaseInputProfile: "please input profile",
   SR.zoneAndLabel: "zone & label",
   SR.scriptType: "type",
   SR.selfMade: "self made",
   SR.transshipment: "transshipment",
-  SR.publishSetting:"setting",
-  SR.mustInput:"must",
+  SR.publishSetting: "setting",
+  SR.mustInput: "must",
 
   SR.whereAreYou: "where are you ?",
   SR.cancel: "cancel",
@@ -143,12 +144,15 @@ const strResEn = {
   SR.publishDynamic: "publish dynamic",
   SR.finish: "finish",
   SR.wonderfulCommentSection: "wonderful comment section",
-  SR.publishSettingDesc: "the loading judgment of reprinted manuscripts will be subject to the scheduled release time",
+  SR.publishSettingDesc:
+      "the loading judgment of reprinted manuscripts will be subject to the scheduled release time",
   SR.timedRelease: "timed release",
   SR.transshipmentPermissions: "transshipment permissions",
-  SR.transshipmentDesc: "reproduction without the author's authorization is prohibited",
+  SR.transshipmentDesc:
+      "reproduction without the author's authorization is prohibited",
   SR.transshipmentSrc: "transshipment Source",
-  SR.transshipmentDetail: "the reprint will appear in the introduction to the video playback",
+  SR.transshipmentDetail:
+      "the reprint will appear in the introduction to the video playback",
   SR.transshipmentSrcHintText: "Indicate the source URL of the video",
   SR.chooseSectionAndTopic: "choose section & topic",
   SR.iamHere: "I am here",

@@ -9,11 +9,16 @@ class DefaultFadeImage extends StatelessWidget {
   final double height;
   final BoxFit fit;
 
-  DefaultFadeImage({super.key,
+  ///更改图片大小（减少内存）
+  final int scaleK;
+
+  const DefaultFadeImage({
+    super.key,
     required this.imageUrl,
     this.width = double.infinity,
     this.height = double.infinity,
     this.fit = BoxFit.cover,
+    this.scaleK = 1,
   });
 
   @override
@@ -27,7 +32,10 @@ class DefaultFadeImage extends StatelessWidget {
         return Image.asset(ImageAssets.icUpperVideoDefaultPNG);
       },
       placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-      image: NetworkImage(imageUrl),
+      image: ResizeImage(
+        NetworkImage(imageUrl),
+        width: View.of(context).physicalSize.width ~/ scaleK,
+      ),
     );
   }
 }

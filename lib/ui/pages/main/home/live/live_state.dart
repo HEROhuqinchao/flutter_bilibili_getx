@@ -1,4 +1,3 @@
-import 'package:bilibili_getx/ui/pages/main/home/live/live_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

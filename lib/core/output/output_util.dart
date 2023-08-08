@@ -15,7 +15,13 @@ import 'package:path_provider/path_provider.dart' as path_provider;
 import 'model/excel_model.dart';
 
 class OutputUtil {
-  static Future<void> generateExcel({
+  OutputUtil._internal();
+
+  static final OutputUtil _instance = OutputUtil._internal();
+
+  factory OutputUtil() => _instance;
+
+  Future<void> generateExcel({
     required String title,
     required List<ExcelTitle> columns,
     required List<List<String>> tableValue,
@@ -103,7 +109,7 @@ class OutputUtil {
   }
 
   ///绘制图片
-  static void outputPhoto({
+  void outputPhoto({
     required List<ExcelTitle> columns,
     required List<List<String>> tableValue,
     required Map<String, String> infoMap,
@@ -228,13 +234,13 @@ class TablePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawColor(Colors.white, BlendMode.color);
-    _buildTitle(canvas, "设备组基本信息");
+    _buildTitle(canvas, "基本信息");
 
     ///信息
     _buildInfo(canvas, size);
 
     ///标题
-    _buildTitle(canvas, "历史数据");
+    _buildTitle(canvas, "数据列表");
 
     ///列名
     _buildColumns(canvas);

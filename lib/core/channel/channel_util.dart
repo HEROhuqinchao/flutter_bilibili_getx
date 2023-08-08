@@ -8,23 +8,32 @@ import 'bilibili_channel.dart';
 /// BasicMessageChannel 传递字符串和半结构化信息
 /// EventChannel 数据流的通信（监听）
 class ChannelUtil {
-  late MethodChannel getMediaMethodChannel;
-  late MethodChannel stayAliveChannel;
-  late MethodChannel startServiceChannel;
-  late MethodChannel chartChannel;
-  late MethodChannel takeMediaChannel;
+  static late MethodChannel? _getMediaMethodChannel;
+  static late MethodChannel? _stayAliveChannel;
+  static late MethodChannel? _startServiceChannel;
+  static late MethodChannel? _chartChannel;
 
-  ChannelUtil._internal() {
-    getMediaMethodChannel = MethodChannel(BilibiliChannel.uploadChannel);
-    stayAliveChannel = MethodChannel(BilibiliChannel.stayAliveChannel);
-    startServiceChannel = MethodChannel(BilibiliChannel.startServiceChannel);
-    chartChannel = MethodChannel(BilibiliChannel.chartChannel);
+  ///拍摄媒体
+  static late MethodChannel? _takeMediaChannel;
 
-    ///获取媒体
-    takeMediaChannel = MethodChannel(BilibiliChannel.takeMediaChannel);
-  }
+  ChannelUtil._internal();
 
   static final ChannelUtil _instance = ChannelUtil._internal();
 
-  factory ChannelUtil() => _instance;
+  factory ChannelUtil() {
+    _getMediaMethodChannel ??= MethodChannel(BilibiliChannel.uploadChannel);
+    _stayAliveChannel ??= MethodChannel(BilibiliChannel.stayAliveChannel);
+    _startServiceChannel ??= MethodChannel(BilibiliChannel.startServiceChannel);
+    _chartChannel ??= MethodChannel(BilibiliChannel.chartChannel);
+    _takeMediaChannel ??= MethodChannel(BilibiliChannel.takeMediaChannel);
+    return _instance;
+  }
+
+  MethodChannel? get media => _getMediaMethodChannel;
+
+  MethodChannel? get stayAlive => _stayAliveChannel;
+
+  MethodChannel? get startService => _startServiceChannel;
+
+  MethodChannel? get chart => _chartChannel;
 }

@@ -62,37 +62,79 @@ class PaperCustomPainter extends CustomPainter with Grid {
     _drawImage(canvas, paint);
 
     ColorFilter sepia = ColorFilter.matrix(<double>[
-      0.393, 0.769, 0.189, 0,
-      0, 0.349, 0.686, 0.168,
-      0, 0, 0.272, 0.534,
-      0.131, 0, 0, 0,
-      0, 0, 1, 0,
+      0.393,
+      0.769,
+      0.189,
+      0,
+      0,
+      0.349,
+      0.686,
+      0.168,
+      0,
+      0,
+      0.272,
+      0.534,
+      0.131,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
     ]);
     _drawImage(canvas, paint..colorFilter = sepia);
     const ColorFilter greyscale = ColorFilter.matrix(<double>[
-      0.2126, 0.7152, 0.0722, 0,
-      0, 0.2126, 0.7152, 0.0722,
-      0, 0, 0.2126, 0.7152,
-      0.0722, 0, 0, 0,
-      0, 0, 1, 0,
+      0.2126,
+      0.7152,
+      0.0722,
+      0,
+      0,
+      0.2126,
+      0.7152,
+      0.0722,
+      0,
+      0,
+      0.2126,
+      0.7152,
+      0.0722,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
     ]);
-    _drawImage(canvas, paint..colorFilter=greyscale);
+    _drawImage(canvas, paint..colorFilter = greyscale);
     const n = 90.0;
-    const ColorFilter light = ColorFilter.matrix(<double>[
-      1,0,0,0,n,
-      0,1,0,0,n,
-      0,0,1,0,n,
-      0,0,0,1,0
-    ]);
-    _drawImage(canvas, paint..colorFilter=light);
+    const ColorFilter light = ColorFilter.matrix(
+        <double>[1, 0, 0, 0, n, 0, 1, 0, 0, n, 0, 0, 1, 0, n, 0, 0, 0, 1, 0]);
+    _drawImage(canvas, paint..colorFilter = light);
     const n2 = -126.0;
     const ColorFilter darken = ColorFilter.matrix(<double>[
-      1,0,0,0,n2,
-      0,1,0,0,n2,
-      0,0,1,0,n2,
-      0,0,0,1,0
+      1,
+      0,
+      0,
+      0,
+      n2,
+      0,
+      1,
+      0,
+      0,
+      n2,
+      0,
+      0,
+      1,
+      0,
+      n2,
+      0,
+      0,
+      0,
+      1,
+      0
     ]);
-    _drawImage(canvas, paint..colorFilter=darken);
+    _drawImage(canvas, paint..colorFilter = darken);
   }
 
   void _drawImage(Canvas canvas, Paint paint) {

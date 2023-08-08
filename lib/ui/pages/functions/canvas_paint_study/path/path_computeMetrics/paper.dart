@@ -1,7 +1,4 @@
-import 'dart:math';
-import 'dart:typed_data';
 import 'dart:ui';
-import 'dart:ui' as ui;
 
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +62,6 @@ class PaperCustomPainter extends CustomPainter with Grid {
       ..close();
     path.addOval(Rect.fromCenter(center: Offset.zero, width: 50, height: 50));
     PathMetrics pms = path.computeMetrics();
-    Tangent t;
     for (var pm in pms) {
       Tangent? tangent = pm.getTangentForOffset(pm.length * progress.value);
       if (tangent == null) return;

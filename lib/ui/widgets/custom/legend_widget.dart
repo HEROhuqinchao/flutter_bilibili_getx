@@ -23,10 +23,10 @@ class LegendWidget extends StatelessWidget {
             color: color,
           ),
         ),
-         3.horizontalSpace,
+        3.horizontalSpace,
         Text(
           name,
-          style:  TextStyle(
+          style: TextStyle(
             color: Colors.white,
             fontSize: 12.sp,
           ),

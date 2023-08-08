@@ -35,9 +35,8 @@ class AdvertisingRow extends StatelessWidget {
               10.horizontalSpace,
               Text(
                 title,
-                style: TextStyle(
-                    color: HYAppTheme.norTextColors,
-                    fontSize: 14.sp),
+                style:
+                    TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
               ),
             ],
           ),

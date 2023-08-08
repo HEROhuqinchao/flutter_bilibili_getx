@@ -259,7 +259,9 @@ class AdInfo {
   AdInfo({this.creativeContent});
 
   factory AdInfo.fromJson(Map<String, dynamic> json) => AdInfo(
-      creativeContent: json["creative_content"] == null ? null : CreativeContent.fromJson(json["creative_content"]));
+      creativeContent: json["creative_content"] == null
+          ? null
+          : CreativeContent.fromJson(json["creative_content"]));
 }
 
 class CreativeContent {

@@ -17,8 +17,6 @@ class ScanQrView extends StatelessWidget {
   final state = Get.find<ScanQrLogic>().state;
   @override
   Widget build(BuildContext context) {
-
-
     return GetBuilder<ScanQrLogic>(builder: (logic) {
       return Scaffold(
         body: GestureDetector(

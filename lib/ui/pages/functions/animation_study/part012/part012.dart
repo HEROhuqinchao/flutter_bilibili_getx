@@ -1,12 +1,10 @@
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: MyApp(),
       // home: GreenPage(),
     ),
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: AnimDemo(),
         // child: CupertinoActivityIndicatorExample(),
@@ -47,8 +45,8 @@ class _AnimDemoState extends State<AnimDemo>
       vsync: this,
       duration: Duration(seconds: 1),
     )..addListener(() {
-      print("监听");
-    });
+        print("监听");
+      });
     super.initState();
   }
 

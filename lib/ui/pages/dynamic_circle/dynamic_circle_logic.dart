@@ -18,8 +18,8 @@ class DynamicCircleLogic extends GetxController {
       state.dynamicV1FeedAllData = value;
       state.isLoading = false;
       // for (var i = 0; i < value.data!.items.length; i++) {
-        // state.keys.add(GlobalKey<ExpandedWidgetState>());
-        // state.expandedList.add(false);
+      // state.keys.add(GlobalKey<ExpandedWidgetState>());
+      // state.expandedList.add(false);
       // }
       update();
     });
@@ -27,8 +27,8 @@ class DynamicCircleLogic extends GetxController {
   }
 
   // void expandText(int index) {
-    // state.expandedList[index] = !state.expandedList[index];
-    // state.keys[index].currentState!.widgetShift();
-    // update();
+  // state.expandedList[index] = !state.expandedList[index];
+  // state.keys[index].currentState!.widgetShift();
+  // update();
   // }
 }

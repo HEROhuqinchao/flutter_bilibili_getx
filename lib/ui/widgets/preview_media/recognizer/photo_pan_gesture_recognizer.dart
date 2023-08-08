@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/ui/widgets/preview_media/change_notifier/view_size_change_notifier.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 
 ///处理图片平移与PageView左右滑动

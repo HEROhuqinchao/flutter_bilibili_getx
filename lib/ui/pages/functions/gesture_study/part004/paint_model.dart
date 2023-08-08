@@ -25,7 +25,6 @@ class PaintModel extends ChangeNotifier {
   }
 
   void pushPoint(Point point, {bool force = false}) {
-    if (activeLine == null) return;
     if (activeLine.points.isNotEmpty && !force) {
       if ((point - activeLine.points.last).distance < tolerance) return;
     }
@@ -34,7 +33,6 @@ class PaintModel extends ChangeNotifier {
   }
 
   void doneLine() {
-    if (activeLine == null) return;
     activeLine.state = PaintState.done;
     notifyListeners();
   }
@@ -76,7 +74,6 @@ class PaintModel extends ChangeNotifier {
   }
 
   void moveEditLine(Offset offset) {
-    if (editLine == null) return;
     editLine.translate(offset);
     notifyListeners();
   }

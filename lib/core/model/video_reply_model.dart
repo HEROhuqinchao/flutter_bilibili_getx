@@ -58,8 +58,10 @@ class HYVideoReplyModel {
         cursor: Cursor.fromJson(json["cursor"]),
         hots: json["hots"],
         notice: json["notice"],
-        replies: json["replies"] != null ? List<HYVideoReplyModelReply>.from(
-            json["replies"].map((x) => HYVideoReplyModelReply.fromJson(x))) : [],
+        replies: json["replies"] != null
+            ? List<HYVideoReplyModelReply>.from(
+                json["replies"].map((x) => HYVideoReplyModelReply.fromJson(x)))
+            : [],
         top: Top.fromJson(json["top"]),
         topReplies: json["top_replies"] == null
             ? null
@@ -577,7 +579,7 @@ class ReplyMember {
 
   String mid;
   String uname;
-  Sex? sex;
+  String? sex;
   String sign;
   String avatar;
   String rank;
@@ -600,7 +602,7 @@ class ReplyMember {
   factory ReplyMember.fromJson(Map<String, dynamic> json) => ReplyMember(
         mid: json["mid"],
         uname: json["uname"],
-        sex: sexValues.map[json["sex"]],
+        sex: json["sex"],
         sign: json["sign"],
         avatar: json["avatar"],
         rank: json["rank"],
@@ -626,7 +628,7 @@ class ReplyMember {
   Map<String, dynamic> toJson() => {
         "mid": mid,
         "uname": uname,
-        "sex": sexValues.reverse[sex],
+        "sex": sex,
         "sign": sign,
         "avatar": avatar,
         "rank": rank,
@@ -687,57 +689,30 @@ class Nameplate {
   });
 
   int nid;
-  Name? name;
+  String? name;
   String image;
   String imageSmall;
-  Level? level;
-  Condition? condition;
+  String? level;
+  String? condition;
 
   factory Nameplate.fromJson(Map<String, dynamic> json) => Nameplate(
         nid: json["nid"],
-        name: nameValues.map[json["name"]],
+        name: json["name"],
         image: json["image"],
         imageSmall: json["image_small"],
-        level: levelValues.map[json["level"]],
-        condition: conditionValues.map[json["condition"]],
+        level: json["level"],
+        condition: json["condition"],
       );
 
   Map<String, dynamic> toJson() => {
         "nid": nid,
-        "name": nameValues.reverse[name],
+        "name": name,
         "image": image,
         "image_small": imageSmall,
-        "level": levelValues.reverse[level],
-        "condition": conditionValues.reverse[condition],
+        "level": level,
+        "condition": condition,
       };
 }
-
-enum Condition { EMPTY, THE_5, THE_10, CONDITION_5, THE_15, THE_100 }
-
-final conditionValues = EnumValues({
-  "当前持有粉丝勋章最高等级>=5级": Condition.CONDITION_5,
-  "": Condition.EMPTY,
-  "当前持有粉丝勋章最高等级>=10级": Condition.THE_10,
-  "所有自制视频总播放数>=100万": Condition.THE_100,
-  "当前持有粉丝勋章最高等级>=15级": Condition.THE_15,
-  "同时拥有粉丝勋章>=5个": Condition.THE_5
-});
-
-enum Level { EMPTY, LEVEL, PURPLE }
-
-final levelValues =
-    EnumValues({"": Level.EMPTY, "普通勋章": Level.LEVEL, "稀有勋章": Level.PURPLE});
-
-enum Name { EMPTY, NAME, PURPLE, FLUFFY, TENTACLED, STICKY }
-
-final nameValues = EnumValues({
-  "": Name.EMPTY,
-  "有爱萌新": Name.FLUFFY,
-  "收集萌新": Name.NAME,
-  "有爱楷模": Name.PURPLE,
-  "知名偶像": Name.STICKY,
-  "有爱大佬": Name.TENTACLED
-});
 
 class OfficialVerify {
   OfficialVerify({
@@ -794,10 +769,6 @@ class MemberPendant {
         "image_enhance_frame": imageEnhanceFrame,
       };
 }
-
-enum Sex { EMPTY, SEX, PURPLE }
-
-final sexValues = EnumValues({"保密": Sex.EMPTY, "男": Sex.PURPLE, "女": Sex.SEX});
 
 class UserSailing {
   UserSailing({
@@ -957,7 +928,7 @@ class Vip {
   int themeType;
   Label label;
   int avatarSubscript;
-  CColor? nicknameColor;
+  String? nicknameColor;
 
   factory Vip.fromJson(Map<String, dynamic> json) => Vip(
         vipType: json["vipType"],
@@ -969,7 +940,7 @@ class Vip {
         themeType: json["themeType"],
         label: Label.fromJson(json["label"]),
         avatarSubscript: json["avatar_subscript"],
-        nicknameColor: colorValues.map[json["nickname_color"]],
+        nicknameColor: json["nickname_color"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -982,7 +953,7 @@ class Vip {
         "themeType": themeType,
         "label": label.toJson(),
         "avatar_subscript": avatarSubscript,
-        "nickname_color": colorValues.reverse[nicknameColor],
+        "nickname_color": nicknameColor,
       };
 }
 
@@ -1003,11 +974,11 @@ class Label {
   });
 
   String path;
-  TText? labelText;
-  LabelTheme? labelTheme;
-  TTextColor? labelTextColor;
+  String? labelText;
+  String? labelTheme;
+  String? labelTextColor;
   int bgStyle;
-  CColor? bgColor;
+  String? bgColor;
   String borderColor;
   bool useImgLabel;
   String imgLabelUriHans;
@@ -1017,11 +988,11 @@ class Label {
 
   factory Label.fromJson(Map<String, dynamic> json) => Label(
         path: json["path"],
-        labelText: textValues.map[json["text"]],
-        labelTheme: labelThemeValues.map[json["label_theme"]],
-        labelTextColor: textColorValues.map[json["text_color"]],
+        labelText: json["text"],
+        labelTheme: json["label_theme"],
+        labelTextColor: json["text_color"],
         bgStyle: json["bg_style"],
-        bgColor: colorValues.map[json["bg_color"]],
+        bgColor: json["bg_color"],
         borderColor: json["border_color"],
         useImgLabel: json["use_img_label"],
         imgLabelUriHans: json["img_label_uri_hans"],
@@ -1032,11 +1003,11 @@ class Label {
 
   Map<String, dynamic> toJson() => {
         "path": path,
-        "text": textValues.reverse[labelText],
-        "label_theme": labelThemeValues.reverse[labelTheme],
-        "text_color": textColorValues.reverse[labelTextColor],
+        "text": labelText,
+        "label_theme": labelTheme,
+        "text_color": labelTextColor,
         "bg_style": bgStyle,
-        "bg_color": colorValues.reverse[bgColor],
+        "bg_color": bgColor,
         "border_color": borderColor,
         "use_img_label": useImgLabel,
         "img_label_uri_hans": imgLabelUriHans,
@@ -1045,28 +1016,6 @@ class Label {
         "img_label_uri_hant_static": imgLabelUriHantStatic,
       };
 }
-
-enum CColor { EMPTY, FB7299 }
-
-final colorValues = EnumValues({"": CColor.EMPTY, "#FB7299": CColor.FB7299});
-
-enum LabelTheme { EMPTY, VIP, ANNUAL_VIP }
-
-final labelThemeValues = EnumValues({
-  "annual_vip": LabelTheme.ANNUAL_VIP,
-  "": LabelTheme.EMPTY,
-  "vip": LabelTheme.VIP
-});
-
-enum TText { EMPTY, TEXT, PURPLE }
-
-final textValues =
-    EnumValues({"": TText.EMPTY, "年度大会员": TText.PURPLE, "大会员": TText.TEXT});
-
-enum TTextColor { EMPTY, FFFFFF }
-
-final textColorValues =
-    EnumValues({"": TTextColor.EMPTY, "#FFFFFF": TTextColor.FFFFFF});
 
 class ReplyReply {
   ReplyReply({
@@ -1255,7 +1204,7 @@ class MemberElement {
 
   String? mid;
   String? uname;
-  Sex? sex;
+  String? sex;
   String? sign;
   String? avatar;
   String? rank;
@@ -1271,7 +1220,7 @@ class MemberElement {
   factory MemberElement.fromJson(Map<String, dynamic> json) => MemberElement(
         mid: json["mid"],
         uname: json["uname"],
-        sex: sexValues.map[json["sex"]],
+        sex: json["sex"],
         sign: json["sign"],
         avatar: json["avatar"],
         rank: json["rank"],
@@ -1288,7 +1237,7 @@ class MemberElement {
   Map<String, dynamic> toJson() => {
         "mid": mid,
         "uname": uname,
-        "sex": sexValues.reverse[sex],
+        "sex": sex,
         "sign": sign,
         "avatar": avatar,
         "rank": rank,
@@ -1760,18 +1709,4 @@ class PurpleUpper {
   Map<String, dynamic> toJson() => {
         "mid": mid,
       };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

@@ -39,7 +39,7 @@ class DownloadFileLogic extends GetxController {
       return;
     }
     port.listen((dynamic data) {
-      final taskId = (data as List<dynamic>)[0] as String;
+      // final taskId = (data as List<dynamic>)[0] as String;
       final status = DownloadTaskStatus(data[1] as int);
       final progress = data[2] as int;
       updateProgress(progress, status);
@@ -106,7 +106,7 @@ class DownloadFileLogic extends GetxController {
 
   void downloadFile() async {
     FlutterDownloader.cancelAll();
-    final taskId = await FlutterDownloader.enqueue(
+    await FlutterDownloader.enqueue(
       fileName: fileName,
       url: "下载的链接",
       headers: {},

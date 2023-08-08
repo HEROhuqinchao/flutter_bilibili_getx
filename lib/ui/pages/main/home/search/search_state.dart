@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/model/home_search_result.dart';
 import '../../../../../core/model/search_keywords_model.dart';
-import '../../../../../core/service/request/search_request.dart';
 
 class SearchState {
   late HYSearchKeywordModel searchKeyword;

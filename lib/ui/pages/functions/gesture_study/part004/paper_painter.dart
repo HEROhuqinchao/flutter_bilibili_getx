@@ -1,10 +1,5 @@
 import 'package:bilibili_getx/ui/pages/functions/gesture_study/part004/paint_model.dart';
-import 'package:bilibili_getx/ui/pages/functions/gesture_study/part004/point.dart';
-import 'package:bilibili_getx/ui/pages/functions/gesture_study/part004/white_paper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'line.dart';
 
 // 画板定义
 class PaperPainter extends CustomPainter {
@@ -127,9 +122,7 @@ class _LineWidthSelectState extends State<LineWidthSelect> {
   @override
   void initState() {
     super.initState();
-    if (widget.defaultWidth != null) {
-      _selectIndex = widget.numbers.indexOf(widget.defaultWidth);
-    }
+    _selectIndex = widget.numbers.indexOf(widget.defaultWidth);
   }
 
   @override
@@ -199,10 +192,11 @@ const List<double> _kWidthSupport = [1.0, 3.0, 5.0, 6.0, 8.0, 9.0, 12.0, 15.0];
 class PaintSettingDialog extends StatelessWidget {
   final LineWidthCallback onLineWidthSelect;
   final ColorSelectCallback onColorSelect;
-  Color initColor;
-  int initWidth;
+  final Color initColor;
+  final int initWidth;
 
-  PaintSettingDialog({
+  const PaintSettingDialog({
+    super.key,
     required this.onLineWidthSelect,
     required this.onColorSelect,
     this.initColor = Colors.black,

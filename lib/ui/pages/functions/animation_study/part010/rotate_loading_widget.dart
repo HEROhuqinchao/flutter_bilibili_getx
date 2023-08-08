@@ -55,12 +55,16 @@ class _RotateLoadingState extends State<RotateLoading>
 }
 
 class RotateLoadingPainter extends CustomPainter {
-  RotateLoadingPainter(this.itemWidth, this.animation) : super(repaint: animation);
+  RotateLoadingPainter(this.itemWidth, this.animation)
+      : super(repaint: animation);
 
   Animation<double> animation;
 
   final List<Color> colors = [
-    Color(0xffF44336), Color(0xff5C6BC0), Color(0xffFFB74D), Color(0xff8BC34A)
+    Color(0xffF44336),
+    Color(0xff5C6BC0),
+    Color(0xffFFB74D),
+    Color(0xff8BC34A)
   ];
 
   final double itemWidth;
@@ -83,12 +87,16 @@ class RotateLoadingPainter extends CustomPainter {
   }
 
   void drawItem(Canvas canvas, Offset center, Color color) {
-    Rect rect = Rect.fromCenter(
-        center: center, width: itemWidth, height: itemWidth);
+    Rect rect =
+        Rect.fromCenter(center: center, width: itemWidth, height: itemWidth);
     canvas.save();
+
     ///偏移到方块中心点
     canvas.translate(center.dx, center.dy);
-    canvas.rotate(Tween(begin: pi, end: -pi).chain(CurveTween(curve: Curves.easeIn)).transform(animation.value));
+    canvas.rotate(Tween(begin: pi, end: -pi)
+        .chain(CurveTween(curve: Curves.easeIn))
+        .transform(animation.value));
+
     ///偏移到原来的中心点
     canvas.translate(-center.dx, -center.dy);
     canvas.drawRRect(RRect.fromRectAndRadius(rect, Radius.circular(5)),

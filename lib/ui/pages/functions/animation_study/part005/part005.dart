@@ -24,11 +24,11 @@ class _CircleAnimationState extends State<CircleAnimation>
     );
     colorAnima = colorTween.animate(_controller);
     // colorTween.chain(curveTween);
-    Animation<double> tempOne =
-        CurvedAnimation(parent: _controller, curve: Curves.easeInSine);
-    Animation<Color?> tempTwo = ColorTween(begin: Colors.red, end: Colors.green)
-        .chain(CurveTween(curve: Curves.linear))
-        .animate(_controller);
+    // Animation<double> tempOne =
+    //     CurvedAnimation(parent: _controller, curve: Curves.easeInSine);
+    // Animation<Color?> tempTwo = ColorTween(begin: Colors.red, end: Colors.green)
+    //     .chain(CurveTween(curve: Curves.linear))
+    //     .animate(_controller);
     tweenSequence = TweenSequence([
       TweenSequenceItem(
           tween: CurveTween(curve: Curves.slowMiddle), weight: 20),

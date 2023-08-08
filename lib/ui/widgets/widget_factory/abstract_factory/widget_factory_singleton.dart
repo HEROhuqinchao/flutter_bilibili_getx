@@ -6,7 +6,7 @@ import '../widget_factory/ios_widget_factory.dart';
 
 ///根据平台不同建造不同工厂
 mixin WidgetFactoryPlugin {
-  late WidgetFactory _widgetFactory;
+  late final WidgetFactory _widgetFactory;
 
   ///获取组件工厂实例
   WidgetFactory wFactory() {

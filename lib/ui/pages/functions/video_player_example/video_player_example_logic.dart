@@ -1,9 +1,7 @@
 import 'package:bilibili_getx/ui/pages/functions/mini_window/mini_window_logic.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_floating/floating/floating.dart';
 import 'package:get/get.dart';
 
-import '../mini_window/mini_window_view.dart';
 import 'video_player_example_state.dart';
 
 class VideoPlayerExampleLogic extends GetxController {
@@ -32,8 +30,10 @@ class VideoPlayerExampleLogic extends GetxController {
     MiniWindowLogic miniWindowLogic = Get.find<MiniWindowLogic>();
     miniWindowLogic.state.videoPlayerController = state.videoPlayerController;
     miniWindowLogic.state.floating = state.floating;
-    miniWindowLogic.state.isPlaying =  state.videoPlayerController.value.isPlaying;
-    miniWindowLogic.state.showButtons = state.videoPlayerController.value.isPlaying ? false : true;
+    miniWindowLogic.state.isPlaying =
+        state.videoPlayerController.value.isPlaying;
+    miniWindowLogic.state.showButtons =
+        state.videoPlayerController.value.isPlaying ? false : true;
     miniWindowLogic.state.videoPlayerController.addListener(() {
       if (miniWindowLogic.state.videoPlayerController.value.isPlaying) {
         miniWindowLogic.update();

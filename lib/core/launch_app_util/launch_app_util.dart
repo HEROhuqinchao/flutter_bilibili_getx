@@ -1,13 +1,17 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 ///启动第三方软件
 class LaunchAppUtil {
+  LaunchAppUtil._internal();
+
+  static final LaunchAppUtil _instance = LaunchAppUtil._internal();
+
+  factory LaunchAppUtil() => _instance;
+
   ///寻找高德地图
   ///https://lbs.amap.com/api/amap-mobile/guide/android/navigation
-  static Future<bool> go2AMap({
+  Future<bool> go2AMap({
     longitude,
     latitude,
     dev = 0,
@@ -20,7 +24,7 @@ class LaunchAppUtil {
       url = 'ios';
     }
     url +=
-    "amap://navi?sourceApplication=amap&lat=$latitude&lon=$longitude&dev=$dev&style=$style";
+        "amap://navi?sourceApplication=amap&lat=$latitude&lon=$longitude&dev=$dev&style=$style";
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
       return true;

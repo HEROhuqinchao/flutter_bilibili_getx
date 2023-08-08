@@ -1,8 +1,3 @@
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'dart:ui' as ui;
-
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
 
@@ -27,8 +22,6 @@ class PaperCustomPainter extends CustomPainter with Grid {
   void paint(Canvas canvas, Size size) {
     drawGrid(canvas, size);
     drawAxis(canvas, size);
-    final Offset p1 = Offset(80, -100);
-    final Offset p2 = Offset(160, 0);
     Path path = Path();
     Paint paint = Paint()
       ..color = Colors.deepPurpleAccent

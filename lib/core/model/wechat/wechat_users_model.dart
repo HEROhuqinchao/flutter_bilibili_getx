@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 
-WechatUsersModel wechatUsersModelFromJson(String str) => WechatUsersModel.fromJson(json.decode(str));
+WechatUsersModel wechatUsersModelFromJson(String str) =>
+    WechatUsersModel.fromJson(json.decode(str));
 
 class WechatUsersModel {
   int? code;
@@ -17,11 +18,15 @@ class WechatUsersModel {
     this.data,
   });
 
-  factory WechatUsersModel.fromJson(Map<String, dynamic> json) => WechatUsersModel(
-    code: json["code"],
-    message: json["message"],
-    data: json["data"] == null ? [] : List<UserModel>.from(json["data"]!.map((x) => UserModel.fromJson(x))),
-  );
+  factory WechatUsersModel.fromJson(Map<String, dynamic> json) =>
+      WechatUsersModel(
+        code: json["code"],
+        message: json["message"],
+        data: json["data"] == null
+            ? []
+            : List<UserModel>.from(
+                json["data"]!.map((x) => UserModel.fromJson(x))),
+      );
 }
 
 ///用户类

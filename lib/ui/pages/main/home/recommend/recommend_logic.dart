@@ -31,6 +31,7 @@ class RecommendLogic extends GetxController {
     fetchFeedIndexData();
     super.onReady();
   }
+
   // @override
   // void onClose() {
   //   state.easyRefreshController.dispose();
@@ -73,7 +74,8 @@ class RecommendLogic extends GetxController {
 
   ///获取数据
   void fetchFeedIndexData() {
-    HYHomeRequest().getFeedIndexData(fetchFeedIndexParamsWithSign())
+    HYHomeRequest()
+        .getFeedIndexData(fetchFeedIndexParamsWithSign())
         .then((value) async {
       state.feedIndexItemList.addAll(value.data.items);
       initHomeRecommendWidgets();
@@ -149,9 +151,11 @@ class RecommendLogic extends GetxController {
   }
 
   void refreshRecommendItemData() async {
-    HYHomeRequest().getFeedIndexData(
+    HYHomeRequest()
+        .getFeedIndexData(
       fetchFeedIndexParamsWithSign(),
-    ).then((value) {
+    )
+        .then((value) {
       refreshVideosData(value.data.items);
       state.homeRecommendWidgets
           .insert(0, buildHYHomeRefreshItemOneVideo(value.data.items[8]));
@@ -191,9 +195,8 @@ class RecommendLogic extends GetxController {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: items.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2
-      ),
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (ctx, index) {
         // print(data[index].aid);
         return buildRecommendItem(items[index]);
@@ -207,30 +210,31 @@ class RecommendLogic extends GetxController {
     return GestureDetector(
       onTap: () {
         if (video.goto == "av") {
-          HYVideoRequest().getMp4VideoPlayData(video.args!.aid!)
-              .then((value) {
+          HYVideoRequest().getMp4VideoPlayData(video.args!.aid!).then((value) {
             ///匹配字符串readyVideoUrl: 到readyDuration之间的字符串
             RegExp exp =
-            RegExp(r'(?<=(readyVideoUrl: ))[\s\S]*?(?=(readyDuration))');
+                RegExp(r'(?<=(readyVideoUrl: ))[\s\S]*?(?=(readyDuration))');
             print("exp.allMatches(value)---${exp.stringMatch(value)}");
             String videoMp4 = exp.stringMatch(value) ?? "";
             print(
                 "videoMp4-----------${videoMp4.substring(0, videoMp4.length)}");
             if (videoMp4.isEmpty) {
               video.videoData =
-              "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+                  "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
               // "http://61.164.90.254:9000/dm-pls/08388d26a77a413fa8da09837c6df420.mp4";
             } else {
               video.videoData = videoMp4.substring(1, videoMp4.length - 1);
             }
 
             ///传递数据
-            Get.lazyPut(()=>VideoPlayLogic());
-            Get.lazyPut(()=>BilibiliVideoPlayerLogic());
+            Get.lazyPut(() => VideoPlayLogic());
+            Get.lazyPut(() => BilibiliVideoPlayerLogic());
             VideoPlayLogic videoPlayLogic = Get.find<VideoPlayLogic>();
             VideoPlayState videoPlayState = Get.find<VideoPlayLogic>().state;
-            BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
-            BilibiliVideoPlayerState bilibiliVideoPlayerState = Get.find<BilibiliVideoPlayerLogic>().state;
+            BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic =
+                Get.find<BilibiliVideoPlayerLogic>();
+            BilibiliVideoPlayerState bilibiliVideoPlayerState =
+                Get.find<BilibiliVideoPlayerLogic>().state;
 
             bilibiliVideoPlayerState.haveDanMuFunction = true;
             bilibiliVideoPlayerState.haveFullScreenFunction = true;
@@ -304,7 +308,8 @@ class RecommendLogic extends GetxController {
 
   ///加载数据（上拉动作）
   void loadRecommendItemData() {
-    HYHomeRequest().getFeedIndexData(fetchFeedIndexParamsWithSign())
+    HYHomeRequest()
+        .getFeedIndexData(fetchFeedIndexParamsWithSign())
         .then((value) {
       loadMoreVideosData(value.data.items);
       state.homeRecommendWidgets
@@ -343,7 +348,8 @@ class RecommendLogic extends GetxController {
                     fit: BoxFit.cover,
                     placeholderFit: BoxFit.cover,
                     placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-                    image: NetworkImage(bannerItems[index].staticBanner!.image!),
+                    image:
+                        NetworkImage(bannerItems[index].staticBanner!.image!),
                   ),
                 ),
                 Positioned(
@@ -448,18 +454,18 @@ class RecommendLogic extends GetxController {
           height: 100.w,
           child: video.cover != null
               ? FadeInImage(
-            imageErrorBuilder: (ctx, error, stackTrace) {
-              return Container(
-                child: Text("加载中"),
-              );
-            },
-            placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
-            image: NetworkImage(
-              video.cover!,
-            ),
-            fit: BoxFit.fill,
-            placeholderFit: BoxFit.fill,
-          )
+                  imageErrorBuilder: (ctx, error, stackTrace) {
+                    return Container(
+                      child: Text("加载中"),
+                    );
+                  },
+                  placeholder: AssetImage(ImageAssets.icUpperVideoDefaultPNG),
+                  image: NetworkImage(
+                    video.cover!,
+                  ),
+                  fit: BoxFit.fill,
+                  placeholderFit: BoxFit.fill,
+                )
               : Text(video.cover!),
         ),
       );
@@ -510,8 +516,8 @@ class RecommendLogic extends GetxController {
               height: 14.sp,
               child: Text(
                 seenText,
-                style:
-                TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+                style: TextStyle(
+                    color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
               ),
             ),
           ],
@@ -539,8 +545,8 @@ class RecommendLogic extends GetxController {
               height: 14.sp,
               child: Text(
                 viewText,
-                style:
-                TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+                style: TextStyle(
+                    color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -556,8 +562,8 @@ class RecommendLogic extends GetxController {
               height: 14.sp,
               child: Text(
                 remarkText,
-                style:
-                TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+                style: TextStyle(
+                    color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -586,8 +592,8 @@ class RecommendLogic extends GetxController {
               height: 14.sp,
               child: Text(
                 viewText,
-                style:
-                TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+                style: TextStyle(
+                    color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
               ),
             ),
             6.horizontalSpace,
@@ -602,8 +608,8 @@ class RecommendLogic extends GetxController {
               height: 14.sp,
               child: Text(
                 likeText,
-                style:
-                TextStyle(color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
+                style: TextStyle(
+                    color: HYAppTheme.norWhite02Color, fontSize: 10.sp),
               ),
             ),
           ],
@@ -659,8 +665,8 @@ class RecommendLogic extends GetxController {
           child: Text(video.rcmdReasonStyle!.text!,
               style: TextStyle(
                 fontSize: 10.sp,
-                color:
-                ColorRadixChange.hexColor(video.rcmdReasonStyle!.textColor!),
+                color: ColorRadixChange.hexColor(
+                    video.rcmdReasonStyle!.textColor!),
               )),
         );
       } else {
@@ -710,7 +716,8 @@ class RecommendLogic extends GetxController {
         child: Text(video.rcmdReasonStyle!.text!,
             style: TextStyle(
               fontSize: 10.sp,
-              color: ColorRadixChange.hexColor(video.rcmdReasonStyle!.textColor!),
+              color:
+                  ColorRadixChange.hexColor(video.rcmdReasonStyle!.textColor!),
             )),
       );
     } else if (video.goto == "live") {
@@ -737,63 +744,64 @@ class RecommendLogic extends GetxController {
     } else if (video.goto == "bangumi") {
       return video.badgeStyle != null
           ? Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 2).r,
-            decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.all(Radius.circular(2.r)),
-                border: Border(
-                    left: BorderSide(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 2).r,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.all(Radius.circular(2.r)),
+                      border: Border(
+                          left: BorderSide(
+                              color: ColorRadixChange.hexColor(
+                                  video.badgeStyle!.borderColor!)),
+                          top: BorderSide(
+                              color: ColorRadixChange.hexColor(
+                                  video.badgeStyle!.borderColor!)),
+                          bottom: BorderSide(
+                              color: ColorRadixChange.hexColor(
+                                  video.badgeStyle!.borderColor!)),
+                          right: BorderSide(
+                              color: ColorRadixChange.hexColor(
+                                  video.badgeStyle!.borderColor!)))),
+                  child: Text(video.badgeStyle!.text!,
+                      style: TextStyle(
+                        fontSize: 10.sp,
                         color: ColorRadixChange.hexColor(
-                            video.badgeStyle!.borderColor!)),
-                    top: BorderSide(
-                        color: ColorRadixChange.hexColor(
-                            video.badgeStyle!.borderColor!)),
-                    bottom: BorderSide(
-                        color: ColorRadixChange.hexColor(
-                            video.badgeStyle!.borderColor!)),
-                    right: BorderSide(
-                        color: ColorRadixChange.hexColor(
-                            video.badgeStyle!.borderColor!)))),
-            child: Text(video.badgeStyle!.text!,
-                style: TextStyle(
-                  fontSize: 10.sp,
-                  color: ColorRadixChange.hexColor(
-                      video.badgeStyle!.textColor!),
-                )),
-          ),
-          6.horizontalSpace,
-          video.rcmdReasonStyle != null
-              ? Container(
-            padding: const EdgeInsets.symmetric(horizontal: 2).r,
-            decoration: BoxDecoration(
-                color: ColorRadixChange.hexColor(
-                    video.rcmdReasonStyle!.bgColor!),
-                borderRadius: BorderRadius.all(Radius.circular(2.r)),
-                border: Border(
-                    left: BorderSide(
-                        color: ColorRadixChange.hexColor(
-                            video.rcmdReasonStyle!.borderColor!)),
-                    top: BorderSide(
-                        color: ColorRadixChange.hexColor(
-                            video.rcmdReasonStyle!.borderColor!)),
-                    bottom: BorderSide(
-                        color: ColorRadixChange.hexColor(
-                            video.rcmdReasonStyle!.borderColor!)),
-                    right: BorderSide(
-                        color: ColorRadixChange.hexColor(video.rcmdReasonStyle!.borderColor!)))),
-            child: Text(video.rcmdReasonStyle!.text!,
-                style: TextStyle(
-                  fontSize: 10.sp,
-                  color: ColorRadixChange.hexColor(
-                      video.rcmdReasonStyle!.textColor!),
-                )),
-          )
-              : Container(),
-        ],
-      )
+                            video.badgeStyle!.textColor!),
+                      )),
+                ),
+                6.horizontalSpace,
+                video.rcmdReasonStyle != null
+                    ? Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 2).r,
+                        decoration: BoxDecoration(
+                            color: ColorRadixChange.hexColor(
+                                video.rcmdReasonStyle!.bgColor!),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(2.r)),
+                            border: Border(
+                                left: BorderSide(
+                                    color: ColorRadixChange.hexColor(
+                                        video.rcmdReasonStyle!.borderColor!)),
+                                top: BorderSide(
+                                    color: ColorRadixChange.hexColor(
+                                        video.rcmdReasonStyle!.borderColor!)),
+                                bottom: BorderSide(
+                                    color: ColorRadixChange.hexColor(
+                                        video.rcmdReasonStyle!.borderColor!)),
+                                right:
+                                    BorderSide(color: ColorRadixChange.hexColor(video.rcmdReasonStyle!.borderColor!)))),
+                        child: Text(video.rcmdReasonStyle!.text!,
+                            style: TextStyle(
+                              fontSize: 10.sp,
+                              color: ColorRadixChange.hexColor(
+                                  video.rcmdReasonStyle!.textColor!),
+                            )),
+                      )
+                    : Container(),
+              ],
+            )
           : Container();
     } else {
       return Container();

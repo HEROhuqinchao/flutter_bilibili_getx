@@ -136,6 +136,7 @@ class _BilibiliVideoPlayerComponentState
       onHorizontalDragEnd: (DragEndDetails details) {
         logic.videoPlayProgressOnHorizontalDragEnd();
       },
+
       ///点击
       onTapDown: (TapDownDetails details) {
         logic.videoPlayProgressOnTapDown(context, details.globalPosition);
@@ -219,6 +220,7 @@ class _BilibiliVideoPlayerComponentState
                   ),
                 ),
               ),
+
               ///顶部状态栏
               Positioned(
                 top: 0,
@@ -252,7 +254,7 @@ class _BilibiliVideoPlayerComponentState
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 // print("返回");
                                 Get.back();
                               },
@@ -263,40 +265,47 @@ class _BilibiliVideoPlayerComponentState
                               ),
                             ),
                             30.horizontalSpace,
-                            state.showTopBarHome ? Image.asset(
-                              ImageAssets.videoHomePNG,
-                              width: 20.sp,
-                              height: 20.sp,
-                              fit: BoxFit.cover,
-                            ) : Container(),
+                            state.showTopBarHome
+                                ? Image.asset(
+                                    ImageAssets.videoHomePNG,
+                                    width: 20.sp,
+                                    height: 20.sp,
+                                    fit: BoxFit.cover,
+                                  )
+                                : Container(),
                           ],
                         ),
-                        state.showTopBarMore ? GestureDetector(
-                          onTap: () {
-                            ///请求下载的权限
-                            BilibiliPermission.requestDownloadPermissions();
+                        state.showTopBarMore
+                            ? GestureDetector(
+                                onTap: () async {
+                                  ///请求下载的权限
+                                  final value = await BilibiliPermission()
+                                      .requestPhotosPermissions();
 
-                            ///初始化下载列表
-                            logic.iniDownloadList();
+                                  ///初始化下载列表
+                                  logic.iniDownloadList();
 
-                            ///创建下载目录
-                            logic.iniDownloadFilePath();
+                                  ///创建下载目录
+                                  logic.iniDownloadFilePath();
 
-                            ///弹出界面
-                            showVideoShareAndMoreFunctionBottomDialog(context);
-                          },
-                          child: Image.asset(
-                            ImageAssets.moreAndroidLightPNG,
-                            width: 20.sp,
-                            height: 20.sp,
-                            fit: BoxFit.cover,
-                          ),
-                        ) : Container()
+                                  ///弹出界面
+                                  showVideoShareAndMoreFunctionBottomDialog(
+                                      context);
+                                },
+                                child: Image.asset(
+                                  ImageAssets.moreAndroidLightPNG,
+                                  width: 20.sp,
+                                  height: 20.sp,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                            : Container()
                       ],
                     ),
                   ),
                 ),
               ),
+
               ///底部状态栏
               Positioned(
                 bottom: 0,

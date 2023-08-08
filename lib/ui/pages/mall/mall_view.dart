@@ -22,7 +22,7 @@ class MallScreen extends StatelessWidget {
   final logic = Get.find<MallLogic>();
   final state = Get.find<MallLogic>().state;
 
-   MallScreen({super.key});
+  MallScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

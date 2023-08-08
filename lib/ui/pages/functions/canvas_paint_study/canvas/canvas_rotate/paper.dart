@@ -28,8 +28,7 @@ class PaperPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth
       ..color = color;
-    _dotPaint = Paint()
-      ..strokeWidth = 2;
+    _dotPaint = Paint()..strokeWidth = 2;
   }
 
   @override

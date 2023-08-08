@@ -34,9 +34,10 @@ class _SpringWidgetState extends State<SpringWidget>
   @override
   void initState() {
     springHeight = ValueNotifier(100);
-    animationController = AnimationController(vsync: this)..addListener(() {
-      deltaDy = lastMoveLen - lastMoveLen * animationController.value;
-    });
+    animationController = AnimationController(vsync: this)
+      ..addListener(() {
+        deltaDy = lastMoveLen - lastMoveLen * animationController.value;
+      });
     super.initState();
   }
 

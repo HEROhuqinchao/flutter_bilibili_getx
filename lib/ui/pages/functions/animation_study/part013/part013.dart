@@ -46,7 +46,7 @@ class _TickerDemoState extends State<TickerDemo> {
       body: Center(
         child: GestureDetector(
           onTap: () {
-            if(ticker.isTicking) {
+            if (ticker.isTicking) {
               ticker.stop();
             } else {
               ticker.start();

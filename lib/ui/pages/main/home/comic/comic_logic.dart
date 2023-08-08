@@ -373,7 +373,8 @@ class ComicLogic extends GetxController {
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(8.r)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(8.r)),
                     child: DefaultFadeImage(
                       imageUrl: module.items![index]!.cover!,
                       height: 105.r,

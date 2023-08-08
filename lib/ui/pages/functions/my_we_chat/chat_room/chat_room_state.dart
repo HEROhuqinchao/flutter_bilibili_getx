@@ -3,7 +3,6 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 import '../../../../../core/model/wechat/receive_data_model.dart';
 import '../../../../../core/model/wechat/wechat_users_model.dart';
-import '../my_we_chat/my_we_chat_state.dart';
 
 class ChatRoomState {
   ///当前聊天人信息

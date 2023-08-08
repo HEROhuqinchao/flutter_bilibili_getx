@@ -1,10 +1,13 @@
 import 'dart:math';
-
+import 'package:bilibili_getx/core/output/output_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 
+GlobalKey boundaryKey = GlobalKey();
+
 main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: MyApp(),
   ));
 }
@@ -15,15 +18,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: ClockWidget(100)),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          RenderRepaintBoundary renderRepaintBoundary =
+              boundaryKey.currentContext?.findRenderObject()
+                  as RenderRepaintBoundary;
+          OutputUtil.captureImage(renderRepaintBoundary, context);
+        },
+      ),
+      body: const Center(child: ClockWidget(100)),
     );
   }
 }
 
 class ClockWidget extends StatefulWidget {
-  late double radius;
+  final double radius;
 
-  ClockWidget(this.radius);
+  const ClockWidget(this.radius, {super.key});
 
   @override
   State<ClockWidget> createState() => _ClockWidgetState();
@@ -68,6 +79,7 @@ class _ClockWidgetState extends State<ClockWidget>
             ),
           ),
           RepaintBoundary(
+            key: boundaryKey,
             child: CustomPaint(
               size: Size(widget.radius * 2, widget.radius * 2),
               painter: ClockPainter(
@@ -123,7 +135,9 @@ class ClockBgPainter extends CustomPainter {
     final Path circlePath = Path()
       ..addArc(
           Rect.fromCenter(
-              center: Offset(0, 0), width: radius * 2, height: radius * 2),
+              center: const Offset(0, 0),
+              width: radius * 2,
+              height: radius * 2),
           10 / 180 * pi,
           pi / 2 - 20 / 180 * pi);
 
@@ -226,23 +240,18 @@ class ClockBgPainter extends CustomPainter {
 
 class ClockPainter extends CustomPainter {
   ValueNotifier time;
-  final Paint _paint = Paint()..style = PaintingStyle.stroke;
   final double radius;
   final Paint arcPaint = Paint()
     ..style = PaintingStyle.fill
-    ..color = Color(0xff00abf2);
-  final TextPainter _textPainter = TextPainter(
-    textAlign: TextAlign.center,
-    textDirection: TextDirection.ltr,
-  );
+    ..color = const Color(0xff00abf2);
   final Paint hourPaint = Paint()
-    ..color = Color(0xff00ff00)
+    ..color = const Color(0xff00ff00)
     ..strokeWidth = 5;
   final Paint minusPaint = Paint()
-    ..color = Color(0xffff00ff)
+    ..color = const Color(0xffff00ff)
     ..strokeWidth = 3;
   final Paint secondPaint = Paint()
-    ..color = Color(0xff00ffff)
+    ..color = const Color(0xff00ffff)
     ..strokeWidth = 2;
 
   double get logic1 => radius * 0.01;

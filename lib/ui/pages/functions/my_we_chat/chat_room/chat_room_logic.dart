@@ -8,7 +8,6 @@ import '../../../../../core/model/wechat/receive_data_model.dart';
 import '../../../../../core/model/wechat/send_data_factory.dart';
 import '../../../../../core/sqlite/sqlite_util.dart';
 import '../../../../shared/image_asset.dart';
-import '../my_we_chat/my_we_chat_state.dart';
 import 'chat_room_state.dart';
 
 class ChatRoomLogic extends GetxController {

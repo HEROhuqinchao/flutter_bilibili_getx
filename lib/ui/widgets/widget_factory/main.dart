@@ -1,11 +1,7 @@
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/widget_factory/widget_factory/android_widget_factory.dart';
-import 'package:bilibili_getx/ui/widgets/widget_factory/widget_factory/ios_widget_factory.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'abstract_factory/widget_abstract_factory.dart';
 import 'abstract_factory/widget_factory_singleton.dart';
 
 main() {

@@ -1,6 +1,3 @@
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui';
 import 'dart:ui' as ui;
 
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
@@ -91,5 +88,6 @@ class PaperCustomPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(PaperCustomPainter oldDelegate) => image != oldDelegate.image;
+  bool shouldRepaint(PaperCustomPainter oldDelegate) =>
+      image != oldDelegate.image;
 }

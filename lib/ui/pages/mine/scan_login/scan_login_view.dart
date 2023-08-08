@@ -1,20 +1,18 @@
-import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 import 'scan_login_logic.dart';
 
 class ScanLoginScreen extends StatelessWidget {
   static const String routeName = "/scan_login";
+  final logic = Get.find<ScanLoginLogic>();
+  final state = Get.find<ScanLoginLogic>().state;
+
+  ScanLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<ScanLoginLogic>();
-    final state = Get
-        .find<ScanLoginLogic>()
-        .state;
     return GetBuilder<ScanLoginLogic>(builder: (logic) {
       return Scaffold(
         body: Center(
@@ -41,7 +39,7 @@ class ScanLoginScreen extends StatelessWidget {
               // ),
               ElevatedButton(
                 onPressed: () {
-                  logic.scanQrCode();
+                  // logic.scanQrCode();
                 },
                 child: Text("扫描二维码"),
               ),

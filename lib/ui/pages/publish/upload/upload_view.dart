@@ -231,5 +231,4 @@ class _UploadViewState extends State<UploadView> with TickerProviderStateMixin {
 //     )
 //   ];
 // }
-
 }

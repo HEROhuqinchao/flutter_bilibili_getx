@@ -1,8 +1,6 @@
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_sample_time/bg_mana.dart';
-import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/canvas_sample_time/digit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import './particle.dart';
 import 'clock_mana.dart';
 
 class Paper extends StatefulWidget {

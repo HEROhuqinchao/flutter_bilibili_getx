@@ -84,7 +84,7 @@ class RoundLoadingPainter extends CustomPainter {
     canvas.translate(size.width / 2, size.height / 2);
     drawItem(canvas, 0, colors[0]);
     drawItem(canvas, pi / 2, colors[1]);
-    drawItem(canvas, - pi / 2, colors[2]);
+    drawItem(canvas, -pi / 2, colors[2]);
     drawItem(canvas, pi, colors[3]);
   }
 

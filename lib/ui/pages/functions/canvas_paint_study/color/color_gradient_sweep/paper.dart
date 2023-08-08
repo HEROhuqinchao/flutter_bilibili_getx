@@ -49,13 +49,13 @@ class PaperCustomPainter extends CustomPainter with Grid {
     canvas.drawCircle(Offset.zero, 50, paint);
 
     canvas.translate(160, 0);
-    paint.shader =
-        ui.Gradient.sweep(Offset.zero, colors, pos, TileMode.repeated, pi / 2, pi);
+    paint.shader = ui.Gradient.sweep(
+        Offset.zero, colors, pos, TileMode.repeated, pi / 2, pi);
     canvas.drawCircle(Offset.zero, 50, paint);
 
     canvas.translate(-160 * 2, 0);
-    paint.shader =
-        ui.Gradient.sweep(Offset.zero, colors, pos, TileMode.repeated, pi / 2, pi);
+    paint.shader = ui.Gradient.sweep(
+        Offset.zero, colors, pos, TileMode.repeated, pi / 2, pi);
     canvas.drawCircle(Offset.zero, 50, paint);
   }
 }

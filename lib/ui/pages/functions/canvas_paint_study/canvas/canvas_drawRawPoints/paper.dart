@@ -18,7 +18,7 @@ class Paper extends StatelessWidget {
   }
 }
 
-class PaperCustomPainter extends CustomPainter with Grid{
+class PaperCustomPainter extends CustomPainter with Grid {
   Paint _paint = Paint();
 
   @override

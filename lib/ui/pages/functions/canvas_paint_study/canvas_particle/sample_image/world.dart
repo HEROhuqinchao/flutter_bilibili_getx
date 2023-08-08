@@ -5,7 +5,6 @@ import 'package:image/image.dart' as image;
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path/path.dart';
 import './particle.dart';
 import 'particle_manage.dart';
 

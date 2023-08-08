@@ -1,8 +1,3 @@
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'dart:ui' as ui;
-
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +55,8 @@ class PaperCustomPainter extends CustomPainter with Grid {
 
     path.lineTo(80, -40);
     path
-      ..arcToPoint(const Offset(40, 40), radius: const Radius.circular(60), largeArc: true)
+      ..arcToPoint(const Offset(40, 40),
+          radius: const Radius.circular(60), largeArc: true)
       ..close();
     canvas.drawPath(path, paint);
   }

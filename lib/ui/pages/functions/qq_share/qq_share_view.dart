@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/qq_util/qq_util.dart';
 import 'qq_share_logic.dart';
 
 class QqShareView extends StatelessWidget {
   static String routeName = "/qq_share";
+  final logic = Get.find<QqShareLogic>();
+  final state = Get.find<QqShareLogic>().state;
 
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<QqShareLogic>();
-    final state = Get.find<QqShareLogic>().state;
-
     return Scaffold(
       appBar: AppBar(
         title: Text("分享至QQ"),

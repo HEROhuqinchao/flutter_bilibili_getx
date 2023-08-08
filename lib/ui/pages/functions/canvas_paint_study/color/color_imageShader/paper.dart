@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui' as ui;
-import 'package:image/image.dart' as image;
 
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
@@ -84,10 +83,10 @@ class PaperCustomPainter extends CustomPainter with Grid {
         ..strokeWidth = 10
         ..style = PaintingStyle.stroke,
     );
-    canvas.translate(-120*2.0, 0);
+    canvas.translate(-120 * 2.0, 0);
     canvas.drawLine(
-        Offset(100 , 50),
-        Offset(100 , 50 + 100.0),
+        Offset(100, 50),
+        Offset(100, 50 + 100.0),
         paint
           ..strokeWidth = 30
           ..style = PaintingStyle.stroke);

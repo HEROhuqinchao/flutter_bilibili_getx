@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-CustomResultModel customResultModelFromJson(String str) => CustomResultModel.fromJson(json.decode(str));
+CustomResultModel customResultModelFromJson(String str) =>
+    CustomResultModel.fromJson(json.decode(str));
 
-String customResultModelToJson(CustomResultModel data) => json.encode(data.toJson());
+String customResultModelToJson(CustomResultModel data) =>
+    json.encode(data.toJson());
 
 class CustomResultModel {
   int? code;
@@ -17,13 +19,14 @@ class CustomResultModel {
     this.message,
   });
 
-  factory CustomResultModel.fromJson(Map<String, dynamic> json) => CustomResultModel(
-    code: json["code"],
-    message: json["message"],
-  );
+  factory CustomResultModel.fromJson(Map<String, dynamic> json) =>
+      CustomResultModel(
+        code: json["code"],
+        message: json["message"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "code": code,
-    "message": message,
-  };
+        "code": code,
+        "message": message,
+      };
 }

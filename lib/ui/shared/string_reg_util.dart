@@ -4,7 +4,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 class StringRegUtil {
   ///匹配手机号码
   bool matchTelPhone(String input) {
-    if(input.length == 11) {
+    if (input.length == 11) {
       RegExp regExp = RegExp(r'[^0-9]');
       return !regExp.hasMatch(input);
     } else {
@@ -12,6 +12,6 @@ class StringRegUtil {
       return false;
     }
   }
-  ///匹配邮箱
 
+  ///匹配邮箱
 }

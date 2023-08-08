@@ -1,13 +1,10 @@
-import 'dart:math' as math;
 import 'dart:math';
 import 'dart:ui' as ui;
 import 'dart:ui';
 
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '';
 
 main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +13,7 @@ main() {
     DeviceOrientation.landscapeRight,
   ]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-  runApp(MaterialApp(home: MyApp()));
+  runApp(const MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -11,10 +11,11 @@ abstract class TakeMediaFactory {
 
   ///展示
   void show() {
-    ChannelUtil()
-        .takeMediaChannel
-        .invokeMethod("takeMediaAndroid", "")
-        .then((value) => print(value));
+    // ChannelUtil()
+    //     .media
+    //     ?.invokeMethod("takeMediaAndroid", "")
+    //     .then((value) => print(value));
+    print(ChannelUtil().media == ChannelUtil().media);
   }
 }
 

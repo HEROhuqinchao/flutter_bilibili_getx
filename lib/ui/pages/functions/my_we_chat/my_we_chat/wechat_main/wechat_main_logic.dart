@@ -92,7 +92,7 @@ class WechatMainLogic extends GetxController {
 
     ///更新聊天室内的聊天记录
     chatRoomLogic.state.chatRoomMessageList.clear();
-    for (Map map in messageList) {
+    for (Map map in messageList!) {
       chatRoomLogic.state.chatRoomMessageList.add(
         ReceiveDataModel(
           sender: map[SqliteUtil.columnSenderId],
@@ -144,7 +144,7 @@ class WechatMainLogic extends GetxController {
       orderBy: SqliteUtil.columnMessageDate,
     );
     state.messageHistoryList.clear();
-    state.messageHistoryList.addAll(messageList);
+    state.messageHistoryList.addAll(messageList!);
     Map<String, int> unReadMessageMap = {};
     for (Map map in messageList) {
       bool isRead = judgeReadState(map[SqliteUtil.columnMessageDate],

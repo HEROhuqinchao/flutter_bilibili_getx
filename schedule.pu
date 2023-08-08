@@ -26,6 +26,7 @@
 ****_ 轻量化存储
 *****_ Sqlite
 *****_ SharedPreference
+*****_ realm
 ****_ Http请求
 *****_ dio
 *****_ HttpClient、http库
@@ -40,10 +41,14 @@
 *****_ model_viewer_plus
 ****_ websocket
 *****_ web_socket_channel插件
-****_ 性能优化
-*****_ ResizeImage(减少图片内存)
-*****_ 局部刷新(不要全刷新界面;采用StreamBuilder/ChangeNotifier)
-
+****_ 性能优化方案
+*****_ widget重建
+******_ const
+*****_ 列表
+******_ ListView 考虑addAutomaticKeepAlives/addRepaintBoundaries
+*****_ 动画
+******_ AnimationBuilder -> 不必要刷新的部分放到child
+******_ 封装成组件,否则不要使用setState()刷新
 ***_ 第三方功能
 ****_ 支付
 ****_ 跳转微信小程序

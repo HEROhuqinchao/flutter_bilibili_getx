@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:bilibili_getx/ui/pages/functions/gesture_study/part004/point.dart';
 import 'package:flutter/material.dart';
+
 enum PaintState {
   doing,
   done,
@@ -17,6 +18,7 @@ class Line {
   Color color;
   Path _linePath = Path();
   late Path _recodePath = Path();
+
   Path get path => _linePath;
 
   Line({
@@ -42,15 +44,9 @@ class Line {
         ..color = Colors.deepPurpleAccent;
       canvas.drawRect(
         Rect.fromCenter(
-          center: _linePath
-              .getBounds()
-              .center,
-          width: _linePath
-              .getBounds()
-              .width,
-          height: _linePath
-              .getBounds()
-              .height,
+          center: _linePath.getBounds().center,
+          width: _linePath.getBounds().width,
+          height: _linePath.getBounds().height,
         ),
         paint1,
       );
@@ -58,9 +54,9 @@ class Line {
     canvas.drawPath(_linePath, paint);
 
     Path p1 =
-    _linePath.shift(Offset(paint.strokeWidth / 2, paint.strokeWidth / 2));
+        _linePath.shift(Offset(paint.strokeWidth / 2, paint.strokeWidth / 2));
     Path p2 =
-    _linePath.shift(Offset(-paint.strokeWidth / 2, -paint.strokeWidth / 2));
+        _linePath.shift(Offset(-paint.strokeWidth / 2, -paint.strokeWidth / 2));
     Paint paint1 = Paint()
       ..strokeWidth = 1
       ..style = PaintingStyle.stroke
@@ -100,7 +96,6 @@ class Line {
   }
 
   void translate(Offset offset) {
-    if (_recodePath == null) return;
     _linePath = _recodePath.shift(offset);
   }
 }

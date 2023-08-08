@@ -39,6 +39,7 @@ class LivePlayLogic extends GetxController {
     HYLiveRoomPlayRequest().getLiveRoomStreamData(state.roomId).then((value) {
       state.playUrl = value.durl[0].url;
       print(state.playUrl);
+
       ///视频播放控件
       Get.put(BilibiliVideoPlayerLogic());
       BilibiliVideoPlayerState bilibiliVideoPlayerState =

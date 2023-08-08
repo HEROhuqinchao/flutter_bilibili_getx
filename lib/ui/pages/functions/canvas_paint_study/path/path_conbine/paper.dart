@@ -1,8 +1,3 @@
-import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'dart:ui' as ui;
-
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
 
@@ -30,26 +25,30 @@ class PaperCustomPainter extends CustomPainter with Grid {
     Path path = Path();
     Paint paint = Paint();
     paint
-    ..color = Colors.purple
-    ..style = PaintingStyle.fill;
+      ..color = Colors.purple
+      ..style = PaintingStyle.fill;
     path
-    ..relativeMoveTo(0, 0)
-    ..relativeLineTo(-30, 120)
-    ..relativeLineTo(30, -30)
-    ..relativeLineTo( 30,30)
-    ..close();
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
 
-    var pathOval =Path()..addOval(Rect.fromCenter(center: Offset(0, 0),width: 60,height: 60));
-    canvas.drawPath(Path.combine(PathOperation.difference, path, pathOval), paint);
+    var pathOval = Path()
+      ..addOval(Rect.fromCenter(center: Offset(0, 0), width: 60, height: 60));
+    canvas.drawPath(
+        Path.combine(PathOperation.difference, path, pathOval), paint);
 
     canvas.translate(120, 0);
-    canvas.drawPath(Path.combine(PathOperation.intersect, path, pathOval), paint);
+    canvas.drawPath(
+        Path.combine(PathOperation.intersect, path, pathOval), paint);
 
     canvas.translate(120, 0);
     canvas.drawPath(Path.combine(PathOperation.union, path, pathOval), paint);
 
-    canvas.translate(-120*3.0, 0);
-    canvas.drawPath(Path.combine(PathOperation.reverseDifference, path, pathOval), paint);
+    canvas.translate(-120 * 3.0, 0);
+    canvas.drawPath(
+        Path.combine(PathOperation.reverseDifference, path, pathOval), paint);
 
     canvas.translate(-120, 0);
     canvas.drawPath(Path.combine(PathOperation.xor, path, pathOval), paint);

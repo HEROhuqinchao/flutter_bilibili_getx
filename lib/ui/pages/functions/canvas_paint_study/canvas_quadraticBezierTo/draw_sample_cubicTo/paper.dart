@@ -58,7 +58,6 @@ class _PaperState extends State<Paper> {
       (src - dst).distance <= r;
 
   bool judgeZone(Offset src, {bool update = false}) {
-
     for (int i = 0; i < touchInfo.points.length; i++) {
       if (judgeCircleArea(src, touchInfo.points[i], 15)) {
         touchInfo.selectIndex = i;

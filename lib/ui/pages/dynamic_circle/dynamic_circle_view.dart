@@ -16,7 +16,7 @@ class DynamicCircleScreen extends StatelessWidget {
   final logic = Get.find<DynamicCircleLogic>();
   final state = Get.find<DynamicCircleLogic>().state;
 
-   DynamicCircleScreen({super.key});
+  DynamicCircleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

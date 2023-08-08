@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/model/android/home/pgc_page_bangumi_model.dart';
 
-
 ///热门番剧区、热门国创区
 class BuildBangumiRankZone extends StatefulWidget {
   final int zoneNum;

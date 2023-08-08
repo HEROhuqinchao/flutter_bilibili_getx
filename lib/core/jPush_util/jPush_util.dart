@@ -1,12 +1,21 @@
 import 'package:bilibili_getx/core/service/utils/constant.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
 
 ///极光推送
 ///https://www.jiguang.cn/push
 class JPushUtil {
+  JPushUtil._internal();
+
+  static final _instance = JPushUtil._internal();
+  static late JPush? jPush = null;
+
+  factory JPushUtil() {
+    jPush ??= JPush();
+    return _instance;
+  }
+
   ///初始化极光推送
-  static void startJPush() {
+  void startJPush() {
     JPush jPush = JPush();
     //配置jPush(不要省略）
     //debug就填debug:true，生产环境production:true
@@ -20,7 +29,7 @@ class JPushUtil {
     ///用RegistrationID单独给某人发送通知
     jPush
         .getRegistrationID()
-        .then((value) => print("Registration id - ${value}"));
+        .then((value) => print("Registration id - $value"));
 
     ///是否开启了通知
     jPush.isNotificationEnabled().then((value) {

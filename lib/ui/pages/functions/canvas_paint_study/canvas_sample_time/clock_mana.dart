@@ -1,14 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'digit.dart';
 import 'particle.dart';
-
-/// create by 张风捷特烈 on 2020/11/7
-/// contact me by email 1981462002@qq.com
-/// 说明:
 
 class ClockManage with ChangeNotifier {
   late List<Particle> particles;
@@ -27,11 +21,9 @@ class ClockManage with ChangeNotifier {
 
   collectParticles(DateTime datetime) {
     count = 0;
-    particles.forEach((Particle element) {
-      if (element != null) {
-        element.active = false;
-      }
-    });
+    for (var element in particles) {
+      element.active = false;
+    }
 
     collectDigit(target: datetime.hour ~/ 10, offsetRate: 0);
     collectDigit(target: datetime.hour % 10, offsetRate: 1);

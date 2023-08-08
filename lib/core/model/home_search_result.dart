@@ -281,8 +281,7 @@ class SearchResultDataItem {
             ? null
             : OfficialVerify.fromJson(json["official_verify"]),
         vip: json["vip"] == null ? null : Vip.fromJson(json["vip"]),
-        isSeniorMember:
-            json["is_senior_member"],
+        isSeniorMember: json["is_senior_member"],
         avItems: json["av_items"] == null
             ? null
             : List<AvItem>.from(
@@ -301,8 +300,7 @@ class SearchResultDataItem {
         danmaku: json["danmaku"],
         author: json["author"],
         ptime: json["ptime"],
-        showCardDesc2:
-            json["show_card_desc_2"],
+        showCardDesc2: json["show_card_desc_2"],
         duration: json["duration"],
         face: json["face"],
         threePoint: json["three_point"] == null
@@ -327,14 +325,11 @@ class SearchResultDataItem {
         region: json["region"],
         online: json["online"],
         badge: json["badge"],
-        cardLeftIcon:
-            json["card_left_icon"],
-        cardLeftText:
-            json["card_left_text"],
+        cardLeftIcon: json["card_left_icon"],
+        cardLeftText: json["card_left_text"],
         seasonId: json["season_id"],
         seasonType: json["season_type"],
-        seasonTypeName:
-            json["season_type_name"],
+        seasonTypeName: json["season_type_name"],
         mediaType: json["media_type"],
         style: json["style"],
         styles: json["styles"],
@@ -355,8 +350,7 @@ class SearchResultDataItem {
         followButton: json["follow_button"] == null
             ? null
             : FollowButton.fromJson(json["follow_button"]),
-        selectionStyle:
-            json["selection_style"],
+        selectionStyle: json["selection_style"],
         episodesNew: json["episodes_new"] == null
             ? null
             : List<EpisodesNew>.from(

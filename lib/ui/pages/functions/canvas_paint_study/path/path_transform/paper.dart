@@ -1,7 +1,4 @@
 import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui';
-import 'dart:ui' as ui;
 
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
@@ -35,10 +32,11 @@ class PaperCustomPainter extends CustomPainter with Grid {
       ..relativeMoveTo(0, 0)
       ..relativeLineTo(-30, 120)
       ..relativeLineTo(30, -30)
-      ..relativeLineTo( 30,30)
+      ..relativeLineTo(30, 30)
       ..close();
-    for(int i = 0; i < 8; i++){
-      canvas.drawPath(path.transform(Matrix4.rotationZ(i*pi/4).storage), paint);
+    for (int i = 0; i < 8; i++) {
+      canvas.drawPath(
+          path.transform(Matrix4.rotationZ(i * pi / 4).storage), paint);
     }
   }
 

@@ -66,7 +66,8 @@ class PathPainter extends CustomPainter with Grid {
     drawAxis(canvas, size);
     Path path = Path()..quadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
     canvas.drawPath(path, _linePaint);
-    canvas.drawPoints(PointMode.lines, [Offset.zero, p1, p1, p2], _otherLinePaint);
+    canvas.drawPoints(
+        PointMode.lines, [Offset.zero, p1, p1, p2], _otherLinePaint);
     canvas.drawPoints(PointMode.points, [Offset.zero, p1, p2], _pointPaint);
   }
 

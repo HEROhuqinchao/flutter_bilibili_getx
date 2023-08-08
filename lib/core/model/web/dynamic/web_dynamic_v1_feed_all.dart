@@ -28,7 +28,9 @@ class WebDynamicV1FeedAllModel {
         code: json["code"],
         message: json["message"],
         ttl: json["ttl"],
-        data: json["data"] == null ? null : WebDynamicV1FeedAllData.fromJson(json["data"]),
+        data: json["data"] == null
+            ? null
+            : WebDynamicV1FeedAllData.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -240,7 +242,7 @@ class ModuleAuthor {
   factory ModuleAuthor.fromJson(Map<String, dynamic> json) => ModuleAuthor(
         face: json["face"],
         faceNft: json["face_nft"],
-        following: json["following"] ,
+        following: json["following"],
         jumpUrl: json["jump_url"],
         label: json["label"],
         mid: json["mid"],
@@ -622,7 +624,9 @@ class Button {
   int? type;
 
   factory Button.fromJson(Map<String, dynamic> json) => Button(
-        jumpStyle: json["jump_style"] == null ? null : JumpStyle.fromJson(json["jump_style"]),
+        jumpStyle: json["jump_style"] == null
+            ? null
+            : JumpStyle.fromJson(json["jump_style"]),
         jumpUrl: json["jump_url"],
         type: json["type"],
       );

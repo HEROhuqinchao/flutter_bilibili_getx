@@ -4,9 +4,11 @@
 
 import 'dart:convert';
 
-SearchSquareModel searchSquareModelFromJson(String str) => SearchSquareModel.fromJson(json.decode(str));
+SearchSquareModel searchSquareModelFromJson(String str) =>
+    SearchSquareModel.fromJson(json.decode(str));
 
-String searchSquareModelToJson(SearchSquareModel data) => json.encode(data.toJson());
+String searchSquareModelToJson(SearchSquareModel data) =>
+    json.encode(data.toJson());
 
 class SearchSquareModel {
   SearchSquareModel({
@@ -21,19 +23,20 @@ class SearchSquareModel {
   int? ttl;
   List<Datum>? data;
 
-  factory SearchSquareModel.fromJson(Map<String, dynamic> json) => SearchSquareModel(
-    code: json["code"],
-    message: json["message"],
-    ttl: json["ttl"],
-    data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-  );
+  factory SearchSquareModel.fromJson(Map<String, dynamic> json) =>
+      SearchSquareModel(
+        code: json["code"],
+        message: json["message"],
+        ttl: json["ttl"],
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "code": code,
-    "message": message,
-    "ttl": ttl,
-    "data": List<dynamic>.from(data!.map((x) => x.toJson())),
-  };
+        "code": code,
+        "message": message,
+        "ttl": ttl,
+        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+      };
 }
 
 class Datum {
@@ -50,18 +53,21 @@ class Datum {
   SearchRankingMeta? searchRankingMeta;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-    type: json["type"],
-    title: json["title"],
-    data: json["data"] == null ? null : Data.fromJson(json["data"]),
-    searchRankingMeta: json["search_ranking_meta"] == null ? null : SearchRankingMeta.fromJson(json["search_ranking_meta"]),
-  );
+        type: json["type"],
+        title: json["title"],
+        data: json["data"] == null ? null : Data.fromJson(json["data"]),
+        searchRankingMeta: json["search_ranking_meta"] == null
+            ? null
+            : SearchRankingMeta.fromJson(json["search_ranking_meta"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "type": type,
-    "title": title,
-    "data": data == null ? null : data!.toJson(),
-    "search_ranking_meta": searchRankingMeta == null ? null : searchRankingMeta!.toJson(),
-  };
+        "type": type,
+        "title": title,
+        "data": data == null ? null : data!.toJson(),
+        "search_ranking_meta":
+            searchRankingMeta == null ? null : searchRankingMeta!.toJson(),
+      };
 }
 
 class Data {
@@ -80,20 +86,21 @@ class Data {
   int? pages;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-    trackid: json["trackid"],
-    list: List<ListElement>.from(json["list"].map((x) => ListElement.fromJson(x))),
-    expStr: json["exp_str"],
-    title: json["title"],
-    pages: json["pages"],
-  );
+        trackid: json["trackid"],
+        list: List<ListElement>.from(
+            json["list"].map((x) => ListElement.fromJson(x))),
+        expStr: json["exp_str"],
+        title: json["title"],
+        pages: json["pages"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "trackid": trackid,
-    "list": List<dynamic>.from(list!.map((x) => x.toJson())),
-    "exp_str": expStr,
-    "title": title,
-    "pages": pages,
-  };
+        "trackid": trackid,
+        "list": List<dynamic>.from(list!.map((x) => x.toJson())),
+        "exp_str": expStr,
+        "title": title,
+        "pages": pages,
+      };
 }
 
 class ListElement {
@@ -132,40 +139,40 @@ class ListElement {
   int? moreSearchType;
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
-    keyword: json["keyword"],
-    status: json["status"],
-    nameType: json["name_type"],
-    showName: json["show_name"],
-    wordType: json["word_type"],
-    icon: json["icon"],
-    position: json["position"],
-    moduleId: json["module_id"],
-    hotId: json["hot_id"],
-    title: json["title"],
-    param: json["param"],
-    type: json["type"],
-    id: json["id"] == null ? null : json["id"].toDouble(),
-    pubTime: json["pub_time"],
-    moreSearchType: json["more_search_type"],
-  );
+        keyword: json["keyword"],
+        status: json["status"],
+        nameType: json["name_type"],
+        showName: json["show_name"],
+        wordType: json["word_type"],
+        icon: json["icon"],
+        position: json["position"],
+        moduleId: json["module_id"],
+        hotId: json["hot_id"],
+        title: json["title"],
+        param: json["param"],
+        type: json["type"],
+        id: json["id"] == null ? null : json["id"].toDouble(),
+        pubTime: json["pub_time"],
+        moreSearchType: json["more_search_type"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "keyword": keyword,
-    "status": status,
-    "name_type": nameType,
-    "show_name": showName,
-    "word_type": wordType,
-    "icon": icon,
-    "position": position,
-    "module_id": moduleId,
-    "hot_id": hotId,
-    "title": title,
-    "param": param,
-    "type": type,
-    "id": id,
-    "pub_time": pubTime,
-    "more_search_type": moreSearchType,
-  };
+        "keyword": keyword,
+        "status": status,
+        "name_type": nameType,
+        "show_name": showName,
+        "word_type": wordType,
+        "icon": icon,
+        "position": position,
+        "module_id": moduleId,
+        "hot_id": hotId,
+        "title": title,
+        "param": param,
+        "type": type,
+        "id": id,
+        "pub_time": pubTime,
+        "more_search_type": moreSearchType,
+      };
 }
 
 class SearchRankingMeta {
@@ -179,15 +186,16 @@ class SearchRankingMeta {
   String? text;
   String? link;
 
-  factory SearchRankingMeta.fromJson(Map<String, dynamic> json) => SearchRankingMeta(
-    openSearchRanking: json["open_search_ranking"],
-    text: json["text"],
-    link: json["link"],
-  );
+  factory SearchRankingMeta.fromJson(Map<String, dynamic> json) =>
+      SearchRankingMeta(
+        openSearchRanking: json["open_search_ranking"],
+        text: json["text"],
+        link: json["link"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "open_search_ranking": openSearchRanking,
-    "text": text,
-    "link": link,
-  };
+        "open_search_ranking": openSearchRanking,
+        "text": text,
+        "link": link,
+      };
 }

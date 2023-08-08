@@ -1,6 +1,3 @@
-import 'dart:typed_data';
-import 'dart:ui';
-
 import 'package:bilibili_getx/ui/pages/functions/canvas_paint_study/mix/grid.dart';
 import 'package:flutter/material.dart';
 
@@ -40,12 +37,12 @@ class PaperCustomPainter extends CustomPainter with Grid {
         Rect.fromCenter(center: Offset.zero, width: 160, height: 160);
     canvas.drawRect(rectFromCenter, _paint);
     Rect rectFromLTRB = Rect.fromLTRB(-120, -120, -80, -80);
-    canvas.drawRect(rectFromLTRB, _paint..color=Colors.red);
+    canvas.drawRect(rectFromLTRB, _paint..color = Colors.red);
     Rect rectFromLTWH = Rect.fromLTWH(80, -120, 40, 40);
     canvas.drawRect(rectFromLTWH, _paint..color = Colors.orange);
     Rect rectFromCircle = Rect.fromCircle(center: Offset(100, 100), radius: 20);
-    canvas.drawRect(rectFromCircle, _paint..color=Colors.green);
-    Rect rectFromPoints= Rect.fromPoints(Offset(-120 , 80),Offset(-80 , 120));
-    canvas.drawRect(rectFromPoints, _paint..color=Colors.purple);
+    canvas.drawRect(rectFromCircle, _paint..color = Colors.green);
+    Rect rectFromPoints = Rect.fromPoints(Offset(-120, 80), Offset(-80, 120));
+    canvas.drawRect(rectFromPoints, _paint..color = Colors.purple);
   }
 }

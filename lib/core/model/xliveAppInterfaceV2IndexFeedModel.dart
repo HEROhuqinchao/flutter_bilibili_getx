@@ -109,9 +109,15 @@ class CardData {
   SmallCardV1? smallCardV1;
 
   factory CardData.fromJson(Map<String, dynamic> json) => CardData(
-        bannerV1: json["banner_v1"] == null ? null : BannerV1.fromJson(json["banner_v1"]),
-        areaEntranceV3: json["area_entrance_v3"] == null ? null : AreaEntranceV3.fromJson(json["area_entrance_v3"]),
-        activityCardV1: json["activity_card_v1"] == null ? null : ActivityCardV1.fromJson(json["activity_card_v1"]),
+        bannerV1: json["banner_v1"] == null
+            ? null
+            : BannerV1.fromJson(json["banner_v1"]),
+        areaEntranceV3: json["area_entrance_v3"] == null
+            ? null
+            : AreaEntranceV3.fromJson(json["area_entrance_v3"]),
+        activityCardV1: json["activity_card_v1"] == null
+            ? null
+            : ActivityCardV1.fromJson(json["activity_card_v1"]),
         smallCardV1: json["small_card_v1"] == null
             ? null
             : SmallCardV1.fromJson(json["small_card_v1"]),
@@ -388,7 +394,9 @@ class BannerV1List {
         sessionId: json["session_id"],
         groupId: json["group_id"],
         isAd: json["is_ad"],
-        adTransparentContent: json["ad_transparent_content"] == null ? null : AdTransparentContent.fromJson(json["ad_transparent_content"]),
+        adTransparentContent: json["ad_transparent_content"] == null
+            ? null
+            : AdTransparentContent.fromJson(json["ad_transparent_content"]),
         showAdIcon: json["show_ad_icon"],
       );
 
@@ -401,8 +409,9 @@ class BannerV1List {
         "session_id": sessionId,
         "group_id": groupId,
         "is_ad": isAd,
-        "ad_transparent_content":
-            adTransparentContent == null ? null : adTransparentContent!.toJson(),
+        "ad_transparent_content": adTransparentContent == null
+            ? null
+            : adTransparentContent!.toJson(),
         "show_ad_icon": showAdIcon,
       };
 }
@@ -568,7 +577,9 @@ class SmallCardV1 {
             json["feedback"].map((x) => Feedback.fromJson(x))),
         flag: json["flag"],
         broadcastType: json["broadcast_type"],
-        acceptQuality: json["accept_quality"] == null ? null : List<int>.from(json["accept_quality"].map((x) => x)),
+        acceptQuality: json["accept_quality"] == null
+            ? null
+            : List<int>.from(json["accept_quality"].map((x) => x)),
         currentQn: json["current_qn"],
         currentQuality: json["current_quality"],
         playUrl: json["play_url"],

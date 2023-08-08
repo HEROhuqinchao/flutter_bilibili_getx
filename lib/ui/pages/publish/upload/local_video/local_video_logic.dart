@@ -16,14 +16,9 @@ class LocalVideoLogic extends GetxController {
     super.onReady();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
   ///获取手机本地的视频
   fetchLocalVideo() {
-    ChannelUtil().getMediaMethodChannel.invokeMethod("getVideos").then((value) {
+    ChannelUtil().media?.invokeMethod("getVideos").then((value) {
       for (int i = 0; i < value.length; i++) {
         state.localVideoList.add(HYLocalVideoModel(
           videoLocation: value[i]["videoLocation"],
@@ -42,8 +37,10 @@ class LocalVideoLogic extends GetxController {
   ///跳转至预编辑界面
   void go2PreEditScreen(int index) {
     Get.put(BilibiliVideoPlayerLogic());
-    BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic = Get.find<BilibiliVideoPlayerLogic>();
-    BilibiliVideoPlayerState bilibiliVideoPlayerState = Get.find<BilibiliVideoPlayerLogic>().state;
+    BilibiliVideoPlayerLogic bilibiliVideoPlayerLogic =
+        Get.find<BilibiliVideoPlayerLogic>();
+    BilibiliVideoPlayerState bilibiliVideoPlayerState =
+        Get.find<BilibiliVideoPlayerLogic>().state;
 
     bilibiliVideoPlayerLogic.initVideoPlayerVideoData();
     bilibiliVideoPlayerState.haveFinishView = false;
@@ -52,7 +49,8 @@ class LocalVideoLogic extends GetxController {
     bilibiliVideoPlayerState.showDanMu = false;
     bilibiliVideoPlayerState.showTopBarHome = false;
     bilibiliVideoPlayerState.showTopBarMore = false;
-    bilibiliVideoPlayerState.videoOriginalUrl = state.localVideoList[index].videoLocation;
+    bilibiliVideoPlayerState.videoOriginalUrl =
+        state.localVideoList[index].videoLocation;
     bilibiliVideoPlayerLogic.initVideoControllerAndDanMuController();
 
     Get.toNamed(PreEditVideoScreen.routeName);

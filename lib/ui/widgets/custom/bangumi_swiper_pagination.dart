@@ -104,21 +104,22 @@ class _RoundRectSwiperPaginationState extends State<RoundRectSwiperPagination> {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: widget.itemCount,
-          childAspectRatio: 5 / 2,
-          crossAxisSpacing: 3.r
-        ),
+            crossAxisCount: widget.itemCount,
+            childAspectRatio: 5 / 2,
+            crossAxisSpacing: 3.r),
         itemBuilder: (BuildContext context, int index) {
-          return index == widget.currentIndex ? Container(
-            decoration: BoxDecoration(
-                color: HYAppTheme.norMainThemeColors,
-                borderRadius: BorderRadius.circular(10.r)),
-          ) : Container(
-            padding: EdgeInsets.symmetric(horizontal: 5.r),
-            decoration: BoxDecoration(
-                color: HYAppTheme.norGrayColor.withOpacity(.7),
-                borderRadius: BorderRadius.circular(10.r)),
-          );
+          return index == widget.currentIndex
+              ? Container(
+                  decoration: BoxDecoration(
+                      color: HYAppTheme.norMainThemeColors,
+                      borderRadius: BorderRadius.circular(10.r)),
+                )
+              : Container(
+                  padding: EdgeInsets.symmetric(horizontal: 5.r),
+                  decoration: BoxDecoration(
+                      color: HYAppTheme.norGrayColor.withOpacity(.7),
+                      borderRadius: BorderRadius.circular(10.r)),
+                );
         },
         itemCount: widget.itemCount,
       ),

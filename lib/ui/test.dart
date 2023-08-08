@@ -42,7 +42,6 @@ class _TestExampleState extends State<TestExample> {
   }
 }
 
-
 class AsrManager {
   static const MethodChannel _channel = MethodChannel('asr_plugin');
 

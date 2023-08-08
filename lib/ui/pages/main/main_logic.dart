@@ -16,7 +16,7 @@ class MainLogic extends GetxController {
     //   }
     // }
     SystemPreferredOrientationsUtil.setVertical();
-    SystemUiOverlayStyleUtil.setWhiteSystemUiOverlayStyle();
+    SystemUiOverlayStyleUtil().setWhiteSystemUiOverlayStyle();
     super.onInit();
   }
 

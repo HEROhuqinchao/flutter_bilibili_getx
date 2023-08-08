@@ -544,17 +544,14 @@ class ListElement {
             : List<SubSkuList>.from(
                 json["subSkuList"].map((x) => SubSkuList.fromJson(x))),
         jumpLinkType: json["jumpLinkType"],
-        hasWishedCount:
-            json["hasWishedCount"],
-        hasWishedDesc:
-            json["hasWishedDesc"],
+        hasWishedCount: json["hasWishedCount"],
+        hasWishedDesc: json["hasWishedDesc"],
         canFav: json["canFav"],
         benefitInfos: json["benefitInfos"] == null
             ? null
             : List<BenefitInfo>.from(
                 json["benefitInfos"].map((x) => BenefitInfo.fromJson(x))),
-        benefitLayout:
-            json["benefitLayout"],
+        benefitLayout: json["benefitLayout"],
         advState: json["advState"] == null
             ? null
             : AdvState.fromJson(json["advState"]),
@@ -994,8 +991,7 @@ class SubIpTab {
         jumpUrl: json["jumpUrl"],
         jumpUrlH5: json["jumpUrlH5"],
         imageUrl: json["imageUrl"],
-        nightImageUrl:
-            json["nightImageUrl"],
+        nightImageUrl: json["nightImageUrl"],
         index: json["index"],
         type: json["type"],
         logo: json["logo"],

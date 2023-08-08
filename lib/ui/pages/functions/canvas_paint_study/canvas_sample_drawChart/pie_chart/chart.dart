@@ -93,10 +93,9 @@ class ChartPainter extends CustomPainter {
         2 * pi * repaint.value,
         false);
     clipPath.close();
-    if(repaint.value != 1.0) {
+    if (repaint.value != 1.0) {
       canvas.clipPath(clipPath);
     }
-
 
     canvas.drawCircle(
       Offset.zero,

@@ -2,7 +2,6 @@
 //
 //     final hyPgcRankListModel = hyPgcRankListModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<HYPgcRankListModel> hyPgcRankListModelFromJson(String str) =>

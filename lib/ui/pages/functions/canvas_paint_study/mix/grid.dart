@@ -7,7 +7,6 @@ mixin Grid {
   late double _step = 20;
   final double _strokeWidth = .5;
   final Color _color = Colors.grey;
-  late Paint _dotPaint;
   late Paint _axisPaint;
   final TextPainter _textPainter =
       TextPainter(textDirection: TextDirection.ltr);

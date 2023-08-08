@@ -6,7 +6,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
-import '../../../shared/app_theme.dart';
 import '../model/media_type_model.dart';
 import '../model/scale_state_enum.dart';
 import '../model/transform_value.dart';

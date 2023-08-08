@@ -17,7 +17,7 @@ class ScanQrLogic extends GetxController {
     super.onClose();
   }
 
-  switchFlashLight() async{
+  switchFlashLight() async {
     state.flashStatus = !state.flashStatus;
     state.mobileScannerController.toggleTorch();
     update();

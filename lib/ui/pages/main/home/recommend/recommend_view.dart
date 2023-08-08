@@ -51,7 +51,8 @@ class _RecommendScreenState extends State<RecommendScreen>
                   },
                   child: Text(
                     SR.refresh.tr,
-                    style: TextStyle(color: HYAppTheme.norWhite01Color, fontSize: 12.sp),
+                    style: TextStyle(
+                        color: HYAppTheme.norWhite01Color, fontSize: 12.sp),
                   ))
             ],
           ),
@@ -74,7 +75,8 @@ class _RecommendScreenState extends State<RecommendScreen>
             logic.loadRecommendItemData();
           },
           child: Padding(
-              padding: EdgeInsets.only(left: 6.r, right: 6.r, top: 4.r, bottom: 0.r),
+              padding:
+                  EdgeInsets.only(left: 6.r, right: 6.r, top: 4.r, bottom: 0.r),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: state.homeRecommendWidgets,

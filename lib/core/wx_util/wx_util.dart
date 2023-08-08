@@ -1,8 +1,6 @@
 // 接入微信，准备实现分享到微信的功能，支付的功能，微信授权登录功能（微信开放平台申请移动应用申请不下来）
 // https://zhuanlan.zhihu.com/p/454111586
 // https://github.com/OpenFlutter/fluwx/blob/master/doc/SHARE.md
-import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:fluwx_no_pay/fluwx_no_pay.dart';
@@ -67,9 +65,7 @@ class WxUtil {
   }
 
   ///分享图片
-  static void shareImage() async {
-    String imagePath;
-  }
+  static void shareImage() async {}
 
   ///跳转至小程序
   static void go2WechatMiniProgram() {

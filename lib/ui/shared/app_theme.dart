@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../shared/shared_util.dart';
 
 class HYAppTheme {
@@ -81,7 +79,6 @@ class HYAppTheme {
   );
 
   ///渐变黑色区域（凸显白色的字）
-
 
   ///默认下的主题
   static final ThemeData norTheme = ThemeData(

@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
   final logic = Get.find<LoginLogic>();
   final state = Get.find<LoginLogic>().state;
 
-   LoginScreen({super.key});
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

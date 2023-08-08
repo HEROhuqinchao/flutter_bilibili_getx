@@ -1,10 +1,8 @@
 import 'package:bilibili_getx/ui/pages/functions/my_we_chat/my_we_chat/wechat_mine/we_chat_setting/we_chat_setting_view.dart';
-import 'package:bilibili_getx/ui/pages/functions/my_we_chat/wechat_login/wechat_login_view.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../core/model/wechat/text_button_model.dart';
 import '../../../../../shared/image_asset.dart';
-import '../wechat_main/wechat_main_logic.dart';
 import 'wechat_mine_state.dart';
 
 class WechatMineLogic extends GetxController {

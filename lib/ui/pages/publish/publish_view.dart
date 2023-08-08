@@ -33,7 +33,7 @@ class PublishScreen extends StatelessWidget {
                 Tab(text: SR.templateAuthoring.tr),
               ],
               indicator: BilibiliRoundUnderlineTabIndicator(
-                insets: EdgeInsets.symmetric(horizontal: 3.r),
+                  insets: EdgeInsets.symmetric(horizontal: 3.r),
                   borderSide: BorderSide(
                       width: 5.sp, color: HYAppTheme.norMainThemeColors)),
               indicatorSize: TabBarIndicatorSize.label,

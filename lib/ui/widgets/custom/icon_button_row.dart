@@ -51,9 +51,8 @@ class _HYIconButtonRowState extends State<HYIconButtonRow> {
             10.verticalSpace,
             Text(
               text,
-              style: TextStyle(
-                  fontSize: 12.sp,
-                  color: HYAppTheme.norGray04Color),
+              style:
+                  TextStyle(fontSize: 12.sp, color: HYAppTheme.norGray04Color),
             )
           ],
         ),

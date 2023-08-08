@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../shared/app_theme.dart';
-import '../wechat_login/wechat_login_view.dart';
 import 'wechat_register_logic.dart';
 
 class WechatRegisterView extends StatelessWidget {

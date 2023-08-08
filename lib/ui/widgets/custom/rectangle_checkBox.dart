@@ -149,7 +149,7 @@ class _RectangleCheckBoxState extends State<RectangleCheckBox> {
           )
         : ClipRRect(
             // borderRadius: BorderRadius.circular(size! / 2),
-      borderRadius: BorderRadius.circular(3.r),
+            borderRadius: BorderRadius.circular(3.r),
             child: AnimatedContainer(
               duration: animationDuration,
               height: size,
