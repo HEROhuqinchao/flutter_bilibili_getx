@@ -9,25 +9,32 @@ part of 'realm_model_data_model.dart';
 class RealmModelDataModel extends _RealmModelDataModel
     with RealmEntity, RealmObjectBase, RealmObject {
   RealmModelDataModel(
-    Uuid uuid,
-    ObjectId id,
-    String text,
-    bool state,
-    int number,
-    DateTime time, {
+    Uuid uuid, {
+    ObjectId? id,
+    RealmValue singleAnyValue = const RealmValue.nullValue(),
+    String? text,
+    bool? state,
+    int? number,
+    DateTime? time,
     String? textNote,
     PartModel? part,
+    Uint8List? binaryList,
+    Iterable<RealmValue> listOfMixedAnyValues = const [],
     Iterable<String> dataList = const [],
     Set<PartModel> partSet = const {},
   }) {
     RealmObjectBase.set(this, 'uuid', uuid);
     RealmObjectBase.set(this, 'id', id);
+    RealmObjectBase.set(this, 'singleAnyValue', singleAnyValue);
     RealmObjectBase.set(this, 'text', text);
     RealmObjectBase.set(this, 'state', state);
     RealmObjectBase.set(this, 'number', number);
     RealmObjectBase.set(this, 'time', time);
     RealmObjectBase.set(this, 'textNote', textNote);
     RealmObjectBase.set(this, 'part', part);
+    RealmObjectBase.set(this, 'binaryList', binaryList);
+    RealmObjectBase.set<RealmList<RealmValue>>(this, 'listOfMixedAnyValues',
+        RealmList<RealmValue>(listOfMixedAnyValues));
     RealmObjectBase.set<RealmList<String>>(
         this, 'dataList', RealmList<String>(dataList));
     RealmObjectBase.set<RealmSet<PartModel>>(
@@ -42,29 +49,45 @@ class RealmModelDataModel extends _RealmModelDataModel
   set uuid(Uuid value) => RealmObjectBase.set(this, 'uuid', value);
 
   @override
-  ObjectId get id => RealmObjectBase.get<ObjectId>(this, 'id') as ObjectId;
+  ObjectId? get id => RealmObjectBase.get<ObjectId>(this, 'id') as ObjectId?;
   @override
-  set id(ObjectId value) => RealmObjectBase.set(this, 'id', value);
+  set id(ObjectId? value) => RealmObjectBase.set(this, 'id', value);
 
   @override
-  String get text => RealmObjectBase.get<String>(this, 'text') as String;
+  RealmValue get singleAnyValue =>
+      RealmObjectBase.get<RealmValue>(this, 'singleAnyValue') as RealmValue;
   @override
-  set text(String value) => RealmObjectBase.set(this, 'text', value);
+  set singleAnyValue(RealmValue value) =>
+      RealmObjectBase.set(this, 'singleAnyValue', value);
 
   @override
-  bool get state => RealmObjectBase.get<bool>(this, 'state') as bool;
+  RealmList<RealmValue> get listOfMixedAnyValues =>
+      RealmObjectBase.get<RealmValue>(this, 'listOfMixedAnyValues')
+          as RealmList<RealmValue>;
   @override
-  set state(bool value) => RealmObjectBase.set(this, 'state', value);
+  set listOfMixedAnyValues(covariant RealmList<RealmValue> value) =>
+      throw RealmUnsupportedSetError();
 
   @override
-  int get number => RealmObjectBase.get<int>(this, 'number') as int;
+  String? get text => RealmObjectBase.get<String>(this, 'text') as String?;
   @override
-  set number(int value) => RealmObjectBase.set(this, 'number', value);
+  set text(String? value) => RealmObjectBase.set(this, 'text', value);
 
   @override
-  DateTime get time => RealmObjectBase.get<DateTime>(this, 'time') as DateTime;
+  bool? get state => RealmObjectBase.get<bool>(this, 'state') as bool?;
   @override
-  set time(DateTime value) => RealmObjectBase.set(this, 'time', value);
+  set state(bool? value) => RealmObjectBase.set(this, 'state', value);
+
+  @override
+  int? get number => RealmObjectBase.get<int>(this, 'number') as int?;
+  @override
+  set number(int? value) => RealmObjectBase.set(this, 'number', value);
+
+  @override
+  DateTime? get time =>
+      RealmObjectBase.get<DateTime>(this, 'time') as DateTime?;
+  @override
+  set time(DateTime? value) => RealmObjectBase.set(this, 'time', value);
 
   @override
   RealmList<String> get dataList =>
@@ -94,6 +117,13 @@ class RealmModelDataModel extends _RealmModelDataModel
       RealmObjectBase.set(this, 'part', value);
 
   @override
+  Uint8List? get binaryList =>
+      RealmObjectBase.get<Uint8List>(this, 'binaryList') as Uint8List?;
+  @override
+  set binaryList(Uint8List? value) =>
+      RealmObjectBase.set(this, 'binaryList', value);
+
+  @override
   Stream<RealmObjectChanges<RealmModelDataModel>> get changes =>
       RealmObjectBase.getChanges<RealmModelDataModel>(this);
 
@@ -108,11 +138,15 @@ class RealmModelDataModel extends _RealmModelDataModel
     return const SchemaObject(
         ObjectType.realmObject, RealmModelDataModel, 'RealmModelDataModel', [
       SchemaProperty('uuid', RealmPropertyType.uuid, primaryKey: true),
-      SchemaProperty('id', RealmPropertyType.objectid),
-      SchemaProperty('text', RealmPropertyType.string),
-      SchemaProperty('state', RealmPropertyType.bool),
-      SchemaProperty('number', RealmPropertyType.int),
-      SchemaProperty('time', RealmPropertyType.timestamp),
+      SchemaProperty('id', RealmPropertyType.objectid, optional: true),
+      SchemaProperty('singleAnyValue', RealmPropertyType.mixed,
+          optional: true, indexType: RealmIndexType.regular),
+      SchemaProperty('listOfMixedAnyValues', RealmPropertyType.mixed,
+          optional: true, collectionType: RealmCollectionType.list),
+      SchemaProperty('text', RealmPropertyType.string, optional: true),
+      SchemaProperty('state', RealmPropertyType.bool, optional: true),
+      SchemaProperty('number', RealmPropertyType.int, optional: true),
+      SchemaProperty('time', RealmPropertyType.timestamp, optional: true),
       SchemaProperty('dataList', RealmPropertyType.string,
           collectionType: RealmCollectionType.list),
       SchemaProperty('partSet', RealmPropertyType.object,
@@ -120,6 +154,7 @@ class RealmModelDataModel extends _RealmModelDataModel
       SchemaProperty('textNote', RealmPropertyType.string, optional: true),
       SchemaProperty('part', RealmPropertyType.object,
           optional: true, linkTarget: 'PartModel'),
+      SchemaProperty('binaryList', RealmPropertyType.binary, optional: true),
     ]);
   }
 }

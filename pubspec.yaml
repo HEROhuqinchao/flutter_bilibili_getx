@@ -37,7 +37,7 @@ dependencies:
   get: ^4.6.5 #getX框架
   permission_handler: ^8.3.0 #权限获取
   flutter_screenutil: ^5.5.3+2 #屏幕适配
-  shared_preferences: ^2.0.15 #共享存储
+  shared_preferences: ^2.2.0 #本地存储
   flutter_smart_dialog: ^4.9.0+6 #弹框
   dio: ^4.0.6 #网络请求
   protobuf: ^2.1.0 #proto
@@ -52,7 +52,7 @@ dependencies:
   video_player: ^2.4.9 #视频播放插件（原版插件）
   chewie: ^1.3.4 #视频播放插件
   #  flutter_downloader: ^1.7.1 #下载
-  device_info_plus: ^4.0.0 #设备信息
+  device_info_plus: ^9.0.2 #设备信息
   path_provider: ^2.0.11 #获取手机的存储路径
   #  flutter_local_notifications: ^9.1.5 #本地通知
   provider: ^6.0.2 #状态管理provider
@@ -73,7 +73,7 @@ dependencies:
   fl_chart: ^0.55.2 #图表
   flare_flutter: ^3.0.2 #精致的flare动画
   lottie: ^1.4.3 #精致的lottie动画
-  rive: ^0.9.1 #精致的rive动画
+  rive: ^0.11.10 #精致的rive动画
   #  fluwx: ^3.11.0 #微信第三方接入
   fluwx_no_pay: ^3.12.2 #微信第三方接入(没有支付)
 #  tencent_kit: ^6.0.1 #QQ第三方接入
@@ -88,7 +88,7 @@ dependencies:
   flutter_floating: ^1.0.1 #浮动窗口
   desktop_window: ^0.4.0 #桌面应用大小
   flutter_svg: ^1.1.6 #svg
-  package_info_plus: ^3.0.2 #获取应用的包名、版本等信息
+  package_info_plus: ^4.0.2 #获取应用的包名、版本等信息
 #  workmanager: ^0.5.1 #workmanager
   excel: ^2.0.1 #生成excel (功能较少）
   syncfusion_flutter_xlsio: ^20.4.49-beta #生成excel 插件二 （功能较多）
@@ -102,8 +102,9 @@ dependencies:
   light_compressor: ^2.0.1 #压缩视频文件
   flutter_image_compress: ^1.1.3 #压缩图片
   image_gallery_saver: ^2.0.1 #保存至相册
-  realm: ^1.2.0 #realm
-  http: any
+  realm: ^1.3.0 #realm
+  http: ^1.1.0
+  graphql: ^5.2.0-beta.5
 
 dev_dependencies:
   flutter_test:
@@ -144,6 +145,7 @@ flutter:
     - assets/emoji/
     - assets/image/wechat/
     - assets/image/canvas/
+    - assets/realm/
 
     # An image asset can refer to one or more resolution-specific "variants", see
     # https://flutter.dev/assets-and-images/#resolution-aware

@@ -7,7 +7,7 @@ class SharedPreferenceUtil {
   static late SharedPreferences? _preferences = null;
 
   ///初始化SharedPreference
-  static void initSharedPreference() async {
+  static Future initSharedPreference() async {
     _preferences ??= await SharedPreferences.getInstance();
   }
 

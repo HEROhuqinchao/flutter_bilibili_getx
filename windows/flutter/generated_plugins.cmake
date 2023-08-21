@@ -6,6 +6,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   desktop_window
   file_selector_windows
   realm
+  rive_common
   url_launcher_windows
 )
 

@@ -28,7 +28,7 @@ Size webScreenSize = const Size(360, 690);
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   if (kIsWeb) {
     ///网页端目前403，无法运行
@@ -39,10 +39,10 @@ void main() async {
     // initialization();
   } else {
     await ScreenUtil.ensureScreenSize();
-    SharedPreferenceUtil.initSharedPreference();
-    await PackageInfoUtil.getInstance();
+    await SharedPreferenceUtil.initSharedPreference();
+    PackageInfoUtil.getInstance();
     // await WorkManagerUtil.initialize();
-    await initialization();
+    initialization();
   }
   runApp(const MyApp());
 }

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bilibili_getx/core/realm/realm_study/realm_model/realm_model_data_model.dart';
+import 'package:bilibili_getx/core/realm/realm_util.dart';
 import 'package:realm/realm.dart';
 
 void main() {
@@ -34,8 +35,12 @@ void main() {
     PartModel("partId02", "partName02"),
   };
 
-  final schemas = [RealmModelDataModel.schema, PartModel.schema];
-
-  final sampleData = RealmModelDataModel(myId, id, text, state, number, time,
-      textNote: textNote, part: part, partSet: partSet);
+  ///读取
+  RealmResults<RealmModelDataModel> results =
+      RealmUtil().realmInstance!.all<RealmModelDataModel>();
+  for (RealmModelDataModel item in results) {
+    print(item.singleAnyValue.value);
+    print(item.listOfMixedAnyValues.map((e) => e.value).toList().toString());
+    print(item.listOfMixedAnyValues.map((e) => e.type).toList().toString());
+  }
 }

@@ -16,7 +16,7 @@ class SqliteUtil {
 
   ///获取数据库(不同用户建立不同数据库）
   static getInstance(String databaseName) async {
-    database ??= await getDatabase("wechat$databaseName.db");
+    database ??= await getDatabase("db_$databaseName.db");
     return _instance;
   }
 
