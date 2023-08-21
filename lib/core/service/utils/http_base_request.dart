@@ -15,58 +15,70 @@ String loginUserAgent =
 String uaWeb =
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.102 Safari/537.36 Edg/104.0.1293.63";
 
+///请求utf8的数据
+Map<String, dynamic> utf8Headers = {
+  HttpHeaders.contentTypeHeader: 'multipart/form-data',
+};
+
+///请求json数据
+Map<String, dynamic> jsonHeaders = {
+  HttpHeaders.acceptHeader: 'application/json,*/*',
+  HttpHeaders.contentTypeHeader: 'application/json',
+  HttpHeaders.userAgentHeader: ua,
+  HttpHeaders.cookieHeader:
+      "buvid3=84F6E053-B579-35E2-C75E-9F554100BE6834154infoc; i-wanna-go-back=-1; _uuid=94524A93-F3710-A7AD-969A-4910FE1010C4FB1033966infoc; buvid4=77036CCD-6634-BC61-5A85-E99F6702D17E34460-022081609-BvEob4vLVHw3RzM780E09A%3D%3D; nostalgia_conf=-1; buvid_fp_plain=undefined; b_ut=5; CURRENT_BLACKGAP=0; fingerprint3=c8c54833688179bbaac5bb4d4247ca3a; PVID=1; b_nut=100; CURRENT_FNVAL=4048; rpdid=|(u|JRu)uJ~R0J'uYYmRR|Ymk; hit-new-style-dyn=0; hit-dyn-v2=1; innersign=0; b_lsid=62951467_184CC882FE4; sid=65oauv6u; bp_video_offset_243766934=734619628907528200; fingerprint=1b0d06d7ec4bc1a0d1038985b61675b7; buvid_fp=1b0d06d7ec4bc1a0d1038985b61675b7; DedeUserID=243766934; DedeUserID__ckMd5=ad56d1c5d71807ca; SESSDATA=09e12e84%2C1685436133%2C51255*c1; bili_jct=fb776c7f2631ed9a402b09211f24a58a"
+};
+
+///请求xml数据
+Map<String, dynamic> xmlHeaders = {
+  HttpHeaders.acceptHeader: 'application/xml,*/*',
+  HttpHeaders.contentTypeHeader: 'application/xml;charset=UTF-8',
+  HttpHeaders.userAgentHeader: ua,
+};
+
+///请求protobuf数据
+Map<String, dynamic> protoHeaders = {
+  HttpHeaders.acceptHeader: '*/*',
+  HttpHeaders.contentTypeHeader: 'application/x-protobuf',
+  HttpHeaders.userAgentHeader: ua,
+};
+
+///请求json数据
+Map<String, dynamic> jsonWebHeaders = {
+  HttpHeaders.acceptHeader: 'application/json,*/*',
+  HttpHeaders.contentTypeHeader: 'application/json',
+  HttpHeaders.userAgentHeader: ua,
+};
+
+///请求xml数据
+Map<String, dynamic> xmlWebHeaders = {
+  HttpHeaders.acceptHeader: 'application/xml,*/*',
+  HttpHeaders.contentTypeHeader: 'application/xml;charset=UTF-8',
+  HttpHeaders.userAgentHeader: ua,
+};
+
+///请求protobuf数据
+Map<String, dynamic> protoWebHeaders = {
+  HttpHeaders.acceptHeader: '*/*',
+  HttpHeaders.contentTypeHeader: 'application/x-protobuf',
+  HttpHeaders.userAgentHeader: ua,
+};
+
 class HttpBaseRequest {
-  ///请求utf8的数据
-  static Map<String, dynamic> utf8Headers = {
-    HttpHeaders.contentTypeHeader: 'multipart/form-data',
-  };
+  ///网络请求实例
+  late Dio _dio;
 
-  ///请求json数据
-  static Map<String, dynamic> jsonHeaders = {
-    HttpHeaders.acceptHeader: 'application/json,*/*',
-    HttpHeaders.contentTypeHeader: 'application/json',
-    HttpHeaders.userAgentHeader: ua,
-    HttpHeaders.cookieHeader:
-        "buvid3=84F6E053-B579-35E2-C75E-9F554100BE6834154infoc; i-wanna-go-back=-1; _uuid=94524A93-F3710-A7AD-969A-4910FE1010C4FB1033966infoc; buvid4=77036CCD-6634-BC61-5A85-E99F6702D17E34460-022081609-BvEob4vLVHw3RzM780E09A%3D%3D; nostalgia_conf=-1; buvid_fp_plain=undefined; b_ut=5; CURRENT_BLACKGAP=0; fingerprint3=c8c54833688179bbaac5bb4d4247ca3a; PVID=1; b_nut=100; CURRENT_FNVAL=4048; rpdid=|(u|JRu)uJ~R0J'uYYmRR|Ymk; hit-new-style-dyn=0; hit-dyn-v2=1; innersign=0; b_lsid=62951467_184CC882FE4; sid=65oauv6u; bp_video_offset_243766934=734619628907528200; fingerprint=1b0d06d7ec4bc1a0d1038985b61675b7; buvid_fp=1b0d06d7ec4bc1a0d1038985b61675b7; DedeUserID=243766934; DedeUserID__ckMd5=ad56d1c5d71807ca; SESSDATA=09e12e84%2C1685436133%2C51255*c1; bili_jct=fb776c7f2631ed9a402b09211f24a58a"
-  };
+  ///单例模式
+  HttpBaseRequest._internal() {
+    _dio = Dio();
+  }
 
-  ///请求xml数据
-  static Map<String, dynamic> xmlHeaders = {
-    HttpHeaders.acceptHeader: 'application/xml,*/*',
-    HttpHeaders.contentTypeHeader: 'application/xml;charset=UTF-8',
-    HttpHeaders.userAgentHeader: ua,
-  };
+  static final _instance = HttpBaseRequest._internal();
 
-  ///请求protobuf数据
-  static Map<String, dynamic> protoHeaders = {
-    HttpHeaders.acceptHeader: '*/*',
-    HttpHeaders.contentTypeHeader: 'application/x-protobuf',
-    HttpHeaders.userAgentHeader: ua,
-  };
-
-  ///请求json数据
-  static Map<String, dynamic> jsonWebHeaders = {
-    HttpHeaders.acceptHeader: 'application/json,*/*',
-    HttpHeaders.contentTypeHeader: 'application/json',
-    HttpHeaders.userAgentHeader: ua,
-  };
-
-  ///请求xml数据
-  static Map<String, dynamic> xmlWebHeaders = {
-    HttpHeaders.acceptHeader: 'application/xml,*/*',
-    HttpHeaders.contentTypeHeader: 'application/xml;charset=UTF-8',
-    HttpHeaders.userAgentHeader: ua,
-  };
-
-  ///请求protobuf数据
-  static Map<String, dynamic> protoWebHeaders = {
-    HttpHeaders.acceptHeader: '*/*',
-    HttpHeaders.contentTypeHeader: 'application/x-protobuf',
-    HttpHeaders.userAgentHeader: ua,
-  };
+  factory HttpBaseRequest() => _instance;
 
   ///baseUrl为基本url，url为参数部分（get请求），和在一起用
-  static Future<T> request<T>(String baseUrl, String url,
+  Future request(String baseUrl, String url,
       {method, params, inter, contentType, responseType}) async {
     ///默认情况下为GET请求
     method = method ?? 'GET';
@@ -89,13 +101,13 @@ class HttpBaseRequest {
       baseOption.baseUrl = Constant.urlWebMap[baseUrl] as String;
     }
 
-    Dio dio = Dio(baseOption);
+    _dio.options = baseOption;
 
     ///userAgent
     if (!kIsWeb) {
       if (Platform.isAndroid) {
-        (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-            (HttpClient client) {
+        (_dio.httpClientAdapter as DefaultHttpClientAdapter)
+            .onHttpClientCreate = (HttpClient client) {
           client.userAgent = null;
           return null;
         };
@@ -146,30 +158,30 @@ class HttpBaseRequest {
     if (inter != null) {
       inters.add(inter);
     }
-    dio.interceptors.addAll(inters);
+    _dio.interceptors.addAll(inters);
 
     ///发送网络请求
     try {
-      dio.options.headers = httpHeaders;
+      _dio.options.headers = httpHeaders;
       Response response;
       if (method == "POST") {
         ///post请求
-        response = await dio.request(url, data: params);
+        response = await _dio.request(url, data: params);
       } else {
         ///get请求
-        response = await dio.request(url);
+        response = await _dio.request(url);
       }
 
       ///打印请求的基本信息
       if (Constant.isDebug) {
         print("-------request begin-------");
-        print("URL：${dio.options.baseUrl + url}");
-        print("请求方式：${dio.options.method}");
+        print("URL：${_dio.options.baseUrl + url}");
+        print("请求方式：${_dio.options.method}");
         print("请求头：");
-        dio.options.headers.forEach((key, value) {
+        _dio.options.headers.forEach((key, value) {
           print("$key : $value");
         });
-        print("响应类型：${dio.options.responseType}");
+        print("响应类型：${_dio.options.responseType}");
         if (method == "POST") {
           print("参数为$params");
         }
@@ -184,38 +196,4 @@ class HttpBaseRequest {
       return Future.error(e);
     }
   }
-
-  ///下载文件
-  ///参考 https://www.jianshu.com/p/21b87161bf0f
-  ///dio的download没有pause，resume功能，故不采用；采用flutter_downloader
-// static Future download(
-//   String url,
-//   String savePath, {
-//   Map<String, dynamic>? queryParams,
-//   required CancelToken cancelToken,
-//   dynamic data,
-//   Options? options,
-//   required void Function(int, int) onReceiveProgress,
-// }) async {
-//   Dio dio = Dio();
-//   try {
-//     return await dio.download(
-//       url,
-//       savePath,
-//       queryParameters: queryParams,
-//       cancelToken: cancelToken,
-//       onReceiveProgress: onReceiveProgress,
-//     );
-//   } on DioError catch (e) {
-//     if (CancelToken.isCancel(e)) {
-//       SmartDialog.showToast('下载已取消!');
-//     } else {
-//       if (e.response != null) {
-//         SmartDialog.showToast(e.response.toString());
-//       }
-//     }
-//   } on Exception catch (e) {
-//     SmartDialog.showToast(e.toString());
-//   }
-// }
 }

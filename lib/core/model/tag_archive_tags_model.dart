@@ -4,9 +4,12 @@
 
 import 'dart:convert';
 
-List<HYTagArchiveTagsModel> hyTagArchiveTagModelFromJson(String str) => List<HYTagArchiveTagsModel>.from(json.decode(str).map((x) => HYTagArchiveTagsModel.fromJson(x)));
+List<HYTagArchiveTagsModel> hyTagArchiveTagModelFromJson(String str) =>
+    List<HYTagArchiveTagsModel>.from(
+        json.decode(str).map((x) => HYTagArchiveTagsModel.fromJson(x)));
 
-String hyTagArchiveTagModelToJson(List<HYTagArchiveTagsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String hyTagArchiveTagModelToJson(List<HYTagArchiveTagsModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class HYTagArchiveTagsModel {
   HYTagArchiveTagsModel({
@@ -47,45 +50,46 @@ class HYTagArchiveTagsModel {
   int hated;
   int extraAttr;
 
-  factory HYTagArchiveTagsModel.fromJson(Map<String, dynamic> json) => HYTagArchiveTagsModel(
-    tagId: json["tag_id"],
-    tagName: json["tag_name"],
-    cover: json["cover"],
-    headCover: json["head_cover"],
-    content: json["content"],
-    shortContent: json["short_content"],
-    type: json["type"],
-    state: json["state"],
-    ctime: json["ctime"],
-    count: Count.fromJson(json["count"]),
-    isAtten: json["is_atten"],
-    likes: json["likes"],
-    hates: json["hates"],
-    attribute: json["attribute"],
-    liked: json["liked"],
-    hated: json["hated"],
-    extraAttr: json["extra_attr"],
-  );
+  factory HYTagArchiveTagsModel.fromJson(Map<String, dynamic> json) =>
+      HYTagArchiveTagsModel(
+        tagId: json["tag_id"],
+        tagName: json["tag_name"],
+        cover: json["cover"],
+        headCover: json["head_cover"],
+        content: json["content"],
+        shortContent: json["short_content"],
+        type: json["type"],
+        state: json["state"],
+        ctime: json["ctime"],
+        count: Count.fromJson(json["count"]),
+        isAtten: json["is_atten"],
+        likes: json["likes"],
+        hates: json["hates"],
+        attribute: json["attribute"],
+        liked: json["liked"],
+        hated: json["hated"],
+        extraAttr: json["extra_attr"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "tag_id": tagId,
-    "tag_name": tagName,
-    "cover": cover,
-    "head_cover": headCover,
-    "content": content,
-    "short_content": shortContent,
-    "type": type,
-    "state": state,
-    "ctime": ctime,
-    "count": count.toJson(),
-    "is_atten": isAtten,
-    "likes": likes,
-    "hates": hates,
-    "attribute": attribute,
-    "liked": liked,
-    "hated": hated,
-    "extra_attr": extraAttr,
-  };
+        "tag_id": tagId,
+        "tag_name": tagName,
+        "cover": cover,
+        "head_cover": headCover,
+        "content": content,
+        "short_content": shortContent,
+        "type": type,
+        "state": state,
+        "ctime": ctime,
+        "count": count.toJson(),
+        "is_atten": isAtten,
+        "likes": likes,
+        "hates": hates,
+        "attribute": attribute,
+        "liked": liked,
+        "hated": hated,
+        "extra_attr": extraAttr,
+      };
 }
 
 class Count {
@@ -100,14 +104,14 @@ class Count {
   int atten;
 
   factory Count.fromJson(Map<String, dynamic> json) => Count(
-    view: json["view"],
-    use: json["use"],
-    atten: json["atten"],
-  );
+        view: json["view"],
+        use: json["use"],
+        atten: json["atten"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "view": view,
-    "use": use,
-    "atten": atten,
-  };
+        "view": view,
+        "use": use,
+        "atten": atten,
+      };
 }

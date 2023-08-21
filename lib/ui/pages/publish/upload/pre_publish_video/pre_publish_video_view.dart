@@ -1,13 +1,13 @@
 import 'package:bilibili_getx/ui/pages/publish/upload/bai_du_map_location/bai_du_map_location_view.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/row_button.dart';
+import 'package:bilibili_getx/ui/widgets/custom/pop_route.dart';
+import 'package:bilibili_getx/ui/widgets/custom/row_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/I18n/str_res_keys.dart';
-import '../../../../widgets/pop_route.dart';
 import 'pre_publish_video_logic.dart';
 
 class PrePublishVideoScreen extends StatelessWidget {
@@ -497,6 +497,7 @@ class PrePublishVideoScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+
                 ///待写
                 // Container(
                 //   decoration: BoxDecoration(

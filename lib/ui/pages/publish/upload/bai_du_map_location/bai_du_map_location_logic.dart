@@ -15,11 +15,13 @@ class BaiDuMapLocationLogic extends GetxController {
 
   @override
   void onReady() {
-    ///初始化百度地图
-    initBaiduMap();
-
     ///请求权限
-    BilibiliPermission.requestBaiDuMapLocationPermissions();
+    BilibiliPermission().requestBaiDuMapLocationPermissions().then((value) {
+      if (value) {
+        ///初始化百度地图
+        initBaiduMap();
+      }
+    });
     super.onReady();
   }
 

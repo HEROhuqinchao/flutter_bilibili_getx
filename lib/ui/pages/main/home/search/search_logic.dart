@@ -12,6 +12,7 @@ class SearchLogic extends GetxController {
   void onReady() {
     ///初始化监听输入框输入
     initFocusNode();
+
     ///获取搜索热词
     initSearchKeywords();
     super.onReady();
@@ -35,7 +36,7 @@ class SearchLogic extends GetxController {
   }
 
   void initSearchKeywords() {
-    HYSearchRequest.getSearchKeywordData().then((value) {
+    HYSearchRequest().getSearchKeywordData().then((value) {
       state.searchKeyword = value;
       state.trendingList = state.searchKeyword.data[0].data!.list!;
       update();
@@ -59,7 +60,7 @@ class SearchLogic extends GetxController {
     hideKeyBoard();
 
     ///获取搜索的结果
-    HYSearchRequest.getSearchResultData(text).then((searchResultData) {
+    HYSearchRequest().getSearchResultData(text).then((searchResultData) {
       ///显示搜索结果
       state.showResult = true;
       state.searchResult = searchResultData;

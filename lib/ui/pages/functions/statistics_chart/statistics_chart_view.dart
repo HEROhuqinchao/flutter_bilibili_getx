@@ -1,11 +1,9 @@
-import 'package:bilibili_getx/core/extension/color_extensions.dart';
+import 'package:bilibili_getx/ui/widgets/custom/legend_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_floating/floating/assist/floating_slide_type.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../widgets/legend_widget.dart';
 import 'statistics_chart_logic.dart';
 
 class StatisticsChartView extends StatelessWidget {
@@ -16,24 +14,26 @@ class StatisticsChartView extends StatelessWidget {
   static const rightBarColor = Color(0xff578eff);
   final logic = Get.find<StatisticsChartLogic>();
   final state = Get.find<StatisticsChartLogic>().state;
-  int touchedIndex = -1;
-  List<Color> gradientColors = [
+  final int touchedIndex = -1;
+  final List<Color> gradientColors = [
     const Color(0xff56cacb),
     const Color(0xff02233b),
   ];
+
+  StatisticsChartView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<StatisticsChartLogic>(builder: (logic) {
       return Scaffold(
         appBar: AppBar(
-          title: Text("图表"),
+          title: const Text("图表"),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             logic.createFloatingView(context);
           },
-          child: Text("浮动"),
+          child: const Text("浮动"),
         ),
         body: Padding(
           padding: EdgeInsets.all(8.r),
@@ -49,7 +49,7 @@ class StatisticsChartView extends StatelessWidget {
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.r),
                   ),
-                  color: Color(0xff232d37),
+                  color: const Color(0xff232d37),
                 ),
                 child: Padding(
                   padding: EdgeInsets.only(
@@ -62,7 +62,7 @@ class StatisticsChartView extends StatelessWidget {
                       ? chart001()
                       // : index == 1
                       //     ? chart002()
-                          : Container(),
+                      : Container(),
                 ),
               );
             },
@@ -166,7 +166,7 @@ class StatisticsChartView extends StatelessWidget {
       text = '1W';
     } else if (value == 50000) {
       text = '5W';
-    }else {
+    } else {
       return Container();
     }
     return SideTitleWidget(
@@ -254,7 +254,7 @@ class StatisticsChartView extends StatelessWidget {
               showTitles: false,
             ))),
         borderData: FlBorderData(
-            show: true, border: Border.all(color: Color(0xff37434d))),
+            show: true, border: Border.all(color: const Color(0xff37434d))),
         minX: 0,
         maxX: 11,
         minY: 0,
@@ -262,18 +262,18 @@ class StatisticsChartView extends StatelessWidget {
         lineBarsData: [
           LineChartBarData(
             spots: [
-              FlSpot(0, 3.67),
-              FlSpot(1, 5.44),
-              FlSpot(2, 4.44),
-              FlSpot(3, 8.54),
-              FlSpot(4, 7.87),
-              FlSpot(5, 4.23),
-              FlSpot(6, 4.98),
-              FlSpot(7, 6.21),
-              FlSpot(8, 5.67),
-              FlSpot(9, 7.44),
-              FlSpot(10, 6.44),
-              FlSpot(11, 8.44),
+              const FlSpot(0, 3.67),
+              const FlSpot(1, 5.44),
+              const FlSpot(2, 4.44),
+              const FlSpot(3, 8.54),
+              const FlSpot(4, 7.87),
+              const FlSpot(5, 4.23),
+              const FlSpot(6, 4.98),
+              const FlSpot(7, 6.21),
+              const FlSpot(8, 5.67),
+              const FlSpot(9, 7.44),
+              const FlSpot(10, 6.44),
+              const FlSpot(11, 8.44),
             ],
             isCurved: true,
             gradient: LinearGradient(
@@ -301,18 +301,18 @@ class StatisticsChartView extends StatelessWidget {
           ),
           LineChartBarData(
             spots: [
-              FlSpot(0, 2.44),
-              FlSpot(1, 5.32),
-              FlSpot(2, 6.54),
-              FlSpot(3, 4.73),
-              FlSpot(4, 7.85),
-              FlSpot(5, 4.24),
-              FlSpot(6, 6.65),
-              FlSpot(7, 2.15),
-              FlSpot(8, 8.74),
-              FlSpot(9, 5.08),
-              FlSpot(10, 7.04),
-              FlSpot(11, 6.23),
+              const FlSpot(0, 2.44),
+              const FlSpot(1, 5.32),
+              const FlSpot(2, 6.54),
+              const FlSpot(3, 4.73),
+              const FlSpot(4, 7.85),
+              const FlSpot(5, 4.24),
+              const FlSpot(6, 6.65),
+              const FlSpot(7, 2.15),
+              const FlSpot(8, 8.74),
+              const FlSpot(9, 5.08),
+              const FlSpot(10, 7.04),
+              const FlSpot(11, 6.23),
             ],
             isCurved: true,
             gradient: LinearGradient(

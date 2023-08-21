@@ -63,7 +63,7 @@ class SearchLocationScreen extends StatelessWidget {
               ),
               10.horizontalSpace,
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Get.back();
                 },
                 child: Text(
@@ -100,15 +100,19 @@ class SearchLocationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(width: 15.sp, height: 15.sp,child: buildSearchLocationItemIcon(detailInfo!.type),),
+                  SizedBox(
+                    width: 15.sp,
+                    height: 15.sp,
+                    child: buildSearchLocationItemIcon(detailInfo!.type),
+                  ),
                   5.horizontalSpace,
                   Container(
                     alignment: Alignment.center,
                     height: 20.sp,
                     child: Text(
                       state.poiInfoList[index].name!,
-                      style:
-                          TextStyle(color: HYAppTheme.norTextColors, fontSize: 14.sp),
+                      style: TextStyle(
+                          color: HYAppTheme.norTextColors, fontSize: 14.sp),
                     ),
                   ),
                 ],

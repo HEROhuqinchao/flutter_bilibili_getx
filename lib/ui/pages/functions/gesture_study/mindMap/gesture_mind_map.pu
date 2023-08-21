@@ -1,0 +1,311 @@
+@startmindmap
+* 手势
+** 竞技层
+***_ GestureArenaManager 竞技场管理者
+***_ GestureArenaMember 竞技场参赛者接口
+***_ _GestureArena 竞技场对象
+***_ GestureArenaEntry 竞技场信息发送器
+** 手势数据层
+***_ PointerEvent
+** 常用手势
+***_ Tap
+****_ onTap
+****_ onTapCancelsz
+****_ onTapDown
+*****_ TapDownDetails
+******_ localPoaition(相对组件左上角)
+******_ globalPosition(相对屏幕左上角)
+******_ kind(触电设备类型)
+****_ onTapUp
+*****_ TapUpDetails
+***_ DoubleTap
+****_ onDoubleTap
+****_ onDoubleTapCancel
+***_ LongPress
+****_ onLongPressStart
+****_ onLongPress
+****_ onLongPressMoveUpdate
+*****_ offsetFromOrigin 开始触点到当前触点(全局)
+*****_ localOffsetFromOrigin 开始触点到当前触点(相对)
+****_ onLongPressEnd
+*****_ localPosition
+*****_ globalPosition
+*****_ velocity 结束时速度
+****_ onLongPressUp
+***_ Pan
+****_ onPanDown
+****_ onPanStart
+*****_ DragStartDetails
+******_ sourceTimeStamp
+******_ kind
+****_ onPanUpdate
+*****_ DragUpdateDetails
+******_ delta
+******_ sourceTimeStamp
+******_ primaryDelta
+****_ onPanEnd
+*****_ DragEndDetails
+******_ velocity
+******_ primaryVelocity
+****_ onPanCancel
+***_ scale
+****_ onScaleStart
+*****_ focalPoint 触电与屏幕接触的焦点(平面左上角)
+*****_ localFocalPoint 触电与屏幕接触的初始焦点(组件左上角)
+*****_ pointCount 触点个数
+****_ onScaleUpdate
+*****_ scale 缩放比例
+*****_ rotation 旋转角度
+****_ onScaleEnd
+*****_ velocity 速度
+** GestureDetector
+***_ Map<Type, GestureRecognizerFactory> gestures 记录需要检测的手势
+***_ Type
+****_ TapGestureRecognizer
+****_ DoubleTapGesturerecognizer
+****_ LongPressGestureRecognier
+****_ VerticalDragGestureRecognizer
+****_ HorizontalDragGestureRecognizer
+****_ PanGestureRecognizer
+****_ ScaleGestureRecognizer
+****_ ForcePressGestureRecognizer
+** RawGestureDetector
+***_ Map<Type, GestureRecognizerFactory> gestures
+***_ HitTestBehavior behavior
+***_ RawGestureDetectorState
+****_ Map<Type, GestureRecognizer> _recognizer
+****_ void syncAll() 维护手势检测器 && 绑定监听
+****_ build()
+*****_ Listener 手势组件
+*****_ PointerEvent 手势事件
+*****_ GestureRecognizer 手势识别器
+** GestureArenaMember
+***_ acceptGesture 通知参赛者处理胜利后逻辑
+***_ rejectGesture 通知参赛者处理失败后逻辑
+** GestureRecognizer
+***_ Object debugOwner 识别器的所有者
+***_ PointDeviceKind _kindFilter 触电类型的过滤
+***_ Map<int, PointerDeviceKind> _pointerToKind 指针id和指针设备类型映射
+***_ addPointer 触点数据注册到手势检测器
+***_ isPointerAllowed 是否允许跟踪指针
+***_ addAllowedPointer 对event注册
+***_ handleNonAllowedPointer 拒绝该触点
+***_ dispose 销毁
+***_ PointDeviceKind getKindForPointer(int pointer) 得到指针类型
+** GestureRecognizer子类
+***_ OneSequenceGestureRecognizer
+****_ 追踪触点和停止追踪触点
+****_ 加入到手势竞技场,获得GestureArenaEntry
+****_ resolve && resolvePointer 获胜或失败
+****_ OneSequenceGestureRecognizer子类
+*****_ PrimaryPointerGestureRecognizer
+******_ handleEvent对触点进行偏移检验
+******_ acceptGesture && rejectGesture 长按手势检测(Timer)
+******_ PrimaryPointerGestureRecognizer子类
+*******_ LongPressGestureRecognizer
+*******_ BaseTapGestureRecognizer
+*****_ ScaleGestureRecognizer
+******_ 维护触点Id的队列 _pointerQueue 检测与屏幕接触的点数
+******_ 胜利的校验 -> _advanceStateMachine -> 偏移量和状态校验
+*****_ DragGestureRecognizer
+******_ 核心: handleEvent -> _hasSufficientGlobalDistanceToAccept
+******_ DragGestureRecognizer子类
+*******_ PanGestureRecognizer
+********_ HorizontalDragGestureRecognizer 偏移dx
+********_ VerticalDragGestureRecognizer 偏移dy
+*******_ VerticalDragGestureRecognizer
+*******_ HorizontalDragGestureRecognizer
+***_ DoubleTapGesturerecognizer
+***_ MultiTapGestureRecognizer
+***_ MultiDragGestureRecognizer
+** 手势竞技场类
+***_ GestureArenaMember参赛者
+****_ 所有的手势检测器对象都可以被视为参赛者
+***_ _GestureArena 竞技场
+****_ List<GestureArenaMember>
+****_ isOpen 竞技场是否开放
+****_ isHeld 竞技场是否挂起
+****_ hasPendingSweep 竞技场是否等待清扫
+****_ eagerWinner渴望胜利的参赛者
+****_ add(member) 新增一个参赛者并加入到memebers
+***_ GestureArenaEntry 竞技场信息发送器 
+****_ GestureArenaManager _arena
+****_ _pointer 触点id
+****_ _member 参赛者
+****_ resolve(GestureDisposition disposition) 职责: 向竞技场对象船底参赛者被接受或被拒绝的消息
+***_ GestureArenaManager 竞技场管理者
+****_ 每个触点对应一个竞技场 Map<int, _GestureArena> _arenas
+****_ add(int pointer, GestureArenaMember member) -> _arenas加一组,竞技场_GestureArena加参赛者member
+****_ hold(int pointer) -> 找不到pointer对应的竞技场_GestureArena
+****_ sweep(int pointer) 未挂起时,根据pointer移除_arenas中对应竞技场 -> pointer的竞技场第一个元素宣判获胜
+****_ release(int pointer) 是否挂起,决定是否要sweep
+****_ close(int pointer) -> isOpen=false; _tryToResolveArena
+****_ 四个裁决方法
+*****_ _resolveInFavorOf 移除竞技场,宣布指定member胜利
+*****_ _resolveByDefault 移除竞技场,宣布唯一member胜利
+*****_ _tryToResolveArena 根据竞技场人数判断
+*****_ _resolve 根据disposition对竞技场内的参赛者member进行接受或拒绝
+** 手势进入竞技场的过程(以TapGestureRecognizer)
+***_ RawGestureDetector
+****_ syncAll初始化手势检测映射
+****_ 点击,Listener触发[onPointerDown: _handlePointerDown] -> recognizer.addPointer
+***_ isPointerAllowed 校验-触点是否允许
+****_ isPointerAllowed: TapGestureRecognizer -> GestureDetector
+***_ addAllowedPointer 触点注册到手势检测器
+****_ _down && _up
+***_ startTrackingPointer 追踪触点
+****_ 将handleEvent注册到GestureBinding.pointerRouter触点路由
+****_ handleEvent接受到该触点被GestureBinding分发的所有事件
+***_ 触点的维护
+****_ Map<int, GestureArenaEntry> _entries 触点对应竞技场信息发送器
+****_ Set<int> _trackedPointers 维护触点
+***_ 触点加入竞技场 _addPointerToArena
+****_ 通过_addPointerToArena得到GestureArenaEntry(使用GestureBinding.gestureArena将参赛者加入到竞技场)
+****_ 没有竞技场会创建竞技场并返回GestureArenaEntry
+** 单机手势检测器进入竞技场之后
+***_ 参赛者状态 ready -> possible
+***_ 延迟任务开启
+***_ 定义时长deadline
+***_ 延迟执行 didExceedDeadline
+***_ 延迟任务的取消 _stopTimer
+** 单击手势检测器执行回调
+***_ handleEvent触发
+****_ GestureBinding.dispatchEvent分发事件
+****_ pointerRouter.route方法会执行注册进来的方法 -> handleEvent
+***_ handleEvent判断逻辑
+****_ _gestureAccepted 参赛则胜利
+****_ preAcceptSlopTolerance 18逻辑像素
+***_ handlePrimaryPointer 
+****_ PointerUpEvent 检测抬起
+****_ PointerCancelEvent 检测取消
+****_ event.button 检测类型
+***_ 单击事件回调何时触发
+****_ 竞技场管理者执行close
+****_ _tryToResolveArena 尝试裁决
+****_ acceptGesture 逻辑判断后触发胜利者方法
+****_ 执行 handlePrimaryPointer 触发onTapUp
+***_ 触点追踪的取消
+****_ PointerUpEvent || PointerCancelEvent -> stopTrackingPointer
+** 竞技场视角看待单击事件
+***_ 竞技场的创建
+****_ 竞技场add方法
+****_ 得到竞技场state并加入参赛者member
+***_ 竞技场的裁决触发
+****_ 单个单击手势 -> 没有和竞技场联系
+****_ super.resolve -> 遍历_entries通过resolve发送disposition,交由竞技场管理者处理
+***_ 竞技场裁决逻辑
+****_ resolve -> 若拒绝则触发参赛者的rejectGesture
+***_ 单击手势被拒绝时
+****_ rejectGesture
+****_ 停止计时器 && 维护状态量
+****_ 触发onTapCancel
+***_ 单击手势何时会胜利
+****_ 单击手势没有resolve(GestureDisposition.accepted)
+****_ 只有 _resolveByDefault
+***_ 竞技场的关闭与清扫
+****_ GestureBinding 触发 handleEvent
+****_ PointerDownEvent -> close; PointerUpEvent -> sweep;
+** 双击手势检测器(DoubleTapGesturerecognizer)
+***_ 校验触点是否允许 isPointerAllowed
+****_ 非_firstTap不被注册
+****_ 三个回调函数都为null不被注册
+***_ addAllowedPointer
+****_ 双击计时器 _doubleTapTimer
+****_ _trackTap -> 创建_TapTracker
+*****_ TapTracker(记录落下时的触点信息)
+******_ event PointerDownEvent 指针数据
+******_ entry GestureArenaEntry 传递给竞技场的消息
+******_ doubleTapMinTime Duration 双击的最小时长
+***_ _handleUpEvent
+****_ 整体逻辑
+*****_ PointerEvent
+*****_ PointerDownEvent
+*****_ PointerCancelEvent
+****_ 移动距离校验
+*****_ isWithinGlobalTolerance
+****_ 注册第一点
+*****_ 开启双击计时器
+*****_ 挂起竞技场(单击与双击)
+*****_ 冻结追踪器(stopTrackingPointer -> 将_handleEvent从pointerRouter移除)
+*****_ 清空追踪(_clearTrackers) -> 清空trackers
+****_ 第二点
+*****_ isPointerAllowed
+*****_ addAllowedPointer
+******_ isWithinGlobalTolerance -> 检测两次点击是否小于tolerance
+******_ hasElapsedMinTime || hasSameButton -> 检验最短超时时间 || 检验两次点击按键类型是否一致
+******_ onDoubleTapDown != null
+*****_ onDoubleTapDown 
+******_ 生成TapDownDetails
+******_ invokeCallback回调onDoubleTapDown
+******_ _trackTap
+******_ GestureBinding.dispatchEvent -> _handleEvent -> _registerSecondTap
+*****_ onDoubleTap
+******_ _registerSecondTap -> tracker.entry.resolve(GestureDisposition.accepted) 主动宣布胜利
+******_ 停止追踪tracker
+******_ 触发onDoubleTap回调
+*****_ onDoubleTapCancel
+******_ 在_reject & _reset 触发
+******_ _doubleTapTimer超时会_reset,第二次的点击_firstTap为null -> 不会触发onDoubleCancel
+*****_ 总结
+******_ kDoubleTapMinTime = 40ms 限制双击最小时间
+******_ kDoubleTapTimeout = 300ms 限制双击最大时间
+******_ kDoubleTapTouchSlop = 18逻辑像素 限制第一次点击移动距离
+******_ kDoubleTapSlop = 100逻辑像素 限制第二次点击移动距离
+** 竞技场视角看双击事件
+***_ 竞技场的创建和参赛者入场
+****_ 按下 -> _trackTap -> 竞技场管理者add
+***_ 竞技场裁决
+****_ _reject -> tracker.entry.resolve() -> 竞技场管理者裁决
+****_ 满足双击 -> _registerSecondTap -> 表示自己获胜
+***_ 双击事件中成功和失败的回调
+****_ _registerSecondTap 胜利必然
+****_ 当竞技失败时,除了rejectGesture外,也是需要rejected来告诉竞技场让我离场的
+***_ 竞技场的释放release
+****_ _reset -> release -> isHeld = false -> 分胜负
+** listener
+***_ 回调事件
+****_ onPointerDown
+****_ onPointerMove
+****_ onPointerUp
+****_ onPointerCancel
+****_ onPointerHover
+****_ onPointerSignal
+***_ 回调触发方式
+****_ GestureBinding 进行事件分发
+***_ 与RawGestureDetector关系
+****_ 手势检测器addPointer
+****_ startTrackingPointOne -handleMyEvent-> 注入到pointerRouter
+****_ 触点变化回调handleMyEvent
+***_ 组件分发回调事件
+****_ RenderPointerListener
+*****_ RenderProxyBoxWithHitTestBehavior
+******_ hitTest
+******_ hitTestSelf
+******_ HitTestBehavior 处理点击行为
+*******_ deferChild(子组件响应)
+*******_ opaque(自身相应，不影响后者)
+*******_ translucent(半透明)
+***_ 维护RenderObject对象
+****_ createRenderObject
+****_ updateRenderObject
+***_ handleEvent 出处
+****_ GestureBinding.dispatchEvent -> HitTestResult -> hitTestResult.path -> HitTestTarget
+****_ RenderObject implement HitTestTarget -> target.handleEvent
+****_ _handlePointerEventImmediately -> HitTest(HitTestResult, event.position)
+****_ RenderBinding.hitTest -> renderView.hitTest(根节点执行hitTest)
+***_ 渲染过程
+****_ Widget
+*****_ 创建Element
+*****_ 创建和维护RenderObject
+****_ Element
+*****_ 随着根节点的mount -> 创建Element -> 挂载 -> 元素树
+*****_ renderView = RenderObject数根节点
+***_ hitTest
+****_ 引用传递 -> 树中每一个RenderObject执行add(HitTestEntry(this))
+** 总结
+***_ 按下 -> GestureBinding 事件分发
+***_ _handlePointerEventImmediately -> renderView.hitTest -> 渲染对象树所有节点hitTest
+***_ 满足测试的渲染对象 ->dispatchEvent -> 触发handleEvent
+***_ RenderPointerListener监听触点事件 -> Listener -> RawGestureDetector
+***_ 触点关联手势检测器 -pointerRouter追踪触点-> 分发事件接收通知 -> 回调方法进行手势校验 -> 胜负判定 
+@endmindmap

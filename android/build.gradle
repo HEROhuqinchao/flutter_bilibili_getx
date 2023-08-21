@@ -1,27 +1,26 @@
 buildscript {
-    ext.kotlin_version = '1.7.20'
+    ext.kotlin_version = '1.8.22'
     repositories {
-        maven { url 'https://mirrors.cloud.tencent.com/gradle/'; allowInsecureProtocol = true }
-        maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/'; allowInsecureProtocol = true }
-        maven { url 'https://maven.aliyun.com/repository/google/'; allowInsecureProtocol = true }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'; allowInsecureProtocol = true }
-        maven { url 'https://developer.huawei.com/repo/'; allowInsecureProtocol = true }
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.0'
+        classpath 'com.android.tools.build:gradle:7.1.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.huawei.agconnect:agcp:1.6.0.300'
+        classpath 'com.huawei.hms:push:6.5.0.300'
+        classpath 'cn.jiguang.sdk.plugin:huawei:4.8.4'
     }
 }
 
 allprojects {
     repositories {
-        maven { url 'https://mirrors.cloud.tencent.com/gradle/'; allowInsecureProtocol = true }
-        maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/'; allowInsecureProtocol = true }
-        maven { url 'https://maven.aliyun.com/repository/google/'; allowInsecureProtocol = true }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'; allowInsecureProtocol = true }
-        maven { url 'https://developer.huawei.com/repo/'; allowInsecureProtocol = true }
+        google()
+        mavenCentral()
+        maven {url 'https://developer.huawei.com/repo/'}
     }
 }
 
@@ -33,6 +32,6 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-task clean(type: Delete) {
+tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }

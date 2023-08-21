@@ -1,10 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import '../../../../core/channel/bilibili_channel.dart';
-import '../../../../core/model/local_image_model.dart';
-import '../../../../core/model/local_video_model.dart';
 
 class UploadState {
   // ///上传的数据类型

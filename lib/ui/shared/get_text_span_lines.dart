@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
 Widget buildTextLineTest(
-    {required String text, required TextStyle textStyle, required double maxWidth, required int maxLines}) {
+    {required String text,
+    required TextStyle textStyle,
+    required double maxWidth,
+    required int maxLines}) {
   return LayoutBuilder(
     builder: (ctx, con) {
       final span = TextSpan(

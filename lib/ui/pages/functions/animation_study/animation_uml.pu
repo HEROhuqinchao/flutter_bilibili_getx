@@ -1,0 +1,39 @@
+@startuml
+abstract class Listenable
+abstract class Animatable {
+    transform()
+    animate()
+    chain()
+}
+class Animation {
+    addListener()
+    addStatusListener()
+}
+class AnimationController {
+    forward()
+    fling()
+    reverse()
+    repeat()
+}
+note bottom :"动画控制器"
+class Tween {
+    double begin
+    double end
+}
+class TweenSquence {
+    TweenSquenceItem[]
+}
+class CurveTween {
+    Animation animation
+}
+class AnimationBuilder {
+    Listenable listenable
+    builder()
+}
+note left: "widget组件"
+Listenable <|-- Animation
+Listenable <|-- AnimationController
+Animatable <|-- Tween
+Animatable <|-- TweenSquence
+Animatable <|-- CurveTween
+@enduml

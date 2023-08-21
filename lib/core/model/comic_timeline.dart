@@ -2,7 +2,6 @@
 //
 //     final hyComicTimelineModel = hyComicTimelineModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 HyComicTimelineModel hyComicTimelineModelFromJson(String str) =>

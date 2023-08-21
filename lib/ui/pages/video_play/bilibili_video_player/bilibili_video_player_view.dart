@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
+import 'package:bilibili_getx/ui/widgets/custom/progress_bar_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -13,11 +14,12 @@ import 'package:video_player/video_player.dart';
 import 'dart:ui' as ui;
 import '../../../../core/permission/bilibili_permission.dart';
 import '../../../shared/math_compute.dart';
-import '../../../widgets/progress_bar_painter.dart';
 import 'bilibili_video_player_logic.dart';
 
 ///视频播放界面，传入视频源（videoOriginalUrl），控制需要显示的组件即可
 class BilibiliVideoPlayerComponent extends StatefulWidget {
+  const BilibiliVideoPlayerComponent({super.key});
+
   @override
   State<BilibiliVideoPlayerComponent> createState() =>
       _BilibiliVideoPlayerComponentState();
@@ -76,11 +78,9 @@ class _BilibiliVideoPlayerComponentState
 
   ///垂直视频
   Widget buildVerticalVideo() {
-    return Container(
-      child: Text(
-        "垂直视频功能待完善",
-        style: TextStyle(color: HYAppTheme.norWhite01Color, fontSize: 15.sp),
-      ),
+    return Text(
+      "垂直视频功能待完善",
+      style: TextStyle(color: HYAppTheme.norWhite01Color, fontSize: 15.sp),
     );
   }
 
@@ -125,6 +125,7 @@ class _BilibiliVideoPlayerComponentState
 
   Widget buildBilibiliVideoProgressBar(context) {
     return GestureDetector(
+      ///拖动
       onHorizontalDragStart: (DragStartDetails details) {
         logic.videoPlayProgressOnHorizontalDragStart();
       },
@@ -135,6 +136,8 @@ class _BilibiliVideoPlayerComponentState
       onHorizontalDragEnd: (DragEndDetails details) {
         logic.videoPlayProgressOnHorizontalDragEnd();
       },
+
+      ///点击
       onTapDown: (TapDownDetails details) {
         logic.videoPlayProgressOnTapDown(context, details.globalPosition);
       },
@@ -192,7 +195,7 @@ class _BilibiliVideoPlayerComponentState
 
   ///水平视频
   Widget buildHorizonVideo() {
-    print("state.showTopBar -- ${state.showTopBar}");
+    // print("state.showTopBar -- ${state.showTopBar}");
     return GestureDetector(
       onTap: () {
         logic.cancelAndRestartTimer();
@@ -217,6 +220,7 @@ class _BilibiliVideoPlayerComponentState
                   ),
                 ),
               ),
+
               ///顶部状态栏
               Positioned(
                 top: 0,
@@ -250,8 +254,8 @@ class _BilibiliVideoPlayerComponentState
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             GestureDetector(
-                              onTap: (){
-                                print("返回");
+                              onTap: () {
+                                // print("返回");
                                 Get.back();
                               },
                               child: Icon(
@@ -261,40 +265,47 @@ class _BilibiliVideoPlayerComponentState
                               ),
                             ),
                             30.horizontalSpace,
-                            state.showTopBarHome ? Image.asset(
-                              ImageAssets.videoHomePNG,
-                              width: 20.sp,
-                              height: 20.sp,
-                              fit: BoxFit.cover,
-                            ) : Container(),
+                            state.showTopBarHome
+                                ? Image.asset(
+                                    ImageAssets.videoHomePNG,
+                                    width: 20.sp,
+                                    height: 20.sp,
+                                    fit: BoxFit.cover,
+                                  )
+                                : Container(),
                           ],
                         ),
-                        state.showTopBarMore ? GestureDetector(
-                          onTap: () {
-                            ///请求下载的权限
-                            BilibiliPermission.requestDownloadPermissions();
+                        state.showTopBarMore
+                            ? GestureDetector(
+                                onTap: () async {
+                                  ///请求下载的权限
+                                  final value = await BilibiliPermission()
+                                      .requestPhotosPermissions();
 
-                            ///初始化下载列表
-                            logic.iniDownloadList();
+                                  ///初始化下载列表
+                                  logic.iniDownloadList();
 
-                            ///创建下载目录
-                            logic.iniDownloadFilePath();
+                                  ///创建下载目录
+                                  logic.iniDownloadFilePath();
 
-                            ///弹出界面
-                            showVideoShareAndMoreFunctionBottomDialog(context);
-                          },
-                          child: Image.asset(
-                            ImageAssets.moreAndroidLightPNG,
-                            width: 20.sp,
-                            height: 20.sp,
-                            fit: BoxFit.cover,
-                          ),
-                        ) : Container()
+                                  ///弹出界面
+                                  showVideoShareAndMoreFunctionBottomDialog(
+                                      context);
+                                },
+                                child: Image.asset(
+                                  ImageAssets.moreAndroidLightPNG,
+                                  width: 20.sp,
+                                  height: 20.sp,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                            : Container()
                       ],
                     ),
                   ),
                 ),
               ),
+
               ///底部状态栏
               Positioned(
                 bottom: 0,
@@ -614,7 +625,7 @@ class _BilibiliVideoPlayerComponentState
                   },
                   itemCount: 11,
                   separatorBuilder: (BuildContext context, int index) {
-                    return Container(
+                    return SizedBox(
                       width: 20.r,
                       height: 20.r,
                     );
@@ -698,7 +709,7 @@ class _BilibiliVideoPlayerComponentState
                   },
                   itemCount: 10,
                   separatorBuilder: (BuildContext context, int index) {
-                    return Container(
+                    return SizedBox(
                       width: 20.r,
                       height: 20.r,
                     );
@@ -734,7 +745,7 @@ class _BilibiliVideoPlayerComponentState
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
+          SizedBox(
             width: 45.r,
             height: 45.r,
             child: Image.asset(imageName),
@@ -752,7 +763,7 @@ class _BilibiliVideoPlayerComponentState
       builder: (BuildContext context) {
         return GetBuilder<BilibiliVideoPlayerLogic>(builder: (logic) {
           return SingleChildScrollView(
-            child: Container(
+            child: SizedBox(
               height: .5.sh,
               child: Column(
                 children: [
@@ -796,7 +807,7 @@ class _BilibiliVideoPlayerComponentState
                           DownloadTaskStatus.complete) {
                         final String filePath =
                             state.downloadVideoList[index].storagePath!;
-                        final result = await OpenFile.open(filePath);
+                        await OpenFile.open(filePath);
                         SmartDialog.showToast("已下载");
                       }
                     },

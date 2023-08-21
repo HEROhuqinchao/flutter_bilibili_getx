@@ -1,5 +1,7 @@
 import 'dart:isolate';
 
+import 'package:bilibili_getx/ui/widgets/custom/expanded_widget.dart';
+import 'package:bilibili_getx/ui/widgets/custom/primary_scroll_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,8 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/model/android/video_play/download_video_model.dart';
 import '../../../core/model/android/video_play/video_profile_model.dart';
 import '../../../core/model/video_reply_model.dart';
-import '../../widgets/expanded_widget.dart';
-import '../../widgets/primary_scroll_container.dart';
 
 class VideoPlayState {
   late String aid;

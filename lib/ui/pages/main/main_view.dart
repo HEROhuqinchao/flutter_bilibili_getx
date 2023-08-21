@@ -1,5 +1,7 @@
+import 'package:animations/animations.dart';
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
 import 'package:bilibili_getx/ui/pages/bilibili_test/bilibili_test_view.dart';
+import 'package:bilibili_getx/ui/pages/functions/flutter_android/flutter_android_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -10,7 +12,6 @@ import '../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../core/shared_preferences/shared_preference_util.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/image_asset.dart';
-import '../functions/blue_tooth_connection/blue_tooth_connection_view.dart';
 import '../functions/push_message/push_message_view.dart';
 import '../functions/qq_share/qq_share_view.dart';
 import '../functions/statistics_chart/statistics_chart_view.dart';
@@ -18,24 +19,35 @@ import '../functions/wx_share/wx_share_view.dart';
 import '../publish/publish_view.dart';
 import 'main_logic.dart';
 
-class MainScreen extends StatelessWidget {
+class MainView extends StatelessWidget {
   static const String routeName = "/main";
+  final logic = Get.find<MainLogic>();
+  final state = Get.find<MainLogic>().state;
 
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<MainLogic>();
-    final state = Get.find<MainLogic>().state;
     return GetBuilder<MainLogic>(
       builder: (logic) {
         return SafeArea(
           child: Scaffold(
-            body: IndexedStack(
-              ///显示哪一个页面
-              index: state.currentIndex,
-
-              ///显示那些页面
-              children: state.mainIndexStackPages,
+            ///页面切换动画效果
+            body: PageTransitionSwitcher(
+              transitionBuilder: (child, animation, secondaryAnimation) {
+                return FadeThroughTransition(
+                  animation: animation,
+                  secondaryAnimation: secondaryAnimation,
+                  child: child,
+                );
+              },
+              child: state.mainIndexStackPages[state.currentIndex],
             ),
+            // body: IndexedStack(
+            //   ///显示哪一个页面
+            //   index: state.currentIndex,
+            //
+            //   ///显示那些页面
+            //   children: state.mainIndexStackPages,
+            // ),
 
             ///底部导航栏
             bottomNavigationBar: BottomNavigationBar(
@@ -63,11 +75,12 @@ class MainScreen extends StatelessWidget {
                 buildBottomNavigationBarItem(SR.mall.tr.toUpperCase(), "vip"),
                 buildBottomNavigationBarItem(SR.mine.tr.toUpperCase(), "mine"),
               ],
-              onTap: (index) {
+              onTap: (index) async {
                 ///发布界面
                 if (index == 2) {
-                  BilibiliPermission.requestUploadPermissions();
-                  Get.toNamed(PublishScreen.routeName);
+                  final value =
+                      await BilibiliPermission().requestPhotosPermissions();
+                  if (value) Get.toNamed(PublishScreen.routeName);
                 } else {
                   logic.updateCurrentIndex(index);
                 }
@@ -85,7 +98,7 @@ class MainScreen extends StatelessWidget {
                   label: '统计',
                   child: ImageIcon(
                     AssetImage(ImageAssets.chartsCustomPNG),
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -96,7 +109,7 @@ class MainScreen extends StatelessWidget {
                   label: '推送',
                   child: Icon(
                     Icons.announcement_sharp,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -107,29 +120,28 @@ class MainScreen extends StatelessWidget {
                   label: 'QQ分享',
                   child: Icon(
                     Icons.share,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
                   backgroundColor: HYAppTheme.norWhite01Color,
-                  onTap: () {
-                    Get.toNamed(BlueToothConnectionView.routeName);
-                  },
+                  onTap: () {},
                   label: '蓝牙',
                   child: Icon(
                     Icons.bluetooth,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
                   backgroundColor: HYAppTheme.norWhite01Color,
                   onTap: () {
+                    Get.to;
                     Get.toNamed(WxShareView.routeName);
                   },
                   label: '微信分享',
                   child: Icon(
                     Icons.wechat,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -151,7 +163,7 @@ class MainScreen extends StatelessWidget {
                   label: '切换语言',
                   child: Icon(
                     Icons.abc,
-                    size: 10.h,
+                    size: 10.r,
                   ),
                 ),
                 SpeedDialChild(
@@ -162,7 +174,18 @@ class MainScreen extends StatelessWidget {
                   label: '小窗口',
                   child: Icon(
                     Icons.desktop_windows_sharp,
-                    size: 10.h,
+                    size: 10.r,
+                  ),
+                ),
+                SpeedDialChild(
+                  backgroundColor: HYAppTheme.norWhite01Color,
+                  onTap: () {
+                    Get.toNamed(FlutterAndroidView.routeName);
+                  },
+                  label: 'Android原生',
+                  child: Icon(
+                    Icons.android_rounded,
+                    size: 10.r,
                   ),
                 ),
               ],
@@ -173,11 +196,12 @@ class MainScreen extends StatelessWidget {
     );
   }
 
+  ///发布按钮
   BottomNavigationBarItem buildBottomNavigationBarCenterBarItem() {
     return BottomNavigationBarItem(
       label: "",
       icon: Container(
-        margin: EdgeInsets.only(top: 8.h),
+        margin: EdgeInsets.only(top: 8.r),
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15).r,
         decoration: BoxDecoration(
           color: HYAppTheme.norMainThemeColors,

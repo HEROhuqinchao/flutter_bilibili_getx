@@ -1,0 +1,271 @@
+@startmindmap
+* Flutter动画
+** 动画器
+*** Curve
+****_ transform (按照某种规则变化的数值变化器)
+*** Animation
+**** CurveAnimation
+*****_ parent
+*****_ curve
+**** AnimationController
+*****_ 属性
+******_ value 初始值
+******_ duration 时长
+******_ reverseDuration 反向时长
+******_ lowerBound 下界
+******_ upperBound 上界
+******_ animationBehavior 行为
+*****_ TickerProvider 轨迹
+*****_ 流程
+******_ 创建
+******_ 销毁
+*******_ dispose
+******_ 动画操作
+*******_ forward 前
+*******_ reverse 返
+*******_ repeat 重复
+*******_ reset 重置
+*******_ stop 停止
+*******_ fling 运动阻尼(animateWith)
+*******_ animateTo 运动到Target
+*******_ animateBack 反向运动到Target
+******_ 界面更新
+*******_ AnimatedBuilder (局部)
+********_ controller.value (可监听对象Listenable)
+*****_ 监听动画器状态
+******_ addSttusListener(AnimationStatus)
+*******_ dismissed 下界
+*******_ forward 下往上
+*******_ reverse 反向
+*******_ completed 上界
+*** Animatable
+**** 抽象方法
+*****_ value = transform(value)
+*****_ value = evaluate(controller)
+*****_ animation = animate(Animation)
+*****_ animatable = chain(Animatable)
+
+**** Tween
+*****_ (begin to end) & leap 方法
+*****_ ColorTween
+*****_ CurveTween(curve)
+*****_ TextStyleTween
+**** TweenSequence([TweenSequenceItem])
+
+** 实现动画的一般流程
+*** 分析动画静态如何构建
+****_ 一般组件
+****_ Canvas绘制(CustomPaint + CustomPainter)
+*** 分析动画执行的变化量
+****_ 位置的变化 Offset/Path
+****_ 旋转 canvas.rotate
+****_ 大小颜色等
+*** 构建动画器
+****_ AnimationController
+*** 定义动画如何变化
+****_ 1.Animatable
+*****_ tween
+*****_ tweenSequence
+****_ 2.animation
+*****_ Animatable.animate(animation)
+****_ 3.value
+*****_ Animatable.evaluate(animation)
+*****_ Animatable.transform(animation.value)
+*** 动画结合静态属性使组件运动，并刷新界面
+****_ CustomPainter(repaint: animation)
+****_ setState()
+*** 注意事项
+****_ setState() 频率低可以使用
+****_ Listenable 频率高需要局部刷新
+
+** 动画组件
+*** 显示动画
+****_ 常用组件
+*****_ AnimatedWidget
+******_ RotationTransion 旋转
+******_ DecoratedBoxTransition decoration动画
+******_ ScaleTransition 缩放
+******_ SlideTansition 平移
+******_ AlignTransition 对齐至某一位置
+*****_ AnimatedBuilder
+****_ 优缺点
+*****_ 局部刷新
+*****_ 需传入动画器,操作动画器
+*****_ 动画器服务多个显式动画组件
+****_ 源码层面
+*****_ AnimatedWidget / _AnimatedState
+******_ Listenable -> didUpdateWidget(listenable) -> setState()
+*****_ AnimatedBuilder
+******_ Listenable + builder
+*** 隐式动画
+****_ 常用组件
+*****_ AnimatedOpacity 透明度
+*****_ AnimatedDefaultTextStyle 文字样式
+*****_ AnimatedAlign 对齐
+*****_ AnimatedContainer 容器动画
+*****_ TweenAnimationBuidler 渐变动画器
+****_ 优缺点
+*****_ 无需传入动画器,每个动画组件会创建一个动画器
+*****_ 无法随意控制动画开启停止
+****_ 源码层面(Animatedpadding)
+*****_ Animatedpadding(ImplicitlyAnimatedWidget)
+******_ ImplicitlyAnimatedWidgetState createState()
+*******_ animationController / animation
+*******_ initState()
+********_ onEnd
+********_ _constructTweens
+********_ didUpdateTweens 空实现
+*******_ forEachTween (通过visitor维护Tween的值)
+*******_ didUpdateWidget (更新Tween)
+******_ 成员对象(curve/duration/onEnd)
+*****_ _AnimatedPaddingState(AnimatedWidgetBaseState)
+******_ 定义要动画的属性(如Padding)
+******_ forEachTween (通过visitor维护Tween的值)
+******_ build()
+*****_ AnimatedWidgetBaseState(ImplicitlyAnimatedWidgetState)
+******_ 监听动画器并setState()
+*** 其他动画组件(内置动画组件)
+****_ AnimatedIcon
+*****_ CustomPaint绘制预制好的帧列表,通过repaint
+****_ CupertinoActivityIndicator
+*****_ initState() -> 初始化AnimationController
+*****_ didUpdateWidget() -> controller控制动画
+*****_ builder() -> CustomPaint绘制
+*****_ super(repaint) -> 监听animation并重绘
+****_ AnimatedCrossFade
+*****_ FadeTransition
+*****_ AnimatedSize
+****_ AnimatedSwitcher
+****_ FlutterLogo
+****_ ExpandIcon
+****_ RefreshIndicator
+*** 路由动画
+****_ Navigator.of.push(PageRouteBuilder(_,_,_,transitionsBuilder))
+*** 框架层
+**** Curve
+*****_ transformInternal 对t转换
+*****_ 限定 double -> double
+**** Animatable<T>
+*****_ transform() -> (double -> Object)
+**** Animation<T>
+*****_ 监听或者销毁Listenable对象
+*****_ 获取value
+*****_ 定义动画属性及drive方法
+**** 关系
+***** Animatable 与 Animation
+******_ Animation = Animatable.animate(Animation)
+******_ Animation = Animation.drive(Animatable)
+******_ Value = Animatable.evaluate(Animation)
+***** Animation 与 Curve
+******_ Animation = CurvedAnimation(parent, curve)
+******_ value = Curve.transform(Animation.value)
+***** Animatable 与 Curve
+******_ CurveTween(curve) - 优势可以用chain
+***** Animatable 与 Animatable
+******_ Animatable = Animatable<T>.chain(Animatable<double>)
+***** Animation 与 Animation
+******_ Animation = CurvedAnimation(Animation, curve)
+***** Curve 与 Curve
+******_ Curve = FlippedCurve(Curve) 反转Curve
+**** AnimationController
+*****_ 实现Animation的抽象方法
+******_ AnimationLocalStatusListenersMixin
+******_ AnimationEagerListenerMixin
+******_ AnimationLocalListenersMixin
+*****_ 维护value和status
+******_ simulation仿真器
+******_ notifyListeners
+*****_ Ticker
+******_ TickerCallback _onTick 注册回调
+******_ TickerFuture _future 用于处理异步事件
+*******_ completer.complete() 或者 completer.completeError()
+******_ bool muted 暂停回调触发
+******_ Duration startTime 开启时间
+******_ int _animationId 每次开启后对应的Id
+******_ start() -> TickerFuture
+*******_ shouldScheduleTick
+*******_ ScheduleBinding#sheduleFrameCallback监听_tick触发用户传入的_onTick回调
+******_ stop() 
+*******_ canceled 标识决定tickerFuture是cancel还是complete
+*****_ TickerProvider
+******_ 作用:创建Ticker 并传入onTicker
+******_ 子类
+*******_ SingleTickerProviderStateMixin (创建并维护一个Ticker & on State)
+*******_ TickerProviderStateMixin (创建并维护Ticker集合)
+*****_ AnimationController与Ticker关系
+******_ 混入TickerProvider子类得到TickerProvider
+******_ TickerProvider.createTicker(_tick) 初始化Ticker并在Ticker开启后不断触发_tick方法
+******_ _tick方法
+*******_ 维护动画数值
+*******_ 维护动画状态
+*******_ 发送数值变化通知
+*****_ 开启
+******_ _ticker.start & simulation
+*****_ 关闭与销毁
+******_ _ticker.dispose() -> TickerFuture#cancel
+**** 绘制的性能优化及调试
+*****_ 抽离静态绘制
+*****_ RepaintBoundary 隔离绘制组件区域
+*****_ debugDumpRenderTree()
+@endmindmap
+
+@startuml
+abstract class Listenable {
+    void addListenable(VoidCallback listener)
+    void removeListener(VoidCallback listener)
+}
+note left: 注册注销对该Listenable对象的监听
+abstract class ValueListenable {
+    T get value
+}
+note left: 定义了value的返回方法
+abstract class Animation #aliceblue{
+    Animation drive(Animtable)
+}
+class AnimationController
+class CurveAnimation
+class AlwaysStoppedAnimation
+Listenable <|-- Animation
+Listenable <|-- ValueListenable
+ValueListenable <|.. Animation
+Animation <|-- AnimationController
+Animation <|-- CurveAnimation
+Animation <|-- AlwaysStoppedAnimation
+
+abstract class Animatable #aliceblue{
+    T transform(double t)
+    T evaluate(animation)
+    Animation<T> animate(Animation<double> parent)
+    Animation<T> chain(Animation<double> parent)
+}
+note right: double -> Object
+class TweenSequence
+class Tween
+class CurveTween
+class ColorTween
+class XTween
+Animatable <|-- TweenSequence
+Animatable <|-- Tween
+Animatable <|-- CurveTween
+Tween <|-- ColorTween
+Tween <|-- XTween
+
+abstract class ParametricCurve {
+    T transform()
+    T transformInternal()
+}
+abstract class Curve #aliceblue{
+    T transform()
+    Curve flipped()
+}
+note right: double -> double
+class Cubic
+class XCurve
+ParametricCurve <|-- Curve
+Curve <|-- Cubic
+Curve <|-- XCurve
+
+Curve -[thickness=4]- Animatable
+Curve -[thickness=4]- Animation
+Animatable -[thickness=4]- Animation
+@enduml

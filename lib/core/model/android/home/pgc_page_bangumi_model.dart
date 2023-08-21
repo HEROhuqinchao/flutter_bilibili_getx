@@ -185,7 +185,8 @@ class Module {
         jumpModuleId: json["jump_module_id"],
         moduleId: json["module_id"],
         moduleTag: json["module_tag"],
-        report: json["report"] == null ? null : ItemReport.fromJson(json["report"]),
+        report:
+            json["report"] == null ? null : ItemReport.fromJson(json["report"]),
         size: json["size"],
         style: json["style"],
         subTitle: json["sub_title"],
@@ -408,7 +409,9 @@ class Item {
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         aid: json["aid"],
         badge: json["badge"],
-        badgeInfo: json["badge_info"] == null ? null : BadgeInfo.fromJson(json["badge_info"]),
+        badgeInfo: json["badge_info"] == null
+            ? null
+            : BadgeInfo.fromJson(json["badge_info"]),
         badgeType: json["badge_type"],
         blink: json["blink"],
         cardMaterialId: json["cardMaterialId"].toDouble(),

@@ -19,9 +19,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../core/model/android/video_play/dan_mu_route_model.dart';
-import '../../../../core/model/android/video_play/download_video_model.dart';
 import '../../../../core/model/dan_mu_model_02.dart';
-import '../../../../core/permission/bilibili_permission.dart';
 import '../../../../core/service/request/dan_mu_request.dart';
 import '../../../../core/service/utils/constant.dart';
 import '../../../shared/color_radix_change.dart';
@@ -61,7 +59,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
       update();
     });
     state.videoPlayerController.dispose();
-    if(state.showDanMu) {
+    if (state.showDanMu) {
       for (var item in state.danMuRouteList) {
         item.scrollController.removeListener(() {});
         item.scrollController.dispose();
@@ -214,7 +212,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
     ///总共弹幕包数
     state.danMuPackageNum =
         state.videoPlayerController.value.duration.inMinutes ~/ 6 + 1;
-    HYDanMuRequest.getDanMuProtoData(state.oid, 1).then((value) {
+    HYDanMuRequest().getDanMuProtoData(state.oid, 1).then((value) {
       ///发送时间做排序排序
       value.sort((left, right) => left.progress.compareTo(right.progress));
       List<DanMuModel02> filterValue =
@@ -288,7 +286,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
     ///总共弹幕包数
     state.danMuPackageNum =
         state.videoPlayerController.value.duration.inMinutes ~/ 6 + 1;
-    HYDanMuRequest.getDanMuProtoData(state.oid, 1).then((value) {
+    HYDanMuRequest().getDanMuProtoData(state.oid, 1).then((value) {
       // value = value.sublist(0,10);
       ///发送时间做排序排序
       value.sort((left, right) => left.progress.compareTo(right.progress));
@@ -595,7 +593,7 @@ class BilibiliVideoPlayerLogic extends GetxController {
       var fileIsExist = await file.exists();
       print(file.path);
       print(fileIsExist);
-      final result = await OpenFile.open(file.path);
+      await OpenFile.open(file.path);
       if (fileIsExist) {
         state.downloadVideoList[i].progress = 100;
         state.downloadVideoList[i].status = DownloadTaskStatus.complete;

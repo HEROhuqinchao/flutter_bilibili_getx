@@ -1,10 +1,5 @@
 import 'package:bilibili_getx/core/permission/bilibili_permission.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
-import '../../../../core/channel/bilibili_channel.dart';
-import '../../../../core/model/local_image_model.dart';
-import '../../../../core/model/local_video_model.dart';
 import 'upload_state.dart';
 
 class UploadLogic extends GetxController {
@@ -17,7 +12,6 @@ class UploadLogic extends GetxController {
 
   @override
   void onReady() {
-    BilibiliPermission.requestUploadPermissions();
     ///获取本地文件-待补充
     fetLocalFileData();
     super.onReady();

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bilibili_getx/ui/pages/main/main_view.dart';
+import 'package:bilibili_getx/ui/widgets/custom/bilibili_scroll.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,31 +11,23 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
-import '../../../../core/model/account_mine.dart';
 import '../../../../core/service/request/home_request.dart';
 import '../../../../core/service/request/login_request.dart';
 import '../../../../core/service/utils/constant.dart';
 import '../../../../core/shared_preferences/bilibili_shared_preference.dart';
 import '../../../../core/shared_preferences/shared_preference_util.dart';
 import '../../../shared/app_theme.dart';
-import '../../../shared/global_key_util.dart';
 import '../../../shared/image_asset.dart';
 import '../../../shared/params_sign.dart';
-import '../../../widgets/bilibili_scroll.dart';
 import 'home_state.dart';
-import 'home_view.dart';
 
 class HomeLogic extends GetxController {
   final HomeState state = HomeState();
 
   @override
-  void onInit() {
-    initHomeUserInfo();
-    super.onInit();
-  }
-
-  @override
   void onReady() {
+    initHomeUserInfo();
+
     ///判断是否同意用户协议
     if (state.tempUserAgreement == false) {
       initUserAgreement();
@@ -71,7 +64,7 @@ class HomeLogic extends GetxController {
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
 
-    HYHomeRequest.fetchXResourceShowTabV2Data(params).then((value) {
+    HYHomeRequest().fetchXResourceShowTabV2Data(params).then((value) {
       if (value.code == 0) {
         update();
       }
@@ -95,9 +88,8 @@ class HomeLogic extends GetxController {
       'statistics':
           '%7B%22appId%22%3A1%2C%22platform%22%3A3%2C%22version%22%3A%227.11.0%22%2C%22abtest%22%3A%22%22%7D',
       'ts': '1672272837',
-      // 'sign': '9d68cfe8ad480bc03cd86e174340c9bd',
     };
-    HYHomeRequest.fetchSearchSquareData(params).then((value) {
+    HYHomeRequest().fetchSearchSquareData(params).then((value) {
       if (value.code == 0) {
         state.firstSearchKey = value.data!.last.data!.list!.first.title!;
         update();
@@ -198,13 +190,13 @@ class HomeLogic extends GetxController {
                   onTap: () {
                     SmartDialog.showToast("不同意就没法用了呦~");
                     if (kIsWeb) {
-                      Get.offAndToNamed(MainScreen.routeName);
+                      Get.offAndToNamed(MainView.routeName);
                     } else {
                       if (Platform.isAndroid || Platform.isIOS) {
                         ///退出APP(不同意协议就退出）
                         SystemNavigator.pop();
                       } else if (Platform.isWindows) {
-                        Get.offAndToNamed(MainScreen.routeName);
+                        Get.offAndToNamed(MainView.routeName);
                       }
                     }
                   },
@@ -380,7 +372,7 @@ class HomeLogic extends GetxController {
     ///加上sign字段
     final signEntry = <String, dynamic>{'sign': ParamsSign.getSign(params)};
     params.addEntries(signEntry.entries);
-    HYLoginRequest.getAccountMineData(params).then((value) {
+    HYLoginRequest().getAccountMineData(params).then((value) {
       state.userLogo = value.data.face;
       update();
     });

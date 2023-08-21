@@ -2,7 +2,6 @@
 //
 //     final hySearchKeywordModel = hySearchKeywordModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 HYSearchKeywordModel hySearchKeywordModelFromJson(String str) =>
@@ -53,14 +52,14 @@ class Datum {
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         type: json["type"],
-        title: json["title"] == null ? null : json["title"],
+        title: json["title"],
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
         "type": type,
-        "title": title == null ? null : title,
-        "data": data == null ? null : data?.toJson(),
+        "title": title,
+        "data": data == null ? "" : data?.toJson(),
       };
 }
 
@@ -80,24 +79,24 @@ class Data {
   int? pages;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        trackid: json["trackid"] == null ? null : json["trackid"],
+        trackid: json["trackid"],
         list: json["list"] == null
             ? null
             : List<ListElement>.from(
                 json["list"].map((x) => ListElement.fromJson(x))),
-        expStr: json["exp_str"] == null ? null : json["exp_str"],
-        title: json["title"] == null ? null : json["title"],
-        pages: json["pages"] == null ? null : json["pages"],
+        expStr: json["exp_str"],
+        title: json["title"],
+        pages: json["pages"],
       );
 
   Map<String, dynamic> toJson() => {
-        "trackid": trackid == null ? null : trackid,
+        "trackid": trackid,
         "list": list == null
             ? null
             : List<dynamic>.from(list!.map((x) => x.toJson())),
-        "exp_str": expStr == null ? null : expStr,
-        "title": title == null ? null : title,
-        "pages": pages == null ? null : pages,
+        "exp_str": expStr,
+        "title": title,
+        "pages": pages,
       };
 }
 
@@ -142,7 +141,7 @@ class ListElement {
         "name_type": nameType,
         "show_name": showName,
         "word_type": wordType,
-        "icon": icon == null ? null : icon,
+        "icon": icon,
         "position": position,
         "module_id": moduleId,
         "hot_id": hotId,

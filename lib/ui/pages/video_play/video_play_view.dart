@@ -1,5 +1,7 @@
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/expanded_widget.dart';
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/primary_scroll_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -8,9 +10,7 @@ import '../../../core/I18n/str_res_keys.dart';
 import '../../../core/model/android/video_play/video_profile_model.dart';
 import '../../shared/app_theme.dart';
 import '../../shared/math_compute.dart';
-import '../../widgets/expanded_widget.dart';
-import '../../widgets/primary_scroll_container.dart';
-import '../../widgets/video_reply_item.dart';
+import '../../widgets/custom/video_reply_item.dart';
 import 'bilibili_video_player/bilibili_video_player_view.dart';
 import 'video_play_logic.dart';
 
@@ -19,6 +19,8 @@ final state = Get.find<VideoPlayLogic>().state;
 
 class VideoPlayScreen extends StatefulWidget {
   static const String routeName = "/video_play";
+
+  const VideoPlayScreen({super.key});
 
   @override
   State<VideoPlayScreen> createState() => _VideoPlayScreenState();
@@ -185,7 +187,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
 
   ///视频和弹幕
   Widget buildVideoPlayVideoPlayer() {
-    return BilibiliVideoPlayerComponent();
+    return const BilibiliVideoPlayerComponent();
   }
 
   ///播放结束后推荐其他视频
@@ -360,35 +362,31 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 width: 20.sp,
                 height: 20.sp,
                 child: Image.asset(ImageAssets.replayPNG),
               ),
               5.horizontalSpace,
-              Container(
-                child: Text(
-                  "重播",
-                  style: TextStyle(
-                    color: HYAppTheme.norWhite01Color,
-                    fontSize: 16.sp,
-                  ),
+              Text(
+                "重播",
+                style: TextStyle(
+                  color: HYAppTheme.norWhite01Color,
+                  fontSize: 16.sp,
                 ),
               ),
               10.horizontalSpace,
-              Container(
+              SizedBox(
                 width: 20.sp,
                 height: 20.sp,
                 child: Image.asset(ImageAssets.sharePNG),
               ),
               5.horizontalSpace,
-              Container(
-                child: Text(
-                  "分享",
-                  style: TextStyle(
-                    color: HYAppTheme.norWhite01Color,
-                    fontSize: 16.sp,
-                  ),
+              Text(
+                "分享",
+                style: TextStyle(
+                  color: HYAppTheme.norWhite01Color,
+                  fontSize: 16.sp,
                 ),
               ),
             ],
@@ -495,7 +493,7 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
                   color: HYAppTheme.norMainThemeColors,
                 ),
               )
-            : const buildVideoProfile(),
+            : const VideoProfile(),
         state.isLoadingVideoReply
             ? const Center(
                 child: CircularProgressIndicator(
@@ -594,14 +592,14 @@ class _VideoPlayScreenState extends State<VideoPlayScreen>
 }
 
 ///视频信息
-class buildVideoProfile extends StatefulWidget {
-  const buildVideoProfile({Key? key}) : super(key: key);
+class VideoProfile extends StatefulWidget {
+  const VideoProfile({Key? key}) : super(key: key);
 
   @override
-  State<buildVideoProfile> createState() => _buildVideoProfileState();
+  State<VideoProfile> createState() => _VideoProfileState();
 }
 
-class _buildVideoProfileState extends State<buildVideoProfile>
+class _VideoProfileState extends State<VideoProfile>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
@@ -837,8 +835,8 @@ class _buildVideoProfileState extends State<buildVideoProfile>
       children: [
         Image.asset(
           icon,
-          width: 24.w,
-          height: 24.w,
+          width: 24.r,
+          height: 24.r,
           color: HYAppTheme.norGray03Color,
         ),
         10.verticalSpace,

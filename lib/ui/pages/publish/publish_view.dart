@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../core/I18n/str_res_keys.dart';
 import '../../shared/app_theme.dart';
-import '../../widgets/round_underline_tab_indicator.dart';
+import '../../widgets/custom/round_underline_tab_indicator.dart';
 
 class PublishScreen extends StatelessWidget {
   static const String routeName = "/publish";
@@ -21,8 +21,8 @@ class PublishScreen extends StatelessWidget {
         length: 5,
         child: Scaffold(
           backgroundColor: HYAppTheme.norTextColors,
-          bottomNavigationBar: Container(
-            height: 50.w,
+          bottomNavigationBar: SizedBox(
+            height: 50.r,
             child: TabBar(
               labelColor: HYAppTheme.norWhite01Color,
               tabs: [
@@ -33,7 +33,7 @@ class PublishScreen extends StatelessWidget {
                 Tab(text: SR.templateAuthoring.tr),
               ],
               indicator: BilibiliRoundUnderlineTabIndicator(
-                insets: EdgeInsets.symmetric(horizontal: 3.r),
+                  insets: EdgeInsets.symmetric(horizontal: 3.r),
                   borderSide: BorderSide(
                       width: 5.sp, color: HYAppTheme.norMainThemeColors)),
               indicatorSize: TabBarIndicatorSize.label,
@@ -77,8 +77,8 @@ class PublishScreen extends StatelessWidget {
   Widget buildLoadingView() {
     return Center(
       child: (SizedBox(
-        width: 30.w,
-        height: 30.w,
+        width: 30.r,
+        height: 30.r,
         child: const CircularProgressIndicator(
           color: HYAppTheme.norMainThemeColors,
         ),

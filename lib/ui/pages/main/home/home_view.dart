@@ -1,11 +1,12 @@
 import 'dart:io';
 
-import 'package:bilibili_getx/ui/pages/chat/chat_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/comic/comic_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/recommend/recommend_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/search/search_view.dart';
 import 'package:bilibili_getx/ui/pages/main/main_logic.dart';
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:bilibili_getx/ui/widgets/custom/primary_scroll_container.dart';
+import 'package:bilibili_getx/ui/widgets/custom/rectangle_checkBox.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,14 +15,14 @@ import 'package:get/get.dart';
 
 import '../../../../core/I18n/str_res_keys.dart';
 import '../../../shared/image_asset.dart';
-import '../../../widgets/primary_scroll_container.dart';
-import '../../../widgets/rectangle_checkBox.dart';
 import 'home_logic.dart';
 import 'live/live_view.dart';
 import 'login/login_view.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/home";
+
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -57,27 +58,23 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeLogic>(builder: (logic) {
-      return DefaultTabController(
-        length: 7,
-        initialIndex: 1,
-        child: NestedScrollView(
-          body: buildHomeTabBarView(),
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return [
-              SliverToBoxAdapter(
-                child: buildHomeUserIconAndSearch(),
-              ),
-              SliverAppBar(
-                title: buildHomeTabBar(),
-                pinned: true,
-                floating: false,
-                snap: false,
-                backgroundColor: HYAppTheme.norWhite01Color,
-                elevation: 0,
-              ),
-            ];
-          },
-        ),
+      return NestedScrollView(
+        body: buildHomeTabBarView(),
+        headerSliverBuilder: (ctx, innerBoxIsScrolled) {
+          return [
+            SliverToBoxAdapter(
+              child: buildHomeUserIconAndSearch(),
+            ),
+            SliverAppBar(
+              title: buildHomeTabBar(),
+              pinned: true,
+              floating: false,
+              snap: false,
+              backgroundColor: HYAppTheme.norWhite01Color,
+              elevation: 0,
+            ),
+          ];
+        },
       );
     });
   }
@@ -105,12 +102,12 @@ class _HomeScreenState extends State<HomeScreen>
               },
               child: Container(
                 alignment: Alignment.centerLeft,
-                height: 35.h,
+                height: 30.r,
                 decoration: BoxDecoration(
                     color: HYAppTheme.norWhite02Color,
                     borderRadius: BorderRadius.circular(20.r)),
                 child: Container(
-                  padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8).r,
+                  padding: EdgeInsets.only(left: 15.r, top: 8.r, bottom: 8.r),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -137,15 +134,10 @@ class _HomeScreenState extends State<HomeScreen>
             height: 18.sp,
           ),
           15.horizontalSpace,
-          GestureDetector(
-            onTap: () {
-              Get.toNamed(ChatScreen.routeName);
-            },
-            child: Image.asset(
-              width: 18.sp,
-              height: 18.sp,
-              ImageAssets.mailCustomPNG,
-            ),
+          Image.asset(
+            width: 18.sp,
+            height: 18.sp,
+            ImageAssets.mailCustomPNG,
           ),
         ],
       ),
@@ -181,9 +173,8 @@ class _HomeScreenState extends State<HomeScreen>
         color: HYAppTheme.norTextColors,
         fontFamily: 'bilibiliFonts',
       ),
-
-      ///下划线的厚度
-      indicatorWeight: 3.h,
+      //下划线厚度
+      indicatorWeight: 3.r,
       isScrollable: true,
     );
   }
@@ -197,11 +188,11 @@ class _HomeScreenState extends State<HomeScreen>
             children: [
               PrimaryScrollContainer(
                 key: state.scrollChildKeys[0],
-                child: LiveScreen(),
+                child: const LiveScreen(),
               ),
               PrimaryScrollContainer(
                 key: state.scrollChildKeys[1],
-                child: RecommendScreen(),
+                child: const RecommendScreen(),
               ),
               PrimaryScrollContainer(
                 key: state.scrollChildKeys[2],
@@ -262,15 +253,15 @@ class _HomeScreenState extends State<HomeScreen>
                 decoration: BoxDecoration(
                     color: const Color.fromRGBO(0, 0, 0, .8),
                     borderRadius: BorderRadius.all(Radius.circular(8.w))),
-                height: 80.h,
-                width: 80.w,
+                height: 80.r,
+                width: 80.r,
                 padding: const EdgeInsets.all(5).r,
                 child: Column(
                   children: [
                     Image.asset(
                       ImageAssets.ploadingGif,
-                      width: 35.w,
-                      height: 35.h,
+                      width: 35.r,
+                      height: 35.r,
                     ),
                     10.verticalSpace,
                     Text(
@@ -323,12 +314,12 @@ class _HomeScreenState extends State<HomeScreen>
     var flag = true;
     return Card(
       child: Container(
-        padding: const EdgeInsets.all(10).r,
-        width: 270.w,
+        padding: EdgeInsets.all(10.r),
+        width: 270.r,
         child: Stack(
           children: [
             Container(
-              padding: const EdgeInsets.all(15).r,
+              padding: EdgeInsets.all(15.r),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -339,7 +330,7 @@ class _HomeScreenState extends State<HomeScreen>
                     textAlign: TextAlign.center,
                   ),
                   Container(
-                    padding: const EdgeInsets.only(top: 30, bottom: 20).r,
+                    padding: EdgeInsets.only(top: 30.r, bottom: 20.r),
                     child: Text(
                       "183****1731",
                       style: TextStyle(
@@ -349,7 +340,7 @@ class _HomeScreenState extends State<HomeScreen>
                   TextButton(
                     style: ButtonStyle(
                         padding: MaterialStateProperty.all(
-                            const EdgeInsets.symmetric(vertical: 10).r),
+                            EdgeInsets.symmetric(vertical: 10.r)),
                         backgroundColor: MaterialStateProperty.all(
                             HYAppTheme.norMainThemeColors)),
                     onPressed: () {
@@ -357,17 +348,18 @@ class _HomeScreenState extends State<HomeScreen>
                       // loginAuth();
                     },
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4).r,
+                      padding: EdgeInsets.symmetric(vertical: 4.r),
                       alignment: AlignmentDirectional.center,
-                      width: double.infinity,
+                      width: 240.r,
                       child: Text(
                         SR.oneClickLogin.tr.toUpperCase(),
-                        style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                        style: TextStyle(
+                            color: HYAppTheme.norWhite01Color, fontSize: 14.sp),
                       ),
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(top: 15, bottom: 20).r,
+                    padding: EdgeInsets.only(top: 15.r, bottom: 20.r),
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed(LoginScreen.routeName);
@@ -385,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        padding: const EdgeInsets.only(right: 3, top: 3).r,
+                        padding: EdgeInsets.only(right: 3.r, top: 3.r),
                         child: RectangleCheckBox(
                           ///自定义矩形的checkbox
                           size: 14.sp,
@@ -430,25 +422,25 @@ class _HomeScreenState extends State<HomeScreen>
         TextSpan(
           children: [
             TextSpan(
-              text: SR.userAgreementText01.tr,
-              style: TextStyle(color: Colors.grey, fontSize: 10.sp),
-            ),
+                text: SR.userAgreementText01.tr,
+                style:
+                    TextStyle(color: HYAppTheme.norGrayColor, fontSize: 10.sp)),
             TextSpan(
-              text: SR.userAgreementText02.tr,
-              style: TextStyle(color: Colors.blue, fontSize: 10.sp),
-            ),
+                text: SR.userAgreementText02.tr,
+                style: TextStyle(
+                    color: HYAppTheme.norBlue01Colors, fontSize: 10.sp)),
             TextSpan(
-              text: SR.userAgreementText03.tr,
-              style: TextStyle(color: Colors.grey, fontSize: 10.sp),
-            ),
+                text: SR.userAgreementText03.tr,
+                style:
+                    TextStyle(color: HYAppTheme.norGrayColor, fontSize: 10.sp)),
             TextSpan(
-              text: SR.userAgreementText04.tr,
-              style: TextStyle(color: Colors.blue, fontSize: 10.sp),
-            ),
+                text: SR.userAgreementText04.tr,
+                style: TextStyle(
+                    color: HYAppTheme.norBlue01Colors, fontSize: 10.sp)),
             TextSpan(
-              text: SR.userAgreementText05.tr,
-              style: TextStyle(color: Colors.grey, fontSize: 10.sp),
-            ),
+                text: SR.userAgreementText05.tr,
+                style:
+                    TextStyle(color: HYAppTheme.norGrayColor, fontSize: 10.sp)),
           ],
         ),
       ),

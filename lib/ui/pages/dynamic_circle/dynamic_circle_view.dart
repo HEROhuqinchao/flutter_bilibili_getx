@@ -1,19 +1,22 @@
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/common_rich_text.dart';
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../core/model/web/dynamic/web_dynamic_v1_feed_all.dart';
-import '../../widgets/common_rich_text.dart';
 import 'dynamic_circle_logic.dart';
 
 class DynamicCircleScreen extends StatelessWidget {
   static const String routeName = "/dynamicCircle";
   final logic = Get.find<DynamicCircleLogic>();
   final state = Get.find<DynamicCircleLogic>().state;
+
+  DynamicCircleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +35,8 @@ class DynamicCircleScreen extends StatelessWidget {
   Widget buildDynamicCircleLoading() {
     return Center(
       child: SizedBox(
-        width: 50.w,
-        height: 50.w,
+        width: 50.r,
+        height: 50.r,
         child: const CircularProgressIndicator(
           color: HYAppTheme.norMainThemeColors,
         ),
@@ -157,7 +160,7 @@ class DynamicCircleScreen extends StatelessWidget {
               ],
             ),
           )
-        : Text("位置类型");
+        : const Text("位置类型");
   }
 
   Widget buildDynamicTypeForwardOriginContent(
@@ -187,7 +190,7 @@ class DynamicCircleScreen extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5.r),
                 child: DefaultFadeImage(
-                  imageUrl: moduleDynamic.major!.archive!.cover,
+                  imageUrl: moduleDynamic.major.archive!.cover,
                   width: 310.w,
                   height: 180.w,
                 ),
@@ -207,7 +210,7 @@ class DynamicCircleScreen extends StatelessWidget {
                       color: HYAppTheme.norTextColors.withOpacity(.5),
                     ),
                     child: Text(
-                      moduleDynamic.major!.archive!.durationText,
+                      moduleDynamic.major.archive!.durationText,
                       style: TextStyle(
                         color: HYAppTheme.norWhite01Color,
                         fontSize: 12.sp,
@@ -216,7 +219,7 @@ class DynamicCircleScreen extends StatelessWidget {
                   ),
                   8.horizontalSpace,
                   Text(
-                    "${moduleDynamic.major!.archive!.stat.play}观看",
+                    "${moduleDynamic.major.archive!.stat.play}观看",
                     style: TextStyle(
                       color: HYAppTheme.norWhite01Color,
                       fontSize: 11.sp,
@@ -224,7 +227,7 @@ class DynamicCircleScreen extends StatelessWidget {
                   ),
                   5.horizontalSpace,
                   Text(
-                    "${moduleDynamic.major!.archive!.stat.danmaku}弹幕",
+                    "${moduleDynamic.major.archive!.stat.danmaku}弹幕",
                     style: TextStyle(
                       color: HYAppTheme.norWhite01Color,
                       fontSize: 11.sp,
@@ -247,7 +250,7 @@ class DynamicCircleScreen extends StatelessWidget {
           width: 1.sw,
           alignment: Alignment.centerLeft,
           child: Text(
-            moduleDynamic.major!.archive!.title,
+            moduleDynamic.major.archive!.title,
             style: TextStyle(
               fontSize: 14.sp,
               color: HYAppTheme.norTextColors,
@@ -419,9 +422,7 @@ class DynamicCircleScreen extends StatelessWidget {
               ),
             ],
           )
-        : Container(
-            child: Text("未知类型"),
-          );
+        : const Text("未知类型");
   }
 
   Widget buildDynamicTypeDrawContent(PurpleModuleDynamic moduleDynamic) {
@@ -633,7 +634,7 @@ class DynamicCircleScreen extends StatelessWidget {
                   ),
                 ],
               )
-            : Container(
+            : SizedBox(
                 height: 30.r,
                 width: 90.r,
                 child: DefaultFadeImage(
@@ -728,7 +729,9 @@ class DynamicCircleScreen extends StatelessWidget {
         );
         children.add(widget);
       } else {
-        print(item.type);
+        if (kDebugMode) {
+          print(item.type);
+        }
       }
     }
     return children;

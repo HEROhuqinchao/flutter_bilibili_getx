@@ -1,0 +1,46 @@
+@startuml SendDataDialog
+class BaseSendDataModel{
+    List users; //接受者列表
+    String sender; //发送者
+    int date; //日期时间戳
+    String avatar; //头像
+}
+abstract SendDataModel {
+    +String() buildString //生成数据文本格式
+}
+note left: 抽象用户发送的数据
+
+class TextData {
+    String msg; //文字
+    +String() buildString
+}
+
+class PictureData {
+    File file; //图片文件
+    +String() buildString
+}
+
+class VideoData {
+    File file; //视频文件
+    +String() buildString
+}
+
+class audioData {
+    File file; //音频文件
+    +String() buildString
+}
+
+class SendDataFactory {
+    {abstract} SendDataModel() createSendData //创建发送消息
+}
+note left: 简单工厂
+BaseSendDataModel <--* SendDataModel
+SendDataModel <|.. TextData
+SendDataModel <|.. PictureData
+SendDataModel <|.. VideoData
+SendDataModel <|.. audioData
+TextData <.. SendDataFactory
+PictureData <.. SendDataFactory
+VideoData <.. SendDataFactory
+audioData <.. SendDataFactory
+@enduml

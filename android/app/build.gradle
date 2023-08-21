@@ -22,20 +22,18 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.huawei.agconnect'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply plugin: 'com.huawei.agconnect'
 
 //def keystorePropertiesFile = rootProject.file("key.properties")
 //def keystoreProperties = new Properties()
 //keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 
-
-
 android {
-    compileSdkVersion flutter.compileSdkVersion
-    ndkVersion '25.1.8937393'
+    compileSdkVersion 33
+    ndkVersion "25.1.8937393"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,21 +45,29 @@ android {
         applicationId "com.example.bilibili_getx"
         // You can update the following values to match your application needs. 
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        // 很多依赖的最低sdkVersion都在20以上, 不要用flutter.minSdkVersion
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         ndk {
             //选择要添加的对应 cpu 类型的 .so 库。
-            abiFilters 'armeabi-v7a', 'arm64-v8a'
+            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'mips', 'mips64', 'arm64-v8a'
+        }
+        //百度语音识别
+        packagingOptions {
+            // 确保app与asr_plugin都依赖的libflutter.so merge时不冲突@More than one file was found with OS independent path 'lib/armeabi-v7a/libcardioDecider.so · Issue #186 · card-io/card.io-Android-SDK
+            pickFirst 'lib/x86_64/libflutter.so'
+            pickFirst 'lib/x86/libflutter.so'
+            pickFirst 'lib/arm64-v8a/libflutter.so'
+            pickFirst 'lib/arm64-v8a/libapp.so'
+            pickFirst 'lib/armeabi-v7a/libapp.so'
         }
         manifestPlaceholders = [
-                JPUSH_PKGNAME: applicationId,
+                JPUSH_PKGNAME : applicationId,
                 //JPush 上注册的包名对应的 Appkey.
-                JPUSH_APPKEY : "7d6d63fa06959ac31ff30914",
+                JPUSH_APPKEY  : "7d6d63fa06959ac31ff30914",
                 //暂时填写默认值即可.
-                JPUSH_CHANNEL: "developer-default",
+                JPUSH_CHANNEL : "developer-default",
                 TENCENT_APP_ID: "102026031"//腾讯QQ AppId
         ]
     }
@@ -92,10 +98,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    lintOptions {
-        checkReleaseBuilds false
-    }
 }
 
 flutter {
@@ -104,6 +106,10 @@ flutter {
 
 
 dependencies {
-    implementation 'com.huawei.hms:push:6.7.0.300'
-    implementation 'cn.jiguang.sdk.plugin:huawei:4.9.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.huawei.hms:push:6.5.0.300'
+    implementation 'cn.jiguang.sdk.plugin:huawei:4.8.4'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+//    implementation project(path: ':asr_plugin')
 }

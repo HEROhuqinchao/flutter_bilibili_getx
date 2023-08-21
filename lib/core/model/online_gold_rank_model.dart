@@ -78,7 +78,7 @@ class OnlineRankItem {
         "name": name,
         "face": face,
         "score": score,
-        "medalInfo": medalInfo == null ? null : medalInfo?.toJson(),
+        "medalInfo": medalInfo == null ? "" : medalInfo?.toJson(),
         "guard_level": guardLevel,
       };
 }

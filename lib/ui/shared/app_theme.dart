@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../shared/shared_util.dart';
 
 class HYAppTheme {
@@ -23,6 +21,9 @@ class HYAppTheme {
   ///普通模式
   ///白色
   static const Color norTextColors = Colors.black;
+
+  static const Color norBlackColors = Colors.black;
+
   static const Color norWhite01Color = Colors.white;
   static const Color norWhite02Color = Color.fromRGBO(246, 247, 249, 1);
   static const Color norWhite03Color = Color.fromRGBO(255, 236, 240, 1);
@@ -31,6 +32,8 @@ class HYAppTheme {
   static const Color norWhite06Color = Color.fromRGBO(241, 242, 244, 1);
   static const Color norWhite07Color = Color.fromRGBO(245, 247, 250, 1);
   static const Color norWhite08Color = Color.fromRGBO(246, 247, 249, 1);
+  static const Color norWhite09Color = Color.fromRGBO(247, 247, 247, 1);
+  static const Color norWhite10Color = Color.fromRGBO(237, 237, 237, 1);
 
   ///灰色
   static const Color norGrayColor = Color.fromRGBO(149, 149, 149, 1);
@@ -64,6 +67,9 @@ class HYAppTheme {
   static const Color norYellow04Colors = Color.fromRGBO(215, 100, 30, 1);
   static const Color norYellow05Colors = Color.fromRGBO(114, 89, 27, 1);
 
+  ///原谅色
+  static const Color norGreen01Colors = Color.fromRGBO(16, 210, 105, 1);
+
   ///阴影
   static BoxShadow norBoxShadow = BoxShadow(
     color: HYAppTheme.norTextColors.withOpacity(.1),
@@ -73,7 +79,6 @@ class HYAppTheme {
   );
 
   ///渐变黑色区域（凸显白色的字）
-
 
   ///默认下的主题
   static final ThemeData norTheme = ThemeData(

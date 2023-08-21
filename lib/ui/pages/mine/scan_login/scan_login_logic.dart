@@ -10,10 +10,10 @@ class ScanLoginLogic extends GetxController {
     super.onReady();
   }
 
-  void scanQrCode() {
-    QrCodeUtil.scanQrCode().then((value) {
-      state.result = value!;
-      update();
-    });
-  }
+  // void scanQrCode() {
+  //   QrCodeUtil().scanQrCode().then((value) {
+  //     state.result = value!;
+  //     update();
+  //   });
+  // }
 }

@@ -1,11 +1,9 @@
 import 'dart:io';
 
 import 'package:bilibili_getx/core/service/utils/constant.dart';
-import 'package:bilibili_getx/ui/pages/live_play/live_play_logic.dart';
-import 'package:bilibili_getx/ui/pages/live_play/live_play_view.dart';
 import 'package:bilibili_getx/ui/pages/main/home/home_logic.dart';
 import 'package:bilibili_getx/ui/shared/image_asset.dart';
-import 'package:bilibili_getx/ui/widgets/fade_image_default.dart';
+import 'package:bilibili_getx/ui/widgets/custom/fade_image_default.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +16,8 @@ import 'live_logic.dart';
 
 class LiveScreen extends StatefulWidget {
   static const String routeName = "/home/live";
+
+  const LiveScreen({super.key});
 
   @override
   State<LiveScreen> createState() => LiveScreenState();
@@ -47,7 +47,7 @@ class LiveScreenState extends State<LiveScreen>
           }
         } else {
           return Container(
-            margin: EdgeInsets.only(top: 30.h),
+            margin: EdgeInsets.only(top: 30.r),
             alignment: Alignment.topCenter,
             width: 1.sw,
             child: const RefreshProgressIndicator(
@@ -61,9 +61,7 @@ class LiveScreenState extends State<LiveScreen>
   }
 
   Widget initWebLiveView() {
-    return Container(
-      child: Text("data"),
-    );
+    return const Text("data");
   }
 
   ///初始化Android界面
@@ -79,7 +77,9 @@ class LiveScreenState extends State<LiveScreen>
         state.cardDataSmallCardV1.add(item.cardData);
       } else {
         if (Constant.isDebug) {
-          print("不存在${item.cardType}");
+          if (kDebugMode) {
+            print("不存在${item.cardType}");
+          }
         }
       }
     }
@@ -122,7 +122,7 @@ class LiveScreenState extends State<LiveScreen>
               crossAxisCount: 2,
               mainAxisSpacing: 6.r,
               crossAxisSpacing: 6.r,
-              mainAxisExtent: 140.w,
+              mainAxisExtent: 140.r,
             ),
           )
         ],
@@ -194,21 +194,13 @@ class LiveScreenState extends State<LiveScreen>
             fontWeight: FontWeight.normal,
             fontFamily: 'bilibiliFonts',
           ),
-          indicatorWeight: 1.h,
+          indicatorWeight: 1.r,
           isScrollable: true,
           tabs: tabs,
         ),
       ),
     );
   }
-
-  // Widget buildActivityCardV1(CardData item) {
-  //   return state.cardDataActivityCardV1 == null
-  //       ? Container(
-  //           color: Colors.yellow,
-  //         )
-  //       : Container();
-  // }
 
   Widget buildSmallCardV1(CardData item) {
     return GestureDetector(
@@ -231,7 +223,7 @@ class LiveScreenState extends State<LiveScreen>
                   child: DefaultFadeImage(
                     imageUrl: item.smallCardV1!.cover,
                     width: 1.sw,
-                    height: 90.w,
+                    height: 90.r,
                   ),
                 ),
                 Positioned(
@@ -240,7 +232,7 @@ class LiveScreenState extends State<LiveScreen>
                   right: 0,
                   child: Container(
                     width: 1.sw,
-                    height: 25.w,
+                    height: 25.r,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                       colors: [

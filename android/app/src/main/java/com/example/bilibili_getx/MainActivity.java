@@ -1,26 +1,30 @@
 package com.example.bilibili_getx;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+
+import com.example.bilibili_getx.flutter_android.MyPlugin;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Objects;
 
 import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.JSONMessageCodec;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
@@ -28,6 +32,8 @@ public class MainActivity extends FlutterActivity {
     private static final String uploadChannel = "upload_channel";
     //参考 https://blog.csdn.net/qq_38373150/article/details/103677504
     private static final String stayAliveChannel = "stay_alive_channel";
+    //拍摄媒体
+    private static final String takeMediaChannel = "take_media_channel";
 
     private Intent serviceIntent;
 
@@ -35,6 +41,7 @@ public class MainActivity extends FlutterActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bitmap bitmap;
         ///打开本地的视频数据和图片数据
         new MethodChannel(Objects.requireNonNull(getFlutterEngine()).getDartExecutor().getBinaryMessenger(), uploadChannel).setMethodCallHandler(
                 (methodCall, result) -> {
@@ -79,6 +86,17 @@ public class MainActivity extends FlutterActivity {
                     }
                 }
         );
+        //注册百度语音识别
+//        AsrPlugin.registerWith(registerFor("com.example.asr_plugin.AsrPlugin"));
+        //注册开启Android的拍摄功能
+//        new MethodChannel(Objects.requireNonNull(getFlutterEngine()).getDartExecutor().getBinaryMessenger(), takeMediaChannel).setMethodCallHandler((call, result) -> {
+//            if ("takeMediaAndroid".equals(call.method)) {
+//                openTakeMediaView();
+//                result.success("启动Android的拍摄功能");
+//            } else {
+//                result.success("没有对应的方法");
+//            }
+//        });
     }
 
     //获取本地视频集合
@@ -171,6 +189,11 @@ public class MainActivity extends FlutterActivity {
         return arguments;
     }
 
+//    private void openTakeMediaView() {
+//        Intent intent = new Intent(this, TakeMediaActivity.class);
+//        startActivity(intent);
+//    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     private boolean isIgnoringBatteryOptimizations() {
         boolean isIgnoring = false;
@@ -207,5 +230,18 @@ public class MainActivity extends FlutterActivity {
         } else {
             startService(serviceIntent);
         }
+    }
+
+    //使用HistoryChartView
+    @Override
+    public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+        super.configureFlutterEngine(flutterEngine);
+        //MethodChannel
+        flutterEngine.getPlugins().add(new MyPlugin());
+        //BasicMessageChannel
+        BasicMessageChannel basicMessageChannel = new BasicMessageChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), "basic_message_001", JSONMessageCodec.INSTANCE);
+        basicMessageChannel.setMessageHandler((message, reply) -> {
+            reply.reply("Reply from Android");
+        });
     }
 }

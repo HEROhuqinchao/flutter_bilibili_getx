@@ -1,19 +1,19 @@
 import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui';
+import 'dart:ui' as ui;
 
-import 'package:bilibili_getx/ui/pages/video_play/video_play_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:ui' as ui;
-import 'canvas_paint_study_logic.dart';
 
+import 'canvas_paint_study_logic.dart';
+import 'coordinate.dart';
+
+// https://juejin.cn/book/6844733827265331214/section/6844733827311468551
 class CanvasPaintStudyView extends StatelessWidget {
   static String routeName = "/canvas_paint_study";
   final logic = Get.find<CanvasPaintStudyLogic>();
-  final state = Get
-      .find<CanvasPaintStudyLogic>()
-      .state;
+  final state = Get.find<CanvasPaintStudyLogic>().state;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +23,10 @@ class CanvasPaintStudyView extends StatelessWidget {
           color: Colors.white,
           child: state.img != null
               ? CustomPaint(
-            painter: PaperPainter(
-              state.img,
-            ),
-          )
+                  painter: PaperPainter(
+                    state.img,
+                  ),
+                )
               : Container(),
         );
       },
@@ -41,6 +41,7 @@ class PaperPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    canvas.translate(size.width / 2, size.height / 2);
     // example001(canvas);
     // example002(canvas);
     // example003(canvas);
@@ -64,7 +65,28 @@ class PaperPainter extends CustomPainter {
     // example021(canvas, size);
     // example023(canvas, size);
     // example024(canvas, size);
-    example025(canvas, size);
+    // example025(canvas, size);
+    // example028(canvas, size);
+    // example029(canvas, size);
+    // example030(canvas, TextAlign.center);
+    // example031(canvas);
+    // example032(canvas);
+    // example033(canvas);
+    // example034(canvas);
+    // example037(canvas);
+    // example038(canvas);
+    // example039(canvas);
+    // example040(canvas);
+    // example041(canvas);
+    // example042(canvas);
+    // example043(canvas, size);
+    // example044(canvas);
+    // example045(canvas);
+    // example046(canvas);
+    // example047(canvas);
+    // example048(canvas);
+    // example049(canvas);
+    example050(canvas);
   }
 
   @override
@@ -236,8 +258,7 @@ class PaperPainter extends CustomPainter {
 
   void example010(Canvas canvas) {
     ///BlendMode invertColors
-    Paint paint = Paint()
-      ..invertColors = true;
+    Paint paint = Paint()..invertColors = true;
     canvas.drawCircle(Offset(100, 100), 50, paint..color = Colors.red);
     canvas.drawCircle(
       Offset(140, 70),
@@ -298,8 +319,7 @@ class PaperPainter extends CustomPainter {
   }
 
   void example013(Canvas canvas, ui.Image image) {
-    Paint paint = Paint()
-      ..maskFilter = MaskFilter.blur(BlurStyle.inner, 20);
+    Paint paint = Paint()..maskFilter = MaskFilter.blur(BlurStyle.inner, 20);
     canvas.drawImageRect(
       image,
       Rect.fromLTRB(0, 0, image.width.toDouble(), image.height.toDouble()),
@@ -312,9 +332,7 @@ class PaperPainter extends CustomPainter {
   void example014(Canvas canvas, ui.Image image) {
     // Paint paint = Paint()..imageFilter = ui.ImageFilter.blur(sigmaX: 0.8,sigmaY: 0.8);
     Paint paint = Paint()
-      ..imageFilter = ui.ImageFilter.matrix(Matrix4
-          .skew(pi / 4, 0)
-          .storage);
+      ..imageFilter = ui.ImageFilter.matrix(Matrix4.skew(pi / 4, 0).storage);
     canvas.drawImageRect(
       image,
       Rect.fromLTRB(0, 0, image.width.toDouble(), image.height.toDouble()),
@@ -476,7 +494,7 @@ class PaperPainter extends CustomPainter {
       ..color = Colors.blue
       ..strokeWidth = 1.5;
     Rect rectFromCenter =
-    Rect.fromCenter(center: Offset(0, 0), width: 160, height: 160);
+        Rect.fromCenter(center: Offset(0, 0), width: 160, height: 160);
     canvas.drawRect(rectFromCenter, paint);
     Rect rectFromLTRB = Rect.fromLTRB(-120, -120, -80, -80);
     canvas.drawRect(rectFromLTRB, paint..color = Colors.red);
@@ -494,7 +512,7 @@ class PaperPainter extends CustomPainter {
       ..color = Colors.blue
       ..strokeWidth = 1.5;
     Rect rectFromCenter =
-    Rect.fromCenter(center: Offset(0, 0), width: 100, height: 160);
+        Rect.fromCenter(center: Offset(0, 0), width: 100, height: 160);
     canvas.drawRRect(RRect.fromRectXY(rectFromCenter, 100, 20), paint);
 
     canvas.drawRRect(
@@ -518,8 +536,7 @@ class PaperPainter extends CustomPainter {
 
   void example025(Canvas canvas, Size size) {
     canvas.translate(size.width / 2, size.height / 2);
-    Paint paint = Paint()
-      ..color = Colors.blue;
+    Paint paint = Paint()..color = Colors.blue;
     canvas.save();
     canvas.translate(-200, 0);
     canvas.drawCircle(Offset(0, 0), 60, paint);
@@ -556,7 +573,9 @@ class PaperPainter extends CustomPainter {
 
   void example027(Canvas canvas) {
     var rect = Rect.fromCenter(center: Offset(0, 0), width: 100, height: 100);
-    Paint paint = Paint()..style = PaintingStyle.stroke..strokeWidth = 2;
+    Paint paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
     canvas.save();
     canvas.translate(-200, 0);
     canvas.drawArc(rect, 0, pi / 2 * 3, false, paint);
@@ -566,11 +585,534 @@ class PaperPainter extends CustomPainter {
     canvas.save();
     canvas.translate(200, 0);
     var a = pi / 8;
-    canvas.drawArc(rect, a, 2 * pi - a.abs() * 2, true, paint..color = Colors.yellowAccent);
+    canvas.drawArc(rect, a, 2 * pi - a.abs() * 2, true,
+        paint..color = Colors.yellowAccent);
     canvas.translate(40, 0);
     canvas.drawCircle(Offset(0, 0), 6, paint);
     canvas.translate(25, 0);
     canvas.drawCircle(Offset(0, 0), 6, paint);
     canvas.restore();
+  }
+
+  void example028(Canvas canvas, Size size) async {
+    Coordinate coordinate = Coordinate();
+    coordinate.paint(canvas, size);
+    canvas.translate(size.width / 2, size.height / 2);
+    late Paint paint = Paint()
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 0.5
+      ..color = Colors.blue;
+    canvas.drawImage(
+        image!, Offset(image!.width / 2, image!.height / 2), paint);
+  }
+
+  void example029(Canvas canvas, Size size) async {
+    Coordinate coordinate = Coordinate();
+    coordinate.paint(canvas, size);
+    canvas.translate(size.width / 2, size.height / 2);
+    late Paint paint = Paint()
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 0.5
+      ..color = Colors.blue;
+    if (image != null) {
+      // canvas.drawImageNine(
+      //     image!,
+      //     Rect.fromCenter(
+      //         center: Offset(image!.width / 2, image!.height - 6.0),
+      //         width: 10,
+      //         height: 2.0),
+      //     Rect.fromCenter(center: Offset(0, 0), width: 300, height: 300),
+      //     paint);
+      //
+      // canvas.drawImage(image!, Offset(0, 0), paint);
+      // canvas.drawRect(
+      //     Rect.fromCenter(
+      //         center: Offset(image!.width / 2, image!.height - 6.0),
+      //         width: 10,
+      //         height: 2.0),
+      //     paint);
+      //
+      // canvas.drawImageNine(
+      //     image!,
+      //     Rect.fromCenter(
+      //         center: Offset(image!.width / 2, image!.height - 6.0),
+      //         width: image!.width - 20.0,
+      //         height: 2.0),
+      //     Rect.fromCenter(center: Offset(0, 0), width: 100, height: 50)
+      //         .translate(250, 0),
+      //     paint);
+
+      canvas.drawImageNine(
+          image!,
+          Rect.fromCenter(
+              center: Offset(image!.width / 2, image!.height - 6.0),
+              width: image!.width - 10.0,
+              height: 2.0),
+          Rect.fromCenter(center: Offset(0, 0), width: 190, height: 250),
+          paint);
+    }
+  }
+
+  ///文本绘制
+  ///drawParagraph绘制文字
+  void example030(Canvas canvas, TextAlign textAlign) {
+    ///构造基本样式
+    var builder = ui.ParagraphBuilder(
+      ui.ParagraphStyle(
+        textAlign: textAlign,
+        fontSize: 40,
+        textDirection: TextDirection.ltr,
+        maxLines: 1,
+      ),
+    );
+    builder.pushStyle(
+      ui.TextStyle(
+        color: Colors.black87,
+        textBaseline: ui.TextBaseline.alphabetic,
+      ),
+    );
+    //添加文字
+    builder.addText("Flutter Unit Text");
+    //生成Paragraph
+    ui.Paragraph paragraph = builder.build();
+    //对于布局限制区域
+    paragraph.layout(ui.ParagraphConstraints(width: 300));
+    canvas.drawParagraph(paragraph, Offset(0, 0));
+    canvas.drawRect(Rect.fromLTRB(0, 0, 300, 40),
+        Paint()..color = Colors.blue.withAlpha(33));
+  }
+
+  ///TextPainter 绘制文字
+  void example031(Canvas canvas) {
+    var textPainter = TextPainter(
+      text: TextSpan(
+        text: 'Flutter Unit',
+        style: TextStyle(
+          fontSize: 40,
+          color: Colors.blue,
+        ),
+      ),
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+    //绘制布局
+    textPainter.layout();
+    //进行绘制
+    textPainter.paint(canvas, Offset.zero);
+  }
+
+  ///TextPainter获取文字范围
+  void example032(Canvas canvas) {
+    // 设置画笔样式
+    Paint textPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    TextPainter textPainter = TextPainter(
+      text: TextSpan(
+        text: 'Flutter Unit',
+        style: TextStyle(
+          foreground: textPaint,
+          fontSize: 40,
+          // color: Colors.black,
+        ),
+      ),
+      textAlign: TextAlign.center,
+      textDirection: TextDirection.ltr,
+    );
+    textPainter.layout();
+    Size size = textPainter.size;
+    textPainter.paint(canvas, Offset(-size.width / 2, -size.height / 2));
+    canvas.drawRect(
+      Rect.fromLTRB(0, 0, size.width, size.height)
+          .translate(-size.width / 2, -size.height / 2),
+      Paint()..color = Colors.blue.withAlpha(33),
+    );
+  }
+
+  ///绘制文本方位
+  void example033(Canvas canvas) {
+    var builder = ui.ParagraphBuilder(ui.ParagraphStyle(
+      textAlign: TextAlign.left,
+      // textAlign: TextAlign.center,
+      fontSize: 40,
+      textDirection: TextDirection.ltr,
+      maxLines: 1,
+    ))
+      ..pushStyle(
+        ui.TextStyle(
+          color: Colors.black87,
+          textBaseline: ui.TextBaseline.alphabetic,
+        ),
+      )
+      ..addText("Flutter Unit");
+    canvas.drawParagraph(
+      builder.build()
+        ..layout(
+          ui.ParagraphConstraints(width: 300),
+        ),
+      Offset(0, -100),
+    );
+    canvas.drawRect(Rect.fromLTRB(0, -100, 300, -60),
+        Paint()..color = Colors.blue.withAlpha(33));
+  }
+
+  void example034(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.deepPurpleAccent
+      ..style = PaintingStyle.fill;
+    path
+      ..moveTo(0, 0)
+      ..lineTo(60, 80)
+      ..lineTo(60, 0)
+      ..lineTo(0, -80)
+      ..close();
+    canvas.drawPath(path, paint);
+    paint
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
+    path
+      ..moveTo(0, 0)
+      ..lineTo(-60, 80)
+      ..lineTo(-60, 0)
+      ..lineTo(0, -80);
+    canvas.drawPath(path, paint);
+  }
+
+  ///相对位置
+  void example035(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.green
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(100, 120)
+      ..relativeLineTo(-10, -60)
+      ..relativeLineTo(60, -10)
+      ..close();
+    canvas.drawPath(path, paint);
+    path.reset();
+    paint
+      ..style = PaintingStyle.stroke
+      ..color = Colors.green
+      ..strokeWidth = 2;
+    path
+      ..relativeMoveTo(-200, 0)
+      ..relativeLineTo(100, 120)
+      ..relativeLineTo(-10, -60)
+      ..relativeLineTo(60, -10)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  ///指定矩形区域，形成椭圆
+  void example036(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    var rect = Rect.fromCenter(center: Offset(0, 0), width: 160, height: 100);
+    path.lineTo(30, 30);
+    path.arcTo(rect, 0, pi * 1.5, false);
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(200, 0);
+    path.lineTo(200, 0);
+    path.arcTo(rect, 0, pi * 1.5, false);
+    canvas.drawPath(path, paint);
+  }
+
+  ///点定弧线
+  void example037(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path.lineTo(80, -40);
+    path
+      ..arcToPoint(
+        //圆弧的终点
+        Offset(40, 40),
+        //圆弧的半径
+        radius: Radius.circular(60),
+        //优劣弧
+        largeArc: false,
+      )
+      ..close();
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(200, 0);
+    path.lineTo(80, -40);
+    path
+      ..arcToPoint(Offset(40, 40), radius: Radius.circular(60), largeArc: true)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  ///圆锥曲线
+  void example038(Canvas canvas) {
+    final Offset p1 = Offset(80, -100);
+    final Offset p2 = Offset(160, 0);
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path.conicTo(p1.dx, p1.dy, p2.dx, p2.dy, 1);
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(-180, 0);
+    path.conicTo(p1.dx, p1.dy, p2.dx, p2.dy, .5);
+    canvas.drawPath(path, paint);
+    path.reset();
+    canvas.translate(-180, 0);
+    path.conicTo(p1.dx, p1.dy, p2.dx, p2.dy, 1.5);
+    canvas.drawPath(path, paint);
+  }
+
+  ///二阶贝塞尔曲线
+  void example039(Canvas canvas) {
+    final Offset p1 = Offset(100, -100);
+    final Offset p2 = Offset(160, 50);
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path.quadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+    path.relativeQuadraticBezierTo(p1.dx, p1.dy, p2.dx, p2.dy);
+    canvas.drawPath(path, paint);
+  }
+
+  ///三阶贝塞尔曲线
+  void example040(Canvas canvas) {
+    final Offset p1 = Offset(-10, -10);
+    final Offset p2 = Offset(50, 90);
+    final Offset p3 = Offset(200, 150);
+    Path path = Path();
+    Paint paint = Paint();
+    paint
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    // path.cubicTo(p1.dx, p1.dy, p2.dx, p2.dy, p3.dx, p3.dy);
+    path.relativeCubicTo(p1.dx, p1.dy, p2.dx, p2.dy, p3.dx, p3.dy);
+    canvas.drawPath(path, paint);
+  }
+
+  ///路径上添加类圆形矩形
+  void example041(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    Rect rect = Rect.fromPoints(Offset(100, 100), Offset(160, 160));
+    path
+      ..lineTo(100, 100)
+      ..addRect(rect)
+      ..relativeLineTo(100, -100)
+      ..addRRect(RRect.fromRectXY(rect.translate(100, -100), 10, 10))
+      ..addOval(rect)
+      ..relativeLineTo(100, -100)
+      ..addArc(rect.translate(100, -100), 0, pi);
+    canvas.drawPath(path, paint);
+  }
+
+  ///添加多边形路径，添加路径
+  void example042(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    var p0 = Offset(100, 100);
+    path
+      ..lineTo(100, 100)
+      ..addPolygon(
+        [
+          p0,
+          p0.translate(20, -20),
+          p0.translate(40, -20),
+          p0.translate(60, 0),
+        ],
+        true,
+      )
+      ..addPath(
+          Path()..relativeQuadraticBezierTo(125, -100, 260, 0), Offset(0, 0))
+      ..lineTo(160, 100);
+    canvas.drawPath(path, paint);
+  }
+
+  ///坐标轴
+  void example043(Canvas canvas, Size size) {
+    double step = 10;
+    Path path = Path();
+    Paint paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = .5
+      ..color = Colors.green;
+    for (int i = 0; i < size.width / 2 / step; i++) {
+      path.moveTo(step * i, -size.height / 2);
+      path.relativeLineTo(0, size.height);
+      path.moveTo(-step * i, -size.height / 2);
+      path.relativeLineTo(0, size.height);
+    }
+
+    for (int i = 0; i < size.height / 2 / step; i++) {
+      path.moveTo(-size.width / 2, step * i);
+      path.relativeLineTo(size.width, 0);
+      path.moveTo(-size.width / 2, -step * i);
+      path.relativeLineTo(size.width, 0);
+    }
+    canvas.drawPath(path, paint);
+  }
+
+  ///路径操作
+  void example044(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    path
+      ..lineTo(100, 100)
+      ..relativeLineTo(0, -50)
+      //路径封闭
+      ..close();
+    canvas.drawPath(path, paint);
+    //指定点Offset对路径进行平移，并返回一条新路径
+    canvas.drawPath(path.shift(Offset(100, 0)), paint);
+  }
+
+  ///路径判断点；获取路径所在区域
+  void example045(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purpleAccent
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30);
+    canvas.drawPath(path, paint);
+    print(path.contains(Offset(20, 20)));
+    print(path.contains(Offset(0, 20)));
+    Rect bounds = path.getBounds();
+    canvas.drawRect(
+      bounds,
+      Paint()
+        ..color = Colors.purpleAccent
+        ..style = PaintingStyle.stroke,
+    );
+  }
+
+  ///transform路径变换
+  void example046(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.purple
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    for (int i = 0; i < 4; i++) {
+      canvas.drawPath(
+          path.transform(Matrix4.rotationZ(i * pi / 2).storage), paint);
+    }
+  }
+
+  ///路径联合生成新路径
+  void example047(Canvas canvas) {
+    Path path = Path();
+    Paint paint = Paint();
+    paint
+      ..color = Colors.purple
+      ..style = PaintingStyle.fill;
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    var pathOval = Path()
+      ..addOval(
+        Rect.fromCenter(center: Offset(0, 0), width: 60, height: 60),
+      );
+    canvas.drawPath(
+        Path.combine(PathOperation.difference, path, pathOval), paint);
+    canvas.translate(120, 0);
+    canvas.drawPath(
+        Path.combine(PathOperation.intersect, path, pathOval), paint);
+    canvas.translate(120, 0);
+    canvas.drawPath(Path.combine(PathOperation.union, path, pathOval), paint);
+    canvas.translate(-120 * 3, 0);
+    canvas.drawPath(
+        Path.combine(PathOperation.reverseDifference, path, pathOval), paint);
+    canvas.translate(-120, 0);
+    canvas.drawPath(Path.combine(PathOperation.xor, path, pathOval), paint);
+  }
+
+  ///PathMetric获得路径长度length、路径索引contourIndex、路径是否闭合isClosed
+  ///computeMetrics获得一组路径测量信息
+  void example048(Canvas canvas) {
+    Paint paint = Paint();
+    paint
+      ..color = Colors.purple
+      ..style = PaintingStyle.fill;
+    Path path = Path();
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    path.addOval(Rect.fromCenter(center: Offset.zero, width: 50, height: 50));
+    canvas.drawPath(path, paint);
+    PathMetrics pms = path.computeMetrics();
+    for (var pm in pms) {
+      print(
+          "--length:-${pm.length}----contourIndex:-${pm.contourIndex}----isClosed:-${pm.isClosed}");
+    }
+  }
+
+  void example049(Canvas canvas) {
+    Paint paint = Paint()
+      ..color = Colors.purple
+      ..strokeWidth = 1
+      ..style = PaintingStyle.stroke;
+    Path path = Path();
+    path
+      ..relativeMoveTo(0, 0)
+      ..relativeLineTo(-30, 120)
+      ..relativeLineTo(30, -30)
+      ..relativeLineTo(30, 30)
+      ..close();
+    path.addOval(Rect.fromCenter(center: Offset.zero, width: 50, height: 50));
+    PathMetrics pathMetrics = path.computeMetrics();
+    pathMetrics.forEach((pathMetric) {
+      Tangent? tangent =
+          pathMetric.getTangentForOffset(pathMetric.length * 0.5);
+      if (tangent == null) return;
+      canvas.drawCircle(
+          tangent.position, 5, Paint()..color = Colors.deepOrange);
+      canvas.drawPath(path, paint);
+    });
+  }
+
+  void example050(Canvas canvas) {
+    Paint paint = Paint()..style = PaintingStyle.stroke;
+    Path path = Path()
+      ..lineTo(40, 40)
+      ..relativeLineTo(0, -40)
+      ..close();
+    canvas.drawPath(path, paint);
   }
 }

@@ -103,7 +103,8 @@ class ImageAssets {
   static String moreBlockPNG = "assets/image/icon/more_block.png";
   static String playVideoCustomPNG = "assets/image/icon/play_video_custom.png";
   static String videoHomePNG = "assets/image/icon/video_home.png";
-  static String moreAndroidLightPNG = "assets/image/icon/more_android_light.png";
+  static String moreAndroidLightPNG =
+      "assets/image/icon/more_android_light.png";
   static String danmuClosePNG = "assets/image/icon/danmu_close.png";
   static String danmuOpenPNG = "assets/image/icon/danmu_open.png";
   static String likeCustomPNG = "assets/image/icon/like_custom.png";
@@ -132,4 +133,34 @@ class ImageAssets {
   static String moreBlackPNG = "assets/image/icon/more_black.png";
   static String topicSVG = "assets/svg/topic.svg";
   static String miniWindowClosePng = "assets/image/icon/mini_window_close.png";
+  static String circleBluePng = "assets/image/icon/circle_blue.png";
+  static String rightChatPng = "assets/image/icon/right_chat.png";
+
+  static String addMoreButtonPng = "assets/image/icon/add_more_button.png";
+  static String emojiPng = "assets/image/icon/emoji.png";
+  static String speakingPng = "assets/image/icon/speaking.png";
+  static String keyBoardPng = "assets/image/icon/key_board.png";
+
+  static String photoGalleryPng = "assets/image/icon/photo_gallery.png";
+  static String takePhotoPng = "assets/image/icon/take_photo.png";
+  static String videoCallPng = "assets/image/icon/video_call.png";
+  static String locationPng = "assets/image/icon/wechat_location.png";
+  static String voiceInputPng = "assets/image/icon/voice_input.png";
+  static String myCollectionPng = "assets/image/icon/my_collection.png";
+  static String idCardPng = "assets/image/icon/id_card.png";
+  static String filePng = "assets/image/icon/file.png";
+  static String musicPng = "assets/image/icon/music.png";
+
+  ///wechat
+  static String wechatSearchPng = "assets/image/wechat/search.png";
+  static String wechatAddPng = "assets/image/wechat/add.png";
+  static String wechatServicePng = "assets/image/wechat/service.png";
+  static String wechatCollectionPng = "assets/image/wechat/collection.png";
+  static String wechatFriendCirclePng = "assets/image/wechat/friend_circle.png";
+  static String wechatPackagePng = "assets/image/wechat/package.png";
+  static String wechatEmojiPng = "assets/image/wechat/emoji.png";
+  static String wechatSettingPng = "assets/image/wechat/setting.png";
+
+  static String canvasAvatarPng = "assets/image/canvas/avatar.png";
+  static String rainPng = "assets/image/canvas/rain.png";
 }

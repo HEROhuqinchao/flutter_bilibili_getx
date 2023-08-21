@@ -59,10 +59,12 @@ String noMoreN(String text, int n) {
 }
 
 String getImageHttpUrl(String originalUrl) {
-  if(originalUrl.isNotEmpty) {
-    if(originalUrl.contains("http://") || originalUrl.contains("https://")){
+  if (originalUrl.isNotEmpty) {
+    if (originalUrl.contains("http://") || originalUrl.contains("https://")) {
       return originalUrl;
-    }else {
+    } else if (originalUrl.contains("file://")) {
+      return "http://${originalUrl.substring(7)}";
+    } else {
       return "http://${originalUrl.substring(2)}";
     }
   } else {
@@ -82,20 +84,20 @@ String formatDuration(Duration position) {
   final hoursString = hours >= 10
       ? '$hours'
       : hours == 0
-      ? '00'
-      : '0$hours';
+          ? '00'
+          : '0$hours';
 
   final minutesString = minutes >= 10
       ? '$minutes'
       : minutes == 0
-      ? '00'
-      : '0$minutes';
+          ? '00'
+          : '0$minutes';
 
   final secondsString = seconds >= 10
       ? '$seconds'
       : seconds == 0
-      ? '00'
-      : '0$seconds';
+          ? '00'
+          : '0$seconds';
 
   final formattedTime =
       '${hoursString == '00' ? '' : '$hoursString:'}$minutesString:$secondsString';

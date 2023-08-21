@@ -2,7 +2,6 @@
 //
 //     final hyInfoByLiveRoomModel = hyInfoByLiveRoomModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 HYInfoByLiveRoomModel hyInfoByLiveRoomModelFromJson(String str) =>
@@ -376,7 +375,7 @@ class LiveInfo {
         score: json["score"],
         upgradeScore: json["upgrade_score"],
         current: List<int>.from(json["current"].map((x) => x)),
-    // next: List<int>.from(json["next"].map((x) => x)),
+        // next: List<int>.from(json["next"].map((x) => x)),
         rank: json["rank"],
       );
 
@@ -386,7 +385,7 @@ class LiveInfo {
         "score": score,
         "upgrade_score": upgradeScore,
         "current": List<dynamic>.from(current.map((x) => x)),
-    // "next": List<dynamic>.from(next.map((x) => x)),
+        // "next": List<dynamic>.from(next.map((x) => x)),
         "rank": rank,
       };
 }

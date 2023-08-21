@@ -6,12 +6,11 @@ import 'wx_share_logic.dart';
 
 class WxShareView extends StatelessWidget {
   static const String routeName = "/wx_share";
+  final logic = Get.find<WxShareLogic>();
+  final state = Get.find<WxShareLogic>().state;
 
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<WxShareLogic>();
-    final state = Get.find<WxShareLogic>().state;
-
     return Scaffold(
       body: Center(
         child: Column(

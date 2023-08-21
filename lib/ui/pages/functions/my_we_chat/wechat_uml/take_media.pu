@@ -1,0 +1,15 @@
+@startuml
+abstract TakeMediaFactory {
+    +String() methodName
+    +void() invoke
+}
+note left: 拍摄媒体
+class AndroidTakeMedia {
+    +String() methodName
+}
+class IosTakeMedia {
+    +String() methodName
+}
+TakeMediaFactory <-- AndroidTakeMedia
+TakeMediaFactory <-- IosTakeMedia
+@enduml

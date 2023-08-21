@@ -1,4 +1,5 @@
 import 'package:bilibili_getx/ui/shared/app_theme.dart';
+import 'package:bilibili_getx/ui/widgets/custom/bilibili_classical_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,11 +7,12 @@ import 'package:get/get.dart';
 
 import '../../../../../core/I18n/str_res_keys.dart';
 import '../../../../shared/image_asset.dart';
-import '../../../../widgets/bilibili_classical_header.dart';
 import 'recommend_logic.dart';
 
 class RecommendScreen extends StatefulWidget {
   static const String routeName = "/home/recommend";
+
+  const RecommendScreen({super.key});
 
   @override
   State<RecommendScreen> createState() => _RecommendScreenState();
@@ -49,7 +51,8 @@ class _RecommendScreenState extends State<RecommendScreen>
                   },
                   child: Text(
                     SR.refresh.tr,
-                    style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                    style: TextStyle(
+                        color: HYAppTheme.norWhite01Color, fontSize: 12.sp),
                   ))
             ],
           ),
@@ -73,7 +76,7 @@ class _RecommendScreenState extends State<RecommendScreen>
           },
           child: Padding(
               padding:
-                  const EdgeInsets.only(left: 6, right: 6, top: 4, bottom: 0).r,
+                  EdgeInsets.only(left: 6.r, right: 6.r, top: 4.r, bottom: 0.r),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: state.homeRecommendWidgets,

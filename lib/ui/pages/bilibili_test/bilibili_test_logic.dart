@@ -1,8 +1,5 @@
-import 'package:bilibili_getx/ui/pages/functions/mini_window/mini_window_view.dart';
 import 'package:bilibili_getx/ui/pages/functions/video_player_example/video_player_example_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_floating/floating/assist/floating_slide_type.dart';
-import 'package:flutter_floating/floating/floating.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';

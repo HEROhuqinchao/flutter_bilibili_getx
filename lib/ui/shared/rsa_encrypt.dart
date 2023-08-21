@@ -10,7 +10,7 @@ class HYEncrypt {
     final parser = RSAKeyParser();
     String publicKeyString =
         await rootBundle.loadString('assets/rsa_key/rsa_public_key.pem');
-    if(Constant.isDebug) {
+    if (Constant.isDebug) {
       print('publicKeyString=$publicKeyString');
     }
     RSAPublicKey publicKey = parser.parse(publicKeyString) as RSAPublicKey;

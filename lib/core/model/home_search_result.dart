@@ -259,7 +259,7 @@ class SearchResultDataItem {
         cover: json["cover"],
         param: json["param"],
         goto: json["goto"],
-        id: json["id"] == null ? null : json["id"],
+        id: json["id"],
         items: json["items"] == null
             ? null
             : List<ItemItem>.from(
@@ -270,47 +270,45 @@ class SearchResultDataItem {
         matchBottom: json["match_bottom"] == null
             ? null
             : ChannelButton.fromJson(json["match_bottom"]),
-        uri: json["uri"] == null ? null : json["uri"],
+        uri: json["uri"],
         sharePlane: json["share_plane"] == null
             ? null
             : SharePlane.fromJson(json["share_plane"]),
-        sign: json["sign"] == null ? null : json["sign"],
-        fans: json["fans"] == null ? null : json["fans"],
-        level: json["level"] == null ? null : json["level"],
+        sign: json["sign"],
+        fans: json["fans"],
+        level: json["level"],
         officialVerify: json["official_verify"] == null
             ? null
             : OfficialVerify.fromJson(json["official_verify"]),
         vip: json["vip"] == null ? null : Vip.fromJson(json["vip"]),
-        isSeniorMember:
-            json["is_senior_member"] == null ? null : json["is_senior_member"],
+        isSeniorMember: json["is_senior_member"],
         avItems: json["av_items"] == null
             ? null
             : List<AvItem>.from(
                 json["av_items"].map((x) => AvItem.fromJson(x))),
-        isUp: json["is_up"] == null ? null : json["is_up"],
-        liveUri: json["live_uri"] == null ? null : json["live_uri"],
-        archives: json["archives"] == null ? null : json["archives"],
-        roomid: json["roomid"] == null ? null : json["roomid"],
-        mid: json["mid"] == null ? null : json["mid"],
-        liveLink: json["live_link"] == null ? null : json["live_link"],
+        isUp: json["is_up"],
+        liveUri: json["live_uri"],
+        archives: json["archives"],
+        roomid: json["roomid"],
+        mid: json["mid"],
+        liveLink: json["live_link"],
         relation: json["relation"] == null
             ? null
             : Relation.fromJson(json["relation"]),
-        liveStatus: json["live_status"] == null ? null : json["live_status"],
-        play: json["play"] == null ? 0 : json["play"],
-        danmaku: json["danmaku"] == null ? null : json["danmaku"],
-        author: json["author"] == null ? null : json["author"],
-        ptime: json["ptime"] == null ? null : json["ptime"],
-        showCardDesc2:
-            json["show_card_desc_2"] == null ? null : json["show_card_desc_2"],
-        duration: json["duration"] == null ? null : json["duration"],
-        face: json["face"] == null ? null : json["face"],
+        liveStatus: json["live_status"],
+        play: json["play"] ?? 0,
+        danmaku: json["danmaku"],
+        author: json["author"],
+        ptime: json["ptime"],
+        showCardDesc2: json["show_card_desc_2"],
+        duration: json["duration"],
+        face: json["face"],
         threePoint: json["three_point"] == null
             ? null
             : List<ThreePoint>.from(
                 json["three_point"].map((x) => ThreePoint.fromJson(x))),
         share: json["share"] == null ? null : Share.fromJson(json["share"]),
-        typeIcon: json["type_icon"] == null ? null : json["type_icon"],
+        typeIcon: json["type_icon"],
         channelLabel1: json["channel_label1"] == null
             ? null
             : ChannelButton.fromJson(json["channel_label1"]),
@@ -320,49 +318,45 @@ class SearchResultDataItem {
         channelButton: json["channel_button"] == null
             ? null
             : ChannelButton.fromJson(json["channel_button"]),
-        designType: json["design_type"] == null ? null : json["design_type"],
-        name: json["name"] == null ? null : json["name"],
-        type: json["type"] == null ? null : json["type"],
-        attentions: json["attentions"] == null ? null : json["attentions"],
-        region: json["region"] == null ? null : json["region"],
-        online: json["online"] == null ? null : json["online"],
-        badge: json["badge"] == null ? null : json["badge"],
-        cardLeftIcon:
-            json["card_left_icon"] == null ? null : json["card_left_icon"],
-        cardLeftText:
-            json["card_left_text"] == null ? null : json["card_left_text"],
-        seasonId: json["season_id"] == null ? null : json["season_id"],
-        seasonType: json["season_type"] == null ? null : json["season_type"],
-        seasonTypeName:
-            json["season_type_name"] == null ? null : json["season_type_name"],
-        mediaType: json["media_type"] == null ? null : json["media_type"],
-        style: json["style"] == null ? null : json["style"],
-        styles: json["styles"] == null ? null : json["styles"],
-        cv: json["cv"] == null ? null : json["cv"],
-        rating: json["rating"] == null ? null : json["rating"].toDouble(),
-        vote: json["vote"] == null ? null : json["vote"],
-        area: json["area"] == null ? null : json["area"],
-        staff: json["staff"] == null ? null : json["staff"],
-        isSelection: json["is_selection"] == null ? null : json["is_selection"],
+        designType: json["design_type"],
+        name: json["name"],
+        type: json["type"],
+        attentions: json["attentions"],
+        region: json["region"],
+        online: json["online"],
+        badge: json["badge"],
+        cardLeftIcon: json["card_left_icon"],
+        cardLeftText: json["card_left_text"],
+        seasonId: json["season_id"],
+        seasonType: json["season_type"],
+        seasonTypeName: json["season_type_name"],
+        mediaType: json["media_type"],
+        style: json["style"],
+        styles: json["styles"],
+        cv: json["cv"],
+        rating: json["rating"] == null ? "null" : json["rating"].toDouble(),
+        vote: json["vote"],
+        area: json["area"],
+        staff: json["staff"],
+        isSelection: json["is_selection"],
         episodes: json["episodes"] == null
             ? null
             : List<Episode>.from(
                 json["episodes"].map((x) => Episode.fromJson(x))),
-        label: json["label"] == null ? null : json["label"],
+        label: json["label"],
         watchButton: json["watch_button"] == null
             ? null
             : WatchButton.fromJson(json["watch_button"]),
         followButton: json["follow_button"] == null
             ? null
             : FollowButton.fromJson(json["follow_button"]),
-        selectionStyle:
-            json["selection_style"] == null ? null : json["selection_style"],
+        selectionStyle: json["selection_style"],
         episodesNew: json["episodes_new"] == null
             ? null
             : List<EpisodesNew>.from(
                 json["episodes_new"].map((x) => EpisodesNew.fromJson(x))),
-        score: json["score"] == null ? null : json["score"],
-        tags: json["tags"] == null ? null : json["tags"],
+        score: json["score"],
+        tags: json["tags"],
       );
 
 // Map<String, dynamic> toJson() => {
@@ -687,23 +681,23 @@ class ItemItem {
 
   factory ItemItem.fromJson(Map<String, dynamic> json) => ItemItem(
         param: json["param"],
-        status: json["status"] == null ? null : json["status"],
+        status: json["status"],
         id: json["id"],
         team1: json["team_1"] == null ? null : Team.fromJson(json["team_1"]),
         team2: json["team_2"] == null ? null : Team.fromJson(json["team_2"]),
         matchTime: json["match_time"] == null
             ? null
             : MatchTime.fromJson(json["match_time"]),
-        matchStage: json["match_stage"] == null ? null : json["match_stage"],
+        matchStage: json["match_stage"],
         matchButton: json["match_button"] == null
             ? null
             : MatchButton.fromJson(json["match_button"]),
         matchLabel: json["match_label"] == null
             ? null
             : MatchLabel.fromJson(json["match_label"]),
-        title: json["title"] == null ? null : json["title"],
-        cover: json["cover"] == null ? null : json["cover"],
-        uri: json["uri"] == null ? null : json["uri"],
+        title: json["title"],
+        cover: json["cover"],
+        uri: json["uri"],
         goto: json["goto"],
         coverLeftText1: json["cover_left_text_1"],
       );
@@ -830,14 +824,14 @@ class Team {
         id: json["id"],
         title: json["title"],
         cover: json["cover"],
-        score: json["score"] == null ? null : json["score"],
+        score: json["score"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,
         "cover": cover,
-        "score": score == null ? null : score,
+        "score": score,
       };
 }
 

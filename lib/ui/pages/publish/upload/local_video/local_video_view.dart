@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:bilibili_getx/ui/pages/video_play/bilibili_video_player/bilibili_video_player_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -9,8 +8,6 @@ import 'package:video_thumbnail/video_thumbnail.dart';
 import '../../../../shared/app_theme.dart';
 import '../../../../shared/image_asset.dart';
 import '../../../../shared/math_compute.dart';
-import '../../../video_play/bilibili_video_player/bilibili_video_player_logic.dart';
-import '../pre_edit_video/pre_edit_video_view.dart';
 import 'local_video_logic.dart';
 
 class LocalVideoComponent extends StatefulWidget {
@@ -84,10 +81,9 @@ class _LocalVideoComponentState extends State<LocalVideoComponent>
                               child: Text(
                                 "加载中",
                                 style: TextStyle(
-                                  color: HYAppTheme.norWhite01Color,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.normal
-                                ),
+                                    color: HYAppTheme.norWhite01Color,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.normal),
                               ),
                             ),
                     );

@@ -1,8 +1,6 @@
 import 'dart:async';
-import 'dart:math';
 
-import 'package:bilibili_getx/ui/pages/functions/video_player_example/video_player_example_view.dart';
-import 'package:bilibili_getx/ui/widgets/progress_bar_painter.dart';
+import 'package:bilibili_getx/ui/widgets/custom/progress_bar_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -15,9 +13,10 @@ import 'mini_window_logic.dart';
 class MiniWindowView extends StatelessWidget {
   static String routeName = "/mini_window";
 
+  const MiniWindowView({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final logic = Get.find<MiniWindowLogic>();
     final state = Get.find<MiniWindowLogic>().state;
 
     return GetBuilder<MiniWindowLogic>(
@@ -48,15 +47,13 @@ class MiniWindowView extends StatelessWidget {
                               state.videoPlayerController.value.aspectRatio,
                           child: VideoPlayer(state.videoPlayerController),
                         )
-                      : Container(
-                          child: Text("未显示"),
-                        ),
+                      : const Text("未显示"),
                 ),
 
                 ///背景
                 AnimatedOpacity(
                   opacity: state.showButtons ? 1 : 0,
-                  duration: Duration(
+                  duration: const Duration(
                     milliseconds: 300,
                   ),
                   child: Container(
@@ -91,10 +88,10 @@ class MiniWindowView extends StatelessWidget {
                   },
                   child: AnimatedOpacity(
                     opacity: state.showButtons ? 1 : 0,
-                    duration: Duration(
+                    duration: const Duration(
                       milliseconds: 300,
                     ),
-                    child: Container(
+                    child: SizedBox(
                       width: 30.w,
                       height: 30.w,
                       child: Image.asset(
@@ -117,10 +114,10 @@ class MiniWindowView extends StatelessWidget {
                     },
                     child: AnimatedOpacity(
                       opacity: state.showButtons ? 1 : 0,
-                      duration: Duration(
+                      duration: const Duration(
                         milliseconds: 300,
                       ),
-                      child: Container(
+                      child: SizedBox(
                         width: 15.w,
                         height: 15.w,
                         child: Image.asset(ImageAssets.miniWindowClosePng),
@@ -131,7 +128,7 @@ class MiniWindowView extends StatelessWidget {
                 Positioned(
                   bottom: 0,
                   left: 0,
-                  child: Container(
+                  child: SizedBox(
                     width: 230.w,
                     height: 3.h,
                     child: CustomPaint(

@@ -259,7 +259,9 @@ class AdInfo {
   AdInfo({this.creativeContent});
 
   factory AdInfo.fromJson(Map<String, dynamic> json) => AdInfo(
-      creativeContent: json["creative_content"] == null ? null : CreativeContent.fromJson(json["creative_content"]));
+      creativeContent: json["creative_content"] == null
+          ? null
+          : CreativeContent.fromJson(json["creative_content"]));
 }
 
 class CreativeContent {
@@ -437,7 +439,7 @@ class DescButton {
   String? uri;
   String event;
   int type;
-  String eventV2;
+  String? eventV2;
 
   factory DescButton.fromJson(Map<String, dynamic> json) => DescButton(
         text: json["text"] ?? "",
@@ -527,8 +529,8 @@ class ThreePointV2 {
   factory ThreePointV2.fromJson(Map<String, dynamic> json) => ThreePointV2(
         title: json["title"],
         type: json["type"],
-        icon: json["icon"] == null ? null : json["icon"],
-        subtitle: json["subtitle"] == null ? null : json["subtitle"],
+        icon: json["icon"],
+        subtitle: json["subtitle"],
         reasons: json["reasons"] == null
             ? null
             : List<DislikeReason>.from(

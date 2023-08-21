@@ -26,7 +26,8 @@ class SearchLocationLogic extends GetxController {
 
   initListView() {
     state.scrollController.addListener(() {
-      if(state.scrollController.position.pixels == state.scrollController.position.maxScrollExtent) {
+      if (state.scrollController.position.pixels ==
+          state.scrollController.position.maxScrollExtent) {
         fetchSearchLocationResult();
       }
     });
@@ -139,14 +140,13 @@ class SearchLocationLogic extends GetxController {
   void fetchSearchLocationResult() async {
     /// 构造检索参数
     BMFPoiNearbySearchOption poiNearbySearchOption = BMFPoiNearbySearchOption(
-      keywords: <String>[state.key],
-      location: BMFCoordinate(state.latitude, state.longitude),
-      radius: 1000,
-      isRadiusLimit: true,
-      pageIndex: state.pageIndex,
-      pageSize: state.pageSize,
-      scope: BMFPoiSearchScopeType.DETAIL_INFORMATION
-    );
+        keywords: <String>[state.key],
+        location: BMFCoordinate(state.latitude, state.longitude),
+        radius: 1000,
+        isRadiusLimit: true,
+        pageIndex: state.pageIndex,
+        pageSize: state.pageSize,
+        scope: BMFPoiSearchScopeType.DETAIL_INFORMATION);
 
     /// 检索实例
     BMFPoiNearbySearch nearbySearch = BMFPoiNearbySearch();
@@ -159,15 +159,15 @@ class SearchLocationLogic extends GetxController {
             'poi周边检索回调 errorCode = ${errorCode}  \n result = ${result.toMap()}');
       }
       print(state.pageIndex);
-      if(state.pageIndex < result.totalPageNum!) {
+      if (state.pageIndex < result.totalPageNum!) {
         state.poiInfoList.addAll(result.poiInfoList!);
-        state.pageIndex ++;
+        state.pageIndex++;
         update();
       }
     });
 
     /// 发起检索
-    bool flag = await nearbySearch.poiNearbySearch(poiNearbySearchOption);
+    await nearbySearch.poiNearbySearch(poiNearbySearchOption);
 
     // /// 构造检索参数
     // BMFPoiCitySearchOption poiCitySearchOption =

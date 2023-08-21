@@ -21,6 +21,7 @@ class AnimationCompoentLogic extends GetxController {
       state.isPressed = controller.findInput('isPressed');
       update();
     });
+
     ///液体下载
     rootBundle.load(RiveAssets.liquidDownload).then((value) {
       state.liquidDownloadArtBoard = RiveFile.import(value).mainArtboard;
@@ -50,7 +51,7 @@ class AnimationCompoentLogic extends GetxController {
     state.startDownload!.value = true;
     Timer.periodic(const Duration(seconds: 1), (timer) {
       state.downloadProgress!.value += 2;
-      if(state.downloadProgress!.value == 100) {
+      if (state.downloadProgress!.value == 100) {
         timer.cancel();
       }
     });
